@@ -1,0 +1,26 @@
+# LaTeX
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+# manim / python / jupyter
+anim/media/
+__pycache__/
+.ipynb_checkpoints/
+# OS
+.DS_Store
+# ESE official documents are never committed
+syllabus/
+
+# Quarto site
+/_site/
+/.quarto/
+.env
+.env.local
+.omc/

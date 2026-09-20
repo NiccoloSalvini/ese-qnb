@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - setup.qmd
+    - "week-*/homework.md"
+    - "week-*/drills.md"
+    - "week-*/session.ipynb"
+  resources:
+    - "week-*/slides/*.pdf"
+    - "anim/out/*.mp4"
+    - "week-*/data/**"
+
+execute:
+  enabled: false
+
+website:
+  title: "Quantitative Business Methods"
+  description: "MBA03 Research & Quantitative Business Methods, weeks 1–5 — European School of Economics, Florence. Term 1, A.Y. 2026–2027."
+  site-url: https://niccolosalvini.github.io/ese-qnb/
+  repo-url: https://github.com/NiccoloSalvini/ese-qnb
+  favicon: images/favicon.ico
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    logo: images/ese-logo.svg
+    logo-alt: "European School of Economics"
+    logo-href: https://www.ese.ac.uk/locations/ese-florence
+    title: "Quantitative Business Methods <span class='nav-year'>26/27</span>"
+    background: "#ffffff"
+    left:
+      - href: index.qmd
+        text: Schedule
+      - href: setup.qmd
+        text: How to work
+    right:
+      - icon: github
+        href: https://github.com/NiccoloSalvini/ese-qnb
+        aria-label: GitHub repository
+  page-footer:
+    left: "ESE Florence · Borgo Santi Apostoli 19, 50123 Firenze · MBA Term 1, A.Y. 2026–2027"
+    right: "Niccolò Salvini · *Visibilia ex Invisibilibus*"
+
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    include-in-header: _fonts.html
+    toc: true
+    toc-depth: 2
+    anchor-sections: true
+    link-external-newwindow: true
+    code-copy: true
+    grid:
+      body-width: 1000px

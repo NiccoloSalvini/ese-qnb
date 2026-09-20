@@ -1,0 +1,71 @@
+---
+title: "Research & Quantitative Business Methods"
+subtitle: "Weeks 1–5 — algebra, calculus and financial mathematics, told as business decisions"
+toc: false
+---
+
+::: {.hero}
+<span class="kicker">MBA03 · ESE MBA · Term 1, A.Y. 2026–2027</span>
+European School of Economics, Florence · in person · 30 contact hours over the term<br>
+Weeks 1–5 **Niccolò Salvini** · module leader **Arianna Ziliotto**
+:::
+
+::: {.facts}
+<div><span class="k">When</span><span class="v">Wednesdays 09:00–12:00 · 23 Sep – 21 Oct</span></div>
+<div><span class="k">Where</span><span class="v">ESE Florence · Borgo Santi Apostoli 19</span></div>
+<div><span class="k">Assessment</span><span class="v">[Midterm 25% · Final exam 75%](#assessment)</span></div>
+<div><span class="k">Bring</span><span class="v">[Paper, pen, non-programmable calculator](setup.qmd)</span></div>
+:::
+
+Everything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework due the following Tuesday. Materials are published by Thursday.
+
+<h2 class="module">Sessions <small>Wednesdays 09:00–12:00 · half slides, half laboratory · exam-format drills on paper</small></h2>
+
+::: {.schedule}
+| # | Date | Theme | Materials | Homework |
+|---|------|-------|-----------|----------|
+| 1 | Wed 23 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](week-01/slides/week01.pdf) · [notebook](week-01/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-01/session.ipynb) · [drills](week-01/drills.md) · clips: [parabola](anim/out/w01_parabola.mp4), [growth](anim/out/w01_growth.mp4) | [HW1](week-01/homework.md) · due Tue 29 Sep |
+| 2 | Wed 30 Sep | **Midterm guidelines briefing** · functions and the Cartesian plane, limits, differentiation, integration | — | — |
+| 3 | Wed 7 Oct | Calculus continued — full study of a function, optimisation, integration · **in-class quiz** | — | — |
+| 4 | Wed 14 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | — | — |
+| 5 | Wed 21 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · mock of final Q5 | — | — |
+| — | 26–30 Oct | Reading week — no class · midterm paper due **Sun 1 Nov, 23:59 on Turnitin** | — | — |
+| 6 | Wed 4 Nov | **Midterm oral presentations** · second half of the module begins (weeks 6–10) | — | — |
+
+: {tbl-colwidths="[5,13,38,30,14]"}
+:::
+
+::: {.callout-note appearance="simple"}
+**Slides** are the spine of each session. **Notebook** is what you see on the projector: open it in Colab if you want to move the sliders yourself, nothing to install. **Drills** are the paper exercises we do in class, in exam format, with worked solutions at the bottom. **Clips** are the short animations shown in class.
+:::
+
+<h2 class="module">How the five weeks work <small>the contract, stated once</small></h2>
+
+- **Every technique serves an exam item.** Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.
+- **Decision → picture → technique → decision.** Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.
+- **Half slides, half laboratory.** About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.
+- **Weekly rhythm.** Wednesday lesson. Drill solutions and homework online by Thursday. Homework due Tuesday 23:59 on Moodle, as a photo or PDF of your paper. The first fifteen minutes of the next session are the walkthrough: one student explains one drill at the board.
+- **Homework is formative.** It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.
+- **Running case: Arno Bikes**, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand `p = 1600 − 4q`. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.
+
+<h2 class="module" id="assessment">Assessment <small>module scheme, set by ESE</small></h2>
+
+- **Midterm assignment — 25%.** A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due **Sunday 1 November, 23:59 on Turnitin**; orals on **Wednesday 4 November**. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.
+- **Final examination — 75%.** Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. Weeks 1–5 train you for the pure calculus question (limits, derivatives, integrals of rational functions with log terms) and the financial-mathematics items.
+- **Reassessment.** Re-sit examination, 100%, capped at 40% by ESE regulation.
+
+<h2 class="module">Readings</h2>
+
+- Renshaw, G. (2021). *Maths for Economics*, 5th ed. Oxford University Press. Weeks 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–5: ch. 10, 11, 12, 13.
+- Kleppner, D., Dourmashkin, P. and Ramsey, N. (2022). *Quick Calculus*, 3rd ed. Jossey-Bass. Ch. 1–3, weeks 2–3.
+- Paul's Online Notes, [Calculus I](https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx). Free, with worked problems.
+- Francis, A. and Mousley, B. (2014). *Business Mathematics and Statistics*, 7th ed. Cengage. Optional.
+
+<h2 class="module">Tutor</h2>
+
+::: {.people}
+::: {.person}
+![](images/salvini.jpeg)
+**Niccolò Salvini**<br><span class="role">Weeks 1–5</span>
+:::
+:::

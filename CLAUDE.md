@@ -1,0 +1,64 @@
+# CLAUDE.md — Research & Quantitative Business Methods, weeks 1–5 (ESE Florence)
+
+Course repository *and* course website for the first half (weeks 1–5, Niccolò
+Salvini) of *MBA03 Research & Quantitative Business Methods*, ESE MBA, Florence,
+Term 1 A.Y. 2026–2027. Module leader Arianna Ziliotto; a colleague teaches
+weeks 6–10 after Reading Week. Wednesdays 09:00–12:00, 23 Sep → 21 Oct 2026.
+
+Live site: <https://niccolosalvini.github.io/ese-qnb/> · Repo: `NiccoloSalvini/ese-qnb` (public)
+
+Sibling of `~/dev/ese-ai` (same site skeleton, same brand, same deploy). Read that
+repo's `CLAUDE.md` for the Quarto/GitHub Pages gotchas; they all apply here.
+
+## Confidentiality — read before writing anything
+
+The repo is **public**. ESE official documents (syllabus PDF, midterm guidelines,
+exam and resit papers with model answers) live in
+`~/Downloads/ese-qnb-material/` and are **never** copied here: no exam item, no
+model answer, no midterm case function. Drills and homework use the same *form*
+with different functions and numbers. `syllabus/` is gitignored as a guard.
+Grading material, feedback and the handover to the colleague stay private.
+
+## Commands
+
+```bash
+make preview   # quarto preview
+make build     # quarto render -> _site/
+make deploy    # render locally, then quarto publish gh-pages
+make clean
+```
+
+No CI. Rendered here, `_site/` pushed to the `gh-pages` branch.
+
+## Layout
+
+```
+week-NN/
+  notes.md            tutor-only plan and script — NOT rendered
+  slides/weekNN.tex   beamer (metropolis) deck; the PDF is committed and linked from the schedule
+  slides/weekNN.pdf   compiled deck (resource)
+  session.ipynb       Colab notebook driven from the projector (plotly sliders, sympy checks); rendered read-only
+  build_notebook.py   regenerates session.ipynb — not rendered
+  drills.md           in-class exercises, exam format, worked solutions in a <details> block — rendered
+  homework.md         drill set + memo to the Board — rendered
+  diagnostic.md       (week 1) anonymous placement test — NOT rendered (would defeat its purpose)
+anim/src/             manim scenes; anim/out/*.mp4 committed and linked as clips; anim/frames/ used by the deck
+index.qmd             schedule table = home page; assessment scheme; readings
+setup.qmd             "How to work": what to bring, homework hand-in, notebooks, exam-style writing
+styles.scss, _fonts.html, images/   copied from ese-ai (ESE brand: red #AF1F25, gold #CDBA80, Source Sans 3)
+```
+
+`_quarto.yml` lists rendered files explicitly. Add a week by dropping the folder
+in and replacing the `—` cells in the week's row of `index.qmd`.
+
+## Weekly loop
+
+Wednesday lesson → Thursday: drill solutions and homework online (`make deploy`)
+→ Tuesday 23:59 homework due on Moodle → next Wednesday first 15' walkthrough.
+
+## Moodle
+
+ESE's VLE is <https://www.esestudents.com>. When the account exists, copy
+`.mcp.json` and `.env.template` from `~/dev/ese-ai` (Moodle MCP via `uvx
+moodle-mcp`, token from `/user/managetoken.php`) — same setup, one token per
+Moodle instance, and both courses live on the same instance.
