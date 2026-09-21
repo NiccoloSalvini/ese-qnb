@@ -438,18 +438,80 @@ Niccolò Salvini
 <section id="block-a-interest-and-what-compounding-actually-does" class="slide level2 section-slide" data-background-color="#AF1F25">
 <h2><span class="section-kicker">Block A</span> Interest, and what compounding actually does</h2>
 </section>
-<section id="two-ways-to-be-paid-for-waiting" class="slide level2">
-<h2>Two ways to be paid for waiting</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Simple</strong> — interest on the original sum only: <span class="math display">A = P(1 + it)</span> €8,000 at 6% for 3 years → <strong>€9,440</strong></p>
-</div><div class="column" style="width:50%;">
-<p><strong>Compound</strong> — interest on interest too: <span class="math display">A = P(1+i)^{t}</span> €8,000 at 6% for 3 years → <strong>€9,528.13</strong></p>
-</div></div>
+<section id="at-6.-build-it-year-by-year." class="slide level2">
+<h2>€8,000 at 6%. Build it year by year.</h2>
+<p><strong>Simple</strong> — 6% of the <strong>original</strong> €8,000, every year. €480, then €480, then €480.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>end of</th>
+<th>interest</th>
+<th>balance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>year 1</td>
+<td><code>6% × 8,000 = 480</code></td>
+<td>8,480</td>
+</tr>
+<tr class="even">
+<td>year 2</td>
+<td><code>6% × 8,000 = 480</code></td>
+<td>8,960</td>
+</tr>
+<tr class="odd">
+<td>year 3</td>
+<td><code>6% × 8,000 = 480</code></td>
+<td><strong>9,440</strong></td>
+</tr>
+</tbody>
+</table>
 <div class="fragment">
-<p>€88.13 of difference over three years. Over thirty it is not €88.</p>
-<p><span class="muted">Nobody in finance means “simple” when they say interest. It is in the syllabus so that you can name what compounding adds.</span></p>
+<p><span class="math display">A = P(1 + it)</span></p>
+<p>The <code>t</code> is a <strong>multiplication</strong>, because you are adding the same amount <code>t</code> times.</p>
 </div>
+</section>
+<section id="now-6-of-whatever-is-actually-there" class="slide level2">
+<h2>Now 6% of whatever is actually there</h2>
+<p><strong>Compound</strong> — the interest earns interest, so the amount grows too.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>end of</th>
+<th>interest</th>
+<th>balance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>year 1</td>
+<td><code>6% × 8,000 = 480.00</code></td>
+<td>8,480.00</td>
+</tr>
+<tr class="even">
+<td>year 2</td>
+<td><code>6% × 8,480 = 508.80</code></td>
+<td>8,988.80</td>
+</tr>
+<tr class="odd">
+<td>year 3</td>
+<td><code>6% × 8,988.80 = 539.33</code></td>
+<td><strong>9,528.13</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><span class="math display">A = P(1+i)^{t}</span></p>
+<p>The <code>t</code> is now an <strong>exponent</strong>, because each year multiplies by <code>1.06</code> again. <code>8,000 × 1.06 × 1.06 × 1.06</code>.</p>
+<p><span class="red">That is the whole difference, and it is visible in the table before it is visible in the formula: one column repeats, the other climbs.</span></p>
+</div>
+</section>
+<section id="three-years-is-88.-ten-is-not." class="slide level2">
+<h2>Three years is €88. Ten is not.</h2>
+
+<img data-src="img/w04_two_ways.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:78.0%"><p>The gold gap is what compounding adds. It is €88 after three years and <strong>€1,527 after ten</strong> — and it is the same 6% throughout.</p>
+<p><span class="muted">Nobody in finance means “simple” when they say interest. It is in the syllabus so that you can name what compounding adds, and so that you recognise the gap when someone quotes you the wrong one.</span></p>
 </section>
 <section id="more-often-is-more" class="slide level2">
 <h2>More often is more</h2>
@@ -473,7 +535,7 @@ Niccolò Salvini
 </section>
 <section id="the-ceiling-and-where-e-comes-from" class="slide level2 clip" data-background-color="#000000">
 <h2>The ceiling, and where <em>e</em> comes from</h2>
-<video class="clipvideo" width="1000" height="562" controls="" preload="metadata" poster="media/w04_compounding_poster.png">
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w04_compounding_poster.png">
 <source src="media/w04_compounding.mp4" type="video/mp4">
 </video>
 <p>1,120 · 1,123.60 · 1,125.51 · 1,126.83 · 1,127.34 → <strong>1,127.50</strong>.</p>
@@ -670,7 +732,7 @@ Niccolò Salvini
 </section>
 <section id="move-the-rate-watch-the-sign" class="slide level2 clip" data-background-color="#000000">
 <h2>Move the rate, watch the sign</h2>
-<video class="clipvideo" width="1000" height="562" controls="" preload="metadata" poster="media/w04_npv_poster.png">
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w04_npv_poster.png">
 <source src="media/w04_npv.mp4" type="video/mp4">
 </video>
 <p>The crossing has a name: the internal rate of return, 14.6% here.</p>

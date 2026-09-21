@@ -450,7 +450,7 @@ Niccolò Salvini
 </section>
 <section id="seven-steps-watched-once" class="slide level2 clip" data-background-color="#000000">
 <h2>Seven steps, watched once</h2>
-<video class="clipvideo" width="1000" height="562" controls="" preload="metadata" poster="media/w03_study_poster.png">
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w03_study_poster.png">
 <source src="media/w03_study.mp4" type="video/mp4">
 </video>
 <p>The same profit function you already know, taken apart in the exam’s order.</p>
@@ -572,9 +572,28 @@ Niccolò Salvini
 <section id="block-c-integration-adding-up-the-marginal" class="slide level2 section-slide" data-background-color="#AF1F25">
 <h2><span class="section-kicker">Block C</span> Integration — adding up the marginal</h2>
 </section>
-<section id="marginal-cost-is-per-bike.-total-cost-is-for-all-of-them." class="slide level2">
-<h2>Marginal cost is per bike. Total cost is for all of them.</h2>
-<p>If the tenth bike costs €11 and the eleventh €11.80, what do the first twenty cost together?</p>
+<section id="every-bike-has-its-own-price-tag" class="slide level2">
+<h2>Every bike has its own price tag</h2>
+<p>Marginal cost is not “the cost”. It is <strong>the cost of the next one</strong>, and it is different for every one.</p>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>the 1st bike</td>
+<td><code>MC ≈ 3.40</code></td>
+<td>the line is easy, nothing is strained</td>
+</tr>
+<tr class="even">
+<td>the 10th bike</td>
+<td><code>MC ≈ 10.60</code></td>
+<td>overtime starts, parts cost more</td>
+</tr>
+<tr class="odd">
+<td>the 20th bike</td>
+<td><code>MC ≈ 18.60</code></td>
+<td>the plant is pushed</td>
+</tr>
+</tbody>
+</table>
 <div title="Bet before we compute">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -585,16 +604,33 @@ Niccolò Salvini
 <p><strong>Bet before we compute</strong></p>
 </div>
 <div class="callout-content">
-<p>Guess the total variable cost of the first twenty bikes when <code>MC(q) = 0.8q + 3</code>.</p>
+<p>So what do the <strong>first twenty together</strong> cost? Write a number.</p>
 </div>
 </div>
 </div>
 </div>
-<p>Add up the cost of each one. Thin the slices until the answer stops moving.</p>
 </section>
-<section id="thinner-slices-truer-area" class="slide level2 clip" data-background-color="#000000">
-<h2>Thinner slices, truer area</h2>
-<video class="clipvideo" width="1000" height="562" controls="" preload="metadata" poster="media/w03_riemann_poster.png">
+<section id="add-up-the-price-tags" class="slide level2">
+<h2>Add up the price tags</h2>
+
+<img data-src="img/w03_staircase.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:82.0%"><p>Twenty bikes, twenty price tags, twenty bars. <strong>Pile them up and you have the total cost.</strong></p>
+<div class="fragment">
+<p>The bars sum to exactly <strong>€220</strong>. Nothing has been approximated: each bar is one bike, and we added up all twenty.</p>
+</div>
+</section>
+<section id="and-now-make-the-bikes-smaller-than-bikes" class="slide level2">
+<h2>And now make the bikes smaller than bikes</h2>
+<p>A bike is a lump. But suppose you could make half a bike, then a tenth, then a thousandth.</p>
+<p>The bars get thinner, there are more of them, and the pile becomes <strong>the area under the line</strong>.</p>
+<div class="fragment">
+<p>That area has a name and a symbol, and the symbol is a stretched S for <em>sum</em>:</p>
+<p><span class="math display">\int_{0}^{20} MC(q)\,dq</span></p>
+<p><span class="red">Integration is not a new idea. It is adding up price tags, with the tags made infinitely thin.</span></p>
+</div>
+</section>
+<section id="watch-the-slices-thin" class="slide level2 clip" data-background-color="#000000">
+<h2>Watch the slices thin</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w03_riemann_poster.png">
 <source src="media/w03_riemann.mp4" type="video/mp4">
 </video>
 <p>180, then 200, then 212, then 217 — climbing to 220.</p>
