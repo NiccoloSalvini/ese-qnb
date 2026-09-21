@@ -50,6 +50,11 @@ Your cost of capital is 9%. Which do you choose? Show the present value of (ii).
 (b) Compute each discounted flow and the NPV.
 (c) Accept or reject, and say the sentence you would tell the Board.
 
+**D11b (core — where the rate comes from).** Arno Bikes is financed 60% by equity and 40% by debt. Shareholders expect 12%; the bank charges 6%; the corporate tax rate is 25%.
+(a) Compute the weighted average cost of capital.
+(b) One line: why does the tax rate appear at all, and only on the debt side?
+(c) If the firm took on more debt and the mix became 40/60, what would happen to the WACC and therefore to the NPV of the assembly line? No arithmetic needed.
+
 **D12 (stretch).** Recompute the NPV at 16%. What does the change in sign tell you, and what is the name of the rate at which it happens?
 
 ---
@@ -108,6 +113,11 @@ Bank B: **8.00%**.
 | | | **NPV** | **+318.94** |
 
 (c) **Accept.** "At our 9% cost of capital the line adds about €319,000 of value in today's money; the cash it returns covers the outlay by the end of year three."
+
+**D11b.**
+(a) `WACC = 0.6(12%) + 0.4(6%)(1 − 0.25) = 7.2% + 1.8% = **9.0%**` — the 9% we were handed all along.
+(b) Interest on debt is **deductible from taxable profit**, so a 6% loan costs the firm only `6%(1 − 0.25) = 4.5%` after tax. Dividends are not deductible, so no such factor appears on the equity side.
+(c) More weight on the cheaper source → **WACC falls** → future cash flows are discounted less → **the NPV rises**. Worth saying out loud that this is not free: more debt raises the risk, and in time both `r_e` and `r_d` rise with it.
 
 **D12.** At 16%: `−2,400 + 603.45 + 594.53 + 576.59 + 552.29 = **−€73.14k**`. Negative.
 The NPV falls as the discount rate rises and **changes sign** between 9% and 16%; the rate where it is exactly zero is the **internal rate of return** (about 14.6% here). Above it the project destroys value.

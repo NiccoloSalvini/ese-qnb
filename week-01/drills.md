@@ -18,6 +18,10 @@
 
 ## B. Quadratics
 
+**D3b (core — the syllabus asks for these and they are quick).** Solve, and write each answer as an interval:
+(a) `3q − 12 > 0`  (b) `5 − 2q ≥ 1`  (c) `400q + 60,000 ≤ 1,000q`
+(d) What does (c) say about Arno Bikes, in one clause?
+
 **D4 (core).** A firm's profit function is `π(q) = −2q² + 600q − 40,000`.
 (a) Find the quantities at which profit is zero.
 (b) For which quantities is the firm profitable?
@@ -68,6 +72,13 @@
 (c) Buyers pay €330 instead of €300: **€30 of the €50** is passed to buyers; sellers keep 330 − 50 = 280, i.e. bear €20.
 
 **D3.** Let x = model A, y = model B. `2x + 3y = 1200`, `x + y = 500`. From the second, `x = 500 − y`; substitute: `1000 − 2y + 3y = 1200` → `y = 200`, `x = 300`. **300 of A, 200 of B.**
+
+**D3b.**
+(a) `3q > 12` → `q > 4` → **`(4, +∞)`**.
+(b) `−2q ≥ −4`; dividing by a **negative** flips the sign → `q ≤ 2` → **`(−∞, 2]`**, or `[0, 2]` for a quantity.
+(c) `60,000 ≤ 600q` → `q ≥ 100` → **`[100, +∞)`**.
+(d) It is the break-even condition written as an inequality: **at 100 bikes or more the firm is not losing money.**
+*The one that costs marks is (b): multiplying or dividing an inequality by a negative number reverses it.*
 
 **D4.**
 (a) Divide by −2: `q² − 300q + 20,000 = 0`. Discriminant `300² − 4·20,000 = 90,000 − 80,000 = 10,000`, √ = 100. `q = (300 ± 100)/2` → **q = 100 and q = 200**.

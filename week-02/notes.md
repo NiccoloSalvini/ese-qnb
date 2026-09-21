@@ -101,6 +101,23 @@ One student, sixty seconds, no formulas: what the 81st bike adds, where the answ
 - `−b/2a` works for parabolas. `f'(q) = 0` works for everything.
 - Reversing a derivative needs a **constant**, and in cost functions that constant is the fixed cost.
 
+## Board, slide, screen — what goes where
+
+**On the board.** The definition of the derivative, once, written out. The factoring of
+every `0/0`. The whole of block D — the antiderivative and the constant. Anything where a
+line becomes the next line.
+
+**On the slide.** The four-functions table, the domain examples, the rules table, both
+clips, the week-1-versus-week-2 comparison. The clip earns the slide: motion is the one
+thing chalk cannot do.
+
+**On screen.** Once, in block C: slide the price drop from €4 to €3 to €6 and watch the
+optimum move from 150 to 200 to 100. Bet first, then slide. Then close it.
+
+The bet is the highest-value thirty seconds of the session and it costs nothing: make them
+commit to a number, out loud, before any arithmetic. With two students there is nowhere to
+hide, which is the point.
+
 ## Tutor's notes
 
 - **The briefing is not optional and not compressible.** If the clock is tight, cut block B's stretch items and let the notebook carry the limits — never the briefing.

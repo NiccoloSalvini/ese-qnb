@@ -102,6 +102,22 @@ Say plainly what happens next:
 - **Convexity** is the curvature duration misses, and it always favours the holder.
 - A portfolio's duration is the **value-weighted average** of its parts.
 
+## Board, slide, screen — what goes where
+
+**On the board.** The weights table for the duration calculation, column by column, with them
+reading out each present value. The weights must sum to 1 — write that check on the board and
+leave it. Then the convexity correction, term by term.
+
+**On the slide.** The price–yield figure, both clips, the three duration rules, the
+premium/par/discount table.
+
+**On screen.** Optional this week; the clips carry the intuition. If you open the notebook at
+all, it is for the table of actual-versus-estimate at several yield moves.
+
+Then close everything for the mock. Forty minutes, exam conditions, meant literally — it is
+the only rehearsal they get of the exam's *timing*, which is what most candidates actually fail
+on. Mark it together afterwards, out loud, so they see the scheme applied to their own paper.
+
 ## Tutor's notes
 
 - Protect the forty minutes for the mock. If block C runs long, cut D8 and go straight to D11 — the mock is the only rehearsal they get of the exam's timing, which is what most of them will actually fail on.

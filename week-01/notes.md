@@ -114,6 +114,28 @@ Homework briefing (see `homework.md`). Three take-home lines written on paper, p
 - Rule of 70: doubling time ≈ 70 / growth rate in %.
 - `|x − a| ≤ b` ↔ `a − b ≤ x ≤ a + b`.
 
+## Board, slide, screen — what goes where
+
+There are two students in the room. A deck built to broadcast to thirty is the wrong
+instrument for two; the board is not a display, it is the table you work at together.
+
+**On the board, always.** Every rearrangement. `1,000q = 60,000 + 400q` becomes
+`600q = 60,000` becomes `q = 100` **in front of them, at the speed of thinking**. The
+exam says *ALL WORK must be shown* and marks the method: students write what they have
+watched being written. Show only finished algebra and they will write finished algebra
+with no steps, and lose marks they had earned.
+
+**On the slide.** The picture, the clip, the rules table, the bet, where-we-are, and the
+Board sentence. Things a board does badly or slowly.
+
+**On screen.** Only when a *parameter moves*: this week, the price slider and the fixed-cost
+slider. That is the one thing neither board nor chalk can do. Full-screen the figure — never
+scroll through code. They do not write Python in this course, they never will, and showing
+them a cell they cannot read spends credibility for nothing.
+
+The slide after a derivation is the **check**, not the teaching: do it on the board, then
+click to the slide and let them see it agrees.
+
 ## Tutor's notes
 
 - **What needs the projector:** the deck (`slides/week01.pdf`; LAB frames are the cue to switch to the notebook, PAPER frames to the drills), notebook §A and §B sliders, the two manim clips (▶ link on the black frames). Everything else is whiteboard and paper; if the projector fails, the session survives.

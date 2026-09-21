@@ -193,6 +193,27 @@ Accept a project when its NPV is positive at *our* cost of capital. The rate is 
 
 The crossing has a name: the internal rate of return, 14.6% here.
 
+## Where the discount rate comes from
+
+We have been handed "9%". In a firm nobody hands it to you: it is the **weighted average cost of capital**, what the money costs on average across everyone who supplied it.
+
+$$WACC = \frac{E}{V}\,r_e \;+\; \frac{D}{V}\,r_d(1-\tau)$$
+
+| | |
+|---|---|
+| `E/V`, `D/V` | the share of equity and of debt in the financing |
+| `r_e`, `r_d` | what shareholders expect, what lenders charge |
+| `(1 − τ)` | interest is tax-deductible, so debt costs less than its rate |
+
+. . .
+
+Arno Bikes: 60% equity at 12%, 40% debt at 6%, tax 25% →
+`0.6(12%) + 0.4(6%)(0.75) = 7.2% + 1.8% = **9.0%**`. That is where our 9 came from.
+
+::: {.callout-tip title="Board sentence"}
+The discount rate is not an assumption you pick. It is the price your own money costs, and using someone else's number is how projects get approved that should not be.
+:::
+
 ## What IRR is, and what it is not
 
 **It is** the discount rate at which NPV is exactly zero — the project's own break-even cost of money, and a useful margin of safety: 9% against 14.6% is comfortable room.

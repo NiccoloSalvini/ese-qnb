@@ -15,6 +15,12 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 (b) Average cost `AC(q) = C(q)/q`. Find its domain and `lim (q→0⁺) AC(q)` and `lim (q→∞) AC(q)`.
 (c) Minimise `AC(q)`. At that quantity, compute `AC` and `C'(q)` and comment on what you notice.
 
+**D2b (core — asymptotes, in the resit's own form).** `f(x) = x² − 3x + 7 ln(x + 3)`.
+(a) State the domain as an interval.
+(b) Evaluate `lim (x→−3⁺) f(x)` and say what it tells you about the graph.
+(c) Evaluate `lim (x→+∞) f(x)`.
+(d) Sketch the shape, marking the asymptote.
+
 **D3 (stretch).** `f(q) = q³ − 12q² + 36q` on `[0, 10]`.
 (a) Stationary points and their nature. (b) Inflection point. (c) Sketch.
 
@@ -80,6 +86,12 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 (c) `AC'(q) = 0.4 − 25/q² = 0` → `q² = 62.5` → **`q ≈ 7.91`**.
   `AC(7.91) = 3.16 + 3 + 3.16 = **9.32**`; `C'(7.91) = 0.8(7.91) + 3 = **9.32**`.
   **They are equal.** Average cost is at its lowest exactly where marginal cost crosses it. Worth stating out loud: it is not a coincidence, it is what "average" means.
+
+**D2b.**
+(a) `ln(x + 3)` needs `x + 3 > 0`, so the domain is **`(−3, +∞)`** — open, because `ln 0` is undefined.
+(b) As `x → −3⁺`, `ln(x+3) → −∞`, and `x² − 3x → 18`, so `f(x) → **−∞**`. The line **`x = −3` is a vertical asymptote**: the curve plunges down it.
+(c) As `x → +∞` the `x²` term dominates everything, so `f(x) → **+∞**`.
+(d) Comes up from `−∞` along `x = −3`, turns, and rises to `+∞`. Draw the asymptote as a dashed vertical line: the marker looks for it.
 
 **D3.**
 (a) `f'(q) = 3q² − 24q + 36 = 3(q² − 8q + 12) = 3(q − 2)(q − 6)` → `q = 2, 6`.

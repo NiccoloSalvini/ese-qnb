@@ -72,6 +72,28 @@ $$\pi(q) = -4q^{2} + 1200q - 60{,}000$$
 `f'` finds the candidates; `f''` says which kind each one is. Writing "maximum" without the second derivative earns nothing.
 :::
 
+## Limits at the edge: where the curve runs off the page
+
+Step 2 asks for limits, and limits are how you find **asymptotes** — the lines the curve approaches and never meets. The resit asks for them by name.
+
+:::: {.columns}
+::: {.column width="50%"}
+**Vertical.** Look at the edge of the domain.
+`f(q) = 7 ln(q + 3)` is defined for `q > −3`, and
+
+$$\lim_{q \to -3^{+}} 7\ln(q+3) = -\infty$$
+
+so the line `q = −3` is a vertical asymptote.
+:::
+::: {.column width="50%"}
+**Horizontal.** Look at infinity.
+`AC(q) = 0.4q + 3 + 25/q` has none: it grows without bound.
+But `(60,000 + 400q)/q → 400`, so `y = 400` **is** one.
+:::
+::::
+
+[A sketch with no asymptote drawn, where one exists, is marked as an incomplete sketch.]{.red}
+
 ## The second derivative, in one line
 
 $$f'' > 0 \;\Rightarrow\; \text{convex, holds water, a minimum}$$

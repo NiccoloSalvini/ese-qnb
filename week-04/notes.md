@@ -90,6 +90,22 @@ A Board member has just said the line returns a million. Politely, with numbers 
 - Money with different dates **cannot be added**. Discount first, then add.
 - **Accept when NPV > 0 at your own cost of capital.** IRR is where it crosses zero, and it is a margin of safety, not a ranking rule.
 
+## Board, slide, screen — what goes where
+
+**On the board.** The NPV table, built row by row with them reading out the factors — not
+revealed finished. The EAR comparison of the two banks. The WACC calculation. Arithmetic
+watched being done is arithmetic they can reproduce.
+
+**On the slide.** The compounding table, the discount-factor figure, both clips, the annuity
+and perpetuity formulas.
+
+**On screen.** Once: slide the discount rate and watch NPV cross zero. Then the check —
+delay the first €700k by a year and have them predict which way IRR moves *before* running it.
+
+This is the first session where the calculator matters. Check before block A ends that both
+of them can do `(1.02)^16` and `e^0.12` on the machine they will bring to the exam. Someone
+will not be able to, and 10:40 is a far better time to find out than the exam hall.
+
 ## Tutor's notes
 
 - The two bets — the million, and the two banks — carry this session. Take the hands-up count both times and write it on the board; coming back to a number they committed to is what makes it stick.

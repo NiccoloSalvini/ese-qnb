@@ -147,7 +147,15 @@ Q - 3p &= -300 \\
 One equation is one fact about the business. Two unknowns need two facts. Write the facts as equations before touching a number.
 :::
 
-## D1, D2 (core) — D3 (stretch) {.paper background-color="#eceff0"}
+## An equation answers "where". An inequality answers "from where on".
+
+$$1{,}000q = 60{,}000 + 400q \;\Rightarrow\; q = 100 \qquad\qquad 1{,}000q \geq 60{,}000 + 400q \;\Rightarrow\; q \geq 100$$
+
+The first is the break-even point. The second is **the condition for not losing money** — and it is the second one a Board asks for.
+
+[One rule, and it is the only one that costs marks: multiplying or dividing an inequality by a **negative** number reverses it.]{.red}
+
+## D1, D2, D3b (core) — D3 (stretch) {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 

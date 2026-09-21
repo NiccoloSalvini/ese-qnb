@@ -94,6 +94,22 @@ The log-revenue firm. How much to produce, how much it makes, **and how much roo
 - Fixed cost changes how much you earn, never how many you make.
 - **The integral of the marginal is the change in the total.**
 
+## Board, slide, screen — what goes where
+
+**On the board, and this is the session where it matters most.** The seven steps, written
+up and left there all morning. Then the whole study of `π(q)` done on the board with them
+narrating — you hold the chalk, they say the next step. The clearing of `30/(q+1) = 0.8q+3`
+into a quadratic, slowly: that manipulation is where good candidates slip under exam pressure.
+
+**On the slide.** The seven-step table, the AC/MC figure, both clips, the integration rules.
+The Riemann clip does in ten seconds what fifteen minutes of chalk cannot.
+
+**On screen.** Twice, both with a bet first: raise the log coefficient and watch the optimum
+move; raise the fixed cost and watch it **not** move. The second is a midterm-grade insight
+(a constant differentiates to zero) and it is the tariff question in disguise.
+
+Then close the laptop for the quiz.
+
 ## Tutor's notes
 
 - This session is full. The quiz is in the syllabus and cannot move; if the clock slips, shorten block C's drills, never the seven-step board work in block A.
