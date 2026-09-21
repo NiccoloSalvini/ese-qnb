@@ -173,14 +173,14 @@ window.Quarto = {
 <hr>
 <p><strong>Q1 (20%).</strong> Evaluate the indefinite integral, splitting the fraction term by term first:</p>
 <p><span class="math display">\[\int \frac{2q^{5} - 5q^{3} + 3}{q^{2}}\,dq\]</span></p>
-<p><strong>Q2 (20%).</strong> Find <code>f(q)</code> given</p>
-<p><span class="math display">\[f'(q) = 9q^{2} - 6q + 4 \qquad\text{and}\qquad f(1) = 8\]</span></p>
+<p><strong>Q2 (20%).</strong> Find <code>f(x)</code> given</p>
+<p><span class="math display">\[f'(x) = 9x^{2} - 6x + 4 \qquad\text{and}\qquad f(-2) = 11\]</span></p>
 <p><strong>Q3 (20%).</strong> Evaluate the one-sided limit, showing the factoring and commenting on the sign of each factor:</p>
 <p><span class="math display">\[\lim_{q \to 3^{+}} \frac{(q-3)^{2}}{3q - q^{2}}\]</span></p>
 <p><strong>Q4 (20%).</strong> Evaluate:</p>
 <p><span class="math display">\[\lim_{q \to -\infty} \frac{4q^{3} - 5q + 2}{7q^{3} + q^{2}}\]</span></p>
 <p><strong>Q5 (20%).</strong> Evaluate the definite integral, leaving the answer in terms of <code>ln</code>:</p>
-<p><span class="math display">\[\int_{2}^{6} \left(\frac{8}{q} + 3q\right) dq\]</span></p>
+<p><span class="math display">\[\int_{0}^{\frac{1}{3}} \left(\frac{1}{x-1} + \frac{x}{x^{2}-1}\right) dx\]</span></p>
 <hr>
 <details>
 <summary>
@@ -189,9 +189,9 @@ window.Quarto = {
 <p><strong>Q1.</strong> Divide term by term: <code>(2q⁵ − 5q³ + 3)/q² = 2q³ − 5q + 3q⁻²</code>.</p>
 <p><span class="math display">\[\int = \frac{q^{4}}{2} - \frac{5q^{2}}{2} - \frac{3}{q} + c\]</span></p>
 <p><em>Common loss of marks: integrating before splitting, and forgetting <code>+ c</code>.</em></p>
-<p><strong>Q2.</strong> <code>f(q) = 3q³ − 3q² + 4q + c</code>. Then <code>f(1) = 3 − 3 + 4 + c = 8</code>, so <code>c = 4</code>.</p>
-<p><span class="math display">\[f(q) = 3q^{3} - 3q^{2} + 4q + 4\]</span></p>
-<p><em>Common loss of marks: leaving <code>c</code> unresolved when an initial condition is given.</em></p>
+<p><strong>Q2.</strong> <code>f(x) = 3x³ − 3x² + 4x + c</code>. Substitute carefully: <code>f(−2) = 3(−8) − 3(4) + 4(−2) + c = −24 − 12 − 8 + c = −44 + c = 11</code>, so <code>c = 55</code>.</p>
+<p><span class="math display">\[f(x) = 3x^{3} - 3x^{2} + 4x + 55\]</span></p>
+<p><em>Two common losses: leaving <code>c</code> unresolved, and the signs of <code>(−2)³ = −8</code> against <code>(−2)² = +4</code>. The real paper puts its initial condition at a negative value for exactly this reason.</em></p>
 <p><strong>Q3.</strong> Factor the denominator: <code>3q − q² = q(3 − q) = −q(q − 3)</code>.</p>
 <p><span class="math display">\[\frac{(q-3)^{2}}{-q(q-3)} = -\frac{q-3}{q}\]</span></p>
 <p>As <code>q → 3⁺</code>: <code>(q − 3) → 0⁺</code> and <code>q → 3</code>, so the expression → <code>−0 = 0</code>.</p>
@@ -200,10 +200,14 @@ window.Quarto = {
 <p><strong>Q4.</strong> Divide numerator and denominator by <code>q³</code>:</p>
 <p><span class="math display">\[\frac{4 - 5/q^{2} + 2/q^{3}}{7 + 1/q} \longrightarrow \frac{4}{7}\]</span></p>
 <p><em>The sign of the infinity does not matter here: both cubes dominate and the ratio of leading coefficients survives.</em></p>
-<p><strong>Q5.</strong></p>
-<p><span class="math display">\[\int_{2}^{6}\left(\frac{8}{q} + 3q\right)dq = \Big[8\ln q + \tfrac{3}{2}q^{2}\Big]_{2}^{6} = (8\ln 6 + 54) - (8\ln 2 + 6)\]</span></p>
-<p><span class="math display">\[= 8(\ln 6 - \ln 2) + 48 = 8\ln 3 + 48 \approx 56.79\]</span></p>
-<p><em>Using <code>ln(6) − ln(2) = ln 3</code> is worth stating: the exam likes the log rules used, not just the calculator.</em></p>
+<p><strong>Q5.</strong> Neither term is <code>1/x</code>. Ask of each: is the top the derivative of the bottom?</p>
+<ul>
+<li><code>1/(x−1)</code>: the bottom differentiates to 1 → <code>ln|x − 1|</code>.</li>
+<li><code>x/(x²−1)</code>: the bottom differentiates to <code>2x</code>, the top is <code>x</code>, so a <code>½</code> is missing → <code>½ ln|x² − 1|</code>.</li>
+</ul>
+<p><span class="math display">\[\Big[\ln|x-1| + \tfrac{1}{2}\ln|x^{2}-1|\Big]_{0}^{1/3}
+= \left(\ln\tfrac{2}{3} + \tfrac{1}{2}\ln\tfrac{8}{9}\right) - 0 \approx -0.4644\]</span></p>
+<p><em>The modulus is not decoration: on <code>[0, ⅓]</code> both <code>x − 1</code> and <code>x² − 1</code> are negative, and the logs are undefined without it. Marks are lost here every year.</em></p>
 </details>
 <section id="after-you-have-marked-it" class="level2">
 <h2 class="anchored" data-anchor-id="after-you-have-marked-it">After you have marked it</h2>
