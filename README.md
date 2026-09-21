@@ -2,7 +2,7 @@
 
 European School of Economics, Florence · Term 1 AY 2026/27 · Tutor for weeks 1–5: Niccolò Salvini · Module leader: Arianna Ziliotto
 
-Five Wednesday sessions (23 Sep → 21 Oct 2026) covering the revision of algebra, calculus and financial mathematics that the midterm report and the final exam are built on. Each session is half slides, half laboratory: the deck sets the question and the technique, the Colab notebook shows it move, paper drills make it stick.
+Five Thursday sessions (24 Sep → 22 Oct 2026) covering the revision of algebra, calculus and financial mathematics that the midterm report and the final exam are built on. Each session is half slides, half laboratory: the deck sets the question and the technique, the Colab notebook shows it move, paper drills make it stick.
 
 ## Layout
 
@@ -25,7 +25,7 @@ midterm/                briefing (week 2), grading grid, handover to the second 
 
 ## Weekly cycle
 
-Wednesday 9:00–12:00 lesson → Thursday: drill solutions and homework on Moodle → Tuesday 23:59 homework due → next Wednesday, first 15 minutes are the walkthrough.
+Thursday 10:00–13:00 lesson → Friday: drill solutions and homework on Moodle → Wednesday 23:59 homework due → next Thursday, first 15 minutes are the walkthrough.
 
 ## Building
 

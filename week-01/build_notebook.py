@@ -10,7 +10,7 @@ code = lambda s: cells.append(nbf.v4.new_code_cell(s.strip()))
 
 md(r"""
 # MBA03 · Week 1 — Revision of mathematics, told as business decisions
-**European School of Economics · Wed 23 Sep 2026 · Tutor: Niccolò Salvini**
+**European School of Economics · Thu 24 Sep 2026 · Tutor: Niccolò Salvini**
 
 Running case: **Arno Bikes**, e-bike assembler in Florence.
 Fixed cost €60,000 / month · variable cost €400 / bike · list price €1,000.

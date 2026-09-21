@@ -1,4 +1,4 @@
-# Homework 1 — due Tuesday 29 September, 23:59 (Moodle)
+# Homework 1 — due Wednesday 30 September, 23:59 (Moodle)
 
 Two parts. Part 1 is done on paper and handed in as a photo or scan; Part 2 is a short typed text. Expect 2–3 hours in total. Both parts are formative: they are not graded, but they are read, they are discussed in the first 15 minutes of next session, and they are part of the evidence I use when I mark your midterm.
 

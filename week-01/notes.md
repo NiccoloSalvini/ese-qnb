@@ -1,6 +1,6 @@
 # Week 1 — Revision of mathematics, told as business decisions
 
-**MBA03 Research & Quantitative Business Methods · Wed 23 Sep 2026, 9:00–12:00 · Tutor: Niccolò Salvini**
+**MBA03 Research & Quantitative Business Methods · Thu 24 Sep 2026, 10:00–13:00 · Tutor: Niccolò Salvini**
 
 Syllabus topic: linear and quadratic equations, linear and quadratic inequalities, systems of equations, logarithms and exponentials, absolute values (Renshaw ch. 1, 3, 4, 5).
 
@@ -19,15 +19,15 @@ By the end of the session the students can:
 
 | Time | Block | Support | Content |
 |------|-------|---------|---------|
-| 9:00–9:10 | Welcome | Whiteboard | Who we are, how the first half works, what the exam looks like (show Q5 of the final for 60 seconds — no comment beyond "by 21 October you will do this on paper"). |
-| 9:10–9:30 | **Diagnostic** | Paper | 10 anonymous items (`diagnostic.md`). Collected, not graded. Tutor skims during the break to calibrate blocks C and D. |
-| 9:30–10:05 | **A. Launch or not?** | Slides → notebook → paper | Break-even as a linear equation. Market equilibrium as a 2×2 system. Three ways to solve a system (substitution, elimination, picture). |
-| 10:05–10:40 | **B. How many bikes?** | Slides + clip → notebook → paper | Linear demand makes revenue a parabola. Profit zeros = quadratic equation. Profit > 0 = quadratic inequality. The vertex is a preview of week 2's maximum. |
-| 10:40–10:55 | Break | — | Outside the room. Tutor reads the diagnostics. |
-| 10:55–11:30 | **C. How long to double?** | Slides + clip → notebook → paper | Exponential growth; why we need logs; the three log rules and change of base; solving `1.12^t = 2`. Rule of 70 as a sanity check. |
-| 11:30–11:45 | **D. Within tolerance** | Slides → paper | Absolute value as distance; `|x − a| ≤ b` as an interval; one inequality with `>`. |
-| 11:45–11:55 | **Board pitch** | Student at the board | One student, 60 seconds, tells "the Board" the break-even, the profitable range and the doubling time. No formulas allowed in the pitch — only numbers and their meaning. |
-| 11:55–12:00 | Close | Paper | Homework briefing; each student writes three take-home lines. |
+| 10:00–10:10 | Welcome | Whiteboard | Who we are, how the first half works, what the exam looks like (show Q5 of the final for 60 seconds — no comment beyond "by 22 October you will do this on paper"). |
+| 10:10–10:30 | **Diagnostic** | Paper | 10 anonymous items (`diagnostic.md`). Collected, not graded. Tutor skims during the break to calibrate blocks C and D. |
+| 10:30–11:05 | **A. Launch or not?** | Slides → notebook → paper | Break-even as a linear equation. Market equilibrium as a 2×2 system. Three ways to solve a system (substitution, elimination, picture). |
+| 11:05–11:40 | **B. How many bikes?** | Slides + clip → notebook → paper | Linear demand makes revenue a parabola. Profit zeros = quadratic equation. Profit > 0 = quadratic inequality. The vertex is a preview of week 2's maximum. |
+| 11:40–11:55 | Break | — | Outside the room. Tutor reads the diagnostics. |
+| 11:55–12:30 | **C. How long to double?** | Slides + clip → notebook → paper | Exponential growth; why we need logs; the three log rules and change of base; solving `1.12^t = 2`. Rule of 70 as a sanity check. |
+| 12:30–12:45 | **D. Within tolerance** | Slides → paper | Absolute value as distance; `|x − a| ≤ b` as an interval; one inequality with `>`. |
+| 12:45–12:55 | **Board pitch** | Student at the board | One student, 60 seconds, tells "the Board" the break-even, the profitable range and the doubling time. No formulas allowed in the pitch — only numbers and their meaning. |
+| 12:55–13:00 | Close | Paper | Homework briefing; each student writes three take-home lines. |
 
 ## Script
 

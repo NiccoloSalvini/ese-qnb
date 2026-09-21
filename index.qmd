@@ -11,26 +11,26 @@ Weeks 1–5 **Niccolò Salvini** · module leader **Arianna Ziliotto**
 :::
 
 ::: {.facts}
-<div><span class="k">When</span><span class="v">Wednesdays 09:00–12:00 · 23 Sep – 21 Oct</span></div>
+<div><span class="k">When</span><span class="v">Thursdays 10:00–13:00 · 24 Sep – 22 Oct</span></div>
 <div><span class="k">Where</span><span class="v">ESE Florence · Borgo Santi Apostoli 19</span></div>
 <div><span class="k">Assessment</span><span class="v">[Midterm 25% · Final exam 75%](#assessment)</span></div>
 <div><span class="k">Bring</span><span class="v">[Paper, pen, non-programmable calculator](setup.qmd)</span></div>
 :::
 
-Everything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework due the following Tuesday. Materials are published by Thursday.
+Everything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework due the following Wednesday. Materials are published by Friday.
 
-<h2 class="module">Sessions <small>Wednesdays 09:00–12:00 · half slides, half laboratory · exam-format drills on paper</small></h2>
+<h2 class="module">Sessions <small>Thursdays 10:00–13:00 · half slides, half laboratory · exam-format drills on paper</small></h2>
 
 ::: {.schedule}
 | # | Date | Theme | Materials | Homework |
 |---|------|-------|-----------|----------|
-| 1 | Wed 23 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](week-01/slides/week01.pdf) · [notebook](week-01/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-01/session.ipynb) · [drills](week-01/drills.md) · clips: [parabola](anim/out/w01_parabola.mp4), [growth](anim/out/w01_growth.mp4) | [HW1](week-01/homework.md) · due Tue 29 Sep |
-| 2 | Wed 30 Sep | **Midterm guidelines briefing** · functions and the Cartesian plane, limits, differentiation, integration | — | — |
-| 3 | Wed 7 Oct | Calculus continued — full study of a function, optimisation, integration · **in-class quiz** | — | — |
-| 4 | Wed 14 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | — | — |
-| 5 | Wed 21 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · mock of final Q5 | — | — |
+| 1 | Thu 24 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](week-01/slides/week01.pdf) · [notebook](week-01/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-01/session.ipynb) · [drills](week-01/drills.md) · clips: [parabola](anim/out/w01_parabola.mp4), [growth](anim/out/w01_growth.mp4) | [HW1](week-01/homework.md) · due Wed 30 Sep |
+| 2 | Thu 1 Oct | **Midterm guidelines briefing** · functions and the Cartesian plane, limits, differentiation, integration | — | — |
+| 3 | Thu 8 Oct | Calculus continued — full study of a function, optimisation, integration · **in-class quiz** | — | — |
+| 4 | Thu 15 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | — | — |
+| 5 | Thu 22 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · mock of final Q5 | — | — |
 | — | 26–30 Oct | Reading week — no class · midterm paper due **Sun 1 Nov, 23:59 on Turnitin** | — | — |
-| 6 | Wed 4 Nov | **Midterm oral presentations** · second half of the module begins (weeks 6–10) | — | — |
+| 6 | w/c 2 Nov | **Midterm oral presentations** (day set by the module leader) · second half of the module begins (weeks 6–10) | — | — |
 
 : {tbl-colwidths="[5,13,38,30,14]"}
 :::
@@ -44,13 +44,13 @@ Everything for the first half of the module is on this page. One row per session
 - **Every technique serves an exam item.** Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.
 - **Decision → picture → technique → decision.** Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.
 - **Half slides, half laboratory.** About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.
-- **Weekly rhythm.** Wednesday lesson. Drill solutions and homework online by Thursday. Homework due Tuesday 23:59 on Moodle, as a photo or PDF of your paper. The first fifteen minutes of the next session are the walkthrough: one student explains one drill at the board.
+- **Weekly rhythm.** Thursday lesson. Drill solutions and homework online by Friday. Homework due Wednesday 23:59 on Moodle, as a photo or PDF of your paper. The first fifteen minutes of the next session are the walkthrough: one student explains one drill at the board.
 - **Homework is formative.** It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.
 - **Running case: Arno Bikes**, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand `p = 1600 − 4q`. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.
 
 <h2 class="module" id="assessment">Assessment <small>module scheme, set by ESE</small></h2>
 
-- **Midterm assignment — 25%.** A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due **Sunday 1 November, 23:59 on Turnitin**; orals on **Wednesday 4 November**. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.
+- **Midterm assignment — 25%.** A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due **Sunday 1 November, 23:59 on Turnitin**; orals in the **week of 2 November**, on the day set by the module leader. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.
 - **Final examination — 75%.** Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. Weeks 1–5 train you for the pure calculus question (limits, derivatives, integrals of rational functions with log terms) and the financial-mathematics items.
 - **Reassessment.** Re-sit examination, 100%, capped at 40% by ESE regulation.
 

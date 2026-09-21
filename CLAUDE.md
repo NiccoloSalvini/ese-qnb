@@ -3,7 +3,7 @@
 Course repository *and* course website for the first half (weeks 1–5, Niccolò
 Salvini) of *MBA03 Research & Quantitative Business Methods*, ESE MBA, Florence,
 Term 1 A.Y. 2026–2027. Module leader Arianna Ziliotto; a colleague teaches
-weeks 6–10 after Reading Week. Wednesdays 09:00–12:00, 23 Sep → 21 Oct 2026.
+weeks 6–10 after Reading Week. Thursdays 10:00–13:00, 24 Sep → 22 Oct 2026.
 
 Live site: <https://niccolosalvini.github.io/ese-qnb/> · Repo: `NiccoloSalvini/ese-qnb` (public)
 
@@ -53,8 +53,8 @@ in and replacing the `—` cells in the week's row of `index.qmd`.
 
 ## Weekly loop
 
-Wednesday lesson → Thursday: drill solutions and homework online (`make deploy`)
-→ Tuesday 23:59 homework due on Moodle → next Wednesday first 15' walkthrough.
+Thursday lesson → Friday: drill solutions and homework online (`make deploy`)
+→ Wednesday 23:59 homework due on Moodle → next Thursday first 15' walkthrough.
 
 ## Moodle
 
