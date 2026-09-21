@@ -7,7 +7,10 @@ project:
     - "week-*/homework.md"
     - "week-*/drills.md"
     - "week-*/session.ipynb"
+    - "lectures/*.qmd"
   resources:
+    - "lectures/media/*.mp4"
+    - "lectures/media/*.png"
     - "week-*/slides/*.pdf"
     - "anim/out/*.mp4"
     - "week-*/data/**"

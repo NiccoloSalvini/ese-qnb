@@ -9,13 +9,17 @@ Five Thursday sessions (24 Sep → 22 Oct 2026) covering the revision of algebra
 ```
 week-01/ … week-05/     one folder per session
   notes.md              tutor's plan and script (timings, questions, bets, closing sentences)
-  slides/weekNN.tex     beamer deck (metropolis); LAB frames cue the notebook, PAPER frames cue the drills
+  slides/weekNN.tex     beamer deck (metropolis), the printable PDF version
   slides/weekNN.pdf     compiled deck
   session.ipynb         Colab notebook driven from the projector (plotly sliders, LaTeX cells, sympy checks)
   build_notebook.py     regenerates session.ipynb (python build_notebook.py)
   drills.md             in-class exercises in exam format with worked solutions
   homework.md           weekly homework: drill set + memo to the Board
   diagnostic.md         (week 1) 20-minute anonymous placement test with key
+lectures/
+  NN-slug.qmd           the deck shown in class: Quarto revealjs, ESE theme, manim clips embedded (rendered on the site)
+  figs.py               matplotlib script writing the SVG figures in lectures/img/
+  media/                clips (mp4) and poster frames
 anim/
   src/weekNN_scenes.py  manim scenes for the week's clips
   out/*.mp4             rendered clips (720p) played in class

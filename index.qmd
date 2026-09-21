@@ -7,12 +7,12 @@ toc: false
 ::: {.hero}
 <span class="kicker">MBA03 · ESE MBA · Term 1, A.Y. 2026–2027</span>
 European School of Economics, Florence · in person · 30 contact hours over the term<br>
-Weeks 1–5 **Niccolò Salvini** · module leader **Arianna Ziliotto**
+Weeks 1–5 **Niccolò Salvini**, in person · weeks 6–10 **Vincenzo Nardelli**, online · module leader **Arianna Ziliotto**
 :::
 
 ::: {.facts}
 <div><span class="k">When</span><span class="v">Thursdays 10:00–13:00 · 24 Sep – 22 Oct</span></div>
-<div><span class="k">Where</span><span class="v">ESE Florence · Borgo Santi Apostoli 19</span></div>
+<div><span class="k">Where</span><span class="v">ESE Florence · Borgo Santi Apostoli 19 (weeks 1–5) · online from week 6</span></div>
 <div><span class="k">Assessment</span><span class="v">[Midterm 25% · Final exam 75%](#assessment)</span></div>
 <div><span class="k">Bring</span><span class="v">[Paper, pen, non-programmable calculator](setup.qmd)</span></div>
 :::
@@ -24,19 +24,19 @@ Everything for the first half of the module is on this page. One row per session
 ::: {.schedule}
 | # | Date | Theme | Materials | Homework |
 |---|------|-------|-----------|----------|
-| 1 | Thu 24 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](week-01/slides/week01.pdf) · [notebook](week-01/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-01/session.ipynb) · [drills](week-01/drills.md) · clips: [parabola](anim/out/w01_parabola.mp4), [growth](anim/out/w01_growth.mp4) | [HW1](week-01/homework.md) · due Wed 30 Sep |
+| 1 | Thu 24 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](lectures/01-revision.qmd) · [pdf](week-01/slides/week01.pdf) · [notebook](week-01/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-01/session.ipynb) · [drills](week-01/drills.md) · clips: [parabola](anim/out/w01_parabola.mp4), [growth](anim/out/w01_growth.mp4) | [HW1](week-01/homework.md) · due Wed 30 Sep |
 | 2 | Thu 1 Oct | **Midterm guidelines briefing** · functions and the Cartesian plane, limits, differentiation, integration | — | — |
 | 3 | Thu 8 Oct | Calculus continued — full study of a function, optimisation, integration · **in-class quiz** | — | — |
 | 4 | Thu 15 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | — | — |
 | 5 | Thu 22 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · mock of final Q5 | — | — |
 | — | 26–30 Oct | Reading week — no class · midterm paper due **Sun 1 Nov, 23:59 on Turnitin** | — | — |
-| 6 | w/c 2 Nov | **Midterm oral presentations** (day set by the module leader) · second half of the module begins (weeks 6–10) | — | — |
+| 6–10 | from w/c 2 Nov | **Midterm oral presentations** in week 6 (day set by the module leader) · second half of the module with **Vincenzo Nardelli**, online | — | — |
 
 : {tbl-colwidths="[5,13,38,30,14]"}
 :::
 
 ::: {.callout-note appearance="simple"}
-**Slides** are the spine of each session. **Notebook** is what you see on the projector: open it in Colab if you want to move the sliders yourself, nothing to install. **Drills** are the paper exercises we do in class, in exam format, with worked solutions at the bottom. **Clips** are the short animations shown in class.
+**Slides** are the spine of each session: an HTML deck with the clips embedded (arrow keys to move, `F` for full screen), plus a PDF for printing. **Notebook** is what you see on the projector: open it in Colab if you want to move the sliders yourself, nothing to install. **Drills** are the paper exercises we do in class, in exam format, with worked solutions at the bottom. **Clips** are the short animations shown in class.
 :::
 
 <h2 class="module">How the five weeks work <small>the contract, stated once</small></h2>
@@ -61,11 +61,15 @@ Everything for the first half of the module is on this page. One row per session
 - Paul's Online Notes, [Calculus I](https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx). Free, with worked problems.
 - Francis, A. and Mousley, B. (2014). *Business Mathematics and Statistics*, 7th ed. Cengage. Optional.
 
-<h2 class="module">Tutor</h2>
+<h2 class="module">Tutors</h2>
 
 ::: {.people}
 ::: {.person}
 ![](images/salvini.jpeg)
-**Niccolò Salvini**<br><span class="role">Weeks 1–5</span>
+**Niccolò Salvini**<br><span class="role">Weeks 1–5 · in person, Florence</span>
+:::
+::: {.person}
+![](images/nardelli.jpg)
+**Vincenzo Nardelli**<br><span class="role">Weeks 6–10 · online</span>
 :::
 :::
