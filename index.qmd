@@ -7,7 +7,7 @@ toc: false
 ::: {.hero}
 <span class="kicker">MBA03 · ESE MBA · Term 1, A.Y. 2026–2027</span>
 European School of Economics, Florence · in person · 30 contact hours over the term<br>
-Weeks 1–5 **Niccolò Salvini**, in person · weeks 6–10 **Vincenzo Nardelli**, online · module leader **Arianna Ziliotto**
+Weeks 1–5 **Niccolò Salvini, PhD**, in person · weeks 6–10 **Vincenzo Nardelli, PhD**, online · module leader **Arianna Ziliotto**
 :::
 
 ::: {.facts}
@@ -24,19 +24,21 @@ Everything for the first half of the module is on this page. One row per session
 ::: {.schedule}
 | # | Date | Theme | Materials | Homework |
 |---|------|-------|-----------|----------|
-| 1 | Thu 24 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](lectures/01-revision.qmd) · [pdf](week-01/slides/week01.pdf) · [notebook](week-01/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-01/session.ipynb) · [drills](week-01/drills.md) · clips: [parabola](anim/out/w01_parabola.mp4), [growth](anim/out/w01_growth.mp4) | [HW1](week-01/homework.md) · due Wed 30 Sep |
-| 2 | Thu 1 Oct | **Midterm guidelines briefing** · functions and the Cartesian plane, limits, differentiation, integration | [slides](lectures/02-calculus-opens.qmd) · [notebook](week-02/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-02/session.ipynb) · [drills](week-02/drills.md) · clips: [secant→tangent](anim/out/w02_secant.mp4), [tangent](anim/out/w02_tangent.mp4) | [HW2](week-02/homework.md) · due Wed 7 Oct |
-| 3 | Thu 8 Oct | Calculus continued — full study of a function, optimisation, integration · **in-class quiz** | [slides](lectures/03-study-and-accumulate.qmd) · [notebook](week-03/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-03/session.ipynb) · [drills](week-03/drills.md) · clips: [seven steps](anim/out/w03_study.mp4), [Riemann](anim/out/w03_riemann.mp4) | [HW3](week-03/homework.md) · due Wed 14 Oct |
-| 4 | Thu 15 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | [slides](lectures/04-money-over-time.qmd) · [notebook](week-04/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-04/session.ipynb) · [drills](week-04/drills.md) · clips: [compounding](anim/out/w04_compounding.mp4), [NPV/IRR](anim/out/w04_npv.mp4) | [HW4](week-04/homework.md) · due Wed 21 Oct |
-| 5 | Thu 22 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · [mock of final Q5](week-05/mock_exam.md) | [slides](lectures/05-bonds-and-risk.qmd) · [notebook](week-05/session.ipynb) · [Colab ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-05/session.ipynb) · [drills](week-05/drills.md) · clips: [duration](anim/out/w05_duration.mp4), [convexity](anim/out/w05_convexity.mp4) | [HW5](week-05/homework.md) · due Wed 28 Oct |
+| 1 | Thu 24 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](lectures/01-revision.qmd) · [drills](week-01/drills.md) | [HW1](week-01/homework.md) · due Wed 30 Sep|
+| 2 | Thu 1 Oct | **Midterm guidelines briefing** · functions and the Cartesian plane, limits, differentiation, integration | [slides](lectures/02-calculus-opens.qmd) · [drills](week-02/drills.md) | [HW2](week-02/homework.md) · due Wed 7 Oct|
+| 3 | Thu 8 Oct | Calculus continued — full study of a function, optimisation, integration · **in-class quiz** | [slides](lectures/03-study-and-accumulate.qmd) · [drills](week-03/drills.md) | [HW3](week-03/homework.md) · due Wed 14 Oct|
+| 4 | Thu 15 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | [slides](lectures/04-money-over-time.qmd) · [drills](week-04/drills.md) | [HW4](week-04/homework.md) · due Wed 21 Oct|
+| 5 | Thu 22 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · mock of the final's calculus question | [slides](lectures/05-bonds-and-risk.qmd) · [drills](week-05/drills.md) · [mock exam](week-05/mock_exam.md) | [HW5](week-05/homework.md) · due Wed 28 Oct|
 | — | 26–30 Oct | Reading week — no class · midterm paper due **Sun 1 Nov, 23:59 on Turnitin** | — | — |
-| 6–10 | from w/c 2 Nov | **Midterm oral presentations** in week 6 (day set by the module leader) · second half of the module with **Vincenzo Nardelli**, online | — | — |
+| 6–10 | from w/c 2 Nov | **Midterm oral presentations** in week 6 (day set by the module leader) · second half of the module with **Vincenzo Nardelli, PhD**, online | — | — |
 
-: {tbl-colwidths="[5,13,38,30,14]"}
+: {tbl-colwidths="[5,13,44,22,16]"}
 :::
 
 ::: {.callout-note appearance="simple"}
-**Slides** are the spine of each session: an HTML deck with the clips embedded (arrow keys to move, `F` for full screen), plus a PDF for printing. **Notebook** is what you see on the projector: open it in Colab if you want to move the sliders yourself, nothing to install. **Drills** are the paper exercises we do in class, in exam format, with worked solutions at the bottom. **Clips** are the short animations shown in class.
+**Two things per session, and that is all you need.** *Slides* are the deck shown in class, with the short animations playing inside it — arrow keys to move, `F` for full screen. *Drills* are the paper exercises we do together, in exam format, with the worked solutions folded at the bottom of the page.
+
+**You will not write any code in this course.** The exam is on paper. The interactive demonstrations I drive from the projector are Colab notebooks and you are welcome to open one and move the sliders yourself, but nothing here asks you to, and nothing is marked on it. They live in the [course repository](https://github.com/NiccoloSalvini/ese-qnb), one per week.
 :::
 
 <h2 class="module">How the five weeks work <small>the contract, stated once</small></h2>
@@ -66,10 +68,10 @@ Everything for the first half of the module is on this page. One row per session
 ::: {.people}
 ::: {.person}
 ![](images/salvini.jpeg)
-**Niccolò Salvini**<br><span class="role">Weeks 1–5 · in person, Florence</span>
+**Niccolò Salvini, PhD**<br><span class="role">Weeks 1–5 · in person, Florence</span>
 :::
 ::: {.person}
 ![](images/nardelli.jpg)
-**Vincenzo Nardelli**<br><span class="role">Weeks 6–10 · online</span>
+**Vincenzo Nardelli, PhD**<br><span class="role">Weeks 6–10 · online</span>
 :::
 :::

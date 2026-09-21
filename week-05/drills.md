@@ -48,6 +48,8 @@ A bond trades **above** par. Therefore:
 
 **D10 (stretch).** Two bonds have the same duration; one has higher convexity. Rates move sharply, direction unknown. Which would you rather hold, and why?
 
+*After these, the session closes with a [mock of the final exam's calculus question](mock_exam.md), forty minutes in exam conditions.*
+
 ## D. Putting it together
 
 **D11 (core).** Arno Bikes holds €400,000 of the D6 bond (at par) and €600,000 of a 2-year bond with modified duration 1.90.
