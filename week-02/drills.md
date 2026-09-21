@@ -41,6 +41,9 @@
 (c) `R(q) = 30 ln(q + 1)`
 (d) `f(q) = 5q³ − 2q² + 7q − 1`
 
+**D8b (core — one inside another).** Differentiate, naming the inside each time:
+(a) `ln(q + 1)`   (b) `ln(5q)`   (c) `(3q − 4)⁵`   (d) `e^(0.08t)`   (e) `20 ln(2q + 7)`
+
 **D9 (core — the point of the week).** For `π(q) = −4q² + 1200q − 60,000`:
 (a) Compute `π'(80)` and say, in one sentence a manager would use, what it means.
 (b) Compute `π'(200)` and do the same.
@@ -96,6 +99,13 @@ As `q → 1⁺`, `(q − 1) → 0⁺` and `q → 1`, so the value → `−0 = **
 (b) `C'(q) = 0.8q + 3`
 (c) `R'(q) = 30/(q + 1)`
 (d) `f'(q) = 15q² − 4q + 7`
+
+**D8b.** Outside first, inside untouched, then times the inside's derivative.
+(a) inside `q + 1`, derivative 1 → **`1/(q+1)`**. The multiplication by 1 is why this one looks free.
+(b) inside `5q`, derivative 5 → `(1/5q)·5 = **1/q**`. (Also visible from `ln 5q = ln 5 + ln q`, and `ln 5` is a constant.)
+(c) outside `(·)⁵`, inside `3q − 4`, derivative 3 → `5(3q−4)⁴·3 = **15(3q−4)⁴**`.
+(d) inside `0.08t`, derivative 0.08 → **`0.08 e^(0.08t)`**.
+(e) inside `2q + 7`, derivative 2 → `20 · (1/(2q+7)) · 2 = **40/(2q+7)**`.
 
 **D9.**
 (a) `π'(80) = −640 + 1200 = **+560**`. At 80 bikes a month, one more bike adds about €560 to profit. Make more.

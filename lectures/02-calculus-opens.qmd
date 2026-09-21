@@ -67,7 +67,11 @@ Each one is a sentence about a business, written so it can be computed.
 ::: {.column width="48%"}
 **Domain** is the first question, always: for which `q` does this mean anything?
 
-$$\sqrt{q-20} \;\text{ needs } q \geq 20 \qquad \ln(q-5) \;\text{ needs } q > 5 \qquad \frac{120}{q-40} \;\text{ breaks at } q = 40$$
+$$\begin{aligned}
+\sqrt{q-20} \;&\text{ needs } q \geq 20 \\[2pt]
+\ln(q-5) \;&\text{ needs } q > 5 \\[2pt]
+\tfrac{120}{q-40} \;&\text{ breaks at } q = 40
+\end{aligned}$$
 
 [The exam asks "state the domain" and expects an interval, with the bracket chosen on purpose.]{.muted}
 :::
@@ -181,20 +185,58 @@ You will use this definition roughly twice in your life. What you will use every
 
 ## Differentiating, as a procedure you can follow
 
-Never ask "what is the derivative of this?" Ask the four questions in order.
+Never ask "what is the derivative of this?" Ask the questions in order.
 
-| | ask | then |
-|---|---|---|
-| **1** | Is it a **sum**? | split it, and do each piece on its own. The rest of this table is for one piece. |
-| **2** | Is it a **number** with no `q`? | it becomes **0**. `−60,000` disappears. |
-| **3** | Is it a **power** `a·qⁿ`? | **bring `n` down in front, then drop it by one**: `−4q² → −8q`. (A lone `q` is `q¹`, so it becomes the number in front of it: `1200q → 1200`.) |
-| **4** | Is it a **log** `a·ln(q)`? | it becomes `a/q`. And `ln(q+1)` becomes `1/(q+1)`. |
+| ask | then |
+|---|---|
+| **1.** Is it a **sum**? | split it; do each piece alone |
+| **2.** A **number**, no `q`? | it becomes `0` |
+| **3.** A **power** `a·qⁿ`? | `n` comes down in front, the power drops by one |
+| **4.** A **log** `a·ln(q)`? | it becomes `a/q` |
+
+$$-4q^{2} \to -8q \qquad 1200q \to 1200 \qquad -60{,}000 \to 0 \qquad 30\ln q \to \tfrac{30}{q}$$
 
 . . .
 
-$$\pi(q) = \underbrace{-4q^{2}}_{\text{rule 3}} + \underbrace{1200q}_{\text{rule 3}} \underbrace{- \,60{,}000}_{\text{rule 2}} \;\longrightarrow\; \pi'(q) = -8q + 1200$$
+$$\pi(q) = \underbrace{-4q^{2}}_{3} + \underbrace{1200q}_{3} \underbrace{- \,60{,}000}_{2} \;\longrightarrow\; \pi'(q) = -8q + 1200$$
 
-[Four questions, every time, in that order. That is the whole of what the midterm's study of a function needs you to do.]{.red}
+[A lone `q` is `q¹`, so rule 3 leaves just the number in front of it.]{.muted}
+
+## Question 5: is there something *inside* something?
+
+`ln(q + 1)` is not `ln q`. There is a second function hiding inside the first, and the midterm's revenue function is exactly this shape.
+
+$$\frac{d}{dq}\,f\big(g(q)\big) \;=\; f'\big(g(q)\big) \cdot g'(q)$$
+
+**Differentiate the outside, leave the inside alone, then multiply by the derivative of the inside.**
+
+. . .
+
+:::: {.columns}
+::: {.column width="50%"}
+$$\ln(q+1) \;\to\; \frac{1}{q+1}\cdot \underbrace{1}_{\text{inside}'} = \frac{1}{q+1}$$
+$$\ln(3q) \;\to\; \frac{1}{3q}\cdot 3 = \frac{1}{q}$$
+:::
+::: {.column width="50%"}
+$$(2q+5)^{4} \;\to\; 4(2q+5)^{3}\cdot 2 = 8(2q+5)^{3}$$
+$$e^{0.12t} \;\to\; e^{0.12t}\cdot 0.12$$
+:::
+::::
+
+[Why `ln(q+1)` looked free: the inside is `q + 1`, whose derivative is 1, so the multiplication does nothing and you never saw it. Change the inside to `3q` and it shows up.]{.red}
+
+## The chain rule is the reason a few things work
+
+| you will meet it in | as |
+|---|---|
+| the midterm | `R(q) = 20 ln(q + 1)`, differentiated to find the optimum |
+| week 4 | continuous compounding: `e^(it)` differentiates to `i·e^(it)` |
+| week 5 | duration: the bond price is `(1+y)^(−t)`, and the `−t` comes down |
+| week 3, backwards | `∫ f'/f = ln\|f\|` is this rule read in reverse |
+
+::: {.callout-tip title="Board sentence"}
+Outside first, inside untouched, then multiply by the inside's derivative. If the inside is just `q`, the multiplication is by 1 and you never notice.
+:::
 
 ## Read it off the curve
 
