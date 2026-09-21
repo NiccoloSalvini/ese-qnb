@@ -1,5 +1,341 @@
 [
   {
+    "objectID": "lectures/05-bonds-and-risk.html#where-we-are-the-last-of-my-five",
+    "href": "lectures/05-bonds-and-risk.html#where-we-are-the-last-of-my-five",
+    "title": "What a rate rise costs you",
+    "section": "Where we are — the last of my five",
+    "text": "Where we are — the last of my five\n\n\n\n\n\nWk\nDate\nWhat you can do by hand\n\n\n\n\n1–2\n24 Sep – 1 Oct\nalgebra, limits, the derivative ✓\n\n\n3\n8 Oct\nstudy, optimise, integrate ✓\n\n\n4\n15 Oct\ninterest, discounting, NPV ✓\n\n\n5\n22 Oct\nbonds, duration, convexity\n\n\n\n\nToday closes the loop.\nA bond is an annuity plus a lump sum — last week’s arithmetic, nothing new. Duration is a derivative — week 2’s. Convexity is a second derivative — week 3’s.\nThen: a mock of the final’s calculus question, in exam conditions.\n\nThe midterm is due Sunday 1 November on Turnitin. Reading week has one optional office hour: bring a draft."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#todays-question",
+    "href": "lectures/05-bonds-and-risk.html#todays-question",
+    "title": "What a rate rise costs you",
+    "section": "Today’s question",
+    "text": "Today’s question\n\n\n\n\n\n\n\nArno Bikes, a reserve\n\n\nThe firm keeps €1M in bonds as a cash reserve. The Board has read that rates may rise by a point and asks: should we be worried?\n\n\n\n\nBy the end of the session you will answer that with two numbers and a sentence."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#block-a-pricing-a-bond-nothing-new",
+    "href": "lectures/05-bonds-and-risk.html#block-a-pricing-a-bond-nothing-new",
+    "title": "What a rate rise costs you",
+    "section": "Block A Pricing a bond — nothing new",
+    "text": "Block A Pricing a bond — nothing new"
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#a-bond-is-a-promise-with-dates-on-it",
+    "href": "lectures/05-bonds-and-risk.html#a-bond-is-a-promise-with-dates-on-it",
+    "title": "What a rate rise costs you",
+    "section": "A bond is a promise with dates on it",
+    "text": "A bond is a promise with dates on it\nP = \\sum_{t=1}^{n} \\frac{c \\cdot F}{(1+y)^{t}} \\;+\\; \\frac{F}{(1+y)^{n}}\nAn annuity of coupons, plus the face value at the end. You priced both last week.\n\nA 5-year bond, 4% coupon, face €100, yield 6%:\nP = 4 \\times 4.212364 + 74.73 = 16.85 + 74.73 = €91.58\n\n\n\n\n\n\n\nBet before we compute\n\n\nWhy is it below 100? Answer in one sentence, without arithmetic."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#the-rule-that-follows-from-the-formula",
+    "href": "lectures/05-bonds-and-risk.html#the-rule-that-follows-from-the-formula",
+    "title": "What a rate rise costs you",
+    "section": "The rule that follows from the formula",
+    "text": "The rule that follows from the formula\n\n\n\ncoupon &gt; yield\npremium — price above face\n\n\ncoupon = yield\npar — price equals face\n\n\ncoupon &lt; yield\ndiscount — price below face\n\n\n\nThe bond pays 4% on its face; the market wants 6%. The only way to deliver 6% is to sell it for less than 100.\nPrice and yield move in opposite directions. Always, for every bond, with no exceptions."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#d1-d2-d3-price-it-three-ways",
+    "href": "lectures/05-bonds-and-risk.html#d1-d2-d3-price-it-three-ways",
+    "title": "What a rate rise costs you",
+    "section": "D1, D2, D3 — price it three ways",
+    "text": "D1, D2, D3 — price it three ways\nPAPER · drills.md\n12 minutes. Show the annuity part and the redemption part separately. D3 is in the resit’s exact format."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#block-b-duration-the-slope-of-that-curve",
+    "href": "lectures/05-bonds-and-risk.html#block-b-duration-the-slope-of-that-curve",
+    "title": "What a rate rise costs you",
+    "section": "Block B Duration — the slope of that curve",
+    "text": "Block B Duration — the slope of that curve"
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#the-picture-the-board-needs",
+    "href": "lectures/05-bonds-and-risk.html#the-picture-the-board-needs",
+    "title": "What a rate rise costs you",
+    "section": "The picture the Board needs",
+    "text": "The picture the Board needs\n\nPrice against yield is a curve, not a line. Duration is the straight line that touches it where you are standing now."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#duration-is-a-derivative",
+    "href": "lectures/05-bonds-and-risk.html#duration-is-a-derivative",
+    "title": "What a rate rise costs you",
+    "section": "Duration is a derivative",
+    "text": "Duration is a derivative\n\n\n\ndP/dy = −772, and written as a percentage, D_mod = 7.72."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#two-durations-and-the-difference-matters",
+    "href": "lectures/05-bonds-and-risk.html#two-durations-and-the-difference-matters",
+    "title": "What a rate rise costs you",
+    "section": "Two durations, and the difference matters",
+    "text": "Two durations, and the difference matters\n\n\nMacaulay — the average time to being repaid, weighted by present value: D = \\sum_{t} t \\cdot \\frac{PV(CF_t)}{P} Measured in years.\n\nModified — the same thing turned into a sensitivity: D_{\\text{mod}} = \\frac{D}{1+y} = -\\frac{1}{P}\\frac{dP}{dy} Measured in % per 1% of yield.\n\n\n\\frac{\\Delta P}{P} \\;\\approx\\; -D_{\\text{mod}} \\times \\Delta y\nA 10-year 5% bond at par has D_mod = 7.72: a one-point rise in yields costs about 7.7% of its value."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#three-rules-worth-memorising",
+    "href": "lectures/05-bonds-and-risk.html#three-rules-worth-memorising",
+    "title": "What a rate rise costs you",
+    "section": "Three rules worth memorising",
+    "text": "Three rules worth memorising\n\n\n\nother things equal\nduration\n\n\n\n\nlonger maturity\nrises — money comes back later\n\n\nhigher coupon\nfalls — more comes back sooner\n\n\nhigher yield\nfalls — distant coupons discounted harder\n\n\n\nA zero-coupon bond’s Macaulay duration is exactly its maturity: there is nothing to pull the average forward.\n\n\n\n\n\n\n\nBoard sentence\n\n\nDuration is how many percent you lose for each percent rates rise. It is one number, and it is the first one a Board asks for."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#d5-d6-compute-it-then-use-it",
+    "href": "lectures/05-bonds-and-risk.html#d5-d6-compute-it-then-use-it",
+    "title": "What a rate rise costs you",
+    "section": "D5, D6 — compute it, then use it",
+    "text": "D5, D6 — compute it, then use it\nPAPER · drills.md\n15 minutes. The weights column must sum to 1. If it does not, stop before computing the duration."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#block-c-convexity-the-gap-the-line-misses",
+    "href": "lectures/05-bonds-and-risk.html#block-c-convexity-the-gap-the-line-misses",
+    "title": "What a rate rise costs you",
+    "section": "Block C Convexity — the gap the line misses",
+    "text": "Block C Convexity — the gap the line misses"
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#duration-says-92.28.-the-truth-is-92.64.",
+    "href": "lectures/05-bonds-and-risk.html#duration-says-92.28.-the-truth-is-92.64.",
+    "title": "What a rate rise costs you",
+    "section": "Duration says €92.28. The truth is €92.64.",
+    "text": "Duration says €92.28. The truth is €92.64.\n\n\n\n\n\n\n\nBet before we compute\n\n\nThe straight-line estimate is wrong. Is it wrong in the holder’s favour, or against?\n\n\n\n\n\nThe curve lies above the tangent on both sides. So duration alone overstates the loss when yields rise, and understates the gain when they fall."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#watch-the-gap-open",
+    "href": "lectures/05-bonds-and-risk.html#watch-the-gap-open",
+    "title": "What a rate rise costs you",
+    "section": "Watch the gap open",
+    "text": "Watch the gap open\n\n\n\nSmall move, small gap. Large move, large gap — and always the same way."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#the-second-term",
+    "href": "lectures/05-bonds-and-risk.html#the-second-term",
+    "title": "What a rate rise costs you",
+    "section": "The second term",
+    "text": "The second term\n\\frac{\\Delta P}{P} \\;\\approx\\; -D_{\\text{mod}}\\,\\Delta y \\;+\\; \\tfrac{1}{2}\\,C\\,(\\Delta y)^{2}\n\n\n\nestimate\nprice at 6%\n\n\n\n\nduration only\n€92.28\n\n\nduration + convexity\n€92.66\n\n\nthe truth\n€92.64\n\n\n\nTwo cents out instead of thirty-six. The half and the square are both easy to drop, and both change the answer."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#what-it-is-worth-in-one-slide",
+    "href": "lectures/05-bonds-and-risk.html#what-it-is-worth-in-one-slide",
+    "title": "What a rate rise costs you",
+    "section": "What it is worth, in one slide",
+    "text": "What it is worth, in one slide"
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#between-two-bonds-of-the-same-duration-the-more-convex-one-is-worth-more.",
+    "href": "lectures/05-bonds-and-risk.html#between-two-bonds-of-the-same-duration-the-more-convex-one-is-worth-more.",
+    "title": "What a rate rise costs you",
+    "section": "Between two bonds of the same duration, the more convex one is worth more.",
+    "text": "Between two bonds of the same duration, the more convex one is worth more.\nMore upside, less downside, for the same first-order risk. You usually pay for it."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#d8-d11-the-reserve-decided",
+    "href": "lectures/05-bonds-and-risk.html#d8-d11-the-reserve-decided",
+    "title": "What a rate rise costs you",
+    "section": "D8, D11 — the reserve, decided",
+    "text": "D8, D11 — the reserve, decided\nPAPER · drills.md\n15 minutes. D11 answers the Board’s question: a portfolio duration, a euro figure, and a sentence."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#the-answer-to-this-mornings-question",
+    "href": "lectures/05-bonds-and-risk.html#the-answer-to-this-mornings-question",
+    "title": "What a rate rise costs you",
+    "section": "The answer to this morning’s question",
+    "text": "The answer to this morning’s question\n€400k at D_mod = 7.72, €600k at D_mod = 1.90:\nD_{\\text{portfolio}} = 0.4(7.72) + 0.6(1.90) = 4.23 \\Delta V \\approx -4.23 \\times 1\\% \\times €1{,}000{,}000 = -€42{,}280\n\n“A one-point rise costs the reserve about €42,000, a little over 4%. The exposure sits almost entirely in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this.”"
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#block-d-mock-exam-the-finals-calculus-question",
+    "href": "lectures/05-bonds-and-risk.html#block-d-mock-exam-the-finals-calculus-question",
+    "title": "What a rate rise costs you",
+    "section": "Block D Mock exam — the final’s calculus question",
+    "text": "Block D Mock exam — the final’s calculus question"
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#forty-minutes-exam-conditions",
+    "href": "lectures/05-bonds-and-risk.html#forty-minutes-exam-conditions",
+    "title": "What a rate rise costs you",
+    "section": "Forty minutes, exam conditions",
+    "text": "Forty minutes, exam conditions\nPAPER · mock_exam.md · no notes, calculator only\nFive items, twenty per cent each, in the form of the real thing:\n\nan indefinite integral of a fraction, split term by term\na function recovered from its derivative with an initial condition\na one-sided limit that factors\na limit at infinity\na definite integral producing a log\n\nThen we mark it together, and you keep it."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#close-handing-over",
+    "href": "lectures/05-bonds-and-risk.html#close-handing-over",
+    "title": "What a rate rise costs you",
+    "section": "Close Handing over",
+    "text": "Close Handing over"
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#take-home",
+    "href": "lectures/05-bonds-and-risk.html#take-home",
+    "title": "What a rate rise costs you",
+    "section": "Take home",
+    "text": "Take home\n\nA bond is an annuity plus a lump sum. Price and yield move in opposite directions.\nDuration is the slope: how many percent you lose per percent of yield.\nLonger maturity raises it; a bigger coupon lowers it.\nConvexity is the curvature the slope misses, and it is always in the holder’s favour."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#what-happens-next",
+    "href": "lectures/05-bonds-and-risk.html#what-happens-next",
+    "title": "What a rate rise costs you",
+    "section": "What happens next",
+    "text": "What happens next\n\n\n\n\n\n\n\nHomework 5\ndue Wednesday 28 October, 23:59 — lighter, on purpose\n\n\nReading week\n26–30 October, no class; one optional online office hour\n\n\nMidterm\ndue Sunday 1 November, 23:59, Turnitin\n\n\nPresentations\nweek of 2 November\n\n\nWeeks 6–10\nVincenzo Nardelli, online: probability, distributions, statistics\n\n\n\nI mark the midterm and stay your reference for it. Everything from weeks 1–3 is what it is built on; everything from weeks 4–5 is the resit’s financial-mathematics block and the exam items around it.\nBring a draft to the office hour. A blank page is a harder conversation than a wrong one.\n\n\n\nResearch & Quantitative Business Methods · ESE Florence"
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#where-we-are",
+    "href": "lectures/03-study-and-accumulate.html#where-we-are",
+    "title": "Studying a function, and adding one up",
+    "section": "Where we are",
+    "text": "Where we are\n\n\n\n\n\nWk\nDate\nWhat you can do by hand\n\n\n\n\n1\n24 Sep\nequations, quadratics, logs ✓\n\n\n2\n1 Oct\nfunctions, limits, the derivative ✓\n\n\n3\n8 Oct\nstudy a function; optimise; integrate\n\n\n4\n15 Oct\ninterest, discounting, NPV\n\n\n5\n22 Oct\nbonds, duration, convexity\n\n\n\n\nToday is the midterm.\nNot a rehearsal of part of it: the whole mathematical content of the midterm is the seven-step study you will do this morning, applied to a cost, a revenue and a profit function.\nThe last block, integration, is the remaining two items of the final’s calculus question.\n\nThere is a quiz in this session. It is short, it is not secret, and it covers weeks 1–3."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#the-seven-steps-in-order",
+    "href": "lectures/03-study-and-accumulate.html#the-seven-steps-in-order",
+    "title": "Studying a function, and adding one up",
+    "section": "The seven steps, in order",
+    "text": "The seven steps, in order\n\n\n\n1\ndomain — where does this mean anything?\n\n\n2\nzeros — where does it cross?\n\n\n3\nsign — where is it positive, where negative?\n\n\n4\nstationary points — where is f'(q) = 0?\n\n\n5\nnature — maximum or minimum, from the sign of f''\n\n\n6\nshape — concave or convex, any inflection\n\n\n7\nsketch — last, not first\n\n\n\nDo them in this order every time. The sketch is the result of the study, not a substitute for it."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#seven-steps-watched-once",
+    "href": "lectures/03-study-and-accumulate.html#seven-steps-watched-once",
+    "title": "Studying a function, and adding one up",
+    "section": "Seven steps, watched once",
+    "text": "Seven steps, watched once\n\n\n\nThe same profit function you already know, taken apart in the exam’s order."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#block-a-the-study-done-properly",
+    "href": "lectures/03-study-and-accumulate.html#block-a-the-study-done-properly",
+    "title": "Studying a function, and adding one up",
+    "section": "Block A The study, done properly",
+    "text": "Block A The study, done properly"
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#step-by-step-on-a-function-you-know",
+    "href": "lectures/03-study-and-accumulate.html#step-by-step-on-a-function-you-know",
+    "title": "Studying a function, and adding one up",
+    "section": "Step by step on a function you know",
+    "text": "Step by step on a function you know\n\\pi(q) = -4q^{2} + 1200q - 60{,}000\n\n\n\nDomain [0, +∞) for a quantity.\nZeros q² − 300q + 15,000 = 0 → 63.4, 236.6.\nSign positive between the roots.\nStationary π'(q) = −8q + 1200 = 0 → q = 150.\n\n\n\nNature π''(q) = −8 &lt; 0 → a maximum, π(150) = 30,000.\nShape concave everywhere: no inflection.\nSketch with all four key points labelled.\n\n\n\n\n\n\n\n\n\nBoard sentence\n\n\nf' finds the candidates; f'' says which kind each one is. Writing “maximum” without the second derivative earns nothing."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#the-second-derivative-in-one-line",
+    "href": "lectures/03-study-and-accumulate.html#the-second-derivative-in-one-line",
+    "title": "Studying a function, and adding one up",
+    "section": "The second derivative, in one line",
+    "text": "The second derivative, in one line\nf'' &gt; 0 \\;\\Rightarrow\\; \\text{convex, holds water, a minimum} f'' &lt; 0 \\;\\Rightarrow\\; \\text{concave, spills water, a maximum}\nAn inflection is where f'' changes sign: the curve stops bending one way and starts bending the other. In business that is where growth stops accelerating and begins to slow — the moment worth naming in a report."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#d1-the-full-study-in-exam-format",
+    "href": "lectures/03-study-and-accumulate.html#d1-the-full-study-in-exam-format",
+    "title": "Studying a function, and adding one up",
+    "section": "D1 — the full study, in exam format",
+    "text": "D1 — the full study, in exam format\nPAPER · drills.md\n15 minutes. This is the midterm’s Q2 with different numbers. Write all seven steps, labelled."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#block-b-optimisation-and-what-it-is-for",
+    "href": "lectures/03-study-and-accumulate.html#block-b-optimisation-and-what-it-is-for",
+    "title": "Studying a function, and adding one up",
+    "section": "Block B Optimisation, and what it is for",
+    "text": "Block B Optimisation, and what it is for"
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#where-average-cost-is-lowest",
+    "href": "lectures/03-study-and-accumulate.html#where-average-cost-is-lowest",
+    "title": "Studying a function, and adding one up",
+    "section": "Where average cost is lowest",
+    "text": "Where average cost is lowest\n\n\n\n\n\n\n\n\nBet before we compute\n\n\nMarginal cost crosses average cost. Is the crossing to the left of the minimum, at it, or to the right?"
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#it-is-at-the-minimum-and-that-is-not-a-coincidence",
+    "href": "lectures/03-study-and-accumulate.html#it-is-at-the-minimum-and-that-is-not-a-coincidence",
+    "title": "Studying a function, and adding one up",
+    "section": "It is at the minimum, and that is not a coincidence",
+    "text": "It is at the minimum, and that is not a coincidence\nC(q) = 0.4q² + 3q + 25, so AC(q) = 0.4q + 3 + 25/q.\nAC'(q) = 0.4 - \\frac{25}{q^{2}} = 0 \\;\\Rightarrow\\; q^{2} = 62.5 \\;\\Rightarrow\\; q \\approx 7.91\n\nThere AC = 9.32 and C'(7.91) = 9.32. Equal.\nWhile the next unit costs less than the average, it pulls the average down. When it costs more, it pushes it up. The average stops falling exactly when the two meet."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#the-rule-that-runs-every-firm",
+    "href": "lectures/03-study-and-accumulate.html#the-rule-that-runs-every-firm",
+    "title": "Studying a function, and adding one up",
+    "section": "The rule that runs every firm",
+    "text": "The rule that runs every firm\n\\pi'(q) = 0 \\quad\\Longleftrightarrow\\quad R'(q) = C'(q)\nProduce up to the point where the revenue from one more unit equals what that unit costs.\n\nFor R(q) = 30 ln(q+1) and C(q) = 0.4q² + 3q + 25:\n\\frac{30}{q+1} = 0.8q + 3 \\;\\Rightarrow\\; 4q^{2} + 19q - 135 = 0 \\;\\Rightarrow\\; q \\approx 3.90"
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#push-the-log-revenue",
+    "href": "lectures/03-study-and-accumulate.html#push-the-log-revenue",
+    "title": "Studying a function, and adding one up",
+    "section": "Push the log revenue",
+    "text": "Push the log revenue\nLAB · session.ipynb § B\n\nBet: raise the coefficient on the log revenue from 30 to 40. Does the optimum move a lot, or a little?\nThen raise the fixed cost from 25 to 60. Does the optimum move at all?\n\nThe second one has a lesson in it. Watch what changes and what does not."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#d4-d5-optimise-and-read-the-condition",
+    "href": "lectures/03-study-and-accumulate.html#d4-d5-optimise-and-read-the-condition",
+    "title": "Studying a function, and adding one up",
+    "section": "D4, D5 — optimise, and read the condition",
+    "text": "D4, D5 — optimise, and read the condition\nPAPER · drills.md\n12 minutes. In D5 say what the firm should do, in a sentence, before you compute anything."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#block-c-integration-adding-up-the-marginal",
+    "href": "lectures/03-study-and-accumulate.html#block-c-integration-adding-up-the-marginal",
+    "title": "Studying a function, and adding one up",
+    "section": "Block C Integration — adding up the marginal",
+    "text": "Block C Integration — adding up the marginal"
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#marginal-cost-is-per-bike.-total-cost-is-for-all-of-them.",
+    "href": "lectures/03-study-and-accumulate.html#marginal-cost-is-per-bike.-total-cost-is-for-all-of-them.",
+    "title": "Studying a function, and adding one up",
+    "section": "Marginal cost is per bike. Total cost is for all of them.",
+    "text": "Marginal cost is per bike. Total cost is for all of them.\nIf the tenth bike costs €11 and the eleventh €11.80, what do the first twenty cost together?\n\n\n\n\n\n\n\nBet before we compute\n\n\nGuess the total variable cost of the first twenty bikes when MC(q) = 0.8q + 3.\n\n\n\n\nAdd up the cost of each one. Thin the slices until the answer stops moving."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#thinner-slices-truer-area",
+    "href": "lectures/03-study-and-accumulate.html#thinner-slices-truer-area",
+    "title": "Studying a function, and adding one up",
+    "section": "Thinner slices, truer area",
+    "text": "Thinner slices, truer area\n\n\n\n180, then 200, then 212, then 217 — climbing to 220."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#two-facts-and-you-can-do-every-exam-integral",
+    "href": "lectures/03-study-and-accumulate.html#two-facts-and-you-can-do-every-exam-integral",
+    "title": "Studying a function, and adding one up",
+    "section": "Two facts, and you can do every exam integral",
+    "text": "Two facts, and you can do every exam integral\n\n\n\\int q^{n}\\,dq = \\frac{q^{n+1}}{n+1} + c \\quad (n \\neq -1) \\int \\frac{1}{q}\\,dq = \\ln|q| + c\n\nThe exam’s integral always arrives as a fraction. Divide term by term first:\n\\frac{q^{5} - 3q^{3} + 2}{q^{2}} = q^{3} - 3q + 2q^{-2}\nNow every term is a power or a log."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#the-definite-integral-and-what-it-measures",
+    "href": "lectures/03-study-and-accumulate.html#the-definite-integral-and-what-it-measures",
+    "title": "Studying a function, and adding one up",
+    "section": "The definite integral, and what it measures",
+    "text": "The definite integral, and what it measures\n\\int_{0}^{20} (0.8q + 3)\\,dq = \\Big[0.4q^{2} + 3q\\Big]_{0}^{20} = 220\n\nAnd the one worth remembering:\n\\int_{100}^{150} \\pi'(q)\\,dq = \\pi(150) - \\pi(100) = €10{,}000\nThe integral of the marginal is the change in the total. That sentence is the whole of integration.\n\n\n\n\n\n\n\nBoard sentence\n\n\nDifferentiate to ask what one more does. Integrate to ask what all of them did."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#d7-d8-d9-the-exams-integrals",
+    "href": "lectures/03-study-and-accumulate.html#d7-d8-d9-the-exams-integrals",
+    "title": "Studying a function, and adding one up",
+    "section": "D7, D8, D9 — the exam’s integrals",
+    "text": "D7, D8, D9 — the exam’s integrals\nPAPER · drills.md\n15 minutes. D7 and D8 are two of the five items of the final’s calculus question, verbatim in form."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#quiz",
+    "href": "lectures/03-study-and-accumulate.html#quiz",
+    "title": "Studying a function, and adding one up",
+    "section": "Quiz",
+    "text": "Quiz\n20 minutes · weeks 1–3 · not secret, not a trap\nFive short items: one domain, one limit, one derivative with its managerial reading, one stationary point with its nature, one integral.\nMarked and returned next week. It counts for nothing and tells us both a great deal."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#close-board-pitch-and-take-home",
+    "href": "lectures/03-study-and-accumulate.html#close-board-pitch-and-take-home",
+    "title": "Studying a function, and adding one up",
+    "section": "Close Board pitch and take home",
+    "text": "Close Board pitch and take home"
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#sixty-seconds-to-the-board",
+    "href": "lectures/03-study-and-accumulate.html#sixty-seconds-to-the-board",
+    "title": "Studying a function, and adding one up",
+    "section": "Sixty seconds to the Board",
+    "text": "Sixty seconds to the Board\nTake the firm with R(q) = 30 ln(q+1) and C(q) = 0.4q² + 3q + 25.\nTell the Board, with numbers and no formulas:\n\nhow much it should produce;\nhow much it makes there;\nand how much room for error that leaves.\n\nThat last question is the one the midterm actually rewards."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#take-home",
+    "href": "lectures/03-study-and-accumulate.html#take-home",
+    "title": "Studying a function, and adding one up",
+    "section": "Take home",
+    "text": "Take home\n\nSeven steps, in order. f' finds the point, f'' names it.\nMarginal equals average at the bottom of the average.\nProduce until marginal revenue equals marginal cost.\nDivide term by term before integrating; the integral of the marginal is the change in the total.\n\nHomework 3 (homework.md), due Wednesday 14 October 23:59: seven drills plus a 400–500 word Board report — a dry run of the midterm, with a hand-drawn sketch.\nWrite your own three take-home lines now, before you leave.\n\n\n\nResearch & Quantitative Business Methods · ESE Florence"
+  },
+  {
     "objectID": "lectures/01-revision.html#where-the-first-five-weeks-go",
     "href": "lectures/01-revision.html#where-the-first-five-weeks-go",
     "title": "Revision of mathematics, told as business decisions",
@@ -214,7 +550,350 @@
     "href": "index.html",
     "title": "Research & Quantitative Business Methods",
     "section": "",
-    "text": "MBA03 · ESE MBA · Term 1, A.Y. 2026–2027 European School of Economics, Florence · in person · 30 contact hours over the term Weeks 1–5 Niccolò Salvini, in person · weeks 6–10 Vincenzo Nardelli, online · module leader Arianna Ziliotto\n\n\n\nWhenThursdays 10:00–13:00 · 24 Sep – 22 Oct\n\n\nWhereESE Florence · Borgo Santi Apostoli 19 (weeks 1–5) · online from week 6\n\n\nAssessmentMidterm 25% · Final exam 75%\n\n\nBringPaper, pen, non-programmable calculator\n\n\nEverything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework due the following Wednesday. Materials are published by Friday.\n\nSessions Thursdays 10:00–13:00 · half slides, half laboratory · exam-format drills on paper\n\n\n\n\n\n\n\n\n\n\n\n\n#\nDate\nTheme\nMaterials\nHomework\n\n\n\n\n1\nThu 24 Sep\nRevision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic\nslides · pdf · notebook · Colab ↗ · drills · clips: parabola, growth\nHW1 · due Wed 30 Sep\n\n\n2\nThu 1 Oct\nMidterm guidelines briefing · functions and the Cartesian plane, limits, differentiation, integration\n—\n—\n\n\n3\nThu 8 Oct\nCalculus continued — full study of a function, optimisation, integration · in-class quiz\n—\n—\n\n\n4\nThu 15 Oct\nFinancial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV\n—\n—\n\n\n5\nThu 22 Oct\nFinancial mathematics II — bond pricing, duration and convexity · consolidation · mock of final Q5\n—\n—\n\n\n—\n26–30 Oct\nReading week — no class · midterm paper due Sun 1 Nov, 23:59 on Turnitin\n—\n—\n\n\n6–10\nfrom w/c 2 Nov\nMidterm oral presentations in week 6 (day set by the module leader) · second half of the module with Vincenzo Nardelli, online\n—\n—\n\n\n\n\n\n\n\n\n\n\nSlides are the spine of each session: an HTML deck with the clips embedded (arrow keys to move, F for full screen), plus a PDF for printing. Notebook is what you see on the projector: open it in Colab if you want to move the sliders yourself, nothing to install. Drills are the paper exercises we do in class, in exam format, with worked solutions at the bottom. Clips are the short animations shown in class.\n\n\n\n\nHow the five weeks work the contract, stated once\n\n\nEvery technique serves an exam item. Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.\nDecision → picture → technique → decision. Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.\nHalf slides, half laboratory. About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.\nWeekly rhythm. Thursday lesson. Drill solutions and homework online by Friday. Homework due Wednesday 23:59 on Moodle, as a photo or PDF of your paper. The first fifteen minutes of the next session are the walkthrough: one student explains one drill at the board.\nHomework is formative. It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.\nRunning case: Arno Bikes, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand p = 1600 − 4q. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.\n\n\nAssessment module scheme, set by ESE\n\n\nMidterm assignment — 25%. A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due Sunday 1 November, 23:59 on Turnitin; orals in the week of 2 November, on the day set by the module leader. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.\nFinal examination — 75%. Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. Weeks 1–5 train you for the pure calculus question (limits, derivatives, integrals of rational functions with log terms) and the financial-mathematics items.\nReassessment. Re-sit examination, 100%, capped at 40% by ESE regulation.\n\n\nReadings\n\n\nRenshaw, G. (2021). Maths for Economics, 5th ed. Oxford University Press. Weeks 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–5: ch. 10, 11, 12, 13.\nKleppner, D., Dourmashkin, P. and Ramsey, N. (2022). Quick Calculus, 3rd ed. Jossey-Bass. Ch. 1–3, weeks 2–3.\nPaul’s Online Notes, Calculus I. Free, with worked problems.\nFrancis, A. and Mousley, B. (2014). Business Mathematics and Statistics, 7th ed. Cengage. Optional.\n\n\nTutors\n\n\n\n Niccolò SalviniWeeks 1–5 · in person, Florence\n\n\n Vincenzo NardelliWeeks 6–10 · online"
+    "text": "MBA03 · ESE MBA · Term 1, A.Y. 2026–2027 European School of Economics, Florence · in person · 30 contact hours over the term Weeks 1–5 Niccolò Salvini, in person · weeks 6–10 Vincenzo Nardelli, online · module leader Arianna Ziliotto\n\n\n\nWhenThursdays 10:00–13:00 · 24 Sep – 22 Oct\n\n\nWhereESE Florence · Borgo Santi Apostoli 19 (weeks 1–5) · online from week 6\n\n\nAssessmentMidterm 25% · Final exam 75%\n\n\nRunning caseArno Bikes, e-bike assembler in Florence\n\n\nEverything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework due the following Wednesday. Materials are published by Friday.\n\nSessions Thursdays 10:00–13:00 · half slides, half laboratory · exam-format drills on paper\n\n\n\n\n\n\n\n\n\n\n\n\n#\nDate\nTheme\nMaterials\nHomework\n\n\n\n\n1\nThu 24 Sep\nRevision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic\nslides · pdf · notebook · Colab ↗ · drills · clips: parabola, growth\nHW1 · due Wed 30 Sep\n\n\n2\nThu 1 Oct\nMidterm guidelines briefing · functions and the Cartesian plane, limits, differentiation, integration\nslides · notebook · Colab ↗ · drills · clips: secant→tangent, tangent\nHW2 · due Wed 7 Oct\n\n\n3\nThu 8 Oct\nCalculus continued — full study of a function, optimisation, integration · in-class quiz\nslides · notebook · Colab ↗ · drills · clips: seven steps, Riemann\nHW3 · due Wed 14 Oct\n\n\n4\nThu 15 Oct\nFinancial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV\nslides · notebook · Colab ↗ · drills · clips: compounding, NPV/IRR\nHW4 · due Wed 21 Oct\n\n\n5\nThu 22 Oct\nFinancial mathematics II — bond pricing, duration and convexity · consolidation · mock of final Q5\nslides · notebook · Colab ↗ · drills · clips: duration, convexity\nHW5 · due Wed 28 Oct\n\n\n—\n26–30 Oct\nReading week — no class · midterm paper due Sun 1 Nov, 23:59 on Turnitin\n—\n—\n\n\n6–10\nfrom w/c 2 Nov\nMidterm oral presentations in week 6 (day set by the module leader) · second half of the module with Vincenzo Nardelli, online\n—\n—\n\n\n\n\n\n\n\n\n\n\nSlides are the spine of each session: an HTML deck with the clips embedded (arrow keys to move, F for full screen), plus a PDF for printing. Notebook is what you see on the projector: open it in Colab if you want to move the sliders yourself, nothing to install. Drills are the paper exercises we do in class, in exam format, with worked solutions at the bottom. Clips are the short animations shown in class.\n\n\n\n\nHow the five weeks work the contract, stated once\n\n\nEvery technique serves an exam item. Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.\nDecision → picture → technique → decision. Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.\nHalf slides, half laboratory. About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.\nWeekly rhythm. Thursday lesson. Drill solutions and homework online by Friday. Homework due Wednesday 23:59 on Moodle, as a photo or PDF of your paper. The first fifteen minutes of the next session are the walkthrough: one student explains one drill at the board.\nHomework is formative. It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.\nRunning case: Arno Bikes, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand p = 1600 − 4q. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.\n\n\nAssessment module scheme, set by ESE\n\n\nMidterm assignment — 25%. A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due Sunday 1 November, 23:59 on Turnitin; orals in the week of 2 November, on the day set by the module leader. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.\nFinal examination — 75%. Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. Weeks 1–5 train you for the pure calculus question (limits, derivatives, integrals of rational functions with log terms) and the financial-mathematics items.\nReassessment. Re-sit examination, 100%, capped at 40% by ESE regulation.\n\n\nReadings\n\n\nRenshaw, G. (2021). Maths for Economics, 5th ed. Oxford University Press. Weeks 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–5: ch. 10, 11, 12, 13.\nKleppner, D., Dourmashkin, P. and Ramsey, N. (2022). Quick Calculus, 3rd ed. Jossey-Bass. Ch. 1–3, weeks 2–3.\nPaul’s Online Notes, Calculus I. Free, with worked problems.\nFrancis, A. and Mousley, B. (2014). Business Mathematics and Statistics, 7th ed. Cengage. Optional.\n\n\nTutors\n\n\n\n Niccolò SalviniWeeks 1–5 · in person, Florence\n\n\n Vincenzo NardelliWeeks 6–10 · online"
+  },
+  {
+    "objectID": "week-04/session.html",
+    "href": "week-04/session.html",
+    "title": "MBA03 · Week 4 — Money has a date on it",
+    "section": "",
+    "text": "European School of Economics · Thu 15 Oct 2026 · Tutor: Niccolò Salvini\nThe case: a new assembly line costs €2.4M today and returns €700k, €800k, €900k, €1,000k over four years. Arno Bikes borrows at 9%.\nimport subprocess, sys\ntry:\n    import plotly\nexcept ImportError:\n    subprocess.run([sys.executable, \"-m\", \"pip\", \"install\", \"-q\", \"plotly\"])\nimport numpy as np, plotly.graph_objects as go\nfrom math import exp\nprint(\"ready\")"
+  },
+  {
+    "objectID": "week-04/session.html#a.-compounding-and-its-ceiling",
+    "href": "week-04/session.html#a.-compounding-and-its-ceiling",
+    "title": "MBA03 · Week 4 — Money has a date on it",
+    "section": "A. Compounding, and its ceiling",
+    "text": "A. Compounding, and its ceiling\n€1,000 at 12% for one year, compounded n times a year.\n\nfor label, n in [(\"once a year\", 1), (\"every 6 months\", 2), (\"every quarter\", 4),\n                 (\"every month\", 12), (\"every week\", 52), (\"every day\", 365),\n                 (\"every hour\", 8760)]:\n    print(f\"{label:&lt;16} n = {n:&gt;5}   €{1000*(1 + 0.12/n)**n:,.4f}\")\nprint(f\"{'continuously':&lt;16} n → ∞     €{1000*exp(0.12):,.4f}   ← the ceiling, and that is e\")\n\n\n🔍 CHECK\nThe gap from yearly to daily is €7.47. The gap from daily to infinitely often is three cents. Say out loud what that means for a bank’s marketing."
+  },
+  {
+    "objectID": "week-04/session.html#b.-the-effective-annual-rate-the-only-honest-comparison",
+    "href": "week-04/session.html#b.-the-effective-annual-rate-the-only-honest-comparison",
+    "title": "MBA03 · Week 4 — Money has a date on it",
+    "section": "B. The effective annual rate — the only honest comparison",
+    "text": "B. The effective annual rate — the only honest comparison\n\ndef ear(nominal, m):\n    return exp(nominal) - 1 if m is None else (1 + nominal/m)**m - 1\n\nprint(\"12% nominal:\")\nfor lab, m in [(\"semi-annually\", 2), (\"quarterly\", 4), (\"monthly\", 12), (\"continuously\", None)]:\n    print(f\"  compounded {lab:&lt;14} EAR = {ear(0.12, m):.4%}\")\n\nprint()\nprint(\"Bank A: 7.8% monthly  → EAR\", f\"{ear(0.078, 12):.4%}\")\nprint(\"Bank B: 8.0% annually → EAR\", f\"{ear(0.08, 1):.4%}\")\nprint(\"The lower headline rate is the dearer loan.\")"
+  },
+  {
+    "objectID": "week-04/session.html#c.-discounting-what-distant-money-is-worth",
+    "href": "week-04/session.html#c.-discounting-what-distant-money-is-worth",
+    "title": "MBA03 · Week 4 — Money has a date on it",
+    "section": "C. Discounting — what distant money is worth",
+    "text": "C. Discounting — what distant money is worth\n\nyears = np.arange(0, 21)\nfig = go.Figure()\nfor r, col in ((0.03, \"#CDBA80\"), (0.09, \"#363636\"), (0.16, \"#AF1F25\")):\n    fig.add_scatter(x=years, y=1/(1 + r)**years, name=f\"{r:.0%}\",\n                    line=dict(color=col, width=3))\nfig.update_layout(template=\"simple_white\", height=420, xaxis_title=\"years away\",\n                  yaxis_title=\"worth of €1 today\", legend_title=\"discount rate\")\nfig.show()\n\n\nannuity    = lambda c, r, n: c*(1 - (1 + r)**-n)/r\nperpetuity = lambda c, r: c/r\nprint(f\"€10,000 in 5 years at 7%        : €{10000/1.07**5:,.2f}\")\nprint(f\"€12,000 a year for 10 yrs at 6% : €{annuity(12000, 0.06, 10):,.2f}\")\nprint(f\"€12,000 a year for ever at 6%   : €{perpetuity(12000, 0.06):,.2f}\")\nprint(f\"  everything after year 10      : €{perpetuity(12000, 0.06) - annuity(12000, 0.06, 10):,.2f}\")"
+  },
+  {
+    "objectID": "week-04/session.html#d.-npv-and-the-rate-that-makes-it-zero",
+    "href": "week-04/session.html#d.-npv-and-the-rate-that-makes-it-zero",
+    "title": "MBA03 · Week 4 — Money has a date on it",
+    "section": "D. NPV, and the rate that makes it zero",
+    "text": "D. NPV, and the rate that makes it zero\nMove the discount rate. Watch the sign change.\n\nFLOWS = [-2400, 700, 800, 900, 1000]          # € thousand\nnpv = lambda r: sum(cf/(1 + r)**t for t, cf in enumerate(FLOWS))\n\nprint(f\"{'year':&gt;5} {'flow':&gt;8} {'factor':&gt;10} {'PV @9%':&gt;10}\")\nfor t, cf in enumerate(FLOWS):\n    print(f\"{t:&gt;5} {cf:&gt;8,} {1/1.09**t:&gt;10.6f} {cf/1.09**t:&gt;10.2f}\")\nprint(f\"{'':&gt;5} {'':&gt;8} {'NPV':&gt;10} {npv(0.09):&gt;10.2f}\")\n\n\nrates = np.linspace(0.001, 0.30, 300)\nlo, hi = 0.0, 0.5\nfor _ in range(80):\n    mid = (lo + hi)/2\n    lo, hi = (mid, hi) if npv(mid) &gt; 0 else (lo, mid)\nirr = (lo + hi)/2\n\nfig = go.Figure(go.Scatter(x=rates*100, y=[npv(r) for r in rates],\n                           line=dict(color=\"#363636\", width=3), name=\"NPV\"))\nfig.add_hline(y=0, line=dict(color=\"#7a7f85\", width=1))\nfig.add_scatter(x=[9], y=[npv(0.09)], mode=\"markers+text\", marker=dict(size=13, color=\"#1E8449\"),\n                text=[f\"our 9%: +{npv(0.09):,.0f}k\"], textposition=\"top right\", showlegend=False)\nfig.add_scatter(x=[irr*100], y=[0], mode=\"markers+text\", marker=dict(size=13, color=\"#CDBA80\"),\n                text=[f\"IRR = {irr:.2%}\"], textposition=\"bottom right\", showlegend=False)\nfig.update_layout(template=\"simple_white\", height=440, xaxis_title=\"discount rate %\",\n                  yaxis_title=\"NPV (€ thousand)\")\nfig.show()\nprint(f\"IRR = {irr:.4%}    NPV at 16% = {npv(0.16):,.2f}k\")\n\n\n🔍 CHECK\nDelay the first €700k by one year (so the flows become −2400, 0, 700, 800, 900, 1000). Before running it: does the IRR rise or fall? Then change FLOWS above and find out."
+  },
+  {
+    "objectID": "week-04/session.html#homework",
+    "href": "week-04/session.html#homework",
+    "title": "MBA03 · Week 4 — Money has a date on it",
+    "section": "Homework",
+    "text": "Homework\nhomework.md — eight drills plus a memo correcting the Board member who added the flows up. Due Wednesday 21 October, 23:59."
+  },
+  {
+    "objectID": "week-02/session.html",
+    "href": "week-02/session.html",
+    "title": "MBA03 · Week 2 — The tool that finds the top of any hill",
+    "section": "",
+    "text": "European School of Economics · Thu 1 Oct 2026 · Tutor: Niccolò Salvini\nRunning case: Arno Bikes. C(q) = 60,000 + 400q, p(q) = 1600 − 4q, so π(q) = −4q² + 1200q − 60,000.\nThis notebook is driven from the projector. Every picture here is followed by the same computation by hand on paper — that is what the exam asks for.\nimport subprocess, sys\ntry:\n    import plotly, sympy\nexcept ImportError:\n    subprocess.run([sys.executable, \"-m\", \"pip\", \"install\", \"-q\", \"plotly\", \"sympy\"])\nimport numpy as np, plotly.graph_objects as go, sympy as sp\nq = sp.Symbol(\"q\", real=True)\nprint(\"ready\")"
+  },
+  {
+    "objectID": "week-02/session.html#a.-domain-where-a-function-means-anything",
+    "href": "week-02/session.html#a.-domain-where-a-function-means-anything",
+    "title": "MBA03 · Week 2 — The tool that finds the top of any hill",
+    "section": "A. Domain — where a function means anything",
+    "text": "A. Domain — where a function means anything\nThe exam asks “state the domain” and wants an interval. Sympy agrees with you or it does not.\n\nfor expr in (sp.sqrt(q - 20), sp.log(q - 5), 120/(q - 40)):\n    print(f\"{str(expr):&lt;18} domain: {sp.calculus.util.continuous_domain(expr, q, sp.S.Reals)}\")"
+  },
+  {
+    "objectID": "week-02/session.html#b.-limits-near-a-point-you-cannot-reach",
+    "href": "week-02/session.html#b.-limits-near-a-point-you-cannot-reach",
+    "title": "MBA03 · Week 2 — The tool that finds the top of any hill",
+    "section": "B. Limits — near a point you cannot reach",
+    "text": "B. Limits — near a point you cannot reach\nAverage cost at zero output is undefined. Near zero, and far out, it is not.\n\nAC = (60000 + 400*q)/q\nprint(\"as q -&gt; 0+ :\", sp.limit(AC, q, 0, \"+\"))\nprint(\"as q -&gt; oo :\", sp.limit(AC, q, sp.oo))\nprint()\nprint(\"(q^2-100)/(q-10) as q-&gt;10 :\", sp.limit((q**2 - 100)/(q - 10), q, 10))\nprint(\"(q-1)^2/(q-q^2)  as q-&gt;1+ :\", sp.limit((q - 1)**2/(q - q**2), q, 1, \"+\"))\n\n\n🔍 CHECK\nThe second one is 0/0. Factor it by hand first, then compare. If your hand answer and sympy disagree, sympy is not the one that is wrong — but find out where you diverged before moving on."
+  },
+  {
+    "objectID": "week-02/session.html#c.-the-derivative-what-does-one-more-bike-do",
+    "href": "week-02/session.html#c.-the-derivative-what-does-one-more-bike-do",
+    "title": "MBA03 · Week 2 — The tool that finds the top of any hill",
+    "section": "C. The derivative — what does one more bike do?",
+    "text": "C. The derivative — what does one more bike do?\nMove the point along the curve and read the slope. The slope is the answer to the only question a manager asks about the next unit.\n\nprofit = lambda x: -4*x**2 + 1200*x - 60000\nprime  = lambda x: -8*x + 1200\nqs = np.linspace(0, 300, 400)\n\nframes, points = [], np.arange(20, 281, 10)\nfor q0 in points:\n    xs = np.linspace(q0 - 60, q0 + 60, 2)\n    frames.append(go.Frame(name=str(q0), data=[\n        go.Scatter(x=qs, y=profit(qs), line=dict(color=\"#363636\", width=3)),\n        go.Scatter(x=xs, y=profit(q0) + prime(q0)*(xs - q0), line=dict(color=\"#AF1F25\", width=3)),\n        go.Scatter(x=[q0], y=[profit(q0)], mode=\"markers+text\", marker=dict(size=12, color=\"#AF1F25\"),\n                   text=[f\"π'({q0}) = {prime(q0):+,.0f}\"], textposition=\"top center\"),\n    ]))\n\nfig = go.Figure(data=frames[0].data, frames=frames)\nfig.update_layout(\n    template=\"simple_white\", height=480, showlegend=False,\n    xaxis_title=\"bikes per month  q\", yaxis_title=\"profit €\",\n    xaxis_range=[0, 300], yaxis_range=[-70000, 45000],\n    sliders=[dict(active=0, currentvalue=dict(prefix=\"q = \"),\n                  steps=[dict(method=\"animate\", label=f.name,\n                              args=[[f.name], dict(mode=\"immediate\", frame=dict(duration=0, redraw=True))])\n                         for f in frames])])\nfig.show()\n\nWatch the sign, not the number. Positive: make more. Negative: make fewer. Zero: you are at the top.\n\npi = -4*q**2 + 1200*q - 60000\nprint(\"π'(q) =\", sp.diff(pi, q))\nprint(\"π'(80)  =\", sp.diff(pi, q).subs(q, 80), \" → one more bike adds about €560\")\nprint(\"π'(200) =\", sp.diff(pi, q).subs(q, 200), \" → one more bike costs about €400\")\nprint(\"π'(q) = 0 at q =\", sp.solve(sp.diff(pi, q), q))\nprint(\"week 1's vertex -b/2a =\", -1200/(2*-4))\n\n\nChange one number and watch everything move\nThe price falls €4 for each extra bike. What if it fell €3? Or €6?\n\nfor drop in (3, 4, 6):\n    p = (1600 - drop*q)*q - (60000 + 400*q)\n    qstar = sp.solve(sp.diff(p, q), q)[0]\n    print(f\"price drop €{drop}/bike → best quantity {float(qstar):6.1f}, profit €{float(p.subs(q, qstar)):&gt;10,.0f}\")"
+  },
+  {
+    "objectID": "week-02/session.html#d.-running-it-backwards",
+    "href": "week-02/session.html#d.-running-it-backwards",
+    "title": "MBA03 · Week 2 — The tool that finds the top of any hill",
+    "section": "D. Running it backwards",
+    "text": "D. Running it backwards\nGiven the derivative, recover the function. The constant is not decoration.\n\nc = sp.Symbol(\"c\")\nF = sp.integrate(6*q**2 - 2*q, q)\nk = sp.solve(sp.Eq((F + c).subs(q, 1), 4), c)[0]\nprint(\"f'(q) = 6q² − 2q, f(1) = 4  →  f(q) =\", F + k)\n\nMC = sp.Rational(8, 10)*q + 3\nprint(\"MC(q) = 0.8q + 3 with C(0) = 25  →  C(q) =\", sp.integrate(MC, q) + 25)\nprint(\"...and the constant IS the fixed cost.\")\n\n\n🔍 CHECK — the drills, verified\nEvery answer in drills.md should survive this cell. If one does not, the drill is wrong and I want to know.\n\nchecks = {\n    \"D8a  π'\": (sp.diff(-4*q**2 + 1200*q - 60000, q), -8*q + 1200),\n    \"D8c  R'\": (sp.diff(30*sp.log(q + 1), q), 30/(q + 1)),\n    \"D11  f \": (sp.integrate(6*q**2 - 2*q, q) + 3, 2*q**3 - q**2 + 3),\n    \"D12  C \": (sp.integrate(sp.Rational(8,10)*q + 3, q) + 25, sp.Rational(4,10)*q**2 + 3*q + 25),\n}\nfor name, (got, want) in checks.items():\n    print(f\"{'ok  ' if sp.simplify(got - want) == 0 else 'MISMATCH'} {name}: {got}\")"
+  },
+  {
+    "objectID": "week-02/session.html#homework",
+    "href": "week-02/session.html#homework",
+    "title": "MBA03 · Week 2 — The tool that finds the top of any hill",
+    "section": "Homework",
+    "text": "Homework\nhomework.md — eight drills on paper plus a memo to the Board: should the eighty-first bike be built? Due Wednesday 7 October, 23:59, on Moodle."
+  },
+  {
+    "objectID": "week-05/mock_exam.html",
+    "href": "week-05/mock_exam.html",
+    "title": "Week 5 — Mock of the final exam’s calculus question",
+    "section": "",
+    "text": "Forty minutes. Exam conditions: no notes, non-programmable calculator only, all work shown.\nThis is not the real paper. It is the same five item types, with different functions and numbers, in the same proportions: five items, 20% each. Marks are for method — a correct answer with no working scores badly, and a wrong answer with sound working scores well.\n\nQ1 (20%). Evaluate the indefinite integral, splitting the fraction term by term first:\n\\[\\int \\frac{2q^{5} - 5q^{3} + 3}{q^{2}}\\,dq\\]\nQ2 (20%). Find f(q) given\n\\[f'(q) = 9q^{2} - 6q + 4 \\qquad\\text{and}\\qquad f(1) = 8\\]\nQ3 (20%). Evaluate the one-sided limit, showing the factoring and commenting on the sign of each factor:\n\\[\\lim_{q \\to 3^{+}} \\frac{(q-3)^{2}}{3q - q^{2}}\\]\nQ4 (20%). Evaluate:\n\\[\\lim_{q \\to -\\infty} \\frac{4q^{3} - 5q + 2}{7q^{3} + q^{2}}\\]\nQ5 (20%). Evaluate the definite integral, leaving the answer in terms of ln:\n\\[\\int_{2}^{6} \\left(\\frac{8}{q} + 3q\\right) dq\\]\n\n\n\nSolutions — do not open before the forty minutes are up\n\nQ1. Divide term by term: (2q⁵ − 5q³ + 3)/q² = 2q³ − 5q + 3q⁻².\n\\[\\int = \\frac{q^{4}}{2} - \\frac{5q^{2}}{2} - \\frac{3}{q} + c\\]\nCommon loss of marks: integrating before splitting, and forgetting + c.\nQ2. f(q) = 3q³ − 3q² + 4q + c. Then f(1) = 3 − 3 + 4 + c = 8, so c = 4.\n\\[f(q) = 3q^{3} - 3q^{2} + 4q + 4\\]\nCommon loss of marks: leaving c unresolved when an initial condition is given.\nQ3. Factor the denominator: 3q − q² = q(3 − q) = −q(q − 3).\n\\[\\frac{(q-3)^{2}}{-q(q-3)} = -\\frac{q-3}{q}\\]\nAs q → 3⁺: (q − 3) → 0⁺ and q → 3, so the expression → −0 = 0.\n\\[\\lim_{q \\to 3^{+}} = 0\\]\nMarks are for the factoring and the sign discussion, not the zero.\nQ4. Divide numerator and denominator by q³:\n\\[\\frac{4 - 5/q^{2} + 2/q^{3}}{7 + 1/q} \\longrightarrow \\frac{4}{7}\\]\nThe sign of the infinity does not matter here: both cubes dominate and the ratio of leading coefficients survives.\nQ5.\n\\[\\int_{2}^{6}\\left(\\frac{8}{q} + 3q\\right)dq = \\Big[8\\ln q + \\tfrac{3}{2}q^{2}\\Big]_{2}^{6} = (8\\ln 6 + 54) - (8\\ln 2 + 6)\\]\n\\[= 8(\\ln 6 - \\ln 2) + 48 = 8\\ln 3 + 48 \\approx 56.79\\]\nUsing ln(6) − ln(2) = ln 3 is worth stating: the exam likes the log rules used, not just the calculator.\n\n\n\nCount the marks you lost, and sort them into two piles:\n\nmethod — you did not know what to do;\nexecution — you knew, and slipped.\n\nThe first pile is what the remaining weeks and the resit revision are for. The second is answered by writing more steps down, not by working faster."
+  },
+  {
+    "objectID": "week-05/mock_exam.html#after-you-have-marked-it",
+    "href": "week-05/mock_exam.html#after-you-have-marked-it",
+    "title": "Week 5 — Mock of the final exam’s calculus question",
+    "section": "",
+    "text": "Count the marks you lost, and sort them into two piles:\n\nmethod — you did not know what to do;\nexecution — you knew, and slipped.\n\nThe first pile is what the remaining weeks and the resit revision are for. The second is answered by writing more steps down, not by working faster."
+  },
+  {
+    "objectID": "week-04/drills.html",
+    "href": "week-04/drills.html",
+    "title": "Week 4 — Drills",
+    "section": "",
+    "text": "Exam format. Show all work. Core items are for everyone; stretch items for whoever finishes early. Solutions at the end, worked the way an examiner wants to see them.\nRunning case for weeks 4–5: Arno Bikes is considering a new assembly line. It costs €2.4M now and is expected to return €700k, €800k, €900k and €1,000k at the end of each of the next four years. The firm can borrow at 9%.\nRound money to the cent, rates to two decimals in a percentage.\n\n\nD1 (core). €8,000 is invested for 3 years at 6% a year. (a) Simple interest: the final amount. (b) Compounded annually: the final amount. (c) The difference, and one sentence on where it comes from.\nD2 (core). €5,000 for 4 years at 8% nominal, compounded quarterly. (a) The final amount. (b) The interest earned.\nD3 (core — resit form). Select the correct alternative and justify in one line. A bank quotes 6% nominal. Which is worth more to a depositor? (i) compounded annually (ii) compounded monthly (iii) they are the same\n\n\n\nD4 (core). Compute the EAR for a 12% nominal rate compounded (a) semi-annually, (b) quarterly, (c) monthly, (d) continuously.\nD5 (core). Bank A offers 7.8% compounded monthly. Bank B offers 8% compounded annually. Which do you borrow from, and why? Show the comparison you made.\nD6 (stretch). A rate is quoted as 5% nominal compounded continuously. What annual compounding rate would leave a depositor equally well off?\n\n\n\nD7 (core). What is €10,000 receivable in 5 years worth today at 7%?\nD8 (core). A supplier offers you two ways to pay for a €50,000 machine: (i) €50,000 today; (ii) €18,000 at the end of each of the next three years. Your cost of capital is 9%. Which do you choose? Show the present value of (ii).\nD9 (core — annuities and perpetuities). (a) An annuity pays €12,000 at the end of each year for 10 years. At 6%, what is it worth today? (b) A perpetuity pays €12,000 at the end of every year for ever. At 6%, what is it worth today? (c) Explain the gap between (a) and (b) in one sentence.\nD10 (stretch). A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?\n\n\n\nD11 (core — the case). For the assembly line above, at a cost of capital of 9%: (a) Write the NPV as a sum. (b) Compute each discounted flow and the NPV. (c) Accept or reject, and say the sentence you would tell the Board.\nD12 (stretch). Recompute the NPV at 16%. What does the change in sign tell you, and what is the name of the rate at which it happens?\n\n\n\nSolutions\n\nD1. (a) Simple: 8000(1 + 0.06 × 3) = 8000 × 1.18 = **€9,440.00**. (b) Compound: 8000(1.06)³ = 8000 × 1.191016 = **€9,528.13**. (c) Difference €88.13. Simple interest pays on the original €8,000 only; compounding pays interest on the interest already earned.\nD2. (a) 5000(1 + 0.08/4)^(4×4) = 5000(1.02)^16 = 5000 × 1.372786 = **€6,863.93**. (b) Interest = **€1,863.93**.\nD3. (ii) compounded monthly. More frequent compounding earns interest on interest sooner, so the effective rate is higher: (1 + 0.06/12)^12 − 1 = 6.17% &gt; 6%.\nD4. EAR = (1 + i/m)^m − 1, and e^i − 1 in the limit. (a) (1.06)² − 1 = **12.36%** (b) (1.03)⁴ − 1 = **12.55%** (c) (1.01)^12 − 1 = **12.68%** (d) e^0.12 − 1 = **12.75%** The gaps shrink: that ceiling is where e comes from.\nD5. Compare like with like, on EAR. Bank A: (1 + 0.078/12)^12 − 1 = (1.0065)^12 − 1 = 0.080850 = **8.085%**. Bank B: 8.00%. Borrow from B. A’s lower quoted rate hides more frequent compounding, and once both are put on the same basis A is the dearer of the two. The nominal rate is not the price.\nD6. e^0.05 − 1 = **5.13%**.\nD7. PV = 10,000 / (1.07)⁵ = 10,000 / 1.402552 = **€7,129.86**.\nD8. PV(ii) = 18,000 × [1 − (1.09)⁻³]/0.09 = 18,000 × 2.531295 = **€45,563.31**. 45,563.31 &lt; 50,000, so pay in instalments: it costs about €4,437 less in today’s money.\nD9. (a) PV = 12,000 × [1 − (1.06)⁻¹⁰]/0.06 = 12,000 × 7.360087 = **€88,321.04**. (b) PV = 12,000 / 0.06 = **€200,000.00**. (c) The perpetuity is worth more, but not infinitely more: the payments after year 10 are worth about €111,679 in total today, because discounting shrinks distant money towards nothing.\nD10. Growing perpetuity: PV = C₁/(r − g) = 5,000/(0.07 − 0.02) = **€100,000.00**.\nD11. (a) NPV = −2,400 + 700/(1.09) + 800/(1.09)² + 900/(1.09)³ + 1,000/(1.09)⁴ (€ thousand). (b)\n\n\n\nYear\nFlow (€k)\nFactor\nPresent value (€k)\n\n\n\n\n0\n−2,400\n1.000000\n−2,400.00\n\n\n1\n700\n0.917431\n642.20\n\n\n2\n800\n0.841680\n673.34\n\n\n3\n900\n0.772183\n694.97\n\n\n4\n1,000\n0.708425\n708.43\n\n\n\n\nNPV\n+318.94\n\n\n\n\nAccept. “At our 9% cost of capital the line adds about €319,000 of value in today’s money; the cash it returns covers the outlay by the end of year three.”\n\nD12. At 16%: −2,400 + 603.45 + 594.53 + 576.59 + 552.29 = **−€73.14k**. Negative. The NPV falls as the discount rate rises and changes sign between 9% and 16%; the rate where it is exactly zero is the internal rate of return (about 14.6% here). Above it the project destroys value."
+  },
+  {
+    "objectID": "week-04/drills.html#a.-simple-and-compound-interest",
+    "href": "week-04/drills.html#a.-simple-and-compound-interest",
+    "title": "Week 4 — Drills",
+    "section": "",
+    "text": "D1 (core). €8,000 is invested for 3 years at 6% a year. (a) Simple interest: the final amount. (b) Compounded annually: the final amount. (c) The difference, and one sentence on where it comes from.\nD2 (core). €5,000 for 4 years at 8% nominal, compounded quarterly. (a) The final amount. (b) The interest earned.\nD3 (core — resit form). Select the correct alternative and justify in one line. A bank quotes 6% nominal. Which is worth more to a depositor? (i) compounded annually (ii) compounded monthly (iii) they are the same"
+  },
+  {
+    "objectID": "week-04/drills.html#b.-effective-annual-rate",
+    "href": "week-04/drills.html#b.-effective-annual-rate",
+    "title": "Week 4 — Drills",
+    "section": "",
+    "text": "D4 (core). Compute the EAR for a 12% nominal rate compounded (a) semi-annually, (b) quarterly, (c) monthly, (d) continuously.\nD5 (core). Bank A offers 7.8% compounded monthly. Bank B offers 8% compounded annually. Which do you borrow from, and why? Show the comparison you made.\nD6 (stretch). A rate is quoted as 5% nominal compounded continuously. What annual compounding rate would leave a depositor equally well off?"
+  },
+  {
+    "objectID": "week-04/drills.html#c.-discounting-and-present-value",
+    "href": "week-04/drills.html#c.-discounting-and-present-value",
+    "title": "Week 4 — Drills",
+    "section": "",
+    "text": "D7 (core). What is €10,000 receivable in 5 years worth today at 7%?\nD8 (core). A supplier offers you two ways to pay for a €50,000 machine: (i) €50,000 today; (ii) €18,000 at the end of each of the next three years. Your cost of capital is 9%. Which do you choose? Show the present value of (ii).\nD9 (core — annuities and perpetuities). (a) An annuity pays €12,000 at the end of each year for 10 years. At 6%, what is it worth today? (b) A perpetuity pays €12,000 at the end of every year for ever. At 6%, what is it worth today? (c) Explain the gap between (a) and (b) in one sentence.\nD10 (stretch). A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?"
+  },
+  {
+    "objectID": "week-04/drills.html#d.-npv",
+    "href": "week-04/drills.html#d.-npv",
+    "title": "Week 4 — Drills",
+    "section": "",
+    "text": "D11 (core — the case). For the assembly line above, at a cost of capital of 9%: (a) Write the NPV as a sum. (b) Compute each discounted flow and the NPV. (c) Accept or reject, and say the sentence you would tell the Board.\nD12 (stretch). Recompute the NPV at 16%. What does the change in sign tell you, and what is the name of the rate at which it happens?\n\n\n\nSolutions\n\nD1. (a) Simple: 8000(1 + 0.06 × 3) = 8000 × 1.18 = **€9,440.00**. (b) Compound: 8000(1.06)³ = 8000 × 1.191016 = **€9,528.13**. (c) Difference €88.13. Simple interest pays on the original €8,000 only; compounding pays interest on the interest already earned.\nD2. (a) 5000(1 + 0.08/4)^(4×4) = 5000(1.02)^16 = 5000 × 1.372786 = **€6,863.93**. (b) Interest = **€1,863.93**.\nD3. (ii) compounded monthly. More frequent compounding earns interest on interest sooner, so the effective rate is higher: (1 + 0.06/12)^12 − 1 = 6.17% &gt; 6%.\nD4. EAR = (1 + i/m)^m − 1, and e^i − 1 in the limit. (a) (1.06)² − 1 = **12.36%** (b) (1.03)⁴ − 1 = **12.55%** (c) (1.01)^12 − 1 = **12.68%** (d) e^0.12 − 1 = **12.75%** The gaps shrink: that ceiling is where e comes from.\nD5. Compare like with like, on EAR. Bank A: (1 + 0.078/12)^12 − 1 = (1.0065)^12 − 1 = 0.080850 = **8.085%**. Bank B: 8.00%. Borrow from B. A’s lower quoted rate hides more frequent compounding, and once both are put on the same basis A is the dearer of the two. The nominal rate is not the price.\nD6. e^0.05 − 1 = **5.13%**.\nD7. PV = 10,000 / (1.07)⁵ = 10,000 / 1.402552 = **€7,129.86**.\nD8. PV(ii) = 18,000 × [1 − (1.09)⁻³]/0.09 = 18,000 × 2.531295 = **€45,563.31**. 45,563.31 &lt; 50,000, so pay in instalments: it costs about €4,437 less in today’s money.\nD9. (a) PV = 12,000 × [1 − (1.06)⁻¹⁰]/0.06 = 12,000 × 7.360087 = **€88,321.04**. (b) PV = 12,000 / 0.06 = **€200,000.00**. (c) The perpetuity is worth more, but not infinitely more: the payments after year 10 are worth about €111,679 in total today, because discounting shrinks distant money towards nothing.\nD10. Growing perpetuity: PV = C₁/(r − g) = 5,000/(0.07 − 0.02) = **€100,000.00**.\nD11. (a) NPV = −2,400 + 700/(1.09) + 800/(1.09)² + 900/(1.09)³ + 1,000/(1.09)⁴ (€ thousand). (b)\n\n\n\nYear\nFlow (€k)\nFactor\nPresent value (€k)\n\n\n\n\n0\n−2,400\n1.000000\n−2,400.00\n\n\n1\n700\n0.917431\n642.20\n\n\n2\n800\n0.841680\n673.34\n\n\n3\n900\n0.772183\n694.97\n\n\n4\n1,000\n0.708425\n708.43\n\n\n\n\nNPV\n+318.94\n\n\n\n\nAccept. “At our 9% cost of capital the line adds about €319,000 of value in today’s money; the cash it returns covers the outlay by the end of year three.”\n\nD12. At 16%: −2,400 + 603.45 + 594.53 + 576.59 + 552.29 = **−€73.14k**. Negative. The NPV falls as the discount rate rises and changes sign between 9% and 16%; the rate where it is exactly zero is the internal rate of return (about 14.6% here). Above it the project destroys value."
+  },
+  {
+    "objectID": "week-02/drills.html",
+    "href": "week-02/drills.html",
+    "title": "Week 2 — Drills",
+    "section": "",
+    "text": "Exam format. Show all work. Core items are for everyone; stretch items for whoever finishes early. Solutions at the end, worked the way an examiner wants to see them.\n\n\nD1 (core). For each function, state the domain as an interval and say what the restriction means for the firm. (a) f(q) = √(q − 20) — profit per bike above a minimum run. (b) g(q) = ln(q − 5) — a log revenue that only starts once five units are sold. (c) h(q) = 120 / (q − 40) — average fixed cost per bike above capacity 40.\nD2 (core). Arno Bikes faces demand p(q) = 1600 − 4q. (a) Write revenue R(q) and simplify. (b) Write profit π(q) using C(q) = 60,000 + 400q. (c) Evaluate π(100) and π(200). Which quantity is better, and by how much?\nD3 (stretch). A second firm has R(q) = 30 ln(q + 1) (€ thousand) and C(q) = 0.4q² + 3q + 25. (a) State the domain of R for q ≥ 0. (b) Compute π(5) and π(10) to two decimals.\n\n\n\nD4 (core). Evaluate, showing the factoring step: (a) lim (q→10) (q² − 100)/(q − 10) (b) lim (q→3) (q² − 5q + 6)/(q − 3)\nD5 (core — exam form). Evaluate the one-sided limit lim (q→1⁺) (q − 1)²/(q − q²). Hint: factor the denominator first. Note the sign of each factor as q approaches 1 from above.\nD6 (core). Evaluate the limits at infinity and say what each means for the firm: (a) lim (q→∞) (1200q − 4q²)/(q² ) (b) lim (q→∞) (60,000 + 400q)/q — average cost per bike as the run gets long.\nD7 (stretch). lim (q→−∞) (3q³ − 2q + 1)/(5q³ + q²).\n\n\n\nD8 (core). Differentiate, term by term: (a) π(q) = −4q² + 1200q − 60,000 (b) C(q) = 0.4q² + 3q + 25 (c) R(q) = 30 ln(q + 1) (d) f(q) = 5q³ − 2q² + 7q − 1\nD9 (core — the point of the week). For π(q) = −4q² + 1200q − 60,000: (a) Compute π'(80) and say, in one sentence a manager would use, what it means. (b) Compute π'(200) and do the same. (c) Solve π'(q) = 0. Compare with the vertex you found in week 1.\nD10 (stretch). Using the definition, f'(a) = lim (h→0) [f(a+h) − f(a)]/h, show that the derivative of f(q) = 3q² at q = a is 6a.\n\n\n\nD11 (core — exam form). Find f(q) given f'(q) = 6q² − 2q and f(1) = 4.\nD12 (core). Find the total cost function given marginal cost MC(q) = 0.8q + 3 and fixed cost C(0) = 25.\n\n\n\nSolutions\n\nD1. (a) Need q − 20 ≥ 0 → [20, +∞). Below 20 bikes the formula has no meaning: the firm does not operate under a 20-bike run. (b) Need q − 5 &gt; 0 (strict: ln 0 is undefined) → (5, +∞). Revenue only exists past the fifth unit. (c) Need q − 40 ≠ 0 → (−∞, 40) ∪ (40, +∞); for a quantity, [0, 40) ∪ (40, +∞). At exactly capacity the expression blows up — the model breaks there.\nD2. (a) R(q) = (1600 − 4q)q = 1600q − 4q². (b) π(q) = 1600q − 4q² − 60,000 − 400q = −4q² + 1200q − 60,000. (c) π(100) = −40,000 + 120,000 − 60,000 = €20,000. π(200) = −160,000 + 240,000 − 60,000 = €20,000. Equal. Two different quantities, the same profit — the parabola is symmetric about q = 150. Say this out loud: “more” is not the question, “where on the hill” is.\nD3. (a) q + 1 &gt; 0 → q &gt; −1, so for a quantity the whole of [0, +∞). (b) π(5) = 30 ln 6 − (0.4·25 + 15 + 25) = 53.75 − 50 = €3.75k. π(10) = 30 ln 11 − (40 + 30 + 25) = 71.93 − 95 = −€23.07k. The second firm is past its best scale at 10.\nD4. (a) (q² − 100)/(q − 10) = (q − 10)(q + 10)/(q − 10) = q + 10 → **20**. (b) (q² − 5q + 6)/(q − 3) = (q − 3)(q − 2)/(q − 3) = q − 2 → **1**.\nD5. Factor: (q − 1)² / (q(1 − q)). Now 1 − q = −(q − 1), so the expression is (q − 1)² / (−q(q − 1)) = −(q − 1)/q. As q → 1⁺, (q − 1) → 0⁺ and q → 1, so the value → −0 = **0**. The exam wants the factoring and the sign discussion written out, not just the answer.\nD6. (a) Divide numerator and denominator by q²: (1200/q − 4)/1 → **−4**. Far out, profit falls like −4q²: the quadratic term dominates and the firm is deep in loss. (b) (60,000 + 400q)/q = 60,000/q + 400 → **400**. Average cost per bike settles at the variable cost: fixed cost spreads to nothing. This is economies of scale in one line.\nD7. Divide by q³: (3 − 2/q² + 1/q³)/(5 + 1/q) → **3/5**.\nD8. (a) π'(q) = −8q + 1200 (b) C'(q) = 0.8q + 3 (c) R'(q) = 30/(q + 1) (d) f'(q) = 15q² − 4q + 7\nD9. (a) π'(80) = −640 + 1200 = **+560**. At 80 bikes a month, one more bike adds about €560 to profit. Make more. (b) π'(200) = −1600 + 1200 = **−400**. At 200 bikes, one more bike costs about €400 of profit. Make fewer. (c) −8q + 1200 = 0 → q = 150, exactly the vertex −b/2a from week 1. The formula worked because the curve was a parabola; the derivative works whatever the curve.\nD10. [3(a+h)² − 3a²]/h = [3a² + 6ah + 3h² − 3a²]/h = (6ah + 3h²)/h = 6a + 3h. As h → 0 this → 6a. Divide before letting h go: that is the whole trick.\nD11. Antiderivative term by term: f(q) = 2q³ − q² + c. Then f(1) = 2 − 1 + c = 4 → c = 3, so f(q) = 2q³ − q² + 3. Never forget the constant: the initial condition is what pins it down, and the exam always gives you one.\nD12. C(q) = 0.4q² + 3q + c, and C(0) = c = 25, so C(q) = 0.4q² + 3q + 25. The constant of integration is the fixed cost. That is not a coincidence; it is the economics."
+  },
+  {
+    "objectID": "week-02/drills.html#a.-reading-a-function",
+    "href": "week-02/drills.html#a.-reading-a-function",
+    "title": "Week 2 — Drills",
+    "section": "",
+    "text": "D1 (core). For each function, state the domain as an interval and say what the restriction means for the firm. (a) f(q) = √(q − 20) — profit per bike above a minimum run. (b) g(q) = ln(q − 5) — a log revenue that only starts once five units are sold. (c) h(q) = 120 / (q − 40) — average fixed cost per bike above capacity 40.\nD2 (core). Arno Bikes faces demand p(q) = 1600 − 4q. (a) Write revenue R(q) and simplify. (b) Write profit π(q) using C(q) = 60,000 + 400q. (c) Evaluate π(100) and π(200). Which quantity is better, and by how much?\nD3 (stretch). A second firm has R(q) = 30 ln(q + 1) (€ thousand) and C(q) = 0.4q² + 3q + 25. (a) State the domain of R for q ≥ 0. (b) Compute π(5) and π(10) to two decimals."
+  },
+  {
+    "objectID": "week-02/drills.html#b.-limits",
+    "href": "week-02/drills.html#b.-limits",
+    "title": "Week 2 — Drills",
+    "section": "",
+    "text": "D4 (core). Evaluate, showing the factoring step: (a) lim (q→10) (q² − 100)/(q − 10) (b) lim (q→3) (q² − 5q + 6)/(q − 3)\nD5 (core — exam form). Evaluate the one-sided limit lim (q→1⁺) (q − 1)²/(q − q²). Hint: factor the denominator first. Note the sign of each factor as q approaches 1 from above.\nD6 (core). Evaluate the limits at infinity and say what each means for the firm: (a) lim (q→∞) (1200q − 4q²)/(q² ) (b) lim (q→∞) (60,000 + 400q)/q — average cost per bike as the run gets long.\nD7 (stretch). lim (q→−∞) (3q³ − 2q + 1)/(5q³ + q²)."
+  },
+  {
+    "objectID": "week-02/drills.html#c.-the-derivative",
+    "href": "week-02/drills.html#c.-the-derivative",
+    "title": "Week 2 — Drills",
+    "section": "",
+    "text": "D8 (core). Differentiate, term by term: (a) π(q) = −4q² + 1200q − 60,000 (b) C(q) = 0.4q² + 3q + 25 (c) R(q) = 30 ln(q + 1) (d) f(q) = 5q³ − 2q² + 7q − 1\nD9 (core — the point of the week). For π(q) = −4q² + 1200q − 60,000: (a) Compute π'(80) and say, in one sentence a manager would use, what it means. (b) Compute π'(200) and do the same. (c) Solve π'(q) = 0. Compare with the vertex you found in week 1.\nD10 (stretch). Using the definition, f'(a) = lim (h→0) [f(a+h) − f(a)]/h, show that the derivative of f(q) = 3q² at q = a is 6a."
+  },
+  {
+    "objectID": "week-02/drills.html#d.-reversing-the-derivative",
+    "href": "week-02/drills.html#d.-reversing-the-derivative",
+    "title": "Week 2 — Drills",
+    "section": "",
+    "text": "D11 (core — exam form). Find f(q) given f'(q) = 6q² − 2q and f(1) = 4.\nD12 (core). Find the total cost function given marginal cost MC(q) = 0.8q + 3 and fixed cost C(0) = 25.\n\n\n\nSolutions\n\nD1. (a) Need q − 20 ≥ 0 → [20, +∞). Below 20 bikes the formula has no meaning: the firm does not operate under a 20-bike run. (b) Need q − 5 &gt; 0 (strict: ln 0 is undefined) → (5, +∞). Revenue only exists past the fifth unit. (c) Need q − 40 ≠ 0 → (−∞, 40) ∪ (40, +∞); for a quantity, [0, 40) ∪ (40, +∞). At exactly capacity the expression blows up — the model breaks there.\nD2. (a) R(q) = (1600 − 4q)q = 1600q − 4q². (b) π(q) = 1600q − 4q² − 60,000 − 400q = −4q² + 1200q − 60,000. (c) π(100) = −40,000 + 120,000 − 60,000 = €20,000. π(200) = −160,000 + 240,000 − 60,000 = €20,000. Equal. Two different quantities, the same profit — the parabola is symmetric about q = 150. Say this out loud: “more” is not the question, “where on the hill” is.\nD3. (a) q + 1 &gt; 0 → q &gt; −1, so for a quantity the whole of [0, +∞). (b) π(5) = 30 ln 6 − (0.4·25 + 15 + 25) = 53.75 − 50 = €3.75k. π(10) = 30 ln 11 − (40 + 30 + 25) = 71.93 − 95 = −€23.07k. The second firm is past its best scale at 10.\nD4. (a) (q² − 100)/(q − 10) = (q − 10)(q + 10)/(q − 10) = q + 10 → **20**. (b) (q² − 5q + 6)/(q − 3) = (q − 3)(q − 2)/(q − 3) = q − 2 → **1**.\nD5. Factor: (q − 1)² / (q(1 − q)). Now 1 − q = −(q − 1), so the expression is (q − 1)² / (−q(q − 1)) = −(q − 1)/q. As q → 1⁺, (q − 1) → 0⁺ and q → 1, so the value → −0 = **0**. The exam wants the factoring and the sign discussion written out, not just the answer.\nD6. (a) Divide numerator and denominator by q²: (1200/q − 4)/1 → **−4**. Far out, profit falls like −4q²: the quadratic term dominates and the firm is deep in loss. (b) (60,000 + 400q)/q = 60,000/q + 400 → **400**. Average cost per bike settles at the variable cost: fixed cost spreads to nothing. This is economies of scale in one line.\nD7. Divide by q³: (3 − 2/q² + 1/q³)/(5 + 1/q) → **3/5**.\nD8. (a) π'(q) = −8q + 1200 (b) C'(q) = 0.8q + 3 (c) R'(q) = 30/(q + 1) (d) f'(q) = 15q² − 4q + 7\nD9. (a) π'(80) = −640 + 1200 = **+560**. At 80 bikes a month, one more bike adds about €560 to profit. Make more. (b) π'(200) = −1600 + 1200 = **−400**. At 200 bikes, one more bike costs about €400 of profit. Make fewer. (c) −8q + 1200 = 0 → q = 150, exactly the vertex −b/2a from week 1. The formula worked because the curve was a parabola; the derivative works whatever the curve.\nD10. [3(a+h)² − 3a²]/h = [3a² + 6ah + 3h² − 3a²]/h = (6ah + 3h²)/h = 6a + 3h. As h → 0 this → 6a. Divide before letting h go: that is the whole trick.\nD11. Antiderivative term by term: f(q) = 2q³ − q² + c. Then f(1) = 2 − 1 + c = 4 → c = 3, so f(q) = 2q³ − q² + 3. Never forget the constant: the initial condition is what pins it down, and the exam always gives you one.\nD12. C(q) = 0.4q² + 3q + c, and C(0) = c = 25, so C(q) = 0.4q² + 3q + 25. The constant of integration is the fixed cost. That is not a coincidence; it is the economics."
+  },
+  {
+    "objectID": "week-05/homework.html",
+    "href": "week-05/homework.html",
+    "title": "Homework 5 — due Wednesday 28 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "The last homework of my half. Lighter than usual on purpose: Reading Week is for the midterm, which is due Sunday 1 November on Turnitin.\nPart 1 on paper, Part 2 typed. Expect about two hours.\n\n\nH1 (pricing). A 6-year bond, 5% annual coupon, face €100. (a) Its price at a yield of 7%. (b) At 5%. (c) At 3%. (d) State in one line the rule connecting coupon, yield and price that your three answers illustrate.\nH2 (zero-coupon). A zero pays €100 in 12 years, yield 4%. (a) Its price. (b) The price if the yield rises to 5%, and the percentage change. (c) Why is that percentage change larger than for a coupon bond of the same maturity?\nH3 (duration). For the 6-year 5% bond at a 7% yield (H1a): (a) Macaulay duration, with the table of weights. (b) Modified duration. (c) The estimated price change for a 75 basis point rise in yield.\nH4 (duration, the rules). Without computing, say what happens to duration when, other things equal: (a) maturity lengthens (b) the coupon rises (c) the yield rises One clause of justification each.\nH5 (convexity). A bond has P = 100, D_mod = 6.50, C = 55.0. (a) Estimate the price after a 2% rise in yield, using duration only. (b) Now with the convexity term as well. (c) Which of the two estimates is closer to the truth, and in which direction was the first one wrong?\nH6 (portfolio). A reserve holds €300,000 of a bond with D_mod = 8.1 and €700,000 of one with D_mod = 2.4. (a) The portfolio’s modified duration. (b) The estimated change in value if yields fall by 0.5%. (c) The Board wants the portfolio’s duration down to 3.0 without selling either bond entirely. Which way must the weights move? A sentence, no algebra required.\n\n\n\nArno Bikes keeps €1M in the bond reserve described in H6. The Board has read that rates may rise by a point over the next year and has asked: should we be worried?\nAnswer with: the loss duration predicts, one sentence on why that figure is an estimate and not a fact, what convexity does to it, and what you would change about the portfolio if the Board’s view is right. End with what you would need to see to change your recommendation.\n\n\n\n\nEvery price shows the annuity part and the redemption part separately.\nThe duration table has a weights column that sums to 1. If it does not, something is wrong before the duration is.\nModified duration is distinguished from Macaulay duration everywhere, including in the units.\nThe convexity term is ½ C (Δy)² — the half and the square are both easy to drop and both change the answer.\n\n\n\n\nDue Sunday 1 November, 23:59, on Turnitin; presentations in the week of 2 November. Everything in weeks 1–3 was aimed at its function study, and the briefing in week 2 is its specification. Reading Week has one optional online office hour — bring a draft, not a blank page."
+  },
+  {
+    "objectID": "week-05/homework.html#part-1-drill-set-paper-show-all-work",
+    "href": "week-05/homework.html#part-1-drill-set-paper-show-all-work",
+    "title": "Homework 5 — due Wednesday 28 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1 (pricing). A 6-year bond, 5% annual coupon, face €100. (a) Its price at a yield of 7%. (b) At 5%. (c) At 3%. (d) State in one line the rule connecting coupon, yield and price that your three answers illustrate.\nH2 (zero-coupon). A zero pays €100 in 12 years, yield 4%. (a) Its price. (b) The price if the yield rises to 5%, and the percentage change. (c) Why is that percentage change larger than for a coupon bond of the same maturity?\nH3 (duration). For the 6-year 5% bond at a 7% yield (H1a): (a) Macaulay duration, with the table of weights. (b) Modified duration. (c) The estimated price change for a 75 basis point rise in yield.\nH4 (duration, the rules). Without computing, say what happens to duration when, other things equal: (a) maturity lengthens (b) the coupon rises (c) the yield rises One clause of justification each.\nH5 (convexity). A bond has P = 100, D_mod = 6.50, C = 55.0. (a) Estimate the price after a 2% rise in yield, using duration only. (b) Now with the convexity term as well. (c) Which of the two estimates is closer to the truth, and in which direction was the first one wrong?\nH6 (portfolio). A reserve holds €300,000 of a bond with D_mod = 8.1 and €700,000 of one with D_mod = 2.4. (a) The portfolio’s modified duration. (b) The estimated change in value if yields fall by 0.5%. (c) The Board wants the portfolio’s duration down to 3.0 without selling either bond entirely. Which way must the weights move? A sentence, no algebra required."
+  },
+  {
+    "objectID": "week-05/homework.html#part-2-one-page-for-the-board-200300-words-typed",
+    "href": "week-05/homework.html#part-2-one-page-for-the-board-200300-words-typed",
+    "title": "Homework 5 — due Wednesday 28 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "Arno Bikes keeps €1M in the bond reserve described in H6. The Board has read that rates may rise by a point over the next year and has asked: should we be worried?\nAnswer with: the loss duration predicts, one sentence on why that figure is an estimate and not a fact, what convexity does to it, and what you would change about the portfolio if the Board’s view is right. End with what you would need to see to change your recommendation."
+  },
+  {
+    "objectID": "week-05/homework.html#self-check-before-submitting",
+    "href": "week-05/homework.html#self-check-before-submitting",
+    "title": "Homework 5 — due Wednesday 28 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "Every price shows the annuity part and the redemption part separately.\nThe duration table has a weights column that sums to 1. If it does not, something is wrong before the duration is.\nModified duration is distinguished from Macaulay duration everywhere, including in the units.\nThe convexity term is ½ C (Δy)² — the half and the square are both easy to drop and both change the answer."
+  },
+  {
+    "objectID": "week-05/homework.html#and-then-the-midterm",
+    "href": "week-05/homework.html#and-then-the-midterm",
+    "title": "Homework 5 — due Wednesday 28 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "Due Sunday 1 November, 23:59, on Turnitin; presentations in the week of 2 November. Everything in weeks 1–3 was aimed at its function study, and the briefing in week 2 is its specification. Reading Week has one optional online office hour — bring a draft, not a blank page."
+  },
+  {
+    "objectID": "week-03/homework.html",
+    "href": "week-03/homework.html",
+    "title": "Homework 3 — due Wednesday 14 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "Two parts. Part 1 on paper, one PDF or a clear photo. Part 2 typed. Expect 2–3 hours. This is the closest rehearsal of the midterm you will get before writing it, so treat Part 2 as a dry run.\n\n\nH1 (the full study). Study π(q) = −2q² + 640q − 24,000 completely and sketch it. Give, in this order: domain · zeros · sign line · π' and the stationary point · π'' and its nature · behaviour as q → ∞ · a labelled sketch with all four key points marked.\nH2. C(q) = 0.2q² + 4q + 80 (€ thousand), q ≥ 0. (a) Fixed cost. (b) Average cost AC(q), its domain, and its limits as q → 0⁺ and q → ∞. (c) The quantity that minimises AC, and the value of AC and of C' there. Comment in one line on what you find.\nH3 (optimisation). A firm has R(q) = 40 ln(q + 1) and C(q) = 0.2q² + 4q + 80, both € thousand. (a) Write π(q) and π'(q). (b) Solve π'(q) = 0, showing the quadratic it reduces to. (c) Confirm the nature of the point with π''. (d) Is the firm profitable there? Give the number — and if the answer surprises you, say in one line what it means for the decision. (Maximising profit and making a profit are not the same thing.)\nH4. f(q) = q³ − 9q² + 24q on [0, 6]. (a) Stationary points and their nature. (b) Inflection point. (c) Sketch.\nH5 (integration, exam form). Evaluate: (a) ∫ (q⁴ − 2q² + 5)/q² dq (b) ∫ (6q² − 4q + 3) dq (c) ∫ (5/q − 2√q) dq\nH6 (exam form). Find f(q) given f'(q) = 15q² − 8q + 3 and f(1) = 12.\nH7. Marginal cost is MC(q) = 1.2q + 5; fixed cost is 40. (a) Recover C(q). (b) Compute ∫₁₀²⁰ MC(q) dq and say, in one clause, what that number is.\n\n\n\nThis is a rehearsal of the midterm. A firm has a cost function C(q) = 0.2q² + 4q + 80 and a revenue function R(q) = 40 ln(q + 1), both in € thousand per month.\nWrite a short report for the Board that:\n\nStates the profit function and studies it: domain, sign, the quantity that maximises it, and proof that it is a maximum.\nIncludes a sketch of the profit function, hand-drawn, with axes labelled and the maximum marked.\nAnswers this question in plain English: at the optimum, how much room for error does the firm have? Support it with the profit at the optimum and at one quantity either side.\nEnds with a recommendation of one sentence.\n\nStructure it with headings. Numbers in the text, working in an appendix. The midterm asks for a longer version of exactly this, with an added qualitative section and Harvard referencing — which we brief next.\n\n\n\n\nThe study follows the seven steps in order, and each one is labelled.\nπ'' is computed and its sign is stated, not just the formula: that is what proves maximum or minimum.\nEvery integral is split term by term before integrating, and every indefinite integral ends in + c.\nIn H6 the constant is found from f(1) = 12.\nThe sketch has: both axes labelled, the zeros, the maximum, and the vertical intercept.\n\n\n\n\n\nH1 and Part 2 are the midterm: study a function, sketch it, tell a Board what it means.\nH5 and H6 are two of the five items of the final exam’s Q5, in the exact form they appear.\nH2 and H3 are the resit’s “full function study” question, which uses an average-cost or a log-revenue firm."
+  },
+  {
+    "objectID": "week-03/homework.html#part-1-drill-set-paper-show-all-work",
+    "href": "week-03/homework.html#part-1-drill-set-paper-show-all-work",
+    "title": "Homework 3 — due Wednesday 14 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1 (the full study). Study π(q) = −2q² + 640q − 24,000 completely and sketch it. Give, in this order: domain · zeros · sign line · π' and the stationary point · π'' and its nature · behaviour as q → ∞ · a labelled sketch with all four key points marked.\nH2. C(q) = 0.2q² + 4q + 80 (€ thousand), q ≥ 0. (a) Fixed cost. (b) Average cost AC(q), its domain, and its limits as q → 0⁺ and q → ∞. (c) The quantity that minimises AC, and the value of AC and of C' there. Comment in one line on what you find.\nH3 (optimisation). A firm has R(q) = 40 ln(q + 1) and C(q) = 0.2q² + 4q + 80, both € thousand. (a) Write π(q) and π'(q). (b) Solve π'(q) = 0, showing the quadratic it reduces to. (c) Confirm the nature of the point with π''. (d) Is the firm profitable there? Give the number — and if the answer surprises you, say in one line what it means for the decision. (Maximising profit and making a profit are not the same thing.)\nH4. f(q) = q³ − 9q² + 24q on [0, 6]. (a) Stationary points and their nature. (b) Inflection point. (c) Sketch.\nH5 (integration, exam form). Evaluate: (a) ∫ (q⁴ − 2q² + 5)/q² dq (b) ∫ (6q² − 4q + 3) dq (c) ∫ (5/q − 2√q) dq\nH6 (exam form). Find f(q) given f'(q) = 15q² − 8q + 3 and f(1) = 12.\nH7. Marginal cost is MC(q) = 1.2q + 5; fixed cost is 40. (a) Recover C(q). (b) Compute ∫₁₀²⁰ MC(q) dq and say, in one clause, what that number is."
+  },
+  {
+    "objectID": "week-03/homework.html#part-2-board-report-400500-words-typed",
+    "href": "week-03/homework.html#part-2-board-report-400500-words-typed",
+    "title": "Homework 3 — due Wednesday 14 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "This is a rehearsal of the midterm. A firm has a cost function C(q) = 0.2q² + 4q + 80 and a revenue function R(q) = 40 ln(q + 1), both in € thousand per month.\nWrite a short report for the Board that:\n\nStates the profit function and studies it: domain, sign, the quantity that maximises it, and proof that it is a maximum.\nIncludes a sketch of the profit function, hand-drawn, with axes labelled and the maximum marked.\nAnswers this question in plain English: at the optimum, how much room for error does the firm have? Support it with the profit at the optimum and at one quantity either side.\nEnds with a recommendation of one sentence.\n\nStructure it with headings. Numbers in the text, working in an appendix. The midterm asks for a longer version of exactly this, with an added qualitative section and Harvard referencing — which we brief next."
+  },
+  {
+    "objectID": "week-03/homework.html#self-check-before-submitting",
+    "href": "week-03/homework.html#self-check-before-submitting",
+    "title": "Homework 3 — due Wednesday 14 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "The study follows the seven steps in order, and each one is labelled.\nπ'' is computed and its sign is stated, not just the formula: that is what proves maximum or minimum.\nEvery integral is split term by term before integrating, and every indefinite integral ends in + c.\nIn H6 the constant is found from f(1) = 12.\nThe sketch has: both axes labelled, the zeros, the maximum, and the vertical intercept."
+  },
+  {
+    "objectID": "week-03/homework.html#how-this-feeds-the-assessments",
+    "href": "week-03/homework.html#how-this-feeds-the-assessments",
+    "title": "Homework 3 — due Wednesday 14 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1 and Part 2 are the midterm: study a function, sketch it, tell a Board what it means.\nH5 and H6 are two of the five items of the final exam’s Q5, in the exact form they appear.\nH2 and H3 are the resit’s “full function study” question, which uses an average-cost or a log-revenue firm."
+  },
+  {
+    "objectID": "week-01/homework.html",
+    "href": "week-01/homework.html",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "Two parts. Part 1 is done on paper and handed in as a photo or scan; Part 2 is a short typed text. Expect 2–3 hours in total. Both parts are formative: they are not graded, but they are read, they are discussed in the first 15 minutes of next session, and they are part of the evidence I use when I mark your midterm.\n\n\nH1. A café has fixed costs of €9,000 a month. Each coffee sells for €2.50 and costs €0.70 to make. (a) Break-even in coffees per month. (b) The owner wants a profit of €3,000 a month. How many coffees? (c) The price is cut to €2.20 to fight a competitor. New break-even, and the sentence you would tell the owner.\nH2. Demand: Q_d = 900 − 3p. Supply: Q_s = −100 + 2p. (a) Equilibrium price and quantity. (b) A subsidy of €25 per unit is paid to sellers (they respond to p + 25). New equilibrium. (c) Sketch both situations on one graph: axes labelled, both lines, both equilibria marked.\nH3. A firm’s profit is π(q) = −q² + 80q − 1,200. (a) Quantities with zero profit. (b) The profitable range, written as an interval. (c) The quantity that maximises profit and the maximum profit. (d) For which fixed cost (replace the 1,200) would the firm have exactly one break-even point?\nH4. Solve: (a) x² − 9 &gt; 0; (b) −x² + 4x − 3 ≥ 0. Write each answer as an interval or union of intervals.\nH5. Factor and simplify (x − 3)² / (3x − x²). Evaluate at x = 3.01 and x = 2.99. What is the sign on each side of 3?\nH6. A subscription business has 4,000 subscribers growing 6% a month. (a) Subscribers after t months (formula) and after 12 months (number). (b) Months to reach 10,000. (c) Months to double, exactly and with the rule of 70.\nH7. Solve for t: (a) 200 · 1.05ᵗ = 350; (b) e^{0.08t} = 3.\nH8. (a) Solve |x − 12| ≤ 4 and |2x − 1| &gt; 5. (b) Give the domain, as an interval, of f(x) = ln(2x − 6) and of g(x) = √(10 − x).\n\n\n\nYou are the plant manager of Arno Bikes. Using the numbers from class (fixed cost €60,000, variable cost €400, demand p = 1600 − 4q), write a memo to the Board answering one question: at what production levels does this business make money, and how robust is that window?\nRules: numbers and their meaning, no formulas in the text (put one small table or the equations in an appendix if you want). Say what happens to the window if fixed costs rise by €10,000. End with one recommendation.\nThis is a rehearsal of the register the midterm asks for (“prepare a very detailed report for the Board”). It will be read for clarity and for whether the numbers are right, not for length.\n\n\n\n\nEvery equation is written in words first (“break-even means revenue equals cost”) and then in symbols.\nEvery quadratic: common factor divided out before the formula; discriminant computed and its sign commented.\nEvery inequality: roots found, sign line drawn, answer written as an interval.\nEvery log problem: logs taken of both sides, the exponent brought down with ln(aᵏ) = k ln a, calculator only at the end.\nIntervals use [ for included endpoints and ( for excluded ones and for ±∞.\n\n\n\n\n\nH1–H2 rehearse the midterm’s Q4 (a cost shock moves a schedule) and LO3 (supply and demand).\nH3–H5 are the algebra of the midterm’s study of function (zeros, sign, vertex) and of the factoring step in Q5 of the final exam.\nH6–H7 are the log manipulation that week 4 (compound interest, EAR) and the log integrals in Q5 rely on.\nH8 is the interval notation the resit asks for when it says “the domain of f(x) is…”."
+  },
+  {
+    "objectID": "week-01/homework.html#part-1-drill-set-paper-show-all-work",
+    "href": "week-01/homework.html#part-1-drill-set-paper-show-all-work",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1. A café has fixed costs of €9,000 a month. Each coffee sells for €2.50 and costs €0.70 to make. (a) Break-even in coffees per month. (b) The owner wants a profit of €3,000 a month. How many coffees? (c) The price is cut to €2.20 to fight a competitor. New break-even, and the sentence you would tell the owner.\nH2. Demand: Q_d = 900 − 3p. Supply: Q_s = −100 + 2p. (a) Equilibrium price and quantity. (b) A subsidy of €25 per unit is paid to sellers (they respond to p + 25). New equilibrium. (c) Sketch both situations on one graph: axes labelled, both lines, both equilibria marked.\nH3. A firm’s profit is π(q) = −q² + 80q − 1,200. (a) Quantities with zero profit. (b) The profitable range, written as an interval. (c) The quantity that maximises profit and the maximum profit. (d) For which fixed cost (replace the 1,200) would the firm have exactly one break-even point?\nH4. Solve: (a) x² − 9 &gt; 0; (b) −x² + 4x − 3 ≥ 0. Write each answer as an interval or union of intervals.\nH5. Factor and simplify (x − 3)² / (3x − x²). Evaluate at x = 3.01 and x = 2.99. What is the sign on each side of 3?\nH6. A subscription business has 4,000 subscribers growing 6% a month. (a) Subscribers after t months (formula) and after 12 months (number). (b) Months to reach 10,000. (c) Months to double, exactly and with the rule of 70.\nH7. Solve for t: (a) 200 · 1.05ᵗ = 350; (b) e^{0.08t} = 3.\nH8. (a) Solve |x − 12| ≤ 4 and |2x − 1| &gt; 5. (b) Give the domain, as an interval, of f(x) = ln(2x − 6) and of g(x) = √(10 − x)."
+  },
+  {
+    "objectID": "week-01/homework.html#part-2-memo-to-the-board-150250-words-typed",
+    "href": "week-01/homework.html#part-2-memo-to-the-board-150250-words-typed",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "You are the plant manager of Arno Bikes. Using the numbers from class (fixed cost €60,000, variable cost €400, demand p = 1600 − 4q), write a memo to the Board answering one question: at what production levels does this business make money, and how robust is that window?\nRules: numbers and their meaning, no formulas in the text (put one small table or the equations in an appendix if you want). Say what happens to the window if fixed costs rise by €10,000. End with one recommendation.\nThis is a rehearsal of the register the midterm asks for (“prepare a very detailed report for the Board”). It will be read for clarity and for whether the numbers are right, not for length."
+  },
+  {
+    "objectID": "week-01/homework.html#self-check-before-submitting",
+    "href": "week-01/homework.html#self-check-before-submitting",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "Every equation is written in words first (“break-even means revenue equals cost”) and then in symbols.\nEvery quadratic: common factor divided out before the formula; discriminant computed and its sign commented.\nEvery inequality: roots found, sign line drawn, answer written as an interval.\nEvery log problem: logs taken of both sides, the exponent brought down with ln(aᵏ) = k ln a, calculator only at the end.\nIntervals use [ for included endpoints and ( for excluded ones and for ±∞."
+  },
+  {
+    "objectID": "week-01/homework.html#how-this-feeds-the-assessments",
+    "href": "week-01/homework.html#how-this-feeds-the-assessments",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1–H2 rehearse the midterm’s Q4 (a cost shock moves a schedule) and LO3 (supply and demand).\nH3–H5 are the algebra of the midterm’s study of function (zeros, sign, vertex) and of the factoring step in Q5 of the final exam.\nH6–H7 are the log manipulation that week 4 (compound interest, EAR) and the log integrals in Q5 rely on.\nH8 is the interval notation the resit asks for when it says “the domain of f(x) is…”."
+  },
+  {
+    "objectID": "week-02/homework.html",
+    "href": "week-02/homework.html",
+    "title": "Homework 2 — due Wednesday 7 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "Two parts. Part 1 on paper, handed in as one PDF or a clear photo. Part 2 a short typed text. Expect 2–3 hours. Formative: not graded, but read, discussed in the first fifteen minutes of next session, and part of the evidence used when your midterm is marked.\n\n\nH1. State the domain of each, as an interval, and say in one clause what the restriction means for a firm. (a) f(q) = √(2q − 30) (b) g(q) = ln(40 − q) (c) h(q) = (q + 5)/(q² − 9)\nH2. A workshop has C(q) = 0.4q² + 8q + 200 and sells at a fixed price of €60. (a) Write R(q) and π(q). (b) Evaluate π(30), π(65), π(100). (c) From those three numbers alone, between which two quantities must the best output lie? Say how you know, without computing it.\nH3. Evaluate, showing the factoring step: (a) lim (q→4) (q² − 16)/(q − 4) (b) lim (q→2) (q² − q − 2)/(q − 2) (c) lim (q→0⁺) (q² + 3q)/q\nH4 (exam form). Evaluate lim (q→2⁺) (q − 2)²/(2q − q²). Write out the factoring and comment on the sign of each factor as q approaches 2 from above.\nH5. Evaluate and give the business reading of each: (a) lim (q→∞) (0.4q² + 8q + 200)/q — average cost per unit as the run gets long. Why does this one not settle down, and what does that say about the workshop? (b) lim (q→∞) (200 + 15q)/q.\nH6. Differentiate: (a) π(q) = −3q² + 900q − 40,000 (b) C(q) = 0.4q² + 8q + 200 (c) R(q) = 45 ln(q + 1) (d) f(q) = 2q⁴ − 6q² + q − 9\nH7. For π(q) = −3q² + 900q − 40,000: (a) Compute π'(50) and write the one sentence you would say to the owner. (b) Compute π'(200) and do the same. (c) Solve π'(q) = 0 and state what that quantity is.\nH8 (exam form). Find f(q) given f'(q) = 9q² − 4q + 2 and f(1) = 10.\n\n\n\nYou are the plant manager of Arno Bikes. Last month you produced 80 bikes. The Board has asked for one number: should the next bike be built?\nAnswer it with the derivative. Give the marginal profit at 80, say what it means in euros, and state the quantity at which the answer changes from yes to no. Then add one sentence on what you would need to check before trusting the number — the model says demand is p = 1600 − 4q and cost is 60,000 + 400q; say which of those two you would verify first, and why.\nNumbers and their meaning. No formulas in the text; put the working in an appendix if you want it seen.\n\n\n\n\nEvery domain is written as an interval, with [ or ( chosen deliberately.\nEvery limit that starts as 0/0 shows the factoring before the substitution.\nEvery derivative is done term by term, and the constant term has disappeared.\nIn H8 the constant of integration is found from the given condition, not left as c.\nThe memo says what one more unit does, in euros, and where the sign changes.\n\n\n\n\n\nH1, H5 are the domain and asymptote questions the resit asks in exactly this form.\nH3, H4 are the limit item of the final exam’s Q5: a 0/0 that factors, and a one-sided limit.\nH6, H8 are the other two Q5 items: differentiate term by term, and recover a function from its derivative with an initial condition.\nH2, H7 and the memo are the midterm: study a profit function and write the result for a Board."
+  },
+  {
+    "objectID": "week-02/homework.html#part-1-drill-set-paper-show-all-work",
+    "href": "week-02/homework.html#part-1-drill-set-paper-show-all-work",
+    "title": "Homework 2 — due Wednesday 7 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1. State the domain of each, as an interval, and say in one clause what the restriction means for a firm. (a) f(q) = √(2q − 30) (b) g(q) = ln(40 − q) (c) h(q) = (q + 5)/(q² − 9)\nH2. A workshop has C(q) = 0.4q² + 8q + 200 and sells at a fixed price of €60. (a) Write R(q) and π(q). (b) Evaluate π(30), π(65), π(100). (c) From those three numbers alone, between which two quantities must the best output lie? Say how you know, without computing it.\nH3. Evaluate, showing the factoring step: (a) lim (q→4) (q² − 16)/(q − 4) (b) lim (q→2) (q² − q − 2)/(q − 2) (c) lim (q→0⁺) (q² + 3q)/q\nH4 (exam form). Evaluate lim (q→2⁺) (q − 2)²/(2q − q²). Write out the factoring and comment on the sign of each factor as q approaches 2 from above.\nH5. Evaluate and give the business reading of each: (a) lim (q→∞) (0.4q² + 8q + 200)/q — average cost per unit as the run gets long. Why does this one not settle down, and what does that say about the workshop? (b) lim (q→∞) (200 + 15q)/q.\nH6. Differentiate: (a) π(q) = −3q² + 900q − 40,000 (b) C(q) = 0.4q² + 8q + 200 (c) R(q) = 45 ln(q + 1) (d) f(q) = 2q⁴ − 6q² + q − 9\nH7. For π(q) = −3q² + 900q − 40,000: (a) Compute π'(50) and write the one sentence you would say to the owner. (b) Compute π'(200) and do the same. (c) Solve π'(q) = 0 and state what that quantity is.\nH8 (exam form). Find f(q) given f'(q) = 9q² − 4q + 2 and f(1) = 10."
+  },
+  {
+    "objectID": "week-02/homework.html#part-2-memo-to-the-board-150250-words-typed",
+    "href": "week-02/homework.html#part-2-memo-to-the-board-150250-words-typed",
+    "title": "Homework 2 — due Wednesday 7 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "You are the plant manager of Arno Bikes. Last month you produced 80 bikes. The Board has asked for one number: should the next bike be built?\nAnswer it with the derivative. Give the marginal profit at 80, say what it means in euros, and state the quantity at which the answer changes from yes to no. Then add one sentence on what you would need to check before trusting the number — the model says demand is p = 1600 − 4q and cost is 60,000 + 400q; say which of those two you would verify first, and why.\nNumbers and their meaning. No formulas in the text; put the working in an appendix if you want it seen."
+  },
+  {
+    "objectID": "week-02/homework.html#self-check-before-submitting",
+    "href": "week-02/homework.html#self-check-before-submitting",
+    "title": "Homework 2 — due Wednesday 7 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "Every domain is written as an interval, with [ or ( chosen deliberately.\nEvery limit that starts as 0/0 shows the factoring before the substitution.\nEvery derivative is done term by term, and the constant term has disappeared.\nIn H8 the constant of integration is found from the given condition, not left as c.\nThe memo says what one more unit does, in euros, and where the sign changes."
+  },
+  {
+    "objectID": "week-02/homework.html#how-this-feeds-the-assessments",
+    "href": "week-02/homework.html#how-this-feeds-the-assessments",
+    "title": "Homework 2 — due Wednesday 7 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1, H5 are the domain and asymptote questions the resit asks in exactly this form.\nH3, H4 are the limit item of the final exam’s Q5: a 0/0 that factors, and a one-sided limit.\nH6, H8 are the other two Q5 items: differentiate term by term, and recover a function from its derivative with an initial condition.\nH2, H7 and the memo are the midterm: study a profit function and write the result for a Board."
+  },
+  {
+    "objectID": "week-04/homework.html",
+    "href": "week-04/homework.html",
+    "title": "Homework 4 — due Wednesday 21 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "Two parts. Part 1 on paper with a calculator, one PDF or a clear photo. Part 2 typed. Expect 2–3 hours.\nMoney to the cent, rates to two decimals in a percentage. Show the formula before the number every time: the exam gives marks for the method.\n\n\nH1. €12,000 is invested for 5 years at 7%. (a) Final amount with simple interest. (b) With annual compounding. (c) The difference, and one line on where it comes from.\nH2. €20,000 at 6% nominal for 3 years, compounded (a) annually (b) quarterly (c) monthly. Give the three final amounts.\nH3 (EAR). Compute the effective annual rate of 9% nominal compounded (a) semi-annually (b) quarterly (c) monthly (d) continuously. Then say in one line why a borrower should always ask for the EAR.\nH4 (resit form). Select the correct alternative and justify in one line. Two loans quote the same nominal rate. Loan A compounds monthly, loan B annually. For the borrower: (i) A is cheaper (ii) B is cheaper (iii) they cost the same\nH5 (present value). (a) What is €25,000 receivable in 6 years worth today at 8%? (b) How much must be invested today at 5% to have €50,000 in 10 years?\nH6 (annuity). A lease requires €9,000 at the end of each year for 7 years. Your cost of capital is 6%. (a) The present value of the lease. (b) The seller offers to sell the asset outright for €52,000. Which is cheaper in today’s money, and by how much?\nH7 (perpetuity). A building is let for €36,000 a year, for ever, first payment in one year. (a) Its value at a 6% required return. (b) At 8%. (c) One line on why the two differ so much.\nH8 (NPV — the decision). A project costs €900,000 now and returns €260,000, €300,000, €340,000 and €360,000 at the end of the next four years. The cost of capital is 10%. (a) Lay out a table: year, flow, discount factor, present value. (b) The NPV. (c) Accept or reject, in one sentence. (d) Recompute at 18%. What has changed, and what is the name of the rate between the two where the sign flips?\n\n\n\nThe Board of Arno Bikes has been offered the assembly line from class: €2.4M now, returning €700k, €800k, €900k and €1,000k over four years. A Board member says: “It returns €3.4M on a €2.4M outlay. That is a million of profit — obviously we do it.”\nWrite the memo that corrects this, politely and with numbers. Say what is wrong with adding the flows up, give the NPV at the firm’s 9% cost of capital, and state the rate at which the answer would change. End with a recommendation and one condition you would attach to it.\nNo formulas in the text. Put the discounting table in an appendix if you want it seen.\n\n\n\n\nEvery compound-interest answer states m (how many times a year) explicitly.\nEvery EAR is computed from the nominal rate, never compared to it directly.\nEvery present value shows the discount factor separately from the flow.\nThe NPV table has a row for year 0, with a factor of 1.\nThe memo names the number that makes the Board member’s reasoning wrong, and does it in one clause.\n\n\n\n\n\nH1–H4 are the resit’s multiple-choice-with-justification block, in the exact form.\nH5–H7 are the present-value machinery every financial-maths question rests on.\nH8 and the memo are the NPV question, and the register the midterm asks for: a decision, defended with numbers, for people who will not read an appendix."
+  },
+  {
+    "objectID": "week-04/homework.html#part-1-drill-set-paper-show-all-work",
+    "href": "week-04/homework.html#part-1-drill-set-paper-show-all-work",
+    "title": "Homework 4 — due Wednesday 21 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1. €12,000 is invested for 5 years at 7%. (a) Final amount with simple interest. (b) With annual compounding. (c) The difference, and one line on where it comes from.\nH2. €20,000 at 6% nominal for 3 years, compounded (a) annually (b) quarterly (c) monthly. Give the three final amounts.\nH3 (EAR). Compute the effective annual rate of 9% nominal compounded (a) semi-annually (b) quarterly (c) monthly (d) continuously. Then say in one line why a borrower should always ask for the EAR.\nH4 (resit form). Select the correct alternative and justify in one line. Two loans quote the same nominal rate. Loan A compounds monthly, loan B annually. For the borrower: (i) A is cheaper (ii) B is cheaper (iii) they cost the same\nH5 (present value). (a) What is €25,000 receivable in 6 years worth today at 8%? (b) How much must be invested today at 5% to have €50,000 in 10 years?\nH6 (annuity). A lease requires €9,000 at the end of each year for 7 years. Your cost of capital is 6%. (a) The present value of the lease. (b) The seller offers to sell the asset outright for €52,000. Which is cheaper in today’s money, and by how much?\nH7 (perpetuity). A building is let for €36,000 a year, for ever, first payment in one year. (a) Its value at a 6% required return. (b) At 8%. (c) One line on why the two differ so much.\nH8 (NPV — the decision). A project costs €900,000 now and returns €260,000, €300,000, €340,000 and €360,000 at the end of the next four years. The cost of capital is 10%. (a) Lay out a table: year, flow, discount factor, present value. (b) The NPV. (c) Accept or reject, in one sentence. (d) Recompute at 18%. What has changed, and what is the name of the rate between the two where the sign flips?"
+  },
+  {
+    "objectID": "week-04/homework.html#part-2-memo-to-the-board-150250-words-typed",
+    "href": "week-04/homework.html#part-2-memo-to-the-board-150250-words-typed",
+    "title": "Homework 4 — due Wednesday 21 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "The Board of Arno Bikes has been offered the assembly line from class: €2.4M now, returning €700k, €800k, €900k and €1,000k over four years. A Board member says: “It returns €3.4M on a €2.4M outlay. That is a million of profit — obviously we do it.”\nWrite the memo that corrects this, politely and with numbers. Say what is wrong with adding the flows up, give the NPV at the firm’s 9% cost of capital, and state the rate at which the answer would change. End with a recommendation and one condition you would attach to it.\nNo formulas in the text. Put the discounting table in an appendix if you want it seen."
+  },
+  {
+    "objectID": "week-04/homework.html#self-check-before-submitting",
+    "href": "week-04/homework.html#self-check-before-submitting",
+    "title": "Homework 4 — due Wednesday 21 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "Every compound-interest answer states m (how many times a year) explicitly.\nEvery EAR is computed from the nominal rate, never compared to it directly.\nEvery present value shows the discount factor separately from the flow.\nThe NPV table has a row for year 0, with a factor of 1.\nThe memo names the number that makes the Board member’s reasoning wrong, and does it in one clause."
+  },
+  {
+    "objectID": "week-04/homework.html#how-this-feeds-the-assessments",
+    "href": "week-04/homework.html#how-this-feeds-the-assessments",
+    "title": "Homework 4 — due Wednesday 21 October, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1–H4 are the resit’s multiple-choice-with-justification block, in the exact form.\nH5–H7 are the present-value machinery every financial-maths question rests on.\nH8 and the memo are the NPV question, and the register the midterm asks for: a decision, defended with numbers, for people who will not read an appendix."
   },
   {
     "objectID": "week-01/drills.html",
@@ -252,39 +931,67 @@
     "text": "D10 (core). (a) Battery cells must be 500 Wh ± 15 Wh. Write the condition with an absolute value and as an interval. Is a 483 Wh cell acceptable? (b) Solve |x − 3| &gt; 2.\nD11 (core — notation for the exam). Write as intervals: (a) x ≥ −3; (b) x &gt; −3; (c) −3 &lt; x ≤ 5. Then state the domain, as an interval, of (d) f(x) = √(x + 3) and (e) g(x) = ln(x − 1).\n\n\n\nSolutions\n\nD1. (a) C(q) = 60,000 + 400q; R(q) = 1,000q. (b) R = C → 1,000q = 60,000 + 400q → 600q = 60,000 → q = 100 bikes. (Contribution per bike €600; 60,000 / 600 = 100.) (c) 1,000q = 72,000 + 400q → q = 120. The cost line shifted up in parallel by €12,000 (same slope, higher intercept); the crossing with the revenue line moved right.\nD2. (a) 1200 − 2p = −300 + 3p → 1500 = 5p → p = €300; Q = 1200 − 600 = 600. (b) Q_s = −300 + 3(p − 50) = −450 + 3p. Then 1200 − 2p = −450 + 3p → 1650 = 5p → p = €330, Q = 540. (c) Buyers pay €330 instead of €300: €30 of the €50 is passed to buyers; sellers keep 330 − 50 = 280, i.e. bear €20.\nD3. Let x = model A, y = model B. 2x + 3y = 1200, x + y = 500. From the second, x = 500 − y; substitute: 1000 − 2y + 3y = 1200 → y = 200, x = 300. 300 of A, 200 of B.\nD4. (a) Divide by −2: q² − 300q + 20,000 = 0. Discriminant 300² − 4·20,000 = 90,000 − 80,000 = 10,000, √ = 100. q = (300 ± 100)/2 → q = 100 and q = 200. (b) Downward parabola (a = −2 &lt; 0) is positive between its roots: 100 &lt; q &lt; 200. (c) Vertex at q = −b/(2a) = −600/(−4) = 150; π(150) = −2·22,500 + 90,000 − 40,000 = **€5,000**. Maximum profit is €5,000 at 150 units; the window is narrow, the business is fragile.\nD5. (a) Roots of x² − 7x + 10: (x − 2)(x − 5) → 2 and 5. Upward parabola ≤ 0 between roots: 2 ≤ x ≤ 5, i.e. [2, 5]. (b) Roots: x = (−3 ± √(9 + 16))/4 = (−3 ± 5)/4 → x = 1/2 and x = −2. Upward parabola &gt; 0 outside the roots: x &lt; −2 or x &gt; 1/2.\nD6. x − x² = x(1 − x) = −x(x − 1). So (x − 1)² / (−x(x − 1)) = −(x − 1)/x for x ≠ 0, 1. At x = 1.1: −0.1/1.1 ≈ −0.091. At x = 0.9: −(−0.1)/0.9 ≈ +0.111. The expression changes sign across x = 1 — approaching 1 from the right it is a small negative number, from the left a small positive number. (This is the algebra behind the one-sided limits the final exam asks for: factor, cancel, then look at the sign of what is left. The limit from the right is 0⁻.)\nD7. (a) ln(e³) = 3; log₂ 32 = 5 (2⁵ = 32); ln(a²b/c) = 2 ln a + ln b − ln c. (b) 3ˣ = 81 = 3⁴ → x = 4. 10ˣ = 500 → x = log₁₀ 500 = **2.699**.\nD8. (a) R(t) = 1.2 · 1.12ᵗ (€M). (b) 1.12ᵗ = 2 → t ln 1.12 = ln 2 → t = 0.6931 / 0.1133 = **6.1 years**. Rule of 70: 70/12 ≈ 5.8 — consistent. (c) 1.12ᵗ = 2.5 → t = ln 2.5 / ln 1.12 = 0.9163 / 0.1133 = **8.1 years**.\nD9. (a) e^{0.03t} = 1.6 → 0.03t = ln 1.6 = 0.4700 → t ≈ 15.7. (b) (1 + g)⁵ = 2 → 1 + g = 2^{1/5} = e^{(ln 2)/5} = e^{0.1386} = 1.1487 → g ≈ 14.9% a year.\nD10. (a) |c − 500| ≤ 15 ↔︎ 485 ≤ c ≤ 515, i.e. [485, 515]. 483 &lt; 485: not acceptable. (b) |x − 3| &gt; 2 ↔︎ x − 3 &gt; 2 or x − 3 &lt; −2 ↔︎ x &gt; 5 or x &lt; 1.\nD11. (a) [−3, +∞); (b) (−3, +∞); (c) (−3, 5]. (d) Need x + 3 ≥ 0 → [−3, +∞). (e) Need x − 1 &gt; 0 → (1, +∞). (Square bracket when the endpoint is included, round when it is not or when it is ±∞. The resit asks exactly this.)"
   },
   {
-    "objectID": "week-01/homework.html",
-    "href": "week-01/homework.html",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "objectID": "week-03/drills.html",
+    "href": "week-03/drills.html",
+    "title": "Week 3 — Drills",
     "section": "",
-    "text": "Two parts. Part 1 is done on paper and handed in as a photo or scan; Part 2 is a short typed text. Expect 2–3 hours in total. Both parts are formative: they are not graded, but they are read, they are discussed in the first 15 minutes of next session, and they are part of the evidence I use when I mark your midterm.\n\n\nH1. A café has fixed costs of €9,000 a month. Each coffee sells for €2.50 and costs €0.70 to make. (a) Break-even in coffees per month. (b) The owner wants a profit of €3,000 a month. How many coffees? (c) The price is cut to €2.20 to fight a competitor. New break-even, and the sentence you would tell the owner.\nH2. Demand: Q_d = 900 − 3p. Supply: Q_s = −100 + 2p. (a) Equilibrium price and quantity. (b) A subsidy of €25 per unit is paid to sellers (they respond to p + 25). New equilibrium. (c) Sketch both situations on one graph: axes labelled, both lines, both equilibria marked.\nH3. A firm’s profit is π(q) = −q² + 80q − 1,200. (a) Quantities with zero profit. (b) The profitable range, written as an interval. (c) The quantity that maximises profit and the maximum profit. (d) For which fixed cost (replace the 1,200) would the firm have exactly one break-even point?\nH4. Solve: (a) x² − 9 &gt; 0; (b) −x² + 4x − 3 ≥ 0. Write each answer as an interval or union of intervals.\nH5. Factor and simplify (x − 3)² / (3x − x²). Evaluate at x = 3.01 and x = 2.99. What is the sign on each side of 3?\nH6. A subscription business has 4,000 subscribers growing 6% a month. (a) Subscribers after t months (formula) and after 12 months (number). (b) Months to reach 10,000. (c) Months to double, exactly and with the rule of 70.\nH7. Solve for t: (a) 200 · 1.05ᵗ = 350; (b) e^{0.08t} = 3.\nH8. (a) Solve |x − 12| ≤ 4 and |2x − 1| &gt; 5. (b) Give the domain, as an interval, of f(x) = ln(2x − 6) and of g(x) = √(10 − x).\n\n\n\nYou are the plant manager of Arno Bikes. Using the numbers from class (fixed cost €60,000, variable cost €400, demand p = 1600 − 4q), write a memo to the Board answering one question: at what production levels does this business make money, and how robust is that window?\nRules: numbers and their meaning, no formulas in the text (put one small table or the equations in an appendix if you want). Say what happens to the window if fixed costs rise by €10,000. End with one recommendation.\nThis is a rehearsal of the register the midterm asks for (“prepare a very detailed report for the Board”). It will be read for clarity and for whether the numbers are right, not for length.\n\n\n\n\nEvery equation is written in words first (“break-even means revenue equals cost”) and then in symbols.\nEvery quadratic: common factor divided out before the formula; discriminant computed and its sign commented.\nEvery inequality: roots found, sign line drawn, answer written as an interval.\nEvery log problem: logs taken of both sides, the exponent brought down with ln(aᵏ) = k ln a, calculator only at the end.\nIntervals use [ for included endpoints and ( for excluded ones and for ±∞.\n\n\n\n\n\nH1–H2 rehearse the midterm’s Q4 (a cost shock moves a schedule) and LO3 (supply and demand).\nH3–H5 are the algebra of the midterm’s study of function (zeros, sign, vertex) and of the factoring step in Q5 of the final exam.\nH6–H7 are the log manipulation that week 4 (compound interest, EAR) and the log integrals in Q5 rely on.\nH8 is the interval notation the resit asks for when it says “the domain of f(x) is…”."
+    "text": "Exam format. Show all work. Core items are for everyone; stretch items for whoever finishes early. Solutions at the end, worked the way an examiner wants to see them.\nThe seven-point study, in the order the midterm expects it: domain → zeros → sign → stationary points → nature (max/min) → shape (convexity, inflection) → sketch.\n\n\nD1 (core — the midterm rehearsal). Study π(q) = −4q² + 1200q − 60,000 completely and sketch it. Give: domain, zeros, sign line, π' and the stationary point, π'' and its nature, behaviour as q → ∞, and a labelled sketch.\nD2 (core). A cost function: C(q) = 0.4q² + 3q + 25 (€ thousand), for q ≥ 0. (a) Domain, and C(0). What is C(0) called? (b) Average cost AC(q) = C(q)/q. Find its domain and lim (q→0⁺) AC(q) and lim (q→∞) AC(q). (c) Minimise AC(q). At that quantity, compute AC and C'(q) and comment on what you notice.\nD3 (stretch). f(q) = q³ − 12q² + 36q on [0, 10]. (a) Stationary points and their nature. (b) Inflection point. (c) Sketch.\n\n\n\nD4 (core). A second firm: R(q) = 30 ln(q + 1), C(q) = 0.4q² + 3q + 25, both in € thousand, q ≥ 0. (a) Write π(q). (b) Write π'(q). (c) Solve π'(q) = 0. Leave it as an equation in q first, then solve the quadratic it becomes. (d) Confirm with π'' that it is a maximum. (e) Is the firm profitable at that quantity? Answer with a number.\nD5 (core — the managerial reading). For the firm in D4, R'(q) is marginal revenue and C'(q) is marginal cost. (a) Write the condition π'(q) = 0 as R'(q) = C'(q), in words. (b) At q = 2 compute both. Which is larger, and what should the firm do?\nD6 (stretch). A box with a square base and no lid must hold 32 m³. Minimise the material used. (Surface S = x² + 4xh, volume x²h = 32.)\n\n\n\nD7 (core — exam form). Evaluate, splitting term by term: (a) ∫ (q⁵ − 3q³ + 2)/q² dq (b) ∫ (4q³ − 6q + 5) dq (c) ∫ (2/q + 3√q) dq\nD8 (core — exam form). Find f(q) given f'(q) = 12q² − 6q + 1 and f(2) = 20.\nD9 (core). Evaluate the definite integrals and say what each measures: (a) ∫₀²⁰ (0.8q + 3) dq where 0.8q + 3 is marginal cost. (b) ∫₁⁴ (6/q) dq. Leave the answer in terms of ln.\nD10 (stretch). Marginal profit is π'(q) = 1200 − 8q. The firm currently makes 100 bikes. (a) By how much does profit change if output rises from 100 to 150? Compute it as a definite integral. (b) Check your answer against π(150) − π(100) using π(q) = −4q² + 1200q − 60,000.\n\n\n\nSolutions\n\nD1. - Domain. A polynomial: all of ℝ. For a quantity, [0, +∞). - Zeros. −4q² + 1200q − 60,000 = 0; divide by −4: q² − 300q + 15,000 = 0. Δ = 90,000 − 60,000 = 30,000, √Δ ≈ 173.2. q = (300 ± 173.2)/2 → q ≈ 63.4 and q ≈ 236.6. - Sign. a = −4 &lt; 0, so positive between the roots: π &gt; 0 on (63.4, 236.6), negative outside. - Stationary point. π'(q) = −8q + 1200 = 0 → q = 150. - Nature. π''(q) = −8 &lt; 0 for every q, so the stationary point is a maximum; the curve is concave everywhere. π(150) = −90,000 + 180,000 − 60,000 = **€30,000**. - Behaviour. lim (q→∞) π(q) = −∞: the −4q² term wins. There is no “sell more forever”. - Sketch. Downward parabola, crossing the axis at 63.4 and 236.6, peak (150, 30,000), intercept π(0) = −60,000. Label all four.\nD2. (a) [0, +∞); C(0) = 25. That is fixed cost: what the firm pays having produced nothing. (b) AC(q) = 0.4q + 3 + 25/q, domain (0, +∞) — zero output has no average. lim (q→0⁺) AC = +∞ (fixed cost spread over almost nothing). lim (q→∞) AC = +∞ (the 0.4q term takes over). So AC falls, then rises: it has a minimum. (c) AC'(q) = 0.4 − 25/q² = 0 → q² = 62.5 → q ≈ 7.91. AC(7.91) = 3.16 + 3 + 3.16 = **9.32**; C'(7.91) = 0.8(7.91) + 3 = **9.32**. They are equal. Average cost is at its lowest exactly where marginal cost crosses it. Worth stating out loud: it is not a coincidence, it is what “average” means.\nD3. (a) f'(q) = 3q² − 24q + 36 = 3(q² − 8q + 12) = 3(q − 2)(q − 6) → q = 2, 6. f''(q) = 6q − 24: f''(2) = −12 &lt; 0 → maximum, f(2) = 8 − 48 + 72 = 32. f''(6) = 12 &gt; 0 → minimum, f(6) = 216 − 432 + 216 = 0. (b) f'' = 0 at q = 4, f(4) = 64 − 192 + 144 = 16; the curvature changes sign there, so it is an inflection. (c) Rises to (2, 32), falls to (6, 0), rises again; at q = 10, f = 1000 − 1200 + 360 = 160.\nD4. (a) π(q) = 30 ln(q + 1) − 0.4q² − 3q − 25. (b) π'(q) = 30/(q + 1) − 0.8q − 3. (c) 30/(q + 1) = 0.8q + 3. Multiply by (q + 1): 30 = (0.8q + 3)(q + 1) = 0.8q² + 3.8q + 3 → 0.8q² + 3.8q − 27 = 0. Multiply by 5: 4q² + 19q − 135 = 0. Δ = 361 + 2160 = 2521, √Δ ≈ 50.21. q = (−19 ± 50.21)/8 → q ≈ 3.90 (the negative root is discarded: a quantity). (d) π''(q) = −30/(q + 1)² − 0.8 &lt; 0 everywhere → maximum. (e) π(3.90) = 30 ln(4.90) − 0.4(15.21) − 3(3.90) − 25 = 47.68 − 6.08 − 11.70 − 25 = **€4.89k**. Profitable, but only just — the window is narrow, which is the point.\nD5. (a) π' = R' − C' = 0 means R'(q) = C'(q): produce up to the point where the revenue from one more unit equals what that unit costs. (b) R'(2) = 30/3 = **10**; C'(2) = 0.8(2) + 3 = **4.6**. Marginal revenue is larger, so each extra unit still adds 10 − 4.6 = 5.4 — produce more, up to q ≈ 3.90.\nD6. h = 32/x², so S = x² + 4x(32/x²) = x² + 128/x. S' = 2x − 128/x² = 0 → x³ = 64 → x = 4, h = 2. S'' = 2 + 256/x³ &gt; 0 → minimum. S = 16 + 32 = **48 m²**.\nD7. (a) Split first: (q⁵ − 3q³ + 2)/q² = q³ − 3q + 2q⁻². ∫ = q⁴/4 − 3q²/2 − 2/q + c. (b) q⁴ − 3q² + 5q + c. (c) ∫ 2/q dq = 2 ln|q|; ∫ 3q^{1/2} dq = 3 · (2/3) q^{3/2} = 2q^{3/2}. Total: 2 ln|q| + 2q^{3/2} + c. The exam’s integral is always this shape: divide term by term first, then each term is a power or a log.\nD8. f(q) = 4q³ − 3q² + q + c. f(2) = 32 − 12 + 2 + c = 20 → c = −2. f(q) = 4q³ − 3q² + q − 2.\nD9. (a) [0.4q² + 3q]₀²⁰ = 160 + 60 = **220**. Total variable cost of the first 20 bikes: adding up marginal cost gives total cost. (b) [6 ln q]₁⁴ = 6 ln 4 − 6 ln 1 = **6 ln 4 ≈ 8.32**.\nD10. (a) ∫₁₀₀¹⁵⁰ (1200 − 8q) dq = [1200q − 4q²]₁₀₀¹⁵⁰ = (180,000 − 90,000) − (120,000 − 40,000) = 90,000 − 80,000 = **€10,000**. (b) π(150) = 30,000; π(100) = −40,000 + 120,000 − 60,000 = 20,000. Difference = **€10,000**. ✔ The integral of the marginal is the change in the total. That sentence is the whole of integration."
   },
   {
-    "objectID": "week-01/homework.html#part-1-drill-set-paper-show-all-work",
-    "href": "week-01/homework.html#part-1-drill-set-paper-show-all-work",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "objectID": "week-03/drills.html#a.-the-full-study-of-a-function",
+    "href": "week-03/drills.html#a.-the-full-study-of-a-function",
+    "title": "Week 3 — Drills",
     "section": "",
-    "text": "H1. A café has fixed costs of €9,000 a month. Each coffee sells for €2.50 and costs €0.70 to make. (a) Break-even in coffees per month. (b) The owner wants a profit of €3,000 a month. How many coffees? (c) The price is cut to €2.20 to fight a competitor. New break-even, and the sentence you would tell the owner.\nH2. Demand: Q_d = 900 − 3p. Supply: Q_s = −100 + 2p. (a) Equilibrium price and quantity. (b) A subsidy of €25 per unit is paid to sellers (they respond to p + 25). New equilibrium. (c) Sketch both situations on one graph: axes labelled, both lines, both equilibria marked.\nH3. A firm’s profit is π(q) = −q² + 80q − 1,200. (a) Quantities with zero profit. (b) The profitable range, written as an interval. (c) The quantity that maximises profit and the maximum profit. (d) For which fixed cost (replace the 1,200) would the firm have exactly one break-even point?\nH4. Solve: (a) x² − 9 &gt; 0; (b) −x² + 4x − 3 ≥ 0. Write each answer as an interval or union of intervals.\nH5. Factor and simplify (x − 3)² / (3x − x²). Evaluate at x = 3.01 and x = 2.99. What is the sign on each side of 3?\nH6. A subscription business has 4,000 subscribers growing 6% a month. (a) Subscribers after t months (formula) and after 12 months (number). (b) Months to reach 10,000. (c) Months to double, exactly and with the rule of 70.\nH7. Solve for t: (a) 200 · 1.05ᵗ = 350; (b) e^{0.08t} = 3.\nH8. (a) Solve |x − 12| ≤ 4 and |2x − 1| &gt; 5. (b) Give the domain, as an interval, of f(x) = ln(2x − 6) and of g(x) = √(10 − x)."
+    "text": "D1 (core — the midterm rehearsal). Study π(q) = −4q² + 1200q − 60,000 completely and sketch it. Give: domain, zeros, sign line, π' and the stationary point, π'' and its nature, behaviour as q → ∞, and a labelled sketch.\nD2 (core). A cost function: C(q) = 0.4q² + 3q + 25 (€ thousand), for q ≥ 0. (a) Domain, and C(0). What is C(0) called? (b) Average cost AC(q) = C(q)/q. Find its domain and lim (q→0⁺) AC(q) and lim (q→∞) AC(q). (c) Minimise AC(q). At that quantity, compute AC and C'(q) and comment on what you notice.\nD3 (stretch). f(q) = q³ − 12q² + 36q on [0, 10]. (a) Stationary points and their nature. (b) Inflection point. (c) Sketch."
   },
   {
-    "objectID": "week-01/homework.html#part-2-memo-to-the-board-150250-words-typed",
-    "href": "week-01/homework.html#part-2-memo-to-the-board-150250-words-typed",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "objectID": "week-03/drills.html#b.-optimisation-and-what-it-is-for",
+    "href": "week-03/drills.html#b.-optimisation-and-what-it-is-for",
+    "title": "Week 3 — Drills",
     "section": "",
-    "text": "You are the plant manager of Arno Bikes. Using the numbers from class (fixed cost €60,000, variable cost €400, demand p = 1600 − 4q), write a memo to the Board answering one question: at what production levels does this business make money, and how robust is that window?\nRules: numbers and their meaning, no formulas in the text (put one small table or the equations in an appendix if you want). Say what happens to the window if fixed costs rise by €10,000. End with one recommendation.\nThis is a rehearsal of the register the midterm asks for (“prepare a very detailed report for the Board”). It will be read for clarity and for whether the numbers are right, not for length."
+    "text": "D4 (core). A second firm: R(q) = 30 ln(q + 1), C(q) = 0.4q² + 3q + 25, both in € thousand, q ≥ 0. (a) Write π(q). (b) Write π'(q). (c) Solve π'(q) = 0. Leave it as an equation in q first, then solve the quadratic it becomes. (d) Confirm with π'' that it is a maximum. (e) Is the firm profitable at that quantity? Answer with a number.\nD5 (core — the managerial reading). For the firm in D4, R'(q) is marginal revenue and C'(q) is marginal cost. (a) Write the condition π'(q) = 0 as R'(q) = C'(q), in words. (b) At q = 2 compute both. Which is larger, and what should the firm do?\nD6 (stretch). A box with a square base and no lid must hold 32 m³. Minimise the material used. (Surface S = x² + 4xh, volume x²h = 32.)"
   },
   {
-    "objectID": "week-01/homework.html#self-check-before-submitting",
-    "href": "week-01/homework.html#self-check-before-submitting",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "objectID": "week-03/drills.html#c.-integration",
+    "href": "week-03/drills.html#c.-integration",
+    "title": "Week 3 — Drills",
     "section": "",
-    "text": "Every equation is written in words first (“break-even means revenue equals cost”) and then in symbols.\nEvery quadratic: common factor divided out before the formula; discriminant computed and its sign commented.\nEvery inequality: roots found, sign line drawn, answer written as an interval.\nEvery log problem: logs taken of both sides, the exponent brought down with ln(aᵏ) = k ln a, calculator only at the end.\nIntervals use [ for included endpoints and ( for excluded ones and for ±∞."
+    "text": "D7 (core — exam form). Evaluate, splitting term by term: (a) ∫ (q⁵ − 3q³ + 2)/q² dq (b) ∫ (4q³ − 6q + 5) dq (c) ∫ (2/q + 3√q) dq\nD8 (core — exam form). Find f(q) given f'(q) = 12q² − 6q + 1 and f(2) = 20.\nD9 (core). Evaluate the definite integrals and say what each measures: (a) ∫₀²⁰ (0.8q + 3) dq where 0.8q + 3 is marginal cost. (b) ∫₁⁴ (6/q) dq. Leave the answer in terms of ln.\nD10 (stretch). Marginal profit is π'(q) = 1200 − 8q. The firm currently makes 100 bikes. (a) By how much does profit change if output rises from 100 to 150? Compute it as a definite integral. (b) Check your answer against π(150) − π(100) using π(q) = −4q² + 1200q − 60,000.\n\n\n\nSolutions\n\nD1. - Domain. A polynomial: all of ℝ. For a quantity, [0, +∞). - Zeros. −4q² + 1200q − 60,000 = 0; divide by −4: q² − 300q + 15,000 = 0. Δ = 90,000 − 60,000 = 30,000, √Δ ≈ 173.2. q = (300 ± 173.2)/2 → q ≈ 63.4 and q ≈ 236.6. - Sign. a = −4 &lt; 0, so positive between the roots: π &gt; 0 on (63.4, 236.6), negative outside. - Stationary point. π'(q) = −8q + 1200 = 0 → q = 150. - Nature. π''(q) = −8 &lt; 0 for every q, so the stationary point is a maximum; the curve is concave everywhere. π(150) = −90,000 + 180,000 − 60,000 = **€30,000**. - Behaviour. lim (q→∞) π(q) = −∞: the −4q² term wins. There is no “sell more forever”. - Sketch. Downward parabola, crossing the axis at 63.4 and 236.6, peak (150, 30,000), intercept π(0) = −60,000. Label all four.\nD2. (a) [0, +∞); C(0) = 25. That is fixed cost: what the firm pays having produced nothing. (b) AC(q) = 0.4q + 3 + 25/q, domain (0, +∞) — zero output has no average. lim (q→0⁺) AC = +∞ (fixed cost spread over almost nothing). lim (q→∞) AC = +∞ (the 0.4q term takes over). So AC falls, then rises: it has a minimum. (c) AC'(q) = 0.4 − 25/q² = 0 → q² = 62.5 → q ≈ 7.91. AC(7.91) = 3.16 + 3 + 3.16 = **9.32**; C'(7.91) = 0.8(7.91) + 3 = **9.32**. They are equal. Average cost is at its lowest exactly where marginal cost crosses it. Worth stating out loud: it is not a coincidence, it is what “average” means.\nD3. (a) f'(q) = 3q² − 24q + 36 = 3(q² − 8q + 12) = 3(q − 2)(q − 6) → q = 2, 6. f''(q) = 6q − 24: f''(2) = −12 &lt; 0 → maximum, f(2) = 8 − 48 + 72 = 32. f''(6) = 12 &gt; 0 → minimum, f(6) = 216 − 432 + 216 = 0. (b) f'' = 0 at q = 4, f(4) = 64 − 192 + 144 = 16; the curvature changes sign there, so it is an inflection. (c) Rises to (2, 32), falls to (6, 0), rises again; at q = 10, f = 1000 − 1200 + 360 = 160.\nD4. (a) π(q) = 30 ln(q + 1) − 0.4q² − 3q − 25. (b) π'(q) = 30/(q + 1) − 0.8q − 3. (c) 30/(q + 1) = 0.8q + 3. Multiply by (q + 1): 30 = (0.8q + 3)(q + 1) = 0.8q² + 3.8q + 3 → 0.8q² + 3.8q − 27 = 0. Multiply by 5: 4q² + 19q − 135 = 0. Δ = 361 + 2160 = 2521, √Δ ≈ 50.21. q = (−19 ± 50.21)/8 → q ≈ 3.90 (the negative root is discarded: a quantity). (d) π''(q) = −30/(q + 1)² − 0.8 &lt; 0 everywhere → maximum. (e) π(3.90) = 30 ln(4.90) − 0.4(15.21) − 3(3.90) − 25 = 47.68 − 6.08 − 11.70 − 25 = **€4.89k**. Profitable, but only just — the window is narrow, which is the point.\nD5. (a) π' = R' − C' = 0 means R'(q) = C'(q): produce up to the point where the revenue from one more unit equals what that unit costs. (b) R'(2) = 30/3 = **10**; C'(2) = 0.8(2) + 3 = **4.6**. Marginal revenue is larger, so each extra unit still adds 10 − 4.6 = 5.4 — produce more, up to q ≈ 3.90.\nD6. h = 32/x², so S = x² + 4x(32/x²) = x² + 128/x. S' = 2x − 128/x² = 0 → x³ = 64 → x = 4, h = 2. S'' = 2 + 256/x³ &gt; 0 → minimum. S = 16 + 32 = **48 m²**.\nD7. (a) Split first: (q⁵ − 3q³ + 2)/q² = q³ − 3q + 2q⁻². ∫ = q⁴/4 − 3q²/2 − 2/q + c. (b) q⁴ − 3q² + 5q + c. (c) ∫ 2/q dq = 2 ln|q|; ∫ 3q^{1/2} dq = 3 · (2/3) q^{3/2} = 2q^{3/2}. Total: 2 ln|q| + 2q^{3/2} + c. The exam’s integral is always this shape: divide term by term first, then each term is a power or a log.\nD8. f(q) = 4q³ − 3q² + q + c. f(2) = 32 − 12 + 2 + c = 20 → c = −2. f(q) = 4q³ − 3q² + q − 2.\nD9. (a) [0.4q² + 3q]₀²⁰ = 160 + 60 = **220**. Total variable cost of the first 20 bikes: adding up marginal cost gives total cost. (b) [6 ln q]₁⁴ = 6 ln 4 − 6 ln 1 = **6 ln 4 ≈ 8.32**.\nD10. (a) ∫₁₀₀¹⁵⁰ (1200 − 8q) dq = [1200q − 4q²]₁₀₀¹⁵⁰ = (180,000 − 90,000) − (120,000 − 40,000) = 90,000 − 80,000 = **€10,000**. (b) π(150) = 30,000; π(100) = −40,000 + 120,000 − 60,000 = 20,000. Difference = **€10,000**. ✔ The integral of the marginal is the change in the total. That sentence is the whole of integration."
   },
   {
-    "objectID": "week-01/homework.html#how-this-feeds-the-assessments",
-    "href": "week-01/homework.html#how-this-feeds-the-assessments",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "objectID": "week-05/drills.html",
+    "href": "week-05/drills.html",
+    "title": "Week 5 — Drills",
     "section": "",
-    "text": "H1–H2 rehearse the midterm’s Q4 (a cost shock moves a schedule) and LO3 (supply and demand).\nH3–H5 are the algebra of the midterm’s study of function (zeros, sign, vertex) and of the factoring step in Q5 of the final exam.\nH6–H7 are the log manipulation that week 4 (compound interest, EAR) and the log integrals in Q5 rely on.\nH8 is the interval notation the resit asks for when it says “the domain of f(x) is…”."
+    "text": "Exam format. Show all work. Core items are for everyone; stretch items for whoever finishes early. Solutions at the end, worked the way an examiner wants to see them.\nRunning case: Arno Bikes holds a small bond portfolio as a cash reserve, and is asked by the Board whether rising rates should worry it.\nUnless stated otherwise: annual coupons, face value €100, prices to the cent.\n\n\nD1 (core). A 5-year bond, 4% annual coupon, face €100, yield 6%. (a) Write the price as a sum. (b) Compute it. (c) Is it at a premium or a discount, and why — in one sentence, without arithmetic?\nD2 (core). The same bond at a yield of 4%. Then at 2%. (a) Both prices. (b) State the rule that connects coupon, yield and price.\nD3 (core — resit form). Select the correct alternative and justify in one line. A bond trades above par. Therefore: (i) its coupon is above its yield (ii) its yield is above its coupon (iii) it must be close to maturity\nD4 (core). A zero-coupon bond pays €100 in 8 years. The yield is 5%. (a) Its price today. (b) If the yield rises to 6%, the new price and the percentage change.\n\n\n\nD5 (core). For the 5-year 4% bond priced at a 6% yield (D1): (a) Compute Macaulay duration, showing the weight of each cash flow. (b) Convert it to modified duration. (c) Estimate the price change if the yield rises by 50 basis points.\nD6 (core). A 10-year bond with a 5% coupon trades at par (yield 5%). Its modified duration is 7.72. (a) Estimate the new price if the yield rises to 6%. (b) The actual price at 6% is €92.64. Compare, and say which way the estimate errs.\nD7 (stretch). Without computing anything, order these three by duration, longest first, and justify each comparison in one clause: (i) a 10-year zero-coupon bond (ii) a 10-year 8% coupon bond (iii) a 3-year 8% coupon bond\n\n\n\nD8 (core). Using the bond in D6 (P = 100, D_mod = 7.72, convexity C = 75.0): (a) Estimate the price at a yield of 6% using duration and convexity. (b) Compare with the actual €92.64 and with the duration-only estimate from D6.\nD9 (core — the Board sentence). In two sentences, no formulas: what does convexity buy the holder of a bond, and why does a risk manager care about it?\nD10 (stretch). Two bonds have the same duration; one has higher convexity. Rates move sharply, direction unknown. Which would you rather hold, and why?\n\n\n\nD11 (core). Arno Bikes holds €400,000 of the D6 bond (at par) and €600,000 of a 2-year bond with modified duration 1.90. (a) The portfolio’s modified duration. (Weight each by market value.) (b) The estimated loss in euros if yields rise by 1% across the board. (c) One sentence to the Board.\n\n\n\nSolutions\n\nD1. (a) P = Σ(t=1..5) 4/(1.06)^t + 100/(1.06)^5. (b) Annuity part: 4 × [1 − (1.06)⁻⁵]/0.06 = 4 × 4.212364 = 16.85. Face: 100/(1.06)⁵ = 74.73. P = **€91.58**. (c) A discount: the bond pays 4% on its face while the market demands 6%, so it must be cheaper than face to make up the difference.\nD2. (a) At 4%: coupon equals yield, so P = **€100.00** (par). At 2%: 4 × [1 − (1.02)⁻⁵]/0.02 + 100/(1.02)⁵ = 4 × 4.713460 + 90.57 = 18.85 + 90.57 = **€109.42**. (b) Coupon &gt; yield → premium; coupon = yield → par; coupon &lt; yield → discount. Price and yield move in opposite directions, always.\nD3. (i) its coupon is above its yield. Investors pay more than face only to obtain a coupon better than the going rate.\nD4. (a) P = 100/(1.05)⁸ = 100/1.477455 = **€67.68**. (b) P = 100/(1.06)⁸ = 100/1.593848 = **€62.74**; change = (62.74 − 67.68)/67.68 = **−7.30%**.\nD5. (a) With P = 91.58:\n\n\n\nt\nCF\nPV = CF/(1.06)^t\nweight w = PV/P\nt · w\n\n\n\n\n1\n4\n3.77\n0.0412\n0.0412\n\n\n2\n4\n3.56\n0.0389\n0.0777\n\n\n3\n4\n3.36\n0.0367\n0.1100\n\n\n4\n4\n3.17\n0.0346\n0.1384\n\n\n5\n104\n77.71\n0.8486\n4.2432\n\n\n\n\n91.58\n1.0000\n4.610\n\n\n\nMacaulay duration = 4.61 years. It is the average time to being repaid, weighted by present value — which is why it is under five even though the bond runs five years. (b) D_mod = D/(1 + y) = 4.610/1.06 = **4.349**. (c) ΔP/P ≈ −D_mod × Δy = −4.349 × 0.005 = −2.17%, i.e. about −€1.99, giving roughly €89.59.\nD6. (a) ΔP/P ≈ −7.72 × 0.01 = −7.72% → P ≈ 100 × 0.9228 = **€92.28**. (b) The actual price is €92.64, so the estimate is €0.36 too low. Duration alone overstates the loss. It will also understate the gain when yields fall: the straight line lies below the curve on both sides.\nD7. (i) &gt; (ii) &gt; (iii). (i) beats (ii): a zero pays everything at the end, so its weighted average time is the full 10 years, while coupons pull (ii)’s average forward. (ii) beats (iii): same coupon, but money returned over ten years instead of three.\nD8. (a) ΔP/P ≈ −D_mod Δy + ½ C (Δy)² = −7.72(0.01) + ½(75.0)(0.0001) = −0.0772 + 0.00375 = −0.07345 → P ≈ 100 × 0.92655 = **€92.66**. (b) Duration alone gave €92.28, out by 36 cents below the truth. Adding convexity gives €92.66, out by 2 cents above it. The second term recovers almost all of the curvature the straight line missed; the 2 cents that remain belong to the next term again, and no one on a trading floor cares about them.\nD9. Convexity means the price curve bends away from the straight-line estimate in the holder’s favour: when yields fall the bond gains more than duration predicts, and when they rise it loses less. A risk manager cares because a duration-only report overstates losses and understates gains, and because between two bonds of equal duration the more convex one is worth more when rates move a long way.\nD10. The more convex one. With equal duration the two behave the same for a small move, but for a large move in either direction the convex bond does better: more upside, less downside. That asymmetry is worth paying for, and in the market you usually do.\nD11. (a) Weights 400/1,000 = 0.4 and 600/1,000 = 0.6. D_portfolio = 0.4(7.72) + 0.6(1.90) = 3.088 + 1.140 = **4.228**. (b) ΔV ≈ −4.228 × 0.01 × €1,000,000 = **−€42,280**. (c) “A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; the exposure sits almost entirely in the ten-year holding, and shortening that would cut it roughly in half.”"
+  },
+  {
+    "objectID": "week-05/drills.html#a.-pricing-a-bond",
+    "href": "week-05/drills.html#a.-pricing-a-bond",
+    "title": "Week 5 — Drills",
+    "section": "",
+    "text": "D1 (core). A 5-year bond, 4% annual coupon, face €100, yield 6%. (a) Write the price as a sum. (b) Compute it. (c) Is it at a premium or a discount, and why — in one sentence, without arithmetic?\nD2 (core). The same bond at a yield of 4%. Then at 2%. (a) Both prices. (b) State the rule that connects coupon, yield and price.\nD3 (core — resit form). Select the correct alternative and justify in one line. A bond trades above par. Therefore: (i) its coupon is above its yield (ii) its yield is above its coupon (iii) it must be close to maturity\nD4 (core). A zero-coupon bond pays €100 in 8 years. The yield is 5%. (a) Its price today. (b) If the yield rises to 6%, the new price and the percentage change."
+  },
+  {
+    "objectID": "week-05/drills.html#b.-duration",
+    "href": "week-05/drills.html#b.-duration",
+    "title": "Week 5 — Drills",
+    "section": "",
+    "text": "D5 (core). For the 5-year 4% bond priced at a 6% yield (D1): (a) Compute Macaulay duration, showing the weight of each cash flow. (b) Convert it to modified duration. (c) Estimate the price change if the yield rises by 50 basis points.\nD6 (core). A 10-year bond with a 5% coupon trades at par (yield 5%). Its modified duration is 7.72. (a) Estimate the new price if the yield rises to 6%. (b) The actual price at 6% is €92.64. Compare, and say which way the estimate errs.\nD7 (stretch). Without computing anything, order these three by duration, longest first, and justify each comparison in one clause: (i) a 10-year zero-coupon bond (ii) a 10-year 8% coupon bond (iii) a 3-year 8% coupon bond"
+  },
+  {
+    "objectID": "week-05/drills.html#c.-convexity",
+    "href": "week-05/drills.html#c.-convexity",
+    "title": "Week 5 — Drills",
+    "section": "",
+    "text": "D8 (core). Using the bond in D6 (P = 100, D_mod = 7.72, convexity C = 75.0): (a) Estimate the price at a yield of 6% using duration and convexity. (b) Compare with the actual €92.64 and with the duration-only estimate from D6.\nD9 (core — the Board sentence). In two sentences, no formulas: what does convexity buy the holder of a bond, and why does a risk manager care about it?\nD10 (stretch). Two bonds have the same duration; one has higher convexity. Rates move sharply, direction unknown. Which would you rather hold, and why?"
+  },
+  {
+    "objectID": "week-05/drills.html#d.-putting-it-together",
+    "href": "week-05/drills.html#d.-putting-it-together",
+    "title": "Week 5 — Drills",
+    "section": "",
+    "text": "D11 (core). Arno Bikes holds €400,000 of the D6 bond (at par) and €600,000 of a 2-year bond with modified duration 1.90. (a) The portfolio’s modified duration. (Weight each by market value.) (b) The estimated loss in euros if yields rise by 1% across the board. (c) One sentence to the Board.\n\n\n\nSolutions\n\nD1. (a) P = Σ(t=1..5) 4/(1.06)^t + 100/(1.06)^5. (b) Annuity part: 4 × [1 − (1.06)⁻⁵]/0.06 = 4 × 4.212364 = 16.85. Face: 100/(1.06)⁵ = 74.73. P = **€91.58**. (c) A discount: the bond pays 4% on its face while the market demands 6%, so it must be cheaper than face to make up the difference.\nD2. (a) At 4%: coupon equals yield, so P = **€100.00** (par). At 2%: 4 × [1 − (1.02)⁻⁵]/0.02 + 100/(1.02)⁵ = 4 × 4.713460 + 90.57 = 18.85 + 90.57 = **€109.42**. (b) Coupon &gt; yield → premium; coupon = yield → par; coupon &lt; yield → discount. Price and yield move in opposite directions, always.\nD3. (i) its coupon is above its yield. Investors pay more than face only to obtain a coupon better than the going rate.\nD4. (a) P = 100/(1.05)⁸ = 100/1.477455 = **€67.68**. (b) P = 100/(1.06)⁸ = 100/1.593848 = **€62.74**; change = (62.74 − 67.68)/67.68 = **−7.30%**.\nD5. (a) With P = 91.58:\n\n\n\nt\nCF\nPV = CF/(1.06)^t\nweight w = PV/P\nt · w\n\n\n\n\n1\n4\n3.77\n0.0412\n0.0412\n\n\n2\n4\n3.56\n0.0389\n0.0777\n\n\n3\n4\n3.36\n0.0367\n0.1100\n\n\n4\n4\n3.17\n0.0346\n0.1384\n\n\n5\n104\n77.71\n0.8486\n4.2432\n\n\n\n\n91.58\n1.0000\n4.610\n\n\n\nMacaulay duration = 4.61 years. It is the average time to being repaid, weighted by present value — which is why it is under five even though the bond runs five years. (b) D_mod = D/(1 + y) = 4.610/1.06 = **4.349**. (c) ΔP/P ≈ −D_mod × Δy = −4.349 × 0.005 = −2.17%, i.e. about −€1.99, giving roughly €89.59.\nD6. (a) ΔP/P ≈ −7.72 × 0.01 = −7.72% → P ≈ 100 × 0.9228 = **€92.28**. (b) The actual price is €92.64, so the estimate is €0.36 too low. Duration alone overstates the loss. It will also understate the gain when yields fall: the straight line lies below the curve on both sides.\nD7. (i) &gt; (ii) &gt; (iii). (i) beats (ii): a zero pays everything at the end, so its weighted average time is the full 10 years, while coupons pull (ii)’s average forward. (ii) beats (iii): same coupon, but money returned over ten years instead of three.\nD8. (a) ΔP/P ≈ −D_mod Δy + ½ C (Δy)² = −7.72(0.01) + ½(75.0)(0.0001) = −0.0772 + 0.00375 = −0.07345 → P ≈ 100 × 0.92655 = **€92.66**. (b) Duration alone gave €92.28, out by 36 cents below the truth. Adding convexity gives €92.66, out by 2 cents above it. The second term recovers almost all of the curvature the straight line missed; the 2 cents that remain belong to the next term again, and no one on a trading floor cares about them.\nD9. Convexity means the price curve bends away from the straight-line estimate in the holder’s favour: when yields fall the bond gains more than duration predicts, and when they rise it loses less. A risk manager cares because a duration-only report overstates losses and understates gains, and because between two bonds of equal duration the more convex one is worth more when rates move a long way.\nD10. The more convex one. With equal duration the two behave the same for a small move, but for a large move in either direction the convex bond does better: more upside, less downside. That asymmetry is worth paying for, and in the market you usually do.\nD11. (a) Weights 400/1,000 = 0.4 and 600/1,000 = 0.6. D_portfolio = 0.4(7.72) + 0.6(1.90) = 3.088 + 1.140 = **4.228**. (b) ΔV ≈ −4.228 × 0.01 × €1,000,000 = **−€42,280**. (c) “A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; the exposure sits almost entirely in the ten-year holding, and shortening that would cut it roughly in half.”"
   },
   {
     "objectID": "week-01/session.html",
@@ -336,6 +1043,90 @@
     "text": "Three take-home lines\nWrite yours on paper before leaving:\n\n…\n…\n…"
   },
   {
+    "objectID": "week-03/session.html",
+    "href": "week-03/session.html",
+    "title": "MBA03 · Week 3 — Studying a function, and adding one up",
+    "section": "",
+    "text": "European School of Economics · Thu 8 Oct 2026 · Tutor: Niccolò Salvini\nToday is the mathematical content of the midterm: the seven-step study, optimisation, and integration.\nimport subprocess, sys\ntry:\n    import plotly, sympy\nexcept ImportError:\n    subprocess.run([sys.executable, \"-m\", \"pip\", \"install\", \"-q\", \"plotly\", \"sympy\"])\nimport numpy as np, plotly.graph_objects as go, sympy as sp\nq = sp.Symbol(\"q\", positive=True)\nprint(\"ready\")"
+  },
+  {
+    "objectID": "week-03/session.html#a.-the-seven-steps-done-by-machine-so-you-can-check-yourself",
+    "href": "week-03/session.html#a.-the-seven-steps-done-by-machine-so-you-can-check-yourself",
+    "title": "MBA03 · Week 3 — Studying a function, and adding one up",
+    "section": "A. The seven steps, done by machine so you can check yourself",
+    "text": "A. The seven steps, done by machine so you can check yourself\nDo it on paper first. This cell is the answer key, not the method.\n\ndef study(f, name=\"f\"):\n    fp, fpp = sp.diff(f, q), sp.diff(f, q, 2)\n    print(f\"{name}(q) = {f}\")\n    print(\"  1 domain     :\", sp.calculus.util.continuous_domain(f, q, sp.Interval(0, sp.oo)))\n    print(\"  2 zeros      :\", [round(float(r), 3) for r in sp.solve(f, q) if r.is_real])\n    print(f\"  3 f'         : {fp}\")\n    stat = sp.solve(fp, q)\n    print(\"  4 stationary :\", stat)\n    for s in stat:\n        kind = \"maximum\" if fpp.subs(q, s) &lt; 0 else (\"minimum\" if fpp.subs(q, s) &gt; 0 else \"unclear\")\n        print(f\"  5 at q={float(s):.3f}: f''={float(fpp.subs(q, s)):.3f} → {kind}, f={float(f.subs(q, s)):,.2f}\")\n    print(\"  6 f''        :\", fpp, \"  inflection at:\", sp.solve(fpp, q))\n    print(\"  7 as q→∞     :\", sp.limit(f, q, sp.oo))\n\nstudy(-4*q**2 + 1200*q - 60000, \"π\")"
+  },
+  {
+    "objectID": "week-03/session.html#b.-average-cost-meets-marginal-cost",
+    "href": "week-03/session.html#b.-average-cost-meets-marginal-cost",
+    "title": "MBA03 · Week 3 — Studying a function, and adding one up",
+    "section": "B. Average cost meets marginal cost",
+    "text": "B. Average cost meets marginal cost\nWhere does the average stop falling? Move the slider and watch the two curves.\n\nC  = lambda x: 0.4*x**2 + 3*x + 25\nAC = lambda x: C(x)/x\nMC = lambda x: 0.8*x + 3\nxs = np.linspace(1.5, 18, 300)\n\nfig = go.Figure([\n    go.Scatter(x=xs, y=AC(xs), name=\"average cost C(q)/q\", line=dict(color=\"#363636\", width=3)),\n    go.Scatter(x=xs, y=MC(xs), name=\"marginal cost C'(q)\", line=dict(color=\"#AF1F25\", width=3)),\n])\nqstar = float(np.sqrt(62.5))\nfig.add_scatter(x=[qstar], y=[AC(qstar)], mode=\"markers+text\", marker=dict(size=13, color=\"#CDBA80\"),\n                text=[f\"q* = {qstar:.2f}\"], textposition=\"top right\", showlegend=False)\nfig.update_layout(template=\"simple_white\", height=460, xaxis_title=\"q\",\n                  yaxis_title=\"€ thousand per unit\", yaxis_range=[0, 20])\nfig.show()\n\n\nCs = sp.Rational(4,10)*q**2 + 3*q + 25\nACs = sp.simplify(Cs/q)\nqm = [s for s in sp.solve(sp.diff(ACs, q), q) if s.is_real and s &gt; 0][0]\nprint(f\"AC is lowest at q = {float(qm):.4f}\")\nprint(f\"  AC there = {float(ACs.subs(q, qm)):.4f}\")\nprint(f\"  MC there = {float(sp.diff(Cs, q).subs(q, qm)):.4f}   ← equal, and not by accident\")"
+  },
+  {
+    "objectID": "week-03/session.html#c.-optimisation-marginal-revenue-equals-marginal-cost",
+    "href": "week-03/session.html#c.-optimisation-marginal-revenue-equals-marginal-cost",
+    "title": "MBA03 · Week 3 — Studying a function, and adding one up",
+    "section": "C. Optimisation — marginal revenue equals marginal cost",
+    "text": "C. Optimisation — marginal revenue equals marginal cost\nA firm with log revenue. Change the 30 and watch the optimum move.\n\nfor a in (20, 30, 40, 60):\n    pi = a*sp.log(q + 1) - Cs\n    root = [r for r in sp.solve(sp.Eq(sp.diff(pi, q), 0), q) if r.is_real and r &gt; 0]\n    if root:\n        qs_ = float(root[0])\n        print(f\"R = {a} ln(q+1):  q* = {qs_:6.3f},  π(q*) = {float(pi.subs(q, root[0])):&gt;8,.2f}k\")\n\n\n🔍 CHECK\nOne of those rows has a positive optimum and a negative profit. Find it, and say what a manager should do in that case. Maximising profit and making a profit are not the same thing."
+  },
+  {
+    "objectID": "week-03/session.html#d.-integration-thinner-slices-truer-area",
+    "href": "week-03/session.html#d.-integration-thinner-slices-truer-area",
+    "title": "MBA03 · Week 3 — Studying a function, and adding one up",
+    "section": "D. Integration — thinner slices, truer area",
+    "text": "D. Integration — thinner slices, truer area\nMC(q) = 0.8q + 3. What do the first twenty bikes cost in total?\n\nmc = lambda x: 0.8*x + 3\nexact = 0.4*20**2 + 3*20\nfor n in (4, 8, 20, 60, 500):\n    dx = 20/n\n    left = sum(mc(i*dx)*dx for i in range(n))\n    print(f\"n = {n:&gt;3}  left-endpoint sum = {left:7.2f}   (exact {exact})\")\n\n\nprint(\"∫ (q⁵ − 3q³ + 2)/q² dq =\", sp.integrate((q**5 - 3*q**3 + 2)/q**2, q), \"+ c\")\nprint(\"∫₀²⁰ (0.8q + 3) dq     =\", sp.integrate(sp.Rational(8,10)*q + 3, (q, 0, 20)))\nprint()\npi = -4*q**2 + 1200*q - 60000\nprint(\"∫₁₀₀¹⁵⁰ π'(q) dq =\", sp.integrate(sp.diff(pi, q), (q, 100, 150)))\nprint(\"π(150) − π(100)  =\", pi.subs(q, 150) - pi.subs(q, 100), \" ← the same number\")\n\nThe integral of the marginal is the change in the total. That sentence is the whole of integration."
+  },
+  {
+    "objectID": "week-03/session.html#homework",
+    "href": "week-03/session.html#homework",
+    "title": "MBA03 · Week 3 — Studying a function, and adding one up",
+    "section": "Homework",
+    "text": "Homework\nhomework.md — seven drills plus a 400–500 word Board report: a dry run of the midterm, sketch included. Due Wednesday 14 October, 23:59."
+  },
+  {
+    "objectID": "week-05/session.html",
+    "href": "week-05/session.html",
+    "title": "MBA03 · Week 5 — What a rate rise costs you",
+    "section": "",
+    "text": "European School of Economics · Thu 22 Oct 2026 · Tutor: Niccolò Salvini\nArno Bikes keeps €1M in bonds. The Board asks whether a one-point rise in rates should worry it. Two numbers answer that: duration and convexity.\nimport subprocess, sys\ntry:\n    import plotly\nexcept ImportError:\n    subprocess.run([sys.executable, \"-m\", \"pip\", \"install\", \"-q\", \"plotly\"])\nimport numpy as np, plotly.graph_objects as go\n\ndef price(coupon, years, y, face=100.0):\n    return sum(coupon*face/(1 + y)**t for t in range(1, years + 1)) + face/(1 + y)**years\n\nprint(\"ready\")"
+  },
+  {
+    "objectID": "week-05/session.html#a.-price-and-yield-move-in-opposite-directions",
+    "href": "week-05/session.html#a.-price-and-yield-move-in-opposite-directions",
+    "title": "MBA03 · Week 5 — What a rate rise costs you",
+    "section": "A. Price and yield move in opposite directions",
+    "text": "A. Price and yield move in opposite directions\n\nprint(f\"{'yield':&gt;7} {'5y 4% coupon':&gt;15}\")\nfor y in (0.02, 0.03, 0.04, 0.05, 0.06, 0.08):\n    p = price(0.04, 5, y)\n    tag = \"premium\" if p &gt; 100 else (\"par\" if abs(p - 100) &lt; 1e-9 else \"discount\")\n    print(f\"{y:&gt;7.0%} {p:&gt;15.2f}   {tag}\")"
+  },
+  {
+    "objectID": "week-05/session.html#b.-duration-the-weighted-average-time-to-being-repaid",
+    "href": "week-05/session.html#b.-duration-the-weighted-average-time-to-being-repaid",
+    "title": "MBA03 · Week 5 — What a rate rise costs you",
+    "section": "B. Duration — the weighted average time to being repaid",
+    "text": "B. Duration — the weighted average time to being repaid\n\ndef duration_table(coupon, years, y, face=100.0):\n    P = price(coupon, years, y, face)\n    print(f\"P = {P:.2f}\")\n    print(f\"{'t':&gt;3} {'CF':&gt;8} {'PV':&gt;10} {'weight':&gt;9} {'t·w':&gt;9}\")\n    mac = 0.0\n    for t in range(1, years + 1):\n        cf = coupon*face + (face if t == years else 0)\n        pv = cf/(1 + y)**t\n        w = pv/P\n        mac += t*w\n        print(f\"{t:&gt;3} {cf:&gt;8.2f} {pv:&gt;10.2f} {w:&gt;9.4f} {t*w:&gt;9.4f}\")\n    print(f\"{'':&gt;3} {'':&gt;8} {P:&gt;10.2f} {1.0:&gt;9.4f} {mac:&gt;9.4f}\")\n    print(f\"Macaulay duration = {mac:.4f} years\")\n    print(f\"Modified duration = {mac/(1+y):.4f}  (% per 1% of yield)\")\n    return mac, mac/(1 + y)\n\nduration_table(0.04, 5, 0.06)\n\n\n🔍 CHECK\nThe weights column must sum to 1. On paper, if it does not, stop: something is wrong before the duration is.\n\nprint(\"What moves duration, other things equal:\")\nfor lab, (c, n, y) in {\n    \"5y 4% coupon, y=6%\": (0.04, 5, 0.06),\n    \"10y 4% coupon, y=6%\": (0.04, 10, 0.06),\n    \"5y 8% coupon, y=6%\": (0.08, 5, 0.06),\n    \"5y 4% coupon, y=10%\": (0.04, 5, 0.10),\n    \"5y zero, y=6%\": (0.0, 5, 0.06),\n}.items():\n    P = price(c, n, y)\n    mac = sum(t*((c*100 + (100 if t == n else 0))/(1 + y)**t) for t in range(1, n + 1))/P\n    print(f\"  {lab:&lt;22} Macaulay {mac:5.2f}\")\nprint(\"\\nLonger maturity raises it. A bigger coupon lowers it. A higher yield lowers it. A zero's duration is its maturity.\")"
+  },
+  {
+    "objectID": "week-05/session.html#c.-convexity-the-gap-the-straight-line-misses",
+    "href": "week-05/session.html#c.-convexity-the-gap-the-straight-line-misses",
+    "title": "MBA03 · Week 5 — What a rate rise costs you",
+    "section": "C. Convexity — the gap the straight line misses",
+    "text": "C. Convexity — the gap the straight line misses\n\nP0, y0 = price(0.05, 10, 0.05), 0.05\nh = 1e-6\nslope = (price(0.05, 10, y0 + h) - price(0.05, 10, y0 - h))/(2*h)\ndmod = -slope/P0\nhh = 1e-4\nconv = (price(0.05, 10, y0 + hh) - 2*P0 + price(0.05, 10, y0 - hh))/(hh*hh*P0)\nprint(f\"10-year 5% bond at par: P = {P0:.2f}, modified duration = {dmod:.4f}, convexity = {conv:.2f}\")\n\nys = np.linspace(0.01, 0.10, 300)\nfig = go.Figure()\nfig.add_scatter(x=ys*100, y=[price(0.05, 10, v) for v in ys], name=\"the bond\",\n                line=dict(color=\"#363636\", width=3))\nfig.add_scatter(x=ys*100, y=P0 + slope*(ys - y0), name=\"what duration predicts\",\n                line=dict(color=\"#AF1F25\", width=2, dash=\"dash\"))\nfig.add_scatter(x=[y0*100], y=[P0], mode=\"markers\", marker=dict(size=13, color=\"#CDBA80\"), showlegend=False)\nfig.update_layout(template=\"simple_white\", height=460, xaxis_title=\"yield %\", yaxis_title=\"price €\")\nfig.show()\n\nfor dy in (0.005, 0.01, 0.02, -0.02):\n    actual = price(0.05, 10, y0 + dy)\n    dur_only = P0*(1 - dmod*dy)\n    both = P0*(1 - dmod*dy + 0.5*conv*dy**2)\n    print(f\"Δy = {dy:+.1%}  actual {actual:7.2f}   duration only {dur_only:7.2f}   + convexity {both:7.2f}\")\n\nDuration alone overstates the loss and understates the gain. The curve is above the line on both sides."
+  },
+  {
+    "objectID": "week-05/session.html#d.-the-reserve-answered",
+    "href": "week-05/session.html#d.-the-reserve-answered",
+    "title": "MBA03 · Week 5 — What a rate rise costs you",
+    "section": "D. The reserve, answered",
+    "text": "D. The reserve, answered\n\nholdings = [(\"10-year 5% at par\", 400_000, 7.72), (\"2-year\", 600_000, 1.90)]\ntotal = sum(v for _, v, _ in holdings)\ndport = sum(v/total*d for _, v, d in holdings)\nprint(f\"portfolio modified duration = {dport:.3f}\")\nfor shift in (0.01, 0.005, -0.01):\n    print(f\"  yields {shift:+.1%}  →  {-dport*shift*total:&gt;12,.0f} €\")\n\n\nThe sentence for the Board\n\n“A one-point rise costs the reserve about €42,000, a little over 4%. The exposure sits almost entirely in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this.”"
+  },
+  {
+    "objectID": "week-05/session.html#homework-and-what-comes-next",
+    "href": "week-05/session.html#homework-and-what-comes-next",
+    "title": "MBA03 · Week 5 — What a rate rise costs you",
+    "section": "Homework and what comes next",
+    "text": "Homework and what comes next\nhomework.md — due Wednesday 28 October, lighter on purpose. Reading week is for the midterm, due Sunday 1 November on Turnitin."
+  },
+  {
     "objectID": "setup.html",
     "href": "setup.html",
     "title": "How to work",
@@ -383,5 +1174,362 @@
     "title": "How to work",
     "section": "Questions between sessions",
     "text": "Questions between sessions\nUse the course chat channel for quick questions and to arrange an office hour. Deliverables go on Moodle only."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#where-we-are",
+    "href": "lectures/02-calculus-opens.html#where-we-are",
+    "title": "The tool that finds the top of any hill",
+    "section": "Where we are",
+    "text": "Where we are\n\n\n\n\n\nWk\nDate\nWhat you can do by hand\n\n\n\n\n1\n24 Sep\nequations, quadratics, logs ✓\n\n\n2\n1 Oct\nread a function; limits; the derivative\n\n\n3\n8 Oct\nstudy a function; optimise; integrate\n\n\n4\n15 Oct\ninterest, discounting, NPV\n\n\n5\n22 Oct\nbonds, duration, convexity\n\n\n\n\nToday serves both assessments.\nThe midterm asks you to study a cost, a revenue and a profit function. Everything in that study is built on the derivative.\nThree of the five items in the final’s calculus question are here: a limit that factors, a derivative term by term, and a function recovered from its derivative.\n\nLast week you found the top of a hill with a formula that only works for parabolas. Today you get the one that works for any curve."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#first-the-midterm",
+    "href": "lectures/02-calculus-opens.html#first-the-midterm",
+    "title": "The tool that finds the top of any hill",
+    "section": "First, the midterm",
+    "text": "First, the midterm\nBRIEFING · 35 minutes\nBefore any mathematics: what the midterm asks, how it is marked, and what a good one looks like.\n\nThe brief, read together, line by line.\nThe seven things a “full study of a function” must contain.\nWhat the qualitative sections want, and what referencing means here.\nThe timetable back from 1 November.\n\nQuestions now, not in the last week of October."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#block-a-what-a-function-is-once-you-have-to-use-one",
+    "href": "lectures/02-calculus-opens.html#block-a-what-a-function-is-once-you-have-to-use-one",
+    "title": "The tool that finds the top of any hill",
+    "section": "Block A What a function is, once you have to use one",
+    "text": "Block A What a function is, once you have to use one"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#four-functions-one-firm",
+    "href": "lectures/02-calculus-opens.html#four-functions-one-firm",
+    "title": "The tool that finds the top of any hill",
+    "section": "Four functions, one firm",
+    "text": "Four functions, one firm\n\n\n\n\n\nstraight line\nC(q) = 60,000 + 400q\n\n\nparabola\nπ(q) = −4q² + 1200q − 60,000\n\n\nexponential\nR(t) = 1.2 · 1.12ᵗ\n\n\nlogarithm\nR(q) = 30 ln(q + 1)\n\n\n\nEach one is a sentence about a business, written so it can be computed.\n\nDomain is the first question, always: for which q does this mean anything?\n√(q − 20) needs q ≥ 20. ln(q − 5) needs q &gt; 5, strictly. 120/(q − 40) breaks at q = 40.\nThe exam asks “state the domain” and expects an interval, with the bracket chosen on purpose.\n\n\n\n\n\n\n\n\nBet before we compute\n\n\nπ(100) and π(200). One is bigger. Which, and by how much?"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#d1-d2-domains-and-the-four-functions",
+    "href": "lectures/02-calculus-opens.html#d1-d2-domains-and-the-four-functions",
+    "title": "The tool that finds the top of any hill",
+    "section": "D1, D2 — domains, and the four functions",
+    "text": "D1, D2 — domains, and the four functions\nPAPER · drills.md\n10 minutes. Show all work, exam style. Tutor circulates."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#block-b-limits-what-happens-near-a-point-you-cannot-reach",
+    "href": "lectures/02-calculus-opens.html#block-b-limits-what-happens-near-a-point-you-cannot-reach",
+    "title": "The tool that finds the top of any hill",
+    "section": "Block B Limits — what happens near a point you cannot reach",
+    "text": "Block B Limits — what happens near a point you cannot reach"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#average-cost-at-zero-output",
+    "href": "lectures/02-calculus-opens.html#average-cost-at-zero-output",
+    "title": "The tool that finds the top of any hill",
+    "section": "Average cost at zero output",
+    "text": "Average cost at zero output\nAC(q) = \\frac{60{,}000 + 400q}{q}\nAt q = 0 this is meaningless: you cannot divide by nothing. But you can ask what happens near zero, and near infinity.\n\n\\lim_{q \\to 0^{+}} AC(q) = +\\infty \\qquad \\lim_{q \\to \\infty} AC(q) = 400\nFixed cost spread over almost nothing is ruinous; spread over a long run it disappears. Economies of scale, in two limits."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#the-one-that-looks-impossible",
+    "href": "lectures/02-calculus-opens.html#the-one-that-looks-impossible",
+    "title": "The tool that finds the top of any hill",
+    "section": "The one that looks impossible",
+    "text": "The one that looks impossible\n\\lim_{q \\to 10} \\frac{q^{2} - 100}{q - 10}\nSubstitute and you get 0/0, which says nothing. So do not substitute first.\n\n\\frac{(q-10)(q+10)}{q-10} = q + 10 \\;\\longrightarrow\\; 20\n\n\n\n\n\n\n\nBoard sentence\n\n\n0/0 is not an answer, it is an instruction: factor, cancel, then substitute."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#d4-d5-d6-limits-including-one-from-the-exam",
+    "href": "lectures/02-calculus-opens.html#d4-d5-d6-limits-including-one-from-the-exam",
+    "title": "The tool that finds the top of any hill",
+    "section": "D4, D5, D6 — limits, including one from the exam",
+    "text": "D4, D5, D6 — limits, including one from the exam\nPAPER · drills.md\n12 minutes. D5 is a one-sided limit in exactly the form the final exam uses."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#block-c-the-derivative",
+    "href": "lectures/02-calculus-opens.html#block-c-the-derivative",
+    "title": "The tool that finds the top of any hill",
+    "section": "Block C The derivative",
+    "text": "Block C The derivative"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#how-much-does-one-more-bike-change-profit",
+    "href": "lectures/02-calculus-opens.html#how-much-does-one-more-bike-change-profit",
+    "title": "The tool that finds the top of any hill",
+    "section": "How much does one more bike change profit?",
+    "text": "How much does one more bike change profit?\nAt 80 bikes a month, what does the eighty-first bike add?\n\n\n\n\n\n\n\nBet before we compute\n\n\nMore than €1,000, between €0 and €1,000, or negative? Commit to one.\n\n\n\n\nThe honest way to ask it: take two quantities, measure the change in profit, divide by the change in quantity. Then let the two quantities come together."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#two-points-become-one",
+    "href": "lectures/02-calculus-opens.html#two-points-become-one",
+    "title": "The tool that finds the top of any hill",
+    "section": "Two points become one",
+    "text": "Two points become one\n\n\n\nThe slope over an interval becomes the slope at a point."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#the-definition-once",
+    "href": "lectures/02-calculus-opens.html#the-definition-once",
+    "title": "The tool that finds the top of any hill",
+    "section": "The definition, once",
+    "text": "The definition, once\n\\pi'(a) \\;=\\; \\lim_{h \\to 0} \\frac{\\pi(a+h) - \\pi(a)}{h}\nYou will use this definition roughly twice in your life. What you will use every day is what it produces:\n\n\n\nqⁿ\nn qⁿ⁻¹\n\n\na constant\n0\n\n\nln q\n1/q\n\n\neᵏq\nk eᵏq\n\n\nsums\ndifferentiate term by term"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#read-it-off-the-curve",
+    "href": "lectures/02-calculus-opens.html#read-it-off-the-curve",
+    "title": "The tool that finds the top of any hill",
+    "section": "Read it off the curve",
+    "text": "Read it off the curve\n\nSame curve, three places, three answers to the same question: is the next bike worth making?"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#the-tangent-walks-the-curve",
+    "href": "lectures/02-calculus-opens.html#the-tangent-walks-the-curve",
+    "title": "The tool that finds the top of any hill",
+    "section": "The tangent walks the curve",
+    "text": "The tangent walks the curve\n\n\n\nPositive, then flat, then negative. The flat point is the top."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#move-the-price-watch-the-slope",
+    "href": "lectures/02-calculus-opens.html#move-the-price-watch-the-slope",
+    "title": "The tool that finds the top of any hill",
+    "section": "Move the price, watch the slope",
+    "text": "Move the price, watch the slope\nLAB · session.ipynb § C\n\nBet: if the price cut per extra bike were €3 instead of €4, would the best quantity rise or fall?\nThen slide it, and watch where π'(q) = 0 moves to.\n\nThe slider changes one number. The whole answer moves with it."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#last-weeks-formula-and-this-weeks",
+    "href": "lectures/02-calculus-opens.html#last-weeks-formula-and-this-weeks",
+    "title": "The tool that finds the top of any hill",
+    "section": "Last week’s formula, and this week’s",
+    "text": "Last week’s formula, and this week’s\n\n\nWeek 1, only for parabolas: q_v = -\\frac{b}{2a} = -\\frac{1200}{-8} = 150\n\nToday, for anything: \\pi'(q) = -8q + 1200 = 0 \\;\\Rightarrow\\; q = 150\n\nSame answer. But the second one still works when revenue is 30 ln(q+1), or cost is cubic, or the curve has no formula you recognise.\n\n\n\n\n\n\n\nBoard sentence\n\n\nThe derivative answers one managerial question: what does one more unit do? Positive means make more, negative means make fewer, zero means stop."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#d8-d9-differentiate-then-read-the-answer",
+    "href": "lectures/02-calculus-opens.html#d8-d9-differentiate-then-read-the-answer",
+    "title": "The tool that finds the top of any hill",
+    "section": "D8, D9 — differentiate, then read the answer",
+    "text": "D8, D9 — differentiate, then read the answer\nPAPER · drills.md\n12 minutes. In D9 write the sentence a manager would say, not just the number."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#block-d-running-it-backwards",
+    "href": "lectures/02-calculus-opens.html#block-d-running-it-backwards",
+    "title": "The tool that finds the top of any hill",
+    "section": "Block D Running it backwards",
+    "text": "Block D Running it backwards"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#from-the-derivative-back-to-the-function",
+    "href": "lectures/02-calculus-opens.html#from-the-derivative-back-to-the-function",
+    "title": "The tool that finds the top of any hill",
+    "section": "From the derivative back to the function",
+    "text": "From the derivative back to the function\nThe exam asks this in one direction and the other. Given f', find f.\nf'(q) = 6q^{2} - 2q \\quad\\Longrightarrow\\quad f(q) = 2q^{3} - q^{2} + c\n\nThe c is not decoration. Every function 2q³ − q² + c has the same derivative, so one extra fact pins it down:\nf(1) = 4 \\;\\Rightarrow\\; 2 - 1 + c = 4 \\;\\Rightarrow\\; c = 3"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#and-it-means-something",
+    "href": "lectures/02-calculus-opens.html#and-it-means-something",
+    "title": "The tool that finds the top of any hill",
+    "section": "And it means something",
+    "text": "And it means something\nGiven marginal cost MC(q) = 0.8q + 3, the cost function is\nC(q) = 0.4q^{2} + 3q + c\nand c = C(0) is the fixed cost — what you pay having produced nothing.\nThe constant of integration is not a technicality here. It is the rent."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#d11-d12-recover-the-function",
+    "href": "lectures/02-calculus-opens.html#d11-d12-recover-the-function",
+    "title": "The tool that finds the top of any hill",
+    "section": "D11, D12 — recover the function",
+    "text": "D11, D12 — recover the function\nPAPER · drills.md\n8 minutes. Exam form: every answer ends with the constant found, not left as c."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#close-board-pitch-and-take-home",
+    "href": "lectures/02-calculus-opens.html#close-board-pitch-and-take-home",
+    "title": "The tool that finds the top of any hill",
+    "section": "Close Board pitch and take home",
+    "text": "Close Board pitch and take home"
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#sixty-seconds-to-the-board",
+    "href": "lectures/02-calculus-opens.html#sixty-seconds-to-the-board",
+    "title": "The tool that finds the top of any hill",
+    "section": "Sixty seconds to the Board",
+    "text": "Sixty seconds to the Board\nOne of you stands. The other is the Board.\nYou produced 80 bikes last month. Tell them, with numbers and no formulas:\n\nwhat the eighty-first bike would add;\nat what output that answer turns negative;\nand one thing you would check before acting on it.\n\nThe Board asks one question. This is the midterm’s oral, in miniature."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#take-home",
+    "href": "lectures/02-calculus-opens.html#take-home",
+    "title": "The tool that finds the top of any hill",
+    "section": "Take home",
+    "text": "Take home\n\nDomain first, always. The exam gives marks for the interval.\n0/0 means factor, cancel, then substitute.\nThe derivative is the answer to “what does one more do?”\nReversing it needs a constant, and one fact to pin it down.\n\nHomework 2 (homework.md), due Wednesday 7 October 23:59 on Moodle: eight drills plus a memo to the Board on whether to build the next bike.\nWrite your own three take-home lines now, before you leave.\n\n\n\nResearch & Quantitative Business Methods · ESE Florence"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#where-we-are",
+    "href": "lectures/04-money-over-time.html#where-we-are",
+    "title": "Money has a date on it",
+    "section": "Where we are",
+    "text": "Where we are\n\n\n\n\n\nWk\nDate\nWhat you can do by hand\n\n\n\n\n1–2\n24 Sep – 1 Oct\nalgebra, limits, the derivative ✓\n\n\n3\n8 Oct\nstudy, optimise, integrate ✓\n\n\n4\n15 Oct\ninterest, discounting, EAR, NPV\n\n\n5\n22 Oct\nbonds, duration, convexity\n\n\n\n\nA change of subject, not of method.\nThe calculus is behind you; from here the mathematics is arithmetic done carefully. What is new is that every euro now carries a date, and two euros with different dates cannot be added.\nThe resit’s multiple-choice block is entirely this and next week."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#the-case-for-two-weeks",
+    "href": "lectures/04-money-over-time.html#the-case-for-two-weeks",
+    "title": "Money has a date on it",
+    "section": "The case for two weeks",
+    "text": "The case for two weeks\n\n\n\n\n\n\n\nArno Bikes, a decision\n\n\nA new assembly line costs €2.4M today and is expected to return €700k, €800k, €900k and €1,000k at the end of each of the next four years. The firm borrows at 9%.\n\n\n\n\n\n\n\n\n\n\n\nBet before we compute\n\n\nIt returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no — commit before the arithmetic."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#block-a-interest-and-what-compounding-actually-does",
+    "href": "lectures/04-money-over-time.html#block-a-interest-and-what-compounding-actually-does",
+    "title": "Money has a date on it",
+    "section": "Block A Interest, and what compounding actually does",
+    "text": "Block A Interest, and what compounding actually does"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#two-ways-to-be-paid-for-waiting",
+    "href": "lectures/04-money-over-time.html#two-ways-to-be-paid-for-waiting",
+    "title": "Money has a date on it",
+    "section": "Two ways to be paid for waiting",
+    "text": "Two ways to be paid for waiting\n\n\nSimple — interest on the original sum only: A = P(1 + it) €8,000 at 6% for 3 years → €9,440\n\nCompound — interest on interest too: A = P(1+i)^{t} €8,000 at 6% for 3 years → €9,528.13\n\n\n€88.13 of difference over three years. Over thirty it is not €88.\nNobody in finance means “simple” when they say interest. It is in the syllabus so that you can name what compounding adds."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#more-often-is-more",
+    "href": "lectures/04-money-over-time.html#more-often-is-more",
+    "title": "Money has a date on it",
+    "section": "More often is more",
+    "text": "More often is more\nA = P\\left(1 + \\frac{i}{m}\\right)^{mt}\nm is how many times a year interest is added. €5,000 at 8% nominal for 4 years, quarterly: 5000(1.02)¹⁶ = €6,863.93.\n\n\n\n\n\n\n\nBet before we compute\n\n\nCompound 12% a year every single day instead of once. How much more than €1,120 does €1,000 become?"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#the-ceiling-and-where-e-comes-from",
+    "href": "lectures/04-money-over-time.html#the-ceiling-and-where-e-comes-from",
+    "title": "Money has a date on it",
+    "section": "The ceiling, and where e comes from",
+    "text": "The ceiling, and where e comes from\n\n\n\n1,120 · 1,123.60 · 1,125.51 · 1,126.83 · 1,127.34 → 1,127.50."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#continuous-compounding",
+    "href": "lectures/04-money-over-time.html#continuous-compounding",
+    "title": "Money has a date on it",
+    "section": "Continuous compounding",
+    "text": "Continuous compounding\n\\lim_{m \\to \\infty}\\left(1 + \\frac{i}{m}\\right)^{m} = e^{\\,i} \\qquad\\Longrightarrow\\qquad A = P e^{\\,it}\nIn week 1 e was “the base your calculator’s ln uses”. Here it earns its place: it is the ceiling on compounding, and the gap between weekly and continuous is sixteen cents on a thousand euros.\n\n\n\n\n\n\n\nBoard sentence\n\n\nCompounding more often always helps, and always by less. The limit is e."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#block-b-the-effective-rate-the-only-honest-comparison",
+    "href": "lectures/04-money-over-time.html#block-b-the-effective-rate-the-only-honest-comparison",
+    "title": "Money has a date on it",
+    "section": "Block B The effective rate — the only honest comparison",
+    "text": "Block B The effective rate — the only honest comparison"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#two-quotes-same-nominal-rate-different-price",
+    "href": "lectures/04-money-over-time.html#two-quotes-same-nominal-rate-different-price",
+    "title": "Money has a date on it",
+    "section": "Two quotes, same nominal rate, different price",
+    "text": "Two quotes, same nominal rate, different price\nEAR = \\left(1 + \\frac{i}{m}\\right)^{m} - 1\n\n\n\n12% nominal, compounded\nEAR\n\n\n\n\nsemi-annually\n12.36%\n\n\nquarterly\n12.55%\n\n\nmonthly\n12.68%\n\n\ncontinuously\n12.75%\n\n\n\nA nominal rate is not a price until you know m. This is the single most useful line of the whole module."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#the-trap-in-one-comparison",
+    "href": "lectures/04-money-over-time.html#the-trap-in-one-comparison",
+    "title": "Money has a date on it",
+    "section": "The trap, in one comparison",
+    "text": "The trap, in one comparison\nBank A: 7.8% compounded monthly. Bank B: 8% compounded annually.\n\n\n\n\n\n\n\nBet before we compute\n\n\nWhich do you borrow from?\n\n\n\n\n\nA: (1 + 0.078/12)¹² − 1 = 8.085%. B: 8.000%.\nBorrow from B. The lower headline rate is the dearer loan."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#d4-d5-put-everything-on-the-same-basis",
+    "href": "lectures/04-money-over-time.html#d4-d5-put-everything-on-the-same-basis",
+    "title": "Money has a date on it",
+    "section": "D4, D5 — put everything on the same basis",
+    "text": "D4, D5 — put everything on the same basis\nPAPER · drills.md\n12 minutes. Every answer states m explicitly before the arithmetic."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#block-c-discounting-running-the-clock-backwards",
+    "href": "lectures/04-money-over-time.html#block-c-discounting-running-the-clock-backwards",
+    "title": "Money has a date on it",
+    "section": "Block C Discounting — running the clock backwards",
+    "text": "Block C Discounting — running the clock backwards"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#what-is-10000-in-five-years-worth-now",
+    "href": "lectures/04-money-over-time.html#what-is-10000-in-five-years-worth-now",
+    "title": "Money has a date on it",
+    "section": "What is €10,000 in five years worth now?",
+    "text": "What is €10,000 in five years worth now?\nPV = \\frac{FV}{(1+r)^{t}} = \\frac{10{,}000}{(1.07)^{5}} = €7{,}129.86\nCompounding pushes money forward; discounting pulls it back. Same formula, read the other way."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#why-the-rate-matters-more-than-the-forecast",
+    "href": "lectures/04-money-over-time.html#why-the-rate-matters-more-than-the-forecast",
+    "title": "Money has a date on it",
+    "section": "Why the rate matters more than the forecast",
+    "text": "Why the rate matters more than the forecast\nAt 3%, a euro in twenty years is worth 55 cents. At 16%, five cents.\nTwo analysts can agree on every cash flow and disagree entirely on the answer, because they disagreed about one number at the front."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#two-shortcuts-you-will-use-constantly",
+    "href": "lectures/04-money-over-time.html#two-shortcuts-you-will-use-constantly",
+    "title": "Money has a date on it",
+    "section": "Two shortcuts you will use constantly",
+    "text": "Two shortcuts you will use constantly\n\n\nAnnuity — the same amount, n times: PV = C\\,\\frac{1 - (1+r)^{-n}}{r} €12,000 a year for 10 years at 6% → €88,321\n\nPerpetuity — the same amount, for ever: PV = \\frac{C}{r} €12,000 a year for ever at 6% → €200,000\n\n\nFor ever is worth only 2.3 times ten years. Everything after year ten adds €111,679, because discounting shrinks distant money towards nothing."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#d8-d9-present-value-annuity-perpetuity",
+    "href": "lectures/04-money-over-time.html#d8-d9-present-value-annuity-perpetuity",
+    "title": "Money has a date on it",
+    "section": "D8, D9 — present value, annuity, perpetuity",
+    "text": "D8, D9 — present value, annuity, perpetuity\nPAPER · drills.md\n12 minutes. Show the discount factor separately from the flow, every time."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#block-d-npv-the-decision-itself",
+    "href": "lectures/04-money-over-time.html#block-d-npv-the-decision-itself",
+    "title": "Money has a date on it",
+    "section": "Block D NPV — the decision itself",
+    "text": "Block D NPV — the decision itself"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#back-to-the-assembly-line",
+    "href": "lectures/04-money-over-time.html#back-to-the-assembly-line",
+    "title": "Money has a date on it",
+    "section": "Back to the assembly line",
+    "text": "Back to the assembly line\nNPV = -2{,}400 + \\frac{700}{1.09} + \\frac{800}{1.09^{2}} + \\frac{900}{1.09^{3}} + \\frac{1{,}000}{1.09^{4}}\n\n\n\nYear\nFlow (€k)\nFactor\nPV (€k)\n\n\n\n\n0\n−2,400\n1.000000\n−2,400.00\n\n\n1\n700\n0.917431\n642.20\n\n\n2\n800\n0.841680\n673.34\n\n\n3\n900\n0.772183\n694.97\n\n\n4\n1,000\n0.708425\n708.43\n\n\n\n\nNPV\n+318.94"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#so-the-bet-was-wrong",
+    "href": "lectures/04-money-over-time.html#so-the-bet-was-wrong",
+    "title": "Money has a date on it",
+    "section": "So the bet was wrong",
+    "text": "So the bet was wrong\nThe Board member said “€3.4M back on €2.4M out, a million of profit”.\n\nAdding flows from different years is the one thing this subject forbids. Discounted, the million is €319,000 — still positive, still worth doing, but a third of what it looked like.\n\n\n\n\n\n\n\nBoard sentence\n\n\nAccept a project when its NPV is positive at our cost of capital. The rate is not a detail of the calculation; it is the calculation."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#move-the-rate-watch-the-sign",
+    "href": "lectures/04-money-over-time.html#move-the-rate-watch-the-sign",
+    "title": "Money has a date on it",
+    "section": "Move the rate, watch the sign",
+    "text": "Move the rate, watch the sign\n\n\n\nThe crossing has a name: the internal rate of return, 14.6% here."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#what-irr-is-and-what-it-is-not",
+    "href": "lectures/04-money-over-time.html#what-irr-is-and-what-it-is-not",
+    "title": "Money has a date on it",
+    "section": "What IRR is, and what it is not",
+    "text": "What IRR is, and what it is not\nIt is the discount rate at which NPV is exactly zero — the project’s own break-even cost of money, and a useful margin of safety: 9% against 14.6% is comfortable room.\nIt is not a decision rule on its own. Compare two projects on IRR and you can pick the smaller one; compare them on NPV and you cannot."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#push-the-cost-of-capital",
+    "href": "lectures/04-money-over-time.html#push-the-cost-of-capital",
+    "title": "Money has a date on it",
+    "section": "Push the cost of capital",
+    "text": "Push the cost of capital\nLAB · session.ipynb § D\n\nBet: at what rate does this project stop being worth doing?\nThen slide, and read the crossing.\nNow delay the first €700k by a year. What happens to the IRR, and why?"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#d11-d12-the-case-decided",
+    "href": "lectures/04-money-over-time.html#d11-d12-the-case-decided",
+    "title": "Money has a date on it",
+    "section": "D11, D12 — the case, decided",
+    "text": "D11, D12 — the case, decided\nPAPER · drills.md\n12 minutes. Lay out the table with a row for year 0. Then say accept or reject, in one sentence."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#close-board-pitch-and-take-home",
+    "href": "lectures/04-money-over-time.html#close-board-pitch-and-take-home",
+    "title": "Money has a date on it",
+    "section": "Close Board pitch and take home",
+    "text": "Close Board pitch and take home"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#sixty-seconds-to-the-board",
+    "href": "lectures/04-money-over-time.html#sixty-seconds-to-the-board",
+    "title": "Money has a date on it",
+    "section": "Sixty seconds to the Board",
+    "text": "Sixty seconds to the Board\nA Board member has just said the line returns a million.\nTell them, politely, with numbers and no formulas:\n\nwhy the flows cannot simply be added;\nwhat the project is actually worth today;\nand at what cost of capital your answer would change."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#take-home",
+    "href": "lectures/04-money-over-time.html#take-home",
+    "title": "Money has a date on it",
+    "section": "Take home",
+    "text": "Take home\n\nA nominal rate is not a price until you know how often it compounds. Compare on EAR.\nCompounding more often always helps, and always by less. The ceiling is e.\nMoney with different dates cannot be added. Discount first.\nAccept when NPV is positive at your own cost of capital; IRR is where it crosses zero.\n\nHomework 4 (homework.md), due Wednesday 21 October 23:59: eight drills plus a memo correcting the Board member.\nNext week: the same arithmetic applied to a bond, and the two numbers that say how much a rate rise would cost you.\n\n\n\nResearch & Quantitative Business Methods · ESE Florence"
   }
 ]
