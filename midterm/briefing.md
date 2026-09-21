@@ -23,21 +23,26 @@ Not the order the report is read in.
 5. **The executive summary, last.** It summarises a report that now exists.
 6. **The front matter** — cover, contents — and the reference list.
 
-## The seven elements of a function study
+## The seven elements, in the brief's own words
 
 Every function you are asked about gets all seven, in this order, labelled:
 
+The brief names them. Use its words, in its order, as your headings — a marker
+looking for seven things should find seven headings.
+
 | | |
 |---|---|
-| 1 | **domain** — the values of `q` for which the function means anything, as an interval |
-| 2 | **zeros** — where it crosses, with the algebra shown |
-| 3 | **sign** — where positive, where negative; a sign line is the clearest way |
-| 4 | **stationary points** — solve `f'(q) = 0` |
-| 5 | **nature** — the **sign of `f''`** at each one, and the word: maximum or minimum |
-| 6 | **shape** — concave or convex, any inflection, behaviour as `q` grows |
-| 7 | **sketch** — labelled with the zeros, the optimum and the intercept |
+| 1 | **domain** — as an interval, with the bracket chosen on purpose |
+| 2 | **limits** — at the ends of the domain and at any break; name the asymptotes |
+| 3 | **range** — the values the function actually takes |
+| 4 | **sign** — where positive, where negative; the zeros are how you find out |
+| 5 | **maxima and minima** — `f'(q) = 0` for the candidates, **the sign of `f''`** for the verdict |
+| 6 | **convexity and inflection points** — where `f''` changes sign |
+| 7 | **sketch** — labelled with everything above |
 
-Omit step 5 and you have not answered the question, however good the picture is.
+**Range and limits are the two most often skipped**, and the brief asks for both by
+name. Omit the sign of `f''` and you have not answered the question either, however
+good the picture is.
 
 ## Writing the findings so a Board can use them
 

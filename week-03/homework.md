@@ -1,6 +1,8 @@
-# Homework 3 — due Wednesday 14 October, 23:59 (Moodle)
+# Homework 3 — bring it to the next session
 
-Two parts. Part 1 on paper, one PDF or a clear photo. Part 2 typed. Expect 2–3 hours. This is the closest rehearsal of the midterm you will get before writing it, so treat Part 2 as a dry run.
+**Hand it in at the start of class.** Paper is fine, a photo or a scan by email is fine. If you would rather send it ahead, do that by Wednesday 14 October, 23:59 — I read it before we meet either way.
+
+Two parts. Part 1 on paper. Part 2 typed. Expect 2–3 hours. This is the closest rehearsal of the midterm you will get before writing it, so treat Part 2 as a dry run.
 
 ## Part 1 — Drill set (paper, show all work)
 

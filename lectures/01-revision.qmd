@@ -116,26 +116,28 @@ New break-even: $1{,}000q = 72{,}000 + 400q \Rightarrow q^{*} = 120$.
 
 ## The whole market: two facts, two unknowns
 
-Buyers in Tuscany: $Q_d = 1200 - 2p$. Sellers: $Q_s = -300 + 3p$.
-
-::: {.callout-important title="Bet before we compute"}
-What price clears the market?
-:::
+Buyers in Tuscany $Q_d = 1200 - 2p$; sellers $Q_s = -300 + 3p$. [**Bet:** what price clears the market?]{.red}
 
 :::: {.columns}
-::: {.column width="33%"}
+::: {.column width="30%"}
 **Substitution**
-$1200 - 2p = -300 + 3p$
-$1500 = 5p$
-$p^{*} = 300$, $Q^{*} = 600$
+
+$$\begin{aligned}
+1200 - 2p &= -300 + 3p \\
+1500 &= 5p \\
+p^{*} &= 300,\; Q^{*} = 600
+\end{aligned}$$
 :::
-::: {.column width="33%"}
+::: {.column width="30%"}
 **Elimination**
-$Q + 2p = 1200$
-$Q - 3p = -300$
-subtract: $5p = 1500$
+
+$$\begin{aligned}
+Q + 2p &= 1200 \\
+Q - 3p &= -300 \\
+\text{subtract: } 5p &= 1500
+\end{aligned}$$
 :::
-::: {.column width="33%"}
+::: {.column width="40%"}
 **Picture**
 ![](img/w01_market.svg)
 :::
@@ -149,7 +151,7 @@ One equation is one fact about the business. Two unknowns need two facts. Write 
 
 [PAPER · drills.md]{.kicker}
 
-10 minutes. Show all work, exam style. Tutor circulates.
+10 minutes. Show all work, exam style. I come round.
 
 ## [Block B]{.section-kicker} How many bikes? — quadratics {.section-slide background-color="#AF1F25"}
 
@@ -229,7 +231,7 @@ A quadratic has two roots, one, or none, and the discriminant tells you which be
 
 [PAPER · drills.md]{.kicker}
 
-10 minutes. Show all work, exam style. Tutor circulates.
+10 minutes. Show all work, exam style. I come round.
 
 ## [Block C]{.section-kicker} How long to double? — exponentials and logarithms {.section-slide background-color="#AF1F25"}
 
@@ -284,7 +286,7 @@ Whenever the unknown is in the exponent, take logs of both sides. Whenever you s
 
 [PAPER · drills.md]{.kicker}
 
-12 minutes. Show all work, exam style. Tutor circulates.
+12 minutes. Show all work, exam style. I come round.
 
 ## [Block D]{.section-kicker} Within tolerance — absolute value {.section-slide background-color="#AF1F25"}
 
@@ -308,7 +310,7 @@ $$|c - 500| \le 15 \;\Longleftrightarrow\; 485 \le c \le 515 \;\Longleftrightarr
 
 [PAPER · drills.md]{.kicker}
 
-8 minutes. Show all work, exam style. Tutor circulates.
+8 minutes. Show all work, exam style. I come round.
 
 ## [Close]{.section-kicker} Board pitch and take home {.section-slide background-color="#AF1F25"}
 

@@ -28,19 +28,19 @@ The last block, integration, is the remaining two items of the final's calculus 
 
 [There is a quiz in this session. It is short, it is not secret, and it covers weeks 1–3.]{.red}
 
-## The seven steps, in order
+## The seven steps, in the brief's own words
 
 | | |
 |---|---|
-| 1 | **domain** — where does this mean anything? |
-| 2 | **zeros** — where does it cross? |
-| 3 | **sign** — where is it positive, where negative? |
-| 4 | **stationary points** — where is `f'(q) = 0`? |
-| 5 | **nature** — maximum or minimum, from the sign of `f''` |
-| 6 | **shape** — concave or convex, any inflection |
-| 7 | **sketch** — last, not first |
+| 1 | **domain** — for which `q` does this mean anything? An interval. |
+| 2 | **limits** — at the ends of the domain, and at any break: the asymptotes |
+| 3 | **range** — what values the function actually takes |
+| 4 | **sign** — where positive, where negative; the zeros are how you find out |
+| 5 | **maxima and minima** — solve `f'(q) = 0`, then the **sign of `f''`** names each one |
+| 6 | **convexity and inflection** — where `f''` changes sign |
+| 7 | **sketch** — last, with every point above marked on it |
 
-[Do them in this order every time. The sketch is the *result* of the study, not a substitute for it.]{.red}
+[These are the brief's own seven words, in the brief's own order. Answer in its vocabulary and the marker cannot miss what you have done.]{.red}
 
 ## Seven steps, watched once {.clip background-color="#000000"}
 
@@ -57,14 +57,14 @@ $$\pi(q) = -4q^{2} + 1200q - 60{,}000$$
 :::: {.columns}
 ::: {.column width="50%"}
 1. **Domain** `[0, +∞)` for a quantity.
-2. **Zeros** `q² − 300q + 15,000 = 0` → `63.4`, `236.6`.
-3. **Sign** positive between the roots.
-4. **Stationary** `π'(q) = −8q + 1200 = 0` → `q = 150`.
+2. **Limits** `π(0) = −60,000`; `π(q) → −∞` as `q → ∞`. No asymptote: a polynomial has none.
+3. **Range** `(−∞, 30,000]` — it reaches its maximum and never exceeds it.
+4. **Sign** zeros at `63.4` and `236.6`; positive between them.
 :::
 ::: {.column width="50%"}
-5. **Nature** `π''(q) = −8 < 0` → a maximum, `π(150) = 30,000`.
-6. **Shape** concave everywhere: no inflection.
-7. **Sketch** with all four key points labelled.
+5. **Max / min** `π'(q) = −8q + 1200 = 0` → `q = 150`; `π''= −8 < 0`, so a **maximum**, `π(150) = 30,000`.
+6. **Convexity** `π''< 0` everywhere: concave throughout, no inflection.
+7. **Sketch** with all of the above marked.
 :::
 ::::
 
@@ -152,21 +152,45 @@ Add up the cost of each one. Thin the slices until the answer stops moving.
 
 180, then 200, then 212, then 217 — climbing to 220.
 
-## Two facts, and you can do every exam integral
+## Three rules, and you can do every exam integral
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="47%"}
 $$\int q^{n}\,dq = \frac{q^{n+1}}{n+1} + c \quad (n \neq -1)$$
 $$\int \frac{1}{q}\,dq = \ln|q| + c$$
+$$\int \frac{f'(q)}{f(q)}\,dq = \ln|f(q)| + c$$
 :::
-::: {.column width="50%"}
+::: {.column width="53%"}
 The exam's integral always arrives as a fraction. **Divide term by term first:**
 
 $$\frac{q^{5} - 3q^{3} + 2}{q^{2}} = q^{3} - 3q + 2q^{-2}$$
 
-Now every term is a power or a log.
+Now each term is a power, or a log.
 :::
 ::::
+
+[The third rule is the one people arrive without, and the exam uses it.]{.red}
+
+## The third rule, because the exam asks for it
+
+A log appears whenever the top is the derivative of the bottom — exactly, or up to a constant you can factor out.
+
+:::: {.columns}
+::: {.column width="50%"}
+$$\int \frac{1}{q-1}\,dq = \ln|q-1| + c$$
+
+The bottom differentiates to 1. A shifted log, nothing more.
+:::
+::: {.column width="50%"}
+$$\int \frac{q}{q^{2}-1}\,dq = \tfrac{1}{2}\ln|q^{2}-1| + c$$
+
+The bottom differentiates to `2q`; the top is `q`, so put the missing `½` out front.
+:::
+::::
+
+. . .
+
+**Before integrating any fraction, ask one question: is the top the derivative of the bottom?** If yes, it is a log. If no, divide term by term and use the power rule.
 
 ## The definite integral, and what it measures
 

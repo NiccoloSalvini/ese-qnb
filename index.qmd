@@ -17,18 +17,18 @@ Weeks 1–5 **Niccolò Salvini, PhD**, in person · weeks 6–10 **Vincenzo Nard
 <div><span class="k">Running case</span><span class="v">Arno Bikes, e-bike assembler in Florence</span></div>
 :::
 
-Everything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework due the following Wednesday. Materials are published by Friday.
+Everything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework you bring to the next one. Materials are published by Friday.
 
 <h2 class="module">Sessions <small>Thursdays 10:00–13:00 · half slides, half laboratory · exam-format drills on paper</small></h2>
 
 ::: {.schedule}
 | # | Date | Theme | Materials | Homework |
 |---|------|-------|-----------|----------|
-| 1 | Thu 24 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](lectures/01-revision.qmd) · [drills](week-01/drills.md) | [HW1](week-01/homework.md) · due Wed 30 Sep|
-| 2 | Thu 1 Oct | **Midterm guidelines briefing** · functions and the Cartesian plane, limits, differentiation, integration | [slides](lectures/02-calculus-opens.qmd) · [drills](week-02/drills.md) | [HW2](week-02/homework.md) · due Wed 7 Oct|
-| 3 | Thu 8 Oct | Calculus continued — full study of a function, optimisation, integration · **in-class quiz** | [slides](lectures/03-study-and-accumulate.qmd) · [drills](week-03/drills.md) | [HW3](week-03/homework.md) · due Wed 14 Oct|
-| 4 | Thu 15 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | [slides](lectures/04-money-over-time.qmd) · [drills](week-04/drills.md) | [HW4](week-04/homework.md) · due Wed 21 Oct|
-| 5 | Thu 22 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · mock of the final's calculus question | [slides](lectures/05-bonds-and-risk.qmd) · [drills](week-05/drills.md) · [mock exam](week-05/mock_exam.md) | [HW5](week-05/homework.md) · due Wed 28 Oct|
+| 1 | Thu 24 Sep | Revision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic | [slides](lectures/01-revision.qmd) · [drills](week-01/drills.md) | [HW1](week-01/homework.md)|
+| 2 | Thu 1 Oct | **Midterm guidelines briefing** · functions and the Cartesian plane, limits, differentiation, integration | [slides](lectures/02-calculus-opens.qmd) · [drills](week-02/drills.md) | [HW2](week-02/homework.md)|
+| 3 | Thu 8 Oct | Calculus continued — full study of a function, optimisation, integration · **in-class quiz** | [slides](lectures/03-study-and-accumulate.qmd) · [drills](week-03/drills.md) | [HW3](week-03/homework.md)|
+| 4 | Thu 15 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | [slides](lectures/04-money-over-time.qmd) · [drills](week-04/drills.md) | [HW4](week-04/homework.md)|
+| 5 | Thu 22 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · mock of the final's calculus question | [slides](lectures/05-bonds-and-risk.qmd) · [drills](week-05/drills.md) · [mock exam](week-05/mock_exam.md) | [HW5](week-05/homework.md)|
 | — | 26–30 Oct | Reading week — no class · midterm paper due **Sun 1 Nov, 23:59 on Turnitin** | — | — |
 | 6–10 | from w/c 2 Nov | **Midterm oral presentations** in week 6 (day set by the module leader) · second half of the module with **Vincenzo Nardelli, PhD**, online | — | — |
 
@@ -46,7 +46,7 @@ Everything for the first half of the module is on this page. One row per session
 - **Every technique serves an exam item.** Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.
 - **Decision → picture → technique → decision.** Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.
 - **Half slides, half laboratory.** About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.
-- **Weekly rhythm.** Thursday lesson. Drill solutions and homework online by Friday. Homework due Wednesday 23:59 on Moodle, as a photo or PDF of your paper. The first fifteen minutes of the next session are the walkthrough: one student explains one drill at the board.
+- **Weekly rhythm.** Thursday lesson. Drill solutions and homework online by Friday. **Homework comes back with you the following Thursday** — on paper, at the start of class. Those first fifteen minutes are the walkthrough: one of you explains one drill at the board. Send it ahead by email if you would rather I read it sooner.
 - **Homework is formative.** It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.
 - **Running case: Arno Bikes**, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand `p = 1600 − 4q`. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.
 

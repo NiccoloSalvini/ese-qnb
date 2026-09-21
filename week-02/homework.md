@@ -1,6 +1,8 @@
-# Homework 2 — due Wednesday 7 October, 23:59 (Moodle)
+# Homework 2 — bring it to the next session
 
-Two parts. Part 1 on paper, handed in as one PDF or a clear photo. Part 2 a short typed text. Expect 2–3 hours. Formative: not graded, but read, discussed in the first fifteen minutes of next session, and part of the evidence used when your midterm is marked.
+**Hand it in at the start of class.** Paper is fine, a photo or a scan by email is fine. If you would rather send it ahead, do that by Wednesday 7 October, 23:59 — I read it before we meet either way.
+
+Two parts. Part 1 on paper. Part 2 a short typed text. Expect 2–3 hours. Formative: not graded, but read, discussed in the first fifteen minutes of next session, and part of the evidence used when your midterm is marked.
 
 ## Part 1 — Drill set (paper, show all work)
 

@@ -1,6 +1,8 @@
-# Homework 4 — due Wednesday 21 October, 23:59 (Moodle)
+# Homework 4 — bring it to the next session
 
-Two parts. Part 1 on paper with a calculator, one PDF or a clear photo. Part 2 typed. Expect 2–3 hours.
+**Hand it in at the start of class.** Paper is fine, a photo or a scan by email is fine. If you would rather send it ahead, do that by Wednesday 21 October, 23:59 — I read it before we meet either way.
+
+Two parts. Part 1 on paper, with a calculator. Part 2 typed. Expect 2–3 hours.
 
 Money to the cent, rates to two decimals in a percentage. Show the formula before the number every time: the exam gives marks for the method.
 

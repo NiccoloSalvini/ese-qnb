@@ -42,9 +42,16 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 
 **D8 (core — exam form).** Find `f(q)` given `f'(q) = 12q² − 6q + 1` and `f(2) = 20`.
 
+**D8b (core — exam form, and the one that catches people).** Find `f(x)` given `f'(x) = 12x² − 4x` and **`f(−3) = 17`**. Watch every sign.
+
+**D8c (core — the third rule).** Evaluate, by asking first whether the top is the derivative of the bottom:
+(a) `∫ 1/(q − 4) dq`   (b) `∫ q/(q² + 5) dq`   (c) `∫ (2q + 3)/(q² + 3q − 1) dq`   (d) `∫ 5/(2q + 1) dq`
+
 **D9 (core).** Evaluate the definite integrals and say what each measures:
 (a) `∫₀²⁰ (0.8q + 3) dq` where `0.8q + 3` is marginal cost.
 (b) `∫₁⁴ (6/q) dq`. Leave the answer in terms of `ln`.
+
+**D9b (core — exam form).** Evaluate `∫₀^(1/2) [ 1/(x − 1) + x/(x² − 1) ] dx`, leaving the answer in terms of `ln`. Both terms are logs; neither is `1/x`.
 
 **D10 (stretch).** Marginal profit is `π'(q) = 1200 − 8q`. The firm currently makes 100 bikes.
 (a) By how much does profit change if output rises from 100 to 150? Compute it as a definite integral.
@@ -108,9 +115,30 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 **D8.** `f(q) = 4q³ − 3q² + q + c`. `f(2) = 32 − 12 + 2 + c = 20` → `c = −2`.
 **`f(q) = 4q³ − 3q² + q − 2`**.
 
+**D8b.** `f(x) = 4x³ − 2x² + c`. Now substitute carefully:
+`f(−3) = 4(−27) − 2(9) + c = −108 − 18 + c = −126 + c = 17` → `c = 143`.
+**`f(x) = 4x³ − 2x² + 143`**.
+*The trap is `(−3)³ = −27` and `(−3)² = +9`. Two signs, two marks.*
+
+**D8c.** Ask each time: is the top the derivative of the bottom?
+(a) bottom differentiates to 1 → **`ln|q − 4| + c`**.
+(b) bottom differentiates to `2q`, top is `q`, so a factor `½` is missing → **`½ ln(q² + 5) + c`**. (No modulus needed: `q² + 5 > 0` always.)
+(c) bottom differentiates to `2q + 3`, which is exactly the top → **`ln|q² + 3q − 1| + c`**.
+(d) bottom differentiates to 2, top is 5, so `5/2` comes out → **`(5/2) ln|2q + 1| + c`**.
+
 **D9.**
 (a) `[0.4q² + 3q]₀²⁰ = 160 + 60 = **220**`. Total variable cost of the first 20 bikes: adding up marginal cost gives total cost.
 (b) `[6 ln q]₁⁴ = 6 ln 4 − 6 ln 1 = **6 ln 4 ≈ 8.32**`.
+
+**D9b.** Each term is a log.
+`∫ 1/(x−1) dx = ln|x−1|`; `∫ x/(x²−1) dx = ½ ln|x²−1|`.
+So the antiderivative is `ln|x−1| + ½ ln|x²−1|`, and
+
+`at ½ :  ln(½) + ½ ln(¾) = −0.6931 + ½(−0.2877) = −0.8370`
+`at 0 :  ln 1 + ½ ln 1 = 0`
+
+**`= −0.8370`**, or exactly `ln(½) + ½ ln(¾)`.
+*Note the modulus: between 0 and ½ both `x − 1` and `x² − 1` are negative, and without the absolute value the logs are undefined. The exam's model answer expects it.*
 
 **D10.**
 (a) `∫₁₀₀¹⁵⁰ (1200 − 8q) dq = [1200q − 4q²]₁₀₀¹⁵⁰ = (180,000 − 90,000) − (120,000 − 40,000) = 90,000 − 80,000 = **€10,000**`.

@@ -1,4 +1,6 @@
-# Homework 5 — due Wednesday 28 October, 23:59 (Moodle)
+# Homework 5 — bring it to the next session
+
+**Hand it in at the start of class.** Paper is fine, a photo or a scan by email is fine. If you would rather send it ahead, do that by Wednesday 28 October, 23:59 — I read it before we meet either way.
 
 The last homework of my half. Lighter than usual on purpose: **Reading Week is for the midterm**, which is due Sunday 1 November on Turnitin.
 

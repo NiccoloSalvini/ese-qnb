@@ -10,9 +10,9 @@ This is not the real paper. It is the same five item types, with different funct
 
 $$\int \frac{2q^{5} - 5q^{3} + 3}{q^{2}}\,dq$$
 
-**Q2 (20%).** Find `f(q)` given
+**Q2 (20%).** Find `f(x)` given
 
-$$f'(q) = 9q^{2} - 6q + 4 \qquad\text{and}\qquad f(1) = 8$$
+$$f'(x) = 9x^{2} - 6x + 4 \qquad\text{and}\qquad f(-2) = 11$$
 
 **Q3 (20%).** Evaluate the one-sided limit, showing the factoring and commenting on the sign of each factor:
 
@@ -24,7 +24,7 @@ $$\lim_{q \to -\infty} \frac{4q^{3} - 5q + 2}{7q^{3} + q^{2}}$$
 
 **Q5 (20%).** Evaluate the definite integral, leaving the answer in terms of `ln`:
 
-$$\int_{2}^{6} \left(\frac{8}{q} + 3q\right) dq$$
+$$\int_{0}^{\frac{1}{3}} \left(\frac{1}{x-1} + \frac{x}{x^{2}-1}\right) dx$$
 
 ---
 
@@ -37,11 +37,12 @@ $$\int = \frac{q^{4}}{2} - \frac{5q^{2}}{2} - \frac{3}{q} + c$$
 
 *Common loss of marks: integrating before splitting, and forgetting `+ c`.*
 
-**Q2.** `f(q) = 3q³ − 3q² + 4q + c`. Then `f(1) = 3 − 3 + 4 + c = 8`, so `c = 4`.
+**Q2.** `f(x) = 3x³ − 3x² + 4x + c`. Substitute carefully:
+`f(−2) = 3(−8) − 3(4) + 4(−2) + c = −24 − 12 − 8 + c = −44 + c = 11`, so `c = 55`.
 
-$$f(q) = 3q^{3} - 3q^{2} + 4q + 4$$
+$$f(x) = 3x^{3} - 3x^{2} + 4x + 55$$
 
-*Common loss of marks: leaving `c` unresolved when an initial condition is given.*
+*Two common losses: leaving `c` unresolved, and the signs of `(−2)³ = −8` against `(−2)² = +4`. The real paper puts its initial condition at a negative value for exactly this reason.*
 
 **Q3.** Factor the denominator: `3q − q² = q(3 − q) = −q(q − 3)`.
 
@@ -59,13 +60,15 @@ $$\frac{4 - 5/q^{2} + 2/q^{3}}{7 + 1/q} \longrightarrow \frac{4}{7}$$
 
 *The sign of the infinity does not matter here: both cubes dominate and the ratio of leading coefficients survives.*
 
-**Q5.**
+**Q5.** Neither term is `1/x`. Ask of each: is the top the derivative of the bottom?
 
-$$\int_{2}^{6}\left(\frac{8}{q} + 3q\right)dq = \Big[8\ln q + \tfrac{3}{2}q^{2}\Big]_{2}^{6} = (8\ln 6 + 54) - (8\ln 2 + 6)$$
+- `1/(x−1)`: the bottom differentiates to 1 → `ln|x − 1|`.
+- `x/(x²−1)`: the bottom differentiates to `2x`, the top is `x`, so a `½` is missing → `½ ln|x² − 1|`.
 
-$$= 8(\ln 6 - \ln 2) + 48 = 8\ln 3 + 48 \approx 56.79$$
+$$\Big[\ln|x-1| + \tfrac{1}{2}\ln|x^{2}-1|\Big]_{0}^{1/3}
+= \left(\ln\tfrac{2}{3} + \tfrac{1}{2}\ln\tfrac{8}{9}\right) - 0 \approx -0.4644$$
 
-*Using `ln(6) − ln(2) = ln 3` is worth stating: the exam likes the log rules used, not just the calculator.*
+*The modulus is not decoration: on `[0, ⅓]` both `x − 1` and `x² − 1` are negative, and the logs are undefined without it. Marks are lost here every year.*
 
 </details>
 

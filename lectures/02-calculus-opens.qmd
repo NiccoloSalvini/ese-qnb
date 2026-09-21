@@ -35,7 +35,7 @@ Three of the five items in the final's calculus question are here: a limit that 
 Before any mathematics: what the midterm asks, how it is marked, and what a good one looks like.
 
 1. The brief, read together, line by line.
-2. The seven things a "full study of a function" must contain.
+2. The seven things a "full study of a function" must contain — in the brief's own words: domain, **limits**, **range**, sign, maxima and minima, convexity and inflection, sketch.
 3. What the qualitative sections want, and what referencing means here.
 4. The timetable back from 1 November.
 
@@ -75,7 +75,7 @@ Each one is a sentence about a business, written so it can be computed.
 
 [PAPER · drills.md]{.kicker}
 
-10 minutes. Show all work, exam style. Tutor circulates.
+10 minutes. Show all work, exam style. I come round.
 
 ## [Block B]{.section-kicker} Limits — what happens near a point you cannot reach {.section-slide background-color="#AF1F25"}
 
