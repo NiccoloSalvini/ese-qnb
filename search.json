@@ -1,52 +1,290 @@
 [
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "How to work",
+    "objectID": "lectures/01-revision.html#where-the-first-five-weeks-go",
+    "href": "lectures/01-revision.html#where-the-first-five-weeks-go",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Where the first five weeks go",
+    "text": "Where the first five weeks go\n\n\n\n\n\nWk\nDate\nWhat you will be able to do by hand\n\n\n\n\n1\n24 Sep\nequations, systems, quadratics, logs\n\n\n2\n1 Oct\nread a function; limits; the derivative\n\n\n3\n8 Oct\nstudy a function; optimise; integrate\n\n\n4\n15 Oct\ninterest, discounting, NPV\n\n\n5\n22 Oct\nbonds, duration, convexity; mock exam\n\n\n\n\nTwo things count.\nMidterm (25%): a report to a Board built on the study of a cost, a revenue and a profit function. Due 1 Nov.\nFinal exam (75%): 3 hours, paper, calculator. One of five questions is pure calculus: integrals, limits, recovering a function from its derivative.\n\nEvery technique in this room is here because one of those two asks for it. I will tell you which one, every time."
+  },
+  {
+    "objectID": "lectures/01-revision.html#the-shape-of-an-exam-item",
+    "href": "lectures/01-revision.html#the-shape-of-an-exam-item",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "The shape of an exam item",
+    "text": "The shape of an exam item\n\n\nSame form as the final, different numbers:\n\\int \\frac{x^{5} - 3x^{3} + 2}{x^{2}}\\,dx \\lim_{x \\to 1^{+}} \\frac{(x-1)^{2}}{x - x^{2}} f'(x) = 6x^{2} - 2x,\\quad f(1) = 4 \\;\\Rightarrow\\; f(x) = ?\n\nToday we do none of this. Today we make sure that when we get there, the algebra underneath — dividing term by term, factoring, solving for an unknown, handling a log — is not what slows you down.\nEverything today is a question the founder of a small firm actually has to answer."
+  },
+  {
+    "objectID": "lectures/01-revision.html#the-case-arno-bikes",
+    "href": "lectures/01-revision.html#the-case-arno-bikes",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "The case: Arno Bikes",
+    "text": "The case: Arno Bikes\n\n\n\ne-bike assembler, Florence\n\n\n\nFixed cost\n€60,000 per month (rent, salaries, insurance)\n\n\nVariable cost\n€400 per bike (parts, packaging)\n\n\nList price\n€1,000 per bike\n\n\n\nFour questions from the founder, one per block:\nA. How many bikes before I stop losing money? · B. How many bikes should I make? C. How long until revenue doubles? · D. Is this battery cell within spec?"
+  },
+  {
+    "objectID": "lectures/01-revision.html#block-a-launch-or-not-linear-equations-and-systems",
+    "href": "lectures/01-revision.html#block-a-launch-or-not-linear-equations-and-systems",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Block A Launch or not? — linear equations and systems",
+    "text": "Block A Launch or not? — linear equations and systems"
+  },
+  {
+    "objectID": "lectures/01-revision.html#how-many-bikes-a-month-before-arno-bikes-stops-losing-money",
+    "href": "lectures/01-revision.html#how-many-bikes-a-month-before-arno-bikes-stops-losing-money",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "How many bikes a month before Arno Bikes stops losing money?",
+    "text": "How many bikes a month before Arno Bikes stops losing money?\n\n\n\n\n\n\n\nBet before we compute\n\n\nWrite a number. Do not compute yet.\n\n\n\n\nTwo facts, written as two functions of the monthly quantity q:\nC(q) = 60{,}000 + 400\\,q \\qquad\\qquad R(q) = 1{,}000\\,q\n\nBreak-even is where they meet: R(q) = C(q)."
+  },
+  {
+    "objectID": "lectures/01-revision.html#two-lines-and-a-crossing",
+    "href": "lectures/01-revision.html#two-lines-and-a-crossing",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Two lines and a crossing",
+    "text": "Two lines and a crossing\n\n\n\n\n1{,}000\\,q = 60{,}000 + 400\\,q 600\\,q = 60{,}000 q^{*} = \\frac{60{,}000}{600} = 100\nReading. €600 is the contribution of each bike. Break-even is fixed cost ÷ contribution."
+  },
+  {
+    "objectID": "lectures/01-revision.html#move-the-price.-then-raise-the-rent.",
+    "href": "lectures/01-revision.html#move-the-price.-then-raise-the-rent.",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Move the price. Then raise the rent.",
+    "text": "Move the price. Then raise the rent.\nLAB · session.ipynb § A\n\nBet: what price makes break-even 50 bikes? Then slide.\nThe landlord raises fixed cost to €72,000. Before running: what happens to the cost line, and to the crossing?\n\nWatch the slope and the intercept separately. Only one of them moved."
+  },
+  {
+    "objectID": "lectures/01-revision.html#a-cost-shock-is-a-parallel-shift-remember-this-for-the-midterm",
+    "href": "lectures/01-revision.html#a-cost-shock-is-a-parallel-shift-remember-this-for-the-midterm",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "A cost shock is a parallel shift — remember this for the midterm",
+    "text": "A cost shock is a parallel shift — remember this for the midterm\n\n\n\n\nSame slope (€400 per bike), higher intercept.\nNew break-even: 1{,}000q = 72{,}000 + 400q \\Rightarrow q^{*} = 120.\nThe midterm asks how a tariff on an input changes the cost and profit schedules. That is this picture with different names: a per-unit tariff changes the slope, a lump-sum cost changes the intercept."
+  },
+  {
+    "objectID": "lectures/01-revision.html#the-whole-market-two-facts-two-unknowns",
+    "href": "lectures/01-revision.html#the-whole-market-two-facts-two-unknowns",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "The whole market: two facts, two unknowns",
+    "text": "The whole market: two facts, two unknowns\nBuyers in Tuscany: Q_d = 1200 - 2p. Sellers: Q_s = -300 + 3p.\n\n\n\n\n\n\n\nBet before we compute\n\n\nWhat price clears the market?\n\n\n\n\n\n\nSubstitution 1200 - 2p = -300 + 3p 1500 = 5p p^{*} = 300, Q^{*} = 600\n\nElimination Q + 2p = 1200 Q - 3p = -300 subtract: 5p = 1500\n\nPicture \n\n\n\n\n\n\n\n\nBoard sentence\n\n\nOne equation is one fact about the business. Two unknowns need two facts. Write the facts as equations before touching a number."
+  },
+  {
+    "objectID": "lectures/01-revision.html#d1-d2-core-d3-stretch",
+    "href": "lectures/01-revision.html#d1-d2-core-d3-stretch",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "D1, D2 (core) — D3 (stretch)",
+    "text": "D1, D2 (core) — D3 (stretch)\nPAPER · drills.md\n10 minutes. Show all work, exam style. Tutor circulates."
+  },
+  {
+    "objectID": "lectures/01-revision.html#block-b-how-many-bikes-quadratics",
+    "href": "lectures/01-revision.html#block-b-how-many-bikes-quadratics",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Block B How many bikes? — quadratics",
+    "text": "Block B How many bikes? — quadratics"
+  },
+  {
+    "objectID": "lectures/01-revision.html#price-responds-to-volume",
+    "href": "lectures/01-revision.html#price-responds-to-volume",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Price responds to volume",
+    "text": "Price responds to volume\nThe founder learns: at €1,000 she sells 150 bikes; every €4 cut sells one more.\np(q) = 1600 - 4q\nRevenue is price × quantity: a rectangle whose sides pull in opposite directions.\n\n\n\n\n\n\n\nBet before we compute\n\n\nDoes selling more always bring more revenue? Yes / no, and roughly where it stops."
+  },
+  {
+    "objectID": "lectures/01-revision.html#the-revenue-rectangle-sweeps-out-a-parabola",
+    "href": "lectures/01-revision.html#the-revenue-rectangle-sweeps-out-a-parabola",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "The revenue rectangle sweeps out a parabola",
+    "text": "The revenue rectangle sweeps out a parabola\n\n\n\nClip rendered with manim from anim/src/week01_scenes.py."
+  },
+  {
+    "objectID": "lectures/01-revision.html#revenue-cost-profit",
+    "href": "lectures/01-revision.html#revenue-cost-profit",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Revenue, cost, profit",
+    "text": "Revenue, cost, profit\nR(q) = (1600 - 4q)\\,q = 1600q - 4q^{2} \\pi(q) = R(q) - C(q) = -4q^{2} + 1200q - 60{,}000\n\nWhere is profit zero? First move, always: divide out the common factor.\nq^{2} - 300q + 15{,}000 = 0 q = \\frac{300 \\pm \\sqrt{300^{2} - 4\\cdot 15{,}000}}{2} = \\frac{300 \\pm \\sqrt{30{,}000}}{2} \\approx 63.4,\\;\\; 236.6"
+  },
+  {
+    "objectID": "lectures/01-revision.html#the-discriminant-decides-before-you-compute",
+    "href": "lectures/01-revision.html#the-discriminant-decides-before-you-compute",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "The discriminant decides before you compute",
+    "text": "The discriminant decides before you compute\n\n\n\n\n\nb^{2} - 4ac\nroots\nin business\n\n\n\n\n&gt; 0\ntwo\na profitable window\n\n\n= 0\none\na single break-even\n\n\n&lt; 0\nnone\nno viable scale\n\n\n\nWhere is profit positive? A downward parabola (a&lt;0) is positive between its roots:\n63.4 &lt; q &lt; 236.6\n\n\nThe sign line. In the midterm it is called “the sign of the profit function”."
+  },
+  {
+    "objectID": "lectures/01-revision.html#push-the-fixed-cost-up.-where-do-the-two-break-evens-merge",
+    "href": "lectures/01-revision.html#push-the-fixed-cost-up.-where-do-the-two-break-evens-merge",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Push the fixed cost up. Where do the two break-evens merge?",
+    "text": "Push the fixed cost up. Where do the two break-evens merge?\nLAB · session.ipynb § B\n\nBet on the fixed cost at which the roots become one. (Hint: what is the profit at the vertex now?)\nThen push further. What does “no roots” look like, and what does it mean for the founder?"
+  },
+  {
+    "objectID": "lectures/01-revision.html#the-top-of-the-hill-for-now",
+    "href": "lectures/01-revision.html#the-top-of-the-hill-for-now",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "The top of the hill, for now",
+    "text": "The top of the hill, for now\nVertex of \\pi(q) = -4q^{2} + 1200q - 60{,}000:\nq_{v} = -\\frac{b}{2a} = -\\frac{1200}{-8} = 150 \\qquad \\pi(150) = 30{,}000\nThis formula works for parabolas only.\nNext week you get a tool that finds the top of the hill for any curve — a log revenue, a cubic cost, anything. It is called the derivative, and it is the reason this course exists.\n\n\n\n\n\n\n\nBoard sentence\n\n\nA quadratic has two roots, one, or none, and the discriminant tells you which before you compute. In business: a profitable window, a single break-even, no viable scale."
+  },
+  {
+    "objectID": "lectures/01-revision.html#d4-d5-core-d6-stretch-factor-and-cancel",
+    "href": "lectures/01-revision.html#d4-d5-core-d6-stretch-factor-and-cancel",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "D4, D5 (core) — D6 (stretch: factor and cancel)",
+    "text": "D4, D5 (core) — D6 (stretch: factor and cancel)\nPAPER · drills.md\n10 minutes. Show all work, exam style. Tutor circulates."
+  },
+  {
+    "objectID": "lectures/01-revision.html#block-c-how-long-to-double-exponentials-and-logarithms",
+    "href": "lectures/01-revision.html#block-c-how-long-to-double-exponentials-and-logarithms",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Block C How long to double? — exponentials and logarithms",
+    "text": "Block C How long to double? — exponentials and logarithms"
+  },
+  {
+    "objectID": "lectures/01-revision.html#revenue-1.2m-growing-12-a-year",
+    "href": "lectures/01-revision.html#revenue-1.2m-growing-12-a-year",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Revenue €1.2M, growing 12% a year",
+    "text": "Revenue €1.2M, growing 12% a year\nR(t) = 1.2 \\cdot 1.12^{\\,t}\nLinear growth adds the same amount each year. Exponential growth adds the same percentage.\n\n\n\n\n\n\n\nBet before we compute\n\n\nHow many years to double? Write a number."
+  },
+  {
+    "objectID": "lectures/01-revision.html#linear-versus-exponential-growth",
+    "href": "lectures/01-revision.html#linear-versus-exponential-growth",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Linear versus exponential growth",
+    "text": "Linear versus exponential growth\n\n\n\nClip rendered with manim from anim/src/week01_scenes.py."
+  },
+  {
+    "objectID": "lectures/01-revision.html#the-unknown-is-in-the-exponent",
+    "href": "lectures/01-revision.html#the-unknown-is-in-the-exponent",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "The unknown is in the exponent",
+    "text": "The unknown is in the exponent\n1.2 \\cdot 1.12^{\\,t} = 2.4 \\quad\\Longrightarrow\\quad 1.12^{\\,t} = 2\nNo algebra so far reaches t. That is what a logarithm is for: it answers “to what power?”\n\n\\ln\\!\\left(1.12^{\\,t}\\right) = \\ln 2 \\;\\Longrightarrow\\; t\\,\\ln 1.12 = \\ln 2 \\;\\Longrightarrow\\; t = \\frac{0.6931}{0.1133} \\approx 6.1 \\text{ years}\n\n\n\n\n\n\n\n\n\nrule\nreading\n\n\n\n\n\\ln(ab) = \\ln a + \\ln b\ngrowth factors multiply, their logs add\n\n\n\\ln(a/b) = \\ln a - \\ln b\na ratio of revenues becomes a difference\n\n\n\\ln a^{k} = k \\ln a\nk years of the same growth: the exponent comes down\n\n\n\\log_{b} x = \\ln x / \\ln b\nany base through the calculator’s \\ln"
+  },
+  {
+    "objectID": "lectures/01-revision.html#the-sanity-check-you-will-use-in-the-exam",
+    "href": "lectures/01-revision.html#the-sanity-check-you-will-use-in-the-exam",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "The sanity check you will use in the exam",
+    "text": "The sanity check you will use in the exam\nt_{\\text{double}} \\approx \\frac{70}{g_{\\%}} \\qquad\\qquad \\frac{70}{12} \\approx 5.8\nWhy it works: \\ln 2 \\approx 0.69 and \\ln(1+g) \\approx g when g is small, so t = \\ln 2 / \\ln(1+g) \\approx 0.69/g.\nThe number e \\approx 2.718 appears today only as “the base your calculator’s \\ln uses”. In week 4 it becomes continuous compounding and earns its place.\n\n\n\n\n\n\n\nBoard sentence\n\n\nWhenever the unknown is in the exponent, take logs of both sides. Whenever you see a log, remember it is a question: to what power?"
+  },
+  {
+    "objectID": "lectures/01-revision.html#d7-d8-core-d9-stretch-5e0.03t-8",
+    "href": "lectures/01-revision.html#d7-d8-core-d9-stretch-5e0.03t-8",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "D7, D8 (core) — D9 (stretch: 5e^{0.03t} = 8)",
+    "text": "D7, D8 (core) — D9 (stretch: 5e^{0.03t} = 8)\nPAPER · drills.md\n12 minutes. Show all work, exam style. Tutor circulates."
+  },
+  {
+    "objectID": "lectures/01-revision.html#block-d-within-tolerance-absolute-value",
+    "href": "lectures/01-revision.html#block-d-within-tolerance-absolute-value",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Block D Within tolerance — absolute value",
+    "text": "Block D Within tolerance — absolute value"
+  },
+  {
+    "objectID": "lectures/01-revision.html#is-this-cell-within-spec",
+    "href": "lectures/01-revision.html#is-this-cell-within-spec",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Is this cell within spec?",
+    "text": "Is this cell within spec?\nBattery cells must be 500\\,\\text{Wh} \\pm 15. A supplier ships one at 483 Wh.\n\n\n\n\n\n\n\nBet before we compute\n\n\nIn or out? Then write the rule as one inequality.\n\n\n\n\n\n|c - 500| \\le 15 \\;\\Longleftrightarrow\\; 485 \\le c \\le 515 \\;\\Longleftrightarrow\\; c \\in [485,\\,515]\n\n\n\n\n\n|x-a| is the distance from a. “\\le b” is the closed interval [a-b,\\,a+b]; “&gt; b” is the two tails x&lt;a-b or x&gt;a+b. Square bracket: endpoint included. Round bracket: excluded, or \\pm\\infty. The exam asks for domains written exactly like this."
+  },
+  {
+    "objectID": "lectures/01-revision.html#d10-d11-core-interval-notation",
+    "href": "lectures/01-revision.html#d10-d11-core-interval-notation",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "D10, D11 (core) — interval notation",
+    "text": "D10, D11 (core) — interval notation\nPAPER · drills.md\n8 minutes. Show all work, exam style. Tutor circulates."
+  },
+  {
+    "objectID": "lectures/01-revision.html#close-board-pitch-and-take-home",
+    "href": "lectures/01-revision.html#close-board-pitch-and-take-home",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Close Board pitch and take home",
+    "text": "Close Board pitch and take home"
+  },
+  {
+    "objectID": "lectures/01-revision.html#sixty-seconds-to-the-board",
+    "href": "lectures/01-revision.html#sixty-seconds-to-the-board",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Sixty seconds to the Board",
+    "text": "Sixty seconds to the Board\nOne of you stands up. The other is the Board.\nTell them, with numbers and no formulas:\n\nwhere Arno Bikes breaks even at today’s price;\nbetween which volumes it makes money once price responds to volume, and how fragile that window is;\nhow long until revenue doubles at 12%.\n\nThe Board asks one question. This is a rehearsal of the midterm’s oral."
+  },
+  {
+    "objectID": "lectures/01-revision.html#take-home",
+    "href": "lectures/01-revision.html#take-home",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Take home",
+    "text": "Take home\n\nWrite the facts as equations before touching numbers.\nDiscriminant first, then roots, then the sign line.\nUnknown in the exponent → take logs of both sides.\n\nHomework 1 (homework.md), due Wednesday 30 September 23:59 on Moodle: eight drills on paper + a 150–250-word memo to the Board on the profitable window.\nWrite your own three take-home lines now, before you leave.\n\n\n\nResearch & Quantitative Business Methods · ESE Florence"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Research & Quantitative Business Methods",
     "section": "",
-    "text": "Nothing is installed on your laptop and you are not asked to write code. The exam is on paper with a non-programmable calculator, so that is where the practice happens."
+    "text": "MBA03 · ESE MBA · Term 1, A.Y. 2026–2027 European School of Economics, Florence · in person · 30 contact hours over the term Weeks 1–5 Niccolò Salvini, in person · weeks 6–10 Vincenzo Nardelli, online · module leader Arianna Ziliotto\n\n\n\nWhenThursdays 10:00–13:00 · 24 Sep – 22 Oct\n\n\nWhereESE Florence · Borgo Santi Apostoli 19 (weeks 1–5) · online from week 6\n\n\nAssessmentMidterm 25% · Final exam 75%\n\n\nBringPaper, pen, non-programmable calculator\n\n\nEverything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework due the following Wednesday. Materials are published by Friday.\n\nSessions Thursdays 10:00–13:00 · half slides, half laboratory · exam-format drills on paper\n\n\n\n\n\n\n\n\n\n\n\n\n#\nDate\nTheme\nMaterials\nHomework\n\n\n\n\n1\nThu 24 Sep\nRevision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic\nslides · pdf · notebook · Colab ↗ · drills · clips: parabola, growth\nHW1 · due Wed 30 Sep\n\n\n2\nThu 1 Oct\nMidterm guidelines briefing · functions and the Cartesian plane, limits, differentiation, integration\n—\n—\n\n\n3\nThu 8 Oct\nCalculus continued — full study of a function, optimisation, integration · in-class quiz\n—\n—\n\n\n4\nThu 15 Oct\nFinancial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV\n—\n—\n\n\n5\nThu 22 Oct\nFinancial mathematics II — bond pricing, duration and convexity · consolidation · mock of final Q5\n—\n—\n\n\n—\n26–30 Oct\nReading week — no class · midterm paper due Sun 1 Nov, 23:59 on Turnitin\n—\n—\n\n\n6–10\nfrom w/c 2 Nov\nMidterm oral presentations in week 6 (day set by the module leader) · second half of the module with Vincenzo Nardelli, online\n—\n—\n\n\n\n\n\n\n\n\n\n\nSlides are the spine of each session: an HTML deck with the clips embedded (arrow keys to move, F for full screen), plus a PDF for printing. Notebook is what you see on the projector: open it in Colab if you want to move the sliders yourself, nothing to install. Drills are the paper exercises we do in class, in exam format, with worked solutions at the bottom. Clips are the short animations shown in class.\n\n\n\n\nHow the five weeks work the contract, stated once\n\n\nEvery technique serves an exam item. Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.\nDecision → picture → technique → decision. Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.\nHalf slides, half laboratory. About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.\nWeekly rhythm. Thursday lesson. Drill solutions and homework online by Friday. Homework due Wednesday 23:59 on Moodle, as a photo or PDF of your paper. The first fifteen minutes of the next session are the walkthrough: one student explains one drill at the board.\nHomework is formative. It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.\nRunning case: Arno Bikes, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand p = 1600 − 4q. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.\n\n\nAssessment module scheme, set by ESE\n\n\nMidterm assignment — 25%. A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due Sunday 1 November, 23:59 on Turnitin; orals in the week of 2 November, on the day set by the module leader. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.\nFinal examination — 75%. Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. Weeks 1–5 train you for the pure calculus question (limits, derivatives, integrals of rational functions with log terms) and the financial-mathematics items.\nReassessment. Re-sit examination, 100%, capped at 40% by ESE regulation.\n\n\nReadings\n\n\nRenshaw, G. (2021). Maths for Economics, 5th ed. Oxford University Press. Weeks 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–5: ch. 10, 11, 12, 13.\nKleppner, D., Dourmashkin, P. and Ramsey, N. (2022). Quick Calculus, 3rd ed. Jossey-Bass. Ch. 1–3, weeks 2–3.\nPaul’s Online Notes, Calculus I. Free, with worked problems.\nFrancis, A. and Mousley, B. (2014). Business Mathematics and Statistics, 7th ed. Cengage. Optional.\n\n\nTutors\n\n\n\n Niccolò SalviniWeeks 1–5 · in person, Florence\n\n\n Vincenzo NardelliWeeks 6–10 · online"
   },
   {
-    "objectID": "setup.html#bring-to-every-session",
-    "href": "setup.html#bring-to-every-session",
-    "title": "How to work",
-    "section": "Bring to every session",
-    "text": "Bring to every session\n\nPaper and pen. Drills are done by hand, in exam format, and kept: they are the record of your progress.\nA non-programmable calculator. The same kind you will have in the final exam. Get used to it now: logs, powers, eˣ.\nRenshaw, Maths for Economics (5th ed.), the module’s required text. Chapters per week are listed on the schedule."
+    "objectID": "week-01/drills.html",
+    "href": "week-01/drills.html",
+    "title": "Week 1 — Drills",
+    "section": "",
+    "text": "Exam format. Show all work. Core items are for everyone; stretch items for whoever finishes early. Solutions at the end, worked the way an examiner wants to see them.\n\n\nD1 (core). Arno Bikes has fixed monthly costs of €60,000 and a variable cost of €400 per bike. Bikes sell at €1,000. (a) Write the cost function C(q) and the revenue function R(q). (b) Find the break-even quantity. (c) The landlord raises the rent so that fixed costs become €72,000. Find the new break-even quantity and state in one sentence what happened to the cost line in the (q, €) plane.\nD2 (core). In the Tuscan e-bike market, demand is Q_d = 1200 − 2p and supply is Q_s = −300 + 3p (p in €, Q in bikes per month). (a) Find the equilibrium price and quantity. (b) The region introduces a tax of €50 per bike paid by sellers, so that sellers now respond to the price they keep, p − 50. Write the new supply function and find the new equilibrium. (c) How much of the €50 tax is paid by buyers, in the form of a higher price?\nD3 (stretch). A workshop assembles two models. Model A takes 2 hours, model B takes 3 hours; 1,200 hours are available per month and the plan is 500 bikes in total. Set up and solve the system giving the number of each model.\n\n\n\nD4 (core). A firm’s profit function is π(q) = −2q² + 600q − 40,000. (a) Find the quantities at which profit is zero. (b) For which quantities is the firm profitable? (c) Find the vertex of the parabola and interpret it.\nD5 (core). Solve the inequalities: (a) x² − 7x + 10 ≤ 0 (b) 2x² + 3x − 2 &gt; 0\nD6 (stretch — the final-exam pattern). Factor numerator and denominator, then simplify: (x − 1)² / (x − x²). Evaluate the simplified expression at x = 1.1 and at x = 0.9 and comment on the sign.\n\n\n\nD7 (core). (a) Simplify: ln(e³), log₂ 32, ln(a²b / c). (b) Solve for x: 3ˣ = 81; 10ˣ = 500 (three decimals).\nD8 (core). Arno Bikes’ revenue is €1.2M and grows at 12% a year. (a) Write revenue after t years. (b) How many years to double? Check with the rule of 70. (c) How many years to reach €3M?\nD9 (stretch). (a) Solve 5e^{0.03t} = 8 for t. (b) A competitor doubled revenue in 5 years. What constant annual growth rate does that imply?\n\n\n\nD10 (core). (a) Battery cells must be 500 Wh ± 15 Wh. Write the condition with an absolute value and as an interval. Is a 483 Wh cell acceptable? (b) Solve |x − 3| &gt; 2.\nD11 (core — notation for the exam). Write as intervals: (a) x ≥ −3; (b) x &gt; −3; (c) −3 &lt; x ≤ 5. Then state the domain, as an interval, of (d) f(x) = √(x + 3) and (e) g(x) = ln(x − 1).\n\n\n\nSolutions\n\nD1. (a) C(q) = 60,000 + 400q; R(q) = 1,000q. (b) R = C → 1,000q = 60,000 + 400q → 600q = 60,000 → q = 100 bikes. (Contribution per bike €600; 60,000 / 600 = 100.) (c) 1,000q = 72,000 + 400q → q = 120. The cost line shifted up in parallel by €12,000 (same slope, higher intercept); the crossing with the revenue line moved right.\nD2. (a) 1200 − 2p = −300 + 3p → 1500 = 5p → p = €300; Q = 1200 − 600 = 600. (b) Q_s = −300 + 3(p − 50) = −450 + 3p. Then 1200 − 2p = −450 + 3p → 1650 = 5p → p = €330, Q = 540. (c) Buyers pay €330 instead of €300: €30 of the €50 is passed to buyers; sellers keep 330 − 50 = 280, i.e. bear €20.\nD3. Let x = model A, y = model B. 2x + 3y = 1200, x + y = 500. From the second, x = 500 − y; substitute: 1000 − 2y + 3y = 1200 → y = 200, x = 300. 300 of A, 200 of B.\nD4. (a) Divide by −2: q² − 300q + 20,000 = 0. Discriminant 300² − 4·20,000 = 90,000 − 80,000 = 10,000, √ = 100. q = (300 ± 100)/2 → q = 100 and q = 200. (b) Downward parabola (a = −2 &lt; 0) is positive between its roots: 100 &lt; q &lt; 200. (c) Vertex at q = −b/(2a) = −600/(−4) = 150; π(150) = −2·22,500 + 90,000 − 40,000 = **€5,000**. Maximum profit is €5,000 at 150 units; the window is narrow, the business is fragile.\nD5. (a) Roots of x² − 7x + 10: (x − 2)(x − 5) → 2 and 5. Upward parabola ≤ 0 between roots: 2 ≤ x ≤ 5, i.e. [2, 5]. (b) Roots: x = (−3 ± √(9 + 16))/4 = (−3 ± 5)/4 → x = 1/2 and x = −2. Upward parabola &gt; 0 outside the roots: x &lt; −2 or x &gt; 1/2.\nD6. x − x² = x(1 − x) = −x(x − 1). So (x − 1)² / (−x(x − 1)) = −(x − 1)/x for x ≠ 0, 1. At x = 1.1: −0.1/1.1 ≈ −0.091. At x = 0.9: −(−0.1)/0.9 ≈ +0.111. The expression changes sign across x = 1 — approaching 1 from the right it is a small negative number, from the left a small positive number. (This is the algebra behind the one-sided limits the final exam asks for: factor, cancel, then look at the sign of what is left. The limit from the right is 0⁻.)\nD7. (a) ln(e³) = 3; log₂ 32 = 5 (2⁵ = 32); ln(a²b/c) = 2 ln a + ln b − ln c. (b) 3ˣ = 81 = 3⁴ → x = 4. 10ˣ = 500 → x = log₁₀ 500 = **2.699**.\nD8. (a) R(t) = 1.2 · 1.12ᵗ (€M). (b) 1.12ᵗ = 2 → t ln 1.12 = ln 2 → t = 0.6931 / 0.1133 = **6.1 years**. Rule of 70: 70/12 ≈ 5.8 — consistent. (c) 1.12ᵗ = 2.5 → t = ln 2.5 / ln 1.12 = 0.9163 / 0.1133 = **8.1 years**.\nD9. (a) e^{0.03t} = 1.6 → 0.03t = ln 1.6 = 0.4700 → t ≈ 15.7. (b) (1 + g)⁵ = 2 → 1 + g = 2^{1/5} = e^{(ln 2)/5} = e^{0.1386} = 1.1487 → g ≈ 14.9% a year.\nD10. (a) |c − 500| ≤ 15 ↔︎ 485 ≤ c ≤ 515, i.e. [485, 515]. 483 &lt; 485: not acceptable. (b) |x − 3| &gt; 2 ↔︎ x − 3 &gt; 2 or x − 3 &lt; −2 ↔︎ x &gt; 5 or x &lt; 1.\nD11. (a) [−3, +∞); (b) (−3, +∞); (c) (−3, 5]. (d) Need x + 3 ≥ 0 → [−3, +∞). (e) Need x − 1 &gt; 0 → (1, +∞). (Square bracket when the endpoint is included, round when it is not or when it is ±∞. The resit asks exactly this.)"
   },
   {
-    "objectID": "setup.html#homework",
-    "href": "setup.html#homework",
-    "title": "How to work",
-    "section": "Homework",
-    "text": "Homework\nSet every Thursday, due Wednesday 23:59 on Moodle. Two parts, 2–3 hours in total:\n\nA drill set on paper. Photograph or scan it and upload it as a single PDF. Show all work: the marks in the exam are for the method, and so is the feedback here.\nA memo to the Board, 150–250 words, typed. Numbers and their meaning, no formulas in the text. This is a rehearsal of the register the midterm asks for.\n\nHomework is formative: not graded, but read, discussed in the first fifteen minutes of the next session, and part of the evidence used when the midterm is marked."
+    "objectID": "week-01/drills.html#a.-linear-equations-and-systems",
+    "href": "week-01/drills.html#a.-linear-equations-and-systems",
+    "title": "Week 1 — Drills",
+    "section": "",
+    "text": "D1 (core). Arno Bikes has fixed monthly costs of €60,000 and a variable cost of €400 per bike. Bikes sell at €1,000. (a) Write the cost function C(q) and the revenue function R(q). (b) Find the break-even quantity. (c) The landlord raises the rent so that fixed costs become €72,000. Find the new break-even quantity and state in one sentence what happened to the cost line in the (q, €) plane.\nD2 (core). In the Tuscan e-bike market, demand is Q_d = 1200 − 2p and supply is Q_s = −300 + 3p (p in €, Q in bikes per month). (a) Find the equilibrium price and quantity. (b) The region introduces a tax of €50 per bike paid by sellers, so that sellers now respond to the price they keep, p − 50. Write the new supply function and find the new equilibrium. (c) How much of the €50 tax is paid by buyers, in the form of a higher price?\nD3 (stretch). A workshop assembles two models. Model A takes 2 hours, model B takes 3 hours; 1,200 hours are available per month and the plan is 500 bikes in total. Set up and solve the system giving the number of each model."
   },
   {
-    "objectID": "setup.html#the-notebooks",
-    "href": "setup.html#the-notebooks",
-    "title": "How to work",
-    "section": "The notebooks",
-    "text": "The notebooks\nEach session has a Colab notebook driven by the tutor from the projector: sliders that move a parameter, the picture behind each formula, and a symbolic check of every drill’s answer. You can open it yourself from the Colab ↗ link on the schedule with any Google account; nothing to install, nothing to submit."
+    "objectID": "week-01/drills.html#b.-quadratics",
+    "href": "week-01/drills.html#b.-quadratics",
+    "title": "Week 1 — Drills",
+    "section": "",
+    "text": "D4 (core). A firm’s profit function is π(q) = −2q² + 600q − 40,000. (a) Find the quantities at which profit is zero. (b) For which quantities is the firm profitable? (c) Find the vertex of the parabola and interpret it.\nD5 (core). Solve the inequalities: (a) x² − 7x + 10 ≤ 0 (b) 2x² + 3x − 2 &gt; 0\nD6 (stretch — the final-exam pattern). Factor numerator and denominator, then simplify: (x − 1)² / (x − x²). Evaluate the simplified expression at x = 1.1 and at x = 0.9 and comment on the sign."
   },
   {
-    "objectID": "setup.html#drills-and-solutions",
-    "href": "setup.html#drills-and-solutions",
-    "title": "How to work",
-    "section": "Drills and solutions",
-    "text": "Drills and solutions\nThe drills page of each week has the in-class exercises with worked solutions at the bottom, folded. Do the drill first, then open the solution and compare step by step, the way an examiner would.\nCore items are for everyone. Stretch items are for whoever finishes early."
+    "objectID": "week-01/drills.html#c.-exponentials-and-logarithms",
+    "href": "week-01/drills.html#c.-exponentials-and-logarithms",
+    "title": "Week 1 — Drills",
+    "section": "",
+    "text": "D7 (core). (a) Simplify: ln(e³), log₂ 32, ln(a²b / c). (b) Solve for x: 3ˣ = 81; 10ˣ = 500 (three decimals).\nD8 (core). Arno Bikes’ revenue is €1.2M and grows at 12% a year. (a) Write revenue after t years. (b) How many years to double? Check with the rule of 70. (c) How many years to reach €3M?\nD9 (stretch). (a) Solve 5e^{0.03t} = 8 for t. (b) A competitor doubled revenue in 5 years. What constant annual growth rate does that imply?"
   },
   {
-    "objectID": "setup.html#writing-mathematics-the-way-the-exam-wants-it",
-    "href": "setup.html#writing-mathematics-the-way-the-exam-wants-it",
-    "title": "How to work",
-    "section": "Writing mathematics the way the exam wants it",
-    "text": "Writing mathematics the way the exam wants it\n\nWrite the equation in words first (“break-even means revenue equals cost”), then in symbols.\nEvery quadratic: divide out the common factor, compute the discriminant, comment on its sign.\nEvery inequality: find the roots, draw the sign line, write the answer as an interval.\nEvery log problem: take logs of both sides, bring the exponent down, use the calculator only at the end.\nIntervals: [ for included endpoints, ( for excluded ones and for ±∞."
+    "objectID": "week-01/drills.html#d.-absolute-values-and-intervals",
+    "href": "week-01/drills.html#d.-absolute-values-and-intervals",
+    "title": "Week 1 — Drills",
+    "section": "",
+    "text": "D10 (core). (a) Battery cells must be 500 Wh ± 15 Wh. Write the condition with an absolute value and as an interval. Is a 483 Wh cell acceptable? (b) Solve |x − 3| &gt; 2.\nD11 (core — notation for the exam). Write as intervals: (a) x ≥ −3; (b) x &gt; −3; (c) −3 &lt; x ≤ 5. Then state the domain, as an interval, of (d) f(x) = √(x + 3) and (e) g(x) = ln(x − 1).\n\n\n\nSolutions\n\nD1. (a) C(q) = 60,000 + 400q; R(q) = 1,000q. (b) R = C → 1,000q = 60,000 + 400q → 600q = 60,000 → q = 100 bikes. (Contribution per bike €600; 60,000 / 600 = 100.) (c) 1,000q = 72,000 + 400q → q = 120. The cost line shifted up in parallel by €12,000 (same slope, higher intercept); the crossing with the revenue line moved right.\nD2. (a) 1200 − 2p = −300 + 3p → 1500 = 5p → p = €300; Q = 1200 − 600 = 600. (b) Q_s = −300 + 3(p − 50) = −450 + 3p. Then 1200 − 2p = −450 + 3p → 1650 = 5p → p = €330, Q = 540. (c) Buyers pay €330 instead of €300: €30 of the €50 is passed to buyers; sellers keep 330 − 50 = 280, i.e. bear €20.\nD3. Let x = model A, y = model B. 2x + 3y = 1200, x + y = 500. From the second, x = 500 − y; substitute: 1000 − 2y + 3y = 1200 → y = 200, x = 300. 300 of A, 200 of B.\nD4. (a) Divide by −2: q² − 300q + 20,000 = 0. Discriminant 300² − 4·20,000 = 90,000 − 80,000 = 10,000, √ = 100. q = (300 ± 100)/2 → q = 100 and q = 200. (b) Downward parabola (a = −2 &lt; 0) is positive between its roots: 100 &lt; q &lt; 200. (c) Vertex at q = −b/(2a) = −600/(−4) = 150; π(150) = −2·22,500 + 90,000 − 40,000 = **€5,000**. Maximum profit is €5,000 at 150 units; the window is narrow, the business is fragile.\nD5. (a) Roots of x² − 7x + 10: (x − 2)(x − 5) → 2 and 5. Upward parabola ≤ 0 between roots: 2 ≤ x ≤ 5, i.e. [2, 5]. (b) Roots: x = (−3 ± √(9 + 16))/4 = (−3 ± 5)/4 → x = 1/2 and x = −2. Upward parabola &gt; 0 outside the roots: x &lt; −2 or x &gt; 1/2.\nD6. x − x² = x(1 − x) = −x(x − 1). So (x − 1)² / (−x(x − 1)) = −(x − 1)/x for x ≠ 0, 1. At x = 1.1: −0.1/1.1 ≈ −0.091. At x = 0.9: −(−0.1)/0.9 ≈ +0.111. The expression changes sign across x = 1 — approaching 1 from the right it is a small negative number, from the left a small positive number. (This is the algebra behind the one-sided limits the final exam asks for: factor, cancel, then look at the sign of what is left. The limit from the right is 0⁻.)\nD7. (a) ln(e³) = 3; log₂ 32 = 5 (2⁵ = 32); ln(a²b/c) = 2 ln a + ln b − ln c. (b) 3ˣ = 81 = 3⁴ → x = 4. 10ˣ = 500 → x = log₁₀ 500 = **2.699**.\nD8. (a) R(t) = 1.2 · 1.12ᵗ (€M). (b) 1.12ᵗ = 2 → t ln 1.12 = ln 2 → t = 0.6931 / 0.1133 = **6.1 years**. Rule of 70: 70/12 ≈ 5.8 — consistent. (c) 1.12ᵗ = 2.5 → t = ln 2.5 / ln 1.12 = 0.9163 / 0.1133 = **8.1 years**.\nD9. (a) e^{0.03t} = 1.6 → 0.03t = ln 1.6 = 0.4700 → t ≈ 15.7. (b) (1 + g)⁵ = 2 → 1 + g = 2^{1/5} = e^{(ln 2)/5} = e^{0.1386} = 1.1487 → g ≈ 14.9% a year.\nD10. (a) |c − 500| ≤ 15 ↔︎ 485 ≤ c ≤ 515, i.e. [485, 515]. 483 &lt; 485: not acceptable. (b) |x − 3| &gt; 2 ↔︎ x − 3 &gt; 2 or x − 3 &lt; −2 ↔︎ x &gt; 5 or x &lt; 1.\nD11. (a) [−3, +∞); (b) (−3, +∞); (c) (−3, 5]. (d) Need x + 3 ≥ 0 → [−3, +∞). (e) Need x − 1 &gt; 0 → (1, +∞). (Square bracket when the endpoint is included, round when it is not or when it is ±∞. The resit asks exactly this.)"
   },
   {
-    "objectID": "setup.html#questions-between-sessions",
-    "href": "setup.html#questions-between-sessions",
-    "title": "How to work",
-    "section": "Questions between sessions",
-    "text": "Questions between sessions\nUse the course chat channel for quick questions and to arrange an office hour. Deliverables go on Moodle only."
+    "objectID": "week-01/homework.html",
+    "href": "week-01/homework.html",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "Two parts. Part 1 is done on paper and handed in as a photo or scan; Part 2 is a short typed text. Expect 2–3 hours in total. Both parts are formative: they are not graded, but they are read, they are discussed in the first 15 minutes of next session, and they are part of the evidence I use when I mark your midterm.\n\n\nH1. A café has fixed costs of €9,000 a month. Each coffee sells for €2.50 and costs €0.70 to make. (a) Break-even in coffees per month. (b) The owner wants a profit of €3,000 a month. How many coffees? (c) The price is cut to €2.20 to fight a competitor. New break-even, and the sentence you would tell the owner.\nH2. Demand: Q_d = 900 − 3p. Supply: Q_s = −100 + 2p. (a) Equilibrium price and quantity. (b) A subsidy of €25 per unit is paid to sellers (they respond to p + 25). New equilibrium. (c) Sketch both situations on one graph: axes labelled, both lines, both equilibria marked.\nH3. A firm’s profit is π(q) = −q² + 80q − 1,200. (a) Quantities with zero profit. (b) The profitable range, written as an interval. (c) The quantity that maximises profit and the maximum profit. (d) For which fixed cost (replace the 1,200) would the firm have exactly one break-even point?\nH4. Solve: (a) x² − 9 &gt; 0; (b) −x² + 4x − 3 ≥ 0. Write each answer as an interval or union of intervals.\nH5. Factor and simplify (x − 3)² / (3x − x²). Evaluate at x = 3.01 and x = 2.99. What is the sign on each side of 3?\nH6. A subscription business has 4,000 subscribers growing 6% a month. (a) Subscribers after t months (formula) and after 12 months (number). (b) Months to reach 10,000. (c) Months to double, exactly and with the rule of 70.\nH7. Solve for t: (a) 200 · 1.05ᵗ = 350; (b) e^{0.08t} = 3.\nH8. (a) Solve |x − 12| ≤ 4 and |2x − 1| &gt; 5. (b) Give the domain, as an interval, of f(x) = ln(2x − 6) and of g(x) = √(10 − x).\n\n\n\nYou are the plant manager of Arno Bikes. Using the numbers from class (fixed cost €60,000, variable cost €400, demand p = 1600 − 4q), write a memo to the Board answering one question: at what production levels does this business make money, and how robust is that window?\nRules: numbers and their meaning, no formulas in the text (put one small table or the equations in an appendix if you want). Say what happens to the window if fixed costs rise by €10,000. End with one recommendation.\nThis is a rehearsal of the register the midterm asks for (“prepare a very detailed report for the Board”). It will be read for clarity and for whether the numbers are right, not for length.\n\n\n\n\nEvery equation is written in words first (“break-even means revenue equals cost”) and then in symbols.\nEvery quadratic: common factor divided out before the formula; discriminant computed and its sign commented.\nEvery inequality: roots found, sign line drawn, answer written as an interval.\nEvery log problem: logs taken of both sides, the exponent brought down with ln(aᵏ) = k ln a, calculator only at the end.\nIntervals use [ for included endpoints and ( for excluded ones and for ±∞.\n\n\n\n\n\nH1–H2 rehearse the midterm’s Q4 (a cost shock moves a schedule) and LO3 (supply and demand).\nH3–H5 are the algebra of the midterm’s study of function (zeros, sign, vertex) and of the factoring step in Q5 of the final exam.\nH6–H7 are the log manipulation that week 4 (compound interest, EAR) and the log integrals in Q5 rely on.\nH8 is the interval notation the resit asks for when it says “the domain of f(x) is…”."
+  },
+  {
+    "objectID": "week-01/homework.html#part-1-drill-set-paper-show-all-work",
+    "href": "week-01/homework.html#part-1-drill-set-paper-show-all-work",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1. A café has fixed costs of €9,000 a month. Each coffee sells for €2.50 and costs €0.70 to make. (a) Break-even in coffees per month. (b) The owner wants a profit of €3,000 a month. How many coffees? (c) The price is cut to €2.20 to fight a competitor. New break-even, and the sentence you would tell the owner.\nH2. Demand: Q_d = 900 − 3p. Supply: Q_s = −100 + 2p. (a) Equilibrium price and quantity. (b) A subsidy of €25 per unit is paid to sellers (they respond to p + 25). New equilibrium. (c) Sketch both situations on one graph: axes labelled, both lines, both equilibria marked.\nH3. A firm’s profit is π(q) = −q² + 80q − 1,200. (a) Quantities with zero profit. (b) The profitable range, written as an interval. (c) The quantity that maximises profit and the maximum profit. (d) For which fixed cost (replace the 1,200) would the firm have exactly one break-even point?\nH4. Solve: (a) x² − 9 &gt; 0; (b) −x² + 4x − 3 ≥ 0. Write each answer as an interval or union of intervals.\nH5. Factor and simplify (x − 3)² / (3x − x²). Evaluate at x = 3.01 and x = 2.99. What is the sign on each side of 3?\nH6. A subscription business has 4,000 subscribers growing 6% a month. (a) Subscribers after t months (formula) and after 12 months (number). (b) Months to reach 10,000. (c) Months to double, exactly and with the rule of 70.\nH7. Solve for t: (a) 200 · 1.05ᵗ = 350; (b) e^{0.08t} = 3.\nH8. (a) Solve |x − 12| ≤ 4 and |2x − 1| &gt; 5. (b) Give the domain, as an interval, of f(x) = ln(2x − 6) and of g(x) = √(10 − x)."
+  },
+  {
+    "objectID": "week-01/homework.html#part-2-memo-to-the-board-150250-words-typed",
+    "href": "week-01/homework.html#part-2-memo-to-the-board-150250-words-typed",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "You are the plant manager of Arno Bikes. Using the numbers from class (fixed cost €60,000, variable cost €400, demand p = 1600 − 4q), write a memo to the Board answering one question: at what production levels does this business make money, and how robust is that window?\nRules: numbers and their meaning, no formulas in the text (put one small table or the equations in an appendix if you want). Say what happens to the window if fixed costs rise by €10,000. End with one recommendation.\nThis is a rehearsal of the register the midterm asks for (“prepare a very detailed report for the Board”). It will be read for clarity and for whether the numbers are right, not for length."
+  },
+  {
+    "objectID": "week-01/homework.html#self-check-before-submitting",
+    "href": "week-01/homework.html#self-check-before-submitting",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "Every equation is written in words first (“break-even means revenue equals cost”) and then in symbols.\nEvery quadratic: common factor divided out before the formula; discriminant computed and its sign commented.\nEvery inequality: roots found, sign line drawn, answer written as an interval.\nEvery log problem: logs taken of both sides, the exponent brought down with ln(aᵏ) = k ln a, calculator only at the end.\nIntervals use [ for included endpoints and ( for excluded ones and for ±∞."
+  },
+  {
+    "objectID": "week-01/homework.html#how-this-feeds-the-assessments",
+    "href": "week-01/homework.html#how-this-feeds-the-assessments",
+    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "section": "",
+    "text": "H1–H2 rehearse the midterm’s Q4 (a cost shock moves a schedule) and LO3 (supply and demand).\nH3–H5 are the algebra of the midterm’s study of function (zeros, sign, vertex) and of the factoring step in Q5 of the final exam.\nH6–H7 are the log manipulation that week 4 (compound interest, EAR) and the log integrals in Q5 rely on.\nH8 is the interval notation the resit asks for when it says “the domain of f(x) is…”."
   },
   {
     "objectID": "week-01/session.html",
@@ -98,80 +336,52 @@
     "text": "Three take-home lines\nWrite yours on paper before leaving:\n\n…\n…\n…"
   },
   {
-    "objectID": "week-01/homework.html",
-    "href": "week-01/homework.html",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "How to work",
     "section": "",
-    "text": "Two parts. Part 1 is done on paper and handed in as a photo or scan; Part 2 is a short typed text. Expect 2–3 hours in total. Both parts are formative: they are not graded, but they are read, they are discussed in the first 15 minutes of next session, and they are part of the evidence I use when I mark your midterm.\n\n\nH1. A café has fixed costs of €9,000 a month. Each coffee sells for €2.50 and costs €0.70 to make. (a) Break-even in coffees per month. (b) The owner wants a profit of €3,000 a month. How many coffees? (c) The price is cut to €2.20 to fight a competitor. New break-even, and the sentence you would tell the owner.\nH2. Demand: Q_d = 900 − 3p. Supply: Q_s = −100 + 2p. (a) Equilibrium price and quantity. (b) A subsidy of €25 per unit is paid to sellers (they respond to p + 25). New equilibrium. (c) Sketch both situations on one graph: axes labelled, both lines, both equilibria marked.\nH3. A firm’s profit is π(q) = −q² + 80q − 1,200. (a) Quantities with zero profit. (b) The profitable range, written as an interval. (c) The quantity that maximises profit and the maximum profit. (d) For which fixed cost (replace the 1,200) would the firm have exactly one break-even point?\nH4. Solve: (a) x² − 9 &gt; 0; (b) −x² + 4x − 3 ≥ 0. Write each answer as an interval or union of intervals.\nH5. Factor and simplify (x − 3)² / (3x − x²). Evaluate at x = 3.01 and x = 2.99. What is the sign on each side of 3?\nH6. A subscription business has 4,000 subscribers growing 6% a month. (a) Subscribers after t months (formula) and after 12 months (number). (b) Months to reach 10,000. (c) Months to double, exactly and with the rule of 70.\nH7. Solve for t: (a) 200 · 1.05ᵗ = 350; (b) e^{0.08t} = 3.\nH8. (a) Solve |x − 12| ≤ 4 and |2x − 1| &gt; 5. (b) Give the domain, as an interval, of f(x) = ln(2x − 6) and of g(x) = √(10 − x).\n\n\n\nYou are the plant manager of Arno Bikes. Using the numbers from class (fixed cost €60,000, variable cost €400, demand p = 1600 − 4q), write a memo to the Board answering one question: at what production levels does this business make money, and how robust is that window?\nRules: numbers and their meaning, no formulas in the text (put one small table or the equations in an appendix if you want). Say what happens to the window if fixed costs rise by €10,000. End with one recommendation.\nThis is a rehearsal of the register the midterm asks for (“prepare a very detailed report for the Board”). It will be read for clarity and for whether the numbers are right, not for length.\n\n\n\n\nEvery equation is written in words first (“break-even means revenue equals cost”) and then in symbols.\nEvery quadratic: common factor divided out before the formula; discriminant computed and its sign commented.\nEvery inequality: roots found, sign line drawn, answer written as an interval.\nEvery log problem: logs taken of both sides, the exponent brought down with ln(aᵏ) = k ln a, calculator only at the end.\nIntervals use [ for included endpoints and ( for excluded ones and for ±∞.\n\n\n\n\n\nH1–H2 rehearse the midterm’s Q4 (a cost shock moves a schedule) and LO3 (supply and demand).\nH3–H5 are the algebra of the midterm’s study of function (zeros, sign, vertex) and of the factoring step in Q5 of the final exam.\nH6–H7 are the log manipulation that week 4 (compound interest, EAR) and the log integrals in Q5 rely on.\nH8 is the interval notation the resit asks for when it says “the domain of f(x) is…”."
+    "text": "Nothing is installed on your laptop and you are not asked to write code. The exam is on paper with a non-programmable calculator, so that is where the practice happens."
   },
   {
-    "objectID": "week-01/homework.html#part-1-drill-set-paper-show-all-work",
-    "href": "week-01/homework.html#part-1-drill-set-paper-show-all-work",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
-    "section": "",
-    "text": "H1. A café has fixed costs of €9,000 a month. Each coffee sells for €2.50 and costs €0.70 to make. (a) Break-even in coffees per month. (b) The owner wants a profit of €3,000 a month. How many coffees? (c) The price is cut to €2.20 to fight a competitor. New break-even, and the sentence you would tell the owner.\nH2. Demand: Q_d = 900 − 3p. Supply: Q_s = −100 + 2p. (a) Equilibrium price and quantity. (b) A subsidy of €25 per unit is paid to sellers (they respond to p + 25). New equilibrium. (c) Sketch both situations on one graph: axes labelled, both lines, both equilibria marked.\nH3. A firm’s profit is π(q) = −q² + 80q − 1,200. (a) Quantities with zero profit. (b) The profitable range, written as an interval. (c) The quantity that maximises profit and the maximum profit. (d) For which fixed cost (replace the 1,200) would the firm have exactly one break-even point?\nH4. Solve: (a) x² − 9 &gt; 0; (b) −x² + 4x − 3 ≥ 0. Write each answer as an interval or union of intervals.\nH5. Factor and simplify (x − 3)² / (3x − x²). Evaluate at x = 3.01 and x = 2.99. What is the sign on each side of 3?\nH6. A subscription business has 4,000 subscribers growing 6% a month. (a) Subscribers after t months (formula) and after 12 months (number). (b) Months to reach 10,000. (c) Months to double, exactly and with the rule of 70.\nH7. Solve for t: (a) 200 · 1.05ᵗ = 350; (b) e^{0.08t} = 3.\nH8. (a) Solve |x − 12| ≤ 4 and |2x − 1| &gt; 5. (b) Give the domain, as an interval, of f(x) = ln(2x − 6) and of g(x) = √(10 − x)."
+    "objectID": "setup.html#bring-to-every-session",
+    "href": "setup.html#bring-to-every-session",
+    "title": "How to work",
+    "section": "Bring to every session",
+    "text": "Bring to every session\n\nPaper and pen. Drills are done by hand, in exam format, and kept: they are the record of your progress.\nA non-programmable calculator. The same kind you will have in the final exam. Get used to it now: logs, powers, eˣ.\nRenshaw, Maths for Economics (5th ed.), the module’s required text. Chapters per week are listed on the schedule."
   },
   {
-    "objectID": "week-01/homework.html#part-2-memo-to-the-board-150250-words-typed",
-    "href": "week-01/homework.html#part-2-memo-to-the-board-150250-words-typed",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
-    "section": "",
-    "text": "You are the plant manager of Arno Bikes. Using the numbers from class (fixed cost €60,000, variable cost €400, demand p = 1600 − 4q), write a memo to the Board answering one question: at what production levels does this business make money, and how robust is that window?\nRules: numbers and their meaning, no formulas in the text (put one small table or the equations in an appendix if you want). Say what happens to the window if fixed costs rise by €10,000. End with one recommendation.\nThis is a rehearsal of the register the midterm asks for (“prepare a very detailed report for the Board”). It will be read for clarity and for whether the numbers are right, not for length."
+    "objectID": "setup.html#homework",
+    "href": "setup.html#homework",
+    "title": "How to work",
+    "section": "Homework",
+    "text": "Homework\nSet every Thursday, due Wednesday 23:59 on Moodle. Two parts, 2–3 hours in total:\n\nA drill set on paper. Photograph or scan it and upload it as a single PDF. Show all work: the marks in the exam are for the method, and so is the feedback here.\nA memo to the Board, 150–250 words, typed. Numbers and their meaning, no formulas in the text. This is a rehearsal of the register the midterm asks for.\n\nHomework is formative: not graded, but read, discussed in the first fifteen minutes of the next session, and part of the evidence used when the midterm is marked."
   },
   {
-    "objectID": "week-01/homework.html#self-check-before-submitting",
-    "href": "week-01/homework.html#self-check-before-submitting",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
-    "section": "",
-    "text": "Every equation is written in words first (“break-even means revenue equals cost”) and then in symbols.\nEvery quadratic: common factor divided out before the formula; discriminant computed and its sign commented.\nEvery inequality: roots found, sign line drawn, answer written as an interval.\nEvery log problem: logs taken of both sides, the exponent brought down with ln(aᵏ) = k ln a, calculator only at the end.\nIntervals use [ for included endpoints and ( for excluded ones and for ±∞."
+    "objectID": "setup.html#the-notebooks",
+    "href": "setup.html#the-notebooks",
+    "title": "How to work",
+    "section": "The notebooks",
+    "text": "The notebooks\nEach session has a Colab notebook driven by the tutor from the projector: sliders that move a parameter, the picture behind each formula, and a symbolic check of every drill’s answer. You can open it yourself from the Colab ↗ link on the schedule with any Google account; nothing to install, nothing to submit."
   },
   {
-    "objectID": "week-01/homework.html#how-this-feeds-the-assessments",
-    "href": "week-01/homework.html#how-this-feeds-the-assessments",
-    "title": "Homework 1 — due Wednesday 30 September, 23:59 (Moodle)",
-    "section": "",
-    "text": "H1–H2 rehearse the midterm’s Q4 (a cost shock moves a schedule) and LO3 (supply and demand).\nH3–H5 are the algebra of the midterm’s study of function (zeros, sign, vertex) and of the factoring step in Q5 of the final exam.\nH6–H7 are the log manipulation that week 4 (compound interest, EAR) and the log integrals in Q5 rely on.\nH8 is the interval notation the resit asks for when it says “the domain of f(x) is…”."
+    "objectID": "setup.html#drills-and-solutions",
+    "href": "setup.html#drills-and-solutions",
+    "title": "How to work",
+    "section": "Drills and solutions",
+    "text": "Drills and solutions\nThe drills page of each week has the in-class exercises with worked solutions at the bottom, folded. Do the drill first, then open the solution and compare step by step, the way an examiner would.\nCore items are for everyone. Stretch items are for whoever finishes early."
   },
   {
-    "objectID": "week-01/drills.html",
-    "href": "week-01/drills.html",
-    "title": "Week 1 — Drills",
-    "section": "",
-    "text": "Exam format. Show all work. Core items are for everyone; stretch items for whoever finishes early. Solutions at the end, worked the way an examiner wants to see them.\n\n\nD1 (core). Arno Bikes has fixed monthly costs of €60,000 and a variable cost of €400 per bike. Bikes sell at €1,000. (a) Write the cost function C(q) and the revenue function R(q). (b) Find the break-even quantity. (c) The landlord raises the rent so that fixed costs become €72,000. Find the new break-even quantity and state in one sentence what happened to the cost line in the (q, €) plane.\nD2 (core). In the Tuscan e-bike market, demand is Q_d = 1200 − 2p and supply is Q_s = −300 + 3p (p in €, Q in bikes per month). (a) Find the equilibrium price and quantity. (b) The region introduces a tax of €50 per bike paid by sellers, so that sellers now respond to the price they keep, p − 50. Write the new supply function and find the new equilibrium. (c) How much of the €50 tax is paid by buyers, in the form of a higher price?\nD3 (stretch). A workshop assembles two models. Model A takes 2 hours, model B takes 3 hours; 1,200 hours are available per month and the plan is 500 bikes in total. Set up and solve the system giving the number of each model.\n\n\n\nD4 (core). A firm’s profit function is π(q) = −2q² + 600q − 40,000. (a) Find the quantities at which profit is zero. (b) For which quantities is the firm profitable? (c) Find the vertex of the parabola and interpret it.\nD5 (core). Solve the inequalities: (a) x² − 7x + 10 ≤ 0 (b) 2x² + 3x − 2 &gt; 0\nD6 (stretch — the final-exam pattern). Factor numerator and denominator, then simplify: (x − 1)² / (x − x²). Evaluate the simplified expression at x = 1.1 and at x = 0.9 and comment on the sign.\n\n\n\nD7 (core). (a) Simplify: ln(e³), log₂ 32, ln(a²b / c). (b) Solve for x: 3ˣ = 81; 10ˣ = 500 (three decimals).\nD8 (core). Arno Bikes’ revenue is €1.2M and grows at 12% a year. (a) Write revenue after t years. (b) How many years to double? Check with the rule of 70. (c) How many years to reach €3M?\nD9 (stretch). (a) Solve 5e^{0.03t} = 8 for t. (b) A competitor doubled revenue in 5 years. What constant annual growth rate does that imply?\n\n\n\nD10 (core). (a) Battery cells must be 500 Wh ± 15 Wh. Write the condition with an absolute value and as an interval. Is a 483 Wh cell acceptable? (b) Solve |x − 3| &gt; 2.\nD11 (core — notation for the exam). Write as intervals: (a) x ≥ −3; (b) x &gt; −3; (c) −3 &lt; x ≤ 5. Then state the domain, as an interval, of (d) f(x) = √(x + 3) and (e) g(x) = ln(x − 1).\n\n\n\nSolutions\n\nD1. (a) C(q) = 60,000 + 400q; R(q) = 1,000q. (b) R = C → 1,000q = 60,000 + 400q → 600q = 60,000 → q = 100 bikes. (Contribution per bike €600; 60,000 / 600 = 100.) (c) 1,000q = 72,000 + 400q → q = 120. The cost line shifted up in parallel by €12,000 (same slope, higher intercept); the crossing with the revenue line moved right.\nD2. (a) 1200 − 2p = −300 + 3p → 1500 = 5p → p = €300; Q = 1200 − 600 = 600. (b) Q_s = −300 + 3(p − 50) = −450 + 3p. Then 1200 − 2p = −450 + 3p → 1650 = 5p → p = €330, Q = 540. (c) Buyers pay €330 instead of €300: €30 of the €50 is passed to buyers; sellers keep 330 − 50 = 280, i.e. bear €20.\nD3. Let x = model A, y = model B. 2x + 3y = 1200, x + y = 500. From the second, x = 500 − y; substitute: 1000 − 2y + 3y = 1200 → y = 200, x = 300. 300 of A, 200 of B.\nD4. (a) Divide by −2: q² − 300q + 20,000 = 0. Discriminant 300² − 4·20,000 = 90,000 − 80,000 = 10,000, √ = 100. q = (300 ± 100)/2 → q = 100 and q = 200. (b) Downward parabola (a = −2 &lt; 0) is positive between its roots: 100 &lt; q &lt; 200. (c) Vertex at q = −b/(2a) = −600/(−4) = 150; π(150) = −2·22,500 + 90,000 − 40,000 = **€5,000**. Maximum profit is €5,000 at 150 units; the window is narrow, the business is fragile.\nD5. (a) Roots of x² − 7x + 10: (x − 2)(x − 5) → 2 and 5. Upward parabola ≤ 0 between roots: 2 ≤ x ≤ 5, i.e. [2, 5]. (b) Roots: x = (−3 ± √(9 + 16))/4 = (−3 ± 5)/4 → x = 1/2 and x = −2. Upward parabola &gt; 0 outside the roots: x &lt; −2 or x &gt; 1/2.\nD6. x − x² = x(1 − x) = −x(x − 1). So (x − 1)² / (−x(x − 1)) = −(x − 1)/x for x ≠ 0, 1. At x = 1.1: −0.1/1.1 ≈ −0.091. At x = 0.9: −(−0.1)/0.9 ≈ +0.111. The expression changes sign across x = 1 — approaching 1 from the right it is a small negative number, from the left a small positive number. (This is the algebra behind the one-sided limits the final exam asks for: factor, cancel, then look at the sign of what is left. The limit from the right is 0⁻.)\nD7. (a) ln(e³) = 3; log₂ 32 = 5 (2⁵ = 32); ln(a²b/c) = 2 ln a + ln b − ln c. (b) 3ˣ = 81 = 3⁴ → x = 4. 10ˣ = 500 → x = log₁₀ 500 = **2.699**.\nD8. (a) R(t) = 1.2 · 1.12ᵗ (€M). (b) 1.12ᵗ = 2 → t ln 1.12 = ln 2 → t = 0.6931 / 0.1133 = **6.1 years**. Rule of 70: 70/12 ≈ 5.8 — consistent. (c) 1.12ᵗ = 2.5 → t = ln 2.5 / ln 1.12 = 0.9163 / 0.1133 = **8.1 years**.\nD9. (a) e^{0.03t} = 1.6 → 0.03t = ln 1.6 = 0.4700 → t ≈ 15.7. (b) (1 + g)⁵ = 2 → 1 + g = 2^{1/5} = e^{(ln 2)/5} = e^{0.1386} = 1.1487 → g ≈ 14.9% a year.\nD10. (a) |c − 500| ≤ 15 ↔︎ 485 ≤ c ≤ 515, i.e. [485, 515]. 483 &lt; 485: not acceptable. (b) |x − 3| &gt; 2 ↔︎ x − 3 &gt; 2 or x − 3 &lt; −2 ↔︎ x &gt; 5 or x &lt; 1.\nD11. (a) [−3, +∞); (b) (−3, +∞); (c) (−3, 5]. (d) Need x + 3 ≥ 0 → [−3, +∞). (e) Need x − 1 &gt; 0 → (1, +∞). (Square bracket when the endpoint is included, round when it is not or when it is ±∞. The resit asks exactly this.)"
+    "objectID": "setup.html#writing-mathematics-the-way-the-exam-wants-it",
+    "href": "setup.html#writing-mathematics-the-way-the-exam-wants-it",
+    "title": "How to work",
+    "section": "Writing mathematics the way the exam wants it",
+    "text": "Writing mathematics the way the exam wants it\n\nWrite the equation in words first (“break-even means revenue equals cost”), then in symbols.\nEvery quadratic: divide out the common factor, compute the discriminant, comment on its sign.\nEvery inequality: find the roots, draw the sign line, write the answer as an interval.\nEvery log problem: take logs of both sides, bring the exponent down, use the calculator only at the end.\nIntervals: [ for included endpoints, ( for excluded ones and for ±∞."
   },
   {
-    "objectID": "week-01/drills.html#a.-linear-equations-and-systems",
-    "href": "week-01/drills.html#a.-linear-equations-and-systems",
-    "title": "Week 1 — Drills",
-    "section": "",
-    "text": "D1 (core). Arno Bikes has fixed monthly costs of €60,000 and a variable cost of €400 per bike. Bikes sell at €1,000. (a) Write the cost function C(q) and the revenue function R(q). (b) Find the break-even quantity. (c) The landlord raises the rent so that fixed costs become €72,000. Find the new break-even quantity and state in one sentence what happened to the cost line in the (q, €) plane.\nD2 (core). In the Tuscan e-bike market, demand is Q_d = 1200 − 2p and supply is Q_s = −300 + 3p (p in €, Q in bikes per month). (a) Find the equilibrium price and quantity. (b) The region introduces a tax of €50 per bike paid by sellers, so that sellers now respond to the price they keep, p − 50. Write the new supply function and find the new equilibrium. (c) How much of the €50 tax is paid by buyers, in the form of a higher price?\nD3 (stretch). A workshop assembles two models. Model A takes 2 hours, model B takes 3 hours; 1,200 hours are available per month and the plan is 500 bikes in total. Set up and solve the system giving the number of each model."
-  },
-  {
-    "objectID": "week-01/drills.html#b.-quadratics",
-    "href": "week-01/drills.html#b.-quadratics",
-    "title": "Week 1 — Drills",
-    "section": "",
-    "text": "D4 (core). A firm’s profit function is π(q) = −2q² + 600q − 40,000. (a) Find the quantities at which profit is zero. (b) For which quantities is the firm profitable? (c) Find the vertex of the parabola and interpret it.\nD5 (core). Solve the inequalities: (a) x² − 7x + 10 ≤ 0 (b) 2x² + 3x − 2 &gt; 0\nD6 (stretch — the final-exam pattern). Factor numerator and denominator, then simplify: (x − 1)² / (x − x²). Evaluate the simplified expression at x = 1.1 and at x = 0.9 and comment on the sign."
-  },
-  {
-    "objectID": "week-01/drills.html#c.-exponentials-and-logarithms",
-    "href": "week-01/drills.html#c.-exponentials-and-logarithms",
-    "title": "Week 1 — Drills",
-    "section": "",
-    "text": "D7 (core). (a) Simplify: ln(e³), log₂ 32, ln(a²b / c). (b) Solve for x: 3ˣ = 81; 10ˣ = 500 (three decimals).\nD8 (core). Arno Bikes’ revenue is €1.2M and grows at 12% a year. (a) Write revenue after t years. (b) How many years to double? Check with the rule of 70. (c) How many years to reach €3M?\nD9 (stretch). (a) Solve 5e^{0.03t} = 8 for t. (b) A competitor doubled revenue in 5 years. What constant annual growth rate does that imply?"
-  },
-  {
-    "objectID": "week-01/drills.html#d.-absolute-values-and-intervals",
-    "href": "week-01/drills.html#d.-absolute-values-and-intervals",
-    "title": "Week 1 — Drills",
-    "section": "",
-    "text": "D10 (core). (a) Battery cells must be 500 Wh ± 15 Wh. Write the condition with an absolute value and as an interval. Is a 483 Wh cell acceptable? (b) Solve |x − 3| &gt; 2.\nD11 (core — notation for the exam). Write as intervals: (a) x ≥ −3; (b) x &gt; −3; (c) −3 &lt; x ≤ 5. Then state the domain, as an interval, of (d) f(x) = √(x + 3) and (e) g(x) = ln(x − 1).\n\n\n\nSolutions\n\nD1. (a) C(q) = 60,000 + 400q; R(q) = 1,000q. (b) R = C → 1,000q = 60,000 + 400q → 600q = 60,000 → q = 100 bikes. (Contribution per bike €600; 60,000 / 600 = 100.) (c) 1,000q = 72,000 + 400q → q = 120. The cost line shifted up in parallel by €12,000 (same slope, higher intercept); the crossing with the revenue line moved right.\nD2. (a) 1200 − 2p = −300 + 3p → 1500 = 5p → p = €300; Q = 1200 − 600 = 600. (b) Q_s = −300 + 3(p − 50) = −450 + 3p. Then 1200 − 2p = −450 + 3p → 1650 = 5p → p = €330, Q = 540. (c) Buyers pay €330 instead of €300: €30 of the €50 is passed to buyers; sellers keep 330 − 50 = 280, i.e. bear €20.\nD3. Let x = model A, y = model B. 2x + 3y = 1200, x + y = 500. From the second, x = 500 − y; substitute: 1000 − 2y + 3y = 1200 → y = 200, x = 300. 300 of A, 200 of B.\nD4. (a) Divide by −2: q² − 300q + 20,000 = 0. Discriminant 300² − 4·20,000 = 90,000 − 80,000 = 10,000, √ = 100. q = (300 ± 100)/2 → q = 100 and q = 200. (b) Downward parabola (a = −2 &lt; 0) is positive between its roots: 100 &lt; q &lt; 200. (c) Vertex at q = −b/(2a) = −600/(−4) = 150; π(150) = −2·22,500 + 90,000 − 40,000 = **€5,000**. Maximum profit is €5,000 at 150 units; the window is narrow, the business is fragile.\nD5. (a) Roots of x² − 7x + 10: (x − 2)(x − 5) → 2 and 5. Upward parabola ≤ 0 between roots: 2 ≤ x ≤ 5, i.e. [2, 5]. (b) Roots: x = (−3 ± √(9 + 16))/4 = (−3 ± 5)/4 → x = 1/2 and x = −2. Upward parabola &gt; 0 outside the roots: x &lt; −2 or x &gt; 1/2.\nD6. x − x² = x(1 − x) = −x(x − 1). So (x − 1)² / (−x(x − 1)) = −(x − 1)/x for x ≠ 0, 1. At x = 1.1: −0.1/1.1 ≈ −0.091. At x = 0.9: −(−0.1)/0.9 ≈ +0.111. The expression changes sign across x = 1 — approaching 1 from the right it is a small negative number, from the left a small positive number. (This is the algebra behind the one-sided limits the final exam asks for: factor, cancel, then look at the sign of what is left. The limit from the right is 0⁻.)\nD7. (a) ln(e³) = 3; log₂ 32 = 5 (2⁵ = 32); ln(a²b/c) = 2 ln a + ln b − ln c. (b) 3ˣ = 81 = 3⁴ → x = 4. 10ˣ = 500 → x = log₁₀ 500 = **2.699**.\nD8. (a) R(t) = 1.2 · 1.12ᵗ (€M). (b) 1.12ᵗ = 2 → t ln 1.12 = ln 2 → t = 0.6931 / 0.1133 = **6.1 years**. Rule of 70: 70/12 ≈ 5.8 — consistent. (c) 1.12ᵗ = 2.5 → t = ln 2.5 / ln 1.12 = 0.9163 / 0.1133 = **8.1 years**.\nD9. (a) e^{0.03t} = 1.6 → 0.03t = ln 1.6 = 0.4700 → t ≈ 15.7. (b) (1 + g)⁵ = 2 → 1 + g = 2^{1/5} = e^{(ln 2)/5} = e^{0.1386} = 1.1487 → g ≈ 14.9% a year.\nD10. (a) |c − 500| ≤ 15 ↔︎ 485 ≤ c ≤ 515, i.e. [485, 515]. 483 &lt; 485: not acceptable. (b) |x − 3| &gt; 2 ↔︎ x − 3 &gt; 2 or x − 3 &lt; −2 ↔︎ x &gt; 5 or x &lt; 1.\nD11. (a) [−3, +∞); (b) (−3, +∞); (c) (−3, 5]. (d) Need x + 3 ≥ 0 → [−3, +∞). (e) Need x − 1 &gt; 0 → (1, +∞). (Square bracket when the endpoint is included, round when it is not or when it is ±∞. The resit asks exactly this.)"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Research & Quantitative Business Methods",
-    "section": "",
-    "text": "MBA03 · ESE MBA · Term 1, A.Y. 2026–2027 European School of Economics, Florence · in person · 30 contact hours over the term Weeks 1–5 Niccolò Salvini · module leader Arianna Ziliotto\n\n\n\nWhenThursdays 10:00–13:00 · 24 Sep – 22 Oct\n\n\nWhereESE Florence · Borgo Santi Apostoli 19\n\n\nAssessmentMidterm 25% · Final exam 75%\n\n\nBringPaper, pen, non-programmable calculator\n\n\nEverything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework due the following Wednesday. Materials are published by Friday.\n\nSessions Thursdays 10:00–13:00 · half slides, half laboratory · exam-format drills on paper\n\n\n\n\n\n\n\n\n\n\n\n\n#\nDate\nTheme\nMaterials\nHomework\n\n\n\n\n1\nThu 24 Sep\nRevision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic\nslides · notebook · Colab ↗ · drills · clips: parabola, growth\nHW1 · due Wed 30 Sep\n\n\n2\nThu 1 Oct\nMidterm guidelines briefing · functions and the Cartesian plane, limits, differentiation, integration\n—\n—\n\n\n3\nThu 8 Oct\nCalculus continued — full study of a function, optimisation, integration · in-class quiz\n—\n—\n\n\n4\nThu 15 Oct\nFinancial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV\n—\n—\n\n\n5\nThu 22 Oct\nFinancial mathematics II — bond pricing, duration and convexity · consolidation · mock of final Q5\n—\n—\n\n\n—\n26–30 Oct\nReading week — no class · midterm paper due Sun 1 Nov, 23:59 on Turnitin\n—\n—\n\n\n6\nw/c 2 Nov\nMidterm oral presentations (day set by the module leader) · second half of the module begins (weeks 6–10)\n—\n—\n\n\n\n\n\n\n\n\n\n\nSlides are the spine of each session. Notebook is what you see on the projector: open it in Colab if you want to move the sliders yourself, nothing to install. Drills are the paper exercises we do in class, in exam format, with worked solutions at the bottom. Clips are the short animations shown in class.\n\n\n\n\nHow the five weeks work the contract, stated once\n\n\nEvery technique serves an exam item. Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.\nDecision → picture → technique → decision. Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.\nHalf slides, half laboratory. About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.\nWeekly rhythm. Thursday lesson. Drill solutions and homework online by Friday. Homework due Wednesday 23:59 on Moodle, as a photo or PDF of your paper. The first fifteen minutes of the next session are the walkthrough: one student explains one drill at the board.\nHomework is formative. It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.\nRunning case: Arno Bikes, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand p = 1600 − 4q. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.\n\n\nAssessment module scheme, set by ESE\n\n\nMidterm assignment — 25%. A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due Sunday 1 November, 23:59 on Turnitin; orals in the week of 2 November, on the day set by the module leader. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.\nFinal examination — 75%. Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. Weeks 1–5 train you for the pure calculus question (limits, derivatives, integrals of rational functions with log terms) and the financial-mathematics items.\nReassessment. Re-sit examination, 100%, capped at 40% by ESE regulation.\n\n\nReadings\n\n\nRenshaw, G. (2021). Maths for Economics, 5th ed. Oxford University Press. Weeks 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–5: ch. 10, 11, 12, 13.\nKleppner, D., Dourmashkin, P. and Ramsey, N. (2022). Quick Calculus, 3rd ed. Jossey-Bass. Ch. 1–3, weeks 2–3.\nPaul’s Online Notes, Calculus I. Free, with worked problems.\nFrancis, A. and Mousley, B. (2014). Business Mathematics and Statistics, 7th ed. Cengage. Optional.\n\n\nTutor\n\n\n\n Niccolò SalviniWeeks 1–5"
+    "objectID": "setup.html#questions-between-sessions",
+    "href": "setup.html#questions-between-sessions",
+    "title": "How to work",
+    "section": "Questions between sessions",
+    "text": "Questions between sessions\nUse the course chat channel for quick questions and to arrange an office hour. Deliverables go on Moodle only."
   }
 ]

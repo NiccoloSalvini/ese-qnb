@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/setup.html</loc>
-    <lastmod>2026-09-21T08:01:50.581Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/01-revision.html</loc>
+    <lastmod>2026-09-21T08:41:00.395Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-01/session.html</loc>
-    <lastmod>2026-09-21T08:01:50.588Z</lastmod>
-  </url>
-  <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-01/homework.html</loc>
-    <lastmod>2026-09-21T08:01:50.583Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/index.html</loc>
+    <lastmod>2026-09-21T08:39:44.218Z</lastmod>
   </url>
   <url>
     <loc>https://niccolosalvini.github.io/ese-qnb/week-01/drills.html</loc>
     <lastmod>2026-09-09T10:28:25.000Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/index.html</loc>
-    <lastmod>2026-09-21T08:02:10.773Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-01/homework.html</loc>
+    <lastmod>2026-09-21T08:01:50.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-01/session.html</loc>
+    <lastmod>2026-09-21T08:01:50.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/setup.html</loc>
+    <lastmod>2026-09-21T08:01:50.581Z</lastmod>
   </url>
 </urlset>
