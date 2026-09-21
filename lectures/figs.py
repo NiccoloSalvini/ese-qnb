@@ -120,3 +120,37 @@ ax.plot(Y0 * 100, bond(Y0), "o", color=GOLD, ms=9)
 ax.set_xlabel("yield  %"); ax.set_ylabel("price €"); ax.legend(frameon=False, loc="upper right")
 save(fig, "w05_price_yield")
 print("weeks 2-5 figures written")
+
+
+# w03 — the staircase: every bike has its own price tag, and the total is the pile of them
+fig, ax = plt.subplots(figsize=(7.0, 3.9))
+bikes = np.arange(1, 21)
+each = 0.8 * (bikes - 0.5) + 3          # the cost of the n-th bike
+bars = ax.bar(bikes, each, width=0.86, color=GOLD, edgecolor="white", linewidth=1.1)
+for n in (1, 10, 20):
+    ax.annotate(f"bike {n}\n€{each[n-1]:.2f}", (n, each[n-1]), (n, each[n-1] + 3.4),
+                ha="center", fontsize=10, color=INK, fontweight="bold",
+                arrowprops=dict(arrowstyle="-", color=MUTED, lw=1))
+ax.plot(bikes, each, color=RED, lw=2.5, label="MC(q) = 0.8q + 3")
+ax.set_xlabel("which bike"); ax.set_ylabel("what that one bike costs, €")
+ax.set_xticks([1, 5, 10, 15, 20]); ax.set_ylim(0, 26)
+ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(0, 0.88))
+ax.text(10.5, 24.2, "add the twenty bars together  →  €220", ha="center", fontsize=12.5,
+        color=RED, fontweight="bold")
+save(fig, "w03_staircase")
+
+# w04 — the same euro, two ways, year by year
+fig, ax = plt.subplots(figsize=(7.0, 3.9))
+yrs = np.arange(0, 11)
+simple = 8000 * (1 + 0.06 * yrs)
+comp = 8000 * 1.06 ** yrs
+ax.plot(yrs, simple, color=MUTED, lw=3, marker="o", ms=5, label="simple — €480 every year")
+ax.plot(yrs, comp, color=RED, lw=3, marker="o", ms=5, label="compound — 6% of whatever is there")
+ax.fill_between(yrs, simple, comp, color=GOLD, alpha=.3)
+for y in (3, 10):
+    ax.annotate(f"+€{comp[y]-simple[y]:,.0f}", (y, comp[y]), (y - 1.6, comp[y] + 500),
+                fontsize=11, color=GOLD, fontweight="bold")
+ax.set_xlabel("years"); ax.set_ylabel("€"); ax.yaxis.set_major_formatter(k)
+ax.set_xticks(yrs); ax.legend(frameon=False, loc="upper left")
+save(fig, "w04_two_ways")
+print("staircase and two-ways written")

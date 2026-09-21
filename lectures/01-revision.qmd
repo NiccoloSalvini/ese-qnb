@@ -28,6 +28,12 @@ Final exam (75%): 3 hours, paper, calculator. One of five questions is pure calc
 
 [Every technique in this room is here because one of those two asks for it. I will tell you which one, every time.]{.red}
 
+## The map — come back to this every week
+
+![](img/topic-map.svg){fig-align="center" width="92%"}
+
+[We will put a mark on this at the start of every session, so you always know where you are standing.]{.muted}
+
 ## The shape of an exam item
 
 :::: {.columns}
@@ -177,7 +183,7 @@ Does selling more *always* bring more revenue? Yes / no, and roughly where it st
 
 ## The revenue rectangle sweeps out a parabola {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w01_parabola_poster.png"><source src="media/w01_parabola.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w01_parabola_poster.png"><source src="media/w01_parabola.mp4" type="video/mp4"></video>
 
 Clip rendered with manim from `anim/src/week01_scenes.py`.
 
@@ -255,7 +261,7 @@ How many years to double? Write a number.
 
 ## Linear versus exponential growth {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w01_growth_poster.png"><source src="media/w01_growth.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w01_growth_poster.png"><source src="media/w01_growth.mp4" type="video/mp4"></video>
 
 Clip rendered with manim from `anim/src/week01_scenes.py`.
 

@@ -37,26 +37,47 @@ It returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no �
 
 ## [Block A]{.section-kicker} Interest, and what compounding actually does {.section-slide background-color="#AF1F25"}
 
-## Two ways to be paid for waiting
+## €8,000 at 6%. Build it year by year.
 
-:::: {.columns}
-::: {.column width="50%"}
-**Simple** — interest on the original sum only:
-$$A = P(1 + it)$$
-€8,000 at 6% for 3 years → **€9,440**
-:::
-::: {.column width="50%"}
-**Compound** — interest on interest too:
-$$A = P(1+i)^{t}$$
-€8,000 at 6% for 3 years → **€9,528.13**
-:::
-::::
+**Simple** — 6% of the **original** €8,000, every year. €480, then €480, then €480.
+
+| end of | interest | balance |
+|---|---|---|
+| year 1 | `6% × 8,000 = 480` | 8,480 |
+| year 2 | `6% × 8,000 = 480` | 8,960 |
+| year 3 | `6% × 8,000 = 480` | **9,440** |
 
 . . .
 
-€88.13 of difference over three years. Over thirty it is not €88.
+$$A = P(1 + it)$$
 
-[Nobody in finance means "simple" when they say interest. It is in the syllabus so that you can name what compounding adds.]{.muted}
+The `t` is a **multiplication**, because you are adding the same amount `t` times.
+
+## Now 6% of whatever is actually there
+
+**Compound** — the interest earns interest, so the amount grows too.
+
+| end of | interest | balance |
+|---|---|---|
+| year 1 | `6% × 8,000 = 480.00` | 8,480.00 |
+| year 2 | `6% × 8,480 = 508.80` | 8,988.80 |
+| year 3 | `6% × 8,988.80 = 539.33` | **9,528.13** |
+
+. . .
+
+$$A = P(1+i)^{t}$$
+
+The `t` is now an **exponent**, because each year multiplies by `1.06` again. `8,000 × 1.06 × 1.06 × 1.06`.
+
+[That is the whole difference, and it is visible in the table before it is visible in the formula: one column repeats, the other climbs.]{.red}
+
+## Three years is €88. Ten is not.
+
+![](img/w04_two_ways.svg){fig-align="center" width="78%"}
+
+The gold gap is what compounding adds. It is €88 after three years and **€1,527 after ten** — and it is the same 6% throughout.
+
+[Nobody in finance means "simple" when they say interest. It is in the syllabus so that you can name what compounding adds, and so that you recognise the gap when someone quotes you the wrong one.]{.muted}
 
 ## More often is more
 
@@ -70,7 +91,7 @@ Compound 12% a year every single day instead of once. How much more than €1,12
 
 ## The ceiling, and where *e* comes from {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w04_compounding_poster.png"><source src="media/w04_compounding.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w04_compounding_poster.png"><source src="media/w04_compounding.mp4" type="video/mp4"></video>
 
 1,120 · 1,123.60 · 1,125.51 · 1,126.83 · 1,127.34 → **1,127.50**.
 
@@ -189,7 +210,7 @@ Accept a project when its NPV is positive at *our* cost of capital. The rate is 
 
 ## Move the rate, watch the sign {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w04_npv_poster.png"><source src="media/w04_npv.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w04_npv_poster.png"><source src="media/w04_npv.mp4" type="video/mp4"></video>
 
 The crossing has a name: the internal rate of return, 14.6% here.
 

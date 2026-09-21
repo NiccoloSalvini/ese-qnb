@@ -43,6 +43,14 @@ Questions now, not in the last week of October.
 
 ## [Block A]{.section-kicker} What a function is, once you have to use one {.section-slide background-color="#AF1F25"}
 
+## A function is a machine
+
+![](img/function-machine.svg){fig-align="center" width="92%"}
+
+You put something in, something comes out, and **what happens inside is the function**. Nothing else about it matters.
+
+[Keep this picture. It is the same picture as a cell in a spreadsheet, a pricing rule, and a line of code — arguments in, a value out, a body in between. We will use it all term.]{.red}
+
 ## Four functions, one firm
 
 :::: {.columns}
@@ -59,9 +67,7 @@ Each one is a sentence about a business, written so it can be computed.
 ::: {.column width="48%"}
 **Domain** is the first question, always: for which `q` does this mean anything?
 
-`√(q − 20)` needs `q ≥ 20`.
-`ln(q − 5)` needs `q > 5`, strictly.
-`120/(q − 40)` breaks at `q = 40`.
+$$\sqrt{q-20} \;\text{ needs } q \geq 20 \qquad \ln(q-5) \;\text{ needs } q > 5 \qquad \frac{120}{q-40} \;\text{ breaks at } q = 40$$
 
 [The exam asks "state the domain" and expects an interval, with the bracket chosen on purpose.]{.muted}
 :::
@@ -71,6 +77,22 @@ Each one is a sentence about a business, written so it can be computed.
 `π(100)` and `π(200)`. One is bigger. Which, and by how much?
 :::
 
+## Nothing here is memorised. Each rule is a question with no answer.
+
+Ask what the symbol is *asking for*, and the restriction falls out on its own.
+
+| the symbol | the question it asks | when there is no answer |
+|---|---|---|
+| $\sqrt{x}$ | *what number, times itself, gives `x`?* | `x < 0` — a square is never negative |
+| $\ln x$ | *to what power must `e` be raised to give `x`?* | `x ≤ 0` — a positive base never reaches zero |
+| $\dfrac{a}{x}$ | *how many `x` fit into `a`?* | `x = 0` — nothing fits into nothing |
+
+. . .
+
+So $\sqrt{q-20}$ needs **the thing inside**, not `q`, to be at least zero: `q − 20 ≥ 0`.
+
+[Three rules, or one habit: put the bracket's contents where the rule's own question can be asked. You will never have to remember which is `≥` and which is `>` — `√0 = 0` is fine, `ln 0` is not.]{.red}
+
 ## D1, D2 — domains, and the four functions {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
@@ -79,17 +101,31 @@ Each one is a sentence about a business, written so it can be computed.
 
 ## [Block B]{.section-kicker} Limits — what happens near a point you cannot reach {.section-slide background-color="#AF1F25"}
 
-## Average cost at zero output
+## What does one bike cost? It depends how many you make.
 
-$$AC(q) = \frac{60{,}000 + 400q}{q}$$
+The rent is €60,000 whether you build one bike or a thousand. **Split it between the bikes:**
 
-At `q = 0` this is meaningless: you cannot divide by nothing. But you can ask what happens **near** zero, and near infinity.
+$$AC(q) = \frac{60{,}000 + 400q}{q} \;=\; \underbrace{\frac{60{,}000}{q}}_{\text{the rent, shared}} + \underbrace{400}_{\text{the parts, per bike}}$$
 
-. . .
+::: {.callout-important title="Bet before we compute"}
+At 30 bikes a month, what does one bike cost the firm? At 300?
+:::
 
-$$\lim_{q \to 0^{+}} AC(q) = +\infty \qquad \lim_{q \to \infty} AC(q) = 400$$
+## The rent, split thinner and thinner {.clip background-color="#000000"}
 
-Fixed cost spread over almost nothing is ruinous; spread over a long run it disappears. **Economies of scale, in two limits.**
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w02_avgcost_poster.png"><source src="media/w02_avgcost.mp4" type="video/mp4"></video>
+
+The gold bar is the rent per bike. It shrinks; the €400 floor never moves.
+
+## Which is two limits, and a floor
+
+$$\lim_{q \to 0^{+}} AC(q) = +\infty \qquad\qquad \lim_{q \to \infty} AC(q) = 400$$
+
+**At `q = 0` the expression means nothing** — you cannot divide by nothing — but you can ask what happens *near* zero, and the answer is: ruinous. One bike carries the whole rent.
+
+Far out, the shared rent vanishes and average cost settles onto the variable cost. It never goes below €400, because every bike really does need €400 of parts.
+
+[**Economies of scale, in two limits.** And a limit is exactly this: not the value *at* a point, but the value the function heads towards as you approach it.]{.red}
 
 ## The one that looks impossible
 
@@ -125,7 +161,7 @@ The honest way to ask it: take two quantities, measure the change in profit, div
 
 ## Two points become one {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w02_secant_poster.png"><source src="media/w02_secant.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w02_secant_poster.png"><source src="media/w02_secant.mp4" type="video/mp4"></video>
 
 The slope over an interval becomes the slope at a point.
 
@@ -140,8 +176,25 @@ You will use this definition roughly twice in your life. What you will use every
 | `qⁿ` | `n qⁿ⁻¹` |
 | a constant | `0` |
 | `ln q` | `1/q` |
-| `eᵏq` | `k eᵏq` |
+| `e^(kq)` | `k e^(kq)` |
 | sums | differentiate term by term |
+
+## Differentiating, as a procedure you can follow
+
+Never ask "what is the derivative of this?" Ask the four questions in order.
+
+| | ask | then |
+|---|---|---|
+| **1** | Is it a **sum**? | split it, and do each piece on its own. The rest of this table is for one piece. |
+| **2** | Is it a **number** with no `q`? | it becomes **0**. `−60,000` disappears. |
+| **3** | Is it a **power** `a·qⁿ`? | **bring `n` down in front, then drop it by one**: `−4q² → −8q`. (A lone `q` is `q¹`, so it becomes the number in front of it: `1200q → 1200`.) |
+| **4** | Is it a **log** `a·ln(q)`? | it becomes `a/q`. And `ln(q+1)` becomes `1/(q+1)`. |
+
+. . .
+
+$$\pi(q) = \underbrace{-4q^{2}}_{\text{rule 3}} + \underbrace{1200q}_{\text{rule 3}} \underbrace{- \,60{,}000}_{\text{rule 2}} \;\longrightarrow\; \pi'(q) = -8q + 1200$$
+
+[Four questions, every time, in that order. That is the whole of what the midterm's study of a function needs you to do.]{.red}
 
 ## Read it off the curve
 
@@ -151,7 +204,7 @@ Same curve, three places, three answers to the same question: **is the next bike
 
 ## The tangent walks the curve {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w02_tangent_poster.png"><source src="media/w02_tangent.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w02_tangent_poster.png"><source src="media/w02_tangent.mp4" type="video/mp4"></video>
 
 Positive, then flat, then negative. The flat point is the top.
 

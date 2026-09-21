@@ -44,7 +44,7 @@ The last block, integration, is the remaining two items of the final's calculus 
 
 ## Seven steps, watched once {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w03_study_poster.png"><source src="media/w03_study.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w03_study_poster.png"><source src="media/w03_study.mp4" type="video/mp4"></video>
 
 The same profit function you already know, taken apart in the exam's order.
 
@@ -158,19 +158,47 @@ The second one has a lesson in it. Watch what changes and what does not.
 
 ## [Block C]{.section-kicker} Integration — adding up the marginal {.section-slide background-color="#AF1F25"}
 
-## Marginal cost is per bike. Total cost is for all of them.
+## Every bike has its own price tag
 
-If the tenth bike costs €11 and the eleventh €11.80, what do the first twenty cost together?
+Marginal cost is not "the cost". It is **the cost of the next one**, and it is different for every one.
+
+| | | |
+|---|---|---|
+| the 1st bike | `MC ≈ 3.40` | the line is easy, nothing is strained |
+| the 10th bike | `MC ≈ 10.60` | overtime starts, parts cost more |
+| the 20th bike | `MC ≈ 18.60` | the plant is pushed |
 
 ::: {.callout-important title="Bet before we compute"}
-Guess the total variable cost of the first twenty bikes when `MC(q) = 0.8q + 3`.
+So what do the **first twenty together** cost? Write a number.
 :::
 
-Add up the cost of each one. Thin the slices until the answer stops moving.
+## Add up the price tags
 
-## Thinner slices, truer area {.clip background-color="#000000"}
+![](img/w03_staircase.svg){fig-align="center" width="82%"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w03_riemann_poster.png"><source src="media/w03_riemann.mp4" type="video/mp4"></video>
+Twenty bikes, twenty price tags, twenty bars. **Pile them up and you have the total cost.**
+
+. . .
+
+The bars sum to exactly **€220**. Nothing has been approximated: each bar is one bike, and we added up all twenty.
+
+## And now make the bikes smaller than bikes
+
+A bike is a lump. But suppose you could make half a bike, then a tenth, then a thousandth.
+
+The bars get thinner, there are more of them, and the pile becomes **the area under the line**.
+
+. . .
+
+That area has a name and a symbol, and the symbol is a stretched S for *sum*:
+
+$$\int_{0}^{20} MC(q)\,dq$$
+
+[Integration is not a new idea. It is adding up price tags, with the tags made infinitely thin.]{.red}
+
+## Watch the slices thin {.clip background-color="#000000"}
+
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w03_riemann_poster.png"><source src="media/w03_riemann.mp4" type="video/mp4"></video>
 
 180, then 200, then 212, then 217 — climbing to 220.
 

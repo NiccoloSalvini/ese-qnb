@@ -20,6 +20,7 @@ want="${1:-all}"
 [ "$want" = all ] || [ "$want" = week02 ] && {
   render week02_scenes SecantToTangent w02_secant
   render week02_scenes TangentSlides   w02_tangent
+  render week02_scenes AverageCostFalls w02_avgcost
 }
 [ "$want" = all ] || [ "$want" = week03 ] && {
   render week03_scenes RiemannFills   w03_riemann

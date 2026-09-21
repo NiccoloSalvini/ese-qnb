@@ -81,7 +81,7 @@ Price against yield is a **curve**, not a line. Duration is the straight line th
 
 ## Duration is a derivative {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w05_duration_poster.png"><source src="media/w05_duration.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w05_duration_poster.png"><source src="media/w05_duration.mp4" type="video/mp4"></video>
 
 `dP/dy = −772`, and written as a percentage, `D_mod = 7.72`.
 
@@ -140,7 +140,7 @@ The curve lies **above** the tangent on both sides. So duration alone **overstat
 
 ## Watch the gap open {.clip background-color="#000000"}
 
-<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w05_convexity_poster.png"><source src="media/w05_convexity.mp4" type="video/mp4"></video>
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w05_convexity_poster.png"><source src="media/w05_convexity.mp4" type="video/mp4"></video>
 
 Small move, small gap. Large move, large gap — and always the same way.
 

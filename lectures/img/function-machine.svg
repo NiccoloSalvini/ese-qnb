@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" font-family="'Source Sans 3','Source Sans Pro',-apple-system,Helvetica,Arial,sans-serif">
+  <rect width="900" height="400" fill="#ffffff"/>
+
+  <!-- input -->
+  <text x="92" y="128" font-size="13" font-weight="700" letter-spacing="1.4" fill="#a8955a" text-anchor="middle">IN</text>
+  <rect x="24" y="144" width="136" height="74" rx="3" fill="#fcfbf8" stroke="#c9c4b8"/>
+  <text x="92" y="180" font-size="26" fill="#363636" text-anchor="middle" font-style="italic">q</text>
+  <text x="92" y="204" font-size="13" fill="#7a7f85" text-anchor="middle">bikes per month</text>
+  <text x="92" y="246" font-size="13" fill="#7a7f85" text-anchor="middle">something you choose</text>
+
+  <path d="M168 181 L236 181" stroke="#363636" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- the machine -->
+  <rect x="246" y="96" width="330" height="170" rx="4" fill="#363636"/>
+  <rect x="246" y="96" width="330" height="34" rx="4" fill="#AF1F25"/>
+  <rect x="246" y="118" width="330" height="12" fill="#AF1F25"/>
+  <text x="411" y="119" font-size="13" font-weight="700" letter-spacing="1.4" fill="#ffffff" text-anchor="middle">THE FUNCTION</text>
+  <text x="411" y="178" font-size="25" fill="#ffffff" text-anchor="middle" font-style="italic">C(q) = 60,000 + 400q</text>
+  <text x="411" y="212" font-size="14" fill="#cdba80" text-anchor="middle">the rule that turns one into the other</text>
+  <text x="411" y="240" font-size="13" fill="#9aa0a6" text-anchor="middle">give it the same q twice, it answers the same thing twice</text>
+
+  <path d="M586 181 L654 181" stroke="#363636" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- output -->
+  <text x="742" y="128" font-size="13" font-weight="700" letter-spacing="1.4" fill="#a8955a" text-anchor="middle">OUT</text>
+  <rect x="664" y="144" width="156" height="74" rx="3" fill="#fcfbf8" stroke="#c9c4b8"/>
+  <text x="742" y="180" font-size="26" fill="#363636" text-anchor="middle" font-style="italic">C(q)</text>
+  <text x="742" y="204" font-size="13" fill="#7a7f85" text-anchor="middle">euros of cost</text>
+  <text x="742" y="246" font-size="13" fill="#7a7f85" text-anchor="middle">what follows from it</text>
+
+  <!-- the domain, as the gate on the door -->
+  <rect x="24" y="292" width="360" height="74" rx="3" fill="#fdf6f6" stroke="#e8cdce"/>
+  <text x="44" y="318" font-size="13" font-weight="700" fill="#AF1F25">The domain is the sign on the door</text>
+  <text x="44" y="340" font-size="13" fill="#7a7f85">which inputs the machine will accept at all —</text>
+  <text x="44" y="358" font-size="13" fill="#7a7f85">a negative number of bikes is not one of them</text>
+
+  <rect x="440" y="292" width="380" height="74" rx="3" fill="#fbfaf6" stroke="#e6e2d8"/>
+  <text x="460" y="318" font-size="13" font-weight="700" fill="#a8955a">You have met this machine before</text>
+  <text x="460" y="340" font-size="13" fill="#7a7f85">a spreadsheet cell, a pricing rule, a line of code:</text>
+  <text x="460" y="358" font-size="13" fill="#7a7f85">arguments in, a return value out, the body in between</text>
+
+  <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#363636"/></marker></defs>
+</svg>

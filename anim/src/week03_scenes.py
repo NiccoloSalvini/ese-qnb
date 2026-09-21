@@ -50,37 +50,57 @@ class RiemannFills(Scene):
 
 
 class StudyAFunction(Scene):
-    """The midterm asks for the same seven things, in this order, every time."""
+    """The midterm asks for the same seven things in the same order. Each step lights up
+    with the thing it names, so it is never in doubt which word belongs to which mark."""
 
     def construct(self):
         def f(q): return -4 * q ** 2 + 1200 * q - 60000
-        ax = Axes(x_range=[0, 300, 50], y_range=[-60000, 40000, 20000], x_length=9.0, y_length=4.6,
-                  axis_config={"include_numbers": True, "font_size": 20}).shift(DOWN * 0.4 + LEFT * 1.6)
+        ax = Axes(x_range=[0, 300, 50], y_range=[-60000, 40000, 20000], x_length=8.2, y_length=4.4,
+                  axis_config={"include_numbers": True, "font_size": 19}).shift(DOWN * 0.3 + LEFT * 1.9)
         curve = ax.plot(f, x_range=[5, 295], color=NAVY, stroke_width=5)
-        self.play(Create(ax), Create(curve), run_time=1.5)
+        self.play(Create(ax), Create(curve), run_time=1.4)
 
-        steps = VGroup(*[Tex(s, font_size=26) for s in (
-            r"1. domain", r"2. zeros", r"3. sign", r"4. stationary point",
-            r"5. maximum", r"6. shape", r"7. sketch")]
-        ).arrange(DOWN, aligned_edge=LEFT, buff=0.22).to_edge(RIGHT, buff=0.5)
-        self.play(FadeIn(steps[0]), run_time=0.5)
+        words = ["domain", "limits", "range", "sign", "maximum", "convexity", "sketch"]
+        steps = VGroup(*[Tex(f"{i+1}. {w}", font_size=25, color=GREY) for i, w in enumerate(words)]) \
+            .arrange(DOWN, aligned_edge=LEFT, buff=0.26).to_edge(RIGHT, buff=0.7)
+        self.play(FadeIn(steps), run_time=0.8)
+
+        def light(i, *mobs, t=1.15):
+            """Turn one step gold while its own object appears on the curve."""
+            self.play(steps[i].animate.set_color(GOLD).scale(1.12), *mobs, run_time=t)
 
         r1, r2 = 63.4, 236.6
-        zeros = VGroup(Dot(ax.c2p(r1, 0), color=RED, radius=0.08), Dot(ax.c2p(r2, 0), color=RED, radius=0.08))
-        self.play(FadeIn(steps[1]), FadeIn(zeros), run_time=1.0)
+        # 1 domain: the stretch of axis where the function lives
+        dom = Line(ax.c2p(0, 0), ax.c2p(295, 0), color=GOLD, stroke_width=8)
+        light(0, Create(dom))
+        self.play(FadeOut(dom), steps[0].animate.set_color(GREY).scale(1 / 1.12), run_time=0.5)
 
-        band = ax.get_area(curve, x_range=[r1, r2], color=GREEN, opacity=0.25)
-        self.play(FadeIn(steps[2]), FadeIn(band), run_time=1.1)
+        # 2 limits: where it goes at the far end
+        arrow = Arrow(ax.c2p(270, -20000), ax.c2p(295, -52000), color=GOLD, buff=0, stroke_width=5)
+        lim = MathTex(r"\to -\infty", font_size=28, color=GOLD).next_to(arrow, RIGHT, buff=0.1)
+        light(1, GrowArrow(arrow), FadeIn(lim))
 
-        top = Dot(ax.c2p(150, f(150)), color=GOLD, radius=0.1)
-        flat = DashedLine(ax.c2p(80, f(150)), ax.c2p(220, f(150)), color=GOLD, stroke_width=3)
-        self.play(FadeIn(steps[3]), FadeIn(top), Create(flat), run_time=1.2)
+        # 3 range: the values it actually takes, on the vertical axis
+        rng = Line(ax.c2p(0, -60000), ax.c2p(0, 30000), color=GOLD, stroke_width=8)
+        light(2, Create(rng))
 
-        note = MathTex(r"\pi'(q) = 0 \Rightarrow q = 150", font_size=30, color=GOLD).next_to(ax, UP, buff=0.15)
-        self.play(FadeIn(steps[4]), Write(note), run_time=1.2)
+        # 4 sign: positive between the zeros
+        zeros = VGroup(Dot(ax.c2p(r1, 0), color=RED, radius=0.09), Dot(ax.c2p(r2, 0), color=RED, radius=0.09))
+        band = ax.get_area(curve, x_range=[r1, r2], color=GREEN, opacity=0.3)
+        light(3, FadeIn(zeros), FadeIn(band), t=1.3)
 
-        second = MathTex(r"\pi''(q) = -8 < 0 \;\Rightarrow\; \text{a maximum}", font_size=28, color=RED).next_to(note, DOWN, buff=0.12)
-        self.play(FadeIn(steps[5]), Write(second), run_time=1.3)
-        self.play(FadeIn(steps[6]), run_time=0.6)
-        self.play(Write(caption(r"Seven steps, always the same order. The sketch is the last one, not the first.")), run_time=1.4)
-        self.wait(0.6)
+        # 5 maximum: the flat tangent at the top
+        top = Dot(ax.c2p(150, f(150)), color=GOLD, radius=0.11)
+        flat = DashedLine(ax.c2p(85, f(150)), ax.c2p(215, f(150)), color=GOLD, stroke_width=4)
+        note = MathTex(r"\pi'(q) = 0 \Rightarrow q = 150", font_size=26, color=GOLD).next_to(flat, UP, buff=0.18)
+        light(4, FadeIn(top), Create(flat), Write(note), t=1.4)
+
+        # 6 convexity: which way it bends
+        second = MathTex(r"\pi''= -8 < 0 \;\Rightarrow\; \text{concave everywhere}", font_size=26, color=RED) \
+            .to_corner(UL, buff=0.45)
+        light(5, Write(second), t=1.2)
+
+        # 7 sketch: everything that is now on the screen
+        light(6, Indicate(curve, color=NAVY, scale_factor=1.03), t=1.0)
+        self.play(Write(caption(r"Seven words, seven marks. The sketch is the last one, not the first.")), run_time=1.4)
+        self.wait(0.8)
