@@ -1,0 +1,245 @@
+---
+title: "The tool that finds the top of any hill"
+subtitle: "Week 2 · Thursday 1 October 2026 · 10:00–13:00"
+author: "Niccolò Salvini"
+institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
+---
+
+## Where we are
+
+:::: {.columns}
+::: {.column width="56%"}
+| Wk | Date | What you can do by hand |
+|---|---|---|
+| 1 | 24 Sep | equations, quadratics, logs ✓ |
+| **2** | **1 Oct** | **read a function; limits; the derivative** |
+| 3 | 8 Oct | study a function; optimise; integrate |
+| 4 | 15 Oct | interest, discounting, NPV |
+| 5 | 22 Oct | bonds, duration, convexity |
+:::
+::: {.column width="44%"}
+**Today serves both assessments.**
+
+The **midterm** asks you to study a cost, a revenue and a profit function. Everything in that study is built on the derivative.
+
+Three of the five items in the final's calculus question are here: a limit that factors, a derivative term by term, and a function recovered from its derivative.
+:::
+::::
+
+[Last week you found the top of a hill with a formula that only works for parabolas. Today you get the one that works for any curve.]{.red}
+
+## First, the midterm {.lab background-color="#2471a3"}
+
+[BRIEFING · 35 minutes]{.kicker}
+
+Before any mathematics: what the midterm asks, how it is marked, and what a good one looks like.
+
+1. The brief, read together, line by line.
+2. The seven things a "full study of a function" must contain.
+3. What the qualitative sections want, and what referencing means here.
+4. The timetable back from 1 November.
+
+Questions now, not in the last week of October.
+
+## [Block A]{.section-kicker} What a function is, once you have to use one {.section-slide background-color="#AF1F25"}
+
+## Four functions, one firm
+
+:::: {.columns}
+::: {.column width="52%"}
+| | |
+|---|---|
+| straight line | `C(q) = 60,000 + 400q` |
+| parabola | `π(q) = −4q² + 1200q − 60,000` |
+| exponential | `R(t) = 1.2 · 1.12ᵗ` |
+| logarithm | `R(q) = 30 ln(q + 1)` |
+
+Each one is a sentence about a business, written so it can be computed.
+:::
+::: {.column width="48%"}
+**Domain** is the first question, always: for which `q` does this mean anything?
+
+`√(q − 20)` needs `q ≥ 20`.
+`ln(q − 5)` needs `q > 5`, strictly.
+`120/(q − 40)` breaks at `q = 40`.
+
+[The exam asks "state the domain" and expects an interval, with the bracket chosen on purpose.]{.muted}
+:::
+::::
+
+::: {.callout-important title="Bet before we compute"}
+`π(100)` and `π(200)`. One is bigger. Which, and by how much?
+:::
+
+## D1, D2 — domains, and the four functions {.paper background-color="#eceff0"}
+
+[PAPER · drills.md]{.kicker}
+
+10 minutes. Show all work, exam style. Tutor circulates.
+
+## [Block B]{.section-kicker} Limits — what happens near a point you cannot reach {.section-slide background-color="#AF1F25"}
+
+## Average cost at zero output
+
+$$AC(q) = \frac{60{,}000 + 400q}{q}$$
+
+At `q = 0` this is meaningless: you cannot divide by nothing. But you can ask what happens **near** zero, and near infinity.
+
+. . .
+
+$$\lim_{q \to 0^{+}} AC(q) = +\infty \qquad \lim_{q \to \infty} AC(q) = 400$$
+
+Fixed cost spread over almost nothing is ruinous; spread over a long run it disappears. **Economies of scale, in two limits.**
+
+## The one that looks impossible
+
+$$\lim_{q \to 10} \frac{q^{2} - 100}{q - 10}$$
+
+Substitute and you get `0/0`, which says nothing. So do not substitute first.
+
+. . .
+
+$$\frac{(q-10)(q+10)}{q-10} = q + 10 \;\longrightarrow\; 20$$
+
+::: {.callout-tip title="Board sentence"}
+`0/0` is not an answer, it is an instruction: factor, cancel, then substitute.
+:::
+
+## D4, D5, D6 — limits, including one from the exam {.paper background-color="#eceff0"}
+
+[PAPER · drills.md]{.kicker}
+
+12 minutes. D5 is a one-sided limit in exactly the form the final exam uses.
+
+## [Block C]{.section-kicker} The derivative {.section-slide background-color="#AF1F25"}
+
+## How much does one more bike change profit?
+
+At 80 bikes a month, what does the eighty-first bike add?
+
+::: {.callout-important title="Bet before we compute"}
+More than €1,000, between €0 and €1,000, or negative? Commit to one.
+:::
+
+The honest way to ask it: take two quantities, measure the change in profit, divide by the change in quantity. Then let the two quantities come together.
+
+## Two points become one {.clip background-color="#000000"}
+
+<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w02_secant_poster.png"><source src="media/w02_secant.mp4" type="video/mp4"></video>
+
+The slope over an interval becomes the slope at a point.
+
+## The definition, once
+
+$$\pi'(a) \;=\; \lim_{h \to 0} \frac{\pi(a+h) - \pi(a)}{h}$$
+
+You will use this definition roughly twice in your life. What you will use every day is what it produces:
+
+| | |
+|---|---|
+| `qⁿ` | `n qⁿ⁻¹` |
+| a constant | `0` |
+| `ln q` | `1/q` |
+| `eᵏq` | `k eᵏq` |
+| sums | differentiate term by term |
+
+## Read it off the curve
+
+![](img/w02_three_tangents.svg){fig-align="center" width="78%"}
+
+Same curve, three places, three answers to the same question: **is the next bike worth making?**
+
+## The tangent walks the curve {.clip background-color="#000000"}
+
+<video class="clipvideo" width="1000" height="562" controls preload="metadata" poster="media/w02_tangent_poster.png"><source src="media/w02_tangent.mp4" type="video/mp4"></video>
+
+Positive, then flat, then negative. The flat point is the top.
+
+## Move the price, watch the slope {.lab background-color="#2471a3"}
+
+[LAB · session.ipynb § C]{.kicker}
+
+1. Bet: if the price cut per extra bike were €3 instead of €4, would the best quantity rise or fall?
+2. Then slide it, and watch where `π'(q) = 0` moves to.
+
+The slider changes one number. The whole answer moves with it.
+
+## Last week's formula, and this week's
+
+:::: {.columns}
+::: {.column width="50%"}
+**Week 1, only for parabolas:**
+$$q_v = -\frac{b}{2a} = -\frac{1200}{-8} = 150$$
+:::
+::: {.column width="50%"}
+**Today, for anything:**
+$$\pi'(q) = -8q + 1200 = 0 \;\Rightarrow\; q = 150$$
+:::
+::::
+
+Same answer. But the second one still works when revenue is `30 ln(q+1)`, or cost is cubic, or the curve has no formula you recognise.
+
+::: {.callout-tip title="Board sentence"}
+The derivative answers one managerial question: what does one more unit do? Positive means make more, negative means make fewer, zero means stop.
+:::
+
+## D8, D9 — differentiate, then read the answer {.paper background-color="#eceff0"}
+
+[PAPER · drills.md]{.kicker}
+
+12 minutes. In D9 write the sentence a manager would say, not just the number.
+
+## [Block D]{.section-kicker} Running it backwards {.section-slide background-color="#AF1F25"}
+
+## From the derivative back to the function
+
+The exam asks this in one direction and the other. Given `f'`, find `f`.
+
+$$f'(q) = 6q^{2} - 2q \quad\Longrightarrow\quad f(q) = 2q^{3} - q^{2} + c$$
+
+. . .
+
+The `c` is not decoration. Every function `2q³ − q² + c` has the same derivative, so one extra fact pins it down:
+
+$$f(1) = 4 \;\Rightarrow\; 2 - 1 + c = 4 \;\Rightarrow\; c = 3$$
+
+## And it means something
+
+Given marginal cost `MC(q) = 0.8q + 3`, the cost function is
+
+$$C(q) = 0.4q^{2} + 3q + c$$
+
+and `c = C(0)` is the **fixed cost** — what you pay having produced nothing.
+
+[The constant of integration is not a technicality here. It is the rent.]{.red}
+
+## D11, D12 — recover the function {.paper background-color="#eceff0"}
+
+[PAPER · drills.md]{.kicker}
+
+8 minutes. Exam form: every answer ends with the constant found, not left as `c`.
+
+## [Close]{.section-kicker} Board pitch and take home {.section-slide background-color="#AF1F25"}
+
+## Sixty seconds to the Board
+
+One of you stands. The other is the Board.
+
+You produced 80 bikes last month. Tell them, with numbers and no formulas:
+
+- what the eighty-first bike would add;
+- at what output that answer turns negative;
+- and one thing you would check before acting on it.
+
+[The Board asks one question. This is the midterm's oral, in miniature.]{.muted}
+
+## Take home
+
+1. Domain first, always. The exam gives marks for the interval.
+2. `0/0` means factor, cancel, then substitute.
+3. The derivative is the answer to "what does one more do?"
+4. Reversing it needs a constant, and one fact to pin it down.
+
+**Homework 2** (`homework.md`), due Wednesday 7 October 23:59 on Moodle: eight drills plus a memo to the Board on whether to build the next bike.
+
+Write your own three take-home lines now, before you leave.

@@ -6,12 +6,14 @@ project:
     - setup.qmd
     - "week-*/homework.md"
     - "week-*/drills.md"
+    - "week-05/mock_exam.md"
     - "week-*/session.ipynb"
     - "lectures/*.qmd"
   resources:
     - "lectures/media/*.mp4"
     - "lectures/media/*.png"
     - "week-*/slides/*.pdf"
+    - "lectures/img/*.svg"
     - "anim/out/*.mp4"
     - "week-*/data/**"
 

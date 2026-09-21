@@ -42,7 +42,11 @@ week-NN/
   drills.md           in-class exercises, exam format, worked solutions in a <details> block — rendered
   homework.md         drill set + memo to the Board — rendered
   diagnostic.md       (week 1) anonymous placement test — NOT rendered (would defeat its purpose)
-anim/src/             manim scenes; anim/out/*.mp4 committed and linked as clips; anim/frames/ used by the beamer deck
+anim/src/weekNN_scenes.py  manim scenes, two per week, 10-12s each; common.py holds the palette and the
+                      Arno Bikes functions. `bash anim/render.sh [weekNN]` renders at 720p30, copies the
+                      mp4 into anim/out/ and a poster frame into anim/frames/. Needs the manim venv at
+                      ~/.venvs/sbd-animations. Clips and posters are then copied into lectures/media/.
+midterm/briefing.md   how to read the brief and write the report — method only, none of the brief's content
 lectures/NN-slug.qmd  THE deck shown in class: revealjs with the ESE theme (lectures/ese.scss), clips embedded
                       as <video poster=...> from lectures/media/, figures as SVG from lectures/figs.py (matplotlib)
 lectures/_metadata.yml every visual option of the revealjs decks; a lecture file sets title, subtitle, author, content
@@ -63,6 +67,7 @@ LAB frames `## Title {.lab background-color="#2471A3"}` with `[LAB · session.ip
 PAPER frames `## D1, D2 {.paper background-color="#eceff0"}`;
 clip frames `## Title {.clip background-color="#000000"}` with a raw `<video class="clipvideo" controls poster="media/x_poster.png">`
 (the `{{< video >}}` shortcode gives a black box with a tiny play button on a black manim clip);
+a one-line slide is `## Text {.statement}`;
 "Bet" = `callout-important`, "Board sentence" = `callout-tip`; math is KaTeX.
 Figures are SVGs written by `lectures/figs.py` (matplotlib, brand colours, `svg.fonttype: none`
 so the page's webfont renders the labels). Copy the mp4 and a poster PNG into
@@ -71,6 +76,21 @@ so the page's webfont renders the labels). Copy the mp4 and a poster PNG into
 Reveal font gotcha (as in ese-ai): `ese.scss` re-sets `--r-main-font` in the rules
 section with quoted names, because Quarto interpolates the SCSS variable unquoted
 and `Source Sans 3` unquoted is invalid CSS.
+
+## Two traps in the clips, both cost a re-render
+
+`ax.plot(self.method, ...)` fails with `cannot pickle '_thread.lock'`: manim caches the plotted
+function and pickling a bound method drags the Scene, locks included. Plotted functions must be
+module level. And `get_riemann_rectangles` defaults to **left** endpoints — compute the displayed
+approximation the same way, or the drawing and the number disagree. (The midpoint rule is exact for
+a straight line, which shows no convergence at all.)
+
+## Every number is verified before it ships
+
+Drills, homework and the mock have worked solutions, and every one was checked with sympy before
+being committed: derivatives, limits, integrals, bond prices, durations, NPV and IRR. Three of my own
+slips were caught that way. When you change a number in a drill, re-run the check — the notebooks'
+final cell does exactly this for the week's drills, on purpose.
 
 ## Weekly loop
 

@@ -60,3 +60,63 @@ for x in (485, 500, 515): ax.plot([x, x], [-.25, .25], color=INK, lw=1.5); ax.te
 ax.plot(483, 0, "x", color=RED, ms=14, mew=3); ax.text(483, .45, "483", color=RED, ha="center")
 ax.set_xlim(468, 532); ax.set_ylim(-1, 1); ax.axis("off"); save(fig, "w01_tolerance")
 print("ok", sorted(p.name for p in OUT.glob("*.svg")))
+
+
+# ---------------------------------------------------------------- weeks 2–5
+
+def profit(q): return -4 * q**2 + 1200 * q - 60000
+
+
+# w02 — the derivative as a slope you can read off
+fig, ax = plt.subplots(figsize=(6.6, 4.0))
+qs = np.linspace(0, 300, 400)
+ax.plot(qs, profit(qs), color=INK, lw=2.5)
+ax.axhline(0, color=MUTED, lw=1)
+for q0, col in ((80, GREEN), (150, GOLD), (220, RED)):
+    s = -8 * q0 + 1200
+    xs = np.linspace(q0 - 55, q0 + 55, 2)
+    ax.plot(xs, profit(q0) + s * (xs - q0), color=col, lw=2.5)
+    ax.plot(q0, profit(q0), "o", color=col, ms=8)
+    label = f"π'({q0}) = {s:+,.0f}" if s else f"π'({q0}) = 0  ← the top"
+    ax.annotate(label, (q0, profit(q0)), (q0 - 34, profit(q0) - 24000),
+                color=col, fontsize=11, fontweight="bold")
+ax.set_xlabel("bikes per month  q"); ax.set_ylabel("profit €"); ax.yaxis.set_major_formatter(k)
+ax.set_xlim(0, 300); ax.set_ylim(-70000, 45000); save(fig, "w02_three_tangents")
+
+# w03 — average cost meets marginal cost at the bottom
+fig, ax = plt.subplots(figsize=(6.4, 4.0))
+qs = np.linspace(1.5, 18, 400)
+ac = 0.4 * qs + 3 + 25 / qs
+mc = 0.8 * qs + 3
+ax.plot(qs, ac, color=INK, lw=2.5, label="average cost  C(q)/q")
+ax.plot(qs, mc, color=RED, lw=2.5, label="marginal cost  C'(q)")
+qstar = np.sqrt(62.5)
+ax.plot(qstar, 0.4 * qstar + 3 + 25 / qstar, "o", color=GOLD, ms=9)
+ax.annotate("they cross exactly\nat the minimum", (qstar, 0.4 * qstar + 3 + 25 / qstar),
+            (qstar + 2.2, 7.5), color=GOLD, fontsize=11, fontweight="bold")
+ax.set_xlabel("q"); ax.set_ylabel("€ thousand per unit"); ax.set_ylim(0, 20)
+ax.legend(frameon=False, loc="upper center"); save(fig, "w03_ac_mc")
+
+# w04 — the discount factor, and why distant money is cheap
+fig, ax = plt.subplots(figsize=(6.6, 3.8))
+years = np.arange(0, 21)
+for r, col, lab in ((0.03, GOLD, "3%"), (0.09, INK, "9%"), (0.16, RED, "16%")):
+    ax.plot(years, 1 / (1 + r) ** years, color=col, lw=2.5, label=lab)
+ax.set_xlabel("years away"); ax.set_ylabel("worth of €1 today")
+ax.set_ylim(0, 1.02); ax.legend(frameon=False, title="discount rate")
+save(fig, "w04_discount_factor")
+
+# w05 — price against yield, with the tangent duration draws
+FACE, CPN, N, Y0 = 100.0, 0.05, 10, 0.05
+def bond(y): return sum(CPN * FACE / (1 + y) ** t for t in range(1, N + 1)) + FACE / (1 + y) ** N
+fig, ax = plt.subplots(figsize=(6.6, 4.0))
+ys = np.linspace(0.01, 0.10, 300)
+ax.plot(ys * 100, [bond(v) for v in ys], color=INK, lw=2.5, label="the bond")
+slope = (bond(Y0 + 1e-6) - bond(Y0 - 1e-6)) / 2e-6
+ax.plot(ys * 100, bond(Y0) + slope * (ys - Y0), color=RED, lw=2, ls="--", label="what duration predicts")
+ax.fill_between(ys * 100, bond(Y0) + slope * (ys - Y0), [bond(v) for v in ys], color=GOLD, alpha=.25,
+                label="the gap: convexity")
+ax.plot(Y0 * 100, bond(Y0), "o", color=GOLD, ms=9)
+ax.set_xlabel("yield  %"); ax.set_ylabel("price €"); ax.legend(frameon=False, loc="upper right")
+save(fig, "w05_price_yield")
+print("weeks 2-5 figures written")
