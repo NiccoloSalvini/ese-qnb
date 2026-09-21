@@ -79,7 +79,21 @@ Thursday lesson → Friday: drill solutions and homework online (`make deploy`)
 
 ## Moodle
 
-ESE's VLE is <https://www.esestudents.com>. When the account exists, copy
-`.mcp.json` and `.env.template` from `~/dev/ese-ai` (Moodle MCP via `uvx
-moodle-mcp`, token from `/user/managetoken.php`) — same setup, one token per
-Moodle instance, and both courses live on the same instance.
+Site: <https://esestudents.com> (**no `www`** — the other host answers
+`requirecorrectaccess`). Moodle 4.5.10. This course is **id 2546**
+(`MBA003_262701_FL`); the AI course is 2531.
+
+Access is through `mcp-moodle-teacher` (own server,
+<https://github.com/NiccoloSalvini/mcp-moodle-teacher>), wired in `.mcp.json`.
+It reads enrolments, submissions, what is missing and the gradebook, and writes
+a grade with feedback or a news-forum announcement. The published `moodle-mcp`
+packages are student-side and were dropped.
+
+Token: `.env` (gitignored, mode 600), obtained with
+`MOODLE_SITE=https://esestudents.com bash ~/dev/mcp-moodle-teacher/scripts/get-moodle-token.sh`.
+Export it before launching Claude Code: `set -a; . .env; set +a`. *Preferences >
+Security keys* is empty for this account — the lecturer role lacks
+`moodle/webservice:createtoken`, which is why the script exists.
+
+**Materials cannot be uploaded through the API**: Moodle core has no web service
+that creates a module. The course page carries links to this site instead.
