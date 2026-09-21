@@ -456,7 +456,11 @@ Niccolò Salvini
 <p>Each one is a sentence about a business, written so it can be computed.</p>
 </div><div class="column" style="width:48%;">
 <p><strong>Domain</strong> is the first question, always: for which <code>q</code> does this mean anything?</p>
-<p><span class="math display">\sqrt{q-20} \;\text{ needs } q \geq 20 \qquad \ln(q-5) \;\text{ needs } q &gt; 5 \qquad \frac{120}{q-40} \;\text{ breaks at } q = 40</span></p>
+<p><span class="math display">\begin{aligned}
+\sqrt{q-20} \;&amp;\text{ needs } q \geq 20 \\[2pt]
+\ln(q-5) \;&amp;\text{ needs } q &gt; 5 \\[2pt]
+\tfrac{120}{q-40} \;&amp;\text{ breaks at } q = 40
+\end{aligned}</span></p>
 <p><span class="muted">The exam asks “state the domain” and expects an interval, with the bracket chosen on purpose.</span></p>
 </div></div>
 <div title="Bet before we compute">
@@ -645,46 +649,104 @@ Niccolò Salvini
 </section>
 <section id="differentiating-as-a-procedure-you-can-follow" class="slide level2">
 <h2>Differentiating, as a procedure you can follow</h2>
-<p>Never ask “what is the derivative of this?” Ask the four questions in order.</p>
+<p>Never ask “what is the derivative of this?” Ask the questions in order.</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
 <th>ask</th>
 <th>then</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>1</strong></td>
-<td>Is it a <strong>sum</strong>?</td>
-<td>split it, and do each piece on its own. The rest of this table is for one piece.</td>
+<td><strong>1.</strong> Is it a <strong>sum</strong>?</td>
+<td>split it; do each piece alone</td>
 </tr>
 <tr class="even">
-<td><strong>2</strong></td>
-<td>Is it a <strong>number</strong> with no <code>q</code>?</td>
-<td>it becomes <strong>0</strong>. <code>−60,000</code> disappears.</td>
+<td><strong>2.</strong> A <strong>number</strong>, no <code>q</code>?</td>
+<td>it becomes <code>0</code></td>
 </tr>
 <tr class="odd">
-<td><strong>3</strong></td>
-<td>Is it a <strong>power</strong> <code>a·qⁿ</code>?</td>
-<td><strong>bring <code>n</code> down in front, then drop it by one</strong>: <code>−4q² → −8q</code>. (A lone <code>q</code> is <code>q¹</code>, so it becomes the number in front of it: <code>1200q → 1200</code>.)</td>
+<td><strong>3.</strong> A <strong>power</strong> <code>a·qⁿ</code>?</td>
+<td><code>n</code> comes down in front, the power drops by one</td>
 </tr>
 <tr class="even">
-<td><strong>4</strong></td>
-<td>Is it a <strong>log</strong> <code>a·ln(q)</code>?</td>
-<td>it becomes <code>a/q</code>. And <code>ln(q+1)</code> becomes <code>1/(q+1)</code>.</td>
+<td><strong>4.</strong> A <strong>log</strong> <code>a·ln(q)</code>?</td>
+<td>it becomes <code>a/q</code></td>
 </tr>
 </tbody>
 </table>
+<p><span class="math display">-4q^{2} \to -8q \qquad 1200q \to 1200 \qquad -60{,}000 \to 0 \qquad 30\ln q \to \tfrac{30}{q}</span></p>
 <div class="fragment">
-<p><span class="math display">\pi(q) = \underbrace{-4q^{2}}_{\text{rule 3}} + \underbrace{1200q}_{\text{rule 3}} \underbrace{- \,60{,}000}_{\text{rule 2}} \;\longrightarrow\; \pi'(q) = -8q + 1200</span></p>
-<p><span class="red">Four questions, every time, in that order. That is the whole of what the midterm’s study of a function needs you to do.</span></p>
+<p><span class="math display">\pi(q) = \underbrace{-4q^{2}}_{3} + \underbrace{1200q}_{3} \underbrace{- \,60{,}000}_{2} \;\longrightarrow\; \pi'(q) = -8q + 1200</span></p>
+<p><span class="muted">A lone <code>q</code> is <code>q¹</code>, so rule 3 leaves just the number in front of it.</span></p>
+</div>
+</section>
+<section id="question-5-is-there-something-inside-something" class="slide level2">
+<h2>Question 5: is there something <em>inside</em> something?</h2>
+<p><code>ln(q + 1)</code> is not <code>ln q</code>. There is a second function hiding inside the first, and the midterm’s revenue function is exactly this shape.</p>
+<p><span class="math display">\frac{d}{dq}\,f\big(g(q)\big) \;=\; f'\big(g(q)\big) \cdot g'(q)</span></p>
+<p><strong>Differentiate the outside, leave the inside alone, then multiply by the derivative of the inside.</strong></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\ln(q+1) \;\to\; \frac{1}{q+1}\cdot \underbrace{1}_{\text{inside}'} = \frac{1}{q+1}</span> <span class="math display">\ln(3q) \;\to\; \frac{1}{3q}\cdot 3 = \frac{1}{q}</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">(2q+5)^{4} \;\to\; 4(2q+5)^{3}\cdot 2 = 8(2q+5)^{3}</span> <span class="math display">e^{0.12t} \;\to\; e^{0.12t}\cdot 0.12</span></p>
+</div></div>
+<p><span class="red">Why <code>ln(q+1)</code> looked free: the inside is <code>q + 1</code>, whose derivative is 1, so the multiplication does nothing and you never saw it. Change the inside to <code>3q</code> and it shows up.</span></p>
+</div>
+</section>
+<section id="the-chain-rule-is-the-reason-a-few-things-work" class="slide level2">
+<h2>The chain rule is the reason a few things work</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>you will meet it in</th>
+<th>as</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>the midterm</td>
+<td><code>R(q) = 20 ln(q + 1)</code>, differentiated to find the optimum</td>
+</tr>
+<tr class="even">
+<td>week 4</td>
+<td>continuous compounding: <code>e^(it)</code> differentiates to <code>i·e^(it)</code></td>
+</tr>
+<tr class="odd">
+<td>week 5</td>
+<td>duration: the bond price is <code>(1+y)^(−t)</code>, and the <code>−t</code> comes down</td>
+</tr>
+<tr class="even">
+<td>week 3, backwards</td>
+<td><code>∫ f'/f = ln\|f\|</code> is this rule read in reverse</td>
+</tr>
+</tbody>
+</table>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Outside first, inside untouched, then multiply by the inside’s derivative. If the inside is just <code>q</code>, the multiplication is by 1 and you never notice.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="read-it-off-the-curve" class="slide level2">
