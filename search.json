@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "lectures/05-bonds-and-risk.html#homework-4-at-the-board",
+    "href": "lectures/05-bonds-and-risk.html#homework-4-at-the-board",
+    "title": "What a rate rise costs you",
+    "section": "Homework 4, at the board",
+    "text": "Homework 4, at the board\nPAPER · 15 minutes\nOne of you takes us through it. The memo to the Board member. Would they accept it? Why not?\nNot an exam: the point is to see how you got there."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#last-week-in-one-minute",
+    "href": "lectures/05-bonds-and-risk.html#last-week-in-one-minute",
+    "title": "What a rate rise costs you",
+    "section": "Last week, in one minute",
+    "text": "Last week, in one minute\n\n\nBlock AWhat does compounding actually do?More often always helps, by less each time; the ceiling is e^{r}\n\n\nBlock BWhich of two quotes is cheaper?Compare on EAR = (1 + r/n)^{n} - 1, never on the nominal rate\n\n\nBlock CWhat is a future euro worth today?Discount before adding: PV = FV/(1+r)^{t}\n\n\nBlock DBuild the line or not?NPV = +€319k at 9% — accept; IRR is where NPV crosses zero\n\n\nToday the same arithmetic prices a bond, and a derivative tells you what a rate rise costs."
+  },
+  {
     "objectID": "lectures/05-bonds-and-risk.html#where-we-are-the-last-of-my-five",
     "href": "lectures/05-bonds-and-risk.html#where-we-are-the-last-of-my-five",
     "title": "What a rate rise costs you",
@@ -12,6 +26,13 @@
     "title": "What a rate rise costs you",
     "section": "Today’s question",
     "text": "Today’s question\n\n\n\n\n\n\n\nArno Bikes, a reserve\n\n\nThe firm keeps €1M in bonds as a cash reserve. The Board has read that rates may rise by a point and asks: should we be worried?\n\n\n\n\nBy the end of the session you will answer that with two numbers and a sentence."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#four-blocks-today",
+    "href": "lectures/05-bonds-and-risk.html#four-blocks-today",
+    "title": "What a rate rise costs you",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat is this bond worth?pricing\n\n\nBlock BHow much does a rate rise cost?duration\n\n\nBlock CWhat the straight line missesconvexity\n\n\nBlock DThe final’s calculus question, for realmock exam"
   },
   {
     "objectID": "lectures/05-bonds-and-risk.html#block-a-pricing-a-bond-nothing-new",
@@ -40,6 +61,13 @@
     "title": "What a rate rise costs you",
     "section": "D1, D2, D3 — price it three ways",
     "text": "D1, D2, D3 — price it three ways\nPAPER · drills.md\n12 minutes. Show the annuity part and the redemption part separately. D3 is in the resit’s exact format."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#four-blocks-today-1",
+    "href": "lectures/05-bonds-and-risk.html#four-blocks-today-1",
+    "title": "What a rate rise costs you",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat is this bond worth?pricing\n\n\nBlock BHow much does a rate rise cost?duration\n\n\nBlock CWhat the straight line missesconvexity\n\n\nBlock DThe final’s calculus question, for realmock exam"
   },
   {
     "objectID": "lectures/05-bonds-and-risk.html#block-b-duration-the-slope-of-that-curve",
@@ -82,6 +110,13 @@
     "title": "What a rate rise costs you",
     "section": "D5, D6 — compute it, then use it",
     "text": "D5, D6 — compute it, then use it\nPAPER · drills.md\n15 minutes. The weights column must sum to 1. If it does not, stop before computing the duration."
+  },
+  {
+    "objectID": "lectures/05-bonds-and-risk.html#four-blocks-today-2",
+    "href": "lectures/05-bonds-and-risk.html#four-blocks-today-2",
+    "title": "What a rate rise costs you",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat is this bond worth?pricing\n\n\nBlock BHow much does a rate rise cost?duration\n\n\nBlock CWhat the straight line missesconvexity\n\n\nBlock DThe final’s calculus question, for realmock exam"
   },
   {
     "objectID": "lectures/05-bonds-and-risk.html#block-c-convexity-the-gap-the-line-misses",
@@ -140,6 +175,13 @@
     "text": "The answer to this morning’s question\n€400k at D_mod = 7.72, €600k at D_mod = 1.90:\nD_{\\text{portfolio}} = 0.4(7.72) + 0.6(1.90) = 4.23 \\Delta V \\approx -4.23 \\times 1\\% \\times €1{,}000{,}000 = -€42{,}280\n\n“A one-point rise costs the reserve about €42,000, a little over 4%. The exposure sits almost entirely in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this.”"
   },
   {
+    "objectID": "lectures/05-bonds-and-risk.html#four-blocks-today-3",
+    "href": "lectures/05-bonds-and-risk.html#four-blocks-today-3",
+    "title": "What a rate rise costs you",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat is this bond worth?pricing\n\n\nBlock BHow much does a rate rise cost?duration\n\n\nBlock CWhat the straight line missesconvexity\n\n\nBlock DThe final’s calculus question, for realmock exam"
+  },
+  {
     "objectID": "lectures/05-bonds-and-risk.html#block-d-mock-exam-the-finals-calculus-question",
     "href": "lectures/05-bonds-and-risk.html#block-d-mock-exam-the-finals-calculus-question",
     "title": "What a rate rise costs you",
@@ -175,6 +217,20 @@
     "text": "What happens next\n\n\n\n\n\n\n\nHomework 5\ndue Wednesday 28 October, 23:59 — lighter, on purpose\n\n\nReading week\n26–30 October, no class; one optional online office hour\n\n\nMidterm\ndue Sunday 1 November, 23:59, Turnitin\n\n\nPresentations\nweek of 2 November\n\n\nWeeks 6–10\nVincenzo Nardelli, online: probability, distributions, statistics\n\n\n\nI mark the midterm and stay your reference for it. Everything from weeks 1–3 is what it is built on; everything from weeks 4–5 is the resit’s financial-mathematics block and the exam items around it.\nBring a draft to the office hour. A blank page is a harder conversation than a wrong one.\n\n\n\nResearch & Quantitative Business Methods · ESE Florence"
   },
   {
+    "objectID": "lectures/03-study-and-accumulate.html#homework-2-at-the-board",
+    "href": "lectures/03-study-and-accumulate.html#homework-2-at-the-board",
+    "title": "Studying a function, and adding one up",
+    "section": "Homework 2, at the board",
+    "text": "Homework 2, at the board\nPAPER · 15 minutes\nOne of you takes us through it. One drill, and then the one sentence of your memo you are least sure of.\nNot an exam: the point is to see how you got there."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#last-week-in-one-minute",
+    "href": "lectures/03-study-and-accumulate.html#last-week-in-one-minute",
+    "title": "Studying a function, and adding one up",
+    "section": "Last week, in one minute",
+    "text": "Last week, in one minute\n\n\nBlock AWhat a function is, once you have to use oneDomain first, always — written as an interval\n\n\nBlock BWhat happens near a point you cannot reach0/0 → factor, cancel, substitute. Average cost falls towards €400, never below\n\n\nBlock CWhat does one more bike do to profit?\\pi'(q) = -8q + 1200: the 81st bike adds €560; zero at 150\n\n\nBlock DFrom the marginal back to the totalIntegrate, add + C, pin C with one known value\n\n\nToday the pieces become one procedure: the full study of a function — the whole midterm."
+  },
+  {
     "objectID": "lectures/03-study-and-accumulate.html#where-we-are",
     "href": "lectures/03-study-and-accumulate.html#where-we-are",
     "title": "Studying a function, and adding one up",
@@ -194,6 +250,13 @@
     "title": "Studying a function, and adding one up",
     "section": "Seven steps, watched once",
     "text": "Seven steps, watched once\n\n\n\nThe same profit function you already know, taken apart in the exam’s order."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#three-blocks-today-then-the-quiz",
+    "href": "lectures/03-study-and-accumulate.html#three-blocks-today-then-the-quiz",
+    "title": "Studying a function, and adding one up",
+    "section": "Three blocks today, then the quiz",
+    "text": "Three blocks today, then the quiz\n\n\nBlock AThe study, done properlythe seven steps\n\n\nBlock BHow much should the firm produce?optimisation · MR = MC\n\n\nBlock CWhat did all of them add up to?integration"
   },
   {
     "objectID": "lectures/03-study-and-accumulate.html#block-a-the-study-done-properly",
@@ -229,6 +292,13 @@
     "title": "Studying a function, and adding one up",
     "section": "D1 — the full study, in exam format",
     "text": "D1 — the full study, in exam format\nPAPER · drills.md\n15 minutes. This is the midterm’s Q2 with different numbers. Write all seven steps, labelled."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#three-blocks-today-then-the-quiz-1",
+    "href": "lectures/03-study-and-accumulate.html#three-blocks-today-then-the-quiz-1",
+    "title": "Studying a function, and adding one up",
+    "section": "Three blocks today, then the quiz",
+    "text": "Three blocks today, then the quiz\n\n\nBlock AThe study, done properlythe seven steps\n\n\nBlock BHow much should the firm produce?optimisation · MR = MC\n\n\nBlock CWhat did all of them add up to?integration"
   },
   {
     "objectID": "lectures/03-study-and-accumulate.html#block-b-optimisation-and-what-it-is-for",
@@ -271,6 +341,13 @@
     "title": "Studying a function, and adding one up",
     "section": "D4, D5 — optimise, and read the condition",
     "text": "D4, D5 — optimise, and read the condition\nPAPER · drills.md\n12 minutes. In D5 say what the firm should do, in a sentence, before you compute anything."
+  },
+  {
+    "objectID": "lectures/03-study-and-accumulate.html#three-blocks-today-then-the-quiz-2",
+    "href": "lectures/03-study-and-accumulate.html#three-blocks-today-then-the-quiz-2",
+    "title": "Studying a function, and adding one up",
+    "section": "Three blocks today, then the quiz",
+    "text": "Three blocks today, then the quiz\n\n\nBlock AThe study, done properlythe seven steps\n\n\nBlock BHow much should the firm produce?optimisation · MR = MC\n\n\nBlock CWhat did all of them add up to?integration"
   },
   {
     "objectID": "lectures/03-study-and-accumulate.html#block-c-integration-adding-up-the-marginal",
@@ -343,18 +420,11 @@
     "text": "Quiz\n20 minutes · weeks 1–3 · not secret, not a trap\nFive short items: one domain, one limit, one derivative with its managerial reading, one stationary point with its nature, one integral.\nMarked and returned next week. It counts for nothing and tells us both a great deal."
   },
   {
-    "objectID": "lectures/03-study-and-accumulate.html#close-board-pitch-and-take-home",
-    "href": "lectures/03-study-and-accumulate.html#close-board-pitch-and-take-home",
+    "objectID": "lectures/03-study-and-accumulate.html#close-take-home",
+    "href": "lectures/03-study-and-accumulate.html#close-take-home",
     "title": "Studying a function, and adding one up",
-    "section": "Close Board pitch and take home",
-    "text": "Close Board pitch and take home"
-  },
-  {
-    "objectID": "lectures/03-study-and-accumulate.html#sixty-seconds-to-the-board",
-    "href": "lectures/03-study-and-accumulate.html#sixty-seconds-to-the-board",
-    "title": "Studying a function, and adding one up",
-    "section": "Sixty seconds to the Board",
-    "text": "Sixty seconds to the Board\nTake the firm with R(q) = 30 ln(q+1) and C(q) = 0.4q² + 3q + 25.\nTell the Board, with numbers and no formulas:\n\nhow much it should produce;\nhow much it makes there;\nand how much room for error that leaves.\n\nThat last question is the one the midterm actually rewards."
+    "section": "Close Take home",
+    "text": "Close Take home"
   },
   {
     "objectID": "lectures/03-study-and-accumulate.html#take-home",
@@ -364,18 +434,32 @@
     "text": "Take home\n\nSeven steps, in order. f' finds the point, f'' names it.\nMarginal equals average at the bottom of the average.\nProduce until marginal revenue equals marginal cost.\nDivide term by term before integrating; the integral of the marginal is the change in the total.\n\nHomework 3 (homework.md), due Wednesday 14 October 23:59: seven drills plus a 400–500 word Board report — a dry run of the midterm, with a hand-drawn sketch.\nWrite your own three take-home lines now, before you leave.\n\n\n\nResearch & Quantitative Business Methods · ESE Florence"
   },
   {
-    "objectID": "lectures/01-revision.html#where-the-first-five-weeks-go",
-    "href": "lectures/01-revision.html#where-the-first-five-weeks-go",
+    "objectID": "lectures/01-revision.html#who-i-am",
+    "href": "lectures/01-revision.html#who-i-am",
     "title": "Revision of mathematics, told as business decisions",
-    "section": "Where the first five weeks go",
-    "text": "Where the first five weeks go\n\n\n\n\n\nWk\nDate\nWhat you will be able to do by hand\n\n\n\n\n1\n24 Sep\nequations, systems, quadratics, logs\n\n\n2\n1 Oct\nread a function; limits; the derivative\n\n\n3\n8 Oct\nstudy a function; optimise; integrate\n\n\n4\n15 Oct\ninterest, discounting, NPV\n\n\n5\n22 Oct\nbonds, duration, convexity; mock exam\n\n\n\n\nTwo things count.\nMidterm (25%): a report to a Board built on the study of a cost, a revenue and a profit function. Due 1 Nov.\nFinal exam (75%): 3 hours, paper, calculator. One of five questions is pure calculus: integrals, limits, recovering a function from its derivative.\n\nEvery technique in this room is here because one of those two asks for it. I will tell you which one, every time."
+    "section": "Who I am",
+    "text": "Who I am\n\n\n\n\nNiccolò Salvini, PhD · Adjunct Professor\n\n\nEconomics, Florence\nMSc, Statistical and Actuarial Sciences, Milan\nPhD, Healthcare Data Science, Rome\nFounder, Intuo — data pipelines and AI for companies\nAdjunct Professor — Università Cattolica, and ESE\n\n\nI use the mathematics of these five weeks for a living. That is the only reason it is in the room."
+  },
+  {
+    "objectID": "lectures/01-revision.html#where-the-ten-weeks-go",
+    "href": "lectures/01-revision.html#where-the-ten-weeks-go",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Where the ten weeks go",
+    "text": "Where the ten weeks go\n\n\n\n\n\n\n\n\n\n\nWk\nDate\nWhat you will be able to do by hand\n\n\n\n\n1\n24 Sep\nequations, systems, quadratics, logs\n\n\n2\n1 Oct\nread a function; limits; the derivative\n\n\n3\n8 Oct\nstudy a function; optimise; integrate\n\n\n4\n15 Oct\ninterest, discounting, NPV\n\n\n5\n22 Oct\nbonds, duration, convexity; mock exam\n\n\n6–10\nfrom 2 Nov\nVincenzo Nardelli, PhD — probability, statistics, regression\n\n\n\n\nTwo things count.\nMidterm (25%): a report to a Board built on the study of a cost, a revenue and a profit function. Due 1 Nov.\nFinal exam (75%): 3 hours, paper, calculator. One of five questions is pure calculus: integrals, limits, recovering a function from its derivative.\n\nEvery technique in weeks 1–3 is here because one of those two asks for it. I will tell you which one, every time."
   },
   {
     "objectID": "lectures/01-revision.html#the-map-come-back-to-this-every-week",
     "href": "lectures/01-revision.html#the-map-come-back-to-this-every-week",
     "title": "Revision of mathematics, told as business decisions",
     "section": "The map — come back to this every week",
-    "text": "The map — come back to this every week\n\nWe will put a mark on this at the start of every session, so you always know where you are standing."
+    "text": "The map — come back to this every week"
+  },
+  {
+    "objectID": "lectures/01-revision.html#how-every-session-runs",
+    "href": "lectures/01-revision.html#how-every-session-runs",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "How every session runs",
+    "text": "How every session runs\n\n\n10:00 · 15’Your homework, at the boardOne of you walks us through one exercise. From week 2.\n\n\n10:15 · 5’Last week, in one minuteThe questions we answered, and the answers.\n\n\n10:20 → 12:45Today’s blocksEach one: a business question and your bet → the picture → the technique → exercises on paper. Break at half time.\n\n\n12:45 · 15’Take homeThree lines to remember, and the homework for next Thursday.\n\n\nHomework is not graded. It is read, discussed at the board, and it is the best preparation for the midterm."
   },
   {
     "objectID": "lectures/01-revision.html#the-shape-of-an-exam-item",
@@ -389,21 +473,28 @@
     "href": "lectures/01-revision.html#the-case-arno-bikes",
     "title": "Revision of mathematics, told as business decisions",
     "section": "The case: Arno Bikes",
-    "text": "The case: Arno Bikes\n\n\n\ne-bike assembler, Florence\n\n\n\nFixed cost\n€60,000 per month (rent, salaries, insurance)\n\n\nVariable cost\n€400 per bike (parts, packaging)\n\n\nList price\n€1,000 per bike\n\n\n\nFour questions from the founder, one per block:\nA. How many bikes before I stop losing money? · B. How many bikes should I make? C. How long until revenue doubles? · D. Is this battery cell within spec?"
+    "text": "The case: Arno Bikes\n\n\n\n\ne-bike assembler, Florence\n\n\n\nFixed cost\n€60,000 per month (rent, salaries, insurance)\n\n\nVariable cost\n€400 per bike (parts, packaging)\n\n\nList price\n€1,000 per bike"
   },
   {
-    "objectID": "lectures/01-revision.html#block-a-launch-or-not-linear-equations-and-systems",
-    "href": "lectures/01-revision.html#block-a-launch-or-not-linear-equations-and-systems",
+    "objectID": "lectures/01-revision.html#four-questions-from-the-founder",
+    "href": "lectures/01-revision.html#four-questions-from-the-founder",
     "title": "Revision of mathematics, told as business decisions",
-    "section": "Block A Launch or not? — linear equations and systems",
-    "text": "Block A Launch or not? — linear equations and systems"
+    "section": "Four questions from the founder",
+    "text": "Four questions from the founder\n\n\nBlock AHow many bikes before we stop losing money?linear equations · systems\n\n\nBlock BHow many bikes should we make?quadratics\n\n\nBlock CHow long until revenue doubles?exponentials · logarithms\n\n\nBlock DIs this battery cell within spec?absolute value"
+  },
+  {
+    "objectID": "lectures/01-revision.html#block-a-linear-equations-and-systems-how-many-bikes-before-we-stop-losing-money",
+    "href": "lectures/01-revision.html#block-a-linear-equations-and-systems-how-many-bikes-before-we-stop-losing-money",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Block A · linear equations and systems How many bikes before we stop losing money?",
+    "text": "Block A · linear equations and systems How many bikes before we stop losing money?"
   },
   {
     "objectID": "lectures/01-revision.html#how-many-bikes-a-month-before-arno-bikes-stops-losing-money",
     "href": "lectures/01-revision.html#how-many-bikes-a-month-before-arno-bikes-stops-losing-money",
     "title": "Revision of mathematics, told as business decisions",
     "section": "How many bikes a month before Arno Bikes stops losing money?",
-    "text": "How many bikes a month before Arno Bikes stops losing money?\n\n\n\n\n\n\n\nBet before we compute\n\n\nWrite a number. Do not compute yet.\n\n\n\n\nTwo facts, written as two functions of the monthly quantity q:\nC(q) = 60{,}000 + 400\\,q \\qquad\\qquad R(q) = 1{,}000\\,q\n\nBreak-even is where they meet: R(q) = C(q)."
+    "text": "How many bikes a month before Arno Bikes stops losing money?\n\n\nTwo facts, written as two functions of the monthly quantity q:\nC(q) = 60{,}000 + 400\\,q what it costs to make q bikes\nR(q) = 1{,}000\\,q what selling them brings in\n\n\n\n\n\n\n\nBet before we compute\n\n\nWrite a number. Do not compute yet.\n\n\n\n\n\n\n\n\n\nbikes q\ncost C(q)\nrevenue R(q)\n\n\n\n\n\n50\n80,000\n50,000\nlosing\n\n\n80\n92,000\n80,000\nlosing\n\n\n?\n\n\neven\n\n\n120\n108,000\n120,000\nmaking money\n\n\n150\n120,000\n150,000\nmaking money\n\n\n\n\nBreak-even is where the two meet: R(q) = C(q)"
   },
   {
     "objectID": "lectures/01-revision.html#two-lines-and-a-crossing",
@@ -411,6 +502,13 @@
     "title": "Revision of mathematics, told as business decisions",
     "section": "Two lines and a crossing",
     "text": "Two lines and a crossing\n\n\n\n\n1{,}000\\,q = 60{,}000 + 400\\,q 600\\,q = 60{,}000 q^{*} = \\frac{60{,}000}{600} = 100\nReading. €600 is the contribution of each bike. Break-even is fixed cost ÷ contribution."
+  },
+  {
+    "objectID": "lectures/01-revision.html#how-to-read-a-line",
+    "href": "lectures/01-revision.html#how-to-read-a-line",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "How to read a line",
+    "text": "How to read a line\n\n\n\nC(q) = \\underbrace{60{,}000}_{\\text{intercept}} + \\underbrace{400}_{\\text{slope}}\\,q\n\nIntercept: the value at q = 0 — here, the rent you pay with the factory idle. Slope: what one more unit adds — here, the parts in one bike."
   },
   {
     "objectID": "lectures/01-revision.html#move-the-price.-then-raise-the-rent.",
@@ -431,7 +529,7 @@
     "href": "lectures/01-revision.html#the-whole-market-two-facts-two-unknowns",
     "title": "Revision of mathematics, told as business decisions",
     "section": "The whole market: two facts, two unknowns",
-    "text": "The whole market: two facts, two unknowns\nBuyers in Tuscany Q_d = 1200 - 2p; sellers Q_s = -300 + 3p. Bet: what price clears the market?\n\n\nSubstitution\n\\begin{aligned}\n1200 - 2p &= -300 + 3p \\\\\n1500 &= 5p \\\\\np^{*} &= 300,\\; Q^{*} = 600\n\\end{aligned}\n\nElimination\n\\begin{aligned}\nQ + 2p &= 1200 \\\\\nQ - 3p &= -300 \\\\\n\\text{subtract: } 5p &= 1500\n\\end{aligned}\n\nPicture \n\n\n\n\n\n\n\n\nBoard sentence\n\n\nOne equation is one fact about the business. Two unknowns need two facts. Write the facts as equations before touching a number."
+    "text": "The whole market: two facts, two unknowns\n\n\nAcross Tuscany, at a price p:\n\nbuyers want Q_d = 1200 - 2p bikes\nsellers offer Q_s = -300 + 3p bikes\n\n\n\n\n\n\n\n\nBet before we compute\n\n\nAt what price do buyers want exactly what sellers offer?\n\n\n\n\n\nSet them equal (substitution):\n1200 - 2p = -300 + 3p \\;\\Rightarrow\\; p^{*} = 300,\\; Q^{*} = 600\nOne equation is one fact about the business. Two unknowns need two facts.\n\n\n\nBy elimination: Q + 2p = 1200 and Q - 3p = -300; subtract to get 5p = 1500. Same answer."
   },
   {
     "objectID": "lectures/01-revision.html#an-equation-answers-where.-an-inequality-answers-from-where-on.",
@@ -448,11 +546,18 @@
     "text": "D1, D2, D3b (core) — D3 (stretch)\nPAPER · drills.md\n10 minutes. Show all work, exam style. I come round."
   },
   {
-    "objectID": "lectures/01-revision.html#block-b-how-many-bikes-quadratics",
-    "href": "lectures/01-revision.html#block-b-how-many-bikes-quadratics",
+    "objectID": "lectures/01-revision.html#four-questions-from-the-founder-1",
+    "href": "lectures/01-revision.html#four-questions-from-the-founder-1",
     "title": "Revision of mathematics, told as business decisions",
-    "section": "Block B How many bikes? — quadratics",
-    "text": "Block B How many bikes? — quadratics"
+    "section": "Four questions from the founder",
+    "text": "Four questions from the founder\n\n\nBlock AHow many bikes before we stop losing money?linear equations · systems\n\n\nBlock BHow many bikes should we make?quadratics\n\n\nBlock CHow long until revenue doubles?exponentials · logarithms\n\n\nBlock DIs this battery cell within spec?absolute value"
+  },
+  {
+    "objectID": "lectures/01-revision.html#block-b-quadratics-how-many-bikes-should-we-make",
+    "href": "lectures/01-revision.html#block-b-quadratics-how-many-bikes-should-we-make",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Block B · quadratics How many bikes should we make?",
+    "text": "Block B · quadratics How many bikes should we make?"
   },
   {
     "objectID": "lectures/01-revision.html#price-responds-to-volume",
@@ -474,6 +579,13 @@
     "title": "Revision of mathematics, told as business decisions",
     "section": "Revenue, cost, profit",
     "text": "Revenue, cost, profit\nR(q) = (1600 - 4q)\\,q = 1600q - 4q^{2} \\pi(q) = R(q) - C(q) = -4q^{2} + 1200q - 60{,}000\n\nWhere is profit zero? First move, always: divide out the common factor.\nq^{2} - 300q + 15{,}000 = 0 q = \\frac{300 \\pm \\sqrt{300^{2} - 4\\cdot 15{,}000}}{2} = \\frac{300 \\pm \\sqrt{30{,}000}}{2} \\approx 63.4,\\;\\; 236.6"
+  },
+  {
+    "objectID": "lectures/01-revision.html#how-to-read-a-parabola",
+    "href": "lectures/01-revision.html#how-to-read-a-parabola",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "How to read a parabola",
+    "text": "How to read a parabola\n\ny = a\\,q^{2} + b\\,q + c\na decides the shape: below zero, a hill with a top — a profit that peaks. c is the value at q = 0. The top sits at q = -b/2a, halfway between the two roots."
   },
   {
     "objectID": "lectures/01-revision.html#the-discriminant-decides-before-you-compute",
@@ -504,18 +616,25 @@
     "text": "D4, D5 (core) — D6 (stretch: factor and cancel)\nPAPER · drills.md\n10 minutes. Show all work, exam style. I come round."
   },
   {
-    "objectID": "lectures/01-revision.html#block-c-how-long-to-double-exponentials-and-logarithms",
-    "href": "lectures/01-revision.html#block-c-how-long-to-double-exponentials-and-logarithms",
+    "objectID": "lectures/01-revision.html#four-questions-from-the-founder-2",
+    "href": "lectures/01-revision.html#four-questions-from-the-founder-2",
     "title": "Revision of mathematics, told as business decisions",
-    "section": "Block C How long to double? — exponentials and logarithms",
-    "text": "Block C How long to double? — exponentials and logarithms"
+    "section": "Four questions from the founder",
+    "text": "Four questions from the founder\n\n\nBlock AHow many bikes before we stop losing money?linear equations · systems\n\n\nBlock BHow many bikes should we make?quadratics\n\n\nBlock CHow long until revenue doubles?exponentials · logarithms\n\n\nBlock DIs this battery cell within spec?absolute value"
+  },
+  {
+    "objectID": "lectures/01-revision.html#block-c-exponentials-and-logarithms-how-long-until-revenue-doubles",
+    "href": "lectures/01-revision.html#block-c-exponentials-and-logarithms-how-long-until-revenue-doubles",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Block C · exponentials and logarithms How long until revenue doubles?",
+    "text": "Block C · exponentials and logarithms How long until revenue doubles?"
   },
   {
     "objectID": "lectures/01-revision.html#revenue-1.2m-growing-12-a-year",
     "href": "lectures/01-revision.html#revenue-1.2m-growing-12-a-year",
     "title": "Revision of mathematics, told as business decisions",
     "section": "Revenue €1.2M, growing 12% a year",
-    "text": "Revenue €1.2M, growing 12% a year\nR(t) = 1.2 \\cdot 1.12^{\\,t}\nLinear growth adds the same amount each year. Exponential growth adds the same percentage.\n\n\n\n\n\n\n\nBet before we compute\n\n\nHow many years to double? Write a number."
+    "text": "Revenue €1.2M, growing 12% a year\n\n\nR(t) = 1.2 \\cdot 1.12^{\\,t} \\quad \\text{(€M, } t \\text{ in years)}\nEach year revenue is multiplied by 1.12. The euros added grow every year: 0.14, then 0.16, then 0.18…\nLinear growth adds the same amount each year. Exponential growth adds the same percentage.\n\n\n\n\n\n\n\nBet before we compute\n\n\nWhen does revenue reach €2.4M? Write a number of years.\n\n\n\n\n\n\n\n\n\nyear t\nrevenue (€M)\nadded\n\n\n\n\n0\n1.20\n\n\n\n1\n1.34\n+0.14\n\n\n2\n1.51\n+0.16\n\n\n3\n1.69\n+0.18\n\n\n…\n…\n\n\n\n?\n2.40"
   },
   {
     "objectID": "lectures/01-revision.html#linear-versus-exponential-growth",
@@ -546,18 +665,32 @@
     "text": "D7, D8 (core) — D9 (stretch: 5e^{0.03t} = 8)\nPAPER · drills.md\n12 minutes. Show all work, exam style. I come round."
   },
   {
-    "objectID": "lectures/01-revision.html#block-d-within-tolerance-absolute-value",
-    "href": "lectures/01-revision.html#block-d-within-tolerance-absolute-value",
+    "objectID": "lectures/01-revision.html#four-questions-from-the-founder-3",
+    "href": "lectures/01-revision.html#four-questions-from-the-founder-3",
     "title": "Revision of mathematics, told as business decisions",
-    "section": "Block D Within tolerance — absolute value",
-    "text": "Block D Within tolerance — absolute value"
+    "section": "Four questions from the founder",
+    "text": "Four questions from the founder\n\n\nBlock AHow many bikes before we stop losing money?linear equations · systems\n\n\nBlock BHow many bikes should we make?quadratics\n\n\nBlock CHow long until revenue doubles?exponentials · logarithms\n\n\nBlock DIs this battery cell within spec?absolute value"
   },
   {
-    "objectID": "lectures/01-revision.html#is-this-cell-within-spec",
-    "href": "lectures/01-revision.html#is-this-cell-within-spec",
+    "objectID": "lectures/01-revision.html#block-d-absolute-value-is-this-battery-cell-within-spec",
+    "href": "lectures/01-revision.html#block-d-absolute-value-is-this-battery-cell-within-spec",
     "title": "Revision of mathematics, told as business decisions",
-    "section": "Is this cell within spec?",
-    "text": "Is this cell within spec?\nBattery cells must be 500\\,\\text{Wh} \\pm 15. A supplier ships one at 483 Wh.\n\n\n\n\n\n\n\nBet before we compute\n\n\nIn or out? Then write the rule as one inequality.\n\n\n\n\n\n|c - 500| \\le 15 \\;\\Longleftrightarrow\\; 485 \\le c \\le 515 \\;\\Longleftrightarrow\\; c \\in [485,\\,515]\n\n\n\n\n\n|x-a| is the distance from a. “\\le b” is the closed interval [a-b,\\,a+b]; “&gt; b” is the two tails x&lt;a-b or x&gt;a+b. Square bracket: endpoint included. Round bracket: excluded, or \\pm\\infty. The exam asks for domains written exactly like this."
+    "section": "Block D · absolute value Is this battery cell within spec?",
+    "text": "Block D · absolute value Is this battery cell within spec?"
+  },
+  {
+    "objectID": "lectures/01-revision.html#this-mornings-delivery",
+    "href": "lectures/01-revision.html#this-mornings-delivery",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "This morning’s delivery",
+    "text": "This morning’s delivery\n\n\nEvery Arno bike carries one battery cell. The motor maker’s spec: 500 Wh, give or take 15. A cell outside that range gives the rider a wrong range estimate and voids the warranty, so it goes back to the supplier.\nFour cells from this morning’s delivery, measured on the right.\n\n\n\n\n\n\n\nBet before we compute\n\n\nWhich ones go back? Then write the acceptance rule as one inequality, not two.\n\n\n\n\n\n\n\n\n\ncell\nmeasured\nkeep?\n\n\n\n\n#1\n483 Wh\n\n\n\n#2\n497 Wh\n\n\n\n#3\n512 Wh\n\n\n\n#4\n516 Wh"
+  },
+  {
+    "objectID": "lectures/01-revision.html#within-spec-means-close-enough-to-500",
+    "href": "lectures/01-revision.html#within-spec-means-close-enough-to-500",
+    "title": "Revision of mathematics, told as business decisions",
+    "section": "Within spec means close enough to 500",
+    "text": "Within spec means close enough to 500\nThe question is not “how big is the cell” but “how far is it from 500”. That distance is the absolute value |c - 500|: never negative, whichever side you miss on.\n|c - 500| \\le 15 \\;\\Longleftrightarrow\\; 485 \\le c \\le 515 \\;\\Longleftrightarrow\\; c \\in [485,\\,515]\n\nCells #1 (17 Wh short) and #4 (16 Wh over) go back.\nSquare bracket [\\,]: the endpoint is included. Round bracket (\\,): excluded, and always used with \\pm\\infty. The exam asks for domains written exactly this way."
   },
   {
     "objectID": "lectures/01-revision.html#d10-d11-core-interval-notation",
@@ -567,18 +700,11 @@
     "text": "D10, D11 (core) — interval notation\nPAPER · drills.md\n8 minutes. Show all work, exam style. I come round."
   },
   {
-    "objectID": "lectures/01-revision.html#close-board-pitch-and-take-home",
-    "href": "lectures/01-revision.html#close-board-pitch-and-take-home",
+    "objectID": "lectures/01-revision.html#close-take-home",
+    "href": "lectures/01-revision.html#close-take-home",
     "title": "Revision of mathematics, told as business decisions",
-    "section": "Close Board pitch and take home",
-    "text": "Close Board pitch and take home"
-  },
-  {
-    "objectID": "lectures/01-revision.html#sixty-seconds-to-the-board",
-    "href": "lectures/01-revision.html#sixty-seconds-to-the-board",
-    "title": "Revision of mathematics, told as business decisions",
-    "section": "Sixty seconds to the Board",
-    "text": "Sixty seconds to the Board\nOne of you stands up. The other is the Board.\nTell them, with numbers and no formulas:\n\nwhere Arno Bikes breaks even at today’s price;\nbetween which volumes it makes money once price responds to volume, and how fragile that window is;\nhow long until revenue doubles at 12%.\n\nThe Board asks one question. This is a rehearsal of the midterm’s oral."
+    "section": "Close Take home",
+    "text": "Close Take home"
   },
   {
     "objectID": "lectures/01-revision.html#take-home",
@@ -592,7 +718,7 @@
     "href": "index.html",
     "title": "Research & Quantitative Business Methods",
     "section": "",
-    "text": "MBA03 · ESE MBA · Term 1, A.Y. 2026–2027 European School of Economics, Florence · in person · 30 contact hours over the term Weeks 1–5 Niccolò Salvini, PhD, in person · weeks 6–10 Vincenzo Nardelli, PhD, online · module leader Arianna Ziliotto\n\n\n\nWhenThursdays 10:00–13:00 · 24 Sep – 22 Oct\n\n\nWhereESE Florence · Borgo Santi Apostoli 19 (weeks 1–5) · online from week 6\n\n\nAssessmentMidterm 25% · Final exam 75%\n\n\nRunning caseArno Bikes, e-bike assembler in Florence\n\n\nEverything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework you bring to the next one. Materials are published by Friday.\n\nSessions Thursdays 10:00–13:00 · half slides, half laboratory · exam-format drills on paper\n\n\n\n\n\n\n\n\n\n\n\n\n#\nDate\nTheme\nMaterials\nHomework\n\n\n\n\n1\nThu 24 Sep\nRevision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic\nslides · drills\nHW1\n\n\n2\nThu 1 Oct\nMidterm guidelines briefing · functions and the Cartesian plane, limits, differentiation, integration\nslides · drills\nHW2\n\n\n3\nThu 8 Oct\nCalculus continued — full study of a function, optimisation, integration · in-class quiz\nslides · drills\nHW3\n\n\n4\nThu 15 Oct\nFinancial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV\nslides · drills\nHW4\n\n\n5\nThu 22 Oct\nFinancial mathematics II — bond pricing, duration and convexity · consolidation · mock of the final’s calculus question\nslides · drills · mock exam\nHW5\n\n\n—\n26–30 Oct\nReading week — no class · midterm paper due Sun 1 Nov, 23:59 on Turnitin\n—\n—\n\n\n6–10\nfrom w/c 2 Nov\nMidterm oral presentations in week 6 (day set by the module leader) · second half of the module with Vincenzo Nardelli, PhD, online\n—\n—\n\n\n\n\n\n\n\n\n\n\nTwo things per session, and that is all you need. Slides are the deck shown in class, with the short animations playing inside it — arrow keys to move, F for full screen. Drills are the paper exercises we do together, in exam format, with the worked solutions folded at the bottom of the page.\nYou will not write any code in this course. The exam is on paper. The interactive demonstrations I drive from the projector are Colab notebooks and you are welcome to open one and move the sliders yourself, but nothing here asks you to, and nothing is marked on it. They live in the course repository, one per week.\n\n\n\n\nHow the five weeks work the contract, stated once\n\n\nEvery technique serves an exam item. Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.\nDecision → picture → technique → decision. Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.\nHalf slides, half laboratory. About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.\nWeekly rhythm. Thursday lesson. Drill solutions and homework online by Friday. Homework comes back with you the following Thursday — on paper, at the start of class. Those first fifteen minutes are the walkthrough: one of you explains one drill at the board. Send it ahead by email if you would rather I read it sooner.\nHomework is formative. It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.\nRunning case: Arno Bikes, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand p = 1600 − 4q. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.\n\n\nAssessment module scheme, set by ESE\n\n\nMidterm assignment — 25%. A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due Sunday 1 November, 23:59 on Turnitin; orals in the week of 2 November, on the day set by the module leader. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.\nFinal examination — 75%. Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. Weeks 1–5 train you for the pure calculus question (limits, derivatives, integrals of rational functions with log terms) and the financial-mathematics items.\nReassessment. Re-sit examination, 100%, capped at 40% by ESE regulation.\n\n\nReadings\n\n\nRenshaw, G. (2021). Maths for Economics, 5th ed. Oxford University Press. Weeks 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–5: ch. 10, 11, 12, 13.\nKleppner, D., Dourmashkin, P. and Ramsey, N. (2022). Quick Calculus, 3rd ed. Jossey-Bass. Ch. 1–3, weeks 2–3.\nPaul’s Online Notes, Calculus I. Free, with worked problems.\nFrancis, A. and Mousley, B. (2014). Business Mathematics and Statistics, 7th ed. Cengage. Optional.\n\n\nTutors\n\n\n\n Niccolò Salvini, PhDWeeks 1–5 · in person, Florence\n\n\n Vincenzo Nardelli, PhDWeeks 6–10 · online"
+    "text": "MBA03 · ESE MBA · Term 1, A.Y. 2026–2027 European School of Economics, Florence · in person · 30 contact hours over the term Weeks 1–5 Niccolò Salvini, PhD, in person · weeks 6–10 Vincenzo Nardelli, PhD, online · module leader Arianna Ziliotto\n\n\n\nWhenWeeks 1–5: Thursdays 10:00–13:00, 24 Sep – 22 Oct · weeks 6–10: from 2 Nov, online\n\n\nWhereESE Florence · Borgo Santi Apostoli 19 (weeks 1–5) · online from week 6\n\n\nAssessmentMidterm 25% · Final exam 75%\n\n\nRunning caseArno Bikes, e-bike assembler in Florence\n\n\nEverything for the module is on this page. One row per session: the slide deck, the drills done on paper in class (solutions included), and the homework you bring to the next one. Materials are published by the day after each session.\n\nSessions\n\n\n\n\n\n\n\n\n\n\n\n\n#\nDate\nTheme\nMaterials\nHomework\n\n\n\n\n1\nThu 24 Sep\nRevision of mathematics — equations, systems, quadratics, logs and exponentials, absolute values · diagnostic\nslides · drills\nHW1\n\n\n2\nThu 1 Oct\nMidterm guidelines briefing · functions and the Cartesian plane, limits, differentiation, integration\nslides · drills\nHW2\n\n\n3\nThu 8 Oct\nCalculus continued — full study of a function, optimisation, integration · in-class quiz\nslides · drills\nHW3\n\n\n4\nThu 15 Oct\nFinancial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV\nslides · drills\nHW4\n\n\n5\nThu 22 Oct\nFinancial mathematics II — bond pricing, duration and convexity · consolidation · mock of the final’s calculus question\nslides · drills · mock exam\nHW5\n\n\n—\n26–30 Oct\nReading week — no class · midterm paper due Sun 1 Nov, 23:59 on Turnitin\n—\n—\n\n\n6\nw/c 2 Nov\nMidterm oral presentations · financial mathematics — Vincenzo Nardelli, PhD from here on, online\n—\n—\n\n\n7\nw/c 9 Nov\nMidterm feedback · probability and probability distributions — compound events, conditional probability, expected value, dispersion, skewness, Normal and Binomial · in-class quiz\n—\n—\n\n\n8\nw/c 16 Nov\nEconometrics and time series I — OLS regression and correlation, hypothesis testing, confidence intervals\n—\n—\n\n\n9\nw/c 23 Nov\nEconometrics and time series II — time series, autoregressive models\n—\n—\n\n\n10\nw/c 30 Nov\nCourse review · in-class quiz\n—\n—\n\n\n—\n\nRevision week, then the final examination (date in the ESE exam calendar)\n—\n—\n\n\n\n\n\n\n\n\n\n\nTwo things per session, and that is all you need (weeks 1–5). Slides are the deck shown in class, with the short animations playing inside it — arrow keys to move, F for full screen. Drills are the paper exercises we do together, in exam format, with the worked solutions folded at the bottom of the page.\nYou will not write any code in this course. The exam is on paper. The interactive demonstrations driven from the projector are Colab notebooks and you are welcome to open one and move the sliders yourself, but nothing here asks you to, and nothing is marked on it. They live in the course repository, one per week.\n\n\n\n\nAssessment module scheme, set by ESE\n\n\nMidterm assignment — 25%. An individual research paper of 1,500 words (±10%) on a business case, built on the study of a cost, a revenue and a profit function (weeks 1–3), plus a PowerPoint presentation of up to 15 minutes in week 6. Written part 80%, oral 20%. The guidelines are briefed in class in week 2 and published on the student portal. Paper due Sunday 1 November, 23:59, on Turnitin. No late submission for postgraduate work; a failed or missing paper gets one in-term resubmission of the written part, capped at 50%. Absent from the oral without a valid reason: 0 for the oral.\nFinal examination — 75%. Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. One question is pure calculus (weeks 2–3: limits, derivatives, integrals); the others cover the probability and statistics of weeks 7–9.\nReassessment. A failed final is re-sat as one three-hour examination worth 100%, capped at 40%, in the period set by the Board of Examiners. It covers the whole module, financial mathematics included.\n\n\nReadings\n\n\nRenshaw, G. (2021). Maths for Economics, 5th ed. Oxford University Press. Week 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–6: ch. 10, 11, 12, 13.\nKleppner, D., Dourmashkin, P. and Ramsey, N. (2022). Quick Calculus, 3rd ed. Jossey-Bass. Ch. 1–3, weeks 2–3.\nPaul’s Online Notes, Calculus I. Free, with worked problems.\nAnderson, D.R., Sweeney, D.J., Williams, T.A., Freeman, J. and Shoesmith, E. (2020). Statistics for Business and Economics. Cengage. Required text for weeks 7–9.\nFrancis, A. and Mousley, B. (2014). Business Mathematics and Statistics, 7th ed. Cengage. Optional.\nOakshott, L. (2020). Essential Quantitative Methods: For Business, Management and Finance, 7th ed. Bloomsbury. Optional.\n\n\nTutors\n\n\n\n Niccolò Salvini, PhDWeeks 1–5 · in person, Florence\n\n\n Vincenzo Nardelli, PhDWeeks 6–10 · online"
   },
   {
     "objectID": "week-04/session.html",
@@ -1218,6 +1344,20 @@
     "text": "Questions between sessions\nUse the course chat channel for quick questions and to arrange an office hour. Deliverables go on Moodle only."
   },
   {
+    "objectID": "lectures/02-calculus-opens.html#homework-1-at-the-board",
+    "href": "lectures/02-calculus-opens.html#homework-1-at-the-board",
+    "title": "The tool that finds the top of any hill",
+    "section": "Homework 1, at the board",
+    "text": "Homework 1, at the board\nPAPER · 15 minutes\nOne of you takes us through it. Pick one drill you got stuck on. We want the working, the wrong turn included.\nNot an exam: the point is to see how you got there."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#last-week-in-one-minute",
+    "href": "lectures/02-calculus-opens.html#last-week-in-one-minute",
+    "title": "The tool that finds the top of any hill",
+    "section": "Last week, in one minute",
+    "text": "Last week, in one minute\n\n\nBlock AHow many bikes before we stop losing money?100 — fixed cost ÷ contribution: 60,000 / 600\n\n\nBlock BHow many bikes should we make?150, for €30,000 — vertex −b/2a; profitable between 63 and 237\n\n\nBlock CHow long until revenue doubles?6.1 years — unknown in the exponent: t = \\ln 2 / \\ln 1.12\n\n\nBlock DIs this battery cell within spec?No — |c - 500| \\le 15 means [485, 515]; 483 is out\n\n\nThe vertex formula only works for parabolas. Today: the tool that works for any curve."
+  },
+  {
     "objectID": "lectures/02-calculus-opens.html#where-we-are",
     "href": "lectures/02-calculus-opens.html#where-we-are",
     "title": "The tool that finds the top of any hill",
@@ -1230,6 +1370,13 @@
     "title": "The tool that finds the top of any hill",
     "section": "First, the midterm",
     "text": "First, the midterm\nBRIEFING · 35 minutes\nBefore any mathematics: what the midterm asks, how it is marked, and what a good one looks like.\n\nThe brief, read together, line by line.\nThe seven things a “full study of a function” must contain — in the brief’s own words: domain, limits, range, sign, maxima and minima, convexity and inflection, sketch.\nWhat the qualitative sections want, and what referencing means here.\nThe timetable back from 1 November.\n\nQuestions now, not in the last week of October."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#four-blocks-today",
+    "href": "lectures/02-calculus-opens.html#four-blocks-today",
+    "title": "The tool that finds the top of any hill",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat a function is, once you have to use onedomain · the four shapes\n\n\nBlock BWhat happens near a point you cannot reachlimits\n\n\nBlock CWhat does one more bike do to profit?the derivative\n\n\nBlock DFrom the marginal back to the totalrunning it backwards"
   },
   {
     "objectID": "lectures/02-calculus-opens.html#block-a-what-a-function-is-once-you-have-to-use-one",
@@ -1265,6 +1412,13 @@
     "title": "The tool that finds the top of any hill",
     "section": "D1, D2 — domains, and the four functions",
     "text": "D1, D2 — domains, and the four functions\nPAPER · drills.md\n10 minutes. Show all work, exam style. I come round."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#four-blocks-today-1",
+    "href": "lectures/02-calculus-opens.html#four-blocks-today-1",
+    "title": "The tool that finds the top of any hill",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat a function is, once you have to use onedomain · the four shapes\n\n\nBlock BWhat happens near a point you cannot reachlimits\n\n\nBlock CWhat does one more bike do to profit?the derivative\n\n\nBlock DFrom the marginal back to the totalrunning it backwards"
   },
   {
     "objectID": "lectures/02-calculus-opens.html#block-b-limits-what-happens-near-a-point-you-cannot-reach",
@@ -1307,6 +1461,13 @@
     "title": "The tool that finds the top of any hill",
     "section": "D4, D5, D6 — limits, including one from the exam",
     "text": "D4, D5, D6 — limits, including one from the exam\nPAPER · drills.md\n12 minutes. D5 is a one-sided limit in exactly the form the final exam uses."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#four-blocks-today-2",
+    "href": "lectures/02-calculus-opens.html#four-blocks-today-2",
+    "title": "The tool that finds the top of any hill",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat a function is, once you have to use onedomain · the four shapes\n\n\nBlock BWhat happens near a point you cannot reachlimits\n\n\nBlock CWhat does one more bike do to profit?the derivative\n\n\nBlock DFrom the marginal back to the totalrunning it backwards"
   },
   {
     "objectID": "lectures/02-calculus-opens.html#block-c-the-derivative",
@@ -1393,6 +1554,13 @@
     "text": "D8, D9 — differentiate, then read the answer\nPAPER · drills.md\n12 minutes. In D9 write the sentence a manager would say, not just the number."
   },
   {
+    "objectID": "lectures/02-calculus-opens.html#four-blocks-today-3",
+    "href": "lectures/02-calculus-opens.html#four-blocks-today-3",
+    "title": "The tool that finds the top of any hill",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat a function is, once you have to use onedomain · the four shapes\n\n\nBlock BWhat happens near a point you cannot reachlimits\n\n\nBlock CWhat does one more bike do to profit?the derivative\n\n\nBlock DFrom the marginal back to the totalrunning it backwards"
+  },
+  {
     "objectID": "lectures/02-calculus-opens.html#block-d-running-it-backwards",
     "href": "lectures/02-calculus-opens.html#block-d-running-it-backwards",
     "title": "The tool that finds the top of any hill",
@@ -1421,18 +1589,11 @@
     "text": "D11, D12 — recover the function\nPAPER · drills.md\n8 minutes. Exam form: every answer ends with the constant found, not left as c."
   },
   {
-    "objectID": "lectures/02-calculus-opens.html#close-board-pitch-and-take-home",
-    "href": "lectures/02-calculus-opens.html#close-board-pitch-and-take-home",
+    "objectID": "lectures/02-calculus-opens.html#close-take-home",
+    "href": "lectures/02-calculus-opens.html#close-take-home",
     "title": "The tool that finds the top of any hill",
-    "section": "Close Board pitch and take home",
-    "text": "Close Board pitch and take home"
-  },
-  {
-    "objectID": "lectures/02-calculus-opens.html#sixty-seconds-to-the-board",
-    "href": "lectures/02-calculus-opens.html#sixty-seconds-to-the-board",
-    "title": "The tool that finds the top of any hill",
-    "section": "Sixty seconds to the Board",
-    "text": "Sixty seconds to the Board\nOne of you stands. The other is the Board.\nYou produced 80 bikes last month. Tell them, with numbers and no formulas:\n\nwhat the eighty-first bike would add;\nat what output that answer turns negative;\nand one thing you would check before acting on it.\n\nThe Board asks one question. This is the midterm’s oral, in miniature."
+    "section": "Close Take home",
+    "text": "Close Take home"
   },
   {
     "objectID": "lectures/02-calculus-opens.html#take-home",
@@ -1440,6 +1601,20 @@
     "title": "The tool that finds the top of any hill",
     "section": "Take home",
     "text": "Take home\n\nDomain first, always. The exam gives marks for the interval.\n0/0 means factor, cancel, then substitute.\nThe derivative is the answer to “what does one more do?”\nReversing it needs a constant, and one fact to pin it down.\n\nHomework 2 (homework.md), due Wednesday 7 October 23:59 on Moodle: eight drills plus a memo to the Board on whether to build the next bike.\nWrite your own three take-home lines now, before you leave.\n\n\n\nResearch & Quantitative Business Methods · ESE Florence"
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#homework-3-at-the-board",
+    "href": "lectures/04-money-over-time.html#homework-3-at-the-board",
+    "title": "Money has a date on it",
+    "section": "Homework 3, at the board",
+    "text": "Homework 3, at the board\nPAPER · 15 minutes\nOne of you takes us through it. The Board report, read aloud by its author. The room says what it would cut.\nNot an exam: the point is to see how you got there."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#last-week-in-one-minute",
+    "href": "lectures/04-money-over-time.html#last-week-in-one-minute",
+    "title": "Money has a date on it",
+    "section": "Last week, in one minute",
+    "text": "Last week, in one minute\n\n\nBlock AThe study, done properlySeven steps in the brief’s order; f' finds the point, f'' names it\n\n\nBlock BHow much should the firm produce?Until R'(q) = C'(q). Average cost is lowest where MC = AC\n\n\nBlock CWhat did all of them add up to?The integral of the marginal is the change in the total: €10,000 from 100 to 150\n\n\nThat closes the calculus. Today every euro gets a date."
   },
   {
     "objectID": "lectures/04-money-over-time.html#where-we-are",
@@ -1454,6 +1629,13 @@
     "title": "Money has a date on it",
     "section": "The case for two weeks",
     "text": "The case for two weeks\n\n\n\n\n\n\n\nArno Bikes, a decision\n\n\nA new assembly line costs €2.4M today and is expected to return €700k, €800k, €900k and €1,000k at the end of each of the next four years. The firm borrows at 9%.\n\n\n\n\n\n\n\n\n\n\n\nBet before we compute\n\n\nIt returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no — commit before the arithmetic."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#four-blocks-today",
+    "href": "lectures/04-money-over-time.html#four-blocks-today",
+    "title": "Money has a date on it",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat does compounding actually do?simple · compound · e\n\n\nBlock BWhich of two quotes is cheaper?the effective rate\n\n\nBlock CWhat is a future euro worth today?discounting · annuities\n\n\nBlock DBuild the line or not?NPV · IRR"
   },
   {
     "objectID": "lectures/04-money-over-time.html#block-a-interest-and-what-compounding-actually-does",
@@ -1505,6 +1687,13 @@
     "text": "Continuous compounding\n\\lim_{m \\to \\infty}\\left(1 + \\frac{i}{m}\\right)^{m} = e^{\\,i} \\qquad\\Longrightarrow\\qquad A = P e^{\\,it}\nIn week 1 e was “the base your calculator’s ln uses”. Here it earns its place: it is the ceiling on compounding, and the gap between weekly and continuous is sixteen cents on a thousand euros.\n\n\n\n\n\n\n\nBoard sentence\n\n\nCompounding more often always helps, and always by less. The limit is e."
   },
   {
+    "objectID": "lectures/04-money-over-time.html#four-blocks-today-1",
+    "href": "lectures/04-money-over-time.html#four-blocks-today-1",
+    "title": "Money has a date on it",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat does compounding actually do?simple · compound · e\n\n\nBlock BWhich of two quotes is cheaper?the effective rate\n\n\nBlock CWhat is a future euro worth today?discounting · annuities\n\n\nBlock DBuild the line or not?NPV · IRR"
+  },
+  {
     "objectID": "lectures/04-money-over-time.html#block-b-the-effective-rate-the-only-honest-comparison",
     "href": "lectures/04-money-over-time.html#block-b-the-effective-rate-the-only-honest-comparison",
     "title": "Money has a date on it",
@@ -1531,6 +1720,13 @@
     "title": "Money has a date on it",
     "section": "D4, D5 — put everything on the same basis",
     "text": "D4, D5 — put everything on the same basis\nPAPER · drills.md\n12 minutes. Every answer states m explicitly before the arithmetic."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#four-blocks-today-2",
+    "href": "lectures/04-money-over-time.html#four-blocks-today-2",
+    "title": "Money has a date on it",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat does compounding actually do?simple · compound · e\n\n\nBlock BWhich of two quotes is cheaper?the effective rate\n\n\nBlock CWhat is a future euro worth today?discounting · annuities\n\n\nBlock DBuild the line or not?NPV · IRR"
   },
   {
     "objectID": "lectures/04-money-over-time.html#block-c-discounting-running-the-clock-backwards",
@@ -1566,6 +1762,13 @@
     "title": "Money has a date on it",
     "section": "D8, D9 — present value, annuity, perpetuity",
     "text": "D8, D9 — present value, annuity, perpetuity\nPAPER · drills.md\n12 minutes. Show the discount factor separately from the flow, every time."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#four-blocks-today-3",
+    "href": "lectures/04-money-over-time.html#four-blocks-today-3",
+    "title": "Money has a date on it",
+    "section": "Four blocks today",
+    "text": "Four blocks today\n\n\nBlock AWhat does compounding actually do?simple · compound · e\n\n\nBlock BWhich of two quotes is cheaper?the effective rate\n\n\nBlock CWhat is a future euro worth today?discounting · annuities\n\n\nBlock DBuild the line or not?NPV · IRR"
   },
   {
     "objectID": "lectures/04-money-over-time.html#block-d-npv-the-decision-itself",
@@ -1624,18 +1827,11 @@
     "text": "D11, D12 — the case, decided\nPAPER · drills.md\n12 minutes. Lay out the table with a row for year 0. Then say accept or reject, in one sentence."
   },
   {
-    "objectID": "lectures/04-money-over-time.html#close-board-pitch-and-take-home",
-    "href": "lectures/04-money-over-time.html#close-board-pitch-and-take-home",
+    "objectID": "lectures/04-money-over-time.html#close-take-home",
+    "href": "lectures/04-money-over-time.html#close-take-home",
     "title": "Money has a date on it",
-    "section": "Close Board pitch and take home",
-    "text": "Close Board pitch and take home"
-  },
-  {
-    "objectID": "lectures/04-money-over-time.html#sixty-seconds-to-the-board",
-    "href": "lectures/04-money-over-time.html#sixty-seconds-to-the-board",
-    "title": "Money has a date on it",
-    "section": "Sixty seconds to the Board",
-    "text": "Sixty seconds to the Board\nA Board member has just said the line returns a million.\nTell them, politely, with numbers and no formulas:\n\nwhy the flows cannot simply be added;\nwhat the project is actually worth today;\nand at what cost of capital your answer would change."
+    "section": "Close Take home",
+    "text": "Close Take home"
   },
   {
     "objectID": "lectures/04-money-over-time.html#take-home",
