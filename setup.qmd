@@ -1,6 +1,6 @@
 ---
 title: "How to work"
-subtitle: "What to bring, how homework is handed in, how to use the notebooks."
+subtitle: "Weeks 1–5: what to bring, how homework is handed in, how to use the notebooks."
 ---
 
 Nothing is installed on your laptop and you are not asked to write code. The exam is on paper with a non-programmable calculator, so that is where the practice happens.

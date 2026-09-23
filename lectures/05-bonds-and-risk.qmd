@@ -5,6 +5,14 @@ author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
 
+## Homework 4, at the board {.paper background-color="#eceff0"}
+
+[PAPER · 15 minutes]{.kicker}
+
+One of you takes us through it. The memo to the Board member. Would they accept it? Why not?
+
+[Not an exam: the point is to see how you got there.]{.muted}
+
 ## Last week, in one minute
 
 ::: {.blocks}

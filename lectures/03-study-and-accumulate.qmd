@@ -5,6 +5,14 @@ author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
 
+## Homework 2, at the board {.paper background-color="#eceff0"}
+
+[PAPER · 15 minutes]{.kicker}
+
+One of you takes us through it. One drill, and then the one sentence of your memo you are least sure of.
+
+[Not an exam: the point is to see how you got there.]{.muted}
+
 ## Last week, in one minute
 
 ::: {.blocks}
@@ -342,19 +350,7 @@ Five short items: one domain, one limit, one derivative with its managerial read
 
 Marked and returned next week. It counts for nothing and tells us both a great deal.
 
-## [Close]{.section-kicker} Board pitch and take home {.section-slide background-color="#AF1F25"}
-
-## Sixty seconds to the Board
-
-Take the firm with `R(q) = 30 ln(q+1)` and `C(q) = 0.4q² + 3q + 25`.
-
-Tell the Board, with numbers and no formulas:
-
-- how much it should produce;
-- how much it makes there;
-- and how much room for error that leaves.
-
-[That last question is the one the midterm actually rewards.]{.muted}
+## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
 
 ## Take home
 

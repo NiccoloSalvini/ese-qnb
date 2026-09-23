@@ -5,6 +5,14 @@ author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
 
+## Homework 1, at the board {.paper background-color="#eceff0"}
+
+[PAPER · 15 minutes]{.kicker}
+
+One of you takes us through it. Pick one drill you got stuck on. We want the working, the wrong turn included.
+
+[Not an exam: the point is to see how you got there.]{.muted}
+
 ## Last week, in one minute
 
 ::: {.blocks}
@@ -413,19 +421,7 @@ and `c = C(0)` is the **fixed cost** — what you pay having produced nothing.
 
 8 minutes. Exam form: every answer ends with the constant found, not left as `c`.
 
-## [Close]{.section-kicker} Board pitch and take home {.section-slide background-color="#AF1F25"}
-
-## Sixty seconds to the Board
-
-One of you stands. The other is the Board.
-
-You produced 80 bikes last month. Tell them, with numbers and no formulas:
-
-- what the eighty-first bike would add;
-- at what output that answer turns negative;
-- and one thing you would check before acting on it.
-
-[The Board asks one question. This is the midterm's oral, in miniature.]{.muted}
+## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
 
 ## Take home
 

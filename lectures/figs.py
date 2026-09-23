@@ -53,12 +53,42 @@ for x in (63.4, 236.6): sl.plot([x, x], [-.3, .3], color=INK, lw=1.5)
 for x, s, c in ((30, "−", RED), (150, "+", GREEN), (270, "−", RED)): sl.text(x, .35, s, color=c, ha="center", fontsize=16, fontweight="bold")
 sl.set_xticks([63.4, 150, 236.6]); sl.set_xlabel("q  —  the sign line"); ax.set_xlim(0, 300); save(fig, "w01_parabola_sign")
 
-# 5 — tolerance band on the number line
-fig, ax = plt.subplots(figsize=(7, 1.6))
+# 5 — tolerance band on the number line, with this morning's four cells
+fig, ax = plt.subplots(figsize=(8, 1.9))
 ax.axhline(0, color=INK, lw=1.5); ax.plot([485, 515], [0, 0], color=GREEN, lw=9, solid_capstyle="butt")
-for x in (485, 500, 515): ax.plot([x, x], [-.25, .25], color=INK, lw=1.5); ax.text(x, -.55, str(x), ha="center")
-ax.plot(483, 0, "x", color=RED, ms=14, mew=3); ax.text(483, .45, "483", color=RED, ha="center")
-ax.set_xlim(468, 532); ax.set_ylim(-1, 1); ax.axis("off"); save(fig, "w01_tolerance")
+for x in (485, 500, 515): ax.plot([x, x], [-.25, .25], color=INK, lw=1.5); ax.text(x, -.62, str(x), ha="center")
+for x in (483, 516): ax.plot(x, 0, "x", color=RED, ms=14, mew=3); ax.text(x, .45, str(x), color=RED, ha="center", fontweight="bold")
+for x in (497, 512): ax.plot(x, 0, "o", color=INK, ms=10); ax.text(x, .45, str(x), color=INK, ha="center", fontweight="bold")
+ax.annotate("", (485, -.95), (500, -.95), arrowprops=dict(arrowstyle="<->", color=MUTED))
+ax.annotate("", (500, -.95), (515, -.95), arrowprops=dict(arrowstyle="<->", color=MUTED))
+ax.text(492.5, -1.3, "15", color=MUTED, ha="center"); ax.text(507.5, -1.3, "15", color=MUTED, ha="center")
+ax.set_xlim(474, 526); ax.set_ylim(-1.5, 1); ax.axis("off"); save(fig, "w01_tolerance")
+
+# 6 — anatomy of a line: slope and intercept, one moved at a time
+qq = np.linspace(0, 200, 2)
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 3.9), sharey=True)
+for m, c in ((250, MUTED), (400, RED), (600, MUTED)):
+    a1.plot(qq, 60000 + m*qq, color=c, lw=3 if c == RED else 2); a1.text(203, 60000 + m*200, f"{m}/bike", color=c, va="center")
+a1.set_title("change the slope — the cost of one more bike", color=INK, fontsize=13, loc="left")
+for b, c in ((30000, MUTED), (60000, RED), (90000, MUTED)):
+    a2.plot(qq, b + 400*qq, color=c, lw=3 if c == RED else 2); a2.text(-6, b, f"{b//1000}k", color=c, ha="right", va="center")
+a2.set_title("change the intercept — the cost of zero bikes", color=INK, fontsize=13, loc="left")
+for a in (a1, a2):
+    a.set_xlim(0, 240); a.set_ylim(0, 200000); a.set_xticks([0, 100, 200]); a.set_xlabel("q"); a.yaxis.set_major_formatter(k)
+a2.tick_params(labelleft=False); save(fig, "w01_line_anatomy")
+
+# 7 — anatomy of a parabola: the sign of a, the intercept c, the vertex
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 3.9), width_ratios=[1, 1.6])
+x = np.linspace(-2, 2, 100)
+a1.plot(x, x**2 + 1, color=MUTED, lw=2.5); a1.text(0, 5.4, "a > 0  opens up", color=MUTED, ha="center")
+a1.plot(x, -x**2 - 1, color=RED, lw=3); a1.text(0, -5.8, "a < 0  opens down", color=RED, ha="center")
+a1.axhline(0, color=INK, lw=.8); a1.axis("off"); a1.set_ylim(-6.5, 6.2); a1.set_title("the sign of a", color=INK, fontsize=13, loc="left")
+q = np.linspace(0, 300, 300); pi = -4*q**2 + 1200*q - 60000
+a2.plot(q, pi, color=RED, lw=3); a2.axhline(0, color=INK, lw=.8)
+a2.plot(0, -60000, "o", color=GOLD, ms=9); a2.annotate("c = −60,000: the loss at zero bikes", (0, -60000), (18, -66000), color=INK)
+a2.plot(150, 30000, "o", color=GOLD, ms=9); a2.annotate("vertex at q = −b/2a = 150", (150, 30000), (163, 34000), color=INK)
+a2.set_xlim(0, 300); a2.set_ylim(-75000, 45000); a2.set_yticks([-60000, 0, 30000]); a2.yaxis.set_major_formatter(k); a2.set_xlabel("q")
+a2.set_title("π(q) = −4q² + 1200q − 60,000", color=INK, fontsize=13, loc="left"); save(fig, "w01_parabola_anatomy")
 print("ok", sorted(p.name for p in OUT.glob("*.svg")))
 
 

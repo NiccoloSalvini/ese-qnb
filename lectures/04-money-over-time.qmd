@@ -5,6 +5,14 @@ author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
 
+## Homework 3, at the board {.paper background-color="#eceff0"}
+
+[PAPER · 15 minutes]{.kicker}
+
+One of you takes us through it. The Board report, read aloud by its author. The room says what it would cut.
+
+[Not an exam: the point is to see how you got there.]{.muted}
+
 ## Last week, in one minute
 
 ::: {.blocks}
@@ -351,17 +359,7 @@ The discount rate is not an assumption you pick. It is the price your own money 
 
 12 minutes. Lay out the table with a row for year 0. Then say accept or reject, in one sentence.
 
-## [Close]{.section-kicker} Board pitch and take home {.section-slide background-color="#AF1F25"}
-
-## Sixty seconds to the Board
-
-A Board member has just said the line returns a million.
-
-Tell them, politely, with numbers and no formulas:
-
-- why the flows cannot simply be added;
-- what the project is actually worth today;
-- and at what cost of capital your answer would change.
+## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
 
 ## Take home
 

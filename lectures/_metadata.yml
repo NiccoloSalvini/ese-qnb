@@ -19,6 +19,7 @@ format:
     embed-resources: false
     toc: false
     center: false
+    display: flex
     center-title-slide: false
     include-in-header: ../_fonts.html
 

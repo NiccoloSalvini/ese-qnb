@@ -1,6 +1,6 @@
 ---
 title: "Research & Quantitative Business Methods"
-subtitle: "Weeks 1–5 — algebra, calculus and financial mathematics, told as business decisions"
+subtitle: "Algebra, calculus, financial mathematics, probability and statistics — for business decisions"
 toc: false
 ---
 
@@ -11,15 +11,15 @@ Weeks 1–5 **Niccolò Salvini, PhD**, in person · weeks 6–10 **Vincenzo Nard
 :::
 
 ::: {.facts}
-<div><span class="k">When</span><span class="v">Thursdays 10:00–13:00 · 24 Sep – 22 Oct</span></div>
+<div><span class="k">When</span><span class="v">Weeks 1–5: Thursdays 10:00–13:00, 24 Sep – 22 Oct · weeks 6–10: from 2 Nov, online</span></div>
 <div><span class="k">Where</span><span class="v">ESE Florence · Borgo Santi Apostoli 19 (weeks 1–5) · online from week 6</span></div>
 <div><span class="k">Assessment</span><span class="v">[Midterm 25% · Final exam 75%](#assessment)</span></div>
 <div><span class="k">Running case</span><span class="v">Arno Bikes, e-bike assembler in Florence</span></div>
 :::
 
-Everything for the first half of the module is on this page. One row per session: the slide deck, the notebook driven from the projector, the drills done on paper in class (solutions included), and the homework you bring to the next one. Materials are published by Friday.
+Everything for the module is on this page. One row per session: the slide deck, the drills done on paper in class (solutions included), and the homework you bring to the next one. Materials are published by the day after each session.
 
-<h2 class="module">Sessions <small>Thursdays 10:00–13:00 · half slides, half laboratory · exam-format drills on paper</small></h2>
+<h2 class="module">Sessions</h2>
 
 ::: {.schedule}
 | # | Date | Theme | Materials | Homework |
@@ -30,38 +30,36 @@ Everything for the first half of the module is on this page. One row per session
 | 4 | Thu 15 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV | [slides](lectures/04-money-over-time.qmd) · [drills](week-04/drills.md) | [HW4](week-04/homework.md)|
 | 5 | Thu 22 Oct | Financial mathematics II — bond pricing, duration and convexity · consolidation · mock of the final's calculus question | [slides](lectures/05-bonds-and-risk.qmd) · [drills](week-05/drills.md) · [mock exam](week-05/mock_exam.md) | [HW5](week-05/homework.md)|
 | — | 26–30 Oct | Reading week — no class · midterm paper due **Sun 1 Nov, 23:59 on Turnitin** | — | — |
-| 6–10 | from w/c 2 Nov | **Midterm oral presentations** in week 6 (day set by the module leader) · second half of the module with **Vincenzo Nardelli, PhD**, online | — | — |
+| 6 | w/c 2 Nov | **Midterm oral presentations** · financial mathematics — **Vincenzo Nardelli, PhD** from here on, online | — | — |
+| 7 | w/c 9 Nov | Midterm feedback · probability and probability distributions — compound events, conditional probability, expected value, dispersion, skewness, Normal and Binomial · **in-class quiz** | — | — |
+| 8 | w/c 16 Nov | Econometrics and time series I — OLS regression and correlation, hypothesis testing, confidence intervals | — | — |
+| 9 | w/c 23 Nov | Econometrics and time series II — time series, autoregressive models | — | — |
+| 10 | w/c 30 Nov | Course review · **in-class quiz** | — | — |
+| — | | Revision week, then the final examination (date in the ESE exam calendar) | — | — |
 
 : {tbl-colwidths="[5,13,44,22,16]"}
 :::
 
 ::: {.callout-note appearance="simple"}
-**Two things per session, and that is all you need.** *Slides* are the deck shown in class, with the short animations playing inside it — arrow keys to move, `F` for full screen. *Drills* are the paper exercises we do together, in exam format, with the worked solutions folded at the bottom of the page.
+**Two things per session, and that is all you need** (weeks 1–5). *Slides* are the deck shown in class, with the short animations playing inside it — arrow keys to move, `F` for full screen. *Drills* are the paper exercises we do together, in exam format, with the worked solutions folded at the bottom of the page.
 
-**You will not write any code in this course.** The exam is on paper. The interactive demonstrations I drive from the projector are Colab notebooks and you are welcome to open one and move the sliders yourself, but nothing here asks you to, and nothing is marked on it. They live in the [course repository](https://github.com/NiccoloSalvini/ese-qnb), one per week.
+**You will not write any code in this course.** The exam is on paper. The interactive demonstrations driven from the projector are Colab notebooks and you are welcome to open one and move the sliders yourself, but nothing here asks you to, and nothing is marked on it. They live in the [course repository](https://github.com/NiccoloSalvini/ese-qnb), one per week.
 :::
-
-<h2 class="module">How the five weeks work <small>the contract, stated once</small></h2>
-
-- **Every technique serves an exam item.** Weeks 1–3 build the study of a function by hand for the midterm and Q5 of the final. Weeks 4–5 build the financial mathematics the exam and the resit ask for. You are told, each time, which one.
-- **Decision → picture → technique → decision.** Each block opens with a business question, shows the picture on screen, then does the technique on paper, and closes with one sentence you could say to a Board.
-- **Half slides, half laboratory.** About forty minutes of slides and notebook, eighty minutes of guided hand computation, a Board pitch by one student, ten minutes of homework briefing. Real break mid-session.
-- **Weekly rhythm.** Thursday lesson. Drill solutions and homework online by Friday. **Homework comes back with you the following Thursday** — on paper, at the start of class. Those first fifteen minutes are the walkthrough: one of you explains one drill at the board. Send it ahead by email if you would rather I read it sooner.
-- **Homework is formative.** It is not graded, but it is read, discussed, and it is part of the evidence used when the midterm is marked.
-- **Running case: Arno Bikes**, an e-bike assembler in Florence. Fixed cost €60,000 a month, variable cost €400 a bike, list price €1,000, demand `p = 1600 − 4q`. Every drill reuses its shape with different numbers, so that by week 3 the midterm case is a familiar object.
 
 <h2 class="module" id="assessment">Assessment <small>module scheme, set by ESE</small></h2>
 
-- **Midterm assignment — 25%.** A 1,500-word research paper (±10%) plus an 8–15 minute oral presentation. Written part 80%, oral 20%. Guidelines are briefed in class in week 2 and published on the student portal. Paper due **Sunday 1 November, 23:59 on Turnitin**; orals in the **week of 2 November**, on the day set by the module leader. No late submission for postgraduate work; a failed or missing submission gives one in-term resubmission capped at 50%.
-- **Final examination — 75%.** Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. Weeks 1–5 train you for the pure calculus question (limits, derivatives, integrals of rational functions with log terms) and the financial-mathematics items.
-- **Reassessment.** Re-sit examination, 100%, capped at 40% by ESE regulation.
+- **Midterm assignment — 25%.** An individual research paper of 1,500 words (±10%) on a business case, built on the study of a cost, a revenue and a profit function (weeks 1–3), plus a PowerPoint presentation of up to 15 minutes in week 6. Written part 80%, oral 20%. The guidelines are briefed in class in week 2 and published on the student portal. Paper due **Sunday 1 November, 23:59, on Turnitin**. No late submission for postgraduate work; a failed or missing paper gets one in-term resubmission of the written part, capped at 50%. Absent from the oral without a valid reason: 0 for the oral.
+- **Final examination — 75%.** Three hours in class, five questions of equal weight, all work shown, non-programmable calculator only, no notes. One question is pure calculus (weeks 2–3: limits, derivatives, integrals); the others cover the probability and statistics of weeks 7–9.
+- **Reassessment.** A failed final is re-sat as one three-hour examination worth 100%, capped at 40%, in the period set by the Board of Examiners. It covers the whole module, financial mathematics included.
 
 <h2 class="module">Readings</h2>
 
-- Renshaw, G. (2021). *Maths for Economics*, 5th ed. Oxford University Press. Weeks 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–5: ch. 10, 11, 12, 13.
+- Renshaw, G. (2021). *Maths for Economics*, 5th ed. Oxford University Press. Week 1: ch. 1, 3, 4, 5 · weeks 2–3: ch. 6, 7, 8, 9, 18 · weeks 4–6: ch. 10, 11, 12, 13.
 - Kleppner, D., Dourmashkin, P. and Ramsey, N. (2022). *Quick Calculus*, 3rd ed. Jossey-Bass. Ch. 1–3, weeks 2–3.
 - Paul's Online Notes, [Calculus I](https://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx). Free, with worked problems.
+- Anderson, D.R., Sweeney, D.J., Williams, T.A., Freeman, J. and Shoesmith, E. (2020). *Statistics for Business and Economics*. Cengage. Required text for weeks 7–9.
 - Francis, A. and Mousley, B. (2014). *Business Mathematics and Statistics*, 7th ed. Cengage. Optional.
+- Oakshott, L. (2020). *Essential Quantitative Methods: For Business, Management and Finance*, 7th ed. Bloomsbury. Optional.
 
 <h2 class="module">Tutors</h2>
 
