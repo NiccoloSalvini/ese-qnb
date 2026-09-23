@@ -1,9 +1,28 @@
 ---
 title: "The tool that finds the top of any hill"
 subtitle: "Week 2 · Thursday 1 October 2026 · 10:00–13:00"
-author: "Niccolò Salvini"
+author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
+
+## Last week, in one minute
+
+::: {.blocks}
+::: {.blk .recap}
+[Block A]{.blk-letter}How many bikes before we stop losing money?[100 — fixed cost ÷ contribution: 60,000 / 600]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block B]{.blk-letter}How many bikes should we make?[150, for €30,000 — vertex −b/2a; profitable between 63 and 237]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block C]{.blk-letter}How long until revenue doubles?[6.1 years — unknown in the exponent: $t = \ln 2 / \ln 1.12$]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block D]{.blk-letter}Is this battery cell within spec?[No — $|c - 500| \le 15$ means $[485, 515]$; 483 is out]{.blk-answer}
+:::
+:::
+
+[The vertex formula only works for parabolas. Today: the tool that works for any curve.]{.red}
 
 ## Where we are
 
@@ -41,7 +60,27 @@ Before any mathematics: what the midterm asks, how it is marked, and what a good
 
 Questions now, not in the last week of October.
 
-## [Block A]{.section-kicker} What a function is, once you have to use one {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .now data-id="blkA"}
+[Block A]{.blk-letter}What a function is, once you have to use one[domain · the four shapes]{.blk-tool}
+:::
+::: {.blk .next}
+[Block B]{.blk-letter}What happens near a point you cannot reach[limits]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What does one more bike do to profit?[the derivative]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}From the marginal back to the total[running it backwards]{.blk-tool}
+:::
+:::
+
+## [Block A]{.section-kicker} What a function is, once you have to use one {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkA"}
+:::
 
 ## A function is a machine
 
@@ -103,7 +142,27 @@ So $\sqrt{q-20}$ needs **the thing inside**, not `q`, to be at least zero: `q �
 
 10 minutes. Show all work, exam style. I come round.
 
-## [Block B]{.section-kicker} Limits — what happens near a point you cannot reach {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What a function is, once you have to use one[domain · the four shapes]{.blk-tool}
+:::
+::: {.blk .now data-id="blkB"}
+[Block B]{.blk-letter}What happens near a point you cannot reach[limits]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What does one more bike do to profit?[the derivative]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}From the marginal back to the total[running it backwards]{.blk-tool}
+:::
+:::
+
+## [Block B]{.section-kicker} Limits — what happens near a point you cannot reach {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkB"}
+:::
 
 ## What does one bike cost? It depends how many you make.
 
@@ -151,7 +210,27 @@ $$\frac{(q-10)(q+10)}{q-10} = q + 10 \;\longrightarrow\; 20$$
 
 12 minutes. D5 is a one-sided limit in exactly the form the final exam uses.
 
-## [Block C]{.section-kicker} The derivative {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What a function is, once you have to use one[domain · the four shapes]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}What happens near a point you cannot reach[limits]{.blk-tool}
+:::
+::: {.blk .now data-id="blkC"}
+[Block C]{.blk-letter}What does one more bike do to profit?[the derivative]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}From the marginal back to the total[running it backwards]{.blk-tool}
+:::
+:::
+
+## [Block C]{.section-kicker} The derivative {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkC"}
+:::
 
 ## How much does one more bike change profit?
 
@@ -284,7 +363,27 @@ The derivative answers one managerial question: what does one more unit do? Posi
 
 12 minutes. In D9 write the sentence a manager would say, not just the number.
 
-## [Block D]{.section-kicker} Running it backwards {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What a function is, once you have to use one[domain · the four shapes]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}What happens near a point you cannot reach[limits]{.blk-tool}
+:::
+::: {.blk .done}
+[Block C]{.blk-letter}What does one more bike do to profit?[the derivative]{.blk-tool}
+:::
+::: {.blk .now data-id="blkD"}
+[Block D]{.blk-letter}From the marginal back to the total[running it backwards]{.blk-tool}
+:::
+:::
+
+## [Block D]{.section-kicker} Running it backwards {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkD"}
+:::
 
 ## From the derivative back to the function
 

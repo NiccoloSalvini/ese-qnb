@@ -1,9 +1,30 @@
 ---
 title: "Revision of mathematics, told as business decisions"
 subtitle: "Week 1 · Thursday 24 September 2026 · 10:00–13:00"
-author: "Niccolò Salvini"
+author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
+
+## Who I am
+
+:::: {.columns}
+::: {.column width="28%"}
+![](img/niccolo.jpg){width="100%"}
+:::
+::: {.column width="72%"}
+**Niccolò Salvini, PhD** · Adjunct Professor
+
+::: {.incremental}
+- **Economics**, Florence
+- **MSc, Statistical and Actuarial Sciences**, Milan
+- **PhD, Healthcare Data Science**, Rome
+- **Founder, Intuo** — data pipelines and AI for companies
+- **Adjunct Professor** — Università Cattolica, and ESE
+:::
+
+[I use the mathematics of these five weeks for a living. That is the only reason it is in the room.]{.muted}
+:::
+::::
 
 ## Where the first five weeks go
 
@@ -60,12 +81,27 @@ Everything today is a question the founder of a small firm actually has to answe
 | Variable cost | €400 per bike (parts, packaging) |
 | List price | €1,000 per bike |
 
-Four questions from the founder, one per block:
+## Four questions from the founder {.hub auto-animate=true}
 
-**A.** How many bikes before I stop losing money? · **B.** How many bikes should I make?
-**C.** How long until revenue doubles? · **D.** Is this battery cell within spec?
+::: {.blocks}
+::: {.blk .now data-id="blkA"}
+[Block A]{.blk-letter}How many bikes before we stop losing money?[linear equations · systems]{.blk-tool}
+:::
+::: {.blk .next}
+[Block B]{.blk-letter}How many bikes should we make?[quadratics]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}How long until revenue doubles?[exponentials · logarithms]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}Is this battery cell within spec?[absolute value]{.blk-tool}
+:::
+:::
 
-## [Block A]{.section-kicker} Launch or not? — linear equations and systems {.section-slide background-color="#AF1F25"}
+## [Block A · linear equations and systems]{.section-kicker} How many bikes before we stop losing money? {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkA"}
+:::
 
 ## How many bikes a month before Arno Bikes stops losing money?
 
@@ -167,7 +203,27 @@ The first is the break-even point. The second is **the condition for not losing 
 
 10 minutes. Show all work, exam style. I come round.
 
-## [Block B]{.section-kicker} How many bikes? — quadratics {.section-slide background-color="#AF1F25"}
+## Four questions from the founder {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}How many bikes before we stop losing money?[linear equations · systems]{.blk-tool}
+:::
+::: {.blk .now data-id="blkB"}
+[Block B]{.blk-letter}How many bikes should we make?[quadratics]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}How long until revenue doubles?[exponentials · logarithms]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}Is this battery cell within spec?[absolute value]{.blk-tool}
+:::
+:::
+
+## [Block B · quadratics]{.section-kicker} How many bikes should we make? {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkB"}
+:::
 
 ## Price responds to volume
 
@@ -245,7 +301,27 @@ A quadratic has two roots, one, or none, and the discriminant tells you which be
 
 10 minutes. Show all work, exam style. I come round.
 
-## [Block C]{.section-kicker} How long to double? — exponentials and logarithms {.section-slide background-color="#AF1F25"}
+## Four questions from the founder {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}How many bikes before we stop losing money?[linear equations · systems]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}How many bikes should we make?[quadratics]{.blk-tool}
+:::
+::: {.blk .now data-id="blkC"}
+[Block C]{.blk-letter}How long until revenue doubles?[exponentials · logarithms]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}Is this battery cell within spec?[absolute value]{.blk-tool}
+:::
+:::
+
+## [Block C · exponentials and logarithms]{.section-kicker} How long until revenue doubles? {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkC"}
+:::
 
 ## Revenue €1.2M, growing 12% a year
 
@@ -298,7 +374,27 @@ Whenever the unknown is in the exponent, take logs of both sides. Whenever you s
 
 12 minutes. Show all work, exam style. I come round.
 
-## [Block D]{.section-kicker} Within tolerance — absolute value {.section-slide background-color="#AF1F25"}
+## Four questions from the founder {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}How many bikes before we stop losing money?[linear equations · systems]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}How many bikes should we make?[quadratics]{.blk-tool}
+:::
+::: {.blk .done}
+[Block C]{.blk-letter}How long until revenue doubles?[exponentials · logarithms]{.blk-tool}
+:::
+::: {.blk .now data-id="blkD"}
+[Block D]{.blk-letter}Is this battery cell within spec?[absolute value]{.blk-tool}
+:::
+:::
+
+## [Block D · absolute value]{.section-kicker} Is this battery cell within spec? {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkD"}
+:::
 
 ## Is this cell within spec?
 

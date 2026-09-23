@@ -43,9 +43,9 @@
     <rect x="70" y="326" width="460" height="30" rx="3" fill="#fdf6f6" stroke="#e8cdce"/>
     <text x="300" y="346" fill="#AF1F25" font-weight="700">FINAL, question 5 of 5 — the calculus question</text>
     <rect x="560" y="288" width="350" height="68" rx="3" fill="#fbfaf6" stroke="#e6e2d8"/>
-    <text x="735" y="308" fill="#a8955a" font-weight="700">RESIT — the financial-maths block</text>
-    <text x="735" y="330" fill="#7a7f85">not in the final exam; here because the</text>
-    <text x="735" y="347" fill="#7a7f85">syllabus asks for it, and because a manager needs it</text>
+    <text x="735" y="308" fill="#a8955a" font-weight="700">RESIT (the retake exam) — financial maths</text>
+    <text x="735" y="330" fill="#7a7f85">not on the final paper, but on the retake if you need one;</text>
+    <text x="735" y="347" fill="#7a7f85">and in the syllabus, because a manager uses it every week</text>
   </g>
 
   <text x="70" y="404" font-size="13" fill="#7a7f85">One firm runs through all five: <tspan font-weight="700" fill="#363636">Arno Bikes</tspan>, an e-bike assembler in Florence. Every week is one more question its founder has to answer.</text>

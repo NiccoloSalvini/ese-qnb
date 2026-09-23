@@ -1,9 +1,28 @@
 ---
 title: "What a rate rise costs you"
 subtitle: "Week 5 · Thursday 22 October 2026 · 10:00–13:00"
-author: "Niccolò Salvini"
+author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
+
+## Last week, in one minute
+
+::: {.blocks}
+::: {.blk .recap}
+[Block A]{.blk-letter}What does compounding actually do?[More often always helps, by less each time; the ceiling is $e^{r}$]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block B]{.blk-letter}Which of two quotes is cheaper?[Compare on $EAR = (1 + r/n)^{n} - 1$, never on the nominal rate]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block C]{.blk-letter}What is a future euro worth today?[Discount before adding: $PV = FV/(1+r)^{t}$]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block D]{.blk-letter}Build the line or not?[NPV = +€319k at 9% — accept; IRR is where NPV crosses zero]{.blk-answer}
+:::
+:::
+
+[Today the same arithmetic prices a bond, and a derivative tells you what a rate rise costs.]{.red}
 
 ## Where we are — the last of my five
 
@@ -35,7 +54,27 @@ The firm keeps **€1M in bonds** as a cash reserve. The Board has read that rat
 
 By the end of the session you will answer that with two numbers and a sentence.
 
-## [Block A]{.section-kicker} Pricing a bond — nothing new {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .now data-id="blkA"}
+[Block A]{.blk-letter}What is this bond worth?[pricing]{.blk-tool}
+:::
+::: {.blk .next}
+[Block B]{.blk-letter}How much does a rate rise cost?[duration]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What the straight line misses[convexity]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}The final's calculus question, for real[mock exam]{.blk-tool}
+:::
+:::
+
+## [Block A]{.section-kicker} Pricing a bond — nothing new {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkA"}
+:::
 
 ## A bond is a promise with dates on it
 
@@ -71,7 +110,27 @@ The bond pays 4% on its face; the market wants 6%. The only way to deliver 6% is
 
 12 minutes. Show the annuity part and the redemption part separately. D3 is in the resit's exact format.
 
-## [Block B]{.section-kicker} Duration — the slope of that curve {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What is this bond worth?[pricing]{.blk-tool}
+:::
+::: {.blk .now data-id="blkB"}
+[Block B]{.blk-letter}How much does a rate rise cost?[duration]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What the straight line misses[convexity]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}The final's calculus question, for real[mock exam]{.blk-tool}
+:::
+:::
+
+## [Block B]{.section-kicker} Duration — the slope of that curve {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkB"}
+:::
 
 ## The picture the Board needs
 
@@ -126,7 +185,27 @@ Duration is how many percent you lose for each percent rates rise. It is one num
 
 15 minutes. The weights column must sum to 1. If it does not, stop before computing the duration.
 
-## [Block C]{.section-kicker} Convexity — the gap the line misses {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What is this bond worth?[pricing]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}How much does a rate rise cost?[duration]{.blk-tool}
+:::
+::: {.blk .now data-id="blkC"}
+[Block C]{.blk-letter}What the straight line misses[convexity]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}The final's calculus question, for real[mock exam]{.blk-tool}
+:::
+:::
+
+## [Block C]{.section-kicker} Convexity — the gap the line misses {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkC"}
+:::
 
 ## Duration says €92.28. The truth is €92.64.
 
@@ -179,7 +258,27 @@ $$\Delta V \approx -4.23 \times 1\% \times €1{,}000{,}000 = -€42{,}280$$
 
 "A one-point rise costs the reserve about €42,000, a little over 4%. The exposure sits almost entirely in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this."
 
-## [Block D]{.section-kicker} Mock exam — the final's calculus question {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What is this bond worth?[pricing]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}How much does a rate rise cost?[duration]{.blk-tool}
+:::
+::: {.blk .done}
+[Block C]{.blk-letter}What the straight line misses[convexity]{.blk-tool}
+:::
+::: {.blk .now data-id="blkD"}
+[Block D]{.blk-letter}The final's calculus question, for real[mock exam]{.blk-tool}
+:::
+:::
+
+## [Block D]{.section-kicker} Mock exam — the final's calculus question {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkD"}
+:::
 
 ## Forty minutes, exam conditions {.lab background-color="#2471a3"}
 

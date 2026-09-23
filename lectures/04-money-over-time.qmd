@@ -1,9 +1,25 @@
 ---
 title: "Money has a date on it"
 subtitle: "Week 4 · Thursday 15 October 2026 · 10:00–13:00"
-author: "Niccolò Salvini"
+author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
+
+## Last week, in one minute
+
+::: {.blocks}
+::: {.blk .recap}
+[Block A]{.blk-letter}The study, done properly[Seven steps in the brief's order; $f'$ finds the point, $f''$ names it]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block B]{.blk-letter}How much should the firm produce?[Until $R'(q) = C'(q)$. Average cost is lowest where MC = AC]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block C]{.blk-letter}What did all of them add up to?[The integral of the marginal is the change in the total: €10,000 from 100 to 150]{.blk-answer}
+:::
+:::
+
+[That closes the calculus. Today every euro gets a date.]{.red}
 
 ## Where we are
 
@@ -35,7 +51,27 @@ A new assembly line costs **€2.4M today** and is expected to return **€700k,
 It returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no — commit before the arithmetic.
 :::
 
-## [Block A]{.section-kicker} Interest, and what compounding actually does {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .now data-id="blkA"}
+[Block A]{.blk-letter}What does compounding actually do?[simple · compound · e]{.blk-tool}
+:::
+::: {.blk .next}
+[Block B]{.blk-letter}Which of two quotes is cheaper?[the effective rate]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
+:::
+:::
+
+## [Block A]{.section-kicker} Interest, and what compounding actually does {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkA"}
+:::
 
 ## €8,000 at 6%. Build it year by year.
 
@@ -105,7 +141,27 @@ In week 1 `e` was "the base your calculator's `ln` uses". Here it earns its plac
 Compounding more often always helps, and always by less. The limit is `e`.
 :::
 
-## [Block B]{.section-kicker} The effective rate — the only honest comparison {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What does compounding actually do?[simple · compound · e]{.blk-tool}
+:::
+::: {.blk .now data-id="blkB"}
+[Block B]{.blk-letter}Which of two quotes is cheaper?[the effective rate]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
+:::
+:::
+
+## [Block B]{.section-kicker} The effective rate — the only honest comparison {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkB"}
+:::
 
 ## Two quotes, same nominal rate, different price
 
@@ -140,7 +196,27 @@ A: `(1 + 0.078/12)¹² − 1 = 8.085%`.  B: `8.000%`.
 
 12 minutes. Every answer states `m` explicitly before the arithmetic.
 
-## [Block C]{.section-kicker} Discounting — running the clock backwards {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What does compounding actually do?[simple · compound · e]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}Which of two quotes is cheaper?[the effective rate]{.blk-tool}
+:::
+::: {.blk .now data-id="blkC"}
+[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
+:::
+:::
+
+## [Block C]{.section-kicker} Discounting — running the clock backwards {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkC"}
+:::
 
 ## What is €10,000 in five years worth now?
 
@@ -181,7 +257,27 @@ For ever is worth only 2.3 times ten years. Everything after year ten adds €11
 
 12 minutes. Show the discount factor separately from the flow, every time.
 
-## [Block D]{.section-kicker} NPV — the decision itself {.section-slide background-color="#AF1F25"}
+## Four blocks today {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}What does compounding actually do?[simple · compound · e]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}Which of two quotes is cheaper?[the effective rate]{.blk-tool}
+:::
+::: {.blk .done}
+[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities]{.blk-tool}
+:::
+::: {.blk .now data-id="blkD"}
+[Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
+:::
+:::
+
+## [Block D]{.section-kicker} NPV — the decision itself {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkD"}
+:::
 
 ## Back to the assembly line
 

@@ -126,3 +126,20 @@ $presentation-block-margin: 14px;
 .reveal .slide-number { color: $muted; font-size: 0.42em; right: 1.6em; bottom: 0.9em; background: none; }
 .reveal .slide-logo { display: none; }
 .reveal .clipvideo { display: block; margin: 0.3em auto 0; max-width: 100%; max-height: 520px; border: 1px solid $rule; }
+
+// ---- Block hub: the four blocks as cards; the current one zooms into its section slide ----
+// Hub slide and section slide both carry auto-animate; the current card and the
+// .blk-fill div share a data-id, so reveal morphs the card into the full red frame.
+.reveal .blocks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6em; margin-top: 1.2em; }
+.reveal .blk { background: #faf9f6; border: 1px solid $rule; border-left: 4px solid $gold; padding: 0.8em 1em; color: $ink; min-height: 5.6em; box-sizing: border-box; }
+.reveal .blk p { margin: 0; font-size: 1em; line-height: 1.25; font-weight: 600; }
+.reveal .blk .blk-letter { display: block; font-size: 0.55em; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: $golddk; margin-bottom: 0.35em; }
+.reveal .blk .blk-tool { display: block; font-size: 0.68em; font-weight: 400; color: $muted; margin-top: 0.35em; }
+.reveal .blk.done { opacity: .55; border-left-color: $muted; }
+.reveal .blk.done .blk-letter::after { content: "  \2713"; color: $red; }
+.reveal .blk.now { background: $red; border-color: $red; color: #fff; }
+.reveal .blk.now .blk-letter, .reveal .blk.now .blk-tool { color: rgba(255,255,255,.8); }
+.reveal .blk .blk-answer { display: block; font-size: 0.72em; color: $red; font-weight: 400; margin-top: 0.35em; }
+.reveal .blk-fill { position: absolute; left: -60px; top: -60px; width: calc(100% + 120px); height: calc(100% + 120px); background: $red; z-index: -1; }
+.reveal .blk.recap { border-left-color: $red; }
+.reveal .blk.recap .blk-letter::after { content: "  \2713"; color: $red; }

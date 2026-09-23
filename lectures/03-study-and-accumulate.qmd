@@ -1,9 +1,28 @@
 ---
 title: "Studying a function, and adding one up"
 subtitle: "Week 3 · Thursday 8 October 2026 · 10:00–13:00"
-author: "Niccolò Salvini"
+author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
+
+## Last week, in one minute
+
+::: {.blocks}
+::: {.blk .recap}
+[Block A]{.blk-letter}What a function is, once you have to use one[Domain first, always — written as an interval]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block B]{.blk-letter}What happens near a point you cannot reach[0/0 → factor, cancel, substitute. Average cost falls towards €400, never below]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block C]{.blk-letter}What does one more bike do to profit?[$\pi'(q) = -8q + 1200$: the 81st bike adds €560; zero at 150]{.blk-answer}
+:::
+::: {.blk .recap}
+[Block D]{.blk-letter}From the marginal back to the total[Integrate, add + C, pin C with one known value]{.blk-answer}
+:::
+:::
+
+[Today the pieces become one procedure: the full study of a function — the whole midterm.]{.red}
 
 ## Where we are
 
@@ -48,7 +67,24 @@ The last block, integration, is the remaining two items of the final's calculus 
 
 The same profit function you already know, taken apart in the exam's order.
 
-## [Block A]{.section-kicker} The study, done properly {.section-slide background-color="#AF1F25"}
+## Three blocks today, then the quiz {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .now data-id="blkA"}
+[Block A]{.blk-letter}The study, done properly[the seven steps]{.blk-tool}
+:::
+::: {.blk .next}
+[Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What did all of them add up to?[integration]{.blk-tool}
+:::
+:::
+
+## [Block A]{.section-kicker} The study, done properly {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkA"}
+:::
 
 ## Step by step on a function you know
 
@@ -107,7 +143,24 @@ An **inflection** is where `f''` changes sign: the curve stops bending one way a
 
 15 minutes. This is the midterm's Q2 with different numbers. Write all seven steps, labelled.
 
-## [Block B]{.section-kicker} Optimisation, and what it is for {.section-slide background-color="#AF1F25"}
+## Three blocks today, then the quiz {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}The study, done properly[the seven steps]{.blk-tool}
+:::
+::: {.blk .now data-id="blkB"}
+[Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What did all of them add up to?[integration]{.blk-tool}
+:::
+:::
+
+## [Block B]{.section-kicker} Optimisation, and what it is for {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkB"}
+:::
 
 ## Where average cost is lowest
 
@@ -156,7 +209,24 @@ The second one has a lesson in it. Watch what changes and what does not.
 
 12 minutes. In D5 say what the firm should do, in a sentence, before you compute anything.
 
-## [Block C]{.section-kicker} Integration — adding up the marginal {.section-slide background-color="#AF1F25"}
+## Three blocks today, then the quiz {.hub auto-animate=true}
+
+::: {.blocks}
+::: {.blk .done}
+[Block A]{.blk-letter}The study, done properly[the seven steps]{.blk-tool}
+:::
+::: {.blk .done}
+[Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
+:::
+::: {.blk .now data-id="blkC"}
+[Block C]{.blk-letter}What did all of them add up to?[integration]{.blk-tool}
+:::
+:::
+
+## [Block C]{.section-kicker} Integration — adding up the marginal {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkC"}
+:::
 
 ## Every bike has its own price tag
 
