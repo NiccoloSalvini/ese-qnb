@@ -104,6 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -162,6 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#b.-duration-the-weighted-average-time-to-being-repaid" id="toc-b.-duration-the-weighted-average-time-to-being-repaid" class="nav-link" data-scroll-target="#b.-duration-the-weighted-average-time-to-being-repaid">B. Duration — the weighted average time to being repaid</a></li>
   <li><a href="#c.-convexity-the-gap-the-straight-line-misses" id="toc-c.-convexity-the-gap-the-straight-line-misses" class="nav-link" data-scroll-target="#c.-convexity-the-gap-the-straight-line-misses">C. Convexity — the gap the straight line misses</a></li>
   <li><a href="#d.-the-reserve-answered" id="toc-d.-the-reserve-answered" class="nav-link" data-scroll-target="#d.-the-reserve-answered">D. The reserve, answered</a></li>
+  <li><a href="#drills-solved-in-code" id="toc-drills-solved-in-code" class="nav-link" data-scroll-target="#drills-solved-in-code">Drills, solved in code</a></li>
   <li><a href="#homework-and-what-comes-next" id="toc-homework-and-what-comes-next" class="nav-link" data-scroll-target="#homework-and-what-comes-next">Homework and what comes next</a></li>
   </ul>
 </nav>
@@ -190,114 +220,533 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p><strong>European School of Economics · Thu 22 Oct 2026 · Tutor: Niccolò Salvini</strong></p>
 <p>Arno Bikes keeps <strong>€1M in bonds</strong>. The Board asks whether a one-point rise in rates should worry it. Two numbers answer that: duration and convexity.</p>
-<div id="6c472795" class="cell">
+<div id="5468ffa8" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.130686Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.130539Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.336402Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.335921Z&quot;}" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess, sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> plotly</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ImportError</span>:</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subprocess.run([sys.executable, <span class="st">"-m"</span>, <span class="st">"pip"</span>, <span class="st">"install"</span>, <span class="st">"-q"</span>, <span class="st">"plotly"</span>])</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np, plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np, pandas <span class="im">as</span> pd, plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> price(coupon, years, y, face<span class="op">=</span><span class="fl">100.0</span>):</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(coupon<span class="op">*</span>face<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> y)<span class="op">**</span>t <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, years <span class="op">+</span> <span class="dv">1</span>)) <span class="op">+</span> face<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> y)<span class="op">**</span>years</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ready"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ready</code></pre>
+</div>
 </div>
 <section id="a.-price-and-yield-move-in-opposite-directions" class="level2">
 <h2 class="anchored" data-anchor-id="a.-price-and-yield-move-in-opposite-directions">A. Price and yield move in opposite directions</h2>
-<div id="2a06a198" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'yield'</span><span class="sc">:&gt;7}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'5y 4</span><span class="sc">% c</span><span class="st">oupon'</span><span class="sc">:&gt;15}</span><span class="ss">"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> y <span class="kw">in</span> (<span class="fl">0.02</span>, <span class="fl">0.03</span>, <span class="fl">0.04</span>, <span class="fl">0.05</span>, <span class="fl">0.06</span>, <span class="fl">0.08</span>):</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> price(<span class="fl">0.04</span>, <span class="dv">5</span>, y)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    tag <span class="op">=</span> <span class="st">"premium"</span> <span class="cf">if</span> p <span class="op">&gt;</span> <span class="dv">100</span> <span class="cf">else</span> (<span class="st">"par"</span> <span class="cf">if</span> <span class="bu">abs</span>(p <span class="op">-</span> <span class="dv">100</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span> <span class="cf">else</span> <span class="st">"discount"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>y<span class="sc">:&gt;7.0%}</span><span class="ss"> </span><span class="sc">{</span>p<span class="sc">:&gt;15.2f}</span><span class="ss">   </span><span class="sc">{</span>tag<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="742ac27a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.337730Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.337599Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.340312Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.339575Z&quot;}" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'yield'</span><span class="sc">:&gt;7}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'5y 4</span><span class="sc">% c</span><span class="st">oupon'</span><span class="sc">:&gt;15}</span><span class="ss">"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> y <span class="kw">in</span> (<span class="fl">0.02</span>, <span class="fl">0.03</span>, <span class="fl">0.04</span>, <span class="fl">0.05</span>, <span class="fl">0.06</span>, <span class="fl">0.08</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> price(<span class="fl">0.04</span>, <span class="dv">5</span>, y)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    tag <span class="op">=</span> <span class="st">"premium"</span> <span class="cf">if</span> p <span class="op">&gt;</span> <span class="dv">100</span> <span class="cf">else</span> (<span class="st">"par"</span> <span class="cf">if</span> <span class="bu">abs</span>(p <span class="op">-</span> <span class="dv">100</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span> <span class="cf">else</span> <span class="st">"discount"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>y<span class="sc">:&gt;7.0%}</span><span class="ss"> </span><span class="sc">{</span>p<span class="sc">:&gt;15.2f}</span><span class="ss">   </span><span class="sc">{</span>tag<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  yield    5y 4% coupon
+     2%          109.43   premium
+     3%          104.58   premium
+     4%          100.00   par
+     5%           95.67   discount
+     6%           91.58   discount
+     8%           84.03   discount</code></pre>
+</div>
 </div>
 </section>
 <section id="b.-duration-the-weighted-average-time-to-being-repaid" class="level2">
 <h2 class="anchored" data-anchor-id="b.-duration-the-weighted-average-time-to-being-repaid">B. Duration — the weighted average time to being repaid</h2>
-<div id="616153c2" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> duration_table(coupon, years, y, face<span class="op">=</span><span class="fl">100.0</span>):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> price(coupon, years, y, face)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"P = </span><span class="sc">{</span>P<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'t'</span><span class="sc">:&gt;3}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'CF'</span><span class="sc">:&gt;8}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'PV'</span><span class="sc">:&gt;10}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'weight'</span><span class="sc">:&gt;9}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'t·w'</span><span class="sc">:&gt;9}</span><span class="ss">"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    mac <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, years <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        cf <span class="op">=</span> coupon<span class="op">*</span>face <span class="op">+</span> (face <span class="cf">if</span> t <span class="op">==</span> years <span class="cf">else</span> <span class="dv">0</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        pv <span class="op">=</span> cf<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> y)<span class="op">**</span>t</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        w <span class="op">=</span> pv<span class="op">/</span>P</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        mac <span class="op">+=</span> t<span class="op">*</span>w</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>t<span class="sc">:&gt;3}</span><span class="ss"> </span><span class="sc">{</span>cf<span class="sc">:&gt;8.2f}</span><span class="ss"> </span><span class="sc">{</span>pv<span class="sc">:&gt;10.2f}</span><span class="ss"> </span><span class="sc">{</span>w<span class="sc">:&gt;9.4f}</span><span class="ss"> </span><span class="sc">{</span>t<span class="op">*</span>w<span class="sc">:&gt;9.4f}</span><span class="ss">"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">''</span><span class="sc">:&gt;3}</span><span class="ss"> </span><span class="sc">{</span><span class="st">''</span><span class="sc">:&gt;8}</span><span class="ss"> </span><span class="sc">{</span>P<span class="sc">:&gt;10.2f}</span><span class="ss"> </span><span class="sc">{</span><span class="fl">1.0</span><span class="sc">:&gt;9.4f}</span><span class="ss"> </span><span class="sc">{</span>mac<span class="sc">:&gt;9.4f}</span><span class="ss">"</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Macaulay duration = </span><span class="sc">{</span>mac<span class="sc">:.4f}</span><span class="ss"> years"</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Modified duration = </span><span class="sc">{</span>mac<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>y)<span class="sc">:.4f}</span><span class="ss">  (% per 1% of yield)"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mac, mac<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> y)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>duration_table(<span class="fl">0.04</span>, <span class="dv">5</span>, <span class="fl">0.06</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d8b80b15" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.342044Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.341915Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.346747Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.346256Z&quot;}" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> duration_table(coupon, years, y, face<span class="op">=</span><span class="fl">100.0</span>):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> price(coupon, years, y, face)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"P = </span><span class="sc">{</span>P<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'t'</span><span class="sc">:&gt;3}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'CF'</span><span class="sc">:&gt;8}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'PV'</span><span class="sc">:&gt;10}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'weight'</span><span class="sc">:&gt;9}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'t·w'</span><span class="sc">:&gt;9}</span><span class="ss">"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    mac <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, years <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        cf <span class="op">=</span> coupon<span class="op">*</span>face <span class="op">+</span> (face <span class="cf">if</span> t <span class="op">==</span> years <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        pv <span class="op">=</span> cf<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> y)<span class="op">**</span>t</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        w <span class="op">=</span> pv<span class="op">/</span>P</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        mac <span class="op">+=</span> t<span class="op">*</span>w</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>t<span class="sc">:&gt;3}</span><span class="ss"> </span><span class="sc">{</span>cf<span class="sc">:&gt;8.2f}</span><span class="ss"> </span><span class="sc">{</span>pv<span class="sc">:&gt;10.2f}</span><span class="ss"> </span><span class="sc">{</span>w<span class="sc">:&gt;9.4f}</span><span class="ss"> </span><span class="sc">{</span>t<span class="op">*</span>w<span class="sc">:&gt;9.4f}</span><span class="ss">"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">''</span><span class="sc">:&gt;3}</span><span class="ss"> </span><span class="sc">{</span><span class="st">''</span><span class="sc">:&gt;8}</span><span class="ss"> </span><span class="sc">{</span>P<span class="sc">:&gt;10.2f}</span><span class="ss"> </span><span class="sc">{</span><span class="fl">1.0</span><span class="sc">:&gt;9.4f}</span><span class="ss"> </span><span class="sc">{</span>mac<span class="sc">:&gt;9.4f}</span><span class="ss">"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Macaulay duration = </span><span class="sc">{</span>mac<span class="sc">:.4f}</span><span class="ss"> years"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Modified duration = </span><span class="sc">{</span>mac<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>y)<span class="sc">:.4f}</span><span class="ss">  (% per 1% of yield)"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mac, mac<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> y)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>duration_table(<span class="fl">0.04</span>, <span class="dv">5</span>, <span class="fl">0.06</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P = 91.58
+  t       CF         PV    weight       t·w
+  1     4.00       3.77    0.0412    0.0412
+  2     4.00       3.56    0.0389    0.0777
+  3     4.00       3.36    0.0367    0.1100
+  4     4.00       3.17    0.0346    0.1384
+  5   104.00      77.71    0.8486    4.2432
+                  91.58    1.0000    4.6106
+Macaulay duration = 4.6106 years
+Modified duration = 4.3496  (% per 1% of yield)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>(4.610597655085093, 4.349620429325559)</code></pre>
+</div>
 </div>
 <section id="check" class="level3">
 <h3 class="anchored" data-anchor-id="check">🔍 CHECK</h3>
 <p>The weights column must sum to 1. On paper, if it does not, stop: something is wrong <em>before</em> the duration is.</p>
-<div id="c273d10e" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"What moves duration, other things equal:"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lab, (c, n, y) <span class="kw">in</span> {</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5y 4</span><span class="sc">% c</span><span class="st">oupon, y=6%"</span>: (<span class="fl">0.04</span>, <span class="dv">5</span>, <span class="fl">0.06</span>),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"10y 4</span><span class="sc">% c</span><span class="st">oupon, y=6%"</span>: (<span class="fl">0.04</span>, <span class="dv">10</span>, <span class="fl">0.06</span>),</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5y 8</span><span class="sc">% c</span><span class="st">oupon, y=6%"</span>: (<span class="fl">0.08</span>, <span class="dv">5</span>, <span class="fl">0.06</span>),</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5y 4</span><span class="sc">% c</span><span class="st">oupon, y=10%"</span>: (<span class="fl">0.04</span>, <span class="dv">5</span>, <span class="fl">0.10</span>),</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5y zero, y=6%"</span>: (<span class="fl">0.0</span>, <span class="dv">5</span>, <span class="fl">0.06</span>),</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>}.items():</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> price(c, n, y)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    mac <span class="op">=</span> <span class="bu">sum</span>(t<span class="op">*</span>((c<span class="op">*</span><span class="dv">100</span> <span class="op">+</span> (<span class="dv">100</span> <span class="cf">if</span> t <span class="op">==</span> n <span class="cf">else</span> <span class="dv">0</span>))<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> y)<span class="op">**</span>t) <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>))<span class="op">/</span>P</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>lab<span class="sc">:&lt;22}</span><span class="ss"> Macaulay </span><span class="sc">{</span>mac<span class="sc">:5.2f}</span><span class="ss">"</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Longer maturity raises it. A bigger coupon lowers it. A higher yield lowers it. A zero's duration is its maturity."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="da2bdc5b" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.348012Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.347934Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.350844Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.350362Z&quot;}" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"What moves duration, other things equal:"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lab, (c, n, y) <span class="kw">in</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5y 4</span><span class="sc">% c</span><span class="st">oupon, y=6%"</span>: (<span class="fl">0.04</span>, <span class="dv">5</span>, <span class="fl">0.06</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"10y 4</span><span class="sc">% c</span><span class="st">oupon, y=6%"</span>: (<span class="fl">0.04</span>, <span class="dv">10</span>, <span class="fl">0.06</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5y 8</span><span class="sc">% c</span><span class="st">oupon, y=6%"</span>: (<span class="fl">0.08</span>, <span class="dv">5</span>, <span class="fl">0.06</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5y 4</span><span class="sc">% c</span><span class="st">oupon, y=10%"</span>: (<span class="fl">0.04</span>, <span class="dv">5</span>, <span class="fl">0.10</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"5y zero, y=6%"</span>: (<span class="fl">0.0</span>, <span class="dv">5</span>, <span class="fl">0.06</span>),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>}.items():</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> price(c, n, y)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    mac <span class="op">=</span> <span class="bu">sum</span>(t<span class="op">*</span>((c<span class="op">*</span><span class="dv">100</span> <span class="op">+</span> (<span class="dv">100</span> <span class="cf">if</span> t <span class="op">==</span> n <span class="cf">else</span> <span class="dv">0</span>))<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> y)<span class="op">**</span>t) <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>))<span class="op">/</span>P</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>lab<span class="sc">:&lt;22}</span><span class="ss"> Macaulay </span><span class="sc">{</span>mac<span class="sc">:5.2f}</span><span class="ss">"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Longer maturity raises it. A bigger coupon lowers it. A higher yield lowers it. A zero's duration is its maturity."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>What moves duration, other things equal:
+  5y 4% coupon, y=6%     Macaulay  4.61
+  10y 4% coupon, y=6%    Macaulay  8.28
+  5y 8% coupon, y=6%     Macaulay  4.34
+  5y 4% coupon, y=10%    Macaulay  4.57
+  5y zero, y=6%          Macaulay  5.00
+
+Longer maturity raises it. A bigger coupon lowers it. A higher yield lowers it. A zero's duration is its maturity.</code></pre>
+</div>
 </div>
 </section>
 </section>
 <section id="c.-convexity-the-gap-the-straight-line-misses" class="level2">
 <h2 class="anchored" data-anchor-id="c.-convexity-the-gap-the-straight-line-misses">C. Convexity — the gap the straight line misses</h2>
-<div id="6586a2c9" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>P0, y0 <span class="op">=</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, <span class="fl">0.05</span>), <span class="fl">0.05</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">1e-6</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>slope <span class="op">=</span> (price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">+</span> h) <span class="op">-</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">-</span> h))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>h)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>dmod <span class="op">=</span> <span class="op">-</span>slope<span class="op">/</span>P0</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>hh <span class="op">=</span> <span class="fl">1e-4</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>conv <span class="op">=</span> (price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">+</span> hh) <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>P0 <span class="op">+</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">-</span> hh))<span class="op">/</span>(hh<span class="op">*</span>hh<span class="op">*</span>P0)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10-year 5% bond at par: P = </span><span class="sc">{</span>P0<span class="sc">:.2f}</span><span class="ss">, modified duration = </span><span class="sc">{</span>dmod<span class="sc">:.4f}</span><span class="ss">, convexity = </span><span class="sc">{</span>conv<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> np.linspace(<span class="fl">0.01</span>, <span class="fl">0.10</span>, <span class="dv">300</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>fig.add_scatter(x<span class="op">=</span>ys<span class="op">*</span><span class="dv">100</span>, y<span class="op">=</span>[price(<span class="fl">0.05</span>, <span class="dv">10</span>, v) <span class="cf">for</span> v <span class="kw">in</span> ys], name<span class="op">=</span><span class="st">"the bond"</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#363636"</span>, width<span class="op">=</span><span class="dv">3</span>))</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>fig.add_scatter(x<span class="op">=</span>ys<span class="op">*</span><span class="dv">100</span>, y<span class="op">=</span>P0 <span class="op">+</span> slope<span class="op">*</span>(ys <span class="op">-</span> y0), name<span class="op">=</span><span class="st">"what duration predicts"</span>,</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#AF1F25"</span>, width<span class="op">=</span><span class="dv">2</span>, dash<span class="op">=</span><span class="st">"dash"</span>))</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>fig.add_scatter(x<span class="op">=</span>[y0<span class="op">*</span><span class="dv">100</span>], y<span class="op">=</span>[P0], mode<span class="op">=</span><span class="st">"markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">13</span>, color<span class="op">=</span><span class="st">"#CDBA80"</span>), showlegend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template<span class="op">=</span><span class="st">"simple_white"</span>, height<span class="op">=</span><span class="dv">460</span>, xaxis_title<span class="op">=</span><span class="st">"yield %"</span>, yaxis_title<span class="op">=</span><span class="st">"price €"</span>)</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dy <span class="kw">in</span> (<span class="fl">0.005</span>, <span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="op">-</span><span class="fl">0.02</span>):</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    actual <span class="op">=</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">+</span> dy)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    dur_only <span class="op">=</span> P0<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> dmod<span class="op">*</span>dy)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    both <span class="op">=</span> P0<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> dmod<span class="op">*</span>dy <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>conv<span class="op">*</span>dy<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Δy = </span><span class="sc">{</span>dy<span class="sc">:+.1%}</span><span class="ss">  actual </span><span class="sc">{</span>actual<span class="sc">:7.2f}</span><span class="ss">   duration only </span><span class="sc">{</span>dur_only<span class="sc">:7.2f}</span><span class="ss">   + convexity </span><span class="sc">{</span>both<span class="sc">:7.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="550402d9" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.352042Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.351962Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.505164Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.504705Z&quot;}" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>P0, y0 <span class="op">=</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, <span class="fl">0.05</span>), <span class="fl">0.05</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">1e-6</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>slope <span class="op">=</span> (price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">+</span> h) <span class="op">-</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">-</span> h))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>h)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dmod <span class="op">=</span> <span class="op">-</span>slope<span class="op">/</span>P0</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>hh <span class="op">=</span> <span class="fl">1e-4</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>conv <span class="op">=</span> (price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">+</span> hh) <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>P0 <span class="op">+</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">-</span> hh))<span class="op">/</span>(hh<span class="op">*</span>hh<span class="op">*</span>P0)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10-year 5% bond at par: P = </span><span class="sc">{</span>P0<span class="sc">:.2f}</span><span class="ss">, modified duration = </span><span class="sc">{</span>dmod<span class="sc">:.4f}</span><span class="ss">, convexity = </span><span class="sc">{</span>conv<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> np.linspace(<span class="fl">0.01</span>, <span class="fl">0.10</span>, <span class="dv">300</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>fig.add_scatter(x<span class="op">=</span>ys<span class="op">*</span><span class="dv">100</span>, y<span class="op">=</span>[price(<span class="fl">0.05</span>, <span class="dv">10</span>, v) <span class="cf">for</span> v <span class="kw">in</span> ys], name<span class="op">=</span><span class="st">"the bond"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#363636"</span>, width<span class="op">=</span><span class="dv">3</span>))</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>fig.add_scatter(x<span class="op">=</span>ys<span class="op">*</span><span class="dv">100</span>, y<span class="op">=</span>P0 <span class="op">+</span> slope<span class="op">*</span>(ys <span class="op">-</span> y0), name<span class="op">=</span><span class="st">"what duration predicts"</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#AF1F25"</span>, width<span class="op">=</span><span class="dv">2</span>, dash<span class="op">=</span><span class="st">"dash"</span>))</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>fig.add_scatter(x<span class="op">=</span>[y0<span class="op">*</span><span class="dv">100</span>], y<span class="op">=</span>[P0], mode<span class="op">=</span><span class="st">"markers"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">13</span>, color<span class="op">=</span><span class="st">"#CDBA80"</span>), showlegend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template<span class="op">=</span><span class="st">"simple_white"</span>, height<span class="op">=</span><span class="dv">460</span>, xaxis_title<span class="op">=</span><span class="st">"yield %"</span>, yaxis_title<span class="op">=</span><span class="st">"price €"</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dy <span class="kw">in</span> (<span class="fl">0.005</span>, <span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="op">-</span><span class="fl">0.02</span>):</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    actual <span class="op">=</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, y0 <span class="op">+</span> dy)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    dur_only <span class="op">=</span> P0<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> dmod<span class="op">*</span>dy)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    both <span class="op">=</span> P0<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> dmod<span class="op">*</span>dy <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>conv<span class="op">*</span>dy<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Δy = </span><span class="sc">{</span>dy<span class="sc">:+.1%}</span><span class="ss">  actual </span><span class="sc">{</span>actual<span class="sc">:7.2f}</span><span class="ss">   duration only </span><span class="sc">{</span>dur_only<span class="sc">:7.2f}</span><span class="ss">   + convexity </span><span class="sc">{</span>both<span class="sc">:7.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10-year 5% bond at par: P = 100.00, modified duration = 7.7217, convexity = 75.00</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Δy = +0.5%  actual   96.23   duration only   96.14   + convexity   96.23
+Δy = +1.0%  actual   92.64   duration only   92.28   + convexity   92.65
+Δy = +2.0%  actual   85.95   duration only   84.56   + convexity   86.06
+Δy = -2.0%  actual  117.06   duration only  115.44   + convexity  116.94</code></pre>
+</div>
 </div>
 <p><strong>Duration alone overstates the loss and understates the gain.</strong> The curve is above the line on both sides.</p>
 </section>
 <section id="d.-the-reserve-answered" class="level2">
 <h2 class="anchored" data-anchor-id="d.-the-reserve-answered">D. The reserve, answered</h2>
-<div id="113af3cb" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>holdings <span class="op">=</span> [(<span class="st">"10-year 5% at par"</span>, <span class="dv">400_000</span>, <span class="fl">7.72</span>), (<span class="st">"2-year"</span>, <span class="dv">600_000</span>, <span class="fl">1.90</span>)]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(v <span class="cf">for</span> _, v, _ <span class="kw">in</span> holdings)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>dport <span class="op">=</span> <span class="bu">sum</span>(v<span class="op">/</span>total<span class="op">*</span>d <span class="cf">for</span> _, v, d <span class="kw">in</span> holdings)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"portfolio modified duration = </span><span class="sc">{</span>dport<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> shift <span class="kw">in</span> (<span class="fl">0.01</span>, <span class="fl">0.005</span>, <span class="op">-</span><span class="fl">0.01</span>):</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  yields </span><span class="sc">{</span>shift<span class="sc">:+.1%}</span><span class="ss">  →  </span><span class="sc">{</span><span class="op">-</span>dport<span class="op">*</span>shift<span class="op">*</span>total<span class="sc">:&gt;12,.0f}</span><span class="ss"> €"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="868c400b" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.506805Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.506696Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.508954Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.508594Z&quot;}" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>holdings <span class="op">=</span> [(<span class="st">"10-year 5% at par"</span>, <span class="dv">400_000</span>, <span class="fl">7.72</span>), (<span class="st">"2-year"</span>, <span class="dv">600_000</span>, <span class="fl">1.90</span>)]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="bu">sum</span>(v <span class="cf">for</span> _, v, _ <span class="kw">in</span> holdings)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>dport <span class="op">=</span> <span class="bu">sum</span>(v<span class="op">/</span>total<span class="op">*</span>d <span class="cf">for</span> _, v, d <span class="kw">in</span> holdings)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"portfolio modified duration = </span><span class="sc">{</span>dport<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> shift <span class="kw">in</span> (<span class="fl">0.01</span>, <span class="fl">0.005</span>, <span class="op">-</span><span class="fl">0.01</span>):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  yields </span><span class="sc">{</span>shift<span class="sc">:+.1%}</span><span class="ss">  →  </span><span class="sc">{</span><span class="op">-</span>dport<span class="op">*</span>shift<span class="op">*</span>total<span class="sc">:&gt;12,.0f}</span><span class="ss"> €"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>portfolio modified duration = 4.228
+  yields +1.0%  →       -42,280 €
+  yields +0.5%  →       -21,140 €
+  yields -1.0%  →        42,280 €</code></pre>
+</div>
 </div>
 <section id="the-sentence-for-the-board" class="level3">
 <h3 class="anchored" data-anchor-id="the-sentence-for-the-board">The sentence for the Board</h3>
 <blockquote class="blockquote">
-<p>“A one-point rise costs the reserve about €42,000, a little over 4%. The exposure sits almost entirely in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this.”</p>
+<p>“A one-point rise costs the reserve about €42,000, a little over 4%. About three quarters of the exposure sits in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this.”</p>
 </blockquote>
 </section>
+</section>
+<section id="drills-solved-in-code" class="level2">
+<h2 class="anchored" data-anchor-id="drills-solved-in-code">Drills, solved in code</h2>
+<p>This section is an optional companion: the code is not examined, but reading it is recommended. Every drill in <code>drills.md</code> is solved here in Python, one cell per question. Do the drill on paper first, then run the cell and compare your numbers with the output.</p>
+<div id="29641d84" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.510413Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.510315Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.513780Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.512961Z&quot;}" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two helpers used below. `close` checks our result against drills.md.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> close(value, expected, tol<span class="op">=</span><span class="fl">0.01</span>):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">abs</span>(value <span class="op">-</span> expected) <span class="op">&lt;=</span> tol, <span class="ss">f"got </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">, drills.md says </span><span class="sc">{</span>expected<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cash_flow_table(coupon, years, y, face<span class="op">=</span><span class="fl">100.0</span>):</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># One row per year: time, cash flow, discount factor, present value, t × PV</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.arange(<span class="dv">1</span>, years <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    cf <span class="op">=</span> np.full(years, coupon <span class="op">*</span> face)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    cf[<span class="op">-</span><span class="dv">1</span>] <span class="op">+=</span> face                        <span class="co"># the face value comes back at maturity</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> y) <span class="op">**</span> t                 <span class="co"># discount factor</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    table <span class="op">=</span> pd.DataFrame({<span class="st">"t"</span>: t, <span class="st">"CF"</span>: cf, <span class="st">"discount factor"</span>: df, <span class="st">"PV"</span>: cf <span class="op">*</span> df})</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    table[<span class="st">"t·PV"</span>] <span class="op">=</span> table[<span class="st">"t"</span>] <span class="op">*</span> table[<span class="st">"PV"</span>]</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> table</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"helpers ready"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>helpers ready</code></pre>
+</div>
+</div>
+<p><strong>D1 (a).</strong> A 5-year bond, 4% annual coupon, face €100, yield 6%. Write the price as a sum.</p>
+<p><span class="math display">\[P = \sum_{t=1}^{5} \frac{4}{(1.06)^t} + \frac{100}{(1.06)^5}\]</span></p>
+<div id="154c82ed" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.515831Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.515732Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.519626Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.518706Z&quot;}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>coupon, face, y, years <span class="op">=</span> <span class="fl">0.04</span>, <span class="dv">100</span>, <span class="fl">0.06</span>, <span class="dv">5</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Each term of the sum is one cash flow divided by (1 + y)^t</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>terms <span class="op">=</span> [coupon <span class="op">*</span> face <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> y) <span class="op">**</span> t <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, years <span class="op">+</span> <span class="dv">1</span>)]</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>terms.append(face <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> y) <span class="op">**</span> years)     <span class="co"># the face value, repaid in year 5</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, pv <span class="kw">in</span> <span class="bu">enumerate</span>(terms, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> <span class="ss">f"coupon year </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> i <span class="op">&lt;=</span> years <span class="cf">else</span> <span class="st">"face value, year 5"</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>label<span class="sc">:&lt;20}</span><span class="ss"> </span><span class="sc">{</span>pv<span class="sc">:6.2f}</span><span class="ss">"</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The price is the sum of these </span><span class="sc">{</span><span class="bu">len</span>(terms)<span class="sc">}</span><span class="ss"> present values."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>coupon year 1          3.77
+coupon year 2          3.56
+coupon year 3          3.36
+coupon year 4          3.17
+coupon year 5          2.99
+face value, year 5    74.73
+The price is the sum of these 6 present values.</code></pre>
+</div>
+</div>
+<p><strong>D1 (b).</strong> Compute the price.</p>
+<p><span class="math display">\[P = 4 \times \frac{1-(1.06)^{-5}}{0.06} + \frac{100}{(1.06)^5}\]</span></p>
+<div id="1a494df2" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.521574Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.521450Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.524256Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.523740Z&quot;}" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>coupon, face, y, years <span class="op">=</span> <span class="fl">0.04</span>, <span class="dv">100</span>, <span class="fl">0.06</span>, <span class="dv">5</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>annuity_factor <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> y) <span class="op">**</span> <span class="op">-</span>years) <span class="op">/</span> y        <span class="co"># 4.212364</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>coupons_pv <span class="op">=</span> coupon <span class="op">*</span> face <span class="op">*</span> annuity_factor         <span class="co"># 16.85</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>face_pv <span class="op">=</span> face <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> y) <span class="op">**</span> years                   <span class="co"># 74.73</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>P_d1 <span class="op">=</span> coupons_pv <span class="op">+</span> face_pv</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"annuity factor </span><span class="sc">{</span>annuity_factor<span class="sc">:.6f}</span><span class="ss">, coupons </span><span class="sc">{</span>coupons_pv<span class="sc">:.2f}</span><span class="ss">, face </span><span class="sc">{</span>face_pv<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>close(annuity_factor, <span class="fl">4.212364</span>, <span class="fl">1e-6</span>)<span class="op">;</span> close(coupons_pv, <span class="fl">16.85</span>)<span class="op">;</span> close(face_pv, <span class="fl">74.73</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>close(P_d1, <span class="fl">91.58</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The bond's price is €</span><span class="sc">{</span>P_d1<span class="sc">:.2f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>annuity factor 4.212364, coupons 16.85, face 74.73
+The bond's price is €91.58.</code></pre>
+</div>
+</div>
+<p><strong>D1 (c).</strong> Is it at a premium or a discount, and why?</p>
+<div id="a15c726e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.525591Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.525480Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.528136Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.527471Z&quot;}" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>coupon, y <span class="op">=</span> <span class="fl">0.04</span>, <span class="fl">0.06</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>status <span class="op">=</span> <span class="st">"premium"</span> <span class="cf">if</span> coupon <span class="op">&gt;</span> y <span class="cf">else</span> (<span class="st">"par"</span> <span class="cf">if</span> coupon <span class="op">==</span> y <span class="cf">else</span> <span class="st">"discount"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> status <span class="op">==</span> <span class="st">"discount"</span> <span class="kw">and</span> P_d1 <span class="op">&lt;</span> <span class="dv">100</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"A </span><span class="sc">{</span>status<span class="sc">}</span><span class="ss">: the bond pays </span><span class="sc">{</span>coupon<span class="sc">:.0%}</span><span class="ss"> on its face while the market demands </span><span class="sc">{</span>y<span class="sc">:.0%}</span><span class="ss">, "</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"so it must sell below €100 (here €</span><span class="sc">{</span>P_d1<span class="sc">:.2f}</span><span class="ss">) to make up the difference."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A discount: the bond pays 4% on its face while the market demands 6%, so it must sell below €100 (here €91.58) to make up the difference.</code></pre>
+</div>
+</div>
+<p><strong>D2 (a).</strong> The same bond (5 years, 4% coupon) at a yield of 4%, then at 2%. Both prices.</p>
+<div id="67a437ba" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.529710Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.529586Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.532939Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.532066Z&quot;}" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>coupon, face, years <span class="op">=</span> <span class="fl">0.04</span>, <span class="dv">100</span>, <span class="dv">5</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> y, expected <span class="kw">in</span> [(<span class="fl">0.04</span>, <span class="fl">100.00</span>), (<span class="fl">0.02</span>, <span class="fl">109.43</span>)]:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    annuity_factor <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> y) <span class="op">**</span> <span class="op">-</span>years) <span class="op">/</span> y</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    coupons_pv <span class="op">=</span> coupon <span class="op">*</span> face <span class="op">*</span> annuity_factor</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    face_pv <span class="op">=</span> face <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> y) <span class="op">**</span> years</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> coupons_pv <span class="op">+</span> face_pv</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"yield </span><span class="sc">{</span>y<span class="sc">:.0%}</span><span class="ss">: </span><span class="sc">{</span>coupon<span class="op">*</span>face<span class="sc">:.0f}</span><span class="ss"> × </span><span class="sc">{</span>annuity_factor<span class="sc">:.6f}</span><span class="ss"> + </span><span class="sc">{</span>face_pv<span class="sc">:.2f}</span><span class="ss"> = €</span><span class="sc">{</span>P<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    close(P, expected)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"At 4% the bond is at par (€100.00); at 2% it costs €</span><span class="sc">{</span>P<span class="sc">:.2f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>yield 4%: 4 × 4.451822 + 82.19 = €100.00
+yield 2%: 4 × 4.713460 + 90.57 = €109.43
+At 4% the bond is at par (€100.00); at 2% it costs €109.43.</code></pre>
+</div>
+</div>
+<p><strong>D2 (b).</strong> State the rule that connects coupon, yield and price.</p>
+<div id="ed9c6739" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.534949Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.534805Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.539660Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.539205Z&quot;}" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>coupon <span class="op">=</span> <span class="fl">0.04</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> y <span class="kw">in</span> (<span class="fl">0.02</span>, <span class="fl">0.04</span>, <span class="fl">0.06</span>):</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> price(coupon, <span class="dv">5</span>, y)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    status <span class="op">=</span> <span class="st">"premium"</span> <span class="cf">if</span> P <span class="op">&gt;</span> <span class="dv">100</span> <span class="op">+</span> <span class="fl">1e-9</span> <span class="cf">else</span> (<span class="st">"par"</span> <span class="cf">if</span> <span class="bu">abs</span>(P <span class="op">-</span> <span class="dv">100</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span> <span class="cf">else</span> <span class="st">"discount"</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    rows.append({<span class="st">"coupon"</span>: coupon, <span class="st">"yield"</span>: y, <span class="st">"price"</span>: <span class="bu">round</span>(P, <span class="dv">2</span>), <span class="st">"status"</span>: status})</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.DataFrame(rows).to_string(index<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> [r[<span class="st">"status"</span>] <span class="cf">for</span> r <span class="kw">in</span> rows] <span class="op">==</span> [<span class="st">"premium"</span>, <span class="st">"par"</span>, <span class="st">"discount"</span>]</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Rule: coupon &gt; yield → premium; coupon = yield → par; coupon &lt; yield → discount. "</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Price and yield always move in opposite directions."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> coupon  yield  price   status
+   0.04   0.02 109.43  premium
+   0.04   0.04 100.00      par
+   0.04   0.06  91.58 discount
+Rule: coupon &gt; yield → premium; coupon = yield → par; coupon &lt; yield → discount. Price and yield always move in opposite directions.</code></pre>
+</div>
+</div>
+<p><strong>D3 (resit form).</strong> A bond trades <strong>above</strong> par. Therefore: (i) its coupon is above its yield (ii) its yield is above its coupon (iii) it must be close to maturity.</p>
+<div id="e8abd402" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.540913Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.540835Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.543346Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.543002Z&quot;}" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check each alternative on a 4% coupon bond at a few yields and maturities</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>premium_cases <span class="op">=</span> [(y, n) <span class="cf">for</span> y <span class="kw">in</span> (<span class="fl">0.02</span>, <span class="fl">0.04</span>, <span class="fl">0.06</span>) <span class="cf">for</span> n <span class="kw">in</span> (<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">30</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>                 <span class="cf">if</span> price(<span class="fl">0.04</span>, n, y) <span class="op">&gt;</span> <span class="dv">100</span> <span class="op">+</span> <span class="fl">1e-9</span>]</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Above par only when (yield, years) ="</span>, premium_cases)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(y <span class="op">&lt;</span> <span class="fl">0.04</span> <span class="cf">for</span> y, _ <span class="kw">in</span> premium_cases)          <span class="co"># (i) always holds</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">any</span>(n <span class="op">==</span> <span class="dv">30</span> <span class="cf">for</span> _, n <span class="kw">in</span> premium_cases)           <span class="co"># (iii) fails: 30 years out, still a premium</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Answer (i): its coupon is above its yield — investors pay more than face "</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"only to obtain a coupon better than the going rate."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Above par only when (yield, years) = [(0.02, 2), (0.02, 10), (0.02, 30)]
+Answer (i): its coupon is above its yield — investors pay more than face only to obtain a coupon better than the going rate.</code></pre>
+</div>
+</div>
+<p><strong>D4 (a).</strong> A zero-coupon bond pays €100 in 8 years. The yield is 5%. Its price today.</p>
+<p><span class="math display">\[P = \frac{100}{(1.05)^8}\]</span></p>
+<div id="146e31f2" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.545053Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.544939Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.547557Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.546984Z&quot;}" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>face, years, y <span class="op">=</span> <span class="dv">100</span>, <span class="dv">8</span>, <span class="fl">0.05</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>growth <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> y) <span class="op">**</span> years             <span class="co"># 1.477455</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>P_zero_5 <span class="op">=</span> face <span class="op">/</span> growth</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>close(growth, <span class="fl">1.477455</span>, <span class="fl">1e-6</span>)<span class="op">;</span> close(P_zero_5, <span class="fl">67.68</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(1.05)^8 = </span><span class="sc">{</span>growth<span class="sc">:.6f}</span><span class="ss">, so the price is €</span><span class="sc">{</span>P_zero_5<span class="sc">:.2f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1.05)^8 = 1.477455, so the price is €67.68.</code></pre>
+</div>
+</div>
+<p><strong>D4 (b).</strong> If the yield rises to 6%, the new price and the percentage change.</p>
+<div id="9a0b5a67" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.550059Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.549911Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.552890Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.552033Z&quot;}" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>face, years, y_new <span class="op">=</span> <span class="dv">100</span>, <span class="dv">8</span>, <span class="fl">0.06</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>growth <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> y_new) <span class="op">**</span> years         <span class="co"># 1.593848</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>P_zero_6 <span class="op">=</span> face <span class="op">/</span> growth</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>pct_change <span class="op">=</span> (<span class="bu">round</span>(P_zero_6, <span class="dv">2</span>) <span class="op">-</span> <span class="bu">round</span>(P_zero_5, <span class="dv">2</span>)) <span class="op">/</span> <span class="bu">round</span>(P_zero_5, <span class="dv">2</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>close(growth, <span class="fl">1.593848</span>, <span class="fl">1e-6</span>)<span class="op">;</span> close(P_zero_6, <span class="fl">62.74</span>)<span class="op">;</span> close(pct_change, <span class="op">-</span><span class="fl">0.0730</span>, <span class="fl">1e-4</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"New price €</span><span class="sc">{</span>P_zero_6<span class="sc">:.2f}</span><span class="ss">; change (</span><span class="sc">{</span>P_zero_6<span class="sc">:.2f}</span><span class="ss"> − </span><span class="sc">{</span>P_zero_5<span class="sc">:.2f}</span><span class="ss">)/</span><span class="sc">{</span>P_zero_5<span class="sc">:.2f}</span><span class="ss"> = </span><span class="sc">{</span>pct_change<span class="sc">:.2%}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>New price €62.74; change (62.74 − 67.68)/67.68 = -7.30%.</code></pre>
+</div>
+</div>
+<p><strong>D5 (a).</strong> For the 5-year 4% bond priced at a 6% yield (D1): compute Macaulay duration, showing the weight of each cash flow.</p>
+<p><span class="math display">\[D = \sum_t t \cdot w_t, \qquad w_t = \frac{PV_t}{P}\]</span></p>
+<div id="684a588a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.554633Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.554535Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.559747Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.559227Z&quot;}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> cash_flow_table(<span class="fl">0.04</span>, <span class="dv">5</span>, <span class="fl">0.06</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> table[<span class="st">"PV"</span>].<span class="bu">sum</span>()</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>table[<span class="st">"weight"</span>] <span class="op">=</span> table[<span class="st">"PV"</span>] <span class="op">/</span> P</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>table[<span class="st">"t·w"</span>] <span class="op">=</span> table[<span class="st">"t"</span>] <span class="op">*</span> table[<span class="st">"weight"</span>]</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(table.<span class="bu">round</span>(<span class="dv">4</span>).to_string(index<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"sum of PV = </span><span class="sc">{</span>P<span class="sc">:.2f}</span><span class="ss">, sum of weights = </span><span class="sc">{</span>table[<span class="st">'weight'</span>]<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>D_mac <span class="op">=</span> table[<span class="st">"t·w"</span>].<span class="bu">sum</span>()              <span class="co"># same as table["t·PV"].sum() / P</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>close(table[<span class="st">"weight"</span>].<span class="bu">sum</span>(), <span class="fl">1.0</span>, <span class="fl">1e-9</span>)<span class="op">;</span> close(D_mac, <span class="fl">4.611</span>, <span class="fl">0.001</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Macaulay duration = </span><span class="sc">{</span>D_mac<span class="sc">:.2f}</span><span class="ss"> years: the PV-weighted average time to being repaid, "</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"under five because the coupons come back earlier."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> t    CF  discount factor      PV     t·PV  weight    t·w
+ 1   4.0           0.9434  3.7736   3.7736  0.0412 0.0412
+ 2   4.0           0.8900  3.5600   7.1200  0.0389 0.0777
+ 3   4.0           0.8396  3.3585  10.0754  0.0367 0.1100
+ 4   4.0           0.7921  3.1684  12.6735  0.0346 0.1384
+ 5 104.0           0.7473 77.7148 388.5742  0.8486 4.2432
+sum of PV = 91.58, sum of weights = 1.0000
+Macaulay duration = 4.61 years: the PV-weighted average time to being repaid, under five because the coupons come back earlier.</code></pre>
+</div>
+</div>
+<p><strong>D5 (b).</strong> Convert it to modified duration.</p>
+<p><span class="math display">\[D_{mod} = \frac{D}{1+y}\]</span></p>
+<div id="6135f9f7" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.561034Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.560937Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.563317Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.562901Z&quot;}" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">0.06</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>D_mod <span class="op">=</span> D_mac <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> y)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>close(D_mod, <span class="fl">4.350</span>, <span class="fl">0.001</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Modified duration = </span><span class="sc">{</span>D_mac<span class="sc">:.4f}</span><span class="ss"> / </span><span class="sc">{</span><span class="dv">1</span> <span class="op">+</span> y<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>D_mod<span class="sc">:.3f}</span><span class="ss"> (drills.md: 4.611/1.06 = 4.350)."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Modified duration = 4.6106 / 1.06 = 4.350 (drills.md: 4.611/1.06 = 4.350).</code></pre>
+</div>
+</div>
+<p><strong>D5 (c).</strong> Estimate the price change if the yield rises by 50 basis points.</p>
+<p><span class="math display">\[\frac{\Delta P}{P} \approx -D_{mod}\,\Delta y\]</span></p>
+<div id="077df3ae" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.564504Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.564413Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.566886Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.566413Z&quot;}" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>dy <span class="op">=</span> <span class="fl">0.005</span>                              <span class="co"># 50 basis points</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>pct <span class="op">=</span> <span class="op">-</span>D_mod <span class="op">*</span> dy                       <span class="co"># −2.17%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>dP <span class="op">=</span> <span class="bu">round</span>(pct <span class="op">*</span> P_d1, <span class="dv">2</span>)               <span class="co"># rounded to the cent, as on paper: −1.99</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>P_new <span class="op">=</span> <span class="bu">round</span>(P_d1, <span class="dv">2</span>) <span class="op">+</span> dP</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>close(pct, <span class="op">-</span><span class="fl">0.02175</span>, <span class="fl">1e-4</span>)<span class="op">;</span> close(dP, <span class="op">-</span><span class="fl">1.99</span>)<span class="op">;</span> close(P_new, <span class="fl">89.59</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ΔP/P ≈ −</span><span class="sc">{</span>D_mod<span class="sc">:.3f}</span><span class="ss"> × </span><span class="sc">{</span>dy<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>pct<span class="sc">:.2%}</span><span class="ss">, i.e. about −€</span><span class="sc">{</span><span class="op">-</span>dP<span class="sc">:.2f}</span><span class="ss">, "</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"giving roughly €</span><span class="sc">{</span>P_new<span class="sc">:.2f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ΔP/P ≈ −4.350 × 0.005 = -2.17%, i.e. about −€1.99, giving roughly €89.59.</code></pre>
+</div>
+</div>
+<p><strong>D6 (a).</strong> A 10-year bond with a 5% coupon trades at par (yield 5%). Its modified duration is 7.72. Estimate the new price if the yield rises to 6%.</p>
+<div id="24423301" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.568996Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.568797Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.572982Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.572482Z&quot;}" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>P0, D_mod_10, dy <span class="op">=</span> <span class="dv">100</span>, <span class="fl">7.72</span>, <span class="fl">0.01</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the given 7.72 from the cash flows (Macaulay / (1 + y))</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> cash_flow_table(<span class="fl">0.05</span>, <span class="dv">10</span>, <span class="fl">0.05</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(table.<span class="bu">round</span>(<span class="dv">4</span>).to_string(index<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>close(table[<span class="st">"t·PV"</span>].<span class="bu">sum</span>() <span class="op">/</span> table[<span class="st">"PV"</span>].<span class="bu">sum</span>() <span class="op">/</span> <span class="fl">1.05</span>, <span class="fl">7.72</span>, <span class="fl">0.005</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>P_dur_only <span class="op">=</span> P0 <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> D_mod_10 <span class="op">*</span> dy)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>close(P_dur_only, <span class="fl">92.28</span>)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ΔP/P ≈ −</span><span class="sc">{</span>D_mod_10<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>dy<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span><span class="op">-</span>D_mod_10<span class="op">*</span>dy<span class="sc">:.2%}</span><span class="ss">, so P ≈ €</span><span class="sc">{</span>P_dur_only<span class="sc">:.2f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> t    CF  discount factor      PV     t·PV
+ 1   5.0           0.9524  4.7619   4.7619
+ 2   5.0           0.9070  4.5351   9.0703
+ 3   5.0           0.8638  4.3192  12.9576
+ 4   5.0           0.8227  4.1135  16.4540
+ 5   5.0           0.7835  3.9176  19.5882
+ 6   5.0           0.7462  3.7311  22.3865
+ 7   5.0           0.7107  3.5534  24.8738
+ 8   5.0           0.6768  3.3842  27.0736
+ 9   5.0           0.6446  3.2230  29.0074
+10 105.0           0.6139 64.4609 644.6089
+ΔP/P ≈ −7.72 × 0.01 = -7.72%, so P ≈ €92.28.</code></pre>
+</div>
+</div>
+<p><strong>D6 (b).</strong> The actual price at 6% is €92.64. Compare, and say which way the estimate errs.</p>
+<div id="b5f1841e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.574225Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.574145Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.576233Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.575784Z&quot;}" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>P_actual <span class="op">=</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, <span class="fl">0.06</span>)        <span class="co"># recompute the "actual" price ourselves</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>close(P_actual, <span class="fl">92.64</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>gap <span class="op">=</span> P_actual <span class="op">-</span> P_dur_only</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>close(gap, <span class="fl">0.36</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Actual €</span><span class="sc">{</span>P_actual<span class="sc">:.2f}</span><span class="ss"> vs estimate €</span><span class="sc">{</span>P_dur_only<span class="sc">:.2f}</span><span class="ss">: the estimate is €</span><span class="sc">{</span>gap<span class="sc">:.2f}</span><span class="ss"> too low. "</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Duration alone overstates the loss (and understates the gain when yields fall)."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Actual €92.64 vs estimate €92.28: the estimate is €0.36 too low. Duration alone overstates the loss (and understates the gain when yields fall).</code></pre>
+</div>
+</div>
+<p><strong>D7 (stretch).</strong> Order by duration, longest first: (i) a 10-year zero-coupon bond (ii) a 10-year 8% coupon bond (iii) a 3-year 8% coupon bond.</p>
+<div id="6d938478" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.577418Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.577337Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.582922Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.582471Z&quot;}" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The drill gives no yield: any yield gives the same order; we try three.</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>bonds <span class="op">=</span> {<span class="st">"(i) 10y zero"</span>: (<span class="fl">0.0</span>, <span class="dv">10</span>), <span class="st">"(ii) 10y 8%"</span>: (<span class="fl">0.08</span>, <span class="dv">10</span>), <span class="st">"(iii) 3y 8%"</span>: (<span class="fl">0.08</span>, <span class="dv">3</span>)}</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> y <span class="kw">in</span> (<span class="fl">0.03</span>, <span class="fl">0.05</span>, <span class="fl">0.08</span>):</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    mac <span class="op">=</span> {}</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, (c, n) <span class="kw">in</span> bonds.items():</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>        t <span class="op">=</span> cash_flow_table(c, n, y)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>        mac[name] <span class="op">=</span> t[<span class="st">"t·PV"</span>].<span class="bu">sum</span>() <span class="op">/</span> t[<span class="st">"PV"</span>].<span class="bu">sum</span>()</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"y = </span><span class="sc">{</span>y<span class="sc">:.0%}</span><span class="ss">: "</span> <span class="op">+</span> <span class="st">", "</span>.join(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>v<span class="sc">:.2f}</span><span class="ss">"</span> <span class="cf">for</span> k, v <span class="kw">in</span> mac.items()))</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> mac[<span class="st">"(i) 10y zero"</span>] <span class="op">&gt;</span> mac[<span class="st">"(ii) 10y 8%"</span>] <span class="op">&gt;</span> mac[<span class="st">"(iii) 3y 8%"</span>]</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Order (i) &gt; (ii) &gt; (iii): a zero's duration is its full maturity, coupons pull "</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">"(ii)'s average forward, and (iii) returns the money in three years instead of ten."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>y = 3%: (i) 10y zero 10.00, (ii) 10y 8% 7.73, (iii) 3y 8% 2.80
+y = 5%: (i) 10y zero 10.00, (ii) 10y 8% 7.54, (iii) 3y 8% 2.79
+y = 8%: (i) 10y zero 10.00, (ii) 10y 8% 7.25, (iii) 3y 8% 2.78
+Order (i) &gt; (ii) &gt; (iii): a zero's duration is its full maturity, coupons pull (ii)'s average forward, and (iii) returns the money in three years instead of ten.</code></pre>
+</div>
+</div>
+<p><strong>D8 (a).</strong> Using the D6 bond (<span class="math inline">\(P = 100\)</span>, <span class="math inline">\(D_{mod} = 7.72\)</span>, convexity <span class="math inline">\(C = 75.0\)</span>), estimate the price at a yield of 6% using duration <strong>and</strong> convexity.</p>
+<p><span class="math display">\[\frac{\Delta P}{P} \approx -D_{mod}\,\Delta y + \tfrac{1}{2}\,C\,(\Delta y)^2\]</span></p>
+<div id="d61ab877" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.584157Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.584080Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.586537Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.586037Z&quot;}" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>P0, D_mod_10, C, dy <span class="op">=</span> <span class="dv">100</span>, <span class="fl">7.72</span>, <span class="fl">75.0</span>, <span class="fl">0.01</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>duration_term <span class="op">=</span> <span class="op">-</span>D_mod_10 <span class="op">*</span> dy          <span class="co"># −0.0772</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>convexity_term <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> C <span class="op">*</span> dy <span class="op">**</span> <span class="dv">2</span>      <span class="co"># +0.00375</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>pct <span class="op">=</span> duration_term <span class="op">+</span> convexity_term    <span class="co"># −0.07345</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>P_dur_conv <span class="op">=</span> P0 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> pct)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>close(pct, <span class="op">-</span><span class="fl">0.07345</span>, <span class="fl">1e-9</span>)<span class="op">;</span> close(P_dur_conv, <span class="fl">92.66</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ΔP/P ≈ </span><span class="sc">{</span>duration_term<span class="sc">:.4f}</span><span class="ss"> + </span><span class="sc">{</span>convexity_term<span class="sc">:.5f}</span><span class="ss"> = </span><span class="sc">{</span>pct<span class="sc">:.5f}</span><span class="ss">, so P ≈ €</span><span class="sc">{</span>P_dur_conv<span class="sc">:.2f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ΔP/P ≈ -0.0772 + 0.00375 = -0.07345, so P ≈ €92.66.</code></pre>
+</div>
+</div>
+<p><strong>D8 (b).</strong> Compare with the actual €92.64 and with the duration-only estimate from D6.</p>
+<div id="5e81ece6" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.588080Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.587983Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.591301Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.590802Z&quot;}" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>err_dur <span class="op">=</span> P_dur_only <span class="op">-</span> P_actual         <span class="co"># about −0.36: below the truth</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>err_both <span class="op">=</span> P_dur_conv <span class="op">-</span> P_actual        <span class="co"># about +0.02: above the truth</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>close(err_dur, <span class="op">-</span><span class="fl">0.36</span>)<span class="op">;</span> close(err_both, <span class="fl">0.02</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.DataFrame({<span class="st">"estimate"</span>: [<span class="st">"duration only"</span>, <span class="st">"duration + convexity"</span>, <span class="st">"actual"</span>],</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"price €"</span>: [<span class="bu">round</span>(P_dur_only, <span class="dv">2</span>), <span class="bu">round</span>(P_dur_conv, <span class="dv">2</span>), <span class="bu">round</span>(P_actual, <span class="dv">2</span>)]}</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>                   ).to_string(index<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Duration alone is €</span><span class="sc">{</span><span class="bu">abs</span>(err_dur)<span class="sc">:.2f}</span><span class="ss"> below the truth; adding convexity leaves it only "</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"€</span><span class="sc">{</span>err_both<span class="sc">:.2f}</span><span class="ss"> above. The second term recovers almost all the curvature."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            estimate  price €
+       duration only    92.28
+duration + convexity    92.66
+              actual    92.64
+Duration alone is €0.36 below the truth; adding convexity leaves it only €0.02 above. The second term recovers almost all the curvature.</code></pre>
+</div>
+</div>
+<p><strong>D9 (the Board sentence).</strong> In two sentences, no formulas: what does convexity buy the holder of a bond, and why does a risk manager care about it?</p>
+<div id="d633301e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.592918Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.592783Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.595479Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.594916Z&quot;}" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show it on the D6 bond: yields up 1% and down 1%</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dy <span class="kw">in</span> (<span class="op">+</span><span class="fl">0.01</span>, <span class="op">-</span><span class="fl">0.01</span>):</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    actual <span class="op">=</span> price(<span class="fl">0.05</span>, <span class="dv">10</span>, <span class="fl">0.05</span> <span class="op">+</span> dy)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    straight_line <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> <span class="fl">7.72</span> <span class="op">*</span> dy)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"yield </span><span class="sc">{</span>dy<span class="sc">:+.0%}</span><span class="ss">: actual €</span><span class="sc">{</span>actual<span class="sc">:.2f}</span><span class="ss">, duration line €</span><span class="sc">{</span>straight_line<span class="sc">:.2f}</span><span class="ss">, "</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>          <span class="ss">f"holder better off by €</span><span class="sc">{</span>actual <span class="op">-</span> straight_line<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> actual <span class="op">&gt;</span> straight_line       <span class="co"># the curve beats the line on both sides</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Convexity bends the price curve in the holder's favour: gains are bigger and losses "</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"smaller than duration predicts. A risk manager cares because a duration-only report "</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"overstates losses, and between equal durations the more convex bond is worth more."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>yield +1%: actual €92.64, duration line €92.28, holder better off by €0.36
+yield -1%: actual €108.11, duration line €107.72, holder better off by €0.39
+Convexity bends the price curve in the holder's favour: gains are bigger and losses smaller than duration predicts. A risk manager cares because a duration-only report overstates losses, and between equal durations the more convex bond is worth more.</code></pre>
+</div>
+</div>
+<p><strong>D10 (stretch).</strong> Two bonds have the same duration; one has higher convexity. Rates move sharply, direction unknown. Which would you rather hold, and why?</p>
+<div id="a3bca29a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.596812Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.596680Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.598980Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.598630Z&quot;}" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>D_mod, C_low, C_high <span class="op">=</span> <span class="fl">7.72</span>, <span class="fl">40.0</span>, <span class="fl">75.0</span>     <span class="co"># same duration, different convexity</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dy <span class="kw">in</span> (<span class="op">-</span><span class="fl">0.02</span>, <span class="op">+</span><span class="fl">0.02</span>):                   <span class="co"># a sharp move either way</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    low <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> D_mod <span class="op">*</span> dy <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> C_low <span class="op">*</span> dy <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    high <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> D_mod <span class="op">*</span> dy <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> C_high <span class="op">*</span> dy <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"yield </span><span class="sc">{</span>dy<span class="sc">:+.0%}</span><span class="ss">: less convex €</span><span class="sc">{</span>low<span class="sc">:.2f}</span><span class="ss">, more convex €</span><span class="sc">{</span>high<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> high <span class="op">&gt;</span> low                       <span class="co"># the convex bond wins in both directions</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The more convex one: same behaviour for small moves, but for a large move either way "</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"it gains more and loses less. That asymmetry is worth paying for."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>yield -2%: less convex €116.24, more convex €116.94
+yield +2%: less convex €85.36, more convex €86.06
+The more convex one: same behaviour for small moves, but for a large move either way it gains more and loses less. That asymmetry is worth paying for.</code></pre>
+</div>
+</div>
+<p><strong>D11 (a).</strong> Arno Bikes holds €400,000 of the D6 bond (at par) and €600,000 of a 2-year bond with modified duration 1.90. The portfolio’s modified duration, weighting by market value.</p>
+<div id="17c91b7c" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.600138Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.600043Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.604182Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.603612Z&quot;}" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>holdings <span class="op">=</span> pd.DataFrame({<span class="st">"bond"</span>: [<span class="st">"10-year 5% (D6)"</span>, <span class="st">"2-year"</span>],</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"market value €"</span>: [<span class="dv">400_000</span>, <span class="dv">600_000</span>],</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"modified duration"</span>: [<span class="fl">7.72</span>, <span class="fl">1.90</span>]})</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> holdings[<span class="st">"market value €"</span>].<span class="bu">sum</span>()</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>holdings[<span class="st">"weight"</span>] <span class="op">=</span> holdings[<span class="st">"market value €"</span>] <span class="op">/</span> V</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>holdings[<span class="st">"weight × D_mod"</span>] <span class="op">=</span> holdings[<span class="st">"weight"</span>] <span class="op">*</span> holdings[<span class="st">"modified duration"</span>]</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(holdings.to_string(index<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>D_port <span class="op">=</span> holdings[<span class="st">"weight × D_mod"</span>].<span class="bu">sum</span>()</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>close(D_port, <span class="fl">4.228</span>, <span class="fl">1e-9</span>)</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Portfolio modified duration = 0.4(7.72) + 0.6(1.90) = </span><span class="sc">{</span>D_port<span class="sc">:.3f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           bond  market value €  modified duration  weight  weight × D_mod
+10-year 5% (D6)          400000               7.72     0.4           3.088
+         2-year          600000               1.90     0.6           1.140
+Portfolio modified duration = 0.4(7.72) + 0.6(1.90) = 4.228.</code></pre>
+</div>
+</div>
+<p><strong>D11 (b).</strong> The estimated loss in euros if yields rise by 1% across the board.</p>
+<div id="8f8634a3" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.605597Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.605519Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.607561Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.607069Z&quot;}" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>dy <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>loss <span class="op">=</span> <span class="op">-</span>D_port <span class="op">*</span> dy <span class="op">*</span> V</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>close(loss, <span class="op">-</span><span class="dv">42_280</span>, <span class="fl">0.5</span>)</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ΔV ≈ −</span><span class="sc">{</span>D_port<span class="sc">:.3f}</span><span class="ss"> × </span><span class="sc">{</span>dy<span class="sc">}</span><span class="ss"> × €</span><span class="sc">{</span>V<span class="sc">:,.0f}</span><span class="ss"> = −€</span><span class="sc">{</span><span class="op">-</span>loss<span class="sc">:,.0f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ΔV ≈ −4.228 × 0.01 × €1,000,000 = −€42,280.</code></pre>
+</div>
+</div>
+<p><strong>D11 (c).</strong> One sentence to the Board.</p>
+<div id="c5920c7e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:37.608863Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:37.608772Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:37.611128Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:37.610543Z&quot;}" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>share <span class="op">=</span> <span class="op">-</span>loss <span class="op">/</span> V</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>ten_year_part <span class="op">=</span> <span class="fl">0.4</span> <span class="op">*</span> <span class="fl">7.72</span> <span class="op">*</span> dy <span class="op">*</span> V         <span class="co"># the part of the loss from the ten-year bond</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Loss </span><span class="sc">{</span>share<span class="sc">:.1%}</span><span class="ss"> of the reserve; €</span><span class="sc">{</span>ten_year_part<span class="sc">:,.0f}</span><span class="ss"> of it comes from the ten-year holding."</span>)</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="fl">0.04</span> <span class="op">&lt;</span> share <span class="op">&lt;</span> <span class="fl">0.045</span> <span class="kw">and</span> ten_year_part <span class="op">/</span> <span class="op">-</span>loss <span class="op">&gt;</span> <span class="fl">0.7</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'"A one-point rise in yields costs the reserve about €42,000, a little over 4</span><span class="sc">% o</span><span class="st">f it; '</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">'about three quarters of the exposure sits in the ten-year holding, and shortening that would '</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">'cut it roughly in half."'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Loss 4.2% of the reserve; €30,880 of it comes from the ten-year holding.
+"A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; about three quarters of the exposure sits in the ten-year holding, and shortening that would cut it roughly in half."</code></pre>
+</div>
+</div>
 </section>
 <section id="homework-and-what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="homework-and-what-comes-next">Homework and what comes next</h2>

@@ -104,6 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -162,6 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#b.-limits-near-a-point-you-cannot-reach" id="toc-b.-limits-near-a-point-you-cannot-reach" class="nav-link" data-scroll-target="#b.-limits-near-a-point-you-cannot-reach">B. Limits — near a point you cannot reach</a></li>
   <li><a href="#c.-the-derivative-what-does-one-more-bike-do" id="toc-c.-the-derivative-what-does-one-more-bike-do" class="nav-link" data-scroll-target="#c.-the-derivative-what-does-one-more-bike-do">C. The derivative — what does one more bike do?</a></li>
   <li><a href="#d.-running-it-backwards" id="toc-d.-running-it-backwards" class="nav-link" data-scroll-target="#d.-running-it-backwards">D. Running it backwards</a></li>
+  <li><a href="#drills-solved-in-code" id="toc-drills-solved-in-code" class="nav-link" data-scroll-target="#drills-solved-in-code">Drills, solved in code</a></li>
   <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul>
 </nav>
@@ -191,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>European School of Economics · Thu 1 Oct 2026 · Tutor: Niccolò Salvini</strong></p>
 <p>Running case: <strong>Arno Bikes</strong>. <code>C(q) = 60,000 + 400q</code>, <code>p(q) = 1600 − 4q</code>, so <code>π(q) = −4q² + 1200q − 60,000</code>.</p>
 <p>This notebook is driven from the projector. Every picture here is followed by the same computation <strong>by hand on paper</strong> — that is what the exam asks for.</p>
-<div id="b3923ec9" class="cell">
+<div id="4b44e0e6" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:32.520617Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:32.520246Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:32.824162Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:32.823536Z&quot;}" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess, sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> plotly, sympy</span>
@@ -200,25 +230,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np, plotly.graph_objects <span class="im">as</span> go, sympy <span class="im">as</span> sp</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> sp.Symbol(<span class="st">"q"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ready"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ready</code></pre>
+</div>
 </div>
 <section id="a.-domain-where-a-function-means-anything" class="level2">
 <h2 class="anchored" data-anchor-id="a.-domain-where-a-function-means-anything">A. Domain — where a function means anything</h2>
 <p>The exam asks “state the domain” and wants an interval. Sympy agrees with you or it does not.</p>
-<div id="7349f623" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> expr <span class="kw">in</span> (sp.sqrt(q <span class="op">-</span> <span class="dv">20</span>), sp.log(q <span class="op">-</span> <span class="dv">5</span>), <span class="dv">120</span><span class="op">/</span>(q <span class="op">-</span> <span class="dv">40</span>)):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">str</span>(expr)<span class="sc">:&lt;18}</span><span class="ss"> domain: </span><span class="sc">{</span>sp<span class="sc">.</span>calculus<span class="sc">.</span>util<span class="sc">.</span>continuous_domain(expr, q, sp.S.Reals)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="23f862b3" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:32.825672Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:32.825540Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:32.938481Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:32.938102Z&quot;}" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> expr <span class="kw">in</span> (sp.sqrt(q <span class="op">-</span> <span class="dv">20</span>), sp.log(q <span class="op">-</span> <span class="dv">5</span>), <span class="dv">120</span><span class="op">/</span>(q <span class="op">-</span> <span class="dv">40</span>)):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">str</span>(expr)<span class="sc">:&lt;18}</span><span class="ss"> domain: </span><span class="sc">{</span>sp<span class="sc">.</span>calculus<span class="sc">.</span>util<span class="sc">.</span>continuous_domain(expr, q, sp.S.Reals)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sqrt(q - 20)       domain: Interval(20, oo)
+log(q - 5)         domain: Interval.open(5, oo)
+120/(q - 40)       domain: Union(Interval.open(-oo, 40), Interval.open(40, oo))</code></pre>
+</div>
 </div>
 </section>
 <section id="b.-limits-near-a-point-you-cannot-reach" class="level2">
 <h2 class="anchored" data-anchor-id="b.-limits-near-a-point-you-cannot-reach">B. Limits — near a point you cannot reach</h2>
 <p>Average cost at zero output is undefined. Near zero, and far out, it is not.</p>
-<div id="8d1730f2" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>AC <span class="op">=</span> (<span class="dv">60000</span> <span class="op">+</span> <span class="dv">400</span><span class="op">*</span>q)<span class="op">/</span>q</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"as q -&gt; 0+ :"</span>, sp.limit(AC, q, <span class="dv">0</span>, <span class="st">"+"</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"as q -&gt; oo :"</span>, sp.limit(AC, q, sp.oo))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"(q^2-100)/(q-10) as q-&gt;10 :"</span>, sp.limit((q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">100</span>)<span class="op">/</span>(q <span class="op">-</span> <span class="dv">10</span>), q, <span class="dv">10</span>))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"(q-1)^2/(q-q^2)  as q-&gt;1+ :"</span>, sp.limit((q <span class="op">-</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(q <span class="op">-</span> q<span class="op">**</span><span class="dv">2</span>), q, <span class="dv">1</span>, <span class="st">"+"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="db7243d5" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:32.939892Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:32.939757Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:32.962128Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:32.960728Z&quot;}" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>AC <span class="op">=</span> (<span class="dv">60000</span> <span class="op">+</span> <span class="dv">400</span><span class="op">*</span>q)<span class="op">/</span>q</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"as q -&gt; 0+ :"</span>, sp.limit(AC, q, <span class="dv">0</span>, <span class="st">"+"</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"as q -&gt; oo :"</span>, sp.limit(AC, q, sp.oo))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"(q^2-100)/(q-10) as q-&gt;10 :"</span>, sp.limit((q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">100</span>)<span class="op">/</span>(q <span class="op">-</span> <span class="dv">10</span>), q, <span class="dv">10</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"(q-1)^2/(q-q^2)  as q-&gt;1+ :"</span>, sp.limit((q <span class="op">-</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(q <span class="op">-</span> q<span class="op">**</span><span class="dv">2</span>), q, <span class="dv">1</span>, <span class="st">"+"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>as q -&gt; 0+ : oo
+as q -&gt; oo : 400
+
+(q^2-100)/(q-10) as q-&gt;10 : 20
+(q-1)^2/(q-q^2)  as q-&gt;1+ : 0</code></pre>
+</div>
 </div>
 <section id="check" class="level3">
 <h3 class="anchored" data-anchor-id="check">🔍 CHECK</h3>
@@ -228,79 +273,356 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="c.-the-derivative-what-does-one-more-bike-do" class="level2">
 <h2 class="anchored" data-anchor-id="c.-the-derivative-what-does-one-more-bike-do">C. The derivative — what does one more bike do?</h2>
 <p>Move the point along the curve and read the slope. The slope is the answer to the only question a manager asks about the next unit.</p>
-<div id="f5fd3bd9" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>profit <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span><span class="dv">4</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1200</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">60000</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>prime  <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span><span class="dv">8</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1200</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>qs <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">300</span>, <span class="dv">400</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>frames, points <span class="op">=</span> [], np.arange(<span class="dv">20</span>, <span class="dv">281</span>, <span class="dv">10</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> q0 <span class="kw">in</span> points:</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> np.linspace(q0 <span class="op">-</span> <span class="dv">60</span>, q0 <span class="op">+</span> <span class="dv">60</span>, <span class="dv">2</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    frames.append(go.Frame(name<span class="op">=</span><span class="bu">str</span>(q0), data<span class="op">=</span>[</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        go.Scatter(x<span class="op">=</span>qs, y<span class="op">=</span>profit(qs), line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#363636"</span>, width<span class="op">=</span><span class="dv">3</span>)),</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        go.Scatter(x<span class="op">=</span>xs, y<span class="op">=</span>profit(q0) <span class="op">+</span> prime(q0)<span class="op">*</span>(xs <span class="op">-</span> q0), line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#AF1F25"</span>, width<span class="op">=</span><span class="dv">3</span>)),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        go.Scatter(x<span class="op">=</span>[q0], y<span class="op">=</span>[profit(q0)], mode<span class="op">=</span><span class="st">"markers+text"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">12</span>, color<span class="op">=</span><span class="st">"#AF1F25"</span>),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                   text<span class="op">=</span>[<span class="ss">f"π'(</span><span class="sc">{</span>q0<span class="sc">}</span><span class="ss">) = </span><span class="sc">{</span>prime(q0)<span class="sc">:+,.0f}</span><span class="ss">"</span>], textposition<span class="op">=</span><span class="st">"top center"</span>),</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    ]))</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>frames[<span class="dv">0</span>].data, frames<span class="op">=</span>frames)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"simple_white"</span>, height<span class="op">=</span><span class="dv">480</span>, showlegend<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"bikes per month  q"</span>, yaxis_title<span class="op">=</span><span class="st">"profit €"</span>,</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    xaxis_range<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">300</span>], yaxis_range<span class="op">=</span>[<span class="op">-</span><span class="dv">70000</span>, <span class="dv">45000</span>],</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    sliders<span class="op">=</span>[<span class="bu">dict</span>(active<span class="op">=</span><span class="dv">0</span>, currentvalue<span class="op">=</span><span class="bu">dict</span>(prefix<span class="op">=</span><span class="st">"q = "</span>),</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                  steps<span class="op">=</span>[<span class="bu">dict</span>(method<span class="op">=</span><span class="st">"animate"</span>, label<span class="op">=</span>f.name,</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                              args<span class="op">=</span>[[f.name], <span class="bu">dict</span>(mode<span class="op">=</span><span class="st">"immediate"</span>, frame<span class="op">=</span><span class="bu">dict</span>(duration<span class="op">=</span><span class="dv">0</span>, redraw<span class="op">=</span><span class="va">True</span>))])</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                         <span class="cf">for</span> f <span class="kw">in</span> frames])])</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ee60cb48" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:32.964226Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:32.964045Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.399572Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.396949Z&quot;}" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>profit <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span><span class="dv">4</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1200</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">60000</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>prime  <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span><span class="dv">8</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1200</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>qs <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">300</span>, <span class="dv">400</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>frames, points <span class="op">=</span> [], np.arange(<span class="dv">20</span>, <span class="dv">281</span>, <span class="dv">10</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> q0 <span class="kw">in</span> points:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> np.linspace(q0 <span class="op">-</span> <span class="dv">60</span>, q0 <span class="op">+</span> <span class="dv">60</span>, <span class="dv">2</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    frames.append(go.Frame(name<span class="op">=</span><span class="bu">str</span>(q0), data<span class="op">=</span>[</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        go.Scatter(x<span class="op">=</span>qs, y<span class="op">=</span>profit(qs), line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#363636"</span>, width<span class="op">=</span><span class="dv">3</span>)),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        go.Scatter(x<span class="op">=</span>xs, y<span class="op">=</span>profit(q0) <span class="op">+</span> prime(q0)<span class="op">*</span>(xs <span class="op">-</span> q0), line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#AF1F25"</span>, width<span class="op">=</span><span class="dv">3</span>)),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        go.Scatter(x<span class="op">=</span>[q0], y<span class="op">=</span>[profit(q0)], mode<span class="op">=</span><span class="st">"markers+text"</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">12</span>, color<span class="op">=</span><span class="st">"#AF1F25"</span>),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                   text<span class="op">=</span>[<span class="ss">f"π'(</span><span class="sc">{</span>q0<span class="sc">}</span><span class="ss">) = </span><span class="sc">{</span>prime(q0)<span class="sc">:+,.0f}</span><span class="ss">"</span>], textposition<span class="op">=</span><span class="st">"top center"</span>),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    ]))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>frames[<span class="dv">0</span>].data, frames<span class="op">=</span>frames)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"simple_white"</span>, height<span class="op">=</span><span class="dv">480</span>, showlegend<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"bikes per month  q"</span>, yaxis_title<span class="op">=</span><span class="st">"profit €"</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    xaxis_range<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">300</span>], yaxis_range<span class="op">=</span>[<span class="op">-</span><span class="dv">70000</span>, <span class="dv">45000</span>],</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    sliders<span class="op">=</span>[<span class="bu">dict</span>(active<span class="op">=</span><span class="dv">0</span>, currentvalue<span class="op">=</span><span class="bu">dict</span>(prefix<span class="op">=</span><span class="st">"q = "</span>),</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                  steps<span class="op">=</span>[<span class="bu">dict</span>(method<span class="op">=</span><span class="st">"animate"</span>, label<span class="op">=</span>f.name,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                              args<span class="op">=</span>[[f.name], <span class="bu">dict</span>(mode<span class="op">=</span><span class="st">"immediate"</span>, frame<span class="op">=</span><span class="bu">dict</span>(duration<span class="op">=</span><span class="dv">0</span>, redraw<span class="op">=</span><span class="va">True</span>))])</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                         <span class="cf">for</span> f <span class="kw">in</span> frames])])</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
 </div>
 <p><strong>Watch the sign, not the number.</strong> Positive: make more. Negative: make fewer. Zero: you are at the top.</p>
-<div id="af9f3b42" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="op">-</span><span class="dv">4</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1200</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">60000</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π'(q) ="</span>, sp.diff(pi, q))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π'(80)  ="</span>, sp.diff(pi, q).subs(q, <span class="dv">80</span>), <span class="st">" → one more bike adds about €560"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π'(200) ="</span>, sp.diff(pi, q).subs(q, <span class="dv">200</span>), <span class="st">" → one more bike costs about €400"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π'(q) = 0 at q ="</span>, sp.solve(sp.diff(pi, q), q))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"week 1's vertex -b/2a ="</span>, <span class="op">-</span><span class="dv">1200</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*-</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="acc404ce" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.406193Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.405131Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.413697Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.412842Z&quot;}" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="op">-</span><span class="dv">4</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1200</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">60000</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π'(q) ="</span>, sp.diff(pi, q))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π'(80)  ="</span>, sp.diff(pi, q).subs(q, <span class="dv">80</span>), <span class="st">" → one more bike adds about €560"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π'(200) ="</span>, sp.diff(pi, q).subs(q, <span class="dv">200</span>), <span class="st">" → one more bike costs about €400"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π'(q) = 0 at q ="</span>, sp.solve(sp.diff(pi, q), q))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"week 1's vertex -b/2a ="</span>, <span class="op">-</span><span class="dv">1200</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*-</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>π'(q) = 1200 - 8*q
+π'(80)  = 560  → one more bike adds about €560
+π'(200) = -400  → one more bike costs about €400
+π'(q) = 0 at q = [150]
+week 1's vertex -b/2a = 150.0</code></pre>
+</div>
 </div>
 <section id="change-one-number-and-watch-everything-move" class="level3">
 <h3 class="anchored" data-anchor-id="change-one-number-and-watch-everything-move">Change one number and watch everything move</h3>
 <p>The price falls €4 for each extra bike. What if it fell €3? Or €6?</p>
-<div id="3c4c7781" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> drop <span class="kw">in</span> (<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (<span class="dv">1600</span> <span class="op">-</span> drop<span class="op">*</span>q)<span class="op">*</span>q <span class="op">-</span> (<span class="dv">60000</span> <span class="op">+</span> <span class="dv">400</span><span class="op">*</span>q)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    qstar <span class="op">=</span> sp.solve(sp.diff(p, q), q)[<span class="dv">0</span>]</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"price drop €</span><span class="sc">{</span>drop<span class="sc">}</span><span class="ss">/bike → best quantity </span><span class="sc">{</span><span class="bu">float</span>(qstar)<span class="sc">:6.1f}</span><span class="ss">, profit €</span><span class="sc">{</span><span class="bu">float</span>(p.subs(q, qstar))<span class="sc">:&gt;10,.0f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8f7ab4bb" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.418777Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.418599Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.430768Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.430172Z&quot;}" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> drop <span class="kw">in</span> (<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (<span class="dv">1600</span> <span class="op">-</span> drop<span class="op">*</span>q)<span class="op">*</span>q <span class="op">-</span> (<span class="dv">60000</span> <span class="op">+</span> <span class="dv">400</span><span class="op">*</span>q)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    qstar <span class="op">=</span> sp.solve(sp.diff(p, q), q)[<span class="dv">0</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"price drop €</span><span class="sc">{</span>drop<span class="sc">}</span><span class="ss">/bike → best quantity </span><span class="sc">{</span><span class="bu">float</span>(qstar)<span class="sc">:6.1f}</span><span class="ss">, profit €</span><span class="sc">{</span><span class="bu">float</span>(p.subs(q, qstar))<span class="sc">:&gt;10,.0f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>price drop €3/bike → best quantity  200.0, profit €    60,000
+price drop €4/bike → best quantity  150.0, profit €    30,000
+price drop €6/bike → best quantity  100.0, profit €         0</code></pre>
+</div>
 </div>
 </section>
 </section>
 <section id="d.-running-it-backwards" class="level2">
 <h2 class="anchored" data-anchor-id="d.-running-it-backwards">D. Running it backwards</h2>
 <p>Given the derivative, recover the function. The constant is not decoration.</p>
-<div id="903f6a67" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> sp.Symbol(<span class="st">"c"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> sp.integrate(<span class="dv">6</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>q, q)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> sp.solve(sp.Eq((F <span class="op">+</span> c).subs(q, <span class="dv">1</span>), <span class="dv">4</span>), c)[<span class="dv">0</span>]</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"f'(q) = 6q² − 2q, f(1) = 4  →  f(q) ="</span>, F <span class="op">+</span> k)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>MC <span class="op">=</span> sp.Rational(<span class="dv">8</span>, <span class="dv">10</span>)<span class="op">*</span>q <span class="op">+</span> <span class="dv">3</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MC(q) = 0.8q + 3 with C(0) = 25  →  C(q) ="</span>, sp.integrate(MC, q) <span class="op">+</span> <span class="dv">25</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"...and the constant IS the fixed cost."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ee6ce4ac" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.435002Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.434831Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.462295Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.461602Z&quot;}" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> sp.Symbol(<span class="st">"c"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> sp.integrate(<span class="dv">6</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>q, q)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> sp.solve(sp.Eq((F <span class="op">+</span> c).subs(q, <span class="dv">1</span>), <span class="dv">4</span>), c)[<span class="dv">0</span>]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"f'(q) = 6q² − 2q, f(1) = 4  →  f(q) ="</span>, F <span class="op">+</span> k)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>MC <span class="op">=</span> sp.Rational(<span class="dv">8</span>, <span class="dv">10</span>)<span class="op">*</span>q <span class="op">+</span> <span class="dv">3</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MC(q) = 0.8q + 3 with C(0) = 25  →  C(q) ="</span>, sp.integrate(MC, q) <span class="op">+</span> <span class="dv">25</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"...and the constant IS the fixed cost."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>f'(q) = 6q² − 2q, f(1) = 4  →  f(q) = 2*q**3 - q**2 + 3
+MC(q) = 0.8q + 3 with C(0) = 25  →  C(q) = 2*q**2/5 + 3*q + 25
+...and the constant IS the fixed cost.</code></pre>
 </div>
-<section id="check-the-drills-verified" class="level3">
-<h3 class="anchored" data-anchor-id="check-the-drills-verified">🔍 CHECK — the drills, verified</h3>
-<p>Every answer in <code>drills.md</code> should survive this cell. If one does not, the drill is wrong and I want to know.</p>
-<div id="cb5f708d" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>checks <span class="op">=</span> {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"D8a  π'"</span>: (sp.diff(<span class="op">-</span><span class="dv">4</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1200</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">60000</span>, q), <span class="op">-</span><span class="dv">8</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">1200</span>),</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"D8c  R'"</span>: (sp.diff(<span class="dv">30</span><span class="op">*</span>sp.log(q <span class="op">+</span> <span class="dv">1</span>), q), <span class="dv">30</span><span class="op">/</span>(q <span class="op">+</span> <span class="dv">1</span>)),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"D11  f "</span>: (sp.integrate(<span class="dv">6</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>q, q) <span class="op">+</span> <span class="dv">3</span>, <span class="dv">2</span><span class="op">*</span>q<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span>),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"D12  C "</span>: (sp.integrate(sp.Rational(<span class="dv">8</span>,<span class="dv">10</span>)<span class="op">*</span>q <span class="op">+</span> <span class="dv">3</span>, q) <span class="op">+</span> <span class="dv">25</span>, sp.Rational(<span class="dv">4</span>,<span class="dv">10</span>)<span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">25</span>),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, (got, want) <span class="kw">in</span> checks.items():</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'ok  '</span> <span class="cf">if</span> sp<span class="sc">.</span>simplify(got <span class="op">-</span> want) <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'MISMATCH'</span><span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>got<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="drills-solved-in-code" class="level2">
+<h2 class="anchored" data-anchor-id="drills-solved-in-code">Drills, solved in code</h2>
+<p>This section is an optional companion: the code is <strong>not examined</strong>, but it is a good way to check your work. Every drill from <code>drills.md</code> is solved here with sympy, step by step, the way you would solve it by hand. Do the drill on paper first, then run the cell and compare.</p>
+<p><strong>D1 (a)</strong> State the domain of <span class="math inline">\(f(q) = \sqrt{q - 20}\)</span>.</p>
+<div id="570369a4" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.464747Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.464614Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.476025Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.474798Z&quot;}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> solve_univariate_inequality</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A square root needs a non-negative inside</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>domain <span class="op">=</span> solve_univariate_inequality(q <span class="op">-</span> <span class="dv">20</span> <span class="op">&gt;=</span> <span class="dv">0</span>, q, relational<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Domain of sqrt(q - 20):"</span>, domain)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> domain <span class="op">==</span> sp.Interval(<span class="dv">20</span>, sp.oo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Domain of sqrt(q - 20): Interval(20, oo)</code></pre>
+</div>
+</div>
+<p><strong>D1 (b)</strong> State the domain of <span class="math inline">\(g(q) = \ln(q - 5)\)</span>.</p>
+<div id="a032ae15" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.480489Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.480157Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.489049Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.487481Z&quot;}" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A logarithm needs a strictly positive inside (ln 0 does not exist)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>domain <span class="op">=</span> solve_univariate_inequality(q <span class="op">-</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">0</span>, q, relational<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Domain of ln(q - 5):"</span>, domain)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> domain <span class="op">==</span> sp.Interval.<span class="bu">open</span>(<span class="dv">5</span>, sp.oo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Domain of ln(q - 5): Interval.open(5, oo)</code></pre>
+</div>
+</div>
+<p><strong>D1 (c)</strong> State the domain of <span class="math inline">\(h(q) = \dfrac{120}{q - 40}\)</span>.</p>
+<div id="dcf4c91e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.490895Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.490764Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.505541Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.503658Z&quot;}" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A fraction needs a denominator different from zero</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>domain <span class="op">=</span> solve_univariate_inequality(sp.Ne(q <span class="op">-</span> <span class="dv">40</span>, <span class="dv">0</span>), q, relational<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Domain of 120/(q - 40):"</span>, domain)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For a quantity we also need q &gt;= 0</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"For a quantity:"</span>, domain.intersect(sp.Interval(<span class="dv">0</span>, sp.oo)))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> domain <span class="op">==</span> sp.Union(sp.Interval.<span class="bu">open</span>(<span class="op">-</span>sp.oo, <span class="dv">40</span>), sp.Interval.<span class="bu">open</span>(<span class="dv">40</span>, sp.oo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Domain of 120/(q - 40): Union(Interval.open(-oo, 40), Interval.open(40, oo))
+For a quantity: Union(Interval.Ropen(0, 40), Interval.open(40, oo))</code></pre>
+</div>
+</div>
+<p><strong>D2 (a)</strong> Arno Bikes faces demand <span class="math inline">\(p(q) = 1600 - 4q\)</span>. Write revenue <span class="math inline">\(R(q)\)</span> and simplify.</p>
+<div id="5a0fb5f2" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.516576Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.516287Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.526077Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.523044Z&quot;}" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>price <span class="op">=</span> <span class="dv">1600</span> <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>q</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> sp.expand(price <span class="op">*</span> q)          <span class="co"># revenue = price x quantity</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R(q) ="</span>, R)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> R <span class="op">==</span> <span class="dv">1600</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R(q) = -4*q**2 + 1600*q</code></pre>
+</div>
+</div>
+<p><strong>D2 (b)</strong> Write profit <span class="math inline">\(\pi(q)\)</span> using <span class="math inline">\(C(q) = 60{,}000 + 400q\)</span>.</p>
+<div id="579fc61b" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.528722Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.528347Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.531757Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.531201Z&quot;}" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> <span class="dv">60000</span> <span class="op">+</span> <span class="dv">400</span><span class="op">*</span>q</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>pi_q <span class="op">=</span> sp.expand(R <span class="op">-</span> C)           <span class="co"># profit = revenue - cost</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"π(q) ="</span>, pi_q)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> pi_q <span class="op">==</span> <span class="op">-</span><span class="dv">4</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1200</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">60000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>π(q) = -4*q**2 + 1200*q - 60000</code></pre>
+</div>
+</div>
+<p><strong>D2 (c)</strong> Evaluate <span class="math inline">\(\pi(100)\)</span> and <span class="math inline">\(\pi(200)\)</span>. Which quantity is better, and by how much?</p>
+<div id="cdd49dca" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.533688Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.533489Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.541286Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.538974Z&quot;}" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>p100 <span class="op">=</span> <span class="bu">int</span>(pi_q.subs(q, <span class="dv">100</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>p200 <span class="op">=</span> <span class="bu">int</span>(pi_q.subs(q, <span class="dv">200</span>))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"π(100) = €</span><span class="sc">{</span>p100<span class="sc">:,}</span><span class="ss">   π(200) = €</span><span class="sc">{</span>p200<span class="sc">:,}</span><span class="ss">   difference = €</span><span class="sc">{</span>p200 <span class="op">-</span> p100<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"They are equal: the parabola is symmetric about q = 150."</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> p100 <span class="op">==</span> <span class="dv">20000</span> <span class="kw">and</span> p200 <span class="op">==</span> <span class="dv">20000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>π(100) = €20,000   π(200) = €20,000   difference = €0
+They are equal: the parabola is symmetric about q = 150.</code></pre>
+</div>
+</div>
+<p><strong>D3 (a)</strong> A second firm has <span class="math inline">\(R(q) = 30\ln(q + 1)\)</span> (€ thousand). State the domain of <span class="math inline">\(R\)</span> for <span class="math inline">\(q \ge 0\)</span>.</p>
+<div id="212f22b4" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.542812Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.542702Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.549434Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.548620Z&quot;}" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The log needs q + 1 &gt; 0; then keep only quantities q &gt;= 0</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>domain <span class="op">=</span> solve_univariate_inequality(q <span class="op">+</span> <span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">0</span>, q, relational<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>domain_q <span class="op">=</span> domain.intersect(sp.Interval(<span class="dv">0</span>, sp.oo))</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Domain of 30 ln(q + 1):"</span>, domain, <span class="st">"  for a quantity:"</span>, domain_q)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> domain_q <span class="op">==</span> sp.Interval(<span class="dv">0</span>, sp.oo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Domain of 30 ln(q + 1): Interval.open(-1, oo)   for a quantity: Interval(0, oo)</code></pre>
+</div>
+</div>
+<p><strong>D3 (b)</strong> With <span class="math inline">\(C(q) = 0.4q^2 + 3q + 25\)</span>, compute <span class="math inline">\(\pi(5)\)</span> and <span class="math inline">\(\pi(10)\)</span> to two decimals.</p>
+<div id="3b7c4701" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.551212Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.551078Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.556846Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.556391Z&quot;}" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>R2 <span class="op">=</span> <span class="dv">30</span><span class="op">*</span>sp.log(q <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>C2 <span class="op">=</span> sp.Rational(<span class="dv">4</span>, <span class="dv">10</span>)<span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">25</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>profit2 <span class="op">=</span> R2 <span class="op">-</span> C2</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>pi5 <span class="op">=</span> <span class="bu">round</span>(<span class="bu">float</span>(profit2.subs(q, <span class="dv">5</span>)), <span class="dv">2</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>pi10 <span class="op">=</span> <span class="bu">round</span>(<span class="bu">float</span>(profit2.subs(q, <span class="dv">10</span>)), <span class="dv">2</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"π(5) = €</span><span class="sc">{</span>pi5<span class="sc">}</span><span class="ss">k   π(10) = €</span><span class="sc">{</span>pi10<span class="sc">}</span><span class="ss">k  → past its best scale at 10"</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> pi5 <span class="op">==</span> <span class="fl">3.75</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> pi10 <span class="op">==</span> <span class="op">-</span><span class="fl">23.06</span>   <span class="co"># 30 ln 11 = 71.94, so 71.94 - 95 = -23.06</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>π(5) = €3.75k   π(10) = €-23.06k  → past its best scale at 10</code></pre>
+</div>
+</div>
+<p><strong>D4 (a)</strong> Evaluate <span class="math inline">\(\displaystyle\lim_{q\to 10} \frac{q^2 - 100}{q - 10}\)</span>, showing the factoring step.</p>
+<div id="648f5c90" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.558414Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.558306Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.563863Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.563103Z&quot;}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">100</span>)<span class="op">/</span>(q <span class="op">-</span> <span class="dv">10</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"numerator factored:"</span>, sp.factor(q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">100</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"after cancelling:  "</span>, sp.cancel(expr))</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> sp.limit(expr, q, <span class="dv">10</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The limit as q → 10 is"</span>, answer)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> answer <span class="op">==</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>numerator factored: (q - 10)*(q + 10)
+after cancelling:   q + 10
+The limit as q → 10 is 20</code></pre>
+</div>
+</div>
+<p><strong>D4 (b)</strong> Evaluate <span class="math inline">\(\displaystyle\lim_{q\to 3} \frac{q^2 - 5q + 6}{q - 3}\)</span>, showing the factoring step.</p>
+<div id="2a50df4b" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.565695Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.565564Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.577716Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.576888Z&quot;}" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">6</span>)<span class="op">/</span>(q <span class="op">-</span> <span class="dv">3</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"numerator factored:"</span>, sp.factor(q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">6</span>))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"after cancelling:  "</span>, sp.cancel(expr))</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> sp.limit(expr, q, <span class="dv">3</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The limit as q → 3 is"</span>, answer)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> answer <span class="op">==</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>numerator factored: (q - 3)*(q - 2)
+after cancelling:   q - 2
+The limit as q → 3 is 1</code></pre>
+</div>
+</div>
+<p><strong>D5</strong> Evaluate the one-sided limit <span class="math inline">\(\displaystyle\lim_{q\to 1^+} \frac{(q - 1)^2}{q - q^2}\)</span>.</p>
+<div id="2d45ce4f" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.580000Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.579874Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.584832Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.584073Z&quot;}" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (q <span class="op">-</span> <span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(q <span class="op">-</span> q<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"denominator factored:"</span>, sp.factor(q <span class="op">-</span> q<span class="op">**</span><span class="dv">2</span>))   <span class="co"># -q(q - 1)</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"after cancelling:    "</span>, sp.cancel(expr))       <span class="co"># -(q - 1)/q</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> sp.limit(expr, q, <span class="dv">1</span>, <span class="bu">dir</span><span class="op">=</span><span class="st">"+"</span>)                <span class="co"># from above only</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The limit as q → 1 from above is"</span>, answer)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> answer <span class="op">==</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>denominator factored: -q*(q - 1)
+after cancelling:     (1 - q)/q
+The limit as q → 1 from above is 0</code></pre>
+</div>
+</div>
+<p><strong>D6 (a)</strong> Evaluate <span class="math inline">\(\displaystyle\lim_{q\to\infty} \frac{1200q - 4q^2}{q^2}\)</span> and say what it means for the firm.</p>
+<div id="4805aa7a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.587570Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.587270Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.593373Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.592697Z&quot;}" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (<span class="dv">1200</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>q<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"divided through by q²:"</span>, sp.expand(expr))    <span class="co"># 1200/q - 4</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> sp.limit(expr, q, sp.oo)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The limit is"</span>, answer, <span class="st">"→ far out, the -4q² term dominates: deep loss."</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> answer <span class="op">==</span> <span class="op">-</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>divided through by q²: -4 + 1200/q
+The limit is -4 → far out, the -4q² term dominates: deep loss.</code></pre>
+</div>
+</div>
+<p><strong>D6 (b)</strong> Evaluate <span class="math inline">\(\displaystyle\lim_{q\to\infty} \frac{60{,}000 + 400q}{q}\)</span> — average cost per bike as the run gets long.</p>
+<div id="6167fbfc" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.595316Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.595202Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.598166Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.597544Z&quot;}" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>AC <span class="op">=</span> (<span class="dv">60000</span> <span class="op">+</span> <span class="dv">400</span><span class="op">*</span>q)<span class="op">/</span>q</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"split the fraction:"</span>, sp.expand(AC))          <span class="co"># 60000/q + 400</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> sp.limit(AC, q, sp.oo)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average cost settles at €</span><span class="sc">{</span>answer<span class="sc">}</span><span class="ss"> per bike: fixed cost spreads to nothing."</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> answer <span class="op">==</span> <span class="dv">400</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>split the fraction: 400 + 60000/q
+Average cost settles at €400 per bike: fixed cost spreads to nothing.</code></pre>
+</div>
+</div>
+<p><strong>D7</strong> Evaluate <span class="math inline">\(\displaystyle\lim_{q\to -\infty} \frac{3q^3 - 2q + 1}{5q^3 + q^2}\)</span>.</p>
+<div id="1eb9ead8" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.600019Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.599906Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.607754Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.606962Z&quot;}" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (<span class="dv">3</span><span class="op">*</span>q<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span>(<span class="dv">5</span><span class="op">*</span>q<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> q<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide top and bottom by q³: every other term goes to 0</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> sp.limit(expr, q, <span class="op">-</span>sp.oo)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The limit as q → -∞ is"</span>, answer, <span class="st">"(ratio of the leading coefficients)"</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> answer <span class="op">==</span> sp.Rational(<span class="dv">3</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The limit as q → -∞ is 3/5 (ratio of the leading coefficients)</code></pre>
+</div>
+</div>
+<p><strong>D8</strong> Differentiate, term by term: (a) <span class="math inline">\(\pi(q) = -4q^2 + 1200q - 60{,}000\)</span> (b) <span class="math inline">\(C(q) = 0.4q^2 + 3q + 25\)</span> (c) <span class="math inline">\(R(q) = 30\ln(q + 1)\)</span> (d) <span class="math inline">\(f(q) = 5q^3 - 2q^2 + 7q - 1\)</span></p>
+<div id="94f6a821" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.609917Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.609782Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.617494Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.616920Z&quot;}" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>d_a <span class="op">=</span> sp.diff(<span class="op">-</span><span class="dv">4</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1200</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">60000</span>, q)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>d_b <span class="op">=</span> sp.diff(sp.Rational(<span class="dv">4</span>, <span class="dv">10</span>)<span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">25</span>, q)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>d_c <span class="op">=</span> sp.diff(<span class="dv">30</span><span class="op">*</span>sp.log(q <span class="op">+</span> <span class="dv">1</span>), q)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>d_d <span class="op">=</span> sp.diff(<span class="dv">5</span><span class="op">*</span>q<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">7</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">1</span>, q)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"(a) π'(q) ="</span>, d_a, <span class="st">"  (b) C'(q) ="</span>, d_b)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"(c) R'(q) ="</span>, d_c, <span class="st">"  (d) f'(q) ="</span>, d_d)</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> d_a <span class="op">==</span> <span class="op">-</span><span class="dv">8</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">1200</span> <span class="kw">and</span> d_b <span class="op">==</span> sp.Rational(<span class="dv">8</span>, <span class="dv">10</span>)<span class="op">*</span>q <span class="op">+</span> <span class="dv">3</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> d_c <span class="op">==</span> <span class="dv">30</span><span class="op">/</span>(q <span class="op">+</span> <span class="dv">1</span>) <span class="kw">and</span> d_d <span class="op">==</span> <span class="dv">15</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(a) π'(q) = 1200 - 8*q   (b) C'(q) = 4*q/5 + 3
+(c) R'(q) = 30/(q + 1)   (d) f'(q) = 15*q**2 - 4*q + 7</code></pre>
+</div>
+</div>
+<p><strong>D8b</strong> Differentiate, naming the inside each time: (a) <span class="math inline">\(\ln(q + 1)\)</span> (b) <span class="math inline">\(\ln(5q)\)</span> (c) <span class="math inline">\((3q - 4)^5\)</span> (d) <span class="math inline">\(e^{0.08t}\)</span> (e) <span class="math inline">\(20\ln(2q + 7)\)</span></p>
+<div id="28da5978" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.619017Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.618881Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.628283Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.627412Z&quot;}" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.Symbol(<span class="st">"t"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>d_a <span class="op">=</span> sp.diff(sp.log(q <span class="op">+</span> <span class="dv">1</span>), q)                  <span class="co"># inside q + 1, times 1</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>d_b <span class="op">=</span> sp.simplify(sp.diff(sp.log(<span class="dv">5</span><span class="op">*</span>q), q))       <span class="co"># inside 5q, times 5</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>d_c <span class="op">=</span> sp.diff((<span class="dv">3</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">4</span>)<span class="op">**</span><span class="dv">5</span>, q)                   <span class="co"># inside 3q - 4, times 3</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>d_d <span class="op">=</span> sp.diff(sp.exp(<span class="fl">0.08</span><span class="op">*</span>t), t)                 <span class="co"># inside 0.08t, times 0.08</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>d_e <span class="op">=</span> sp.diff(<span class="dv">20</span><span class="op">*</span>sp.log(<span class="dv">2</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">7</span>), q)             <span class="co"># inside 2q + 7, times 2</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"(a)"</span>, d_a, <span class="st">" (b)"</span>, d_b, <span class="st">" (c)"</span>, d_c, <span class="st">" (d)"</span>, d_d, <span class="st">" (e)"</span>, d_e)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (d_a, d_b, d_c) <span class="op">==</span> (<span class="dv">1</span><span class="op">/</span>(q <span class="op">+</span> <span class="dv">1</span>), <span class="dv">1</span><span class="op">/</span>q, <span class="dv">15</span><span class="op">*</span>(<span class="dv">3</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">4</span>)<span class="op">**</span><span class="dv">4</span>)</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> d_d <span class="op">==</span> <span class="fl">0.08</span><span class="op">*</span>sp.exp(<span class="fl">0.08</span><span class="op">*</span>t) <span class="kw">and</span> d_e <span class="op">==</span> <span class="dv">40</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(a) 1/(q + 1)  (b) 1/q  (c) 15*(3*q - 4)**4  (d) 0.08*exp(0.08*t)  (e) 40/(2*q + 7)</code></pre>
+</div>
+</div>
+<p><strong>D9 (a)</strong> For <span class="math inline">\(\pi(q) = -4q^2 + 1200q - 60{,}000\)</span>, compute <span class="math inline">\(\pi'(80)\)</span> and say what it means for a manager.</p>
+<div id="bc4b0992" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.630272Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.630164Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.632807Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.632330Z&quot;}" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>marginal <span class="op">=</span> sp.diff(<span class="op">-</span><span class="dv">4</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1200</span><span class="op">*</span>q <span class="op">-</span> <span class="dv">60000</span>, q)   <span class="co"># -8q + 1200</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>m80 <span class="op">=</span> marginal.subs(q, <span class="dv">80</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"π'(80) = </span><span class="sc">{</span>m80<span class="sc">}</span><span class="ss">: at 80 bikes a month, one more bike adds about €</span><span class="sc">{</span>m80<span class="sc">}</span><span class="ss"> to profit. Make more."</span>)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> m80 <span class="op">==</span> <span class="dv">560</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>π'(80) = 560: at 80 bikes a month, one more bike adds about €560 to profit. Make more.</code></pre>
+</div>
+</div>
+<p><strong>D9 (b)</strong> Compute <span class="math inline">\(\pi'(200)\)</span> and say what it means.</p>
+<div id="77f80a5e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.634756Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.634652Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.638093Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.636881Z&quot;}" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>m200 <span class="op">=</span> marginal.subs(q, <span class="dv">200</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"π'(200) = </span><span class="sc">{</span>m200<span class="sc">}</span><span class="ss">: at 200 bikes, one more bike costs about €</span><span class="sc">{</span><span class="op">-</span>m200<span class="sc">}</span><span class="ss"> of profit. Make fewer."</span>)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> m200 <span class="op">==</span> <span class="op">-</span><span class="dv">400</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>π'(200) = -400: at 200 bikes, one more bike costs about €400 of profit. Make fewer.</code></pre>
+</div>
+</div>
+<p><strong>D9 (c)</strong> Solve <span class="math inline">\(\pi'(q) = 0\)</span> and compare with the week-1 vertex <span class="math inline">\(-b/2a\)</span>.</p>
+<div id="8b023df8" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.641271Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.641125Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.646963Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.645737Z&quot;}" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>q_best <span class="op">=</span> sp.solve(sp.Eq(marginal, <span class="dv">0</span>), q)[<span class="dv">0</span>]</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>vertex <span class="op">=</span> sp.Rational(<span class="op">-</span><span class="dv">1200</span>, <span class="dv">2</span><span class="op">*</span>(<span class="op">-</span><span class="dv">4</span>))                <span class="co"># -b / 2a from week 1</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"π'(q) = 0 at q = </span><span class="sc">{</span>q_best<span class="sc">}</span><span class="ss">; the week-1 vertex is q = </span><span class="sc">{</span>vertex<span class="sc">}</span><span class="ss">. Same point."</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> q_best <span class="op">==</span> <span class="dv">150</span> <span class="kw">and</span> vertex <span class="op">==</span> <span class="dv">150</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>π'(q) = 0 at q = 150; the week-1 vertex is q = 150. Same point.</code></pre>
+</div>
+</div>
+<p><strong>D10</strong> Using the definition <span class="math inline">\(f'(a) = \lim_{h\to 0} \frac{f(a+h) - f(a)}{h}\)</span>, show that the derivative of <span class="math inline">\(f(q) = 3q^2\)</span> at <span class="math inline">\(q = a\)</span> is <span class="math inline">\(6a\)</span>.</p>
+<div id="be631202" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.649887Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.649757Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.669064Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.668504Z&quot;}" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>a, h <span class="op">=</span> sp.symbols(<span class="st">"a h"</span>, real<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>quotient <span class="op">=</span> (f(a <span class="op">+</span> h) <span class="op">-</span> f(a))<span class="op">/</span>h</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"difference quotient, simplified:"</span>, sp.cancel(quotient))   <span class="co"># 6a + 3h</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> sp.limit(quotient, h, <span class="dv">0</span>)</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Letting h → 0, f'(a) ="</span>, answer)</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> answer <span class="op">==</span> <span class="dv">6</span><span class="op">*</span>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>difference quotient, simplified: 6*a + 3*h
+Letting h → 0, f'(a) = 6*a</code></pre>
+</div>
+</div>
+<p><strong>D11</strong> Find <span class="math inline">\(f(q)\)</span> given <span class="math inline">\(f'(q) = 6q^2 - 2q\)</span> and <span class="math inline">\(f(1) = 4\)</span>.</p>
+<div id="82c25c23" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.670917Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.670790Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.674678Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.674166Z&quot;}" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> sp.Symbol(<span class="st">"c"</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> sp.integrate(<span class="dv">6</span><span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>q, q) <span class="op">+</span> c          <span class="co"># antiderivative + constant</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"general solution: f(q) ="</span>, f)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>c_value <span class="op">=</span> sp.solve(sp.Eq(f.subs(q, <span class="dv">1</span>), <span class="dv">4</span>), c)[<span class="dv">0</span>]   <span class="co"># use f(1) = 4</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> f.subs(c, c_value)</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"f(1) = 4 gives c = </span><span class="sc">{</span>c_value<span class="sc">}</span><span class="ss">, so f(q) = </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> sp.expand(f <span class="op">-</span> (<span class="dv">2</span><span class="op">*</span>q<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span>)) <span class="op">==</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>general solution: f(q) = c + 2*q**3 - q**2
+f(1) = 4 gives c = 3, so f(q) = 2*q**3 - q**2 + 3</code></pre>
+</div>
+</div>
+<p><strong>D12</strong> Find the total cost function given marginal cost <span class="math inline">\(MC(q) = 0.8q + 3\)</span> and fixed cost <span class="math inline">\(C(0) = 25\)</span>.</p>
+<div id="b9ff71b6" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T06:30:33.676056Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T06:30:33.675966Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T06:30:33.681208Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T06:30:33.680255Z&quot;}" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> sp.Symbol(<span class="st">"c"</span>)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> sp.integrate(sp.Rational(<span class="dv">8</span>, <span class="dv">10</span>)<span class="op">*</span>q <span class="op">+</span> <span class="dv">3</span>, q) <span class="op">+</span> c   <span class="co"># antiderivative + constant</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>c_value <span class="op">=</span> sp.solve(sp.Eq(C.subs(q, <span class="dv">0</span>), <span class="dv">25</span>), c)[<span class="dv">0</span>]   <span class="co"># use C(0) = 25</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> C.subs(c, c_value)</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"C(0) = 25 gives c = </span><span class="sc">{</span>c_value<span class="sc">}</span><span class="ss">, so C(q) = </span><span class="sc">{</span>C<span class="sc">}</span><span class="ss">. The constant IS the fixed cost."</span>)</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> sp.expand(C <span class="op">-</span> (sp.Rational(<span class="dv">4</span>, <span class="dv">10</span>)<span class="op">*</span>q<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>q <span class="op">+</span> <span class="dv">25</span>)) <span class="op">==</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>C(0) = 25 gives c = 25, so C(q) = 2*q**2/5 + 3*q + 25. The constant IS the fixed cost.</code></pre>
+</div>
+</div>
 </section>
 <section id="homework" class="level2">
 <h2 class="anchored" data-anchor-id="homework">Homework</h2>

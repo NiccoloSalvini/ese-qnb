@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 <strong>Solutions</strong>
 </summary>
 <p><strong>D1.</strong> (a) <code>P = Σ(t=1..5) 4/(1.06)^t + 100/(1.06)^5</code>. (b) Annuity part: <code>4 × [1 − (1.06)⁻⁵]/0.06 = 4 × 4.212364 = 16.85</code>. Face: <code>100/(1.06)⁵ = 74.73</code>. <code>P = **€91.58**</code>. (c) A <strong>discount</strong>: the bond pays 4% on its face while the market demands 6%, so it must be cheaper than face to make up the difference.</p>
-<p><strong>D2.</strong> (a) At 4%: coupon equals yield, so <code>P = **€100.00**</code> (par). At 2%: <code>4 × [1 − (1.02)⁻⁵]/0.02 + 100/(1.02)⁵ = 4 × 4.713460 + 90.57 = 18.85 + 90.57 = **€109.42**</code>. (b) <strong>Coupon &gt; yield → premium; coupon = yield → par; coupon &lt; yield → discount.</strong> Price and yield move in opposite directions, always.</p>
+<p><strong>D2.</strong> (a) At 4%: coupon equals yield, so <code>P = **€100.00**</code> (par). At 2%: <code>4 × [1 − (1.02)⁻⁵]/0.02 + 100/(1.02)⁵ = 4 × 4.713460 + 90.573 = 18.854 + 90.573 = **€109.43**</code>. (b) <strong>Coupon &gt; yield → premium; coupon = yield → par; coupon &lt; yield → discount.</strong> Price and yield move in opposite directions, always.</p>
 <p><strong>D3.</strong> <strong>(i) its coupon is above its yield.</strong> Investors pay more than face only to obtain a coupon better than the going rate.</p>
 <p><strong>D4.</strong> (a) <code>P = 100/(1.05)⁸ = 100/1.477455 = **€67.68**</code>. (b) <code>P = 100/(1.06)⁸ = 100/1.593848 = **€62.74**</code>; change <code>= (62.74 − 67.68)/67.68 = **−7.30%**</code>.</p>
 <p><strong>D5.</strong> (a) With <code>P = 91.58</code>:</p>
@@ -229,17 +229,17 @@ ul.task-list li input[type="checkbox"] {
 <td></td>
 <td><strong>91.58</strong></td>
 <td><strong>1.0000</strong></td>
-<td><strong>4.610</strong></td>
+<td><strong>4.611</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Macaulay duration = 4.61 years.</strong> It is the average time to being repaid, weighted by present value — which is why it is under five even though the bond runs five years. (b) <code>D_mod = D/(1 + y) = 4.610/1.06 = **4.349**</code>. (c) <code>ΔP/P ≈ −D_mod × Δy = −4.349 × 0.005 = −2.17%</code>, i.e.&nbsp;about <code>−€1.99</code>, giving roughly <strong>€89.59</strong>.</p>
+<p><strong>Macaulay duration = 4.61 years.</strong> It is the average time to being repaid, weighted by present value — which is why it is under five even though the bond runs five years. (b) <code>D_mod = D/(1 + y) = 4.611/1.06 = **4.350**</code>. (c) <code>ΔP/P ≈ −D_mod × Δy = −4.350 × 0.005 = −2.18%</code>, i.e.&nbsp;about <code>−€1.99</code>, giving roughly <strong>€89.59</strong>.</p>
 <p><strong>D6.</strong> (a) <code>ΔP/P ≈ −7.72 × 0.01 = −7.72%</code> → <code>P ≈ 100 × 0.9228 = **€92.28**</code>. (b) The actual price is <strong>€92.64</strong>, so the estimate is <strong>€0.36 too low</strong>. Duration alone <strong>overstates the loss</strong>. It will also understate the gain when yields fall: the straight line lies below the curve on both sides.</p>
 <p><strong>D7.</strong> <strong>(i) &gt; (ii) &gt; (iii).</strong> (i) beats (ii): a zero pays everything at the end, so its weighted average time is the full 10 years, while coupons pull (ii)’s average forward. (ii) beats (iii): same coupon, but money returned over ten years instead of three.</p>
 <p><strong>D8.</strong> (a) <code>ΔP/P ≈ −D_mod Δy + ½ C (Δy)² = −7.72(0.01) + ½(75.0)(0.0001) = −0.0772 + 0.00375 = −0.07345</code> → <code>P ≈ 100 × 0.92655 = **€92.66**</code>. (b) Duration alone gave €92.28, out by 36 cents <em>below</em> the truth. Adding convexity gives €92.66, out by 2 cents <em>above</em> it. The second term recovers almost all of the curvature the straight line missed; the 2 cents that remain belong to the next term again, and no one on a trading floor cares about them.</p>
 <p><strong>D9.</strong> Convexity means the price curve bends away from the straight-line estimate in the holder’s favour: when yields fall the bond gains more than duration predicts, and when they rise it loses less. A risk manager cares because a duration-only report overstates losses and understates gains, and because between two bonds of equal duration the more convex one is worth more when rates move a long way.</p>
 <p><strong>D10.</strong> The <strong>more convex</strong> one. With equal duration the two behave the same for a small move, but for a large move in either direction the convex bond does better: more upside, less downside. That asymmetry is worth paying for, and in the market you usually do.</p>
-<p><strong>D11.</strong> (a) Weights <code>400/1,000 = 0.4</code> and <code>600/1,000 = 0.6</code>. <code>D_portfolio = 0.4(7.72) + 0.6(1.90) = 3.088 + 1.140 = **4.228**</code>. (b) <code>ΔV ≈ −4.228 × 0.01 × €1,000,000 = **−€42,280**</code>. (c) “A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; the exposure sits almost entirely in the ten-year holding, and shortening that would cut it roughly in half.”</p>
+<p><strong>D11.</strong> (a) Weights <code>400/1,000 = 0.4</code> and <code>600/1,000 = 0.6</code>. <code>D_portfolio = 0.4(7.72) + 0.6(1.90) = 3.088 + 1.140 = **4.228**</code>. (b) <code>ΔV ≈ −4.228 × 0.01 × €1,000,000 = **−€42,280**</code>. (c) “A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; about three quarters of the exposure sits in the ten-year holding, and shortening that would cut it roughly in half.”</p>
 </details>
 
 

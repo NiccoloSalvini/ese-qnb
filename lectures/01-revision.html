@@ -377,7 +377,6 @@ Niccolò Salvini, PhD
 <li class="fragment"><strong>Adjunct Professor</strong> — Università Cattolica, and ESE</li>
 </ul>
 </div>
-<p><span class="muted">I use the mathematics of these five weeks for a living. That is the only reason it is in the room.</span></p>
 </div></div>
 </section>
 <section id="where-the-ten-weeks-go" class="slide level2">
@@ -435,7 +434,7 @@ Niccolò Salvini, PhD
 <p>Midterm (25%): a report to a Board built on the study of a cost, a revenue and a profit function. Due 1 Nov.</p>
 <p>Final exam (75%): 3 hours, paper, calculator. One of five questions is pure calculus: integrals, limits, recovering a function from its derivative.</p>
 </div></div>
-<p><span class="red">Every technique in weeks 1–3 is here because one of those two asks for it. I will tell you which one, every time.</span></p>
+<p><span class="red">Every technique in this room is here because an assessment asks for it. I will tell you which one, every time.</span></p>
 </section>
 <section id="the-map-come-back-to-this-every-week" class="slide level2">
 <h2>The map — come back to this every week</h2>
@@ -1057,8 +1056,30 @@ Niccolò Salvini, PhD
 <p>The question is not “how big is the cell” but “<strong>how far is it from 500</strong>”. That distance is the absolute value <span class="math inline">|c - 500|</span>: never negative, whichever side you miss on.</p>
 <p><span class="math display">|c - 500| \le 15 \;\Longleftrightarrow\; 485 \le c \le 515 \;\Longleftrightarrow\; c \in [485,\,515]</span></p>
 
-<img data-src="img/w01_tolerance.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:78.0%"><p>Cells #1 (17 Wh short) and #4 (16 Wh over) go back.</p>
-<p><span class="muted" style="font-size:.72em">Square bracket <span class="math inline">[\,]</span>: the endpoint is included. Round bracket <span class="math inline">(\,)</span>: excluded, and always used with <span class="math inline">\pm\infty</span>. The exam asks for domains written exactly this way.</span></p>
+<img data-src="img/w01_tolerance.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:64.0%"><p>Cells #1 (17 Wh short) and #4 (16 Wh over) go back.</p>
+</section>
+<section id="the-absolute-value-the-rules-and-where-marks-are-lost" class="slide level2">
+<h2>The absolute value: the rules, and where marks are lost</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>What it is</strong></p>
+<p><span class="math display">|x| = \begin{cases} x &amp; \text{if } x \ge 0 \\ -x &amp; \text{if } x &lt; 0 \end{cases}</span></p>
+<p>It removes the sign and keeps the size: <span class="math inline">|{-7}| = |7| = 7</span>.</p>
+<p><strong>Solving with it</strong></p>
+<ul>
+<li><span class="math inline">|x - a| \le b \iff a - b \le x \le a + b</span>: one interval, <strong>and</strong></li>
+<li><span class="math inline">|x - a| &gt; b \iff x &lt; a - b</span> <strong>or</strong> <span class="math inline">x &gt; a + b</span>: two tails, never “and”</li>
+<li><span class="math inline">|x - a| = b</span> has <strong>two</strong> answers, <span class="math inline">a \pm b</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>The traps</strong></p>
+<ul>
+<li><strong>The right-hand side can be negative.</strong> <span class="math inline">|x| \le -3</span> has no solution; <span class="math inline">|x| &gt; -3</span> is true for every <span class="math inline">x</span>. Check its sign before anything else.</li>
+<li><strong>It does not split over a sum.</strong> <span class="math inline">|a + b| \ne |a| + |b|</span> in general: <span class="math inline">|3 + (-5)| = 2</span>, not <span class="math inline">8</span>. It does split over a product: <span class="math inline">|ab| = |a|\,|b|</span>.</li>
+<li><span class="math inline">\sqrt{x^{2}} = |x|</span>, not <span class="math inline">x</span>: <span class="math inline">\sqrt{(-4)^{2}} = 4</span>.</li>
+<li><strong>Brackets.</strong> <span class="math inline">[\,]</span> includes the endpoint, <span class="math inline">(\,)</span> excludes it and always goes with <span class="math inline">\pm\infty</span>. The exam wants intervals written this way.</li>
+</ul>
+</div></div>
 </section>
 <section id="d10-d11-core-interval-notation" class="slide level2 paper" data-background-color="#eceff0">
 <h2>D10, D11 (core) — interval notation</h2>
