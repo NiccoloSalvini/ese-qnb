@@ -37,8 +37,11 @@ week-NN/
   notes.md            tutor-only plan and script — NOT rendered
   slides/weekNN.tex   beamer (metropolis) PDF deck, kept for printing; the PDF is committed and linked as "pdf"
   slides/weekNN.pdf   compiled deck (resource) — TinyTeX needs metropolis + pgfplots (tlmgr install)
-  session.ipynb       Colab notebook driven from the projector (plotly sliders, sympy checks); rendered read-only
-  build_notebook.py   regenerates session.ipynb — not rendered
+  session.ipynb       Colab notebook: projector demos (plotly sliders), then "Drills, solved in code" — every drill
+                      of drills.md solved in Python with an assert on the published answer. Optional companion for
+                      students, linked as "code ↗" on the schedule; not examined
+  build_notebook.py   regenerates session.ipynb next to itself — needs a Python with nbformat, then
+                      `jupyter nbconvert --to notebook --execute --inplace week-NN/session.ipynb`; not rendered
   drills.md           in-class exercises, exam format, worked solutions in a <details> block — rendered
   homework.md         drill set + memo to the Board — rendered
   diagnostic.md       (week 1) anonymous placement test — NOT rendered (would defeat its purpose)

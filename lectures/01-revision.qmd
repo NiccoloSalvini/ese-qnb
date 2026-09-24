@@ -22,7 +22,6 @@ institute: "MBA03 Research & Quantitative Business Methods · European School of
 - **Adjunct Professor** — Università Cattolica, and ESE
 :::
 
-[I use the mathematics of these five weeks for a living. That is the only reason it is in the room.]{.muted}
 :::
 ::::
 
@@ -50,7 +49,7 @@ Final exam (75%): 3 hours, paper, calculator. One of five questions is pure calc
 :::
 ::::
 
-[Every technique in weeks 1–3 is here because one of those two asks for it. I will tell you which one, every time.]{.red}
+[Every technique in this room is here because an assessment asks for it. I will tell you which one, every time.]{.red}
 
 ## The map — come back to this every week
 
@@ -503,11 +502,35 @@ The question is not "how big is the cell" but "**how far is it from 500**". That
 
 $$|c - 500| \le 15 \;\Longleftrightarrow\; 485 \le c \le 515 \;\Longleftrightarrow\; c \in [485,\,515]$$
 
-![](img/w01_tolerance.svg){width="78%" fig-align="center"}
+![](img/w01_tolerance.svg){width="64%" fig-align="center"}
 
 Cells #1 (17 Wh short) and #4 (16 Wh over) go back.
 
-[Square bracket $[\,]$: the endpoint is included. Round bracket $(\,)$: excluded, and always used with $\pm\infty$. The exam asks for domains written exactly this way.]{.muted style="font-size:.72em"}
+## The absolute value: the rules, and where marks are lost
+
+:::: {.columns}
+::: {.column width="50%"}
+**What it is**
+
+$$|x| = \begin{cases} x & \text{if } x \ge 0 \\ -x & \text{if } x < 0 \end{cases}$$
+
+It removes the sign and keeps the size: $|{-7}| = |7| = 7$.
+
+**Solving with it**
+
+- $|x - a| \le b \iff a - b \le x \le a + b$: one interval, **and**
+- $|x - a| > b \iff x < a - b$ **or** $x > a + b$: two tails, never "and"
+- $|x - a| = b$ has **two** answers, $a \pm b$
+:::
+::: {.column width="50%"}
+**The traps**
+
+- **The right-hand side can be negative.** $|x| \le -3$ has no solution; $|x| > -3$ is true for every $x$. Check its sign before anything else.
+- **It does not split over a sum.** $|a + b| \ne |a| + |b|$ in general: $|3 + (-5)| = 2$, not $8$. It does split over a product: $|ab| = |a|\,|b|$.
+- $\sqrt{x^{2}} = |x|$, not $x$: $\sqrt{(-4)^{2}} = 4$.
+- **Brackets.** $[\,]$ includes the endpoint, $(\,)$ excludes it and always goes with $\pm\infty$. The exam wants intervals written this way.
+:::
+::::
 
 ## D10, D11 (core) — interval notation {.paper background-color="#eceff0"}
 

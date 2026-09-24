@@ -264,7 +264,7 @@ $$\Delta V \approx -4.23 \times 1\% \times €1{,}000{,}000 = -€42{,}280$$
 
 . . .
 
-"A one-point rise costs the reserve about €42,000, a little over 4%. The exposure sits almost entirely in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this."
+"A one-point rise costs the reserve about €42,000, a little over 4%. About three quarters of the exposure sits in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this."
 
 ## Four blocks today {.hub auto-animate=true}
 

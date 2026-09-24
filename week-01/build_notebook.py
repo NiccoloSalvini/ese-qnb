@@ -1,4 +1,6 @@
-"""Build week-01/session.ipynb with nbformat. Run: python build_notebook.py"""
+"""Build week-01/session.ipynb with nbformat. Run from anywhere: python3 week-01/build_notebook.py"""
+from pathlib import Path
+
 import nbformat as nbf
 
 nb = nbf.v4.new_notebook()
@@ -272,36 +274,400 @@ fig.update_layout(title="Tolerance band as an interval", xaxis_range=[470, 530],
 fig.show()
 """)
 
-# ---------------- checks ----------------
+# ---------------- drills, solved in code ----------------
 md(r"""
-## Tutor's safety net — sympy checks of every drill answer
+## Drills, solved in code
 
-*(Collapsed in class. Run if a student's answer disagrees with yours.)*
+This section is an optional companion: the code is **not examined**, the exam is on paper. Every drill in `drills.md` is solved here, one cell per question, with `sympy` doing the algebra you would do by hand. Do the drill on paper first, then run the cell and compare.
 """)
 
 code(r"""
-x, q, p, t = sp.symbols('x q p t', real=True)
-checks = {
- "D1b break-even": sp.solve(sp.Eq(1000*q, 60000 + 400*q), q),
- "D1c new break-even": sp.solve(sp.Eq(1000*q, 72000 + 400*q), q),
- "D2a equilibrium": sp.solve([sp.Eq(1200 - 2*p, -300 + 3*p)], p),
- "D2b with tax": sp.solve(sp.Eq(1200 - 2*p, -450 + 3*p), p),
- "D3 models": sp.solve([sp.Eq(2*x + 3*q, 1200), sp.Eq(x + q, 500)], [x, q]),
- "D4a roots": [sp.N(r, 4) for r in sp.solve(-2*q**2 + 600*q - 40000, q)],
- "D4c vertex": (150, -2*150**2 + 600*150 - 40000),
- "D5a": sp.solve_univariate_inequality(x**2 - 7*x + 10 <= 0, x),
- "D5b": sp.solve_univariate_inequality(2*x**2 + 3*x - 2 > 0, x),
- "D6 simplify": sp.simplify((x-1)**2 / (x - x**2)),
- "D7b 10^x=500": sp.N(sp.log(500, 10), 4),
- "D8b doubling": sp.N(sp.log(2)/sp.log(sp.Rational(112, 100)), 4),
- "D8c to 3M": sp.N(sp.log(sp.Rational(5, 2))/sp.log(sp.Rational(112, 100)), 4),
- "D9a": sp.N(sp.solve(sp.Eq(5*sp.exp(sp.Rational(3, 100)*t), 8), t)[0], 4),
- "D9b growth": sp.N(2**sp.Rational(1, 5) - 1, 4),
- "D10b": sp.solve_univariate_inequality(sp.Abs(x - 3) > 2, x),
- "Arno roots": [sp.N(r, 4) for r in sp.solve(-4*q**2 + 1200*q - 60000, q)],
-}
-for k, v in checks.items():
-    print(f"{k:22s} → {v}")
+# Symbols used in every drill below (real numbers, as on paper)
+q, p, x, y, t, c = sp.symbols('q p x y t c', real=True)
+print("symbols ready")
+""")
+
+# --- D1 ---
+md(r"""
+### D1 (a) — cost and revenue
+Fixed costs €60,000 a month, variable cost €400 a bike, price €1,000. Write $C(q)$ and $R(q)$.
+""")
+code(r"""
+C = 60000 + 400*q     # fixed part + variable part
+R = 1000*q            # price x quantity
+print("C(q) =", C, "   R(q) =", R)
+assert C.subs(q, 0) == 60000 and R.subs(q, 1) == 1000
+""")
+
+md(r"""
+### D1 (b) — break-even
+Find the quantity where $R(q) = C(q)$.
+""")
+code(r"""
+equation = sp.Eq(1000*q, 60000 + 400*q)
+break_even = sp.solve(equation, q)[0]
+contribution = 1000 - 400          # what each bike leaves after its own cost
+print(f"Contribution per bike: €{contribution}")
+print(f"Break-even: {break_even} bikes a month")
+assert break_even == 100
+""")
+
+md(r"""
+### D1 (c) — the rent goes up
+Fixed costs become €72,000. New break-even? What happens to the cost line?
+""")
+code(r"""
+new_break_even = sp.solve(sp.Eq(1000*q, 72000 + 400*q), q)[0]
+shift = 72000 - 60000     # the intercept moves up, the slope (400) stays
+print(f"New break-even: {new_break_even} bikes a month")
+print(f"The cost line shifts up in parallel by €{shift:,}; the crossing moves right.")
+assert new_break_even == 120
+""")
+
+# --- D2 ---
+md(r"""
+### D2 (a) — equilibrium
+Demand $Q_d = 1200 - 2p$, supply $Q_s = -300 + 3p$. Find the equilibrium price and quantity.
+""")
+code(r"""
+demand = 1200 - 2*p
+supply = -300 + 3*p
+p_star = sp.solve(sp.Eq(demand, supply), p)[0]
+Q_star = demand.subs(p, p_star)
+print(f"Equilibrium: price €{p_star}, quantity {Q_star} bikes a month")
+assert p_star == 300 and Q_star == 600
+""")
+
+md(r"""
+### D2 (b) — a €50 tax paid by sellers
+Sellers now respond to $p - 50$. New supply and new equilibrium?
+""")
+code(r"""
+supply_tax = sp.expand(-300 + 3*(p - 50))       # sellers keep p - 50
+p_tax = sp.solve(sp.Eq(1200 - 2*p, supply_tax), p)[0]
+Q_tax = (1200 - 2*p).subs(p, p_tax)
+print("New supply: Q_s =", supply_tax)
+print(f"New equilibrium: price €{p_tax}, quantity {Q_tax} bikes a month")
+assert supply_tax == -450 + 3*p and p_tax == 330 and Q_tax == 540
+""")
+
+md(r"""
+### D2 (c) — who pays the tax?
+How much of the €50 is paid by buyers through a higher price?
+""")
+code(r"""
+buyers_share = 330 - 300            # price after tax minus price before
+sellers_keep = 330 - 50             # what sellers take home per bike
+sellers_share = 300 - sellers_keep
+print(f"Buyers pay €{buyers_share} of the €50 tax; sellers bear €{sellers_share}")
+assert buyers_share == 30 and sellers_share == 20
+""")
+
+# --- D3 ---
+md(r"""
+### D3 — two models, two constraints
+Model A takes 2 hours, model B 3 hours; 1,200 hours available; 500 bikes in total.
+$$2x + 3y = 1200 \qquad x + y = 500$$
+""")
+code(r"""
+hours = sp.Eq(2*x + 3*y, 1200)
+total = sp.Eq(x + y, 500)
+solution = sp.solve([hours, total], [x, y])
+print(f"Plan: {solution[x]} of model A and {solution[y]} of model B")
+assert solution[x] == 300 and solution[y] == 200
+""")
+
+# --- D3b ---
+md(r"""
+### D3b (a)
+Solve $3q - 12 > 0$ and write the answer as an interval.
+""")
+code(r"""
+answer = sp.solve_univariate_inequality(3*q - 12 > 0, q, relational=False)
+print("q in", answer, "  i.e. (4, +oo)")
+assert answer == sp.Interval.open(4, sp.oo)
+""")
+
+md(r"""
+### D3b (b)
+Solve $5 - 2q \ge 1$. *(Dividing by a negative number flips the sign.)*
+""")
+code(r"""
+# -2q >= -4  ->  divide by -2 and FLIP the sign  ->  q <= 2
+answer = sp.solve_univariate_inequality(5 - 2*q >= 1, q, relational=False)
+print("q in", answer, "  i.e. (-oo, 2], or [0, 2] if q is a quantity")
+assert answer == sp.Interval(-sp.oo, 2)
+""")
+
+md(r"""
+### D3b (c)
+Solve $400q + 60{,}000 \le 1{,}000q$.
+""")
+code(r"""
+answer = sp.solve_univariate_inequality(400*q + 60000 <= 1000*q, q, relational=False)
+print("q in", answer, "  i.e. [100, +oo)")
+assert answer == sp.Interval(100, sp.oo)
+""")
+
+md(r"""
+### D3b (d)
+What does (c) say about Arno Bikes?
+""")
+code(r"""
+# (c) is cost <= revenue: the break-even condition written as an inequality
+lowest_safe_q = sp.Interval(100, sp.oo).inf
+print(f"At {lowest_safe_q} bikes a month or more, Arno Bikes is not losing money.")
+assert lowest_safe_q == 100
+""")
+
+# --- D4 ---
+md(r"""
+### D4 (a) — where profit is zero
+$\pi(q) = -2q^2 + 600q - 40{,}000$. Find the quantities with zero profit.
+""")
+code(r"""
+profit = -2*q**2 + 600*q - 40000
+simpler = sp.expand(profit / -2)          # q^2 - 300q + 20000
+discriminant = 300**2 - 4*20000
+roots = sp.solve(sp.Eq(simpler, 0), q)
+print("Divided by -2:", simpler, "   discriminant =", discriminant)
+print(f"Profit is zero at q = {roots[0]} and q = {roots[1]} units")
+assert discriminant == 10000 and roots == [100, 200]
+""")
+
+md(r"""
+### D4 (b) — where the firm is profitable
+For which quantities is $\pi(q) > 0$?
+""")
+code(r"""
+profitable = sp.solve_univariate_inequality(profit > 0, q, relational=False)
+# downward parabola (a = -2 < 0): positive between its roots
+print("Profitable for q in", profitable, "  i.e. 100 < q < 200 units")
+assert profitable == sp.Interval.open(100, 200)
+""")
+
+md(r"""
+### D4 (c) — the vertex
+Find the vertex of the parabola and interpret it.
+""")
+code(r"""
+a_coef, b_coef = -2, 600
+q_vertex = sp.Rational(-b_coef, 2*a_coef)     # -b / (2a)
+max_profit = profit.subs(q, q_vertex)
+print(f"Vertex: maximum profit €{int(max_profit):,} at {q_vertex} units")
+assert q_vertex == 150 and max_profit == 5000
+""")
+
+# --- D5 ---
+md(r"""
+### D5 (a)
+Solve $x^2 - 7x + 10 \le 0$.
+""")
+code(r"""
+print("Factored:", sp.factor(x**2 - 7*x + 10))     # (x - 2)(x - 5)
+answer = sp.solve_univariate_inequality(x**2 - 7*x + 10 <= 0, x, relational=False)
+# upward parabola: <= 0 between its roots
+print("x in", answer, "  i.e. [2, 5]")
+assert answer == sp.Interval(2, 5)
+""")
+
+md(r"""
+### D5 (b)
+Solve $2x^2 + 3x - 2 > 0$.
+""")
+code(r"""
+roots = sp.solve(2*x**2 + 3*x - 2, x)
+print("Roots:", roots)
+answer = sp.solve_univariate_inequality(2*x**2 + 3*x - 2 > 0, x, relational=False)
+# upward parabola: > 0 outside its roots
+print("x in", answer, "  i.e. x < -2 or x > 1/2")
+assert answer == sp.Union(sp.Interval.open(-sp.oo, -2), sp.Interval.open(sp.Rational(1, 2), sp.oo))
+""")
+
+# --- D6 ---
+md(r"""
+### D6 — factor, cancel, check the sign
+Simplify $\dfrac{(x-1)^2}{x - x^2}$, then evaluate at $x = 1.1$ and $x = 0.9$.
+""")
+code(r"""
+print("Denominator factored:", sp.factor(x - x**2))        # -x(x - 1)
+simplified = sp.cancel((x - 1)**2 / (x - x**2))            # valid for x != 0, 1
+at_11 = float(simplified.subs(x, sp.Rational(11, 10)))
+at_09 = float(simplified.subs(x, sp.Rational(9, 10)))
+print("Simplified:", simplified)
+print(f"At x = 1.1: {at_11:.3f}   At x = 0.9: {at_09:.3f}  -> the sign flips across x = 1")
+assert sp.simplify(simplified - (-(x - 1)/x)) == 0
+assert round(at_11, 3) == -0.091 and round(at_09, 3) == 0.111
+""")
+
+# --- D7 ---
+md(r"""
+### D7 (a) — simplify
+$\ln(e^3)$, $\;\log_2 32$, $\;\ln\!\left(\dfrac{a^2 b}{c}\right)$
+""")
+code(r"""
+a, b, cc = sp.symbols('a b c', positive=True)        # logs need positive numbers
+first = sp.log(sp.exp(3))
+second = sp.log(32, 2)                                # 2^5 = 32
+third = sp.expand_log(sp.log(a**2 * b / cc))          # product, power and quotient rules
+print("ln(e^3) =", first, "   log2(32) =", second)
+print("ln(a^2 b / c) =", third)
+assert first == 3 and second == 5
+assert third == 2*sp.log(a) + sp.log(b) - sp.log(cc)
+""")
+
+md(r"""
+### D7 (b) — solve for x
+$3^x = 81$ and $10^x = 500$ (three decimals).
+""")
+code(r"""
+x1 = sp.solve(sp.Eq(3**x, 81), x)[0]          # 81 = 3^4
+x2 = sp.log(500, 10)                          # take log base 10 of both sides
+x2_value = round(float(x2), 3)
+print(f"3^x = 81   ->  x = {x1}")
+print(f"10^x = 500 ->  x = {x2_value}")
+assert x1 == 4 and x2_value == 2.699
+""")
+
+# --- D8 ---
+md(r"""
+### D8 (a) — revenue over time
+€1.2M growing at 12% a year. Write revenue after $t$ years.
+""")
+code(r"""
+revenue = sp.Rational(12, 10) * sp.Rational(112, 100)**t     # € millions
+print("R(t) = 1.2 * 1.12**t   (€ millions, t in years)")
+print(f"After 1 year: €{float(revenue.subs(t, 1)):.3f}M")
+assert revenue.subs(t, 0) == sp.Rational(12, 10)
+assert revenue.subs(t, 1) == sp.Rational(1344, 1000)
+""")
+
+md(r"""
+### D8 (b) — years to double
+Solve $1.12^t = 2$; check with the rule of 70.
+""")
+code(r"""
+# t * ln(1.12) = ln(2)
+t_double = sp.log(2) / sp.log(sp.Rational(112, 100))
+t_double_value = round(float(t_double), 1)
+rule_of_70 = 70 / 12
+print(f"Doubling time: {t_double_value} years   (rule of 70: {rule_of_70:.1f} years)")
+assert t_double_value == 6.1
+""")
+
+md(r"""
+### D8 (c) — years to reach €3M
+Solve $1.2 \cdot 1.12^t = 3$, i.e. $1.12^t = 2.5$.
+""")
+code(r"""
+ratio = sp.Rational(3) / sp.Rational(12, 10)             # 2.5
+t_3M = sp.log(ratio) / sp.log(sp.Rational(112, 100))
+t_3M_value = round(float(t_3M), 1)
+print(f"Revenue reaches €3M after {t_3M_value} years")
+assert ratio == sp.Rational(5, 2) and t_3M_value == 8.1
+""")
+
+# --- D9 ---
+md(r"""
+### D9 (a)
+Solve $5e^{0.03t} = 8$ for $t$.
+""")
+code(r"""
+# divide by 5, then take ln of both sides: 0.03 t = ln(1.6)
+t_solution = sp.solve(sp.Eq(5*sp.exp(sp.Rational(3, 100)*t), 8), t)[0]
+t_value = round(float(t_solution), 1)
+print(f"t = ln(1.6) / 0.03 = {t_value} years")
+assert t_value == 15.7
+""")
+
+md(r"""
+### D9 (b)
+A competitor doubled revenue in 5 years. Implied constant annual growth rate?
+""")
+code(r"""
+g = sp.symbols('g', positive=True)
+g_solution = sp.solve(sp.Eq((1 + g)**5, 2), g)[0]      # 1 + g = 2^(1/5)
+g_percent = round(float(g_solution) * 100, 1)
+print(f"Implied growth: {g_percent}% a year")
+assert g_percent == 14.9
+""")
+
+# --- D10 ---
+md(r"""
+### D10 (a) — tolerance
+Cells must be 500 Wh ± 15 Wh. Absolute value, interval, and is 483 Wh acceptable?
+""")
+code(r"""
+condition = sp.Abs(c - 500) <= 15
+accepted = sp.solve_univariate_inequality(condition, c, relational=False)
+ok_483 = accepted.contains(483)
+print("|c - 500| <= 15  <=>  c in", accepted, "  i.e. [485, 515] Wh")
+print("Is a 483 Wh cell acceptable?", "yes" if ok_483 else "no")
+assert accepted == sp.Interval(485, 515) and ok_483 == False
+""")
+
+md(r"""
+### D10 (b)
+Solve $|x - 3| > 2$.
+""")
+code(r"""
+answer = sp.solve_univariate_inequality(sp.Abs(x - 3) > 2, x, relational=False)
+# distance from 3 bigger than 2: the two tails
+print("x in", answer, "  i.e. x < 1 or x > 5")
+assert answer == sp.Union(sp.Interval.open(-sp.oo, 1), sp.Interval.open(5, sp.oo))
+""")
+
+# --- D11 ---
+md(r"""
+### D11 (a)
+Write $x \ge -3$ as an interval.
+""")
+code(r"""
+answer = sp.solve_univariate_inequality(x >= -3, x, relational=False)
+print("x >= -3  ->", answer, "  i.e. [-3, +oo)")
+assert answer == sp.Interval(-3, sp.oo)
+""")
+
+md(r"""
+### D11 (b)
+Write $x > -3$ as an interval.
+""")
+code(r"""
+answer = sp.solve_univariate_inequality(x > -3, x, relational=False)
+print("x > -3  ->", answer, "  i.e. (-3, +oo)")
+assert answer == sp.Interval.open(-3, sp.oo)
+""")
+
+md(r"""
+### D11 (c)
+Write $-3 < x \le 5$ as an interval.
+""")
+code(r"""
+answer = sp.Interval.Lopen(-3, 5)     # open on the left, closed on the right
+print("-3 < x <= 5  ->", answer, "  i.e. (-3, 5]")
+assert answer.contains(5) and not answer.contains(-3)
+""")
+
+md(r"""
+### D11 (d)
+Domain of $f(x) = \sqrt{x + 3}$.
+""")
+code(r"""
+# a square root needs a non-negative argument
+domain = sp.solve_univariate_inequality(x + 3 >= 0, x, relational=False)
+print("Domain of sqrt(x + 3):", domain, "  i.e. [-3, +oo)")
+assert domain == sp.Interval(-3, sp.oo)
+""")
+
+md(r"""
+### D11 (e)
+Domain of $g(x) = \ln(x - 1)$.
+""")
+code(r"""
+# a logarithm needs a strictly positive argument
+domain = sp.solve_univariate_inequality(x - 1 > 0, x, relational=False)
+print("Domain of ln(x - 1):", domain, "  i.e. (1, +oo)")
+assert domain == sp.Interval.open(1, sp.oo)
 """)
 
 md(r"""
@@ -315,5 +681,5 @@ Write yours on paper before leaving:
 """)
 
 nb.cells = cells
-nbf.write(nb, "session.ipynb")
+nbf.write(nb, Path(__file__).parent / "session.ipynb")
 print("written session.ipynb with", len(cells), "cells")

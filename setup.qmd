@@ -3,7 +3,7 @@ title: "How to work"
 subtitle: "Weeks 1–5: what to bring, how homework is handed in, how to use the notebooks."
 ---
 
-Nothing is installed on your laptop and you are not asked to write code. The exam is on paper with a non-programmable calculator, so that is where the practice happens.
+Nothing is installed on your laptop. The exam is on paper with a non-programmable calculator, so that is where the practice happens. Code is an optional companion, described below.
 
 ## Bring to every session
 
@@ -22,7 +22,7 @@ Homework is formative: not graded, but read, discussed in the first fifteen minu
 
 ## The notebooks
 
-Each session has a Colab notebook driven by the tutor from the projector: sliders that move a parameter, the picture behind each formula, and a symbolic check of every drill's answer. You can open it yourself from the *Colab ↗* link on the schedule with any Google account; nothing to install, nothing to submit.
+Each session has a Colab notebook, driven by the tutor from the projector in class: sliders that move a parameter, the picture behind each formula, and at the end **every drill of the week solved in Python**, one cell per drill. It is not examined. Do the drill on paper first, then run the cell and compare. You can open it yourself from the *Colab ↗* link on the schedule with any Google account; nothing to install, nothing to submit.
 
 ## Drills and solutions
 

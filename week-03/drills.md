@@ -91,7 +91,7 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 (a) `ln(x + 3)` needs `x + 3 > 0`, so the domain is **`(−3, +∞)`** — open, because `ln 0` is undefined.
 (b) As `x → −3⁺`, `ln(x+3) → −∞`, and `x² − 3x → 18`, so `f(x) → **−∞**`. The line **`x = −3` is a vertical asymptote**: the curve plunges down it.
 (c) As `x → +∞` the `x²` term dominates everything, so `f(x) → **+∞**`.
-(d) Comes up from `−∞` along `x = −3`, turns, and rises to `+∞`. Draw the asymptote as a dashed vertical line: the marker looks for it.
+(d) `f'(x) = 2x − 3 + 7/(x + 3) = (2x − 1)(x + 2)/(x + 3)`, zero at `x = −2` and `x = ½`. So the curve comes up from `−∞` along `x = −3`, reaches a **local maximum** at `(−2, 10)`, dips to a **local minimum** at `(½, ≈ 7.52)`, then rises to `+∞`. Two turns, not one. Draw the asymptote as a dashed vertical line: the marker looks for it.
 
 **D3.**
 (a) `f'(q) = 3q² − 24q + 36 = 3(q² − 8q + 12) = 3(q − 2)(q − 6)` → `q = 2, 6`.

@@ -43,11 +43,11 @@
     <rect x="70" y="326" width="460" height="30" rx="3" fill="#fdf6f6" stroke="#e8cdce"/>
     <text x="300" y="346" fill="#AF1F25" font-weight="700">FINAL, question 5 of 5 — the calculus question</text>
     <rect x="560" y="288" width="350" height="68" rx="3" fill="#fbfaf6" stroke="#e6e2d8"/>
-    <text x="735" y="308" fill="#a8955a" font-weight="700">RESIT — the retake exam</text>
-    <text x="735" y="330" fill="#7a7f85">financial maths is not on the final paper;</text>
-    <text x="735" y="347" fill="#7a7f85">on the retake it is question 1</text>
+    <text x="735" y="308" fill="#a8955a" font-weight="700">WEEKS 4–5 — financial mathematics</text>
+    <text x="735" y="330" fill="#7a7f85">what every project and every bond decision rests on;</text>
+    <text x="735" y="347" fill="#7a7f85">asked in the retake exam's multiple-choice block</text>
   </g>
 
 
-  <text x="70" y="395" font-size="13" fill="#7a7f85">Weeks 6–10, <tspan font-weight="700" fill="#363636">Vincenzo Nardelli, PhD</tspan>: probability, distributions, regression — the other four questions of the final.</text>
+  <text x="70" y="395" font-size="13" fill="#7a7f85">Weeks 6–10, <tspan font-weight="700" fill="#363636">Vincenzo Nardelli, PhD</tspan>: probability, distributions, regression.</text>
 </svg>

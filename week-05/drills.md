@@ -70,7 +70,7 @@ A bond trades **above** par. Therefore:
 
 **D2.**
 (a) At 4%: coupon equals yield, so `P = **€100.00**` (par).
-  At 2%: `4 × [1 − (1.02)⁻⁵]/0.02 + 100/(1.02)⁵ = 4 × 4.713460 + 90.57 = 18.85 + 90.57 = **€109.42**`.
+  At 2%: `4 × [1 − (1.02)⁻⁵]/0.02 + 100/(1.02)⁵ = 4 × 4.713460 + 90.573 = 18.854 + 90.573 = **€109.43**`.
 (b) **Coupon > yield → premium; coupon = yield → par; coupon < yield → discount.** Price and yield move in opposite directions, always.
 
 **D3.** **(i) its coupon is above its yield.** Investors pay more than face only to obtain a coupon better than the going rate.
@@ -89,11 +89,11 @@ A bond trades **above** par. Therefore:
 | 3 | 4 | 3.36 | 0.0367 | 0.1100 |
 | 4 | 4 | 3.17 | 0.0346 | 0.1384 |
 | 5 | 104 | 77.71 | 0.8486 | 4.2432 |
-| | | **91.58** | **1.0000** | **4.610** |
+| | | **91.58** | **1.0000** | **4.611** |
 
 **Macaulay duration = 4.61 years.** It is the average time to being repaid, weighted by present value — which is why it is under five even though the bond runs five years.
-(b) `D_mod = D/(1 + y) = 4.610/1.06 = **4.349**`.
-(c) `ΔP/P ≈ −D_mod × Δy = −4.349 × 0.005 = −2.17%`, i.e. about `−€1.99`, giving roughly **€89.59**.
+(b) `D_mod = D/(1 + y) = 4.611/1.06 = **4.350**`.
+(c) `ΔP/P ≈ −D_mod × Δy = −4.350 × 0.005 = −2.18%`, i.e. about `−€1.99`, giving roughly **€89.59**.
 
 **D6.**
 (a) `ΔP/P ≈ −7.72 × 0.01 = −7.72%` → `P ≈ 100 × 0.9228 = **€92.28**`.
@@ -116,6 +116,6 @@ A bond trades **above** par. Therefore:
 (a) Weights `400/1,000 = 0.4` and `600/1,000 = 0.6`.
   `D_portfolio = 0.4(7.72) + 0.6(1.90) = 3.088 + 1.140 = **4.228**`.
 (b) `ΔV ≈ −4.228 × 0.01 × €1,000,000 = **−€42,280**`.
-(c) "A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; the exposure sits almost entirely in the ten-year holding, and shortening that would cut it roughly in half."
+(c) "A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; about three quarters of the exposure sits in the ten-year holding, and shortening that would cut it roughly in half."
 
 </details>
