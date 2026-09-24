@@ -52,6 +52,7 @@ anim/src/weekNN_scenes.py  manim scenes, two per week, 10-12s each; common.py ho
 midterm/briefing.md   how to read the brief and write the report — method only, none of the brief's content
 lectures/NN-slug.qmd  THE deck shown in class: revealjs with the ESE theme (lectures/ese.scss), clips embedded
                       as <video poster=...> from lectures/media/, figures as SVG from lectures/figs.py (matplotlib)
+                      (plus lectures/figs_w04_gordon.py and figs_w05_immunisation.py for the beyond-the-syllabus blocks)
 lectures/_metadata.yml every visual option of the revealjs decks; a lecture file sets title, subtitle, author, content
 index.qmd             schedule table = home page; assessment scheme; readings
 setup.qmd             "How to work": what to bring, homework hand-in, notebooks, exam-style writing

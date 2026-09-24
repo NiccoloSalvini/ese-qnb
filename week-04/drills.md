@@ -28,7 +28,7 @@ A bank quotes 6% nominal. Which is worth more to a depositor?
 
 **D6 (stretch).** A rate is quoted as 5% nominal compounded continuously. What annual compounding rate would leave a depositor equally well off?
 
-## C. Discounting and present value
+## C. Discounting, present value and growth
 
 **D7 (core).** What is €10,000 receivable in 5 years worth today at 7%?
 
@@ -41,21 +41,30 @@ Your cost of capital is 9%. Which do you choose? Show the present value of (ii).
 (b) A perpetuity pays €12,000 at the end of every year for ever. At 6%, what is it worth today?
 (c) Explain the gap between (a) and (b) in one sentence.
 
-**D10 (stretch).** A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?
+**D10 (core — growing perpetuity).** A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?
+
+**D11 (core — Board form).** Three years on, the Board asks again: *what is Arno Bikes worth?* The new forecast is a free cash flow of €350k next year, growing 4% a year for ever; the cost of capital is still 9%.
+(a) The value of the firm today.
+(b) By how much does the value change if growth is one point lower, 3% instead of 4%? In euros and in per cent.
+(c) One sentence for the Board.
+
+**D12 (stretch — what the market assumes).** A listed rival is valued by the market at €12M. Next year's free cash flow is €600k and its cost of capital is 9%.
+(a) What growth rate for ever is the market pricing in?
+(b) One line: is that believable for a mature firm, and what would you check?
 
 ## D. NPV
 
-**D11 (core — the case).** For the assembly line above, at a cost of capital of 9%:
+**D13 (core — the case).** For the assembly line above, at a cost of capital of 9%:
 (a) Write the NPV as a sum.
 (b) Compute each discounted flow and the NPV.
 (c) Accept or reject, and say the sentence you would tell the Board.
 
-**D11b (core — where the rate comes from).** Arno Bikes is financed 60% by equity and 40% by debt. Shareholders expect 12%; the bank charges 6%; the corporate tax rate is 25%.
+**D13b (core — where the rate comes from).** Arno Bikes is financed 60% by equity and 40% by debt. Shareholders expect 12%; the bank charges 6%; the corporate tax rate is 25%.
 (a) Compute the weighted average cost of capital.
 (b) One line: why does the tax rate appear at all, and only on the debt side?
 (c) If the firm took on more debt and the mix became 40/60, what would happen to the WACC and therefore to the NPV of the assembly line? No arithmetic needed.
 
-**D12 (stretch).** Recompute the NPV at 16%. What does the change in sign tell you, and what is the name of the rate at which it happens?
+**D14 (stretch).** Recompute the NPV at 16%. What does the change in sign tell you, and what is the name of the rate at which it happens?
 
 ---
 
@@ -97,9 +106,19 @@ Bank B: **8.00%**.
 (b) `PV = 12,000 / 0.06 = **€200,000.00**`.
 (c) The perpetuity is worth more, but not infinitely more: the payments after year 10 are worth about €111,679 in total today, because discounting shrinks distant money towards nothing.
 
-**D10.** Growing perpetuity: `PV = C₁/(r − g) = 5,000/(0.07 − 0.02) = **€100,000.00**`.
+**D10.** Growing perpetuity: `PV = C₁/(r − g) = 5,000/(0.07 − 0.02) = 5,000/0.05 = **€100,000.00**`.
+With no growth the same €5,000 would be worth `5,000/0.07 = €71,428.57`: two points of growth cut the denominator from 7% to 5% and add 40% to the value.
 
 **D11.**
+(a) `V = CF₁/(r − g) = 350/(0.09 − 0.04) = 350/0.05 = **€7,000.00k**`, i.e. €7M.
+(b) At 3%: `350/(0.09 − 0.03) = 350/0.06 = **€5,833.33k**`. The value falls by **€1,166.67k**, **−16.67%**. One point of growth moved the price by a sixth, because it made the denominator a fifth larger, from 5% to 6%, and `1/1.2 = 0.8333`.
+(c) "On our forecast Arno Bikes is worth about €7M; if growth is one point lower it is worth €5.8M, so the price we accept should rest on the growth we can defend, not on the one we hope for."
+
+**D12.**
+(a) `P = CF₁/(r − g)` ⇒ `g = r − CF₁/P = 0.09 − 600/12,000 = 0.09 − 0.05 = **4.00%**`.
+(b) 4% a year for ever is at the top of what a mature firm can sustain — roughly the economy's long-run nominal growth. Check whether recent cash-flow growth supports it, and remember the market price also embeds its own `r`: a lower `r` would need less growth to justify €12M.
+
+**D13.**
 (a) `NPV = −2,400 + 700/(1.09) + 800/(1.09)² + 900/(1.09)³ + 1,000/(1.09)⁴` (€ thousand).
 (b)
 
@@ -114,12 +133,12 @@ Bank B: **8.00%**.
 
 (c) **Accept.** "At our 9% cost of capital the line adds about €319,000 of value in today's money; the cash it returns covers the outlay by the end of year three."
 
-**D11b.**
+**D13b.**
 (a) `WACC = 0.6(12%) + 0.4(6%)(1 − 0.25) = 7.2% + 1.8% = **9.0%**` — the 9% we were handed all along.
 (b) Interest on debt is **deductible from taxable profit**, so a 6% loan costs the firm only `6%(1 − 0.25) = 4.5%` after tax. Dividends are not deductible, so no such factor appears on the equity side.
 (c) More weight on the cheaper source → **WACC falls** → future cash flows are discounted less → **the NPV rises**. Worth saying out loud that this is not free: more debt raises the risk, and in time both `r_e` and `r_d` rise with it.
 
-**D12.** At 16%: `−2,400 + 603.45 + 594.53 + 576.59 + 552.29 = **−€73.14k**`. Negative.
+**D14.** At 16%: `−2,400 + 603.45 + 594.53 + 576.59 + 552.29 = **−€73.14k**`. Negative.
 The NPV falls as the discount rate rises and **changes sign** between 9% and 16%; the rate where it is exactly zero is the **internal rate of return** (about 14.6% here). Above it the project destroys value.
 
 </details>

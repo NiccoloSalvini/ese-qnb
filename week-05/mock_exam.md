@@ -1,6 +1,6 @@
 # Week 5 — Mock of the final exam's calculus question
 
-**Forty minutes. Exam conditions: no notes, non-programmable calculator only, all work shown.**
+**Thirty minutes — six an item. Exam conditions: no notes, non-programmable calculator only, all work shown.**
 
 This is not the real paper. It is the same five item types, with different functions and numbers, in the same proportions: five items, 20% each. Marks are for method — a correct answer with no working scores badly, and a wrong answer with sound working scores well.
 
@@ -29,7 +29,7 @@ $$\int_{0}^{\frac{1}{3}} \left(\frac{1}{x-1} + \frac{x}{x^{2}-1}\right) dx$$
 ---
 
 <details>
-<summary><strong>Solutions — do not open before the forty minutes are up</strong></summary>
+<summary><strong>Solutions — do not open before the thirty minutes are up</strong></summary>
 
 **Q1.** Divide term by term: `(2q⁵ − 5q³ + 3)/q² = 2q³ − 5q + 3q⁻²`.
 

@@ -37,7 +37,7 @@ One of you takes us through it. The Board report, read aloud by its author. The 
 |---|---|---|
 | 1–2 | 24 Sep – 1 Oct | algebra, limits, the derivative ✓ |
 | 3 | 8 Oct | study, optimise, integrate ✓ |
-| **4** | **15 Oct** | **interest, discounting, EAR, NPV** |
+| **4** | **15 Oct** | **interest, EAR, discounting, NPV, a firm's value** |
 | 5 | 22 Oct | bonds, duration, convexity |
 :::
 ::: {.column width="44%"}
@@ -69,7 +69,7 @@ It returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no �
 [Block B]{.blk-letter}Which of two quotes is cheaper?[the effective rate]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities]{.blk-tool}
+[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities · growth]{.blk-tool}
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
@@ -159,7 +159,7 @@ Compounding more often always helps, and always by less. The limit is `e`.
 [Block B]{.blk-letter}Which of two quotes is cheaper?[the effective rate]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities]{.blk-tool}
+[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities · growth]{.blk-tool}
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
@@ -173,6 +173,8 @@ Compounding more often always helps, and always by less. The limit is `e`.
 
 ## Two quotes, same nominal rate, different price
 
+:::: {.columns}
+::: {.column width="46%"}
 $$EAR = \left(1 + \frac{i}{m}\right)^{m} - 1$$
 
 | 12% nominal, compounded | EAR |
@@ -181,28 +183,28 @@ $$EAR = \left(1 + \frac{i}{m}\right)^{m} - 1$$
 | quarterly | 12.55% |
 | monthly | 12.68% |
 | continuously | 12.75% |
-
-[A nominal rate is not a price until you know `m`. This is the single most useful line of the whole module.]{.red}
-
-## The trap, in one comparison
-
-Bank A: **7.8% compounded monthly**.  Bank B: **8% compounded annually**.
+:::
+::: {.column width="54%"}
+Bank A: **7.8% compounded monthly**.<br>Bank B: **8% compounded annually**.
 
 ::: {.callout-important title="Bet before we compute"}
 Which do you borrow from?
 :::
 
-. . .
-
-A: `(1 + 0.078/12)¹² − 1 = 8.085%`.  B: `8.000%`.
-
+::: {.fragment}
+A: `(1 + 0.078/12)¹² − 1 = 8.085%`. B: `8.000%`.
 **Borrow from B.** The lower headline rate is the dearer loan.
+:::
+:::
+::::
+
+[A nominal rate is not a price until you know `m`. This is the single most useful line of the whole module.]{.red}
 
 ## D4, D5 — put everything on the same basis {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 
-12 minutes. Every answer states `m` explicitly before the arithmetic.
+10 minutes. Every answer states `m` explicitly before the arithmetic.
 
 ## Four blocks today {.hub auto-animate=true}
 
@@ -214,14 +216,14 @@ A: `(1 + 0.078/12)¹² − 1 = 8.085%`.  B: `8.000%`.
 [Block B]{.blk-letter}Which of two quotes is cheaper?[the effective rate]{.blk-tool}
 :::
 ::: {.blk .now data-id="blkC"}
-[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities]{.blk-tool}
+[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities · growth]{.blk-tool}
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
 :::
 :::
 
-## [Block C]{.section-kicker} Discounting — running the clock backwards {.section-slide background-color="#AF1F25" auto-animate=true}
+## [Block C]{.section-kicker} What is a future euro worth today — and a whole firm? {.section-slide background-color="#AF1F25" auto-animate=true}
 
 ::: {.blk-fill data-id="blkC"}
 :::
@@ -259,11 +261,78 @@ $$PV = \frac{C}{r}$$
 
 For ever is worth only 2.3 times ten years. Everything after year ten adds €111,679, because discounting shrinks distant money towards nothing.
 
-## D8, D9 — present value, annuity, perpetuity {.paper background-color="#eceff0"}
+## What is Arno Bikes worth?
+
+:::: {.columns}
+::: {.column width="52%"}
+A buyer asks the Board to name a price for the whole firm.
+
+- next year's free cash flow: **€300k**
+- growing **3% a year, for ever**
+- cost of capital: **9%**
+
+With no growth, the perpetuity you just saw:<br>€300k / 0.09 = **€3.33M**.
+
+::: {.callout-important title="Bet before we compute"}
+With 3% growth — how much? One number, in euros, before any formula.
+:::
+:::
+::: {.column width="48%"}
+| Year | Cash flow (€k) | PV at 9% (€k) |
+|---|---|---|
+| 1 | 300.00 | 275.23 |
+| 2 | 309.00 | 260.08 |
+| 3 | 318.27 | 245.76 |
+| 4 | 327.82 | 232.23 |
+| 5 | 337.65 | 219.45 |
+| … | grows 3% | shrinks |
+
+[Every row adds less than the one before, but the rows never stop.]{.muted}
+:::
+::::
+
+## A perpetuity, with the growth taken off the rate
+
+$$PV = \frac{CF_1}{r - g} = \frac{300}{0.09 - 0.03} = \frac{300}{0.06} = €5{,}000\text{k} = \textbf{€5M}$$
+
+Each year's present value is the last one times $\frac{1.03}{1.09}$: the table is a **geometric series**, and this is its sum. With $g = 0$ it is the $C/r$ you already know.
+
+. . .
+
+The first five years are worth €1.23M. The other **€3.77M is everything after year five** — the value of a firm lives mostly in the far future.
+
+## One point of growth is worth a million
+
+:::: {.columns}
+::: {.column width="64%"}
+![](img/w04_gordon.svg){width="100%"}
+:::
+::: {.column width="36%"}
+| g | value |
+|---|---|
+| 2% | €4.29M |
+| **3%** | **€5.00M** |
+| 4% | €6.00M |
+
+As $g \to r$ the denominator goes to zero and the value explodes — a limit, week 2.
+
+[The formula needs $g < r$. No firm outgrows its cost of capital for ever.]{.red}
+:::
+::::
+
+## Where the risk in a valuation sits
+
+::: {.callout-tip title="Board sentence"}
+A firm is worth next year's cash flow divided by the gap between our cost of capital and its growth. That gap is a few points wide, and every point of doubt in it is a million on the price.
+:::
+
+[Earlier: two analysts who agree on every cash flow can disagree on the answer because of the rate. Here the rate *and* the growth sit in one small number, $r - g$, and that is where to push back.]{.muted}
+
+## D8–D11 — present value, annuity, perpetuity, growth {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 
-12 minutes. Show the discount factor separately from the flow, every time.
+15 minutes. Show the discount factor separately from the flow, every time. D11 ends with a sentence for the Board.
 
 ## Four blocks today {.hub auto-animate=true}
 
@@ -275,7 +344,7 @@ For ever is worth only 2.3 times ten years. Everything after year ten adds €11
 [Block B]{.blk-letter}Which of two quotes is cheaper?[the effective rate]{.blk-tool}
 :::
 ::: {.blk .done}
-[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities]{.blk-tool}
+[Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities · growth]{.blk-tool}
 :::
 ::: {.blk .now data-id="blkD"}
 [Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
@@ -353,7 +422,7 @@ The discount rate is not an assumption you pick. It is the price your own money 
 2. Then slide, and read the crossing.
 3. Now delay the first €700k by a year. What happens to the IRR, and why?
 
-## D11, D12 — the case, decided {.paper background-color="#eceff0"}
+## D13, D14 — the case, decided {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 
@@ -366,8 +435,9 @@ The discount rate is not an assumption you pick. It is the price your own money 
 1. A nominal rate is not a price until you know how often it compounds. Compare on EAR.
 2. Compounding more often always helps, and always by less. The ceiling is `e`.
 3. Money with different dates cannot be added. Discount first.
-4. Accept when NPV is positive at your own cost of capital; IRR is where it crosses zero.
+4. A firm growing for ever is worth $CF_1/(r-g)$; the gap $r-g$ is where the valuation's risk sits.
+5. Accept when NPV is positive at your own cost of capital; IRR is where it crosses zero.
 
-**Homework 4** (`homework.md`), due Wednesday 21 October 23:59: eight drills plus a memo correcting the Board member.
+**Homework 4** (`homework.md`), due Wednesday 21 October 23:59: nine drills plus a memo correcting the Board member.
 
 Next week: the same arithmetic applied to a bond, and the two numbers that say how much a rate rise would cost you.

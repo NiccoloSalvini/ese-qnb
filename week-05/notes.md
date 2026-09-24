@@ -2,7 +2,7 @@
 
 **MBA03 Research & Quantitative Business Methods · Thu 22 Oct 2026, 10:00–13:00 · Tutor: Niccolò Salvini**
 
-Syllabus topic: bond pricing, duration and convexity (Renshaw ch. 10–13). Plus consolidation and a **mock of the final exam's calculus question**.
+Syllabus topic: bond pricing, duration and convexity (Renshaw ch. 10–13). Plus consolidation and a **mock of the final exam's calculus question**. Beyond the syllabus, ten minutes: **immunisation** — duration used to make a payment safe; paid for by shortening the mock from 40' to 30'.
 
 Last session of my half. It closes the loop deliberately: a bond is last week's arithmetic, duration is week 2's derivative, convexity is week 3's second derivative.
 
@@ -14,7 +14,8 @@ By the end of the session the students can:
 2. **Compute** Macaulay and modified duration from a table of weights, and use modified duration to estimate a price change — resit's MCQ block.
 3. **State** how maturity, coupon and yield move duration, and why — resit's MCQ block.
 4. **Add** the convexity term, say which way duration alone errs, and explain in plain words what convexity buys the holder.
-5. **Sit** the five-item calculus question under exam conditions and mark it.
+5. **Match** a portfolio's duration to the date of a payment (two zeros, one weight) and check the value at the horizon after a rate move — beyond the syllabus, not examined.
+6. **Sit** the five-item calculus question under exam conditions and mark it.
 
 ## Session plan
 
@@ -24,8 +25,8 @@ By the end of the session the students can:
 | 10:12–10:40 | **A. Pricing a bond** | Slides → paper | Annuity plus lump sum. Premium, par, discount. |
 | 10:40–11:20 | **B. Duration** | Slides + figure + clip → paper | The slope. Two durations. Three rules. |
 | 11:20–11:35 | break | — | Outside the room. |
-| 11:35–12:05 | **C. Convexity** | Slides + clip → notebook → paper | The gap the line misses. The reserve, answered. |
-| 12:05–12:45 | **D. Mock exam** | Paper, exam conditions | Forty minutes, `mock_exam.md`, no notes. |
+| 11:35–12:15 | **C. Convexity, then immunisation** | Slides + clip → notebook → paper | The gap the line misses. The reserve, answered. Then: can we stop worrying? |
+| 12:15–12:45 | **D. Mock exam** | Paper, exam conditions | Thirty minutes, `mock_exam.md`, no notes. |
 | 12:45–13:00 | Marking together, and handover | Paper | Mark it, then what happens next. |
 
 ## Script
@@ -56,7 +57,7 @@ Build the weights table on the board for the 5-year 4% bond. **The weights must 
 
 → **D5, D6** on paper, 15 minutes.
 
-### C. Convexity (30')
+### C. Convexity, then immunisation (30' + 10')
 
 **The bet:** duration says €92.28, the truth is €92.64. Is the straight line wrong in the holder's favour, or against?
 
@@ -78,9 +79,19 @@ Thirty-six cents out becomes two cents out. Be honest about the two cents: they 
 
 → **D8, D11** on paper, 15 minutes.
 
-### D. Mock exam (40' + marking)
+**Immunisation (10', beyond the syllabus — say so).** The reserve answer measured the risk; now remove it. New setup: Arno Bikes owes **€1M in exactly 4 years** for the building and puts the money aside today in zeros at 5%. **The bet:** short bonds, long bonds, or a mix?
 
-Exam conditions, meant literally: no notes, calculator only, phones away, forty minutes on the clock. `mock_exam.md`.
+Two forces when rates rise: **prices fall** (bad — whatever is still held at year 4 is worth less) and **coupons reinvest at more** (good — whatever comes back early earns the new rate). Short bonds: reinvestment wins; long bonds: the price fall wins. When the portfolio's duration equals the date of the payment, the two offset to first order.
+
+On the board: `PV = 1,000,000/1.05⁴ = €822,702.47`; `2w + 6(1 − w) = 4 → w = ½`; €411,351.24 in each; faces €453,514.74 (year 2) and €551,250.00 (year 6). Then the check at 6%: `453,514.74 × 1.06² + 551,250/1.06² = 509,569.16 + 490,610.54 = €1,000,179.70`. At 4%: €1,000,183.16. **Slightly above either way** — ask why before saying "convexity". The figure shows the two unmatched portfolios tilting opposite ways — about €19k off at 6%, €38k at 3% or 7%; the matched one is flat.
+
+Board sentence, then the condition that makes it honest: durations drift apart as time passes, so the match is **reset every year**.
+
+→ **D12** on paper, 5 minutes; D13–D14 for home if the clock says so. If block C is late, show the four slides and skip D12 — never eat into the mock.
+
+### D. Mock exam (30' + marking)
+
+Exam conditions, meant literally: no notes, calculator only, phones away, thirty minutes on the clock — six an item. All five items stay: none needs more than a few lines of working. `mock_exam.md`.
 
 Then **mark it together**, item by item, and make the marking scheme explicit: marks are for method. A correct answer with no working scores badly; a wrong answer with sound working scores well. Have them sort their lost marks into **method** and **execution** — the two piles need different remedies, and the distinction is the most useful thing they take from the exercise.
 
@@ -101,6 +112,7 @@ Say plainly what happens next:
 - Longer maturity raises duration; a larger coupon lowers it; a higher yield lowers it. A zero's duration is its maturity.
 - **Convexity** is the curvature duration misses, and it always favours the holder.
 - A portfolio's duration is the **value-weighted average** of its parts.
+- **Immunisation**: hold a portfolio whose (Macaulay) duration equals the date of a payment and a one-off rate move leaves the payment covered — price and reinvestment effects cancel, convexity leaves a small surplus. Rebalance as time passes.
 
 ## Board, slide, screen — what goes where
 
@@ -109,18 +121,19 @@ reading out each present value. The weights must sum to 1 — write that check o
 leave it. Then the convexity correction, term by term.
 
 **On the slide.** The price–yield figure, both clips, the three duration rules, the
-premium/par/discount table.
+premium/par/discount table, the immunisation figure (value at year 4 against the new yield).
 
 **On screen.** Optional this week; the clips carry the intuition. If you open the notebook at
-all, it is for the table of actual-versus-estimate at several yield moves.
+all, it is for the table of actual-versus-estimate at several yield moves, or for the immunisation
+slider (§ E): drag the weight in the long bond and watch the horizon line flatten at ½.
 
-Then close everything for the mock. Forty minutes, exam conditions, meant literally — it is
+Then close everything for the mock. Thirty minutes, exam conditions, meant literally — it is
 the only rehearsal they get of the exam's *timing*, which is what most candidates actually fail
 on. Mark it together afterwards, out loud, so they see the scheme applied to their own paper.
 
 ## Tutor's notes
 
-- Protect the forty minutes for the mock. If block C runs long, cut D8 and go straight to D11 — the mock is the only rehearsal they get of the exam's timing, which is what most of them will actually fail on.
+- Protect the thirty minutes for the mock. If block C runs long, cut D8 and go straight to D11, and run immunisation as slides only (D12 to home) — the mock is the only rehearsal they get of the exam's timing, which is what most of them will actually fail on.
 - The weights-sum-to-one check saves more marks than any other single instruction this week.
 - Keep Macaulay and modified apart in every sentence you say. Sloppiness here is contagious.
 - Marking together is not optional: seeing the scheme applied to their own paper is where the "method, not answer" message finally lands.

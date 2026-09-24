@@ -132,6 +132,51 @@ md(r"""
 > "A one-point rise costs the reserve about €42,000, a little over 4%. About three quarters of the exposure sits in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this."
 """)
 
+md(r"""
+## E. Can we stop worrying? — immunisation (beyond the syllabus)
+
+Arno Bikes must pay **€1M in exactly 4 years**. It puts the money aside today in two zero-coupon bonds, 2-year and 6-year, at a flat 5%. The day after, yields jump to a new level and stay there.
+
+Drag the slider: the **share in the 6-year zero**. At ½ the portfolio's duration is 4 — the date of the payment — and the horizon value is flat near €1M whatever the new yield.
+""")
+code(r"""
+L_pay, y0, horizon = 1_000_000, 0.05, 4
+PV_pay = L_pay / (1 + y0) ** horizon                     # €822,702.47
+
+def value_at_horizon(w_long, y):
+    # w_long of today's money in the 6-year zero, the rest in the 2-year zero
+    face2 = (1 - w_long) * PV_pay * (1 + y0) ** 2        # paid at year 2, reinvested to year 4 at y
+    face6 = w_long * PV_pay * (1 + y0) ** 6              # sold at year 4, two years before maturity
+    return face2 * (1 + y) ** 2 + face6 / (1 + y) ** 2
+
+ys = np.linspace(0.03, 0.07, 81)
+weights = np.round(np.linspace(0, 1, 21), 2)
+fig = go.Figure()
+for w in weights:
+    fig.add_scatter(x=ys*100, y=[value_at_horizon(w, v) for v in ys], visible=bool(w == 0.5),
+                    line=dict(color="#AF1F25", width=4), name=f"share in 6-year zero {w:.0%}")
+fig.add_hline(y=L_pay, line=dict(color="#7a7f85", dash="dot"), annotation_text="the €1M we owe")
+steps = [dict(method="update", label=f"{w:.0%}",
+              args=[{"visible": [bool(j == i) for j in range(len(weights))]},
+                    {"title": f"share in the 6-year zero {w:.0%} → portfolio duration {2*(1-w) + 6*w:.1f} years"}])
+         for i, w in enumerate(weights)]
+fig.update_layout(template="simple_white", height=480, showlegend=False,
+                  title="share in the 6-year zero 50% → portfolio duration 4.0 years",
+                  xaxis_title="yield after the move %", yaxis_title="value at year 4 €",
+                  yaxis=dict(range=[955_000, 1_045_000]),
+                  sliders=[dict(active=int(np.where(weights == 0.5)[0][0]), steps=steps,
+                                currentvalue=dict(prefix="share in the 6-year zero: "))])
+fig.show()
+
+print(f"{'yield after':>12} {'all 2-year':>12} {'half-half':>12} {'all 6-year':>12}")
+for y in (0.03, 0.04, 0.05, 0.06, 0.07):
+    print(f"{y:>12.0%} {value_at_horizon(0, y):>12,.0f} {value_at_horizon(0.5, y):>12,.0f} {value_at_horizon(1, y):>12,.0f}")
+""")
+
+md(r"""
+**Half and half never falls below €1M**: the price effect and the reinvestment effect cancel, and convexity leaves a small surplus either way. As time passes the durations drift apart, so the match must be reset — every year, and after any large move.
+""")
+
 # ---------------------------------------------------------------------------
 # Drills, solved in code — one markdown + one code cell per drill part.
 # Numbers match drills.md; every cell asserts against the worked solution.
@@ -468,6 +513,108 @@ assert 0.04 < share < 0.045 and ten_year_part / -loss > 0.7
 print('"A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; '
       'about three quarters of the exposure sits in the ten-year holding, and shortening that would '
       'cut it roughly in half."')
+""")
+
+# ---- D12 ------------------------------------------------------------------
+md(r"""
+**D12 (a).** Arno Bikes must pay €500,000 in exactly 3 years; 1-year and 5-year zeros both yield 4%. How much must it set aside today?
+
+$$PV = \frac{500{,}000}{(1.04)^3}$$
+""")
+code(r"""
+L12, y12, h12 = 500_000, 0.04, 3
+growth = (1 + y12) ** h12                 # 1.124864
+PV12 = L12 / growth
+close(growth, 1.124864, 1e-6); close(PV12, 444_498.18)
+print(f"(1.04)^3 = {growth:.6f}, so Arno Bikes sets aside €{PV12:,.2f} today.")
+""")
+
+md(r"""
+**D12 (b).** What share goes into each zero so that the portfolio's duration is 3 years?
+
+$$1\cdot w + 5\,(1-w) = 3$$
+""")
+code(r"""
+import sympy as sp
+w = sp.symbols("w")
+w12 = sp.solve(sp.Eq(1*w + 5*(1 - w), 3), w)[0]      # a zero's duration is its maturity
+assert w12 == sp.Rational(1, 2)
+print(f"w = {w12}: half in the 1-year zero, half in the 5-year zero (duration 1·½ + 5·½ = 3).")
+""")
+
+md(r"""
+**D12 (c).** The euros in each, and the amount each zero pays at maturity.
+""")
+code(r"""
+each = round(PV12 / 2, 2)
+face1 = round(each * (1 + y12), 2)        # paid in year 1
+face5 = round(each * (1 + y12) ** 5, 2)   # paid in year 5
+close(each, 222_249.09); close(face1, 231_139.05); close(face5, 270_400.00)
+print(f"€{each:,.2f} in each; the 1-year zero pays €{face1:,.2f} in year 1, "
+      f"the 5-year zero €{face5:,.2f} in year 5.")
+""")
+
+# ---- D13 ------------------------------------------------------------------
+md(r"""
+**D13 (a), (b), (c).** Yields jump to 5% the day after the purchase. Value at year 3 of each zero, the total against €500,000; then the same with 3%.
+""")
+code(r"""
+rows = []
+for y_new in (0.05, 0.03):
+    reinvested = round(face1 * (1 + y_new) ** 2, 2)   # year-1 payment, reinvested for two years
+    sold = round(face5 / (1 + y_new) ** 2, 2)         # 5-year zero with two years left to run
+    total = reinvested + sold
+    rows.append({"yield after": f"{y_new:.0%}", "1-year zero at year 3": reinvested,
+                 "5-year zero at year 3": sold, "total": round(total, 2), "vs €500,000": round(total - L12, 2)})
+print(pd.DataFrame(rows).to_string(index=False))
+close(rows[0]["1-year zero at year 3"], 254_830.80); close(rows[0]["5-year zero at year 3"], 245_260.77)
+close(rows[0]["total"], 500_091.57); close(rows[1]["total"], 500_093.35)
+unmatched = round(PV12 * (1 + y12) * 1.03 ** 2, 2)   # everything in the 1-year zero, yields fall to 3%
+close(unmatched, 490_430.84)
+print(f"Both ways the payment is covered with a little to spare (convexity). "
+      f"All in the 1-year zero, a fall to 3% would leave €{unmatched:,.2f} — €{L12 - unmatched:,.0f} short.")
+""")
+
+# ---- D14 ------------------------------------------------------------------
+md(r"""
+**D14 (a) (stretch).** €1M due in 4 years, flat 5%. Replace the 6-year zero with a 6-year 5% coupon bond at par: its Macaulay duration, with the table of weights.
+""")
+code(r"""
+table = cash_flow_table(0.05, 6, 0.05)
+P14 = table["PV"].sum()
+table["weight"] = table["PV"] / P14
+table["t·w"] = table["t"] * table["weight"]
+print(table.round(4).to_string(index=False))
+D14 = table["t·w"].sum()
+close(P14, 100.0); close(table["weight"].sum(), 1.0, 1e-9); close(D14, 5.33, 0.001)
+print(f"Macaulay duration = {D14:.2f} years — under six, because the coupons come back earlier.")
+""")
+
+md(r"""
+**D14 (b).** The share in the 2-year zero that makes the portfolio's duration 4 years, and the euros in each.
+
+$$2w + 5.33\,(1-w) = 4$$
+""")
+code(r"""
+w14 = (D14 - 4) / (D14 - 2)
+PV_pay = 822_702.47
+close(w14, 0.40, 0.005)
+close(w14 * PV_pay, 328_509, 1); close((1 - w14) * PV_pay, 494_193, 1)
+print(f"w = {w14:.4f}: about {w14:.0%} (€{w14*PV_pay:,.0f}) in the 2-year zero and "
+      f"{1-w14:.0%} (€{(1-w14)*PV_pay:,.0f}) in the coupon bond.")
+""")
+
+md(r"""
+**D14 (c).** One year later, yields unchanged: by how much did each duration fall, and what must the treasurer do?
+""")
+code(r"""
+t5 = cash_flow_table(0.05, 5, 0.05)
+D14_next = t5["t·PV"].sum() / t5["PV"].sum()      # now a 5-year 5% bond at par
+close(D14_next, 4.55, 0.005); close(D14 - D14_next, 0.78, 0.005)
+print(f"Payment date: 4 → 3 (−1). 2-year zero: 2 → 1 (−1). Coupon bond: {D14:.2f} → {D14_next:.2f} "
+      f"(−{D14 - D14_next:.2f}).")
+print("Durations drift apart as time passes, even if rates never move: re-compute the weights and "
+      "rebalance, at least once a year and after any large rate move.")
 """)
 
 md(r"""

@@ -48,7 +48,7 @@ A bond trades **above** par. Therefore:
 
 **D10 (stretch).** Two bonds have the same duration; one has higher convexity. Rates move sharply, direction unknown. Which would you rather hold, and why?
 
-*After these, the session closes with a [mock of the final exam's calculus question](mock_exam.md), forty minutes in exam conditions.*
+*The session closes with a [mock of the final exam's calculus question](mock_exam.md), thirty minutes in exam conditions.*
 
 ## D. Putting it together
 
@@ -56,6 +56,25 @@ A bond trades **above** par. Therefore:
 (a) The portfolio's modified duration. *(Weight each by market value.)*
 (b) The estimated loss in euros if yields rise by 1% across the board.
 (c) One sentence to the Board.
+
+## E. Immunisation — beyond the syllabus
+
+*The step after duration: using it to make a payment safe. A zero's Macaulay duration is its maturity; yields are flat and move once, the day after purchase.*
+
+**D12 (core).** Arno Bikes must pay a supplier **€500,000 in exactly 3 years**. It can buy 1-year and 5-year zero-coupon bonds, both yielding 4%.
+(a) How much must it set aside today?
+(b) What share goes into each zero so that the portfolio's duration is 3 years?
+(c) The euros in each, and the amount each zero pays at maturity.
+
+**D13 (core).** The day after the purchase in D12, yields jump to **5%** and stay there.
+(a) The 1-year zero's payment, reinvested at 5% until year 3: what is it worth then?
+(b) The 5-year zero, still two years from maturity at year 3: what is it worth then?
+(c) The total against the €500,000 owed. Then repeat (a)–(c) with yields falling to **3%** instead, and say what you notice.
+
+**D14 (stretch).** Go back to the slide: €1M due in 4 years, flat yield 5%, money set aside today €822,702.47. Replace the 6-year zero with a **6-year 5% coupon bond at par**.
+(a) Its Macaulay duration, with the table of weights.
+(b) The share in the 2-year zero that makes the portfolio's duration 4 years, and the euros in each.
+(c) One year later, yields unchanged: the payment is 3 years away, and the coupon bond is now a 5-year 5% bond at par, with Macaulay duration 4.55. By how much did each duration fall? What must the treasurer do, and how often?
 
 ---
 
@@ -117,5 +136,38 @@ A bond trades **above** par. Therefore:
   `D_portfolio = 0.4(7.72) + 0.6(1.90) = 3.088 + 1.140 = **4.228**`.
 (b) `ΔV ≈ −4.228 × 0.01 × €1,000,000 = **−€42,280**`.
 (c) "A one-point rise in yields costs the reserve about €42,000, a little over 4% of it; about three quarters of the exposure sits in the ten-year holding, and shortening that would cut it roughly in half."
+
+**D12.**
+(a) `PV = 500,000/(1.04)³ = 500,000/1.124864 = **€444,498.18**`.
+(b) Each zero's duration is its maturity. With a share `w` in the 1-year zero:
+  `1·w + 5(1 − w) = 3 → 5 − 4w = 3 → **w = ½**`. Half in each.
+(c) `€222,249.09` in each.
+  The 1-year zero pays `222,249.09 × 1.04 = **€231,139.05**` in year 1.
+  The 5-year zero pays `222,249.09 × (1.04)⁵ = **€270,400.00**` in year 5.
+
+**D13.**
+(a) `231,139.05 × (1.05)² = 231,139.05 × 1.1025 = **€254,830.80**`.
+(b) `270,400.00/(1.05)² = 270,400.00/1.1025 = **€245,260.77**`.
+(c) `254,830.80 + 245,260.77 = **€500,091.57**`, i.e. **€91.57 more** than the €500,000 owed.
+  At 3%: `231,139.05 × 1.0609 = 245,215.42` and `270,400.00/1.0609 = 254,877.93`, total **€500,093.35**, **€93.35 more**.
+  In both directions the reinvestment effect and the price effect cancel, and what is left over is a small **gain**: that is convexity, on the holder's side again. Without the match — all in the 1-year zero — a fall to 3% would leave `444,498.18 × 1.04 × 1.0609 = €490,430.84`, about €9,570 short.
+
+**D14.**
+(a) At par, `P = 100`:
+
+| t | CF | PV = CF/(1.05)^t | weight w = PV/P | t · w |
+|---|---|---|---|---|
+| 1 | 5 | 4.76 | 0.0476 | 0.0476 |
+| 2 | 5 | 4.54 | 0.0454 | 0.0907 |
+| 3 | 5 | 4.32 | 0.0432 | 0.1296 |
+| 4 | 5 | 4.11 | 0.0411 | 0.1645 |
+| 5 | 5 | 3.92 | 0.0392 | 0.1959 |
+| 6 | 105 | 78.35 | 0.7835 | 4.7012 |
+| | | **100.00** | **1.0000** | **5.330** |
+
+**Macaulay duration = 5.33 years**, under six because the coupons come back earlier.
+(b) With a share `w` in the 2-year zero: `2w + 5.33(1 − w) = 4 → w = (5.33 − 4)/(5.33 − 2) = 1.33/3.33 = **0.40**`.
+  About **40% in the zero (€328,509)** and **60% in the coupon bond (€494,193)**. Less in the short bond than on the slide, because the long bond is now shorter than six years.
+(c) The payment's date fell by exactly **1 year** (4 → 3); the 2-year zero's duration too (2 → 1). The coupon bond's fell by only `5.33 − 4.55 = **0.78**`. So even with rates unchanged, durations drift apart as time passes and the match is lost. The treasurer must **re-compute the weights and rebalance**, in practice at least once a year and after any large rate move: immunisation is a routine, not a one-off purchase.
 
 </details>

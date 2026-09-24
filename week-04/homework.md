@@ -36,6 +36,11 @@ Two loans quote the same nominal rate. Loan A compounds monthly, loan B annually
 (c) Accept or reject, in one sentence.
 (d) Recompute at 18%. What has changed, and what is the name of the rate between the two where the sign flips?
 
+**H9 (growing perpetuity — what a firm is worth).** A small competitor expects a free cash flow of €240,000 next year, growing 2.5% a year for ever. Your required return is 10%.
+(a) Its value today.
+(b) Its value if growth is 3.5% instead. By how much, in euros, does one point of growth move the price?
+(c) One line: why does the formula give nonsense if someone assumes growth of 10% or more?
+
 ## Part 2 — Memo to the Board (150–250 words, typed)
 
 The Board of Arno Bikes has been offered the assembly line from class: **€2.4M now, returning €700k, €800k, €900k and €1,000k over four years.** A Board member says: *"It returns €3.4M on a €2.4M outlay. That is a million of profit — obviously we do it."*
@@ -56,4 +61,5 @@ No formulas in the text. Put the discounting table in an appendix if you want it
 
 - **H1–H4** are the resit's multiple-choice-with-justification block, in the exact form.
 - **H5–H7** are the present-value machinery every financial-maths question rests on.
+- **H9** goes one step beyond the syllabus: the same perpetuity, with growth — how a whole firm is priced.
 - **H8 and the memo** are the NPV question, and the register the midterm asks for: a decision, defended with numbers, for people who will not read an appendix.

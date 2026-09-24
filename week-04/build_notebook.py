@@ -85,6 +85,41 @@ print(f"  everything after year 10      : €{perpetuity(12000, 0.06) - annuity(
 """)
 
 md(r"""
+### What is Arno Bikes worth? — slide the growth rate
+
+Next year's free cash flow €300k, cost of capital 9%, growth `g` for ever: $V = \dfrac{CF_1}{r - g}$.
+Move the slider towards 9% and watch the value run up the wall.
+""")
+code(r"""
+CF1, R = 300, 0.09                          # € thousand, cost of capital
+gs = np.linspace(0, 0.085, 400)
+fig = go.Figure()
+fig.add_scatter(x=gs*100, y=CF1/(R - gs)/1000, line=dict(color="#363636", width=3), name="value")
+steps = []
+for g in np.round(np.arange(0, 0.0801, 0.005), 3):
+    fig.add_scatter(x=[g*100], y=[CF1/(R - g)/1000], mode="markers+text", visible=False,
+                    marker=dict(size=14, color="#AF1F25"), textposition="middle left",
+                    text=[f"g = {g:.1%}: €{CF1/(R - g)/1000:,.2f}M  "], showlegend=False)
+n = len(fig.data) - 1
+for k in range(n):
+    vis = [True] + [j == k for j in range(n)]
+    steps.append(dict(method="update", args=[{"visible": vis}], label=f"{fig.data[k+1].x[0]:.1f}%"))
+fig.data[1 + 6].visible = True              # start at g = 3%
+fig.add_vline(x=R*100, line=dict(color="#AF1F25", dash="dash"), annotation_text="g = r = 9%")
+fig.update_layout(template="simple_white", height=460, xaxis_title="growth for ever, g %",
+                  yaxis_title="value today, € million", xaxis_range=[0, 10], yaxis_range=[0, 65],
+                  sliders=[dict(active=6, steps=steps, currentvalue=dict(prefix="g = "))])
+fig.show()
+for g in (0.02, 0.03, 0.04):
+    print(f"g = {g:.0%}: €{CF1/(R - g):,.2f}k")
+""")
+
+md(r"""
+### 🔍 CHECK
+Going from 3% to 4% adds €1M. Going from 7% to 8% adds how much? Guess, then compute `300/0.01 − 300/0.02`. Why can no firm grow at 9% for ever in this formula?
+""")
+
+md(r"""
 ## D. NPV, and the rate that makes it zero
 
 Move the discount rate. Watch the sign change.
@@ -339,7 +374,7 @@ assert abs(gap - 111679) < 1
 """)
 
 md(r"""
-**D10 (stretch).** A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?
+**D10 (core).** A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?
 
 $$PV = \frac{C_1}{r - g}$$
 """)
@@ -349,12 +384,66 @@ r = 0.07     # discount rate
 g = 0.02     # growth rate of the payment
 
 PV = C1 / (r - g)
-print(f"The growing perpetuity is worth €{PV:,.2f} today.")
+print(f"The growing perpetuity is worth €{PV:,.2f} today (€{C1/r:,.2f} with no growth).")
 assert abs(PV - 100000.00) < 0.01
 """)
 
 md(r"""
-**D11 (a).** Arno Bikes' assembly line at a 9% cost of capital: write the NPV as a sum (€ thousand).
+**D11 (a).** What is Arno Bikes worth? Free cash flow €350k next year, growing 4% a year for ever, cost of capital 9%.
+
+$$V = \frac{CF_1}{r - g}$$
+""")
+code(r"""
+CF1 = 350    # € thousand, next year
+r, g = 0.09, 0.04
+
+V = CF1 / (r - g)
+print(f"Arno Bikes is worth €{V:,.2f}k today.")
+assert abs(V - 7000.00) < 0.01
+""")
+
+md(r"""
+**D11 (b).** By how much does the value change if growth is one point lower (3% instead of 4%)?
+""")
+code(r"""
+CF1, r = 350, 0.09
+V4 = CF1 / (r - 0.04)
+V3 = CF1 / (r - 0.03)
+
+change = V3 - V4
+print(f"At 3% the value is €{V3:,.2f}k: a change of €{change:,.2f}k, or {change/V4:.2%}.")
+assert abs(V3 - 5833.33) < 0.01 and abs(change - (-1166.67)) < 0.01 and abs(change/V4 + 0.1667) < 0.00005
+""")
+
+md(r"""
+**D11 (c).** One sentence for the Board.
+""")
+code(r"""
+CF1, r = 350, 0.09
+V4, V3 = CF1 / (r - 0.04), CF1 / (r - 0.03)
+print(f"On our forecast Arno Bikes is worth about €{V4/1000:.1f}M; if growth is one point lower it is worth "
+      f"€{V3/1000:.1f}M, so the price should rest on the growth we can defend, not the one we hope for.")
+assert round(V4/1000, 1) == 7.0 and round(V3/1000, 1) == 5.8
+""")
+
+md(r"""
+**D12 (stretch).** A listed rival is valued at €12M; next year's free cash flow is €600k; cost of capital 9%. What growth for ever is the market pricing in?
+
+$$P = \frac{CF_1}{r - g} \quad\Longrightarrow\quad g = r - \frac{CF_1}{P}$$
+""")
+code(r"""
+P = 12000    # € thousand, market value
+CF1 = 600    # € thousand, next year
+r = 0.09
+
+g_implied = r - CF1 / P
+print(f"The market is pricing in growth of {g_implied:.2%} a year for ever.")
+assert abs(g_implied - 0.04) < 1e-9
+assert abs(CF1 / (r - g_implied) - P) < 1e-6    # plug it back: the formula returns the price
+""")
+
+md(r"""
+**D13 (a).** Arno Bikes' assembly line at a 9% cost of capital: write the NPV as a sum (€ thousand).
 
 $$NPV = -2400 + \frac{700}{1.09} + \frac{800}{1.09^2} + \frac{900}{1.09^3} + \frac{1000}{1.09^4}$$
 """)
@@ -367,7 +456,7 @@ print("NPV = " + " + ".join(terms))
 """)
 
 md(r"""
-**D11 (b).** Compute each discounted flow and the NPV.
+**D13 (b).** Compute each discounted flow and the NPV.
 """)
 code(r"""
 flows = [-2400, 700, 800, 900, 1000]    # € thousand
@@ -384,7 +473,7 @@ assert abs(NPV - 318.94) < 0.01
 """)
 
 md(r"""
-**D11 (c).** Accept or reject, and say the sentence you would tell the Board.
+**D13 (c).** Accept or reject, and say the sentence you would tell the Board.
 """)
 code(r"""
 flows = [-2400, 700, 800, 900, 1000]
@@ -398,7 +487,7 @@ assert decision == "Accept"
 """)
 
 md(r"""
-**D11b (a).** 60% equity, 40% debt. Shareholders expect 12%, the bank charges 6%, tax rate 25%. Compute the WACC.
+**D13b (a).** 60% equity, 40% debt. Shareholders expect 12%, the bank charges 6%, tax rate 25%. Compute the WACC.
 
 $$\text{WACC} = w_e\,r_e + w_d\,r_d\,(1 - T)$$
 """)
@@ -413,7 +502,7 @@ assert abs(WACC - 0.09) < 1e-9
 """)
 
 md(r"""
-**D11b (b).** Why does the tax rate appear at all, and only on the debt side?
+**D13b (b).** Why does the tax rate appear at all, and only on the debt side?
 """)
 code(r"""
 r_d, T = 0.06, 0.25
@@ -425,7 +514,7 @@ assert abs(after_tax_debt - 0.045) < 1e-9
 """)
 
 md(r"""
-**D11b (c).** If the mix became 40/60 (more debt), what happens to the WACC and to the NPV of the line?
+**D13b (c).** If the mix became 40/60 (more debt), what happens to the WACC and to the NPV of the line?
 """)
 code(r"""
 r_e, r_d, T = 0.12, 0.06, 0.25
@@ -439,7 +528,7 @@ assert WACC_new < 0.09 and npv(WACC_new) > npv(0.09)
 """)
 
 md(r"""
-**D12 (stretch).** Recompute the NPV at 16%. What does the change in sign tell you, and what is the rate at which it happens?
+**D14 (stretch).** Recompute the NPV at 16%. What does the change in sign tell you, and what is the rate at which it happens?
 """)
 code(r"""
 flows = [-2400, 700, 800, 900, 1000]    # € thousand
@@ -458,7 +547,7 @@ assert abs(npv(0.16) - (-73.14)) < 0.01 and abs(irr - 0.146) < 0.0005
 md(r"""
 ## Homework
 
-`homework.md` — eight drills plus a memo correcting the Board member who added the flows up.
+`homework.md` — nine drills plus a memo correcting the Board member who added the flows up.
 Due Wednesday 21 October, 23:59.
 """)
 

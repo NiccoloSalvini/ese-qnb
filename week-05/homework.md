@@ -35,6 +35,12 @@ One clause of justification each.
 (b) The estimated change in value if yields fall by 0.5%.
 (c) The Board wants the portfolio's duration down to 3.0 without selling either bond entirely. Which way must the weights move? A sentence, no algebra required.
 
+**H7 (immunisation — beyond the syllabus).** Arno Bikes must pay **€2,000,000 in exactly 5 years**. It can buy 3-year and 9-year zero-coupon bonds, both yielding 4%.
+(a) How much must it set aside today?
+(b) The share in each zero that makes the portfolio's duration 5 years, the euros in each, and what each zero pays at maturity.
+(c) The day after the purchase, yields jump to 5%. The value of the portfolio at year 5 — the 3-year zero's payment reinvested for two years, the 9-year zero with four years still to run — against the €2,000,000 owed.
+(d) In one sentence: why must the treasurer look at this portfolio again next year, even if rates never move?
+
 ## Part 2 — One page for the Board (200–300 words, typed)
 
 Arno Bikes keeps €1M in the bond reserve described in H6. The Board has read that rates may rise by a point over the next year and has asked: **should we be worried?**
@@ -47,6 +53,7 @@ Answer with: the loss duration predicts, one sentence on why that figure is an e
 - The duration table has a weights column that sums to 1. If it does not, something is wrong before the duration is.
 - Modified duration is distinguished from Macaulay duration everywhere, including in the units.
 - The convexity term is `½ C (Δy)²` — the half and the square are both easy to drop and both change the answer.
+- In H7 the duration you match is **Macaulay**, in years, against the date of the payment — not the modified duration.
 
 ## And then: the midterm
 

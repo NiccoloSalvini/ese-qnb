@@ -72,7 +72,7 @@ By the end of the session you will answer that with two numbers and a sentence.
 [Block B]{.blk-letter}How much does a rate rise cost?[duration]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block C]{.blk-letter}What the straight line misses[convexity]{.blk-tool}
+[Block C]{.blk-letter}What the straight line misses[convexity, then immunisation]{.blk-tool}
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}The final's calculus question, for real[mock exam]{.blk-tool}
@@ -128,7 +128,7 @@ The bond pays 4% on its face; the market wants 6%. The only way to deliver 6% is
 [Block B]{.blk-letter}How much does a rate rise cost?[duration]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block C]{.blk-letter}What the straight line misses[convexity]{.blk-tool}
+[Block C]{.blk-letter}What the straight line misses[convexity, then immunisation]{.blk-tool}
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}The final's calculus question, for real[mock exam]{.blk-tool}
@@ -203,7 +203,7 @@ Duration is how many percent you lose for each percent rates rise. It is one num
 [Block B]{.blk-letter}How much does a rate rise cost?[duration]{.blk-tool}
 :::
 ::: {.blk .now data-id="blkC"}
-[Block C]{.blk-letter}What the straight line misses[convexity]{.blk-tool}
+[Block C]{.blk-letter}What the straight line misses[convexity, then immunisation]{.blk-tool}
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}The final's calculus question, for real[mock exam]{.blk-tool}
@@ -243,9 +243,7 @@ $$\frac{\Delta P}{P} \;\approx\; -D_{\text{mod}}\,\Delta y \;+\; \tfrac{1}{2}\,C
 
 Two cents out instead of thirty-six. The half and the square are both easy to drop, and both change the answer.
 
-## What it is worth, in one slide {.statement}
-
-## Between two bonds of the same duration, the more convex one is worth more.
+## Between two bonds of the same duration, the more convex one is worth more. {.statement}
 
 More upside, less downside, for the same first-order risk. You usually pay for it.
 
@@ -266,6 +264,91 @@ $$\Delta V \approx -4.23 \times 1\% \times €1{,}000{,}000 = -€42{,}280$$
 
 "A one-point rise costs the reserve about €42,000, a little over 4%. About three quarters of the exposure sits in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this."
 
+## Can we stop worrying?
+
+::: {.callout-note title="Arno Bikes, a payment"}
+The new building costs **€1M, due in exactly 4 years**. The firm sets the money aside **today**, in zero-coupon bonds yielding **5%**. Then rates move.
+:::
+
+::: {.callout-important title="Bet before we compute"}
+Short bonds, long bonds, or a mix? Which choice leaves the €1M there in year 4, whichever way rates go?
+:::
+
+[Beyond the syllabus: the step after duration, from measuring the risk to removing it.]{.muted}
+
+## Rates rise. Two things happen at once.
+
+:::: {.columns}
+::: {.column width="50%"}
+**Prices fall** [— bad]{.red}
+
+Whatever we still hold at year 4 is worth less. The longer the bond, the bigger the fall: that is duration.
+:::
+::: {.column width="50%"}
+**Coupons reinvest at more** [— good]{.red}
+
+Whatever comes back before year 4 earns the higher rate until the payment. The sooner it comes back, the more it gains.
+:::
+::::
+
+. . .
+
+Short bonds: reinvestment wins. Long bonds: the price fall wins.
+
+[If the duration of what we hold equals the date of what we owe, the two effects offset — to first order.]{.red}
+
+## How much in each bond?
+
+$$PV = \frac{€1{,}000{,}000}{(1.05)^{4}} = €822{,}702$$
+
+A zero's duration is its maturity. Put a share $w$ in a **2-year** zero, the rest in a **6-year** zero:
+
+$$2w + 6(1-w) = 4 \quad\Longrightarrow\quad w = \tfrac{1}{2}$$
+
+. . .
+
+| | invested today | pays |
+|---|---|---|
+| 2-year zero | €411,351 | €453,515 in year 2 — reinvested to year 4 |
+| 6-year zero | €411,351 | €551,250 in year 6 — sold at year 4 |
+
+## Rates jump the day after we buy. Is the €1M still there?
+
+:::: {.columns}
+::: {.column width="42%"}
+| yield after | value at year 4 | vs €1M |
+|---|---|---|
+| 3% | €1,000,740 | +740 |
+| 4% | €1,000,183 | +183 |
+| 5% | €1,000,000 | 0 |
+| 6% | €1,000,180 | +180 |
+| 7% | €1,000,712 | +712 |
+
+At 6%: $453{,}515 \times 1.06^{2} + \dfrac{551{,}250}{1.06^{2}}$.
+:::
+::: {.column width="58%"}
+![](img/w05_immunisation.svg){width="100%"}
+:::
+::::
+
+[Slightly **above** €1M either way: that is convexity again, working for us.]{.red}
+
+## What we tell the Board
+
+::: {.callout-tip title="Board sentence"}
+Hold bonds whose duration equals the date of the payment, and a move in rates, up or down, cannot hurt it: what we lose on prices we make back on reinvestment.
+:::
+
+. . .
+
+One condition. As time passes the date gets closer and durations drift apart, so the match is **reset every year** — immunisation is a routine, not a purchase.
+
+## D12 — immunise a smaller payment {.paper background-color="#eceff0"}
+
+[PAPER · drills.md]{.kicker}
+
+5 minutes. Duration equation first, then the euros. D13 checks it after a move; it is for home if time runs short.
+
 ## Four blocks today {.hub auto-animate=true}
 
 ::: {.blocks}
@@ -276,7 +359,7 @@ $$\Delta V \approx -4.23 \times 1\% \times €1{,}000{,}000 = -€42{,}280$$
 [Block B]{.blk-letter}How much does a rate rise cost?[duration]{.blk-tool}
 :::
 ::: {.blk .done}
-[Block C]{.blk-letter}What the straight line misses[convexity]{.blk-tool}
+[Block C]{.blk-letter}What the straight line misses[convexity, then immunisation]{.blk-tool}
 :::
 ::: {.blk .now data-id="blkD"}
 [Block D]{.blk-letter}The final's calculus question, for real[mock exam]{.blk-tool}
@@ -288,11 +371,11 @@ $$\Delta V \approx -4.23 \times 1\% \times €1{,}000{,}000 = -€42{,}280$$
 ::: {.blk-fill data-id="blkD"}
 :::
 
-## Forty minutes, exam conditions {.lab background-color="#2471a3"}
+## Thirty minutes, exam conditions {.lab background-color="#2471a3"}
 
 [PAPER · mock_exam.md · no notes, calculator only]{.kicker}
 
-Five items, twenty per cent each, in the form of the real thing:
+Five items, twenty per cent each, in the form of the real thing — six minutes an item:
 
 1. an indefinite integral of a fraction, split term by term
 2. a function recovered from its derivative with an initial condition
@@ -310,6 +393,7 @@ Then we mark it together, and you keep it.
 2. Duration is the slope: how many percent you lose per percent of yield.
 3. Longer maturity raises it; a bigger coupon lowers it.
 4. Convexity is the curvature the slope misses, and it is always in the holder's favour.
+5. Match the duration of what you hold to the date of what you owe, and a rate move cannot hurt the payment.
 
 ## What happens next
 
