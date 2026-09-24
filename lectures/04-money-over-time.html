@@ -387,6 +387,11 @@ Niccolò Salvini, PhD
 <div class="columns">
 <div class="column" style="width:56%;">
 <table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Wk</th>
@@ -408,7 +413,7 @@ Niccolò Salvini, PhD
 <tr class="odd">
 <td><strong>4</strong></td>
 <td><strong>15 Oct</strong></td>
-<td><strong>interest, discounting, EAR, NPV</strong></td>
+<td><strong>interest, EAR, discounting, NPV, a firm’s value</strong></td>
 </tr>
 <tr class="even">
 <td>5</td>
@@ -466,7 +471,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>Which of two quotes is cheaper?<span class="blk-tool">the effective rate</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block C</span>What is a future euro worth today?<span class="blk-tool">discounting · annuities</span></p>
+<p><span class="blk-letter">Block C</span>What is a future euro worth today?<span class="blk-tool">discounting · annuities · growth</span></p>
 </div>
 <div class="blk next">
 <p><span class="blk-letter">Block D</span>Build the line or not?<span class="blk-tool">NPV · IRR</span></p>
@@ -611,7 +616,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>Which of two quotes is cheaper?<span class="blk-tool">the effective rate</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block C</span>What is a future euro worth today?<span class="blk-tool">discounting · annuities</span></p>
+<p><span class="blk-letter">Block C</span>What is a future euro worth today?<span class="blk-tool">discounting · annuities · growth</span></p>
 </div>
 <div class="blk next">
 <p><span class="blk-letter">Block D</span>Build the line or not?<span class="blk-tool">NPV · IRR</span></p>
@@ -626,6 +631,8 @@ Niccolò Salvini, PhD
 </section>
 <section id="two-quotes-same-nominal-rate-different-price" class="slide level2">
 <h2>Two quotes, same nominal rate, different price</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
 <p><span class="math display">EAR = \left(1 + \frac{i}{m}\right)^{m} - 1</span></p>
 <table class="caption-top">
 <thead>
@@ -653,11 +660,8 @@ Niccolò Salvini, PhD
 </tr>
 </tbody>
 </table>
-<p><span class="red">A nominal rate is not a price until you know <code>m</code>. This is the single most useful line of the whole module.</span></p>
-</section>
-<section id="the-trap-in-one-comparison" class="slide level2">
-<h2>The trap, in one comparison</h2>
-<p>Bank A: <strong>7.8% compounded monthly</strong>. Bank B: <strong>8% compounded annually</strong>.</p>
+</div><div class="column" style="width:54%;">
+<p>Bank A: <strong>7.8% compounded monthly</strong>.<br>Bank B: <strong>8% compounded annually</strong>.</p>
 <div title="Bet before we compute">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -674,14 +678,15 @@ Niccolò Salvini, PhD
 </div>
 </div>
 <div class="fragment">
-<p>A: <code>(1 + 0.078/12)¹² − 1 = 8.085%</code>. B: <code>8.000%</code>.</p>
-<p><strong>Borrow from B.</strong> The lower headline rate is the dearer loan.</p>
+<p>A: <code>(1 + 0.078/12)¹² − 1 = 8.085%</code>. B: <code>8.000%</code>. <strong>Borrow from B.</strong> The lower headline rate is the dearer loan.</p>
 </div>
+</div></div>
+<p><span class="red">A nominal rate is not a price until you know <code>m</code>. This is the single most useful line of the whole module.</span></p>
 </section>
 <section id="d4-d5-put-everything-on-the-same-basis" class="slide level2 paper" data-background-color="#eceff0">
 <h2>D4, D5 — put everything on the same basis</h2>
 <p><span class="kicker">PAPER · drills.md</span></p>
-<p>12 minutes. Every answer states <code>m</code> explicitly before the arithmetic.</p>
+<p>10 minutes. Every answer states <code>m</code> explicitly before the arithmetic.</p>
 </section>
 <section id="four-blocks-today-2" class="slide level2 hub" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Four blocks today</h2>
@@ -693,15 +698,15 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>Which of two quotes is cheaper?<span class="blk-tool">the effective rate</span></p>
 </div>
 <div class="blk now" data-id="blkC">
-<p><span class="blk-letter">Block C</span>What is a future euro worth today?<span class="blk-tool">discounting · annuities</span></p>
+<p><span class="blk-letter">Block C</span>What is a future euro worth today?<span class="blk-tool">discounting · annuities · growth</span></p>
 </div>
 <div class="blk next">
 <p><span class="blk-letter">Block D</span>Build the line or not?<span class="blk-tool">NPV · IRR</span></p>
 </div>
 </div>
 </section>
-<section id="block-c-discounting-running-the-clock-backwards" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><span class="section-kicker">Block C</span> Discounting — running the clock backwards</h2>
+<section id="block-c-what-is-a-future-euro-worth-today-and-a-whole-firm" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block C</span> What is a future euro worth today — and a whole firm?</h2>
 <div class="blk-fill" data-id="blkC">
 
 </div>
@@ -729,10 +734,140 @@ Niccolò Salvini, PhD
 <p>For ever is worth only 2.3 times ten years. Everything after year ten adds €111,679, because discounting shrinks distant money towards nothing.</p>
 </div>
 </section>
-<section id="d8-d9-present-value-annuity-perpetuity" class="slide level2 paper" data-background-color="#eceff0">
-<h2>D8, D9 — present value, annuity, perpetuity</h2>
+<section id="what-is-arno-bikes-worth" class="slide level2">
+<h2>What is Arno Bikes worth?</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>A buyer asks the Board to name a price for the whole firm.</p>
+<ul>
+<li>next year’s free cash flow: <strong>€300k</strong></li>
+<li>growing <strong>3% a year, for ever</strong></li>
+<li>cost of capital: <strong>9%</strong></li>
+</ul>
+<p>With no growth, the perpetuity you just saw:<br>€300k / 0.09 = <strong>€3.33M</strong>.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>With 3% growth — how much? One number, in euros, before any formula.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Cash flow (€k)</th>
+<th>PV at 9% (€k)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>300.00</td>
+<td>275.23</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>309.00</td>
+<td>260.08</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>318.27</td>
+<td>245.76</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>327.82</td>
+<td>232.23</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>337.65</td>
+<td>219.45</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>grows 3%</td>
+<td>shrinks</td>
+</tr>
+</tbody>
+</table>
+<p><span class="muted">Every row adds less than the one before, but the rows never stop.</span></p>
+</div></div>
+</section>
+<section id="a-perpetuity-with-the-growth-taken-off-the-rate" class="slide level2">
+<h2>A perpetuity, with the growth taken off the rate</h2>
+<p><span class="math display">PV = \frac{CF_1}{r - g} = \frac{300}{0.09 - 0.03} = \frac{300}{0.06} = €5{,}000\text{k} = \textbf{€5M}</span></p>
+<p>Each year’s present value is the last one times <span class="math inline">\frac{1.03}{1.09}</span>: the table is a <strong>geometric series</strong>, and this is its sum. With <span class="math inline">g = 0</span> it is the <span class="math inline">C/r</span> you already know.</p>
+<div class="fragment">
+<p>The first five years are worth €1.23M. The other <strong>€3.77M is everything after year five</strong> — the value of a firm lives mostly in the far future.</p>
+</div>
+</section>
+<section id="one-point-of-growth-is-worth-a-million" class="slide level2">
+<h2>One point of growth is worth a million</h2>
+<div class="columns">
+<div class="column" style="width:64%;">
+<p><img data-src="img/w04_gordon.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:36%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>g</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2%</td>
+<td>€4.29M</td>
+</tr>
+<tr class="even">
+<td><strong>3%</strong></td>
+<td><strong>€5.00M</strong></td>
+</tr>
+<tr class="odd">
+<td>4%</td>
+<td>€6.00M</td>
+</tr>
+</tbody>
+</table>
+<p>As <span class="math inline">g \to r</span> the denominator goes to zero and the value explodes — a limit, week 2.</p>
+<p><span class="red">The formula needs <span class="math inline">g &lt; r</span>. No firm outgrows its cost of capital for ever.</span></p>
+</div></div>
+</section>
+<section id="where-the-risk-in-a-valuation-sits" class="slide level2">
+<h2>Where the risk in a valuation sits</h2>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>A firm is worth next year’s cash flow divided by the gap between our cost of capital and its growth. That gap is a few points wide, and every point of doubt in it is a million on the price.</p>
+</div>
+</div>
+</div>
+</div>
+<p><span class="muted">Earlier: two analysts who agree on every cash flow can disagree on the answer because of the rate. Here the rate <em>and</em> the growth sit in one small number, <span class="math inline">r - g</span>, and that is where to push back.</span></p>
+</section>
+<section id="d8d11-present-value-annuity-perpetuity-growth" class="slide level2 paper" data-background-color="#eceff0">
+<h2>D8–D11 — present value, annuity, perpetuity, growth</h2>
 <p><span class="kicker">PAPER · drills.md</span></p>
-<p>12 minutes. Show the discount factor separately from the flow, every time.</p>
+<p>15 minutes. Show the discount factor separately from the flow, every time. D11 ends with a sentence for the Board.</p>
 </section>
 <section id="four-blocks-today-3" class="slide level2 hub" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Four blocks today</h2>
@@ -744,7 +879,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>Which of two quotes is cheaper?<span class="blk-tool">the effective rate</span></p>
 </div>
 <div class="blk done">
-<p><span class="blk-letter">Block C</span>What is a future euro worth today?<span class="blk-tool">discounting · annuities</span></p>
+<p><span class="blk-letter">Block C</span>What is a future euro worth today?<span class="blk-tool">discounting · annuities · growth</span></p>
 </div>
 <div class="blk now" data-id="blkD">
 <p><span class="blk-letter">Block D</span>Build the line or not?<span class="blk-tool">NPV · IRR</span></p>
@@ -895,8 +1030,8 @@ Niccolò Salvini, PhD
 <li>Now delay the first €700k by a year. What happens to the IRR, and why?</li>
 </ol>
 </section>
-<section id="d11-d12-the-case-decided" class="slide level2 paper" data-background-color="#eceff0">
-<h2>D11, D12 — the case, decided</h2>
+<section id="d13-d14-the-case-decided" class="slide level2 paper" data-background-color="#eceff0">
+<h2>D13, D14 — the case, decided</h2>
 <p><span class="kicker">PAPER · drills.md</span></p>
 <p>12 minutes. Lay out the table with a row for year 0. Then say accept or reject, in one sentence.</p>
 </section>
@@ -909,9 +1044,10 @@ Niccolò Salvini, PhD
 <li>A nominal rate is not a price until you know how often it compounds. Compare on EAR.</li>
 <li>Compounding more often always helps, and always by less. The ceiling is <code>e</code>.</li>
 <li>Money with different dates cannot be added. Discount first.</li>
+<li>A firm growing for ever is worth <span class="math inline">CF_1/(r-g)</span>; the gap <span class="math inline">r-g</span> is where the valuation’s risk sits.</li>
 <li>Accept when NPV is positive at your own cost of capital; IRR is where it crosses zero.</li>
 </ol>
-<p><strong>Homework 4</strong> (<code>homework.md</code>), due Wednesday 21 October 23:59: eight drills plus a memo correcting the Board member.</p>
+<p><strong>Homework 4</strong> (<code>homework.md</code>), due Wednesday 21 October 23:59: nine drills plus a memo correcting the Board member.</p>
 <p>Next week: the same arithmetic applied to a bond, and the two numbers that say how much a rate rise would cost you.</p>
 
 <div class="quarto-auto-generated-content">

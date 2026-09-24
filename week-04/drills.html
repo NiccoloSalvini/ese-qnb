@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#a.-simple-and-compound-interest" id="toc-a.-simple-and-compound-interest" class="nav-link" data-scroll-target="#a.-simple-and-compound-interest">A. Simple and compound interest</a></li>
   <li><a href="#b.-effective-annual-rate" id="toc-b.-effective-annual-rate" class="nav-link" data-scroll-target="#b.-effective-annual-rate">B. Effective annual rate</a></li>
-  <li><a href="#c.-discounting-and-present-value" id="toc-c.-discounting-and-present-value" class="nav-link" data-scroll-target="#c.-discounting-and-present-value">C. Discounting and present value</a></li>
+  <li><a href="#c.-discounting-present-value-and-growth" id="toc-c.-discounting-present-value-and-growth" class="nav-link" data-scroll-target="#c.-discounting-present-value-and-growth">C. Discounting, present value and growth</a></li>
   <li><a href="#d.-npv" id="toc-d.-npv" class="nav-link" data-scroll-target="#d.-npv">D. NPV</a></li>
   </ul></li>
   </ul>
@@ -157,18 +157,20 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>D5 (core).</strong> Bank A offers 7.8% compounded monthly. Bank B offers 8% compounded annually. Which do you borrow from, and why? Show the comparison you made.</p>
 <p><strong>D6 (stretch).</strong> A rate is quoted as 5% nominal compounded continuously. What annual compounding rate would leave a depositor equally well off?</p>
 </section>
-<section id="c.-discounting-and-present-value" class="level2">
-<h2 class="anchored" data-anchor-id="c.-discounting-and-present-value">C. Discounting and present value</h2>
+<section id="c.-discounting-present-value-and-growth" class="level2">
+<h2 class="anchored" data-anchor-id="c.-discounting-present-value-and-growth">C. Discounting, present value and growth</h2>
 <p><strong>D7 (core).</strong> What is €10,000 receivable in 5 years worth today at 7%?</p>
 <p><strong>D8 (core).</strong> A supplier offers you two ways to pay for a €50,000 machine: (i) €50,000 today; (ii) €18,000 at the end of each of the next three years. Your cost of capital is 9%. Which do you choose? Show the present value of (ii).</p>
 <p><strong>D9 (core — annuities and perpetuities).</strong> (a) An annuity pays €12,000 at the end of each year for 10 years. At 6%, what is it worth today? (b) A perpetuity pays €12,000 at the end of every year for ever. At 6%, what is it worth today? (c) Explain the gap between (a) and (b) in one sentence.</p>
-<p><strong>D10 (stretch).</strong> A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?</p>
+<p><strong>D10 (core — growing perpetuity).</strong> A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?</p>
+<p><strong>D11 (core — Board form).</strong> Three years on, the Board asks again: <em>what is Arno Bikes worth?</em> The new forecast is a free cash flow of €350k next year, growing 4% a year for ever; the cost of capital is still 9%. (a) The value of the firm today. (b) By how much does the value change if growth is one point lower, 3% instead of 4%? In euros and in per cent. (c) One sentence for the Board.</p>
+<p><strong>D12 (stretch — what the market assumes).</strong> A listed rival is valued by the market at €12M. Next year’s free cash flow is €600k and its cost of capital is 9%. (a) What growth rate for ever is the market pricing in? (b) One line: is that believable for a mature firm, and what would you check?</p>
 </section>
 <section id="d.-npv" class="level2">
 <h2 class="anchored" data-anchor-id="d.-npv">D. NPV</h2>
-<p><strong>D11 (core — the case).</strong> For the assembly line above, at a cost of capital of 9%: (a) Write the NPV as a sum. (b) Compute each discounted flow and the NPV. (c) Accept or reject, and say the sentence you would tell the Board.</p>
-<p><strong>D11b (core — where the rate comes from).</strong> Arno Bikes is financed 60% by equity and 40% by debt. Shareholders expect 12%; the bank charges 6%; the corporate tax rate is 25%. (a) Compute the weighted average cost of capital. (b) One line: why does the tax rate appear at all, and only on the debt side? (c) If the firm took on more debt and the mix became 40/60, what would happen to the WACC and therefore to the NPV of the assembly line? No arithmetic needed.</p>
-<p><strong>D12 (stretch).</strong> Recompute the NPV at 16%. What does the change in sign tell you, and what is the name of the rate at which it happens?</p>
+<p><strong>D13 (core — the case).</strong> For the assembly line above, at a cost of capital of 9%: (a) Write the NPV as a sum. (b) Compute each discounted flow and the NPV. (c) Accept or reject, and say the sentence you would tell the Board.</p>
+<p><strong>D13b (core — where the rate comes from).</strong> Arno Bikes is financed 60% by equity and 40% by debt. Shareholders expect 12%; the bank charges 6%; the corporate tax rate is 25%. (a) Compute the weighted average cost of capital. (b) One line: why does the tax rate appear at all, and only on the debt side? (c) If the firm took on more debt and the mix became 40/60, what would happen to the WACC and therefore to the NPV of the assembly line? No arithmetic needed.</p>
+<p><strong>D14 (stretch).</strong> Recompute the NPV at 16%. What does the change in sign tell you, and what is the name of the rate at which it happens?</p>
 <hr>
 <details>
 <summary>
@@ -183,8 +185,10 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>D7.</strong> <code>PV = 10,000 / (1.07)⁵ = 10,000 / 1.402552 = **€7,129.86**</code>.</p>
 <p><strong>D8.</strong> <code>PV(ii) = 18,000 × [1 − (1.09)⁻³]/0.09 = 18,000 × 2.5312955 = **€45,563.30**</code>. <code>45,563.30 &lt; 50,000</code>, so <strong>pay in instalments</strong>: it costs about €4,437 less in today’s money.</p>
 <p><strong>D9.</strong> (a) <code>PV = 12,000 × [1 − (1.06)⁻¹⁰]/0.06 = 12,000 × 7.360087 = **€88,321.04**</code>. (b) <code>PV = 12,000 / 0.06 = **€200,000.00**</code>. (c) The perpetuity is worth more, but not infinitely more: the payments after year 10 are worth about €111,679 in total today, because discounting shrinks distant money towards nothing.</p>
-<p><strong>D10.</strong> Growing perpetuity: <code>PV = C₁/(r − g) = 5,000/(0.07 − 0.02) = **€100,000.00**</code>.</p>
-<p><strong>D11.</strong> (a) <code>NPV = −2,400 + 700/(1.09) + 800/(1.09)² + 900/(1.09)³ + 1,000/(1.09)⁴</code> (€ thousand). (b)</p>
+<p><strong>D10.</strong> Growing perpetuity: <code>PV = C₁/(r − g) = 5,000/(0.07 − 0.02) = 5,000/0.05 = **€100,000.00**</code>. With no growth the same €5,000 would be worth <code>5,000/0.07 = €71,428.57</code>: two points of growth cut the denominator from 7% to 5% and add 40% to the value.</p>
+<p><strong>D11.</strong> (a) <code>V = CF₁/(r − g) = 350/(0.09 − 0.04) = 350/0.05 = **€7,000.00k**</code>, i.e.&nbsp;€7M. (b) At 3%: <code>350/(0.09 − 0.03) = 350/0.06 = **€5,833.33k**</code>. The value falls by <strong>€1,166.67k</strong>, <strong>−16.67%</strong>. One point of growth moved the price by a sixth, because it made the denominator a fifth larger, from 5% to 6%, and <code>1/1.2 = 0.8333</code>. (c) “On our forecast Arno Bikes is worth about €7M; if growth is one point lower it is worth €5.8M, so the price we accept should rest on the growth we can defend, not on the one we hope for.”</p>
+<p><strong>D12.</strong> (a) <code>P = CF₁/(r − g)</code> ⇒ <code>g = r − CF₁/P = 0.09 − 600/12,000 = 0.09 − 0.05 = **4.00%**</code>. (b) 4% a year for ever is at the top of what a mature firm can sustain — roughly the economy’s long-run nominal growth. Check whether recent cash-flow growth supports it, and remember the market price also embeds its own <code>r</code>: a lower <code>r</code> would need less growth to justify €12M.</p>
+<p><strong>D13.</strong> (a) <code>NPV = −2,400 + 700/(1.09) + 800/(1.09)² + 900/(1.09)³ + 1,000/(1.09)⁴</code> (€ thousand). (b)</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -236,8 +240,8 @@ ul.task-list li input[type="checkbox"] {
 <ol start="3" type="a">
 <li><strong>Accept.</strong> “At our 9% cost of capital the line adds about €319,000 of value in today’s money; the cash it returns covers the outlay by the end of year three.”</li>
 </ol>
-<p><strong>D11b.</strong> (a) <code>WACC = 0.6(12%) + 0.4(6%)(1 − 0.25) = 7.2% + 1.8% = **9.0%**</code> — the 9% we were handed all along. (b) Interest on debt is <strong>deductible from taxable profit</strong>, so a 6% loan costs the firm only <code>6%(1 − 0.25) = 4.5%</code> after tax. Dividends are not deductible, so no such factor appears on the equity side. (c) More weight on the cheaper source → <strong>WACC falls</strong> → future cash flows are discounted less → <strong>the NPV rises</strong>. Worth saying out loud that this is not free: more debt raises the risk, and in time both <code>r_e</code> and <code>r_d</code> rise with it.</p>
-<p><strong>D12.</strong> At 16%: <code>−2,400 + 603.45 + 594.53 + 576.59 + 552.29 = **−€73.14k**</code>. Negative. The NPV falls as the discount rate rises and <strong>changes sign</strong> between 9% and 16%; the rate where it is exactly zero is the <strong>internal rate of return</strong> (about 14.6% here). Above it the project destroys value.</p>
+<p><strong>D13b.</strong> (a) <code>WACC = 0.6(12%) + 0.4(6%)(1 − 0.25) = 7.2% + 1.8% = **9.0%**</code> — the 9% we were handed all along. (b) Interest on debt is <strong>deductible from taxable profit</strong>, so a 6% loan costs the firm only <code>6%(1 − 0.25) = 4.5%</code> after tax. Dividends are not deductible, so no such factor appears on the equity side. (c) More weight on the cheaper source → <strong>WACC falls</strong> → future cash flows are discounted less → <strong>the NPV rises</strong>. Worth saying out loud that this is not free: more debt raises the risk, and in time both <code>r_e</code> and <code>r_d</code> rise with it.</p>
+<p><strong>D14.</strong> At 16%: <code>−2,400 + 603.45 + 594.53 + 576.59 + 552.29 = **−€73.14k**</code>. Negative. The NPV falls as the discount rate rises and <strong>changes sign</strong> between 9% and 16%; the rate where it is exactly zero is the <strong>internal rate of return</strong> (about 14.6% here). Above it the project destroys value.</p>
 </details>
 
 

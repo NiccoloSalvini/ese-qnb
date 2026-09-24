@@ -456,7 +456,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>How much does a rate rise cost?<span class="blk-tool">duration</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity</span></p>
+<p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity, then immunisation</span></p>
 </div>
 <div class="blk next">
 <p><span class="blk-letter">Block D</span>The final’s calculus question, for real<span class="blk-tool">mock exam</span></p>
@@ -529,7 +529,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>How much does a rate rise cost?<span class="blk-tool">duration</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity</span></p>
+<p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity, then immunisation</span></p>
 </div>
 <div class="blk next">
 <p><span class="blk-letter">Block D</span>The final’s calculus question, for real<span class="blk-tool">mock exam</span></p>
@@ -623,7 +623,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>How much does a rate rise cost?<span class="blk-tool">duration</span></p>
 </div>
 <div class="blk now" data-id="blkC">
-<p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity</span></p>
+<p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity, then immunisation</span></p>
 </div>
 <div class="blk next">
 <p><span class="blk-letter">Block D</span>The final’s calculus question, for real<span class="blk-tool">mock exam</span></p>
@@ -691,10 +691,7 @@ Niccolò Salvini, PhD
 </table>
 <p>Two cents out instead of thirty-six. The half and the square are both easy to drop, and both change the answer.</p>
 </section>
-<section id="what-it-is-worth-in-one-slide" class="slide level2 statement">
-<h2>What it is worth, in one slide</h2>
-</section>
-<section id="between-two-bonds-of-the-same-duration-the-more-convex-one-is-worth-more." class="slide level2">
+<section id="between-two-bonds-of-the-same-duration-the-more-convex-one-is-worth-more." class="slide level2 statement">
 <h2>Between two bonds of the same duration, the more convex one is worth more.</h2>
 <p>More upside, less downside, for the same first-order risk. You usually pay for it.</p>
 </section>
@@ -711,6 +708,156 @@ Niccolò Salvini, PhD
 <p>“A one-point rise costs the reserve about €42,000, a little over 4%. About three quarters of the exposure sits in the ten-year holding; shortening it would roughly halve the figure. Convexity means the true loss is slightly smaller than this.”</p>
 </div>
 </section>
+<section id="can-we-stop-worrying" class="slide level2">
+<h2>Can we stop worrying?</h2>
+<div title="Arno Bikes, a payment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Arno Bikes, a payment</strong></p>
+</div>
+<div class="callout-content">
+<p>The new building costs <strong>€1M, due in exactly 4 years</strong>. The firm sets the money aside <strong>today</strong>, in zero-coupon bonds yielding <strong>5%</strong>. Then rates move.</p>
+</div>
+</div>
+</div>
+</div>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>Short bonds, long bonds, or a mix? Which choice leaves the €1M there in year 4, whichever way rates go?</p>
+</div>
+</div>
+</div>
+</div>
+<p><span class="muted">Beyond the syllabus: the step after duration, from measuring the risk to removing it.</span></p>
+</section>
+<section id="rates-rise.-two-things-happen-at-once." class="slide level2">
+<h2>Rates rise. Two things happen at once.</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Prices fall</strong> <span class="red">— bad</span></p>
+<p>Whatever we still hold at year 4 is worth less. The longer the bond, the bigger the fall: that is duration.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Coupons reinvest at more</strong> <span class="red">— good</span></p>
+<p>Whatever comes back before year 4 earns the higher rate until the payment. The sooner it comes back, the more it gains.</p>
+</div></div>
+<div class="fragment">
+<p>Short bonds: reinvestment wins. Long bonds: the price fall wins.</p>
+<p><span class="red">If the duration of what we hold equals the date of what we owe, the two effects offset — to first order.</span></p>
+</div>
+</section>
+<section id="how-much-in-each-bond" class="slide level2">
+<h2>How much in each bond?</h2>
+<p><span class="math display">PV = \frac{€1{,}000{,}000}{(1.05)^{4}} = €822{,}702</span></p>
+<p>A zero’s duration is its maturity. Put a share <span class="math inline">w</span> in a <strong>2-year</strong> zero, the rest in a <strong>6-year</strong> zero:</p>
+<p><span class="math display">2w + 6(1-w) = 4 \quad\Longrightarrow\quad w = \tfrac{1}{2}</span></p>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>invested today</th>
+<th>pays</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2-year zero</td>
+<td>€411,351</td>
+<td>€453,515 in year 2 — reinvested to year 4</td>
+</tr>
+<tr class="even">
+<td>6-year zero</td>
+<td>€411,351</td>
+<td>€551,250 in year 6 — sold at year 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="rates-jump-the-day-after-we-buy.-is-the-1m-still-there" class="slide level2">
+<h2>Rates jump the day after we buy. Is the €1M still there?</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>yield after</th>
+<th>value at year 4</th>
+<th>vs €1M</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3%</td>
+<td>€1,000,740</td>
+<td>+740</td>
+</tr>
+<tr class="even">
+<td>4%</td>
+<td>€1,000,183</td>
+<td>+183</td>
+</tr>
+<tr class="odd">
+<td>5%</td>
+<td>€1,000,000</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>6%</td>
+<td>€1,000,180</td>
+<td>+180</td>
+</tr>
+<tr class="odd">
+<td>7%</td>
+<td>€1,000,712</td>
+<td>+712</td>
+</tr>
+</tbody>
+</table>
+<p>At 6%: <span class="math inline">453{,}515 \times 1.06^{2} + \dfrac{551{,}250}{1.06^{2}}</span>.</p>
+</div><div class="column" style="width:58%;">
+<p><img data-src="img/w05_immunisation.svg" style="width:100.0%"></p>
+</div></div>
+<p><span class="red">Slightly <strong>above</strong> €1M either way: that is convexity again, working for us.</span></p>
+</section>
+<section id="what-we-tell-the-board" class="slide level2">
+<h2>What we tell the Board</h2>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Hold bonds whose duration equals the date of the payment, and a move in rates, up or down, cannot hurt it: what we lose on prices we make back on reinvestment.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>One condition. As time passes the date gets closer and durations drift apart, so the match is <strong>reset every year</strong> — immunisation is a routine, not a purchase.</p>
+</div>
+</section>
+<section id="d12-immunise-a-smaller-payment" class="slide level2 paper" data-background-color="#eceff0">
+<h2>D12 — immunise a smaller payment</h2>
+<p><span class="kicker">PAPER · drills.md</span></p>
+<p>5 minutes. Duration equation first, then the euros. D13 checks it after a move; it is for home if time runs short.</p>
+</section>
 <section id="four-blocks-today-3" class="slide level2 hub" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Four blocks today</h2>
 <div class="blocks">
@@ -721,7 +868,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>How much does a rate rise cost?<span class="blk-tool">duration</span></p>
 </div>
 <div class="blk done">
-<p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity</span></p>
+<p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity, then immunisation</span></p>
 </div>
 <div class="blk now" data-id="blkD">
 <p><span class="blk-letter">Block D</span>The final’s calculus question, for real<span class="blk-tool">mock exam</span></p>
@@ -734,10 +881,10 @@ Niccolò Salvini, PhD
 
 </div>
 </section>
-<section id="forty-minutes-exam-conditions" class="slide level2 lab" data-background-color="#2471a3">
-<h2>Forty minutes, exam conditions</h2>
+<section id="thirty-minutes-exam-conditions" class="slide level2 lab" data-background-color="#2471a3">
+<h2>Thirty minutes, exam conditions</h2>
 <p><span class="kicker">PAPER · mock_exam.md · no notes, calculator only</span></p>
-<p>Five items, twenty per cent each, in the form of the real thing:</p>
+<p>Five items, twenty per cent each, in the form of the real thing — six minutes an item:</p>
 <ol type="1">
 <li>an indefinite integral of a fraction, split term by term</li>
 <li>a function recovered from its derivative with an initial condition</li>
@@ -757,6 +904,7 @@ Niccolò Salvini, PhD
 <li>Duration is the slope: how many percent you lose per percent of yield.</li>
 <li>Longer maturity raises it; a bigger coupon lowers it.</li>
 <li>Convexity is the curvature the slope misses, and it is always in the holder’s favour.</li>
+<li>Match the duration of what you hold to the date of what you owe, and a rate move cannot hurt the payment.</li>
 </ol>
 </section>
 <section id="what-happens-next" class="slide level2">
