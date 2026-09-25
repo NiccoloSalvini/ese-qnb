@@ -14,6 +14,7 @@ project:
     - "lectures/media/*.png"
     - "week-*/slides/*.pdf"
     - "lectures/img/*.svg"
+    - "lectures/apps/*.html"
     - "anim/out/*.mp4"
     - "week-*/data/**"
 

@@ -24,7 +24,7 @@ By the end of the session the students can:
 | 10:30–11:05 | **A. Launch or not?** | Slides → notebook → paper | Break-even as a linear equation. Market equilibrium as a 2×2 system. Three ways to solve a system (substitution, elimination, picture). |
 | 11:05–11:40 | **B. How many bikes?** | Slides + clip → notebook → paper | Linear demand makes revenue a parabola. Profit zeros = quadratic equation. Profit > 0 = quadratic inequality. The vertex is a preview of week 2's maximum. |
 | 11:40–11:55 | Break | — | Outside the room. Tutor reads the diagnostics. |
-| 11:55–12:30 | **C. How long to double?** | Slides + clip → notebook → paper | Exponential growth; why we need logs; the three log rules and change of base; solving `1.12^t = 2`. Rule of 70 as a sanity check. |
+| 11:55–12:30 | **C. How long to double?** | Slides + clip → notebook → paper | Exponential growth; why we need logs; the three log rules and change of base; solving `1.12^t = 2`. |
 | 12:30–12:45 | **D. Within tolerance** | Slides → paper | Absolute value as distance; `|x − a| ≤ b` as an interval; one inequality with `>`. |
 | 12:45–12:55 | **Board pitch** | Student at the board | One student, 60 seconds, tells "the Board" the break-even, the profitable range and the doubling time. No formulas allowed in the pitch — only numbers and their meaning. |
 | 12:55–13:00 | Close | Paper | Homework briefing; each student writes three take-home lines. |
@@ -83,7 +83,6 @@ Board: the three rules, each with a one-line reason and the business reading:
 - `ln(aᵏ) = k ln a` — k years of the same growth: the exponent comes down. This is the rule that solved the doubling problem.
 - Change of base `log_b x = ln x / ln b`; `e ≈ 2.718` introduced as "the base your calculator and week 4 prefer" — nothing more today.
 
-Rule of 70: `70 / 12 ≈ 5.8`. Show why it is close (`ln 2 ≈ 0.69`, `ln(1+g) ≈ g` for small g) in one line; it is their exam sanity check.
 
 **Drills live:** D7, D8 (core), D9 (stretch: solve `5e^{0.03t} = 8`; preview of continuous compounding). 12 minutes.
 
@@ -111,7 +110,6 @@ Homework briefing (see `homework.md`). Three take-home lines written on paper, p
 - Quadratic inequality: find the roots, draw the parabola's sign line, read the interval.
 - Exponential growth: same *percentage* each period; `A · (1+g)^t`.
 - Logarithm: the answer to "to what power?"; `ln(aᵏ) = k ln a` pulls the unknown down from the exponent.
-- Rule of 70: doubling time ≈ 70 / growth rate in %.
 - `|x − a| ≤ b` ↔ `a − b ≤ x ≤ a + b`.
 
 ## Board, slide, screen — what goes where

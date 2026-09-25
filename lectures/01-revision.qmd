@@ -276,7 +276,7 @@ The first is the break-even point. The second is **the condition for not losing 
 
 ## Price responds to volume
 
-The founder learns: at €1,000 she sells 150 bikes; every €4 cut sells one more.
+The founder learns: at €1,000 she sells 150 bikes. Every €4 off the price sells one more bike; every €4 on it sells one fewer, so at **€1,600 she sells none**. That is the line:
 
 $$p(q) = 1600 - 4q$$
 
@@ -309,6 +309,12 @@ $$q = \frac{300 \pm \sqrt{300^{2} - 4\cdot 15{,}000}}{2} = \frac{300 \pm \sqrt{3
 $$y = a\,q^{2} + b\,q + c$$
 
 **$a$** decides the shape: below zero, a hill with a top — a profit that peaks. **$c$** is the value at $q = 0$. The top sits at $q = -b/2a$, halfway between the two roots.
+
+## Try it: move a, b and c
+
+<iframe class="app" src="apps/function-lab.html?f=parab&a=-1&pb=2&c=3" loading="lazy"></iframe>
+
+[Make $a$ positive, then negative. Slide $c$ and watch the whole curve move up and down. Find a setting with no roots: what happens to the profitable window?]{.muted style="font-size:.7em"}
 
 ## The discriminant decides before you compute
 
@@ -432,18 +438,6 @@ $$\ln\!\left(1.12^{\,t}\right) = \ln 2 \;\Longrightarrow\; t\,\ln 1.12 = \ln 2 \
 | $\ln a^{k} = k \ln a$ | $k$ years of the same growth: the exponent comes down |
 | $\log_{b} x = \ln x / \ln b$ | any base through the calculator's $\ln$ |
 
-## The sanity check you will use in the exam
-
-$$t_{\text{double}} \approx \frac{70}{g_{\%}} \qquad\qquad \frac{70}{12} \approx 5.8$$
-
-Why it works: $\ln 2 \approx 0.69$ and $\ln(1+g) \approx g$ when $g$ is small, so $t = \ln 2 / \ln(1+g) \approx 0.69/g$.
-
-The number $e \approx 2.718$ appears today only as "the base your calculator's $\ln$ uses". In week 4 it becomes continuous compounding and earns its place.
-
-::: {.callout-tip title="Board sentence"}
-Whenever the unknown is in the exponent, take logs of both sides. Whenever you see a log, remember it is a question: to what power?
-:::
-
 ## D7, D8 (core) — D9 (stretch: $5e^{0.03t} = 8$) {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
@@ -506,31 +500,41 @@ $$|c - 500| \le 15 \;\Longleftrightarrow\; 485 \le c \le 515 \;\Longleftrightarr
 
 Cells #1 (17 Wh short) and #4 (16 Wh over) go back.
 
-## The absolute value: the rules, and where marks are lost
+## What |·| does to a graph
+
+![](img/w01_abs_flip.svg){.nostretch fig-align="center" width="88%"}
+
+Everything **below** the axis is flipped **up**, like a mirror. Everything above stays where it is. So an absolute value is **never negative**, and its graph has a corner where the original crossed zero.
+
+## Solve by looking
+
+![](img/w01_abs_solve.svg){.nostretch fig-align="center" width="82%"}
 
 :::: {.columns}
-::: {.column width="50%"}
-**What it is**
-
-$$|x| = \begin{cases} x & \text{if } x \ge 0 \\ -x & \text{if } x < 0 \end{cases}$$
-
-It removes the sign and keeps the size: $|{-7}| = |7| = 7$.
-
-**Solving with it**
-
-- $|x - a| \le b \iff a - b \le x \le a + b$: one interval, **and**
-- $|x - a| > b \iff x < a - b$ **or** $x > a + b$: two tails, never "and"
-- $|x - a| = b$ has **two** answers, $a \pm b$
+::: {.column width="34%"}
+**$\le$** — below the level: **one interval**, $-1 \le x \le 5$.
 :::
-::: {.column width="50%"}
-**The traps**
-
-- **The right-hand side can be negative.** $|x| \le -3$ has no solution; $|x| > -3$ is true for every $x$. Check its sign before anything else.
-- **It does not split over a sum.** $|a + b| \ne |a| + |b|$ in general: $|3 + (-5)| = 2$, not $8$. It does split over a product: $|ab| = |a|\,|b|$.
-- $\sqrt{x^{2}} = |x|$, not $x$: $\sqrt{(-4)^{2}} = 4$.
-- **Brackets.** $[\,]$ includes the endpoint, $(\,)$ excludes it and always goes with $\pm\infty$. The exam wants intervals written this way.
+::: {.column width="33%"}
+**$>$** — above the level: **two tails**, joined by "or", never "and".
+:::
+::: {.column width="33%"}
+**Level below zero** — a V never goes under the axis: no solution. With $>$ it would be *every* $x$.
 :::
 ::::
+
+## Try it: flip it, cut it, solve it {.lab-app}
+
+<iframe class="app" src="apps/function-lab.html?f=line&m=1&b=-2&op=abs&k=3&rel=le" loading="lazy"></iframe>
+
+[1. Switch to a parabola and flip $x^{2} - 4$. &nbsp; 2. Press $\sqrt{\;}$: where does the graph vanish, and why? &nbsp; 3. Parabola with $a = 1$, $b = 0$, $c = 0$, then $\sqrt{\;}$: you get $|x|$, because $\sqrt{x^{2}} = |x|$.]{.muted style="font-size:.7em"}
+
+## One trap the picture will not show you
+
+$$|a + b| \ne |a| + |b| \qquad\qquad |3 + (-5)| = 2, \;\text{ not } 8$$
+
+It **does** split over a product: $|a\,b| = |a|\,|b|$.
+
+[When the exam asks for an interval: $[\,]$ includes the endpoint, $(\,)$ excludes it and always goes with $\pm\infty$.]{.muted}
 
 ## D10, D11 (core) — interval notation {.paper background-color="#eceff0"}
 

@@ -64,6 +64,30 @@ ax.annotate("", (500, -.95), (515, -.95), arrowprops=dict(arrowstyle="<->", colo
 ax.text(492.5, -1.3, "15", color=MUTED, ha="center"); ax.text(507.5, -1.3, "15", color=MUTED, ha="center")
 ax.set_xlim(474, 526); ax.set_ylim(-1.5, 1); ax.axis("off"); save(fig, "w01_tolerance")
 
+# 5b — what |·| does to a graph: the part below the axis flips up
+x = np.linspace(-4, 6, 400)
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 3.6))
+for ax, fx, lab in ((a1, x - 2, "x − 2"), (a2, x**2 - 4, "x² − 4")):
+    ax.axhline(0, color=INK, lw=1); ax.axvline(0, color=MUTED, lw=.8)
+    ax.plot(x, fx, color=MUTED, lw=2, ls="--", label=f"f(x) = {lab}")
+    ax.plot(x, np.abs(fx), color=RED, lw=3, label=f"|f(x)| = |{lab}|")
+    ax.fill_between(x, fx, 0, where=fx < 0, color=MUTED, alpha=.12)
+    ax.set_ylim(-5, 8); ax.set_xlim(-4, 6); ax.legend(frameon=False, loc="lower right", fontsize=12)
+a2.set_xlim(-4, 4); save(fig, "w01_abs_flip")
+
+# 5c — solve by looking: the V against a level line
+x = np.linspace(-4, 8, 400); v = np.abs(x - 2)
+fig, axs = plt.subplots(1, 3, figsize=(12, 3.5), sharey=True)
+cases = (("|x − 2| ≤ 3", 3, "le", "one interval: [−1, 5]"), ("|x − 2| > 3", 3, "gt", "two tails: x < −1 or x > 5"),
+         ("|x − 2| ≤ −1", -1, "le", "never: no solution"))
+for ax, (title, lvl, rel, ans) in zip(axs, cases):
+    ax.axhline(0, color=INK, lw=1); ax.plot(x, v, color=RED, lw=3); ax.axhline(lvl, color=GOLD, lw=2, ls="--")
+    sel = (v <= lvl) if rel == "le" else (v > lvl)
+    ax.fill_between(x, -0.35, 0.35, where=sel, color=GREEN, alpha=.9)
+    ax.set_title(title, color=INK, fontsize=14, loc="left"); ax.text(-3.6, 6.6, ans, color=GREEN if sel.any() else RED, fontsize=12.5, fontweight="bold")
+    ax.set_xlim(-4, 8); ax.set_ylim(-2, 7.5); ax.set_xticks([-1, 2, 5])
+save(fig, "w01_abs_solve")
+
 # 6 — anatomy of a line: slope and intercept, one moved at a time
 qq = np.linspace(0, 200, 2)
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 3.9), sharey=True)

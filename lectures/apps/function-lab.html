@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Function lab</title>
+<!-- A line or a parabola, then one operator on top of it (|·| or √), and an optional level y = k
+     to solve an inequality by looking. Embedded in the decks as an <iframe>; presets come from the
+     query string, e.g. function-lab.html?f=line&m=1&b=-2&op=abs&k=3&rel=le -->
+<style>
+  :root { --red:#AF1F25; --gold:#a8955a; --ink:#363636; --muted:#7a7f85; --rule:#e6e2d8; --green:#1E8449; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Source Sans 3","Source Sans Pro",-apple-system,Helvetica,Arial,sans-serif; color:var(--ink); background:#fff; }
+  .wrap { display:grid; grid-template-columns: 290px 1fr; height:100vh; }
+  .panel { padding:14px 16px; border-right:1px solid var(--rule); overflow:auto; font-size:14px; }
+  .panel h3 { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin:14px 0 6px; }
+  .panel h3:first-child { margin-top:0; }
+  .seg { display:flex; gap:4px; flex-wrap:wrap; }
+  .seg button { flex:1; border:1px solid var(--rule); background:#faf9f6; padding:6px 4px; font:inherit; font-size:13px; cursor:pointer; color:var(--ink); }
+  .seg button.on { background:var(--red); border-color:var(--red); color:#fff; font-weight:600; }
+  label.s { display:grid; grid-template-columns: 22px 1fr 44px; align-items:center; gap:6px; margin:4px 0; }
+  label.s b { font-style:italic; }
+  label.s output { text-align:right; font-variant-numeric: tabular-nums; }
+  input[type=range] { width:100%; accent-color: var(--red); }
+  .row { display:flex; align-items:center; gap:8px; margin:4px 0; }
+  .formula { font-size:17px; margin:2px 0 4px; font-weight:600; }
+  .formula .g { color:var(--red); display:block; }
+  .note { color:var(--muted); font-size:13px; line-height:1.35; margin-top:6px; }
+  .answer { color:var(--green); font-weight:600; font-size:15px; margin-top:6px; }
+  canvas { width:100%; height:100%; display:block; }
+  .plot { position:relative; }
+  @media (max-width: 700px) { .wrap { grid-template-columns: 1fr; grid-template-rows: auto 60vh; height:auto; } .panel { border-right:0; border-bottom:1px solid var(--rule); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="panel">
+    <h3>1 · the function f</h3>
+    <div class="seg" id="fSeg"><button data-f="line">line</button><button data-f="parab">parabola</button></div>
+    <div id="lineCtl">
+      <label class="s"><b>m</b><input id="m" type="range" min="-3" max="3" step="0.5"><output id="mo"></output></label>
+      <label class="s"><b>b</b><input id="b" type="range" min="-5" max="5" step="0.5"><output id="bo"></output></label>
+    </div>
+    <div id="parCtl">
+      <label class="s"><b>a</b><input id="a" type="range" min="-2" max="2" step="0.25"><output id="ao"></output></label>
+      <label class="s"><b>b</b><input id="pb" type="range" min="-4" max="4" step="0.5"><output id="pbo"></output></label>
+      <label class="s"><b>c</b><input id="c" type="range" min="-5" max="5" step="0.5"><output id="co"></output></label>
+    </div>
+    <h3>2 · what we do to it</h3>
+    <div class="seg" id="opSeg"><button data-op="none">f(x)</button><button data-op="abs">|f(x)|</button><button data-op="sqrt">√f(x)</button></div>
+    <div class="formula"><span id="fLine"></span><span class="g" id="gLine"></span></div>
+    <div class="note" id="opNote"></div>
+    <h3>3 · solve by looking</h3>
+    <div class="row"><input type="checkbox" id="kOn"><span>draw the level <b><i>y = k</i></b></span></div>
+    <label class="s"><b>k</b><input id="k" type="range" min="-3" max="6" step="0.5"><output id="ko"></output></label>
+    <div class="seg" id="relSeg"><button data-rel="le">g ≤ k</button><button data-rel="gt">g &gt; k</button></div>
+    <div class="answer" id="answer"></div>
+  </div>
+  <div class="plot"><canvas id="cv"></canvas></div>
+</div>
+<script>
+const Q = new URLSearchParams(location.search);
+const S = {
+  f: Q.get("f") || "line", op: Q.get("op") || "none", rel: Q.get("rel") || "le",
+  m: +(Q.get("m") ?? 1), b: +(Q.get("b") ?? -2), a: +(Q.get("a") ?? 1), pb: +(Q.get("pb") ?? 0), c: +(Q.get("c") ?? -4),
+  k: +(Q.get("k") ?? 3), kOn: Q.get("k") !== null,
+};
+const X0 = -6, X1 = 6, Y0 = -5, Y1 = 8;
+const $ = id => document.getElementById(id);
+const fmt = v => (Math.abs(v - Math.round(v)) < 1e-9 ? String(Math.round(v)) : v.toFixed(2).replace(/0$/, "")).replace("-", "−");
+
+function f(x) { return S.f === "line" ? S.m * x + S.b : S.a * x * x + S.pb * x + S.c; }
+function g(x) { const y = f(x); if (S.op === "abs") return Math.abs(y); if (S.op === "sqrt") return y >= 0 ? Math.sqrt(y) : NaN; return y; }
+
+// "x² − 3x + 2" from the coefficients, skipping zeros and unit coefficients
+function polyText(terms) {
+  let s = "";
+  for (const [coef, v] of terms) {
+    if (Math.abs(coef) < 1e-9) continue;
+    const mag = Math.abs(coef), num = (mag === 1 && v) ? "" : fmt(mag);
+    s += s ? (coef < 0 ? " − " : " + ") + num + v : (coef < 0 ? "−" : "") + num + v;
+  }
+  return s || "0";
+}
+const fText = () => S.f === "line" ? polyText([[S.m, "x"], [S.b, ""]]) : polyText([[S.a, "x²"], [S.pb, "x"], [S.c, ""]]);
+
+// intervals of x in [X0, X1] where pred(x) holds: fine grid, edges refined by bisection
+function intervals(pred) {
+  const N = 2400, out = []; let start = null, prevX = X0, prevP = pred(X0);
+  if (prevP) start = X0;
+  for (let i = 1; i <= N; i++) {
+    const x = X0 + (X1 - X0) * i / N, p = pred(x);
+    if (p !== prevP) {
+      let lo = prevX, hi = x;
+      for (let j = 0; j < 40; j++) { const mid = (lo + hi) / 2; if (pred(mid) === prevP) lo = mid; else hi = mid; }
+      const edge = (lo + hi) / 2;
+      if (p) start = edge; else { out.push([start, edge]); start = null; }
+    }
+    prevX = x; prevP = p;
+  }
+  if (start !== null) out.push([start, X1]);
+  return out;
+}
+function intText(iv) {
+  if (!iv.length) return "no solution: ∅";
+  const e = v => (v <= X0 + 1e-6 ? "−∞" : v >= X1 - 1e-6 ? "+∞" : fmt(Math.round(v * 100) / 100));
+  const incl = S.rel === "le";
+  const s = iv.map(([l, r]) => {
+    const L = e(l), R = e(r);
+    return (L === "−∞" || !incl ? "(" : "[") + L + ", " + R + (R === "+∞" || !incl ? ")" : "]");
+  }).join(" ∪ ");
+  return s === "(−∞, +∞)" ? "every x" : s;
+}
+
+const cv = $("cv"), ctx = cv.getContext("2d");
+function draw() {
+  const dpr = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+  cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+  const px = x => (x - X0) / (X1 - X0) * W, py = y => H - (y - Y0) / (Y1 - Y0) * H;
+  ctx.strokeStyle = "#f0ede6"; ctx.lineWidth = 1;
+  for (let x = Math.ceil(X0); x <= X1; x++) { ctx.beginPath(); ctx.moveTo(px(x), 0); ctx.lineTo(px(x), H); ctx.stroke(); }
+  for (let y = Math.ceil(Y0); y <= Y1; y++) { ctx.beginPath(); ctx.moveTo(0, py(y)); ctx.lineTo(W, py(y)); ctx.stroke(); }
+  ctx.strokeStyle = "#9aa0a6"; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(0, py(0)); ctx.lineTo(W, py(0)); ctx.moveTo(px(0), 0); ctx.lineTo(px(0), H); ctx.stroke();
+  ctx.fillStyle = "#7a7f85"; ctx.font = "12px Source Sans 3, Helvetica, Arial";
+  for (let x = -5; x <= 5; x++) if (x) ctx.fillText(fmt(x), px(x) - 4, py(0) + 14);
+  for (let y = -4; y <= 7; y++) if (y) ctx.fillText(fmt(y), px(0) + 5, py(y) + 4);
+
+  if (S.op === "sqrt") {                                   // where √ is not defined
+    ctx.fillStyle = "rgba(122,127,133,.16)";
+    for (const [l, r] of intervals(x => f(x) < 0)) ctx.fillRect(px(l), 0, px(r) - px(l), H);
+  }
+  if (S.kOn) {                                             // the solution set, on the x-axis
+    const iv = intervals(x => { const y = g(x); return !isNaN(y) && (S.rel === "le" ? y <= S.k + 1e-12 : y > S.k); });
+    ctx.fillStyle = "rgba(30,132,73,.85)";
+    for (const [l, r] of iv) ctx.fillRect(px(l), py(0) - 4, Math.max(2, px(r) - px(l)), 8);
+    ctx.strokeStyle = "#a8955a"; ctx.setLineDash([7, 5]); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0, py(S.k)); ctx.lineTo(W, py(S.k)); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = "#a8955a"; ctx.font = "bold 13px Source Sans 3, Helvetica, Arial"; ctx.fillText("y = " + fmt(S.k), W - 70, py(S.k) - 6);
+    $("answer").textContent = iv.length ? "x ∈ " + intText(iv) : "no solution: ∅";
+  } else $("answer").textContent = "";
+
+  const curve = (fn, color, width, dash) => {
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash(dash); ctx.beginPath();
+    let pen = false;
+    for (let i = 0; i <= 1200; i++) {
+      const x = X0 + (X1 - X0) * i / 1200, y = fn(x);
+      if (isNaN(y) || y > Y1 + 20 || y < Y0 - 20) { pen = false; continue; }
+      if (pen) ctx.lineTo(px(x), py(y)); else ctx.moveTo(px(x), py(y));
+      pen = true;
+    }
+    ctx.stroke(); ctx.setLineDash([]);
+  };
+  if (S.op !== "none") curve(f, "#9aa0a6", 2, [6, 5]);    // the original, faded
+  curve(g, "#AF1F25", 3.5, []);                            // what we get
+}
+
+function sync() {
+  document.querySelectorAll("#fSeg button").forEach(b => b.classList.toggle("on", b.dataset.f === S.f));
+  document.querySelectorAll("#opSeg button").forEach(b => b.classList.toggle("on", b.dataset.op === S.op));
+  document.querySelectorAll("#relSeg button").forEach(b => b.classList.toggle("on", b.dataset.rel === S.rel));
+  $("lineCtl").hidden = S.f !== "line"; $("parCtl").hidden = S.f !== "parab";
+  for (const id of ["m", "b", "a", "pb", "c", "k"]) { $(id).value = S[id]; $(id + "o").textContent = fmt(S[id]); }
+  $("kOn").checked = S.kOn;
+  const ft = fText();
+  $("fLine").textContent = S.op === "none" ? "" : "f(x) = " + ft;
+  $("gLine").textContent = S.op === "none" ? "f(x) = " + ft : "g(x) = " + (S.op === "abs" ? "|" + ft + "|" : "√(" + ft + ")");
+  $("opNote").textContent = {
+    none: "Apply an operator: f stays as a dashed grey curve, the red curve is what you get.",
+    abs: "Where f is below the axis, |·| flips it up like a mirror. Above the axis nothing changes. The result is never negative.",
+    sqrt: "√ only accepts what is ≥ 0: where f is negative (grey band) there is no graph at all. That band is outside the domain.",
+  }[S.op];
+  draw();
+}
+document.querySelectorAll("#fSeg button").forEach(b => b.onclick = () => { S.f = b.dataset.f; sync(); });
+document.querySelectorAll("#opSeg button").forEach(b => b.onclick = () => { S.op = b.dataset.op; sync(); });
+document.querySelectorAll("#relSeg button").forEach(b => b.onclick = () => { S.rel = b.dataset.rel; sync(); });
+for (const id of ["m", "b", "a", "pb", "c", "k"]) $(id).oninput = e => { S[id] = +e.target.value; sync(); };
+$("kOn").onchange = e => { S.kOn = e.target.checked; sync(); };
+addEventListener("resize", draw);
+sync();
+</script>
+</body>
+</html>

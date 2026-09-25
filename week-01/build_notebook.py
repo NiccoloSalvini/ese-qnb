@@ -221,7 +221,7 @@ fig.add_scatter(x=[t_double], y=[2.4], mode="markers+text", text=[f"{t_double:.1
 fig.update_layout(title="Same start, same first-year gain, different futures",
                   xaxis_title="years", yaxis_title="revenue (€M)", template="plotly_white", height=450)
 fig.show()
-print(f"ln 2 / ln 1.12 = {np.log(2):.4f} / {np.log(1.12):.4f} = {t_double:.2f} years   (rule of 70: {70/12:.1f})")
+print(f"ln 2 / ln 1.12 = {np.log(2):.4f} / {np.log(1.12):.4f} = {t_double:.2f} years")
 """)
 
 md(r"""
@@ -236,15 +236,13 @@ $$1.12^{\,t} = 2 \;\Longrightarrow\; t \ln 1.12 = \ln 2 \;\Longrightarrow\; t = 
 | $\ln a^{k} = k \ln a$ | $k$ years of the same growth: the exponent comes down |
 | $\log_b x = \ln x / \ln b$ | any base through the calculator's $\ln$ |
 
-Rule of 70: $t_{double} \approx 70/g_{\%}$, because $\ln 2 \approx 0.69$ and $\ln(1+g) \approx g$ for small $g$.
 """)
 
 code(r"""
 # Growth-rate explorer: how sensitive is doubling time to g?
 g = np.linspace(0.02, 0.30, 200)
 fig = go.Figure()
-fig.add_scatter(x=g*100, y=np.log(2)/np.log(1+g), name="exact  ln2 / ln(1+g)", line=dict(color="#2471a3", width=3))
-fig.add_scatter(x=g*100, y=70/(g*100), name="rule of 70", line=dict(color="#c0392b", dash="dash", width=2))
+fig.add_scatter(x=g*100, y=np.log(2)/np.log(1+g), name="ln 2 / ln(1+g)", line=dict(color="#2471a3", width=3))
 fig.update_layout(title="Doubling time vs growth rate", xaxis_title="growth rate (% per year)",
                   yaxis_title="years to double", template="plotly_white", height=420)
 fig.show()
@@ -544,14 +542,13 @@ assert revenue.subs(t, 1) == sp.Rational(1344, 1000)
 
 md(r"""
 ### D8 (b) — years to double
-Solve $1.12^t = 2$; check with the rule of 70.
+Solve $1.12^t = 2$.
 """)
 code(r"""
 # t * ln(1.12) = ln(2)
 t_double = sp.log(2) / sp.log(sp.Rational(112, 100))
 t_double_value = round(float(t_double), 1)
-rule_of_70 = 70 / 12
-print(f"Doubling time: {t_double_value} years   (rule of 70: {rule_of_70:.1f} years)")
+print(f"Doubling time: {t_double_value} years")
 assert t_double_value == 6.1
 """)
 

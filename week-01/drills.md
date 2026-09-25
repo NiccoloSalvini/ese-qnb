@@ -41,7 +41,7 @@
 
 **D8 (core).** Arno Bikes' revenue is €1.2M and grows at 12% a year.
 (a) Write revenue after t years.
-(b) How many years to double? Check with the rule of 70.
+(b) How many years to double?
 (c) How many years to reach €3M?
 
 **D9 (stretch).**
@@ -98,7 +98,7 @@ At x = 1.1: `−0.1/1.1 ≈ −0.091`. At x = 0.9: `−(−0.1)/0.9 ≈ +0.111`.
 
 **D8.**
 (a) `R(t) = 1.2 · 1.12ᵗ` (€M).
-(b) `1.12ᵗ = 2` → `t ln 1.12 = ln 2` → `t = 0.6931 / 0.1133 = **6.1 years**`. Rule of 70: 70/12 ≈ 5.8 — consistent.
+(b) `1.12ᵗ = 2` → `t ln 1.12 = ln 2` → `t = 0.6931 / 0.1133 = **6.1 years**`.
 (c) `1.12ᵗ = 2.5` → `t = ln 2.5 / ln 1.12 = 0.9163 / 0.1133 = **8.1 years**`.
 
 **D9.**

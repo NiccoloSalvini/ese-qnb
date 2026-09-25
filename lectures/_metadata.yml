@@ -7,7 +7,7 @@ format:
     height: 720
     margin: 0.06
     slide-number: c/t
-    footer: "Research & Quantitative Business Methods · ESE Florence"
+    footer: "[← Course site](../index.html) · Research & Quantitative Business Methods · ESE Florence"
     transition: fade
     transition-speed: fast
     controls: false

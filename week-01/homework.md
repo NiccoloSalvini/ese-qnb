@@ -29,7 +29,7 @@ Two parts. Part 1 is done on paper and handed in as a photo or scan; Part 2 is a
 **H6.** A subscription business has 4,000 subscribers growing 6% a month.
 (a) Subscribers after t months (formula) and after 12 months (number).
 (b) Months to reach 10,000.
-(c) Months to double, exactly and with the rule of 70.
+(c) Months to double.
 
 **H7.** Solve for t: (a) `200 · 1.05ᵗ = 350`; (b) `e^{0.08t} = 3`.
 
