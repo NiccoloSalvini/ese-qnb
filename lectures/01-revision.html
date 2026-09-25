@@ -697,7 +697,7 @@ Niccolò Salvini, PhD
 </section>
 <section id="price-responds-to-volume" class="slide level2">
 <h2>Price responds to volume</h2>
-<p>The founder learns: at €1,000 she sells 150 bikes; every €4 cut sells one more.</p>
+<p>The founder learns: at €1,000 she sells 150 bikes. Every €4 off the price sells one more bike; every €4 on it sells one fewer, so at <strong>€1,600 she sells none</strong>. That is the line:</p>
 <p><span class="math display">p(q) = 1600 - 4q</span></p>
 <p>Revenue is <strong>price × quantity</strong>: a rectangle whose sides pull in opposite directions.</p>
 <div title="Bet before we compute">
@@ -735,6 +735,12 @@ Niccolò Salvini, PhD
 
 <img data-src="img/w01_parabola_anatomy.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p><span class="math display">y = a\,q^{2} + b\,q + c</span></p>
 <p><strong><span class="math inline">a</span></strong> decides the shape: below zero, a hill with a top — a profit that peaks. <strong><span class="math inline">c</span></strong> is the value at <span class="math inline">q = 0</span>. The top sits at <span class="math inline">q = -b/2a</span>, halfway between the two roots.</p>
+</section>
+<section id="try-it-move-a-b-and-c" class="slide level2">
+<h2>Try it: move a, b and c</h2>
+<iframe class="app" src="apps/function-lab.html?f=parab&amp;a=-1&amp;pb=2&amp;c=3" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">Make <span class="math inline">a</span> positive, then negative. Slide <span class="math inline">c</span> and watch the whole curve move up and down. Find a setting with no roots: what happens to the profitable window?</span></p>
 </section>
 <section id="the-discriminant-decides-before-you-compute" class="slide level2">
 <h2>The discriminant decides before you compute</h2>
@@ -945,27 +951,6 @@ Niccolò Salvini, PhD
 </table>
 </div>
 </section>
-<section id="the-sanity-check-you-will-use-in-the-exam" class="slide level2">
-<h2>The sanity check you will use in the exam</h2>
-<p><span class="math display">t_{\text{double}} \approx \frac{70}{g_{\%}} \qquad\qquad \frac{70}{12} \approx 5.8</span></p>
-<p>Why it works: <span class="math inline">\ln 2 \approx 0.69</span> and <span class="math inline">\ln(1+g) \approx g</span> when <span class="math inline">g</span> is small, so <span class="math inline">t = \ln 2 / \ln(1+g) \approx 0.69/g</span>.</p>
-<p>The number <span class="math inline">e \approx 2.718</span> appears today only as “the base your calculator’s <span class="math inline">\ln</span> uses”. In week 4 it becomes continuous compounding and earns its place.</p>
-<div title="Board sentence">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Board sentence</strong></p>
-</div>
-<div class="callout-content">
-<p>Whenever the unknown is in the exponent, take logs of both sides. Whenever you see a log, remember it is a question: to what power?</p>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="d7-d8-core-d9-stretch-5e0.03t-8" class="slide level2 paper" data-background-color="#eceff0">
 <h2>D7, D8 (core) — D9 (stretch: <span class="math inline">5e^{0.03t} = 8</span>)</h2>
 <p><span class="kicker">PAPER · drills.md</span></p>
@@ -1058,28 +1043,42 @@ Niccolò Salvini, PhD
 
 <img data-src="img/w01_tolerance.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:64.0%"><p>Cells #1 (17 Wh short) and #4 (16 Wh over) go back.</p>
 </section>
-<section id="the-absolute-value-the-rules-and-where-marks-are-lost" class="slide level2">
-<h2>The absolute value: the rules, and where marks are lost</h2>
+<section id="what-does-to-a-graph" class="slide level2">
+<h2>What |·| does to a graph</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/w01_abs_flip.svg" class="quarto-figure quarto-figure-center" style="width:88.0%"></p>
+</figure>
+</div>
+<p>Everything <strong>below</strong> the axis is flipped <strong>up</strong>, like a mirror. Everything above stays where it is. So an absolute value is <strong>never negative</strong>, and its graph has a corner where the original crossed zero.</p>
+</section>
+<section id="solve-by-looking" class="slide level2">
+<h2>Solve by looking</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/w01_abs_solve.svg" class="quarto-figure quarto-figure-center" style="width:82.0%"></p>
+</figure>
+</div>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>What it is</strong></p>
-<p><span class="math display">|x| = \begin{cases} x &amp; \text{if } x \ge 0 \\ -x &amp; \text{if } x &lt; 0 \end{cases}</span></p>
-<p>It removes the sign and keeps the size: <span class="math inline">|{-7}| = |7| = 7</span>.</p>
-<p><strong>Solving with it</strong></p>
-<ul>
-<li><span class="math inline">|x - a| \le b \iff a - b \le x \le a + b</span>: one interval, <strong>and</strong></li>
-<li><span class="math inline">|x - a| &gt; b \iff x &lt; a - b</span> <strong>or</strong> <span class="math inline">x &gt; a + b</span>: two tails, never “and”</li>
-<li><span class="math inline">|x - a| = b</span> has <strong>two</strong> answers, <span class="math inline">a \pm b</span></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>The traps</strong></p>
-<ul>
-<li><strong>The right-hand side can be negative.</strong> <span class="math inline">|x| \le -3</span> has no solution; <span class="math inline">|x| &gt; -3</span> is true for every <span class="math inline">x</span>. Check its sign before anything else.</li>
-<li><strong>It does not split over a sum.</strong> <span class="math inline">|a + b| \ne |a| + |b|</span> in general: <span class="math inline">|3 + (-5)| = 2</span>, not <span class="math inline">8</span>. It does split over a product: <span class="math inline">|ab| = |a|\,|b|</span>.</li>
-<li><span class="math inline">\sqrt{x^{2}} = |x|</span>, not <span class="math inline">x</span>: <span class="math inline">\sqrt{(-4)^{2}} = 4</span>.</li>
-<li><strong>Brackets.</strong> <span class="math inline">[\,]</span> includes the endpoint, <span class="math inline">(\,)</span> excludes it and always goes with <span class="math inline">\pm\infty</span>. The exam wants intervals written this way.</li>
-</ul>
+<div class="column" style="width:34%;">
+<p><strong><span class="math inline">\le</span></strong> — below the level: <strong>one interval</strong>, <span class="math inline">-1 \le x \le 5</span>.</p>
+</div><div class="column" style="width:33%;">
+<p><strong><span class="math inline">&gt;</span></strong> — above the level: <strong>two tails</strong>, joined by “or”, never “and”.</p>
+</div><div class="column" style="width:33%;">
+<p><strong>Level below zero</strong> — a V never goes under the axis: no solution. With <span class="math inline">&gt;</span> it would be <em>every</em> <span class="math inline">x</span>.</p>
 </div></div>
+</section>
+<section id="try-it-flip-it-cut-it-solve-it" class="slide level2 lab-app">
+<h2>Try it: flip it, cut it, solve it</h2>
+<iframe class="app" src="apps/function-lab.html?f=line&amp;m=1&amp;b=-2&amp;op=abs&amp;k=3&amp;rel=le" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">1. Switch to a parabola and flip <span class="math inline">x^{2} - 4</span>. &nbsp; 2. Press <span class="math inline">\sqrt{\;}</span>: where does the graph vanish, and why? &nbsp; 3. Parabola with <span class="math inline">a = 1</span>, <span class="math inline">b = 0</span>, <span class="math inline">c = 0</span>, then <span class="math inline">\sqrt{\;}</span>: you get <span class="math inline">|x|</span>, because <span class="math inline">\sqrt{x^{2}} = |x|</span>.</span></p>
+</section>
+<section id="one-trap-the-picture-will-not-show-you" class="slide level2">
+<h2>One trap the picture will not show you</h2>
+<p><span class="math display">|a + b| \ne |a| + |b| \qquad\qquad |3 + (-5)| = 2, \;\text{ not } 8</span></p>
+<p>It <strong>does</strong> split over a product: <span class="math inline">|a\,b| = |a|\,|b|</span>.</p>
+<p><span class="muted">When the exam asks for an interval: <span class="math inline">[\,]</span> includes the endpoint, <span class="math inline">(\,)</span> excludes it and always goes with <span class="math inline">\pm\infty</span>.</span></p>
 </section>
 <section id="d10-d11-core-interval-notation" class="slide level2 paper" data-background-color="#eceff0">
 <h2>D10, D11 (core) — interval notation</h2>
@@ -1101,7 +1100,7 @@ Niccolò Salvini, PhD
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>Research &amp; Quantitative Business Methods · ESE Florence</p>
+<p><a href="../index.html">← Course site</a> · Research &amp; Quantitative Business Methods · ESE Florence</p>
 </div>
 </div>
 </section>
