@@ -266,6 +266,13 @@
     "text": "Last week, in one minute\n\n\nBlock AWhat a function is, once you have to use oneDomain first, always — written as an interval\n\n\nBlock BWhat happens near a point you cannot reach0/0 → factor, cancel, substitute. Average cost falls towards €400, never below\n\n\nBlock CWhat does one more bike do to profit?\\pi'(q) = -8q + 1200: the 81st bike adds €560; zero at 150\n\n\nBlock DFrom the marginal back to the totalIntegrate, add + C, pin C with one known value\n\n\nToday the pieces become one procedure: the full study of a function — the whole midterm."
   },
   {
+    "objectID": "lectures/03-study-and-accumulate.html#arno-bikes-on-one-card",
+    "href": "lectures/03-study-and-accumulate.html#arno-bikes-on-one-card",
+    "title": "Studying a function, and adding one up",
+    "section": "Arno Bikes, on one card",
+    "text": "Arno Bikes, on one card\n\n\n\n\n\nthe firm\n\n\n\n\n\nfixed cost\n€60,000 / month\n\n\nvariable cost\n€400 / bike\n\n\nlist price\n€1,000 / bike\n\n\ndemand\np = 1600 - 4q\n\n\n\nq = bikes per month. Nobody remembers this by heart: it stays on the slide.\n\n\n\n\nthe equations\n\nfrom\n\n\n\n\ncost\nC(q) = 60{,}000 + 400q\nwk 1 · A\n\n\nrevenue at list price\nR(q) = 1{,}000q\nwk 1 · A\n\n\nrevenue with demand\nR(q) = pq = 1600q - 4q^2\nwk 1 · B\n\n\nprofit = R - C\n\\pi(q) = -4q^2 + 1200q - 60{,}000\nwk 1 · B\n\n\naverage cost\nAC(q) = C(q)/q\nwk 2 · B\n\n\nmarginal profit\n\\pi'(q) = -8q + 1200\nwk 2 · C\n\n\n\n\nAt list price: break-even at 100 bikes. With demand: best output 150 bikes for €30,000; break-evens at ≈ 63 and ≈ 237."
+  },
+  {
     "objectID": "lectures/03-study-and-accumulate.html#where-we-are",
     "href": "lectures/03-study-and-accumulate.html#where-we-are",
     "title": "Studying a function, and adding one up",
@@ -578,7 +585,7 @@
     "href": "lectures/01-revision.html#d1-d2-d3b-core-d3-stretch",
     "title": "Revision of mathematics, told as business decisions",
     "section": "D1, D2, D3b (core) — D3 (stretch)",
-    "text": "D1, D2, D3b (core) — D3 (stretch)\nPAPER · drills.md\n10 minutes. Show all work, exam style. I come round."
+    "text": "D1, D2, D3b (core) — D3 (stretch)\nPAPER · drills.md\n10 minutes. Show all work, exam style. I walk round and look at your working."
   },
   {
     "objectID": "lectures/01-revision.html#four-questions-from-the-founder-1",
@@ -655,7 +662,7 @@
     "href": "lectures/01-revision.html#d4-d5-core-d6-stretch-factor-and-cancel",
     "title": "Revision of mathematics, told as business decisions",
     "section": "D4, D5 (core) — D6 (stretch: factor and cancel)",
-    "text": "D4, D5 (core) — D6 (stretch: factor and cancel)\nPAPER · drills.md\n10 minutes. Show all work, exam style. I come round."
+    "text": "D4, D5 (core) — D6 (stretch: factor and cancel)\nPAPER · drills.md\n10 minutes. Show all work, exam style. I walk round and look at your working."
   },
   {
     "objectID": "lectures/01-revision.html#four-questions-from-the-founder-2",
@@ -697,7 +704,7 @@
     "href": "lectures/01-revision.html#d7-d8-core-d9-stretch-5e0.03t-8",
     "title": "Revision of mathematics, told as business decisions",
     "section": "D7, D8 (core) — D9 (stretch: 5e^{0.03t} = 8)",
-    "text": "D7, D8 (core) — D9 (stretch: 5e^{0.03t} = 8)\nPAPER · drills.md\n12 minutes. Show all work, exam style. I come round."
+    "text": "D7, D8 (core) — D9 (stretch: 5e^{0.03t} = 8)\nPAPER · drills.md\n12 minutes. Show all work, exam style. I walk round and look at your working."
   },
   {
     "objectID": "lectures/01-revision.html#four-questions-from-the-founder-3",
@@ -760,7 +767,7 @@
     "href": "lectures/01-revision.html#d10-d11-core-interval-notation",
     "title": "Revision of mathematics, told as business decisions",
     "section": "D10, D11 (core) — interval notation",
-    "text": "D10, D11 (core) — interval notation\nPAPER · drills.md\n8 minutes. Show all work, exam style. I come round."
+    "text": "D10, D11 (core) — interval notation\nPAPER · drills.md\n8 minutes. Show all work, exam style. I walk round and look at your working."
   },
   {
     "objectID": "lectures/01-revision.html#close-take-home",
@@ -1463,6 +1470,13 @@
     "text": "Last week, in one minute\n\n\nBlock AHow many bikes before we stop losing money?100 — fixed cost ÷ contribution: 60,000 / 600\n\n\nBlock BHow many bikes should we make?150, for €30,000 — vertex −b/2a; profitable between 63 and 237\n\n\nBlock CHow long until revenue doubles?6.1 years — unknown in the exponent: t = \\ln 2 / \\ln 1.12\n\n\nBlock DIs this battery cell within spec?No — |c - 500| \\le 15 means [485, 515]; 483 is out\n\n\nThe vertex formula only works for parabolas. Today: the tool that works for any curve."
   },
   {
+    "objectID": "lectures/02-calculus-opens.html#arno-bikes-on-one-card",
+    "href": "lectures/02-calculus-opens.html#arno-bikes-on-one-card",
+    "title": "The tool that finds the top of any hill",
+    "section": "Arno Bikes, on one card",
+    "text": "Arno Bikes, on one card\n\n\n\n\n\nthe firm\n\n\n\n\n\nfixed cost\n€60,000 / month\n\n\nvariable cost\n€400 / bike\n\n\nlist price\n€1,000 / bike\n\n\ndemand\np = 1600 - 4q\n\n\n\nq = bikes per month. Nobody remembers this by heart: it stays on the slide.\n\n\n\n\nthe equations\n\nfrom\n\n\n\n\ncost\nC(q) = 60{,}000 + 400q\nwk 1 · A\n\n\nrevenue at list price\nR(q) = 1{,}000q\nwk 1 · A\n\n\nrevenue with demand\nR(q) = pq = 1600q - 4q^2\nwk 1 · B\n\n\nprofit = R - C\n\\pi(q) = -4q^2 + 1200q - 60{,}000\nwk 1 · B\n\n\naverage cost\nAC(q) = C(q)/q\ntoday · B\n\n\n\n\nAt list price: break-even at 100 bikes. With demand: best output 150 bikes for €30,000; break-evens at ≈ 63 and ≈ 237."
+  },
+  {
     "objectID": "lectures/02-calculus-opens.html#where-we-are",
     "href": "lectures/02-calculus-opens.html#where-we-are",
     "title": "The tool that finds the top of any hill",
@@ -1474,7 +1488,7 @@
     "href": "lectures/02-calculus-opens.html#first-the-midterm",
     "title": "The tool that finds the top of any hill",
     "section": "First, the midterm",
-    "text": "First, the midterm\nBRIEFING · 35 minutes\nBefore any mathematics: what the midterm asks, how it is marked, and what a good one looks like.\n\nThe brief, read together, line by line.\nThe seven things a “full study of a function” must contain — in the brief’s own words: domain, limits, range, sign, maxima and minima, convexity and inflection, sketch.\nWhat the qualitative sections want, and what referencing means here.\nThe timetable back from 1 November.\n\nQuestions now, not in the last week of October."
+    "text": "First, the midterm\nBRIEFING · 35 minutes · before any mathematics\n\n\nThe midterm, in four lines\n\n\n\nwhat\n1,500-word paper (±10%) + oral, max 15 min\n\n\nweight\n25% of the module: paper 80%, oral 20%\n\n\npaper due\nSun 1 Nov, 23:59, on Turnitin\n\n\noral\nweek 6\n\n\n\n\nWhat we do in the next 35 minutes\n\nRead the brief together, line by line.\nFix the checklist of a full study of a function:domain → limits → range → sign → max & min → convexity & inflection → sketch.\nWhat the written sections want; Harvard referencing.\nPlan backwards from 1 November.\n\n\nQuestions now, not in the last week of October."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#four-blocks-today",
@@ -1495,7 +1509,14 @@
     "href": "lectures/02-calculus-opens.html#a-function-is-a-machine",
     "title": "The tool that finds the top of any hill",
     "section": "A function is a machine",
-    "text": "A function is a machine\n\nYou put something in, something comes out, and what happens inside is the function. Nothing else about it matters.\nKeep this picture. It is the same picture as a cell in a spreadsheet, a pricing rule, and a line of code — arguments in, a value out, a body in between. We will use it all term."
+    "text": "A function is a machine\n\nYou put something in, something comes out, and what happens inside is the function.\nThe one rule: each input gives exactly one output. Put in 50 bikes, get one cost — never two.\nA spreadsheet cell, a pricing rule, a line of code: the same picture. Keep it all term."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#this-is-my-half-of-the-course-in-one-sentence",
+    "href": "lectures/02-calculus-opens.html#this-is-my-half-of-the-course-in-one-sentence",
+    "title": "The tool that finds the top of any hill",
+    "section": "This is my half of the course, in one sentence",
+    "text": "This is my half of the course, in one sentence\nTake a function a firm lives by, and study it until you can say what it does.\n\n\nMidterm — study a cost, a revenue and a profit function, and sketch each one.\n\nFinal exam — five questions in three hours; one of them is pure calculus: limits, derivatives, integrals, by hand.\n\nToday: the first pieces of the study (domain, limits, the derivative). Next week: the whole procedure."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#four-functions-one-firm",
@@ -1516,7 +1537,7 @@
     "href": "lectures/02-calculus-opens.html#d1-d2-domains-and-the-four-functions",
     "title": "The tool that finds the top of any hill",
     "section": "D1, D2 — domains, and the four functions",
-    "text": "D1, D2 — domains, and the four functions\nPAPER · drills.md\n10 minutes. Show all work, exam style. I come round."
+    "text": "D1, D2 — domains, and the four functions\nPAPER · drills.md\n10 minutes. Show all work, exam style. I walk round and look at your working."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#four-blocks-today-1",
@@ -1537,7 +1558,7 @@
     "href": "lectures/02-calculus-opens.html#what-does-one-bike-cost-it-depends-how-many-you-make.",
     "title": "The tool that finds the top of any hill",
     "section": "What does one bike cost? It depends how many you make.",
-    "text": "What does one bike cost? It depends how many you make.\nThe rent is €60,000 whether you build one bike or a thousand. Split it between the bikes:\nAC(q) = \\frac{60{,}000 + 400q}{q} \\;=\\; \\underbrace{\\frac{60{,}000}{q}}_{\\text{the rent, shared}} + \\underbrace{400}_{\\text{the parts, per bike}}\n\n\n\n\n\n\n\nBet before we compute\n\n\nAt 30 bikes a month, what does one bike cost the firm? At 300?"
+    "text": "What does one bike cost? It depends how many you make.\nThe rent is €60,000 whether you build one bike or a thousand. Split it between the bikes — cost C(q) from week 1, Block A, divided by q:\nAC(q) = \\frac{60{,}000 + 400q}{q} \\;=\\; \\underbrace{\\frac{60{,}000}{q}}_{\\text{the rent, shared}} + \\underbrace{400}_{\\text{the parts, per bike}}\n\n\n\n\n\n\n\nBet before we compute\n\n\nAt 30 bikes a month, what does one bike cost the firm? At 300?"
   },
   {
     "objectID": "lectures/02-calculus-opens.html#the-rent-split-thinner-and-thinner",
@@ -1545,6 +1566,13 @@
     "title": "The tool that finds the top of any hill",
     "section": "The rent, split thinner and thinner",
     "text": "The rent, split thinner and thinner\n\n\n\nThe gold bar is the rent per bike. It shrinks; the €400 floor never moves."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#where-do-you-take-a-limit-where-the-domain-stops.",
+    "href": "lectures/02-calculus-opens.html#where-do-you-take-a-limit-where-the-domain-stops.",
+    "title": "The tool that finds the top of any hill",
+    "section": "Where do you take a limit? Where the domain stops.",
+    "text": "Where do you take a limit? Where the domain stops.\nInside the domain there is nothing to ask: substitute and read the value. A limit is for the edges — the places you cannot reach.\n\n\n\n\n\n\n\n\nthe domain stops…\nexample\nthe limit to take\n\n\n\n\nat a point that is excluded\n\\dfrac{120}{q-40}, q \\neq 40\nfrom both sides: q \\to 40^{-} and q \\to 40^{+}\n\n\nat an open end\nAC(q), q &gt; 0\nfrom the allowed side only: q \\to 0^{+}\n\n\nnever — it runs on\nAC(q), q &gt; 0\nq \\to +\\infty (and -\\infty if the domain goes there)\n\n\n\nRecipe: write the domain → list its edges → one limit per edge. AC has domain (0, +\\infty): two edges, two limits."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#which-is-two-limits-and-a-floor",
@@ -1558,7 +1586,7 @@
     "href": "lectures/02-calculus-opens.html#the-one-that-looks-impossible",
     "title": "The tool that finds the top of any hill",
     "section": "The one that looks impossible",
-    "text": "The one that looks impossible\n\\lim_{q \\to 10} \\frac{q^{2} - 100}{q - 10}\nSubstitute and you get 0/0, which says nothing. So do not substitute first.\n\n\\frac{(q-10)(q+10)}{q-10} = q + 10 \\;\\longrightarrow\\; 20\n\n\n\n\n\n\n\nBoard sentence\n\n\n0/0 is not an answer, it is an instruction: factor, cancel, then substitute."
+    "text": "The one that looks impossible\n\\lim_{q \\to 10} \\frac{q^{2} - 100}{q - 10}\nWhy at 10? Because 10 is outside the domain (the denominator is zero there): an edge, so a limit. Substitute and you get 0/0, which says nothing. So do not substitute first.\n\n\\frac{(q-10)(q+10)}{q-10} = q + 10 \\;\\longrightarrow\\; 20\n\n\n\n\n\n\n\nBoard sentence\n\n\n0/0 is not an answer, it is an instruction: factor, cancel, then substitute."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#d4-d5-d6-limits-including-one-from-the-exam",
@@ -1621,7 +1649,7 @@
     "href": "lectures/02-calculus-opens.html#the-chain-rule-is-the-reason-a-few-things-work",
     "title": "The tool that finds the top of any hill",
     "section": "The chain rule is the reason a few things work",
-    "text": "The chain rule is the reason a few things work\n\n\n\n\n\n\n\nyou will meet it in\nas\n\n\n\n\nthe midterm\nR(q) = 20 ln(q + 1), differentiated to find the optimum\n\n\nweek 4\ncontinuous compounding: e^(it) differentiates to i·e^(it)\n\n\nweek 5\nduration: the bond price is (1+y)^(−t), and the −t comes down\n\n\nweek 3, backwards\n∫ f'/f = ln\\|f\\| is this rule read in reverse\n\n\n\n\n\n\n\n\n\n\nBoard sentence\n\n\nOutside first, inside untouched, then multiply by the inside’s derivative. If the inside is just q, the multiplication is by 1 and you never notice."
+    "text": "The chain rule is the reason a few things work\n\n\n\n\n\n\n\nyou will meet it in\nas\n\n\n\n\nthe midterm\na revenue of the form a · ln(q + 1), differentiated to find the optimum\n\n\nweek 4\ncontinuous compounding: e^(it) differentiates to i·e^(it)\n\n\nweek 5\nduration: the bond price is (1+y)^(−t), and the −t comes down\n\n\nweek 3, backwards\n∫ f'/f = ln\\|f\\| is this rule read in reverse\n\n\n\n\n\n\n\n\n\n\nBoard sentence\n\n\nOutside first, inside untouched, then multiply by the inside’s derivative. If the inside is just q, the multiplication is by 1 and you never notice."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#read-it-off-the-curve",

@@ -385,6 +385,77 @@ Niccolò Salvini, PhD
 </div>
 <p><span class="red">The vertex formula only works for parabolas. Today: the tool that works for any curve.</span></p>
 </section>
+<section id="arno-bikes-on-one-card" class="slide level2">
+<h2>Arno Bikes, on one card</h2>
+<div class="columns">
+<div class="column" style="width:36%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>the firm</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fixed cost</td>
+<td>€60,000 / month</td>
+</tr>
+<tr class="even">
+<td>variable cost</td>
+<td>€400 / bike</td>
+</tr>
+<tr class="odd">
+<td>list price</td>
+<td>€1,000 / bike</td>
+</tr>
+<tr class="even">
+<td>demand</td>
+<td><span class="math inline">p = 1600 - 4q</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="muted"><span class="math inline">q</span> = bikes per month. Nobody remembers this by heart: it stays on the slide.</span></p>
+</div><div class="column" style="width:64%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>the equations</th>
+<th></th>
+<th>from</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cost</td>
+<td><span class="math inline">C(q) = 60{,}000 + 400q</span></td>
+<td>wk 1 · A</td>
+</tr>
+<tr class="even">
+<td>revenue at list price</td>
+<td><span class="math inline">R(q) = 1{,}000q</span></td>
+<td>wk 1 · A</td>
+</tr>
+<tr class="odd">
+<td>revenue with demand</td>
+<td><span class="math inline">R(q) = pq = 1600q - 4q^2</span></td>
+<td>wk 1 · B</td>
+</tr>
+<tr class="even">
+<td>profit <span class="math inline">= R - C</span></td>
+<td><span class="math inline">\pi(q) = -4q^2 + 1200q - 60{,}000</span></td>
+<td>wk 1 · B</td>
+</tr>
+<tr class="odd">
+<td>average cost</td>
+<td><span class="math inline">AC(q) = C(q)/q</span></td>
+<td>today · B</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p><span class="red">At list price: break-even at 100 bikes. With demand: best output 150 bikes for €30,000; break-evens at ≈ 63 and ≈ 237.</span></p>
+</section>
 <section id="where-we-are" class="slide level2">
 <h2>Where we are</h2>
 <div class="columns">
@@ -434,15 +505,40 @@ Niccolò Salvini, PhD
 </section>
 <section id="first-the-midterm" class="slide level2 lab" data-background-color="#2471a3">
 <h2>First, the midterm</h2>
-<p><span class="kicker">BRIEFING · 35 minutes</span></p>
-<p>Before any mathematics: what the midterm asks, how it is marked, and what a good one looks like.</p>
+<p><span class="kicker">BRIEFING · 35 minutes · before any mathematics</span></p>
+<div class="columns">
+<div class="column" style="width:46%;">
+<p><strong>The midterm, in four lines</strong></p>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td><strong>what</strong></td>
+<td>1,500-word paper (±10%) + oral, max 15 min</td>
+</tr>
+<tr class="even">
+<td><strong>weight</strong></td>
+<td>25% of the module: paper 80%, oral 20%</td>
+</tr>
+<tr class="odd">
+<td><strong>paper due</strong></td>
+<td>Sun 1 Nov, 23:59, on Turnitin</td>
+</tr>
+<tr class="even">
+<td><strong>oral</strong></td>
+<td>week 6</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:54%;">
+<p><strong>What we do in the next 35 minutes</strong></p>
 <ol type="1">
-<li>The brief, read together, line by line.</li>
-<li>The seven things a “full study of a function” must contain — in the brief’s own words: domain, <strong>limits</strong>, <strong>range</strong>, sign, maxima and minima, convexity and inflection, sketch.</li>
-<li>What the qualitative sections want, and what referencing means here.</li>
-<li>The timetable back from 1 November.</li>
+<li>Read the brief together, line by line.</li>
+<li>Fix the checklist of a <em>full study of a function</em>:<br>domain → limits → range → sign → max &amp; min → convexity &amp; inflection → sketch.</li>
+<li>What the written sections want; Harvard referencing.</li>
+<li>Plan backwards from 1 November.</li>
 </ol>
-<p>Questions now, not in the last week of October.</p>
+</div></div>
+<p><span class="red">Questions now, not in the last week of October.</span></p>
 </section>
 <section id="four-blocks-today" class="slide level2 hub" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Four blocks today</h2>
@@ -470,8 +566,20 @@ Niccolò Salvini, PhD
 <section id="a-function-is-a-machine" class="slide level2">
 <h2>A function is a machine</h2>
 
-<img data-src="img/function-machine.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>You put something in, something comes out, and <strong>what happens inside is the function</strong>. Nothing else about it matters.</p>
-<p><span class="red">Keep this picture. It is the same picture as a cell in a spreadsheet, a pricing rule, and a line of code — arguments in, a value out, a body in between. We will use it all term.</span></p>
+<img data-src="img/function-machine.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:92.0%"><p>You put something in, something comes out, and <strong>what happens inside is the function</strong>.</p>
+<p><strong>The one rule:</strong> each input gives <strong>exactly one</strong> output. Put in 50 bikes, get one cost — never two.</p>
+<p><span class="red">A spreadsheet cell, a pricing rule, a line of code: the same picture. Keep it all term.</span></p>
+</section>
+<section id="this-is-my-half-of-the-course-in-one-sentence" class="slide level2">
+<h2>This is my half of the course, in one sentence</h2>
+<p><strong>Take a function a firm lives by, and study it until you can say what it does.</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Midterm</strong> — study a cost, a revenue and a profit function, and sketch each one.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Final exam</strong> — five questions in three hours; one of them is pure calculus: limits, derivatives, integrals, by hand.</p>
+</div></div>
+<p><span class="red">Today: the first pieces of the study (domain, limits, the derivative). Next week: the whole procedure.</span></p>
 </section>
 <section id="four-functions-one-firm" class="slide level2">
 <h2>Four functions, one firm</h2>
@@ -565,7 +673,7 @@ Niccolò Salvini, PhD
 <section id="d1-d2-domains-and-the-four-functions" class="slide level2 paper" data-background-color="#eceff0">
 <h2>D1, D2 — domains, and the four functions</h2>
 <p><span class="kicker">PAPER · drills.md</span></p>
-<p>10 minutes. Show all work, exam style. I come round.</p>
+<p>10 minutes. Show all work, exam style. I walk round and look at your working.</p>
 </section>
 <section id="four-blocks-today-1" class="slide level2 hub" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Four blocks today</h2>
@@ -592,7 +700,7 @@ Niccolò Salvini, PhD
 </section>
 <section id="what-does-one-bike-cost-it-depends-how-many-you-make." class="slide level2">
 <h2>What does one bike cost? It depends how many you make.</h2>
-<p>The rent is €60,000 whether you build one bike or a thousand. <strong>Split it between the bikes:</strong></p>
+<p>The rent is €60,000 whether you build one bike or a thousand. <strong>Split it between the bikes</strong> — cost <span class="math inline">C(q)</span> from week 1, Block A, divided by <span class="math inline">q</span>:</p>
 <p><span class="math display">AC(q) = \frac{60{,}000 + 400q}{q} \;=\; \underbrace{\frac{60{,}000}{q}}_{\text{the rent, shared}} + \underbrace{400}_{\text{the parts, per bike}}</span></p>
 <div title="Bet before we compute">
 <div class="callout callout-important callout-titled callout-style-default">
@@ -617,6 +725,42 @@ Niccolò Salvini, PhD
 </video>
 <p>The gold bar is the rent per bike. It shrinks; the €400 floor never moves.</p>
 </section>
+<section id="where-do-you-take-a-limit-where-the-domain-stops." class="slide level2">
+<h2>Where do you take a limit? Where the domain stops.</h2>
+<p>Inside the domain there is nothing to ask: substitute and read the value. A limit is for the <strong>edges</strong> — the places you cannot reach.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>the domain stops…</th>
+<th>example</th>
+<th>the limit to take</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>at a point that is excluded</td>
+<td><span class="math inline">\dfrac{120}{q-40}</span>, <span class="math inline">q \neq 40</span></td>
+<td>from both sides: <span class="math inline">q \to 40^{-}</span> and <span class="math inline">q \to 40^{+}</span></td>
+</tr>
+<tr class="even">
+<td>at an open end</td>
+<td><span class="math inline">AC(q)</span>, <span class="math inline">q &gt; 0</span></td>
+<td>from the allowed side only: <span class="math inline">q \to 0^{+}</span></td>
+</tr>
+<tr class="odd">
+<td>never — it runs on</td>
+<td><span class="math inline">AC(q)</span>, <span class="math inline">q &gt; 0</span></td>
+<td><span class="math inline">q \to +\infty</span> (and <span class="math inline">-\infty</span> if the domain goes there)</td>
+</tr>
+</tbody>
+</table>
+<p><span class="red">Recipe: write the domain → list its edges → one limit per edge. <span class="math inline">AC</span> has domain <span class="math inline">(0, +\infty)</span>: two edges, two limits.</span></p>
+</section>
 <section id="which-is-two-limits-and-a-floor" class="slide level2">
 <h2>Which is two limits, and a floor</h2>
 <p><span class="math display">\lim_{q \to 0^{+}} AC(q) = +\infty \qquad\qquad \lim_{q \to \infty} AC(q) = 400</span></p>
@@ -627,7 +771,7 @@ Niccolò Salvini, PhD
 <section id="the-one-that-looks-impossible" class="slide level2">
 <h2>The one that looks impossible</h2>
 <p><span class="math display">\lim_{q \to 10} \frac{q^{2} - 100}{q - 10}</span></p>
-<p>Substitute and you get <code>0/0</code>, which says nothing. So do not substitute first.</p>
+<p>Why at 10? Because 10 is outside the domain (the denominator is zero there): an edge, so a limit. Substitute and you get <code>0/0</code>, which says nothing. So do not substitute first.</p>
 <div class="fragment">
 <p><span class="math display">\frac{(q-10)(q+10)}{q-10} = q + 10 \;\longrightarrow\; 20</span></p>
 <div title="Board sentence">
@@ -801,7 +945,7 @@ Niccolò Salvini, PhD
 <tbody>
 <tr class="odd">
 <td>the midterm</td>
-<td><code>R(q) = 20 ln(q + 1)</code>, differentiated to find the optimum</td>
+<td>a revenue of the form <code>a · ln(q + 1)</code>, differentiated to find the optimum</td>
 </tr>
 <tr class="even">
 <td>week 4</td>

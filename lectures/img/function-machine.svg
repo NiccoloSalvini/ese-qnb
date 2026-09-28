@@ -17,7 +17,7 @@
   <text x="411" y="119" font-size="13" font-weight="700" letter-spacing="1.4" fill="#ffffff" text-anchor="middle">THE FUNCTION</text>
   <text x="411" y="178" font-size="25" fill="#ffffff" text-anchor="middle" font-style="italic">C(q) = 60,000 + 400q</text>
   <text x="411" y="212" font-size="14" fill="#cdba80" text-anchor="middle">the rule that turns one into the other</text>
-  <text x="411" y="240" font-size="13" fill="#9aa0a6" text-anchor="middle">give it the same q twice, it answers the same thing twice</text>
+  <text x="411" y="244" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">one q in → exactly one C(q) out</text>
 
   <path d="M586 181 L654 181" stroke="#363636" stroke-width="2.5" marker-end="url(#arr)"/>
 
