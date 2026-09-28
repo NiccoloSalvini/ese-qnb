@@ -250,7 +250,7 @@ The first is the break-even point. The second is **the condition for not losing 
 
 [PAPER · drills.md]{.kicker}
 
-10 minutes. Show all work, exam style. I come round.
+10 minutes. Show all work, exam style. I walk round and look at your working.
 
 ## Four questions from the founder {.hub auto-animate=true}
 
@@ -362,7 +362,7 @@ A quadratic has two roots, one, or none, and the discriminant tells you which be
 
 [PAPER · drills.md]{.kicker}
 
-10 minutes. Show all work, exam style. I come round.
+10 minutes. Show all work, exam style. I walk round and look at your working.
 
 ## Four questions from the founder {.hub auto-animate=true}
 
@@ -442,7 +442,7 @@ $$\ln\!\left(1.12^{\,t}\right) = \ln 2 \;\Longrightarrow\; t\,\ln 1.12 = \ln 2 \
 
 [PAPER · drills.md]{.kicker}
 
-12 minutes. Show all work, exam style. I come round.
+12 minutes. Show all work, exam style. I walk round and look at your working.
 
 ## Four questions from the founder {.hub auto-animate=true}
 
@@ -540,7 +540,7 @@ It **does** split over a product: $|a\,b| = |a|\,|b|$.
 
 [PAPER · drills.md]{.kicker}
 
-8 minutes. Show all work, exam style. I come round.
+8 minutes. Show all work, exam style. I walk round and look at your working.
 
 ## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
 

@@ -32,6 +32,32 @@ One of you takes us through it. Pick one drill you got stuck on. We want the wor
 
 [The vertex formula only works for parabolas. Today: the tool that works for any curve.]{.red}
 
+## Arno Bikes, on one card
+
+:::: {.columns}
+::: {.column width="36%"}
+| the firm | |
+|---|---|
+| fixed cost | €60,000 / month |
+| variable cost | €400 / bike |
+| list price | €1,000 / bike |
+| demand | $p = 1600 - 4q$ |
+
+[$q$ = bikes per month. Nobody remembers this by heart: it stays on the slide.]{.muted}
+:::
+::: {.column width="64%"}
+| the equations | | from |
+|---|---|---|
+| cost | $C(q) = 60{,}000 + 400q$ | wk 1 · A |
+| revenue at list price | $R(q) = 1{,}000q$ | wk 1 · A |
+| revenue with demand | $R(q) = pq = 1600q - 4q^2$ | wk 1 · B |
+| profit $= R - C$ | $\pi(q) = -4q^2 + 1200q - 60{,}000$ | wk 1 · B |
+| average cost | $AC(q) = C(q)/q$ | today · B |
+:::
+::::
+
+[At list price: break-even at 100 bikes. With demand: best output 150 bikes for €30,000; break-evens at ≈ 63 and ≈ 237.]{.red}
+
 ## Where we are
 
 :::: {.columns}
@@ -57,16 +83,30 @@ Three of the five items in the final's calculus question are here: a limit that 
 
 ## First, the midterm {.lab background-color="#2471a3"}
 
-[BRIEFING · 35 minutes]{.kicker}
+[BRIEFING · 35 minutes · before any mathematics]{.kicker}
 
-Before any mathematics: what the midterm asks, how it is marked, and what a good one looks like.
+:::: {.columns}
+::: {.column width="46%"}
+**The midterm, in four lines**
 
-1. The brief, read together, line by line.
-2. The seven things a "full study of a function" must contain — in the brief's own words: domain, **limits**, **range**, sign, maxima and minima, convexity and inflection, sketch.
-3. What the qualitative sections want, and what referencing means here.
-4. The timetable back from 1 November.
+| | |
+|---|---|
+| **what** | 1,500-word paper (±10%) + oral, max 15 min |
+| **weight** | 25% of the module: paper 80%, oral 20% |
+| **paper due** | Sun 1 Nov, 23:59, on Turnitin |
+| **oral** | week 6 |
+:::
+::: {.column width="54%"}
+**What we do in the next 35 minutes**
 
-Questions now, not in the last week of October.
+1. Read the brief together, line by line.
+2. Fix the checklist of a *full study of a function*:<br>domain → limits → range → sign → max & min → convexity & inflection → sketch.
+3. What the written sections want; Harvard referencing.
+4. Plan backwards from 1 November.
+:::
+::::
+
+[Questions now, not in the last week of October.]{.red}
 
 ## Four blocks today {.hub auto-animate=true}
 
@@ -94,9 +134,26 @@ Questions now, not in the last week of October.
 
 ![](img/function-machine.svg){fig-align="center" width="92%"}
 
-You put something in, something comes out, and **what happens inside is the function**. Nothing else about it matters.
+You put something in, something comes out, and **what happens inside is the function**.
 
-[Keep this picture. It is the same picture as a cell in a spreadsheet, a pricing rule, and a line of code — arguments in, a value out, a body in between. We will use it all term.]{.red}
+**The one rule:** each input gives **exactly one** output. Put in 50 bikes, get one cost — never two.
+
+[A spreadsheet cell, a pricing rule, a line of code: the same picture. Keep it all term.]{.red}
+
+## This is my half of the course, in one sentence
+
+**Take a function a firm lives by, and study it until you can say what it does.**
+
+:::: {.columns}
+::: {.column width="50%"}
+**Midterm** — study a cost, a revenue and a profit function, and sketch each one.
+:::
+::: {.column width="50%"}
+**Final exam** — five questions in three hours; one of them is pure calculus: limits, derivatives, integrals, by hand.
+:::
+::::
+
+[Today: the first pieces of the study (domain, limits, the derivative). Next week: the whole procedure.]{.red}
 
 ## Four functions, one firm
 
@@ -148,7 +205,7 @@ So $\sqrt{q-20}$ needs **the thing inside**, not `q`, to be at least zero: `q �
 
 [PAPER · drills.md]{.kicker}
 
-10 minutes. Show all work, exam style. I come round.
+10 minutes. Show all work, exam style. I walk round and look at your working.
 
 ## Four blocks today {.hub auto-animate=true}
 
@@ -174,7 +231,7 @@ So $\sqrt{q-20}$ needs **the thing inside**, not `q`, to be at least zero: `q �
 
 ## What does one bike cost? It depends how many you make.
 
-The rent is €60,000 whether you build one bike or a thousand. **Split it between the bikes:**
+The rent is €60,000 whether you build one bike or a thousand. **Split it between the bikes** — cost $C(q)$ from week 1, Block A, divided by $q$:
 
 $$AC(q) = \frac{60{,}000 + 400q}{q} \;=\; \underbrace{\frac{60{,}000}{q}}_{\text{the rent, shared}} + \underbrace{400}_{\text{the parts, per bike}}$$
 
@@ -187,6 +244,18 @@ At 30 bikes a month, what does one bike cost the firm? At 300?
 <video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w02_avgcost_poster.png"><source src="media/w02_avgcost.mp4" type="video/mp4"></video>
 
 The gold bar is the rent per bike. It shrinks; the €400 floor never moves.
+
+## Where do you take a limit? Where the domain stops.
+
+Inside the domain there is nothing to ask: substitute and read the value. A limit is for the **edges** — the places you cannot reach.
+
+| the domain stops… | example | the limit to take |
+|---|---|---|
+| at a point that is excluded | $\dfrac{120}{q-40}$, $q \neq 40$ | from both sides: $q \to 40^{-}$ and $q \to 40^{+}$ |
+| at an open end | $AC(q)$, $q > 0$ | from the allowed side only: $q \to 0^{+}$ |
+| never — it runs on | $AC(q)$, $q > 0$ | $q \to +\infty$ (and $-\infty$ if the domain goes there) |
+
+[Recipe: write the domain → list its edges → one limit per edge. $AC$ has domain $(0, +\infty)$: two edges, two limits.]{.red}
 
 ## Which is two limits, and a floor
 
@@ -202,7 +271,7 @@ Far out, the shared rent vanishes and average cost settles onto the variable cos
 
 $$\lim_{q \to 10} \frac{q^{2} - 100}{q - 10}$$
 
-Substitute and you get `0/0`, which says nothing. So do not substitute first.
+Why at 10? Because 10 is outside the domain (the denominator is zero there): an edge, so a limit. Substitute and you get `0/0`, which says nothing. So do not substitute first.
 
 . . .
 
@@ -316,7 +385,7 @@ $$e^{0.12t} \;\to\; e^{0.12t}\cdot 0.12$$
 
 | you will meet it in | as |
 |---|---|
-| the midterm | `R(q) = 20 ln(q + 1)`, differentiated to find the optimum |
+| the midterm | a revenue of the form `a · ln(q + 1)`, differentiated to find the optimum |
 | week 4 | continuous compounding: `e^(it)` differentiates to `i·e^(it)` |
 | week 5 | duration: the bond price is `(1+y)^(−t)`, and the `−t` comes down |
 | week 3, backwards | `∫ f'/f = ln\|f\|` is this rule read in reverse |

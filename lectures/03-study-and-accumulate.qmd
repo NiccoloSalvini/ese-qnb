@@ -32,6 +32,33 @@ One of you takes us through it. One drill, and then the one sentence of your mem
 
 [Today the pieces become one procedure: the full study of a function — the whole midterm.]{.red}
 
+## Arno Bikes, on one card
+
+:::: {.columns}
+::: {.column width="36%"}
+| the firm | |
+|---|---|
+| fixed cost | €60,000 / month |
+| variable cost | €400 / bike |
+| list price | €1,000 / bike |
+| demand | $p = 1600 - 4q$ |
+
+[$q$ = bikes per month. Nobody remembers this by heart: it stays on the slide.]{.muted}
+:::
+::: {.column width="64%"}
+| the equations | | from |
+|---|---|---|
+| cost | $C(q) = 60{,}000 + 400q$ | wk 1 · A |
+| revenue at list price | $R(q) = 1{,}000q$ | wk 1 · A |
+| revenue with demand | $R(q) = pq = 1600q - 4q^2$ | wk 1 · B |
+| profit $= R - C$ | $\pi(q) = -4q^2 + 1200q - 60{,}000$ | wk 1 · B |
+| average cost | $AC(q) = C(q)/q$ | wk 2 · B |
+| marginal profit | $\pi'(q) = -8q + 1200$ | wk 2 · C |
+:::
+::::
+
+[At list price: break-even at 100 bikes. With demand: best output 150 bikes for €30,000; break-evens at ≈ 63 and ≈ 237.]{.red}
+
 ## Where we are
 
 :::: {.columns}
