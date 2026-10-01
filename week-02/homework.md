@@ -1,8 +1,8 @@
 # Homework 2 — bring it to the next session
 
-**Hand it in at the start of class.** Paper is fine, a photo or a scan by email is fine. If you would rather send it ahead, do that by Wednesday 7 October, 23:59 — I read it before we meet either way.
+**Bring it to class, done on paper.** Nothing to hand in or send: the first 15–20 minutes of next session are spent going through it together at the board — you walk us through your working, we correct it there and then. Mistakes are the useful part, so bring what you tried even where you got stuck.
 
-Two parts. Part 1 on paper. Part 2 a short typed text. Expect 2–3 hours. Formative: not graded, but read, discussed in the first fifteen minutes of next session, and part of the evidence used when your midterm is marked.
+Two parts. Part 1 on paper. Part 2 a short typed text. Expect 2–3 hours. Formative: not graded, but the walkthrough is where you find out what you have really understood.
 
 ## Part 1 — Drill set (paper, show all work)
 

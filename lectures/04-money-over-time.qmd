@@ -438,6 +438,6 @@ The discount rate is not an assumption you pick. It is the price your own money 
 4. A firm growing for ever is worth $CF_1/(r-g)$; the gap $r-g$ is where the valuation's risk sits.
 5. Accept when NPV is positive at your own cost of capital; IRR is where it crosses zero.
 
-**Homework 4** (`homework.md`), due Wednesday 21 October 23:59: nine drills plus a memo correcting the Board member.
+**Homework 4** (`homework.md`), for Thursday 22 October, corrected together at the board: nine drills plus a memo correcting the Board member.
 
 Next week: the same arithmetic applied to a bond, and the two numbers that say how much a rate rise would cost you.

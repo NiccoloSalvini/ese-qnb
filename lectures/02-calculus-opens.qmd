@@ -499,6 +499,6 @@ and `c = C(0)` is the **fixed cost** — what you pay having produced nothing.
 3. The derivative is the answer to "what does one more do?"
 4. Reversing it needs a constant, and one fact to pin it down.
 
-**Homework 2** (`homework.md`), due Wednesday 7 October 23:59 on Moodle: eight drills plus a memo to the Board on whether to build the next bike.
+**Homework 2** (`homework.md`), for Thursday 8 October, corrected together at the board: eight drills plus a memo to the Board on whether to build the next bike.
 
 Write your own three take-home lines now, before you leave.

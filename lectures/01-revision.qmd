@@ -550,6 +550,6 @@ It **does** split over a product: $|a\,b| = |a|\,|b|$.
 2. Discriminant first, then roots, then the sign line.
 3. Unknown in the exponent → take logs of both sides.
 
-**Homework 1** (`homework.md`), due Wednesday 30 September 23:59 on Moodle: eight drills on paper + a 150–250-word memo to the Board on the profitable window.
+**Homework 1** (`homework.md`), for Thursday 1 October, corrected together at the board: eight drills on paper + a 150–250-word memo to the Board on the profitable window.
 
 Write your own three take-home lines now, before you leave.

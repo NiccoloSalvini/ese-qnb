@@ -386,6 +386,6 @@ Marked and returned next week. It counts for nothing and tells us both a great d
 3. Produce until marginal revenue equals marginal cost.
 4. Divide term by term before integrating; the integral of the marginal is the change in the total.
 
-**Homework 3** (`homework.md`), due Wednesday 14 October 23:59: seven drills plus a **400–500 word Board report** — a dry run of the midterm, with a hand-drawn sketch.
+**Homework 3** (`homework.md`), for Thursday 15 October, corrected together at the board: seven drills plus a **400–500 word Board report** — a dry run of the midterm, with a hand-drawn sketch.
 
 Write your own three take-home lines now, before you leave.
