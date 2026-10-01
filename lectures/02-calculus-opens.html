@@ -461,6 +461,11 @@ Niccolò Salvini, PhD
 <div class="columns">
 <div class="column" style="width:56%;">
 <table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Wk</th>
@@ -477,7 +482,7 @@ Niccolò Salvini, PhD
 <tr class="even">
 <td><strong>2</strong></td>
 <td><strong>1 Oct</strong></td>
-<td><strong>read a function; limits; the derivative</strong></td>
+<td><strong>read a function; limits; the derivative; first integrals</strong></td>
 </tr>
 <tr class="odd">
 <td>3</td>
@@ -553,7 +558,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block C</span>What does one more bike do to profit?<span class="blk-tool">the derivative</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block D</span>From the marginal back to the total<span class="blk-tool">running it backwards</span></p>
+<p><span class="blk-letter">Block D</span>From the marginal back to the total<span class="blk-tool">the integral</span></p>
 </div>
 </div>
 </section>
@@ -688,7 +693,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block C</span>What does one more bike do to profit?<span class="blk-tool">the derivative</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block D</span>From the marginal back to the total<span class="blk-tool">running it backwards</span></p>
+<p><span class="blk-letter">Block D</span>From the marginal back to the total<span class="blk-tool">the integral</span></p>
 </div>
 </div>
 </section>
@@ -809,7 +814,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block C</span>What does one more bike do to profit?<span class="blk-tool">the derivative</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block D</span>From the marginal back to the total<span class="blk-tool">running it backwards</span></p>
+<p><span class="blk-letter">Block D</span>From the marginal back to the total<span class="blk-tool">the integral</span></p>
 </div>
 </div>
 </section>
@@ -1041,12 +1046,12 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block C</span>What does one more bike do to profit?<span class="blk-tool">the derivative</span></p>
 </div>
 <div class="blk now" data-id="blkD">
-<p><span class="blk-letter">Block D</span>From the marginal back to the total<span class="blk-tool">running it backwards</span></p>
+<p><span class="blk-letter">Block D</span>From the marginal back to the total<span class="blk-tool">the integral</span></p>
 </div>
 </div>
 </section>
-<section id="block-d-running-it-backwards" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D</span> Running it backwards</h2>
+<section id="block-d-running-it-backwards-the-integral" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D</span> Running it backwards: the integral</h2>
 <div class="blk-fill" data-id="blkD">
 
 </div>
@@ -1067,10 +1072,70 @@ Niccolò Salvini, PhD
 <p>and <code>c = C(0)</code> is the <strong>fixed cost</strong> — what you pay having produced nothing.</p>
 <p><span class="red">The constant of integration is not a technicality here. It is the rent.</span></p>
 </section>
-<section id="d11-d12-recover-the-function" class="slide level2 paper" data-background-color="#eceff0">
-<h2>D11, D12 — recover the function</h2>
+<section id="running-it-backwards-has-a-name-the-integral" class="slide level2">
+<h2>Running it backwards has a name: the integral</h2>
+<p><span class="math display">\int f'(q)\,dq \;=\; f(q) + c \qquad \text{read: “the function whose derivative is } f'\text{”}</span></p>
+<p>Every derivative rule, read from right to left:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>you know</th>
+<th>so, backwards</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">q^{n} \to n\,q^{n-1}</span></td>
+<td><span class="math inline">\displaystyle\int q^{n}\,dq = \frac{q^{n+1}}{n+1} + c \quad (n \neq -1)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\ln q \to \dfrac{1}{q}</span></td>
+<td><span class="math inline">\displaystyle\int \frac{1}{q}\,dq = \ln\lvert q\rvert + c</span></td>
+</tr>
+<tr class="odd">
+<td>a constant <span class="math inline">\to 0</span></td>
+<td><span class="math inline">\displaystyle\int k\,dq = kq + c</span></td>
+</tr>
+<tr class="even">
+<td>sums, term by term</td>
+<td>integrate term by term</td>
+</tr>
+</tbody>
+</table>
+<p><span class="red">Power up by one, divide by the new power. The one power that rule cannot handle, <span class="math inline">q^{-1}</span>, is exactly the one that becomes a log. And the check is free: differentiate your answer and you must get back what was inside.</span></p>
+</section>
+<section id="the-exams-integral-split-the-fraction-first" class="slide level2">
+<h2>The exam’s integral: split the fraction first</h2>
+<p>The final’s calculus question opens with a fraction to integrate. There is no rule for a fraction — so make it stop being one.</p>
+<p><span class="math display">\int \frac{3q^{3} + 4q^{2} - 2}{q}\,dq</span></p>
+<div class="fragment">
+<p><span class="math display">= \int \Big(3q^{2} + 4q - \frac{2}{q}\Big)\,dq \;=\; q^{3} + 2q^{2} - 2\ln\lvert q\rvert + c</span></p>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Divide every term by the denominator, then integrate each piece on its own. The <code>1/q</code> piece is the one that turns into a log.</p>
+</div>
+</div>
+</div>
+</div>
+<p><span class="muted">Next week: the definite integral — add up marginal cost and you get total cost.</span></p>
+</div>
+</section>
+<section id="d11-d12-d13-recover-the-function-then-integrate" class="slide level2 paper" data-background-color="#eceff0">
+<h2>D11, D12, D13 — recover the function, then integrate</h2>
 <p><span class="kicker">PAPER · drills.md</span></p>
-<p>8 minutes. Exam form: every answer ends with the constant found, not left as <code>c</code>.</p>
+<p>10 minutes. Exam form: every answer ends with the constant found, not left as <code>c</code>. D13 is the final’s first calculus item, in the same form.</p>
 </section>
 <section id="close-take-home" class="slide level2 section-slide" data-background-color="#AF1F25">
 <h2><span class="section-kicker">Close</span> Take home</h2>
@@ -1081,7 +1146,7 @@ Niccolò Salvini, PhD
 <li>Domain first, always. The exam gives marks for the interval.</li>
 <li><code>0/0</code> means factor, cancel, then substitute.</li>
 <li>The derivative is the answer to “what does one more do?”</li>
-<li>Reversing it needs a constant, and one fact to pin it down.</li>
+<li>Running it backwards is the integral: power up and divide, <code>1/q</code> gives <code>ln</code>, and one fact pins the constant down.</li>
 </ol>
 <p><strong>Homework 2</strong> (<code>homework.md</code>), for Thursday 8 October, corrected together at the board: eight drills plus a memo to the Board on whether to build the next bike.</p>
 <p>Write your own three take-home lines now, before you leave.</p>

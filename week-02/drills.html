@@ -167,6 +167,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="d.-reversing-the-derivative">D. Reversing the derivative</h2>
 <p><strong>D11 (core — exam form).</strong> Find <code>f(q)</code> given <code>f'(q) = 6q² − 2q</code> and <code>f(1) = 4</code>.</p>
 <p><strong>D12 (core).</strong> Find the total cost function given marginal cost <code>MC(q) = 0.8q + 3</code> and fixed cost <code>C(0) = 25</code>.</p>
+<p><strong>D13 (core — exam form).</strong> Integrate term by term; split the fraction first where there is one. (a) <code>∫ (6q² − 4q + 1) dq</code> (b) <code>∫ (3q³ + 4q² − 2)/q dq</code></p>
 <hr>
 <details>
 <summary>
@@ -185,6 +186,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>D10.</strong> <code>[3(a+h)² − 3a²]/h = [3a² + 6ah + 3h² − 3a²]/h = (6ah + 3h²)/h = 6a + 3h</code>. As <code>h → 0</code> this → <strong><code>6a</code></strong>. Divide <em>before</em> letting <code>h</code> go: that is the whole trick.</p>
 <p><strong>D11.</strong> Antiderivative term by term: <code>f(q) = 2q³ − q² + c</code>. Then <code>f(1) = 2 − 1 + c = 4</code> → <code>c = 3</code>, so <strong><code>f(q) = 2q³ − q² + 3</code></strong>. <em>Never forget the constant: the initial condition is what pins it down, and the exam always gives you one.</em></p>
 <p><strong>D12.</strong> <code>C(q) = 0.4q² + 3q + c</code>, and <code>C(0) = c = 25</code>, so <strong><code>C(q) = 0.4q² + 3q + 25</code></strong>. The constant of integration <em>is</em> the fixed cost. That is not a coincidence; it is the economics.</p>
+<p><strong>D13.</strong> (a) Power up and divide, term by term: <strong><code>2q³ − 2q² + q + c</code></strong>. Check: differentiate and you get back <code>6q² − 4q + 1</code>. (b) Divide each term by <code>q</code> first: <code>3q² + 4q − 2/q</code>. Then integrate each piece: <code>∫ 3q² dq = q³</code>, <code>∫ 4q dq = 2q²</code>, <code>∫ −2/q dq = −2 ln|q|</code>, so <strong><code>q³ + 2q² − 2 ln|q| + c</code></strong>. <em>The <code>1/q</code> term is the only one the power rule cannot do (it would divide by zero): it is the log.</em></p>
 </details>
 
 
