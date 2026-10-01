@@ -397,10 +397,23 @@ assert sp.expand(C - (sp.Rational(4, 10)*q**2 + 3*q + 25)) == 0
 """)
 
 md(r"""
+**D13** Integrate: (a) $\int (6q^2 - 4q + 1)\,dq$; (b) $\int \frac{3q^3 + 4q^2 - 2}{q}\,dq$.
+""")
+code(r"""
+F_a = sp.integrate(6*q**2 - 4*q + 1, q)
+print("(a)", F_a, "+ c")
+split = sp.expand((3*q**3 + 4*q**2 - 2)/q)      # divide every term by q first
+F_b = sp.integrate(split, q)
+print("(b) split:", split, "  ->  integral:", F_b, "+ c")
+assert sp.expand(F_a - (2*q**3 - 2*q**2 + q)) == 0
+assert sp.simplify(sp.diff(F_b, q) - (3*q**3 + 4*q**2 - 2)/q) == 0   # differentiate back
+""")
+
+md(r"""
 ## Homework
 
 `homework.md` — eight drills on paper plus a memo to the Board: **should the eighty-first bike be built?**
-Due Wednesday 7 October, 23:59, on Moodle.
+For Thursday 8 October: we correct it together at the board in the first 15–20 minutes.
 """)
 
 nb["cells"] = cells

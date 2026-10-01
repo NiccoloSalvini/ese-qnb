@@ -65,7 +65,7 @@ One of you takes us through it. Pick one drill you got stuck on. We want the wor
 | Wk | Date | What you can do by hand |
 |---|---|---|
 | 1 | 24 Sep | equations, quadratics, logs ✓ |
-| **2** | **1 Oct** | **read a function; limits; the derivative** |
+| **2** | **1 Oct** | **read a function; limits; the derivative; first integrals** |
 | 3 | 8 Oct | study a function; optimise; integrate |
 | 4 | 15 Oct | interest, discounting, NPV |
 | 5 | 22 Oct | bonds, duration, convexity |
@@ -121,7 +121,7 @@ Three of the five items in the final's calculus question are here: a limit that 
 [Block C]{.blk-letter}What does one more bike do to profit?[the derivative]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}From the marginal back to the total[running it backwards]{.blk-tool}
+[Block D]{.blk-letter}From the marginal back to the total[the integral]{.blk-tool}
 :::
 :::
 
@@ -220,7 +220,7 @@ So $\sqrt{q-20}$ needs **the thing inside**, not `q`, to be at least zero: `q �
 [Block C]{.blk-letter}What does one more bike do to profit?[the derivative]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}From the marginal back to the total[running it backwards]{.blk-tool}
+[Block D]{.blk-letter}From the marginal back to the total[the integral]{.blk-tool}
 :::
 :::
 
@@ -300,7 +300,7 @@ $$\frac{(q-10)(q+10)}{q-10} = q + 10 \;\longrightarrow\; 20$$
 [Block C]{.blk-letter}What does one more bike do to profit?[the derivative]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}From the marginal back to the total[running it backwards]{.blk-tool}
+[Block D]{.blk-letter}From the marginal back to the total[the integral]{.blk-tool}
 :::
 :::
 
@@ -453,11 +453,11 @@ The derivative answers one managerial question: what does one more unit do? Posi
 [Block C]{.blk-letter}What does one more bike do to profit?[the derivative]{.blk-tool}
 :::
 ::: {.blk .now data-id="blkD"}
-[Block D]{.blk-letter}From the marginal back to the total[running it backwards]{.blk-tool}
+[Block D]{.blk-letter}From the marginal back to the total[the integral]{.blk-tool}
 :::
 :::
 
-## [Block D]{.section-kicker} Running it backwards {.section-slide background-color="#AF1F25" auto-animate=true}
+## [Block D]{.section-kicker} Running it backwards: the integral {.section-slide background-color="#AF1F25" auto-animate=true}
 
 ::: {.blk-fill data-id="blkD"}
 :::
@@ -484,11 +484,42 @@ and `c = C(0)` is the **fixed cost** — what you pay having produced nothing.
 
 [The constant of integration is not a technicality here. It is the rent.]{.red}
 
-## D11, D12 — recover the function {.paper background-color="#eceff0"}
+## Running it backwards has a name: the integral
+
+$$\int f'(q)\,dq \;=\; f(q) + c \qquad \text{read: “the function whose derivative is } f'\text{”}$$
+
+Every derivative rule, read from right to left:
+
+| you know | so, backwards |
+|---|---|
+| $q^{n} \to n\,q^{n-1}$ | $\displaystyle\int q^{n}\,dq = \frac{q^{n+1}}{n+1} + c \quad (n \neq -1)$ |
+| $\ln q \to \dfrac{1}{q}$ | $\displaystyle\int \frac{1}{q}\,dq = \ln\lvert q\rvert + c$ |
+| a constant $\to 0$ | $\displaystyle\int k\,dq = kq + c$ |
+| sums, term by term | integrate term by term |
+
+[Power up by one, divide by the new power. The one power that rule cannot handle, $q^{-1}$, is exactly the one that becomes a log. And the check is free: differentiate your answer and you must get back what was inside.]{.red}
+
+## The exam's integral: split the fraction first
+
+The final's calculus question opens with a fraction to integrate. There is no rule for a fraction — so make it stop being one.
+
+$$\int \frac{3q^{3} + 4q^{2} - 2}{q}\,dq$$
+
+. . .
+
+$$= \int \Big(3q^{2} + 4q - \frac{2}{q}\Big)\,dq \;=\; q^{3} + 2q^{2} - 2\ln\lvert q\rvert + c$$
+
+::: {.callout-tip title="Board sentence"}
+Divide every term by the denominator, then integrate each piece on its own. The `1/q` piece is the one that turns into a log.
+:::
+
+[Next week: the definite integral — add up marginal cost and you get total cost.]{.muted}
+
+## D11, D12, D13 — recover the function, then integrate {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 
-8 minutes. Exam form: every answer ends with the constant found, not left as `c`.
+10 minutes. Exam form: every answer ends with the constant found, not left as `c`. D13 is the final's first calculus item, in the same form.
 
 ## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
 
@@ -497,7 +528,7 @@ and `c = C(0)` is the **fixed cost** — what you pay having produced nothing.
 1. Domain first, always. The exam gives marks for the interval.
 2. `0/0` means factor, cancel, then substitute.
 3. The derivative is the answer to "what does one more do?"
-4. Reversing it needs a constant, and one fact to pin it down.
+4. Running it backwards is the integral: power up and divide, `1/q` gives `ln`, and one fact pins the constant down.
 
 **Homework 2** (`homework.md`), for Thursday 8 October, corrected together at the board: eight drills plus a memo to the Board on whether to build the next bike.
 

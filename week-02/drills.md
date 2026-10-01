@@ -57,6 +57,10 @@
 
 **D12 (core).** Find the total cost function given marginal cost `MC(q) = 0.8q + 3` and fixed cost `C(0) = 25`.
 
+**D13 (core — exam form).** Integrate term by term; split the fraction first where there is one.
+(a) `∫ (6q² − 4q + 1) dq`
+(b) `∫ (3q³ + 4q² − 2)/q dq`
+
 ---
 
 <details>
@@ -122,5 +126,11 @@ Then `f(1) = 2 − 1 + c = 4` → `c = 3`, so **`f(q) = 2q³ − q² + 3`**.
 
 **D12.** `C(q) = 0.4q² + 3q + c`, and `C(0) = c = 25`, so **`C(q) = 0.4q² + 3q + 25`**.
 The constant of integration *is* the fixed cost. That is not a coincidence; it is the economics.
+
+**D13.**
+(a) Power up and divide, term by term: **`2q³ − 2q² + q + c`**. Check: differentiate and you get back `6q² − 4q + 1`.
+(b) Divide each term by `q` first: `3q² + 4q − 2/q`. Then integrate each piece:
+`∫ 3q² dq = q³`, `∫ 4q dq = 2q²`, `∫ −2/q dq = −2 ln|q|`, so **`q³ + 2q² − 2 ln|q| + c`**.
+*The `1/q` term is the only one the power rule cannot do (it would divide by zero): it is the log.*
 
 </details>
