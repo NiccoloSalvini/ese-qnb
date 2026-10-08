@@ -1,5 +1,5 @@
 ---
-title: "Studying a function, and adding one up"
+title: "Studying a function, and optimising it"
 subtitle: "Week 3 · Thursday 8 October 2026 · 10:00–13:00"
 author: "Niccolò Salvini, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
@@ -26,7 +26,7 @@ One of you takes us through it. One drill, and then the one sentence of your mem
 [Block C]{.blk-letter}What does one more bike do to profit?[$\pi'(q) = -8q + 1200$: the 81st bike adds €560; zero at 150]{.blk-answer}
 :::
 ::: {.blk .recap}
-[Block D]{.blk-letter}From the marginal back to the total[Integrate, add + C, pin C with one known value]{.blk-answer}
+[Block D]{.blk-letter}From the marginal back to the total[Integrate, add + C, pin C with one known value. The integral of the marginal is the change in the total]{.blk-answer}
 :::
 :::
 
@@ -67,7 +67,7 @@ One of you takes us through it. One drill, and then the one sentence of your mem
 |---|---|---|
 | 1 | 24 Sep | equations, quadratics, logs ✓ |
 | 2 | 1 Oct | functions, limits, the derivative ✓ |
-| **3** | **8 Oct** | **study a function; optimise; integrate** |
+| **3** | **8 Oct** | **study a function; optimise** |
 | 4 | 15 Oct | interest, discounting, NPV |
 | 5 | 22 Oct | bonds, duration, convexity |
 :::
@@ -75,8 +75,6 @@ One of you takes us through it. One drill, and then the one sentence of your mem
 **Today is the midterm.**
 
 Not a rehearsal of part of it: the whole mathematical content of the midterm is the seven-step study you will do this morning, applied to a cost, a revenue and a profit function.
-
-The last block, integration, is the remaining two items of the final's calculus question.
 :::
 ::::
 
@@ -102,7 +100,7 @@ The last block, integration, is the remaining two items of the final's calculus 
 
 The same profit function you already know, taken apart in the exam's order.
 
-## Three blocks today, then the quiz {.hub auto-animate=true}
+## Two blocks today, then the quiz {.hub auto-animate=true}
 
 ::: {.blocks}
 ::: {.blk .now data-id="blkA"}
@@ -110,9 +108,6 @@ The same profit function you already know, taken apart in the exam's order.
 :::
 ::: {.blk .next}
 [Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
-:::
-::: {.blk .next}
-[Block C]{.blk-letter}What did all of them add up to?[integration]{.blk-tool}
 :::
 :::
 
@@ -178,7 +173,7 @@ An **inflection** is where `f''` changes sign: the curve stops bending one way a
 
 15 minutes. This is the midterm's Q2 with different numbers. Write all seven steps, labelled.
 
-## Three blocks today, then the quiz {.hub auto-animate=true}
+## Two blocks today, then the quiz {.hub auto-animate=true}
 
 ::: {.blocks}
 ::: {.blk .done}
@@ -186,9 +181,6 @@ An **inflection** is where `f''` changes sign: the curve stops bending one way a
 :::
 ::: {.blk .now data-id="blkB"}
 [Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
-:::
-::: {.blk .next}
-[Block C]{.blk-letter}What did all of them add up to?[integration]{.blk-tool}
 :::
 :::
 
@@ -244,131 +236,6 @@ The second one has a lesson in it. Watch what changes and what does not.
 
 12 minutes. In D5 say what the firm should do, in a sentence, before you compute anything.
 
-## Three blocks today, then the quiz {.hub auto-animate=true}
-
-::: {.blocks}
-::: {.blk .done}
-[Block A]{.blk-letter}The study, done properly[the seven steps]{.blk-tool}
-:::
-::: {.blk .done}
-[Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
-:::
-::: {.blk .now data-id="blkC"}
-[Block C]{.blk-letter}What did all of them add up to?[integration]{.blk-tool}
-:::
-:::
-
-## [Block C]{.section-kicker} Integration — adding up the marginal {.section-slide background-color="#AF1F25" auto-animate=true}
-
-::: {.blk-fill data-id="blkC"}
-:::
-
-## Every bike has its own price tag
-
-Marginal cost is not "the cost". It is **the cost of the next one**, and it is different for every one.
-
-| | | |
-|---|---|---|
-| the 1st bike | `MC ≈ 3.40` | the line is easy, nothing is strained |
-| the 10th bike | `MC ≈ 10.60` | overtime starts, parts cost more |
-| the 20th bike | `MC ≈ 18.60` | the plant is pushed |
-
-::: {.callout-important title="Bet before we compute"}
-So what do the **first twenty together** cost? Write a number.
-:::
-
-## Add up the price tags
-
-![](img/w03_staircase.svg){fig-align="center" width="82%"}
-
-Twenty bikes, twenty price tags, twenty bars. **Pile them up and you have the total cost.**
-
-. . .
-
-The bars sum to exactly **€220**. Nothing has been approximated: each bar is one bike, and we added up all twenty.
-
-## And now make the bikes smaller than bikes
-
-A bike is a lump. But suppose you could make half a bike, then a tenth, then a thousandth.
-
-The bars get thinner, there are more of them, and the pile becomes **the area under the line**.
-
-. . .
-
-That area has a name and a symbol, and the symbol is a stretched S for *sum*:
-
-$$\int_{0}^{20} MC(q)\,dq$$
-
-[Integration is not a new idea. It is adding up price tags, with the tags made infinitely thin.]{.red}
-
-## Watch the slices thin {.clip background-color="#000000"}
-
-<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w03_riemann_poster.png"><source src="media/w03_riemann.mp4" type="video/mp4"></video>
-
-180, then 200, then 212, then 217 — climbing to 220.
-
-## Three rules, and you can do every exam integral
-
-:::: {.columns}
-::: {.column width="47%"}
-$$\int q^{n}\,dq = \frac{q^{n+1}}{n+1} + c \quad (n \neq -1)$$
-$$\int \frac{1}{q}\,dq = \ln|q| + c$$
-$$\int \frac{f'(q)}{f(q)}\,dq = \ln|f(q)| + c$$
-:::
-::: {.column width="53%"}
-The exam's integral always arrives as a fraction. **Divide term by term first:**
-
-$$\frac{q^{5} - 3q^{3} + 2}{q^{2}} = q^{3} - 3q + 2q^{-2}$$
-
-Now each term is a power, or a log.
-:::
-::::
-
-[The third rule is the one people arrive without, and the exam uses it.]{.red}
-
-## The third rule, because the exam asks for it
-
-A log appears whenever the top is the derivative of the bottom — exactly, or up to a constant you can factor out.
-
-:::: {.columns}
-::: {.column width="50%"}
-$$\int \frac{1}{q-1}\,dq = \ln|q-1| + c$$
-
-The bottom differentiates to 1. A shifted log, nothing more.
-:::
-::: {.column width="50%"}
-$$\int \frac{q}{q^{2}-1}\,dq = \tfrac{1}{2}\ln|q^{2}-1| + c$$
-
-The bottom differentiates to `2q`; the top is `q`, so put the missing `½` out front.
-:::
-::::
-
-. . .
-
-**Before integrating any fraction, ask one question: is the top the derivative of the bottom?** If yes, it is a log. If no, divide term by term and use the power rule.
-
-## The definite integral, and what it measures
-
-$$\int_{0}^{20} (0.8q + 3)\,dq = \Big[0.4q^{2} + 3q\Big]_{0}^{20} = 220$$
-
-. . .
-
-And the one worth remembering:
-
-$$\int_{100}^{150} \pi'(q)\,dq = \pi(150) - \pi(100) = €10{,}000$$
-
-[The integral of the marginal is the change in the total. That sentence is the whole of integration.]{.red}
-
-::: {.callout-tip title="Board sentence"}
-Differentiate to ask what one more does. Integrate to ask what all of them did.
-:::
-
-## D7, D8, D9 — the exam's integrals {.paper background-color="#eceff0"}
-
-[PAPER · drills.md]{.kicker}
-
-15 minutes. D7 and D8 are two of the five items of the final's calculus question, verbatim in form.
-
 ## Quiz {.lab background-color="#2471a3"}
 
 [20 minutes · weeks 1–3 · not secret, not a trap]{.kicker}
@@ -384,7 +251,6 @@ Marked and returned next week. It counts for nothing and tells us both a great d
 1. Seven steps, in order. `f'` finds the point, `f''` names it.
 2. Marginal equals average at the bottom of the average.
 3. Produce until marginal revenue equals marginal cost.
-4. Divide term by term before integrating; the integral of the marginal is the change in the total.
 
 **Homework 3** (`homework.md`), for Thursday 15 October, corrected together at the board: seven drills plus a **400–500 word Board report** — a dry run of the midterm, with a hand-drawn sketch.
 

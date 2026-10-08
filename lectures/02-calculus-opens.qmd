@@ -66,7 +66,7 @@ One of you takes us through it. Pick one drill you got stuck on. We want the wor
 |---|---|---|
 | 1 | 24 Sep | equations, quadratics, logs ✓ |
 | **2** | **1 Oct** | **read a function; limits; the derivative; first integrals** |
-| 3 | 8 Oct | study a function; optimise; integrate |
+| 3 | 8 Oct | study a function; optimise |
 | 4 | 15 Oct | interest, discounting, NPV |
 | 5 | 22 Oct | bonds, duration, convexity |
 :::
@@ -335,6 +335,7 @@ You will use this definition roughly twice in your life. What you will use every
 |---|---|
 | `qⁿ` | `n qⁿ⁻¹` |
 | a constant | `0` |
+| `a/qⁿ` | `a·q⁻ⁿ`, then as a power: `−n a q⁻ⁿ⁻¹` |
 | `ln q` | `1/q` |
 | `e^(kq)` | `k e^(kq)` |
 | sums | differentiate term by term |
@@ -347,18 +348,27 @@ Never ask "what is the derivative of this?" Ask the questions in order.
 |---|---|
 | **1.** Is it a **sum**? | split it; do each piece alone |
 | **2.** A **number**, no `q`? | it becomes `0` |
-| **3.** A **power** `a·qⁿ`? | `n` comes down in front, the power drops by one |
-| **4.** A **log** `a·ln(q)`? | it becomes `a/q` |
+| **3.** A **fraction** `a/qⁿ`? | rewrite it as a power, `a·q⁻ⁿ`, and go to 4 |
+| **4.** A **power** `a·qⁿ`? | `n` comes down in front, the power drops by one |
+| **5.** A **log** `a·ln(q)`? | it becomes `a/q` |
 
 $$-4q^{2} \to -8q \qquad 1200q \to 1200 \qquad -60{,}000 \to 0 \qquad 30\ln q \to \tfrac{30}{q}$$
 
 . . .
 
-$$\pi(q) = \underbrace{-4q^{2}}_{3} + \underbrace{1200q}_{3} \underbrace{- \,60{,}000}_{2} \;\longrightarrow\; \pi'(q) = -8q + 1200$$
+$$\pi(q) = \underbrace{-4q^{2}}_{4} + \underbrace{1200q}_{4} \underbrace{- \,60{,}000}_{2} \;\longrightarrow\; \pi'(q) = -8q + 1200$$
 
-[A lone `q` is `q¹`, so rule 3 leaves just the number in front of it.]{.muted}
+[A lone `q` is `q¹`, so rule 4 leaves just the number in front of it.]{.muted}
 
-## Question 5: is there something *inside* something?
+. . .
+
+**The fraction.** A `q` downstairs is a negative power upstairs. Then rule 4, unchanged:
+
+$$\frac{1}{q^{2}} = q^{-2} \;\longrightarrow\; -2\,q^{-3} = -\frac{2}{q^{3}} \qquad\qquad AC(q) = \underbrace{\frac{60{,}000}{q}}_{3} + \underbrace{400}_{2} \;\longrightarrow\; AC'(q) = -\frac{60{,}000}{q^{2}}$$
+
+[The `−2` comes down, the power drops by one to `−3`. The exponent is negative, so the derivative is negative: average cost falls at every `q` — block B's economies of scale, now as a sign.]{.red}
+
+## Question 6: is there something *inside* something?
 
 `ln(q + 1)` is not `ln q`. There is a second function hiding inside the first, and the midterm's revenue function is exactly this shape.
 
@@ -513,7 +523,25 @@ $$= \int \Big(3q^{2} + 4q - \frac{2}{q}\Big)\,dq \;=\; q^{3} + 2q^{2} - 2\ln\lve
 Divide every term by the denominator, then integrate each piece on its own. The `1/q` piece is the one that turns into a log.
 :::
 
-[Next week: the definite integral — add up marginal cost and you get total cost.]{.muted}
+## The definite integral, and what it measures
+
+Put two numbers on the integral sign: evaluate at the top, subtract the value at the bottom. The `c` cancels, so leave it out.
+
+$$\int_{0}^{20} (0.8q + 3)\,dq = \Big[0.4q^{2} + 3q\Big]_{0}^{20} = 220$$
+
+[Add up the marginal cost of the first twenty units and you get what those twenty cost, on top of the fixed cost.]{.muted}
+
+. . .
+
+And the one worth remembering, on Arno Bikes' marginal profit from block C:
+
+$$\int_{100}^{150} \pi'(q)\,dq = \pi(150) - \pi(100) = €10{,}000$$
+
+[The integral of the marginal is the change in the total. That sentence is the whole of integration.]{.red}
+
+::: {.callout-tip title="Board sentence"}
+Differentiate to ask what one more does. Integrate to ask what all of them did.
+:::
 
 ## D11, D12, D13 — recover the function, then integrate {.paper background-color="#eceff0"}
 
@@ -528,7 +556,7 @@ Divide every term by the denominator, then integrate each piece on its own. The 
 1. Domain first, always. The exam gives marks for the interval.
 2. `0/0` means factor, cancel, then substitute.
 3. The derivative is the answer to "what does one more do?"
-4. Running it backwards is the integral: power up and divide, `1/q` gives `ln`, and one fact pins the constant down.
+4. Running it backwards is the integral: power up and divide, `1/q` gives `ln`, and one fact pins the constant down. Between two limits, it is the change in the total.
 
 **Homework 2** (`homework.md`), for Thursday 8 October, corrected together at the board: eight drills plus a memo to the Board on whether to build the next bike.
 
