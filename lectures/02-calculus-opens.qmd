@@ -398,7 +398,7 @@ $$e^{0.12t} \;\to\; e^{0.12t}\cdot 0.12$$
 | the midterm | a revenue of the form `a · ln(q + 1)`, differentiated to find the optimum |
 | week 4 | continuous compounding: `e^(it)` differentiates to `i·e^(it)` |
 | week 5 | duration: the bond price is `(1+y)^(−t)`, and the `−t` comes down |
-| week 3, backwards | `∫ f'/f = ln\|f\|` is this rule read in reverse |
+| block D, backwards | `∫ f'/f = ln\|f\|` is this rule read in reverse |
 
 ::: {.callout-tip title="Board sentence"}
 Outside first, inside untouched, then multiply by the inside's derivative. If the inside is just `q`, the multiplication is by 1 and you never notice.
@@ -504,6 +504,7 @@ Every derivative rule, read from right to left:
 |---|---|
 | $q^{n} \to n\,q^{n-1}$ | $\displaystyle\int q^{n}\,dq = \frac{q^{n+1}}{n+1} + c \quad (n \neq -1)$ |
 | $\ln q \to \dfrac{1}{q}$ | $\displaystyle\int \frac{1}{q}\,dq = \ln\lvert q\rvert + c$ |
+| $\ln f(q) \to \dfrac{f'(q)}{f(q)}$ (chain rule) | $\displaystyle\int \frac{f'(q)}{f(q)}\,dq = \ln\lvert f(q)\rvert + c$ |
 | a constant $\to 0$ | $\displaystyle\int k\,dq = kq + c$ |
 | sums, term by term | integrate term by term |
 
@@ -522,6 +523,29 @@ $$= \int \Big(3q^{2} + 4q - \frac{2}{q}\Big)\,dq \;=\; q^{3} + 2q^{2} - 2\ln\lve
 ::: {.callout-tip title="Board sentence"}
 Divide every term by the denominator, then integrate each piece on its own. The `1/q` piece is the one that turns into a log.
 :::
+
+## When the top is the derivative of the bottom
+
+A log appears whenever the top is the derivative of the bottom — exactly, or up to a constant you can factor out.
+
+:::: {.columns}
+::: {.column width="50%"}
+$$\int \frac{1}{q-1}\,dq = \ln|q-1| + c$$
+
+The bottom differentiates to 1. A shifted log, nothing more.
+:::
+::: {.column width="50%"}
+$$\int \frac{q}{q^{2}-1}\,dq = \tfrac{1}{2}\ln|q^{2}-1| + c$$
+
+The bottom differentiates to `2q`; the top is `q`, so put the missing `½` out front.
+:::
+::::
+
+. . .
+
+**Before integrating any fraction, ask one question: is the top the derivative of the bottom?** If yes, it is a log. If no, divide term by term and use the power rule.
+
+[This is the chain rule read backwards, and the final's calculus question uses it.]{.red}
 
 ## The definite integral, and what it measures
 
