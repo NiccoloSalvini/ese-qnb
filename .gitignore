@@ -27,3 +27,5 @@ syllabus/
 
 # Tutor talk scripts stay local
 week-*/talk.md
+
+**/*.quarto_ipynb
