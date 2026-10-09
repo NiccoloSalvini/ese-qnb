@@ -23,17 +23,6 @@ Give, in this order: domain · zeros · sign line · `π'` and the stationary po
 **H4.** `f(q) = q³ − 9q² + 24q` on `[0, 6]`.
 (a) Stationary points and their nature. (b) Inflection point. (c) Sketch.
 
-**H5 (integration, exam form).** Evaluate:
-(a) `∫ (q⁴ − 2q² + 5)/q² dq`
-(b) `∫ (6q² − 4q + 3) dq`
-(c) `∫ (5/q − 2√q) dq`
-
-**H6 (exam form).** Find `f(q)` given `f'(q) = 15q² − 8q + 3` and `f(1) = 12`.
-
-**H7.** Marginal cost is `MC(q) = 1.2q + 5`; fixed cost is 40.
-(a) Recover `C(q)`.
-(b) Compute `∫₁₀²⁰ MC(q) dq` and say, in one clause, what that number is.
-
 ## Part 2 — Board report (400–500 words, typed)
 
 **This is a rehearsal of the midterm.** A firm has a cost function `C(q) = 0.2q² + 4q + 80` and a revenue function `R(q) = 40 ln(q + 1)`, both in € thousand per month.
@@ -51,12 +40,9 @@ Structure it with headings. Numbers in the text, working in an appendix. The mid
 
 - The study follows the seven steps in order, and each one is labelled.
 - `π''` is computed and its **sign** is stated, not just the formula: that is what proves maximum or minimum.
-- Every integral is split term by term *before* integrating, and every indefinite integral ends in `+ c`.
-- In H6 the constant is found from `f(1) = 12`.
 - The sketch has: both axes labelled, the zeros, the maximum, and the vertical intercept.
 
 ## How this feeds the assessments
 
 - **H1 and Part 2** are the midterm: study a function, sketch it, tell a Board what it means.
-- **H5 and H6** are two of the five items of the final exam's Q5, in the exact form they appear.
 - **H2 and H3** are the resit's "full function study" question, which uses an average-cost or a log-revenue firm.

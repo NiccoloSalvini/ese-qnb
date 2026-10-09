@@ -11,10 +11,10 @@ md = lambda s: cells.append(nbf.v4.new_markdown_cell(s.strip()))
 code = lambda s: cells.append(nbf.v4.new_code_cell(s.strip()))
 
 md(r"""
-# MBA03 · Week 3 — Studying a function, and adding one up
+# MBA03 · Week 3 — Studying a function, and optimising it
 **European School of Economics · Thu 8 Oct 2026 · Tutor: Niccolò Salvini**
 
-Today is the mathematical content of the midterm: the seven-step study, optimisation, and integration.
+Today is the mathematical content of the midterm: the seven-step study and optimisation.
 """)
 
 code(r"""
@@ -101,32 +101,6 @@ for a in (20, 30, 40, 60):
 md(r"""
 ### 🔍 CHECK
 One of those rows has a positive optimum and a **negative** profit. Find it, and say what a manager should do in that case. Maximising profit and making a profit are not the same thing.
-""")
-
-md(r"""
-## D. Integration — thinner slices, truer area
-
-`MC(q) = 0.8q + 3`. What do the first twenty bikes cost in total?
-""")
-code(r"""
-mc = lambda x: 0.8*x + 3
-exact = 0.4*20**2 + 3*20
-for n in (4, 8, 20, 60, 500):
-    dx = 20/n
-    left = sum(mc(i*dx)*dx for i in range(n))
-    print(f"n = {n:>3}  left-endpoint sum = {left:7.2f}   (exact {exact})")
-""")
-code(r"""
-print("∫ (q⁵ − 3q³ + 2)/q² dq =", sp.integrate((q**5 - 3*q**3 + 2)/q**2, q), "+ c")
-print("∫₀²⁰ (0.8q + 3) dq     =", sp.integrate(sp.Rational(8,10)*q + 3, (q, 0, 20)))
-print()
-pi = -4*q**2 + 1200*q - 60000
-print("∫₁₀₀¹⁵⁰ π'(q) dq =", sp.integrate(sp.diff(pi, q), (q, 100, 150)))
-print("π(150) − π(100)  =", pi.subs(q, 150) - pi.subs(q, 100), " ← the same number")
-""")
-
-md(r"""
-**The integral of the marginal is the change in the total.** That sentence is the whole of integration.
 """)
 
 # ---------------- drills, solved in code ----------------
@@ -410,189 +384,10 @@ assert x_best == 4 and h.subs(side, 4) == 2 and S.subs(side, 4) == 48
 print(f"Answer: base {x_best} m × {x_best} m, height {h.subs(side, x_best)} m, surface {S.subs(side, x_best)} m².")
 """)
 
-# --- D7 ---
-md(r"""
-### D7 (a)
-$\displaystyle\int \frac{q^5 - 3q^3 + 2}{q^2}\,dq$, splitting term by term.
-""")
-code(r"""
-split = sp.expand((q**5 - 3*q**3 + 2) / q**2)        # divide each term by q² first
-print("split:", split)
-F = sp.integrate(split, q)                            # then each term is a power
-assert sp.simplify(F - (q**4/4 - sp.Rational(3, 2)*q**2 - 2/q)) == 0
-print("Answer:", F, "+ c")
-""")
-
-md(r"""
-### D7 (b)
-$\displaystyle\int (4q^3 - 6q + 5)\,dq$
-""")
-code(r"""
-F = sp.integrate(4*q**3 - 6*q + 5, q)
-assert F == q**4 - 3*q**2 + 5*q
-print("Answer:", F, "+ c")
-""")
-
-md(r"""
-### D7 (c)
-$\displaystyle\int \left(\frac{2}{q} + 3\sqrt{q}\right)dq$
-""")
-code(r"""
-log_part = sp.integrate(2/q, q)            # 2 ln|q| (sympy writes log without the modulus)
-power_part = sp.integrate(3*sp.sqrt(q), q) # 3 · (2/3) q^(3/2)
-print("∫ 2/q dq =", log_part, "   ∫ 3√q dq =", power_part)
-assert sp.simplify(log_part - 2*sp.log(q)) == 0 and sp.simplify(power_part - 2*q**sp.Rational(3, 2)) == 0
-print("Answer: 2 ln|q| + 2 q^(3/2) + c")
-""")
-
-# --- D8 ---
-md(r"""
-### D8 — find $f$ from $f'$
-$f'(q) = 12q^2 - 6q + 1$ and $f(2) = 20$.
-""")
-code(r"""
-F = sp.integrate(12*q**2 - 6*q + 1, q) + c      # antiderivative with its constant
-c_value = sp.solve(sp.Eq(F.subs(q, 2), 20), c)[0]
-print("f(2) =", F.subs(q, 2), "= 20  →  c =", c_value)
-answer = F.subs(c, c_value)
-assert c_value == -2 and answer == 4*q**3 - 3*q**2 + q - 2
-print("Answer: f(q) =", answer)
-""")
-
-md(r"""
-### D8b — watch every sign
-$f'(x) = 12x^2 - 4x$ and $f(-3) = 17$.
-""")
-code(r"""
-F = sp.integrate(12*x**2 - 4*x, x) + c
-print("(−3)³ =", (-3)**3, "  (−3)² =", (-3)**2, "  ← the two traps")
-c_value = sp.solve(sp.Eq(F.subs(x, -3), 17), c)[0]
-print("f(−3) =", F.subs(x, -3), "= 17  →  c =", c_value)
-answer = F.subs(c, c_value)
-assert c_value == 143 and answer == 4*x**3 - 2*x**2 + 143
-print("Answer: f(x) =", answer)
-""")
-
-# --- D8c ---
-md(r"""
-### D8c (a)
-$\displaystyle\int \frac{1}{q-4}\,dq$ — is the top the derivative of the bottom?
-""")
-code(r"""
-top, bottom = 1, q - 4
-k = sp.simplify(top / sp.diff(bottom, q))      # how many times the derivative fits in the top
-print("bottom' =", sp.diff(bottom, q), "  top / bottom' =", k)
-assert k == 1 and sp.simplify(sp.diff(k*sp.log(bottom), q) - top/bottom) == 0
-print("Answer: ln|q − 4| + c")
-""")
-
-md(r"""
-### D8c (b)
-$\displaystyle\int \frac{q}{q^2+5}\,dq$
-""")
-code(r"""
-top, bottom = q, q**2 + 5
-k = sp.simplify(top / sp.diff(bottom, q))      # a factor ½ is missing
-print("bottom' =", sp.diff(bottom, q), "  top / bottom' =", k)
-assert k == sp.Rational(1, 2) and sp.simplify(sp.diff(k*sp.log(bottom), q) - top/bottom) == 0
-print("Answer: ½ ln(q² + 5) + c   (no modulus needed: q² + 5 > 0 always)")
-""")
-
-md(r"""
-### D8c (c)
-$\displaystyle\int \frac{2q+3}{q^2+3q-1}\,dq$
-""")
-code(r"""
-top, bottom = 2*q + 3, q**2 + 3*q - 1
-k = sp.simplify(top / sp.diff(bottom, q))      # exactly the derivative
-print("bottom' =", sp.diff(bottom, q), "  top / bottom' =", k)
-assert k == 1 and sp.simplify(sp.diff(k*sp.log(bottom), q) - top/bottom) == 0
-print("Answer: ln|q² + 3q − 1| + c")
-""")
-
-md(r"""
-### D8c (d)
-$\displaystyle\int \frac{5}{2q+1}\,dq$
-""")
-code(r"""
-top, bottom = 5, 2*q + 1
-k = sp.simplify(top / sp.diff(bottom, q))      # 5/2 comes out in front
-print("bottom' =", sp.diff(bottom, q), "  top / bottom' =", k)
-assert k == sp.Rational(5, 2) and sp.simplify(sp.diff(k*sp.log(bottom), q) - top/bottom) == 0
-print("Answer: (5/2) ln|2q + 1| + c")
-""")
-
-# --- D9 ---
-md(r"""
-### D9 (a)
-$\displaystyle\int_0^{20} (0.8q + 3)\,dq$, where $0.8q + 3$ is marginal cost. What does it measure?
-""")
-code(r"""
-F = sp.integrate(sp.Rational(4, 5)*q + 3, q)        # 0.4q² + 3q
-total = F.subs(q, 20) - F.subs(q, 0)
-print("[", F, "] from 0 to 20 =", F.subs(q, 20), "−", F.subs(q, 0))
-assert total == 220
-print(f"Answer: {total} (€ thousand), the total variable cost of the first 20 bikes.")
-""")
-
-md(r"""
-### D9 (b)
-$\displaystyle\int_1^4 \frac{6}{q}\,dq$, in terms of $\ln$.
-""")
-code(r"""
-F = 6*sp.log(q)                                  # q is positive between 1 and 4
-total = F.subs(q, 4) - F.subs(q, 1)             # ln 1 = 0
-print("6 ln 4 − 6 ln 1 =", total)
-assert sp.simplify(total - 6*sp.log(4)) == 0 and round(float(total), 2) == 8.32
-print(f"Answer: 6 ln 4 ≈ {float(total):.2f}")
-""")
-
-# --- D9b ---
-md(r"""
-### D9b — two logs, neither is $1/x$
-$\displaystyle\int_0^{1/2} \left[\frac{1}{x-1} + \frac{x}{x^2-1}\right] dx$, in terms of $\ln$.
-""")
-code(r"""
-integrand = 1/(x - 1) + x/(x**2 - 1)
-# each term is a log; keep the modulus: on [0, ½] both x − 1 and x² − 1 are negative
-F = sp.log(sp.Abs(x - 1)) + sp.log(sp.Abs(x**2 - 1)) / 2
-half = sp.Rational(1, 2)
-print("F(½) =", F.subs(x, half), "   F(0) =", F.subs(x, 0))
-total = F.subs(x, half) - F.subs(x, 0)
-numeric = sp.Integral(integrand, (x, 0, half)).evalf()     # independent numerical check
-assert sp.simplify(total - (sp.log(half) + sp.log(sp.Rational(3, 4))/2)) == 0
-assert round(float(total), 4) == -0.8370 and abs(numeric - total) < 1e-10
-print(f"Answer: ln(½) + ½ ln(¾) ≈ {float(total):.4f}")
-""")
-
-# --- D10 ---
-md(r"""
-### D10 (a) — from 100 to 150 bikes
-Marginal profit is $\pi'(q) = 1200 - 8q$. By how much does profit change from $q = 100$ to $q = 150$? Use a definite integral.
-""")
-code(r"""
-F = sp.integrate(1200 - 8*q, q)                  # 1200q − 4q²
-change = int(F.subs(q, 150) - F.subs(q, 100))
-print("F(150) =", F.subs(q, 150), "  F(100) =", F.subs(q, 100))
-assert change == 10000
-print(f"Answer: profit rises by €{change:,}.")
-""")
-
-md(r"""
-### D10 (b) — check with $\pi$
-Check against $\pi(150) - \pi(100)$ with $\pi(q) = -4q^2 + 1200q - 60{,}000$.
-""")
-code(r"""
-print("π(150) =", pi.subs(q, 150), "   π(100) =", pi.subs(q, 100))
-difference = int(pi.subs(q, 150) - pi.subs(q, 100))
-assert difference == change == 10000
-print(f"Answer: €{difference:,}, the same number: the integral of the marginal is the change in the total.")
-""")
-
 md(r"""
 ## Homework
 
-`homework.md` — seven drills plus a **400–500 word Board report**: a dry run of the midterm, sketch included.
+`homework.md` — four drills plus a **400–500 word Board report**: a dry run of the midterm, sketch included.
 Due Wednesday 14 October, 23:59.
 """)
 

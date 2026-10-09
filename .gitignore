@@ -24,3 +24,6 @@ syllabus/
 .env
 .env.local
 .omc/
+
+# Tutor talk scripts stay local
+week-*/talk.md
