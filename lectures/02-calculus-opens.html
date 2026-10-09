@@ -781,7 +781,7 @@ Niccolò Salvini, PhD
 <td>duration: the bond price is <code>(1+y)^(−t)</code>, and the <code>−t</code> comes down</td>
 </tr>
 <tr class="even">
-<td>week 3, backwards</td>
+<td>block D, backwards</td>
 <td><code>∫ f'/f = ln\|f\|</code> is this rule read in reverse</td>
 </tr>
 </tbody>
@@ -917,10 +917,14 @@ Niccolò Salvini, PhD
 <td><span class="math inline">\displaystyle\int \frac{1}{q}\,dq = \ln\lvert q\rvert + c</span></td>
 </tr>
 <tr class="odd">
+<td><span class="math inline">\ln f(q) \to \dfrac{f'(q)}{f(q)}</span> (chain rule)</td>
+<td><span class="math inline">\displaystyle\int \frac{f'(q)}{f(q)}\,dq = \ln\lvert f(q)\rvert + c</span></td>
+</tr>
+<tr class="even">
 <td>a constant <span class="math inline">\to 0</span></td>
 <td><span class="math inline">\displaystyle\int k\,dq = kq + c</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>sums, term by term</td>
 <td>integrate term by term</td>
 </tr>
@@ -949,6 +953,22 @@ Niccolò Salvini, PhD
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="when-the-top-is-the-derivative-of-the-bottom" class="slide level2">
+<h2>When the top is the derivative of the bottom</h2>
+<p>A log appears whenever the top is the derivative of the bottom — exactly, or up to a constant you can factor out.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\int \frac{1}{q-1}\,dq = \ln|q-1| + c</span></p>
+<p>The bottom differentiates to 1. A shifted log, nothing more.</p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\int \frac{q}{q^{2}-1}\,dq = \tfrac{1}{2}\ln|q^{2}-1| + c</span></p>
+<p>The bottom differentiates to <code>2q</code>; the top is <code>q</code>, so put the missing <code>½</code> out front.</p>
+</div></div>
+<div class="fragment">
+<p><strong>Before integrating any fraction, ask one question: is the top the derivative of the bottom?</strong> If yes, it is a log. If no, divide term by term and use the power rule.</p>
+<p><span class="red">This is the chain rule read backwards, and the final’s calculus question uses it.</span></p>
 </div>
 </section>
 <section id="the-definite-integral-and-what-it-measures" class="slide level2">

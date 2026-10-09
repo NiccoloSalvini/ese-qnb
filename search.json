@@ -1565,7 +1565,7 @@
     "href": "lectures/02-calculus-opens.html#the-chain-rule-is-the-reason-a-few-things-work",
     "title": "The tool that finds the top of any hill",
     "section": "The chain rule is the reason a few things work",
-    "text": "The chain rule is the reason a few things work\n\n\n\n\n\n\n\nyou will meet it in\nas\n\n\n\n\nthe midterm\na revenue of the form a · ln(q + 1), differentiated to find the optimum\n\n\nweek 4\ncontinuous compounding: e^(it) differentiates to i·e^(it)\n\n\nweek 5\nduration: the bond price is (1+y)^(−t), and the −t comes down\n\n\nweek 3, backwards\n∫ f'/f = ln\\|f\\| is this rule read in reverse\n\n\n\n\n\n\n\n\n\n\nBoard sentence\n\n\nOutside first, inside untouched, then multiply by the inside’s derivative. If the inside is just q, the multiplication is by 1 and you never notice."
+    "text": "The chain rule is the reason a few things work\n\n\n\n\n\n\n\nyou will meet it in\nas\n\n\n\n\nthe midterm\na revenue of the form a · ln(q + 1), differentiated to find the optimum\n\n\nweek 4\ncontinuous compounding: e^(it) differentiates to i·e^(it)\n\n\nweek 5\nduration: the bond price is (1+y)^(−t), and the −t comes down\n\n\nblock D, backwards\n∫ f'/f = ln\\|f\\| is this rule read in reverse\n\n\n\n\n\n\n\n\n\n\nBoard sentence\n\n\nOutside first, inside untouched, then multiply by the inside’s derivative. If the inside is just q, the multiplication is by 1 and you never notice."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#read-it-off-the-curve",
@@ -1635,7 +1635,7 @@
     "href": "lectures/02-calculus-opens.html#running-it-backwards-has-a-name-the-integral",
     "title": "The tool that finds the top of any hill",
     "section": "Running it backwards has a name: the integral",
-    "text": "Running it backwards has a name: the integral\n\\int f'(q)\\,dq \\;=\\; f(q) + c \\qquad \\text{read: “the function whose derivative is } f'\\text{”}\nEvery derivative rule, read from right to left:\n\n\n\n\n\n\n\nyou know\nso, backwards\n\n\n\n\nq^{n} \\to n\\,q^{n-1}\n\\displaystyle\\int q^{n}\\,dq = \\frac{q^{n+1}}{n+1} + c \\quad (n \\neq -1)\n\n\n\\ln q \\to \\dfrac{1}{q}\n\\displaystyle\\int \\frac{1}{q}\\,dq = \\ln\\lvert q\\rvert + c\n\n\na constant \\to 0\n\\displaystyle\\int k\\,dq = kq + c\n\n\nsums, term by term\nintegrate term by term\n\n\n\nPower up by one, divide by the new power. The one power that rule cannot handle, q^{-1}, is exactly the one that becomes a log. And the check is free: differentiate your answer and you must get back what was inside."
+    "text": "Running it backwards has a name: the integral\n\\int f'(q)\\,dq \\;=\\; f(q) + c \\qquad \\text{read: “the function whose derivative is } f'\\text{”}\nEvery derivative rule, read from right to left:\n\n\n\n\n\n\n\nyou know\nso, backwards\n\n\n\n\nq^{n} \\to n\\,q^{n-1}\n\\displaystyle\\int q^{n}\\,dq = \\frac{q^{n+1}}{n+1} + c \\quad (n \\neq -1)\n\n\n\\ln q \\to \\dfrac{1}{q}\n\\displaystyle\\int \\frac{1}{q}\\,dq = \\ln\\lvert q\\rvert + c\n\n\n\\ln f(q) \\to \\dfrac{f'(q)}{f(q)} (chain rule)\n\\displaystyle\\int \\frac{f'(q)}{f(q)}\\,dq = \\ln\\lvert f(q)\\rvert + c\n\n\na constant \\to 0\n\\displaystyle\\int k\\,dq = kq + c\n\n\nsums, term by term\nintegrate term by term\n\n\n\nPower up by one, divide by the new power. The one power that rule cannot handle, q^{-1}, is exactly the one that becomes a log. And the check is free: differentiate your answer and you must get back what was inside."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#the-exams-integral-split-the-fraction-first",
@@ -1643,6 +1643,13 @@
     "title": "The tool that finds the top of any hill",
     "section": "The exam’s integral: split the fraction first",
     "text": "The exam’s integral: split the fraction first\nThe final’s calculus question opens with a fraction to integrate. There is no rule for a fraction — so make it stop being one.\n\\int \\frac{3q^{3} + 4q^{2} - 2}{q}\\,dq\n\n= \\int \\Big(3q^{2} + 4q - \\frac{2}{q}\\Big)\\,dq \\;=\\; q^{3} + 2q^{2} - 2\\ln\\lvert q\\rvert + c\n\n\n\n\n\n\n\nBoard sentence\n\n\nDivide every term by the denominator, then integrate each piece on its own. The 1/q piece is the one that turns into a log."
+  },
+  {
+    "objectID": "lectures/02-calculus-opens.html#when-the-top-is-the-derivative-of-the-bottom",
+    "href": "lectures/02-calculus-opens.html#when-the-top-is-the-derivative-of-the-bottom",
+    "title": "The tool that finds the top of any hill",
+    "section": "When the top is the derivative of the bottom",
+    "text": "When the top is the derivative of the bottom\nA log appears whenever the top is the derivative of the bottom — exactly, or up to a constant you can factor out.\n\n\n\\int \\frac{1}{q-1}\\,dq = \\ln|q-1| + c\nThe bottom differentiates to 1. A shifted log, nothing more.\n\n\\int \\frac{q}{q^{2}-1}\\,dq = \\tfrac{1}{2}\\ln|q^{2}-1| + c\nThe bottom differentiates to 2q; the top is q, so put the missing ½ out front.\n\n\nBefore integrating any fraction, ask one question: is the top the derivative of the bottom? If yes, it is a log. If no, divide term by term and use the power rule.\nThis is the chain rule read backwards, and the final’s calculus question uses it."
   },
   {
     "objectID": "lectures/02-calculus-opens.html#the-definite-integral-and-what-it-measures",
