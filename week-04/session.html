@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>MBA03 · Week 4 — Money has a date on it – Quantitative Business Methods</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -21,8 +27,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +40,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -65,15 +72,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../images/favicon.ico" rel="icon">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5db7610fca3ea74ceab0226f71e3f166.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-32b6a1ef7e9ba52d09e917c9077d60f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -118,7 +126,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -136,7 +144,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -144,7 +152,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://www.ese.ac.uk/locations/ese-florence" class="navbar-brand navbar-brand-logo">
-    <img src="../images/ese-logo.svg" alt="European School of Economics" class="navbar-logo">
+    <img src="../images/ese-logo.svg" alt="European School of Economics" class="navbar-logo light-content">
+    <img src="../images/ese-logo.svg" alt="European School of Economics" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="https://www.ese.ac.uk/locations/ese-florence">
     <span class="navbar-title">Quantitative Business Methods <span class="nav-year">26/27</span></span>
@@ -220,15 +229,15 @@ window.Quarto = {
 
 <p><strong>European School of Economics · Thu 15 Oct 2026 · Tutor: Niccolò Salvini</strong></p>
 <p>The case: a new assembly line costs <strong>€2.4M today</strong> and returns <strong>€700k, €800k, €900k, €1,000k</strong> over four years. Arno Bikes borrows at <strong>9%</strong>.</p>
-<div id="c7e15b75" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:14.257140Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:14.256927Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:14.826612Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:14.825902Z&quot;}" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess, sys</span>
+<div id="c7e15b75" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:14.257140Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:14.256927Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:14.826612Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:14.825902Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess, sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> plotly</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ImportError</span>:</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subprocess.run([sys.executable, <span class="st">"-m"</span>, <span class="st">"pip"</span>, <span class="st">"install"</span>, <span class="st">"-q"</span>, <span class="st">"plotly"</span>])</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np, pandas <span class="im">as</span> pd, plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> exp</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ready"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ready"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ready</code></pre>
 </div>
@@ -236,12 +245,12 @@ window.Quarto = {
 <section id="a.-compounding-and-its-ceiling" class="level2">
 <h2 class="anchored" data-anchor-id="a.-compounding-and-its-ceiling">A. Compounding, and its ceiling</h2>
 <p>€1,000 at 12% for one year, compounded <code>n</code> times a year.</p>
-<div id="8e712307" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:14.833571Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:14.833382Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:14.839273Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:14.836056Z&quot;}" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> label, n <span class="kw">in</span> [(<span class="st">"once a year"</span>, <span class="dv">1</span>), (<span class="st">"every 6 months"</span>, <span class="dv">2</span>), (<span class="st">"every quarter"</span>, <span class="dv">4</span>),</span>
+<div id="8e712307" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:14.833571Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:14.833382Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:14.839273Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:14.836056Z&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> label, n <span class="kw">in</span> [(<span class="st">"once a year"</span>, <span class="dv">1</span>), (<span class="st">"every 6 months"</span>, <span class="dv">2</span>), (<span class="st">"every quarter"</span>, <span class="dv">4</span>),</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                 (<span class="st">"every month"</span>, <span class="dv">12</span>), (<span class="st">"every week"</span>, <span class="dv">52</span>), (<span class="st">"every day"</span>, <span class="dv">365</span>),</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                 (<span class="st">"every hour"</span>, <span class="dv">8760</span>)]:</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>label<span class="sc">:&lt;16}</span><span class="ss"> n = </span><span class="sc">{</span>n<span class="sc">:&gt;5}</span><span class="ss">   €</span><span class="sc">{</span><span class="dv">1000</span><span class="op">*</span>(<span class="dv">1</span> <span class="op">+</span> <span class="fl">0.12</span><span class="op">/</span>n)<span class="op">**</span>n<span class="sc">:,.4f}</span><span class="ss">"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'continuously'</span><span class="sc">:&lt;16}</span><span class="ss"> n → ∞     €</span><span class="sc">{</span><span class="dv">1000</span><span class="op">*</span>exp(<span class="fl">0.12</span>)<span class="sc">:,.4f}</span><span class="ss">   ← the ceiling, and that is e"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'continuously'</span><span class="sc">:&lt;16}</span><span class="ss"> n → ∞     €</span><span class="sc">{</span><span class="dv">1000</span><span class="op">*</span>exp(<span class="fl">0.12</span>)<span class="sc">:,.4f}</span><span class="ss">   ← the ceiling, and that is e"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>once a year      n =     1   €1,120.0000
 every 6 months   n =     2   €1,123.6000
@@ -260,8 +269,8 @@ continuously     n → ∞     €1,127.4969   ← the ceiling, and that is e</c
 </section>
 <section id="b.-the-effective-annual-rate-the-only-honest-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="b.-the-effective-annual-rate-the-only-honest-comparison">B. The effective annual rate — the only honest comparison</h2>
-<div id="b3009730" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:14.842412Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:14.842277Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:14.845746Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:14.845060Z&quot;}" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ear(nominal, m):</span>
+<div id="b3009730" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:14.842412Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:14.842277Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:14.845746Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:14.845060Z&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ear(nominal, m):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> exp(nominal) <span class="op">-</span> <span class="dv">1</span> <span class="cf">if</span> m <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> (<span class="dv">1</span> <span class="op">+</span> nominal<span class="op">/</span>m)<span class="op">**</span>m <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"12% nominal:"</span>)</span>
@@ -271,7 +280,7 @@ continuously     n → ∞     €1,127.4969   ← the ceiling, and that is e</c
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Bank A: 7.8% monthly  → EAR"</span>, <span class="ss">f"</span><span class="sc">{</span>ear(<span class="fl">0.078</span>, <span class="dv">12</span>)<span class="sc">:.4%}</span><span class="ss">"</span>)</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Bank B: 8.0% annually → EAR"</span>, <span class="ss">f"</span><span class="sc">{</span>ear(<span class="fl">0.08</span>, <span class="dv">1</span>)<span class="sc">:.4%}</span><span class="ss">"</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The lower headline rate is the dearer loan."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The lower headline rate is the dearer loan."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>12% nominal:
   compounded semi-annually  EAR = 12.3600%
@@ -287,26 +296,26 @@ The lower headline rate is the dearer loan.</code></pre>
 </section>
 <section id="c.-discounting-what-distant-money-is-worth" class="level2">
 <h2 class="anchored" data-anchor-id="c.-discounting-what-distant-money-is-worth">C. Discounting — what distant money is worth</h2>
-<div id="e0a842cb" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:14.847618Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:14.847490Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.156614Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.155978Z&quot;}" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">21</span>)</span>
+<div id="e0a842cb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:14.847618Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:14.847490Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.156614Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.155978Z&quot;}}" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">21</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r, col <span class="kw">in</span> ((<span class="fl">0.03</span>, <span class="st">"#CDBA80"</span>), (<span class="fl">0.09</span>, <span class="st">"#363636"</span>), (<span class="fl">0.16</span>, <span class="st">"#AF1F25"</span>)):</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    fig.add_scatter(x<span class="op">=</span>years, y<span class="op">=</span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> r)<span class="op">**</span>years, name<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>r<span class="sc">:.0%}</span><span class="ss">"</span>,</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                    line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span>col, width<span class="op">=</span><span class="dv">3</span>))</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template<span class="op">=</span><span class="st">"simple_white"</span>, height<span class="op">=</span><span class="dv">420</span>, xaxis_title<span class="op">=</span><span class="st">"years away"</span>,</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                  yaxis_title<span class="op">=</span><span class="st">"worth of €1 today"</span>, legend_title<span class="op">=</span><span class="st">"discount rate"</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
 </div>
-<div id="0a3fd041" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.158337Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.158205Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.161239Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.160602Z&quot;}" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>annuity    <span class="op">=</span> <span class="kw">lambda</span> c, r, n: c<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> r)<span class="op">**-</span>n)<span class="op">/</span>r</span>
+<div id="0a3fd041" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.158337Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.158205Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.161239Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.160602Z&quot;}}" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>annuity    <span class="op">=</span> <span class="kw">lambda</span> c, r, n: c<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> r)<span class="op">**-</span>n)<span class="op">/</span>r</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>perpetuity <span class="op">=</span> <span class="kw">lambda</span> c, r: c<span class="op">/</span>r</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"€10,000 in 5 years at 7%        : €</span><span class="sc">{</span><span class="dv">10000</span><span class="op">/</span><span class="fl">1.07</span><span class="op">**</span><span class="dv">5</span><span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"€12,000 a year for 10 yrs at 6% : €</span><span class="sc">{</span>annuity(<span class="dv">12000</span>, <span class="fl">0.06</span>, <span class="dv">10</span>)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"€12,000 a year for ever at 6%   : €</span><span class="sc">{</span>perpetuity(<span class="dv">12000</span>, <span class="fl">0.06</span>)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  everything after year 10      : €</span><span class="sc">{</span>perpetuity(<span class="dv">12000</span>, <span class="fl">0.06</span>) <span class="op">-</span> annuity(<span class="dv">12000</span>, <span class="fl">0.06</span>, <span class="dv">10</span>)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  everything after year 10      : €</span><span class="sc">{</span>perpetuity(<span class="dv">12000</span>, <span class="fl">0.06</span>) <span class="op">-</span> annuity(<span class="dv">12000</span>, <span class="fl">0.06</span>, <span class="dv">10</span>)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>€10,000 in 5 years at 7%        : €7,129.86
 €12,000 a year for 10 yrs at 6% : €88,321.04
@@ -317,8 +326,8 @@ The lower headline rate is the dearer loan.</code></pre>
 <section id="what-is-arno-bikes-worth-slide-the-growth-rate" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-arno-bikes-worth-slide-the-growth-rate">What is Arno Bikes worth? — slide the growth rate</h3>
 <p>Next year’s free cash flow €300k, cost of capital 9%, growth <code>g</code> for ever: <span class="math inline">\(V = \dfrac{CF_1}{r - g}\)</span>. Move the slider towards 9% and watch the value run up the wall.</p>
-<div id="6ae5242d" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.162688Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.162601Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.190895Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.189555Z&quot;}" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>CF1, R <span class="op">=</span> <span class="dv">300</span>, <span class="fl">0.09</span>                          <span class="co"># € thousand, cost of capital</span></span>
+<div id="6ae5242d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.162688Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.162601Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.190895Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.189555Z&quot;}}" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>CF1, R <span class="op">=</span> <span class="dv">300</span>, <span class="fl">0.09</span>                          <span class="co"># € thousand, cost of capital</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>gs <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="fl">0.085</span>, <span class="dv">400</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>fig.add_scatter(x<span class="op">=</span>gs<span class="op">*</span><span class="dv">100</span>, y<span class="op">=</span>CF1<span class="op">/</span>(R <span class="op">-</span> gs)<span class="op">/</span><span class="dv">1000</span>, line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">"#363636"</span>, width<span class="op">=</span><span class="dv">3</span>), name<span class="op">=</span><span class="st">"value"</span>)</span>
@@ -338,7 +347,7 @@ The lower headline rate is the dearer loan.</code></pre>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>                  sliders<span class="op">=</span>[<span class="bu">dict</span>(active<span class="op">=</span><span class="dv">6</span>, steps<span class="op">=</span>steps, currentvalue<span class="op">=</span><span class="bu">dict</span>(prefix<span class="op">=</span><span class="st">"g = "</span>))])</span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> g <span class="kw">in</span> (<span class="fl">0.02</span>, <span class="fl">0.03</span>, <span class="fl">0.04</span>):</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"g = </span><span class="sc">{</span>g<span class="sc">:.0%}</span><span class="ss">: €</span><span class="sc">{</span>CF1<span class="op">/</span>(R <span class="op">-</span> g)<span class="sc">:,.2f}</span><span class="ss">k"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"g = </span><span class="sc">{</span>g<span class="sc">:.0%}</span><span class="ss">: €</span><span class="sc">{</span>CF1<span class="op">/</span>(R <span class="op">-</span> g)<span class="sc">:,.2f}</span><span class="ss">k"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
@@ -357,14 +366,14 @@ g = 4%: €6,000.00k</code></pre>
 <section id="d.-npv-and-the-rate-that-makes-it-zero" class="level2">
 <h2 class="anchored" data-anchor-id="d.-npv-and-the-rate-that-makes-it-zero">D. NPV, and the rate that makes it zero</h2>
 <p>Move the discount rate. Watch the sign change.</p>
-<div id="3da7b367" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.192920Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.192772Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.196197Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.195510Z&quot;}" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>FLOWS <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]          <span class="co"># € thousand</span></span>
+<div id="3da7b367" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.192920Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.192772Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.196197Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.195510Z&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>FLOWS <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]          <span class="co"># € thousand</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>npv <span class="op">=</span> <span class="kw">lambda</span> r: <span class="bu">sum</span>(cf<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> r)<span class="op">**</span>t <span class="cf">for</span> t, cf <span class="kw">in</span> <span class="bu">enumerate</span>(FLOWS))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'year'</span><span class="sc">:&gt;5}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'flow'</span><span class="sc">:&gt;8}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'factor'</span><span class="sc">:&gt;10}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'PV @9%'</span><span class="sc">:&gt;10}</span><span class="ss">"</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t, cf <span class="kw">in</span> <span class="bu">enumerate</span>(FLOWS):</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>t<span class="sc">:&gt;5}</span><span class="ss"> </span><span class="sc">{</span>cf<span class="sc">:&gt;8,}</span><span class="ss"> </span><span class="sc">{</span><span class="dv">1</span><span class="op">/</span><span class="fl">1.09</span><span class="op">**</span>t<span class="sc">:&gt;10.6f}</span><span class="ss"> </span><span class="sc">{</span>cf<span class="op">/</span><span class="fl">1.09</span><span class="op">**</span>t<span class="sc">:&gt;10.2f}</span><span class="ss">"</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">''</span><span class="sc">:&gt;5}</span><span class="ss"> </span><span class="sc">{</span><span class="st">''</span><span class="sc">:&gt;8}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'NPV'</span><span class="sc">:&gt;10}</span><span class="ss"> </span><span class="sc">{</span>npv(<span class="fl">0.09</span>)<span class="sc">:&gt;10.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">''</span><span class="sc">:&gt;5}</span><span class="ss"> </span><span class="sc">{</span><span class="st">''</span><span class="sc">:&gt;8}</span><span class="ss"> </span><span class="sc">{</span><span class="st">'NPV'</span><span class="sc">:&gt;10}</span><span class="ss"> </span><span class="sc">{</span>npv(<span class="fl">0.09</span>)<span class="sc">:&gt;10.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> year     flow     factor     PV @9%
     0   -2,400   1.000000   -2400.00
@@ -375,8 +384,8 @@ g = 4%: €6,000.00k</code></pre>
                       NPV     318.94</code></pre>
 </div>
 </div>
-<div id="ec18fff7" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.197870Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.197755Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.213935Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.213126Z&quot;}" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>rates <span class="op">=</span> np.linspace(<span class="fl">0.001</span>, <span class="fl">0.30</span>, <span class="dv">300</span>)</span>
+<div id="ec18fff7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.197870Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.197755Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.213935Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.213126Z&quot;}}" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>rates <span class="op">=</span> np.linspace(<span class="fl">0.001</span>, <span class="fl">0.30</span>, <span class="dv">300</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lo, hi <span class="op">=</span> <span class="fl">0.0</span>, <span class="fl">0.5</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">80</span>):</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    mid <span class="op">=</span> (lo <span class="op">+</span> hi)<span class="op">/</span><span class="dv">2</span></span>
@@ -393,7 +402,7 @@ g = 4%: €6,000.00k</code></pre>
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template<span class="op">=</span><span class="st">"simple_white"</span>, height<span class="op">=</span><span class="dv">440</span>, xaxis_title<span class="op">=</span><span class="st">"discount rate %"</span>,</span>
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>                  yaxis_title<span class="op">=</span><span class="st">"NPV (€ thousand)"</span>)</span>
 <span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IRR = </span><span class="sc">{</span>irr<span class="sc">:.4%}</span><span class="ss">    NPV at 16% = </span><span class="sc">{</span>npv(<span class="fl">0.16</span>)<span class="sc">:,.2f}</span><span class="ss">k"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IRR = </span><span class="sc">{</span>irr<span class="sc">:.4%}</span><span class="ss">    NPV at 16% = </span><span class="sc">{</span>npv(<span class="fl">0.16</span>)<span class="sc">:,.2f}</span><span class="ss">k"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
@@ -411,80 +420,80 @@ g = 4%: €6,000.00k</code></pre>
 <p>This section is an optional companion: the code is not examined, but it is a good way to check your work. Every drill from <code>drills.md</code> is solved here in plain Python, with the same numbers. Do the drill on paper first, then run the cell and compare.</p>
 <p><strong>D1 (a).</strong> €8,000 is invested for 3 years at 6% a year. Simple interest: the final amount.</p>
 <p><span class="math display">\[A = P(1 + r\,t)\]</span></p>
-<div id="bb57b61c" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.217618Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.217250Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.222506Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.220868Z&quot;}" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">8000</span>     <span class="co"># principal, €</span></span>
+<div id="bb57b61c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.217618Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.217250Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.222506Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.220868Z&quot;}}" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">8000</span>     <span class="co"># principal, €</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.06</span>     <span class="co"># yearly rate</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">3</span>        <span class="co"># years</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>A_simple <span class="op">=</span> P <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> r <span class="op">*</span> t)    <span class="co"># interest only on the original €8,000</span></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"With simple interest the final amount is €</span><span class="sc">{</span>A_simple<span class="sc">:,.2f}</span><span class="ss">."</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(A_simple <span class="op">-</span> <span class="fl">9440.00</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(A_simple <span class="op">-</span> <span class="fl">9440.00</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>With simple interest the final amount is €9,440.00.</code></pre>
 </div>
 </div>
 <p><strong>D1 (b).</strong> Same money, compounded annually: the final amount.</p>
 <p><span class="math display">\[A = P(1 + r)^t\]</span></p>
-<div id="9dff3752" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.224913Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.224770Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.229074Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.226938Z&quot;}" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>P, r, t <span class="op">=</span> <span class="dv">8000</span>, <span class="fl">0.06</span>, <span class="dv">3</span></span>
+<div id="9dff3752" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.224913Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.224770Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.229074Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.226938Z&quot;}}" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>P, r, t <span class="op">=</span> <span class="dv">8000</span>, <span class="fl">0.06</span>, <span class="dv">3</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>A_compound <span class="op">=</span> P <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> t    <span class="co"># interest also earns interest</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Compounded annually the final amount is €</span><span class="sc">{</span>A_compound<span class="sc">:,.2f}</span><span class="ss">."</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(A_compound <span class="op">-</span> <span class="fl">9528.13</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(A_compound <span class="op">-</span> <span class="fl">9528.13</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Compounded annually the final amount is €9,528.13.</code></pre>
 </div>
 </div>
 <p><strong>D1 (c).</strong> The difference, and one sentence on where it comes from.</p>
-<div id="59e859ae" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.233511Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.232944Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.264842Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.260044Z&quot;}" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>P, r, t <span class="op">=</span> <span class="dv">8000</span>, <span class="fl">0.06</span>, <span class="dv">3</span></span>
+<div id="59e859ae" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.233511Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.232944Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.264842Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.260044Z&quot;}}" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>P, r, t <span class="op">=</span> <span class="dv">8000</span>, <span class="fl">0.06</span>, <span class="dv">3</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>A_simple <span class="op">=</span> P <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> r <span class="op">*</span> t)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>A_compound <span class="op">=</span> P <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> t</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>difference <span class="op">=</span> A_compound <span class="op">-</span> A_simple</span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Compounding earns €</span><span class="sc">{</span>difference<span class="sc">:,.2f}</span><span class="ss"> more: interest is paid on the interest already earned."</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(difference <span class="op">-</span> <span class="fl">88.13</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(difference <span class="op">-</span> <span class="fl">88.13</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Compounding earns €88.13 more: interest is paid on the interest already earned.</code></pre>
 </div>
 </div>
 <p><strong>D2 (a).</strong> €5,000 for 4 years at 8% nominal, compounded quarterly. The final amount.</p>
 <p><span class="math display">\[A = P\left(1 + \frac{i}{m}\right)^{m t}\]</span></p>
-<div id="61d0db40" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.275140Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.274930Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.283292Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.280918Z&quot;}" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">5000</span>     <span class="co"># principal, €</span></span>
+<div id="61d0db40" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.275140Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.274930Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.283292Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.280918Z&quot;}}" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">5000</span>     <span class="co"># principal, €</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.08</span>     <span class="co"># nominal yearly rate</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">4</span>        <span class="co"># compounding periods per year (quarterly)</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">4</span>        <span class="co"># years</span></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> P <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> i <span class="op">/</span> m) <span class="op">**</span> (m <span class="op">*</span> t)    <span class="co"># 2% a quarter, 16 quarters</span></span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The final amount is €</span><span class="sc">{</span>A<span class="sc">:,.2f}</span><span class="ss">."</span>)</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(A <span class="op">-</span> <span class="fl">6863.93</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(A <span class="op">-</span> <span class="fl">6863.93</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The final amount is €6,863.93.</code></pre>
 </div>
 </div>
 <p><strong>D2 (b).</strong> The interest earned.</p>
-<div id="7b6becf0" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.306479Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.302929Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.314614Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.313653Z&quot;}" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>P, i, m, t <span class="op">=</span> <span class="dv">5000</span>, <span class="fl">0.08</span>, <span class="dv">4</span>, <span class="dv">4</span></span>
+<div id="7b6becf0" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.306479Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.302929Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.314614Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.313653Z&quot;}}" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>P, i, m, t <span class="op">=</span> <span class="dv">5000</span>, <span class="fl">0.08</span>, <span class="dv">4</span>, <span class="dv">4</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> P <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> i <span class="op">/</span> m) <span class="op">**</span> (m <span class="op">*</span> t)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>interest <span class="op">=</span> A <span class="op">-</span> P</span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The interest earned is €</span><span class="sc">{</span>interest<span class="sc">:,.2f}</span><span class="ss">."</span>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(interest <span class="op">-</span> <span class="fl">1863.93</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(interest <span class="op">-</span> <span class="fl">1863.93</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The interest earned is €1,863.93.</code></pre>
 </div>
 </div>
 <p><strong>D3.</strong> A bank quotes 6% nominal. Which is worth more to a depositor? (i) compounded annually (ii) compounded monthly (iii) they are the same</p>
-<div id="c94368ca" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.328666Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.327236Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.336140Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.334813Z&quot;}" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.06</span></span>
+<div id="c94368ca" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.328666Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.327236Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.336140Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.334813Z&quot;}}" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.06</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ear_annual <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> i <span class="op">/</span> <span class="dv">1</span>) <span class="op">**</span> <span class="dv">1</span> <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ear_monthly <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> i <span class="op">/</span> <span class="dv">12</span>) <span class="op">**</span> <span class="dv">12</span> <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Annually: EAR = </span><span class="sc">{</span>ear_annual<span class="sc">:.2%}</span><span class="ss">.  Monthly: EAR = </span><span class="sc">{</span>ear_monthly<span class="sc">:.2%}</span><span class="ss">."</span>)</span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Answer (ii): monthly compounding pays interest on interest sooner, so it is worth more."</span>)</span>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> ear_monthly <span class="op">&gt;</span> ear_annual</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(ear_monthly <span class="op">-</span> <span class="fl">0.0617</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(ear_monthly <span class="op">-</span> <span class="fl">0.0617</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Annually: EAR = 6.00%.  Monthly: EAR = 6.17%.
 Answer (ii): monthly compounding pays interest on interest sooner, so it is worth more.</code></pre>
@@ -492,8 +501,8 @@ Answer (ii): monthly compounding pays interest on interest sooner, so it is wort
 </div>
 <p><strong>D4.</strong> Compute the EAR for a 12% nominal rate compounded (a) semi-annually, (b) quarterly, (c) monthly.</p>
 <p><span class="math display">\[\text{EAR} = \left(1 + \frac{i}{m}\right)^m - 1\]</span></p>
-<div id="e128f3f8" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.339019Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.338868Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.342253Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.341413Z&quot;}" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.12</span></span>
+<div id="e128f3f8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.339019Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.338868Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.342253Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.341413Z&quot;}}" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.12</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>ear_a <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> i <span class="op">/</span> <span class="dv">2</span>) <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>      <span class="co"># (a) semi-annually</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>ear_b <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> i <span class="op">/</span> <span class="dv">4</span>) <span class="op">**</span> <span class="dv">4</span> <span class="op">-</span> <span class="dv">1</span>      <span class="co"># (b) quarterly</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>ear_c <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> i <span class="op">/</span> <span class="dv">12</span>) <span class="op">**</span> <span class="dv">12</span> <span class="op">-</span> <span class="dv">1</span>    <span class="co"># (c) monthly</span></span>
@@ -502,7 +511,7 @@ Answer (ii): monthly compounding pays interest on interest sooner, so it is wort
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(b) quarterly:     EAR = </span><span class="sc">{</span>ear_b<span class="sc">:.2%}</span><span class="ss">"</span>)</span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(c) monthly:       EAR = </span><span class="sc">{</span>ear_c<span class="sc">:.2%}</span><span class="ss">"</span>)</span>
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(ear_a <span class="op">-</span> <span class="fl">0.1236</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span> <span class="kw">and</span> <span class="bu">abs</span>(ear_b <span class="op">-</span> <span class="fl">0.1255</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(ear_c <span class="op">-</span> <span class="fl">0.1268</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(ear_c <span class="op">-</span> <span class="fl">0.1268</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(a) semi-annually: EAR = 12.36%
 (b) quarterly:     EAR = 12.55%
@@ -511,104 +520,104 @@ Answer (ii): monthly compounding pays interest on interest sooner, so it is wort
 </div>
 <p><strong>D4 (d).</strong> The same 12% compounded continuously.</p>
 <p><span class="math display">\[\text{EAR} = e^{i} - 1\]</span></p>
-<div id="4ed4246e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.344252Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.344129Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.347419Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.346744Z&quot;}" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.12</span></span>
+<div id="4ed4246e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.344252Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.344129Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.347419Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.346744Z&quot;}}" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.12</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>ear_d <span class="op">=</span> exp(i) <span class="op">-</span> <span class="dv">1</span>    <span class="co"># the ceiling that (a), (b), (c) approach</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(d) continuously:  EAR = </span><span class="sc">{</span>ear_d<span class="sc">:.2%}</span><span class="ss"> — the gaps shrink towards this ceiling."</span>)</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(ear_d <span class="op">-</span> <span class="fl">0.1275</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(ear_d <span class="op">-</span> <span class="fl">0.1275</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(d) continuously:  EAR = 12.75% — the gaps shrink towards this ceiling.</code></pre>
 </div>
 </div>
 <p><strong>D5.</strong> Bank A offers 7.8% compounded monthly. Bank B offers 8% compounded annually. Which do you borrow from, and why?</p>
-<div id="8a35be9c" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.351986Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.351839Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.356271Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.355620Z&quot;}" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>ear_A <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> <span class="fl">0.078</span> <span class="op">/</span> <span class="dv">12</span>) <span class="op">**</span> <span class="dv">12</span> <span class="op">-</span> <span class="dv">1</span>    <span class="co"># put Bank A on an annual basis</span></span>
+<div id="8a35be9c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.351986Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.351839Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.356271Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.355620Z&quot;}}" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>ear_A <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> <span class="fl">0.078</span> <span class="op">/</span> <span class="dv">12</span>) <span class="op">**</span> <span class="dv">12</span> <span class="op">-</span> <span class="dv">1</span>    <span class="co"># put Bank A on an annual basis</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>ear_B <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> <span class="fl">0.08</span> <span class="op">/</span> <span class="dv">1</span>) <span class="op">**</span> <span class="dv">1</span> <span class="op">-</span> <span class="dv">1</span>       <span class="co"># Bank B is already annual</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Bank A: EAR = </span><span class="sc">{</span>ear_A<span class="sc">:.3%}</span><span class="ss">.  Bank B: EAR = </span><span class="sc">{</span>ear_B<span class="sc">:.3%}</span><span class="ss">."</span>)</span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Borrow from B: A's lower quoted rate hides more frequent compounding."</span>)</span>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(ear_A <span class="op">-</span> <span class="fl">0.08085</span>) <span class="op">&lt;</span> <span class="fl">0.000005</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> ear_B <span class="op">&lt;</span> ear_A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> ear_B <span class="op">&lt;</span> ear_A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Bank A: EAR = 8.085%.  Bank B: EAR = 8.000%.
 Borrow from B: A's lower quoted rate hides more frequent compounding.</code></pre>
 </div>
 </div>
 <p><strong>D6 (stretch).</strong> 5% nominal compounded continuously. What annual compounding rate leaves a depositor equally well off?</p>
-<div id="22611a52" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.358410Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.358274Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.362192Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.360794Z&quot;}" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.05</span></span>
+<div id="22611a52" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.358410Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.358274Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.362192Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.360794Z&quot;}}" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="fl">0.05</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>equivalent_annual <span class="op">=</span> exp(i) <span class="op">-</span> <span class="dv">1</span>    <span class="co"># one year of continuous growth, as a yearly rate</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"An annual rate of </span><span class="sc">{</span>equivalent_annual<span class="sc">:.2%}</span><span class="ss"> is equivalent."</span>)</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(equivalent_annual <span class="op">-</span> <span class="fl">0.0513</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(equivalent_annual <span class="op">-</span> <span class="fl">0.0513</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>An annual rate of 5.13% is equivalent.</code></pre>
 </div>
 </div>
 <p><strong>D7.</strong> What is €10,000 receivable in 5 years worth today at 7%?</p>
 <p><span class="math display">\[PV = \frac{FV}{(1 + r)^n}\]</span></p>
-<div id="49ab8c47" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.366286Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.365942Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.372084Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.369410Z&quot;}" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>FV <span class="op">=</span> <span class="dv">10000</span>   <span class="co"># € received in the future</span></span>
+<div id="49ab8c47" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.366286Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.365942Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.372084Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.369410Z&quot;}}" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>FV <span class="op">=</span> <span class="dv">10000</span>   <span class="co"># € received in the future</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.07</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span>        <span class="co"># years away</span></span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>PV <span class="op">=</span> FV <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> n</span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"€10,000 in 5 years is worth €</span><span class="sc">{</span>PV<span class="sc">:,.2f}</span><span class="ss"> today."</span>)</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV <span class="op">-</span> <span class="fl">7129.86</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV <span class="op">-</span> <span class="fl">7129.86</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>€10,000 in 5 years is worth €7,129.86 today.</code></pre>
 </div>
 </div>
 <p><strong>D8.</strong> Pay for a €50,000 machine with (i) €50,000 today or (ii) €18,000 at the end of each of the next three years. Cost of capital 9%. Which do you choose?</p>
 <p><span class="math display">\[PV_{\text{annuity}} = C \cdot \frac{1 - (1 + r)^{-n}}{r}\]</span></p>
-<div id="a1fb5fbb" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.375891Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.375738Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.381379Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.380107Z&quot;}" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>C, r, n <span class="op">=</span> <span class="dv">18000</span>, <span class="fl">0.09</span>, <span class="dv">3</span></span>
+<div id="a1fb5fbb" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.375891Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.375738Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.381379Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.380107Z&quot;}}" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>C, r, n <span class="op">=</span> <span class="dv">18000</span>, <span class="fl">0.09</span>, <span class="dv">3</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>price_today <span class="op">=</span> <span class="dv">50000</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>factor <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> <span class="op">-</span>n) <span class="op">/</span> r     <span class="co"># annuity factor</span></span>
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>PV_instalments <span class="op">=</span> C <span class="op">*</span> factor</span>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Annuity factor </span><span class="sc">{</span>factor<span class="sc">:.6f}</span><span class="ss">; PV of the instalments = €</span><span class="sc">{</span>PV_instalments<span class="sc">:,.2f}</span><span class="ss">."</span>)</span>
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Pay in instalments: about €</span><span class="sc">{</span>price_today <span class="op">-</span> PV_instalments<span class="sc">:,.0f}</span><span class="ss"> less in today's money."</span>)</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV_instalments <span class="op">-</span> <span class="fl">45563.31</span>) <span class="op">&lt;</span> <span class="fl">0.02</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV_instalments <span class="op">-</span> <span class="fl">45563.31</span>) <span class="op">&lt;</span> <span class="fl">0.02</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Annuity factor 2.531295; PV of the instalments = €45,563.30.
 Pay in instalments: about €4,437 less in today's money.</code></pre>
 </div>
 </div>
 <p><strong>D9 (a).</strong> An annuity pays €12,000 at the end of each year for 10 years. At 6%, what is it worth today?</p>
-<div id="6f03230c" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.384026Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.383904Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.388842Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.387307Z&quot;}" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>C, r, n <span class="op">=</span> <span class="dv">12000</span>, <span class="fl">0.06</span>, <span class="dv">10</span></span>
+<div id="6f03230c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.384026Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.383904Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.388842Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.387307Z&quot;}}" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>C, r, n <span class="op">=</span> <span class="dv">12000</span>, <span class="fl">0.06</span>, <span class="dv">10</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>PV_annuity <span class="op">=</span> C <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> <span class="op">-</span>n) <span class="op">/</span> r</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The 10-year annuity is worth €</span><span class="sc">{</span>PV_annuity<span class="sc">:,.2f}</span><span class="ss"> today."</span>)</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV_annuity <span class="op">-</span> <span class="fl">88321.04</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV_annuity <span class="op">-</span> <span class="fl">88321.04</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The 10-year annuity is worth €88,321.04 today.</code></pre>
 </div>
 </div>
 <p><strong>D9 (b).</strong> A perpetuity pays €12,000 at the end of every year for ever. At 6%, what is it worth today?</p>
 <p><span class="math display">\[PV = \frac{C}{r}\]</span></p>
-<div id="ac0d0ae1" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.397912Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.397734Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.403935Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.401530Z&quot;}" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>C, r <span class="op">=</span> <span class="dv">12000</span>, <span class="fl">0.06</span></span>
+<div id="ac0d0ae1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.397912Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.397734Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.403935Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.401530Z&quot;}}" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>C, r <span class="op">=</span> <span class="dv">12000</span>, <span class="fl">0.06</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>PV_perpetuity <span class="op">=</span> C <span class="op">/</span> r</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The perpetuity is worth €</span><span class="sc">{</span>PV_perpetuity<span class="sc">:,.2f}</span><span class="ss"> today."</span>)</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV_perpetuity <span class="op">-</span> <span class="fl">200000.00</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV_perpetuity <span class="op">-</span> <span class="fl">200000.00</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The perpetuity is worth €200,000.00 today.</code></pre>
 </div>
 </div>
 <p><strong>D9 (c).</strong> Explain the gap between (a) and (b).</p>
-<div id="cc0e9f93" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.410787Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.410629Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.416561Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.414808Z&quot;}" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>C, r, n <span class="op">=</span> <span class="dv">12000</span>, <span class="fl">0.06</span>, <span class="dv">10</span></span>
+<div id="cc0e9f93" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.410787Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.410629Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.416561Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.414808Z&quot;}}" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>C, r, n <span class="op">=</span> <span class="dv">12000</span>, <span class="fl">0.06</span>, <span class="dv">10</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>PV_annuity <span class="op">=</span> C <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> <span class="op">-</span>n) <span class="op">/</span> r</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>PV_perpetuity <span class="op">=</span> C <span class="op">/</span> r</span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>gap <span class="op">=</span> PV_perpetuity <span class="op">-</span> PV_annuity    <span class="co"># value today of every payment after year 10</span></span>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"All the payments after year 10 are worth only €</span><span class="sc">{</span>gap<span class="sc">:,.0f}</span><span class="ss"> today:"</span>)</span>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"discounting shrinks distant money towards nothing."</span>)</span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(gap <span class="op">-</span> <span class="dv">111679</span>) <span class="op">&lt;</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(gap <span class="op">-</span> <span class="dv">111679</span>) <span class="op">&lt;</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>All the payments after year 10 are worth only €111,679 today:
 discounting shrinks distant money towards nothing.</code></pre>
@@ -616,85 +625,85 @@ discounting shrinks distant money towards nothing.</code></pre>
 </div>
 <p><strong>D10 (core).</strong> A perpetuity pays €5,000 next year and grows at 2% a year for ever. At 7%, what is it worth today?</p>
 <p><span class="math display">\[PV = \frac{C_1}{r - g}\]</span></p>
-<div id="4ca4dda3" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.419498Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.419230Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.424172Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.423447Z&quot;}" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>C1 <span class="op">=</span> <span class="dv">5000</span>    <span class="co"># first payment, next year</span></span>
+<div id="4ca4dda3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.419498Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.419230Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.424172Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.423447Z&quot;}}" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>C1 <span class="op">=</span> <span class="dv">5000</span>    <span class="co"># first payment, next year</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.07</span>     <span class="co"># discount rate</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">0.02</span>     <span class="co"># growth rate of the payment</span></span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>PV <span class="op">=</span> C1 <span class="op">/</span> (r <span class="op">-</span> g)</span>
 <span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The growing perpetuity is worth €</span><span class="sc">{</span>PV<span class="sc">:,.2f}</span><span class="ss"> today (€</span><span class="sc">{</span>C1<span class="op">/</span>r<span class="sc">:,.2f}</span><span class="ss"> with no growth)."</span>)</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV <span class="op">-</span> <span class="fl">100000.00</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(PV <span class="op">-</span> <span class="fl">100000.00</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The growing perpetuity is worth €100,000.00 today (€71,428.57 with no growth).</code></pre>
 </div>
 </div>
 <p><strong>D11 (a).</strong> What is Arno Bikes worth? Free cash flow €350k next year, growing 4% a year for ever, cost of capital 9%.</p>
 <p><span class="math display">\[V = \frac{CF_1}{r - g}\]</span></p>
-<div id="91e9baaf" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.426091Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.425966Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.430674Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.429759Z&quot;}" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>CF1 <span class="op">=</span> <span class="dv">350</span>    <span class="co"># € thousand, next year</span></span>
+<div id="91e9baaf" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.426091Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.425966Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.430674Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.429759Z&quot;}}" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>CF1 <span class="op">=</span> <span class="dv">350</span>    <span class="co"># € thousand, next year</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>r, g <span class="op">=</span> <span class="fl">0.09</span>, <span class="fl">0.04</span></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> CF1 <span class="op">/</span> (r <span class="op">-</span> g)</span>
 <span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Arno Bikes is worth €</span><span class="sc">{</span>V<span class="sc">:,.2f}</span><span class="ss">k today."</span>)</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(V <span class="op">-</span> <span class="fl">7000.00</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(V <span class="op">-</span> <span class="fl">7000.00</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Arno Bikes is worth €7,000.00k today.</code></pre>
 </div>
 </div>
 <p><strong>D11 (b).</strong> By how much does the value change if growth is one point lower (3% instead of 4%)?</p>
-<div id="b095ba28" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.434426Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.434187Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.437336Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.436704Z&quot;}" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>CF1, r <span class="op">=</span> <span class="dv">350</span>, <span class="fl">0.09</span></span>
+<div id="b095ba28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.434426Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.434187Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.437336Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.436704Z&quot;}}" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>CF1, r <span class="op">=</span> <span class="dv">350</span>, <span class="fl">0.09</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>V4 <span class="op">=</span> CF1 <span class="op">/</span> (r <span class="op">-</span> <span class="fl">0.04</span>)</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>V3 <span class="op">=</span> CF1 <span class="op">/</span> (r <span class="op">-</span> <span class="fl">0.03</span>)</span>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>change <span class="op">=</span> V3 <span class="op">-</span> V4</span>
 <span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"At 3% the value is €</span><span class="sc">{</span>V3<span class="sc">:,.2f}</span><span class="ss">k: a change of €</span><span class="sc">{</span>change<span class="sc">:,.2f}</span><span class="ss">k, or </span><span class="sc">{</span>change<span class="op">/</span>V4<span class="sc">:.2%}</span><span class="ss">."</span>)</span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(V3 <span class="op">-</span> <span class="fl">5833.33</span>) <span class="op">&lt;</span> <span class="fl">0.01</span> <span class="kw">and</span> <span class="bu">abs</span>(change <span class="op">-</span> (<span class="op">-</span><span class="fl">1166.67</span>)) <span class="op">&lt;</span> <span class="fl">0.01</span> <span class="kw">and</span> <span class="bu">abs</span>(change<span class="op">/</span>V4 <span class="op">+</span> <span class="fl">0.1667</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(V3 <span class="op">-</span> <span class="fl">5833.33</span>) <span class="op">&lt;</span> <span class="fl">0.01</span> <span class="kw">and</span> <span class="bu">abs</span>(change <span class="op">-</span> (<span class="op">-</span><span class="fl">1166.67</span>)) <span class="op">&lt;</span> <span class="fl">0.01</span> <span class="kw">and</span> <span class="bu">abs</span>(change<span class="op">/</span>V4 <span class="op">+</span> <span class="fl">0.1667</span>) <span class="op">&lt;</span> <span class="fl">0.00005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>At 3% the value is €5,833.33k: a change of €-1,166.67k, or -16.67%.</code></pre>
 </div>
 </div>
 <p><strong>D11 (c).</strong> One sentence for the Board.</p>
-<div id="2f64c29a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.443994Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.443664Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.448912Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.447259Z&quot;}" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>CF1, r <span class="op">=</span> <span class="dv">350</span>, <span class="fl">0.09</span></span>
+<div id="2f64c29a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.443994Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.443664Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.448912Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.447259Z&quot;}}" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>CF1, r <span class="op">=</span> <span class="dv">350</span>, <span class="fl">0.09</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>V4, V3 <span class="op">=</span> CF1 <span class="op">/</span> (r <span class="op">-</span> <span class="fl">0.04</span>), CF1 <span class="op">/</span> (r <span class="op">-</span> <span class="fl">0.03</span>)</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"On our forecast Arno Bikes is worth about €</span><span class="sc">{</span>V4<span class="op">/</span><span class="dv">1000</span><span class="sc">:.1f}</span><span class="ss">M; if growth is one point lower it is worth "</span></span>
 <span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"€</span><span class="sc">{</span>V3<span class="op">/</span><span class="dv">1000</span><span class="sc">:.1f}</span><span class="ss">M, so the price should rest on the growth we can defend, not the one we hope for."</span>)</span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(V4<span class="op">/</span><span class="dv">1000</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="fl">7.0</span> <span class="kw">and</span> <span class="bu">round</span>(V3<span class="op">/</span><span class="dv">1000</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="fl">5.8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(V4<span class="op">/</span><span class="dv">1000</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="fl">7.0</span> <span class="kw">and</span> <span class="bu">round</span>(V3<span class="op">/</span><span class="dv">1000</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="fl">5.8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>On our forecast Arno Bikes is worth about €7.0M; if growth is one point lower it is worth €5.8M, so the price should rest on the growth we can defend, not the one we hope for.</code></pre>
 </div>
 </div>
 <p><strong>D12 (stretch).</strong> A listed rival is valued at €12M; next year’s free cash flow is €600k; cost of capital 9%. What growth for ever is the market pricing in?</p>
 <p><span class="math display">\[P = \frac{CF_1}{r - g} \quad\Longrightarrow\quad g = r - \frac{CF_1}{P}\]</span></p>
-<div id="fc0074a3" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.452565Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.452411Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.456392Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.455792Z&quot;}" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">12000</span>    <span class="co"># € thousand, market value</span></span>
+<div id="fc0074a3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.452565Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.452411Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.456392Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.455792Z&quot;}}" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">12000</span>    <span class="co"># € thousand, market value</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>CF1 <span class="op">=</span> <span class="dv">600</span>    <span class="co"># € thousand, next year</span></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.09</span></span>
 <span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>g_implied <span class="op">=</span> r <span class="op">-</span> CF1 <span class="op">/</span> P</span>
 <span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The market is pricing in growth of </span><span class="sc">{</span>g_implied<span class="sc">:.2%}</span><span class="ss"> a year for ever."</span>)</span>
 <span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(g_implied <span class="op">-</span> <span class="fl">0.04</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span></span>
-<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(CF1 <span class="op">/</span> (r <span class="op">-</span> g_implied) <span class="op">-</span> P) <span class="op">&lt;</span> <span class="fl">1e-6</span>    <span class="co"># plug it back: the formula returns the price</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(CF1 <span class="op">/</span> (r <span class="op">-</span> g_implied) <span class="op">-</span> P) <span class="op">&lt;</span> <span class="fl">1e-6</span>    <span class="co"># plug it back: the formula returns the price</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The market is pricing in growth of 4.00% a year for ever.</code></pre>
 </div>
 </div>
 <p><strong>D13 (a).</strong> Arno Bikes’ assembly line at a 9% cost of capital: write the NPV as a sum (€ thousand).</p>
 <p><span class="math display">\[NPV = -2400 + \frac{700}{1.09} + \frac{800}{1.09^2} + \frac{900}{1.09^3} + \frac{1000}{1.09^4}\]</span></p>
-<div id="4fcee3a4" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.457952Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.457857Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.463513Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.462909Z&quot;}" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]    <span class="co"># € thousand, years 0..4</span></span>
+<div id="4fcee3a4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.457952Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.457857Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.463513Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.462909Z&quot;}}" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]    <span class="co"># € thousand, years 0..4</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.09</span></span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>terms <span class="op">=</span> [<span class="ss">f"</span><span class="sc">{</span>cf<span class="sc">}</span><span class="ss">/(1.09)^</span><span class="sc">{</span>t<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> t, cf <span class="kw">in</span> <span class="bu">enumerate</span>(flows)]</span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NPV = "</span> <span class="op">+</span> <span class="st">" + "</span>.join(terms))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NPV = "</span> <span class="op">+</span> <span class="st">" + "</span>.join(terms))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NPV = -2400/(1.09)^0 + 700/(1.09)^1 + 800/(1.09)^2 + 900/(1.09)^3 + 1000/(1.09)^4</code></pre>
 </div>
 </div>
 <p><strong>D13 (b).</strong> Compute each discounted flow and the NPV.</p>
-<div id="4a54c95c" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.465080Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.464968Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.481618Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.480818Z&quot;}" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]    <span class="co"># € thousand</span></span>
+<div id="4a54c95c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.465080Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.464968Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.481618Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.480818Z&quot;}}" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]    <span class="co"># € thousand</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.09</span></span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.DataFrame({<span class="st">"Year"</span>: <span class="bu">range</span>(<span class="bu">len</span>(flows)), <span class="st">"Flow (€k)"</span>: flows})</span>
@@ -704,7 +713,7 @@ discounting shrinks distant money towards nothing.</code></pre>
 <span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>NPV <span class="op">=</span> table[<span class="st">"Present value (€k)"</span>].<span class="bu">sum</span>()</span>
 <span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"NPV = €</span><span class="sc">{</span>NPV<span class="sc">:,.2f}</span><span class="ss">k"</span>)</span>
-<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(NPV <span class="op">-</span> <span class="fl">318.94</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(NPV <span class="op">-</span> <span class="fl">318.94</span>) <span class="op">&lt;</span> <span class="fl">0.01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Year  Flow (€k)   Factor  Present value (€k)
     0      -2400 1.000000            -2400.00
@@ -716,15 +725,15 @@ NPV = €318.94k</code></pre>
 </div>
 </div>
 <p><strong>D13 (c).</strong> Accept or reject, and say the sentence you would tell the Board.</p>
-<div id="aa11d64e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.483670Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.483549Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.486311Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.485670Z&quot;}" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]</span>
+<div id="aa11d64e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.483670Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.483549Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.486311Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.485670Z&quot;}}" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.09</span></span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>NPV <span class="op">=</span> <span class="bu">sum</span>(cf <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> t <span class="cf">for</span> t, cf <span class="kw">in</span> <span class="bu">enumerate</span>(flows))</span>
 <span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>decision <span class="op">=</span> <span class="st">"Accept"</span> <span class="cf">if</span> NPV <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">"Reject"</span></span>
 <span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>decision<span class="sc">}</span><span class="ss">. At our 9% cost of capital the line adds about €</span><span class="sc">{</span><span class="bu">round</span>(NPV)<span class="op">*</span><span class="dv">1000</span><span class="sc">:,.0f}</span><span class="ss">"</span>)</span>
 <span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"of value in today's money."</span>)</span>
-<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> decision <span class="op">==</span> <span class="st">"Accept"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> decision <span class="op">==</span> <span class="st">"Accept"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accept. At our 9% cost of capital the line adds about €319,000
 of value in today's money.</code></pre>
@@ -732,49 +741,49 @@ of value in today's money.</code></pre>
 </div>
 <p><strong>D13b (a).</strong> 60% equity, 40% debt. Shareholders expect 12%, the bank charges 6%, tax rate 25%. Compute the WACC.</p>
 <p><span class="math display">\[\text{WACC} = w_e\,r_e + w_d\,r_d\,(1 - T)\]</span></p>
-<div id="b6a070e6" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.488201Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.488070Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.490803Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.490345Z&quot;}" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>w_e, w_d <span class="op">=</span> <span class="fl">0.60</span>, <span class="fl">0.40</span>    <span class="co"># weights of equity and debt</span></span>
+<div id="b6a070e6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.488201Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.488070Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.490803Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.490345Z&quot;}}" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>w_e, w_d <span class="op">=</span> <span class="fl">0.60</span>, <span class="fl">0.40</span>    <span class="co"># weights of equity and debt</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>r_e, r_d <span class="op">=</span> <span class="fl">0.12</span>, <span class="fl">0.06</span>    <span class="co"># cost of equity, cost of debt</span></span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="fl">0.25</span>                 <span class="co"># corporate tax rate</span></span>
 <span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>WACC <span class="op">=</span> w_e <span class="op">*</span> r_e <span class="op">+</span> w_d <span class="op">*</span> r_d <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> T)</span>
 <span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"WACC = </span><span class="sc">{</span>w_e<span class="op">*</span>r_e<span class="sc">:.1%}</span><span class="ss"> + </span><span class="sc">{</span>w_d<span class="op">*</span>r_d<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>T)<span class="sc">:.1%}</span><span class="ss"> = </span><span class="sc">{</span>WACC<span class="sc">:.1%}</span><span class="ss"> — the 9% we were handed."</span>)</span>
-<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(WACC <span class="op">-</span> <span class="fl">0.09</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(WACC <span class="op">-</span> <span class="fl">0.09</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>WACC = 7.2% + 1.8% = 9.0% — the 9% we were handed.</code></pre>
 </div>
 </div>
 <p><strong>D13b (b).</strong> Why does the tax rate appear at all, and only on the debt side?</p>
-<div id="163ba337" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.492352Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.492207Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.494663Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.494115Z&quot;}" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>r_d, T <span class="op">=</span> <span class="fl">0.06</span>, <span class="fl">0.25</span></span>
+<div id="163ba337" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.492352Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.492207Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.494663Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.494115Z&quot;}}" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>r_d, T <span class="op">=</span> <span class="fl">0.06</span>, <span class="fl">0.25</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>after_tax_debt <span class="op">=</span> r_d <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> T)    <span class="co"># interest is deductible from taxable profit</span></span>
 <span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Interest is tax-deductible, so a 6% loan really costs </span><span class="sc">{</span>after_tax_debt<span class="sc">:.1%}</span><span class="ss"> after tax."</span>)</span>
 <span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Dividends are not deductible, so the equity side gets no (1 - T)."</span>)</span>
-<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(after_tax_debt <span class="op">-</span> <span class="fl">0.045</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(after_tax_debt <span class="op">-</span> <span class="fl">0.045</span>) <span class="op">&lt;</span> <span class="fl">1e-9</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Interest is tax-deductible, so a 6% loan really costs 4.5% after tax.
 Dividends are not deductible, so the equity side gets no (1 - T).</code></pre>
 </div>
 </div>
 <p><strong>D13b (c).</strong> If the mix became 40/60 (more debt), what happens to the WACC and to the NPV of the line?</p>
-<div id="c6ced9b9" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.496856Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.496697Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.500219Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.499757Z&quot;}" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>r_e, r_d, T <span class="op">=</span> <span class="fl">0.12</span>, <span class="fl">0.06</span>, <span class="fl">0.25</span></span>
+<div id="c6ced9b9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.496856Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.496697Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.500219Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.499757Z&quot;}}" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>r_e, r_d, T <span class="op">=</span> <span class="fl">0.12</span>, <span class="fl">0.06</span>, <span class="fl">0.25</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>npv <span class="op">=</span> <span class="kw">lambda</span> r: <span class="bu">sum</span>(cf <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> t <span class="cf">for</span> t, cf <span class="kw">in</span> <span class="bu">enumerate</span>(flows))</span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>WACC_new <span class="op">=</span> <span class="fl">0.40</span> <span class="op">*</span> r_e <span class="op">+</span> <span class="fl">0.60</span> <span class="op">*</span> r_d <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> T)    <span class="co"># more weight on the cheaper source</span></span>
 <span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"WACC falls from 9.0% to </span><span class="sc">{</span>WACC_new<span class="sc">:.1%}</span><span class="ss">; NPV rises from €</span><span class="sc">{</span>npv(<span class="fl">0.09</span>)<span class="sc">:,.2f}</span><span class="ss">k to €</span><span class="sc">{</span>npv(WACC_new)<span class="sc">:,.2f}</span><span class="ss">k."</span>)</span>
 <span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Not free: more debt means more risk, and in time r_e and r_d rise with it."</span>)</span>
-<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> WACC_new <span class="op">&lt;</span> <span class="fl">0.09</span> <span class="kw">and</span> npv(WACC_new) <span class="op">&gt;</span> npv(<span class="fl">0.09</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> WACC_new <span class="op">&lt;</span> <span class="fl">0.09</span> <span class="kw">and</span> npv(WACC_new) <span class="op">&gt;</span> npv(<span class="fl">0.09</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>WACC falls from 9.0% to 7.5%; NPV rises from €318.94k to €416.69k.
 Not free: more debt means more risk, and in time r_e and r_d rise with it.</code></pre>
 </div>
 </div>
 <p><strong>D14 (stretch).</strong> Recompute the NPV at 16%. What does the change in sign tell you, and what is the rate at which it happens?</p>
-<div id="94280a97" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.502061Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.501961Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.507368Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.506404Z&quot;}" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]    <span class="co"># € thousand</span></span>
+<div id="94280a97" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-24T07:01:15.502061Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-24T07:01:15.501961Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-24T07:01:15.507368Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-24T07:01:15.506404Z&quot;}}" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>flows <span class="op">=</span> [<span class="op">-</span><span class="dv">2400</span>, <span class="dv">700</span>, <span class="dv">800</span>, <span class="dv">900</span>, <span class="dv">1000</span>]    <span class="co"># € thousand</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>npv <span class="op">=</span> <span class="kw">lambda</span> r: <span class="bu">sum</span>(cf <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> r) <span class="op">**</span> t <span class="cf">for</span> t, cf <span class="kw">in</span> <span class="bu">enumerate</span>(flows))</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"NPV at 16% = −€</span><span class="sc">{</span><span class="op">-</span>npv(<span class="fl">0.16</span>)<span class="sc">:,.2f}</span><span class="ss">k: negative."</span>)</span>
 <span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -784,7 +793,7 @@ Not free: more debt means more risk, and in time r_e and r_d rise with it.</code
 <span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> (mid, hi) <span class="cf">if</span> npv(mid) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> (lo, mid)</span>
 <span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a>irr <span class="op">=</span> (lo <span class="op">+</span> hi) <span class="op">/</span> <span class="dv">2</span></span>
 <span id="cb71-10"><a href="#cb71-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"NPV = 0 at </span><span class="sc">{</span>irr<span class="sc">:.1%}</span><span class="ss">: the internal rate of return. Above it the project destroys value."</span>)</span>
-<span id="cb71-11"><a href="#cb71-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(npv(<span class="fl">0.16</span>) <span class="op">-</span> (<span class="op">-</span><span class="fl">73.14</span>)) <span class="op">&lt;</span> <span class="fl">0.01</span> <span class="kw">and</span> <span class="bu">abs</span>(irr <span class="op">-</span> <span class="fl">0.146</span>) <span class="op">&lt;</span> <span class="fl">0.0005</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb71-11"><a href="#cb71-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">abs</span>(npv(<span class="fl">0.16</span>) <span class="op">-</span> (<span class="op">-</span><span class="fl">73.14</span>)) <span class="op">&lt;</span> <span class="fl">0.01</span> <span class="kw">and</span> <span class="bu">abs</span>(irr <span class="op">-</span> <span class="fl">0.146</span>) <span class="op">&lt;</span> <span class="fl">0.0005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NPV at 16% = −€73.14k: negative.
 NPV = 0 at 14.6%: the internal rate of return. Above it the project destroys value.</code></pre>
@@ -800,244 +809,248 @@ NPV = 0 at 14.6%: the internal rate of return. Above it the project destroys val
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/niccolosalvini\.github\.io\/ese-qnb\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/niccolosalvini\.github\.io\/ese-qnb\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1045,185 +1058,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
