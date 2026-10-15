@@ -6,6 +6,8 @@ Syllabus topic: simple and compound interest, compounding vs discounting, EAR, a
 
 A change of subject, not of method: from here the mathematics is arithmetic done carefully, and the discipline is that **every euro carries a date**.
 
+**Change on the morning (15 Oct).** The students said step 6 (convexity, inflection) did not land last week. The HW3 slot grows to 25 minutes: H4 at the board as the vehicle, three slides re-teaching `f''` (the table, the cubic, the words of a report), then D0 on paper (8'). Block A shrinks to 25 minutes: the two compounding tables go fast, the clip and `e` stay. Homework 4 gains a Part 0 with three Q5-form integration items, because integration left the week-3 session and must not go cold before December.
+
 ## Learning objectives
 
 By the end of the session the students can:
@@ -20,8 +22,8 @@ By the end of the session the students can:
 
 | Time | Block | Support | Content |
 |------|-------|---------|---------|
-| 10:00–10:15 | HW3 walkthrough | Paper | The Board report, read aloud by its author. Ask the room what they would cut. |
-| 10:15–10:50 | **A. Interest and compounding** | Slides + clip → paper | Simple vs compound. More often is more. Where `e` comes from. |
+| 10:00–10:25 | HW3 walkthrough + **step 6 again** | Paper → slides → paper | H4 at the board; the three convexity slides; D0 (8'). The Board report read aloud by its author, if time. |
+| 10:25–10:50 | **A. Interest and compounding** | Slides + clip → paper | Simple vs compound. More often is more. Where `e` comes from. |
 | 10:50–11:10 | **B. The effective rate** | Slides → paper | EAR and the two-bank trap, on one slide. |
 | 11:10–11:25 | break | — | Outside the room. |
 | 11:25–12:10 | **C. Discounting** | Slides + figure → notebook → paper | PV, annuity, perpetuity. Why the rate matters more than the forecast. What is Arno Bikes worth (Gordon). |

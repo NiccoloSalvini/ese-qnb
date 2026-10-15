@@ -6,6 +6,15 @@ Running case for weeks 4–5: **Arno Bikes is considering a new assembly line.**
 
 Round money to the cent, rates to two decimals in a percentage.
 
+## 0. Step 6 of the study, from last week
+
+**D0 (core — convexity and inflection, midterm form).** `f(q) = q³ − 6q² + 9q + 4`, for `q ≥ 0`.
+(a) Compute `f''(q)` and solve `f''(q) = 0`.
+(b) Give the sign of `f''` on each side of that point and name the intervals: convex where, concave where.
+(c) The inflection point, with both coordinates.
+(d) The stationary points, and the nature of each one — using `f''`, not a sketch.
+(e) One sentence a report would use for step 6.
+
 ## A. Simple and compound interest
 
 **D1 (core).** €8,000 is invested for 3 years at 6% a year.
@@ -70,6 +79,13 @@ Your cost of capital is 9%. Which do you choose? Show the present value of (ii).
 
 <details>
 <summary><strong>Solutions</strong></summary>
+
+**D0.**
+(a) `f'(q) = 3q² − 12q + 9`, `f''(q) = 6q − 12`. `f'' = 0` at **`q = 2`**.
+(b) `f''(1) = −6 < 0`: **concave on `[0, 2)`**. `f''(3) = 6 > 0`: **convex on `(2, ∞)`**. The sign changes, so `q = 2` is a genuine inflection and not just a zero.
+(c) `f(2) = 8 − 24 + 18 + 4 = 6`: **inflection at `(2, 6)`**. Both coordinates, or the point is not located.
+(d) `f'(q) = 3(q − 1)(q − 3) = 0` → `q = 1, 3`. `f''(1) = −6 < 0` → **maximum**, `f(1) = 8`. `f''(3) = 6 > 0` → **minimum**, `f(3) = 4`. Note the order along the axis: max at 1, inflection at 2, min at 3. The inflection sits *between* the two turning points — it is where the fall is steepest, not where it starts or ends.
+(e) "The curve is concave up to `q = 2` and convex beyond it, with an inflection at `(2, 6)`: the decline that begins at the maximum is steepest there, and slows afterwards until the minimum at `q = 3`."
 
 **D1.**
 (a) Simple: `8000(1 + 0.06 × 3) = 8000 × 1.18 = **€9,440.00**`.

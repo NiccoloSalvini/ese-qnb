@@ -2,9 +2,18 @@
 
 **Bring it to class, done on paper.** Nothing to hand in or send: the first 15–20 minutes of next session are spent going through it together at the board — you walk us through your working, we correct it there and then. Mistakes are the useful part, so bring what you tried even where you got stuck.
 
-Two parts. Part 1 on paper, with a calculator. Part 2 typed. Expect 2–3 hours.
+Three parts. Part 0 is twenty minutes of calculus, so that the final's integral does not go cold while we do money. Part 1 on paper, with a calculator. Part 2 typed. Expect 2–3 hours.
 
 Money to the cent, rates to two decimals in a percentage. Show the formula before the number every time: the exam gives marks for the method.
+
+## Part 0 — Keep the calculus warm (paper, 20 minutes)
+
+Three of the five parts of the final's calculus question are integrals. Nothing new here: week 2, in the exam's form.
+
+**H0.**
+(a) Evaluate `∫ (6q³ + 4q² − 3)/q dq`. Split the fraction first; one piece becomes a log.
+(b) Determine `f(q)` given `f'(q) = 3q² − 4q + 1` and `f(2) = 5`. End with the constant found.
+(c) Evaluate `∫₁³ (2 + 1/q) dq`. Leave the log exact.
 
 ## Part 1 — Drill set (paper, show all work)
 
@@ -51,6 +60,7 @@ No formulas in the text. Put the discounting table in an appendix if you want it
 
 ## Self-check before submitting
 
+- H0(a) has a `ln|q|` in it and a `+ c` at the end; H0(b) has no `c` left in the final answer.
 - Every compound-interest answer states `m` (how many times a year) explicitly.
 - Every EAR is computed from the nominal rate, never compared to it directly.
 - Every present value shows the discount factor separately from the flow.
@@ -58,6 +68,8 @@ No formulas in the text. Put the discounting table in an appendix if you want it
 - The memo names the number that makes the Board member's reasoning wrong, and does it in one clause.
 
 ## How this feeds the assessments
+
+- **H0** is three of the five items of the final's calculus question (Q5), in its exact form: the split fraction, recovering `f` from `f'`, the definite integral with a log. It stays in every homework from now on.
 
 - **H1–H4** are the resit's multiple-choice-with-justification block, in the exact form.
 - **H5–H7** are the present-value machinery every financial-maths question rests on.
