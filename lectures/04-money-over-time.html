@@ -184,10 +184,172 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block B</span>How much should the firm produce?<span class="blk-answer">Until <span class="math inline">R'(q) = C'(q)</span>. Average cost is lowest where MC = AC</span></p>
 </div>
 <div class="blk recap">
-<p><span class="blk-letter">Block C</span>What did all of them add up to?<span class="blk-answer">The integral of the marginal is the change in the total: €10,000 from 100 to 150</span></p>
+<p><span class="blk-letter">Quiz</span>Weeks 1–3, five items<span class="blk-answer">Marked and back today. You said step 6, convexity, did not land. Ten minutes on it now, before the money.</span></p>
 </div>
 </div>
-<p><span class="red">That closes the calculus. Today every euro gets a date.</span></p>
+<p><span class="red">That closes the calculus — after one more look at the step that did not land.</span></p>
+</section>
+<section id="step-6-again-what-the-second-derivative-is-telling-you" class="slide level2">
+<h2>Step 6, again: what the second derivative is telling you</h2>
+<p><span class="math inline">f'</span> says whether the curve is <strong>going up or down</strong>. <span class="math inline">f''</span> says whether it is <strong>bending up or down</strong>. They are different questions, and the exam asks both.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">f''</span></th>
+<th>so <span class="math inline">f'</span> is…</th>
+<th>the slope is…</th>
+<th>shape</th>
+<th>holds water?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">&gt; 0</span></td>
+<td>increasing</td>
+<td>getting steeper (or less negative)</td>
+<td><strong>convex</strong></td>
+<td>yes — a bowl</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">&lt; 0</span></td>
+<td>decreasing</td>
+<td>getting flatter (or more negative)</td>
+<td><strong>concave</strong></td>
+<td>no — a dome</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">= 0</span> <strong>and changes sign</strong></td>
+<td>at a peak or trough</td>
+<td>steepest, or flattest, right there</td>
+<td><strong>inflection</strong></td>
+<td>the switch</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div title="The confusion to clear">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The confusion to clear</strong></p>
+</div>
+<div class="callout-content">
+<p>The <strong>maximum</strong> is where <span class="math inline">f' = 0</span>: growth <em>stops</em>. The <strong>inflection</strong> is where <span class="math inline">f'' = 0</span>: growth is <em>fastest</em> and stops accelerating. In a sales curve those are two different months, and a report that names the wrong one is wrong.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-on-homework-3-the-cubic-you-brought-h4" class="slide level2">
+<h2>Step 6 on Homework 3 — the cubic you brought (H4)</h2>
+<p><span class="math display">f(q) = q^{3} - 9q^{2} + 24q,\qquad f'(q) = 3(q-2)(q-4),\qquad f''(q) = 6q - 18</span></p>
+<div class="columns">
+<div class="column" style="width:58%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">q</span></th>
+<th>0 → 2</th>
+<th>2</th>
+<th>2 → 3</th>
+<th>3</th>
+<th>3 → 4</th>
+<th>4</th>
+<th>4 → 6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">f'</span></td>
+<td>+</td>
+<td>0</td>
+<td>−</td>
+<td>−</td>
+<td>−</td>
+<td>0</td>
+<td>+</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">f''</span></td>
+<td>−</td>
+<td>−</td>
+<td>−</td>
+<td><strong>0</strong></td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr class="odd">
+<td>shape</td>
+<td>rising, concave</td>
+<td><strong>max</strong> (2, 20)</td>
+<td>falling, concave</td>
+<td><strong>inflection</strong> (3, 18)</td>
+<td>falling, convex</td>
+<td><strong>min</strong> (4, 16)</td>
+<td>rising, convex</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:42%;">
+<p>Three lines, and the marker can tick step 6:</p>
+<ol type="1">
+<li><span class="math inline">f''(q) = 6q - 18 = 0 \Rightarrow q = 3</span>.</li>
+<li><span class="math inline">f'' &lt; 0</span> for <span class="math inline">q &lt; 3</span>: <strong>concave</strong>. <span class="math inline">f'' &gt; 0</span> for <span class="math inline">q &gt; 3</span>: <strong>convex</strong>.</li>
+<li><strong>Inflection at (3, 18)</strong>, where the curve changes from dome to bowl.</li>
+</ol>
+<p><span class="muted">No zero of <span class="math inline">f''</span>, or a zero that does not change sign → “no inflection; convex (or concave) throughout”. That sentence earns the step too.</span></p>
+</div></div>
+</section>
+<section id="step-6-in-the-words-of-a-report" class="slide level2">
+<h2>Step 6 in the words of a report</h2>
+<p>For the log-revenue firm from last week, <span class="math inline">R(q) = 30\ln(q+1)</span>, <span class="math inline">C(q) = 0.4q^{2} + 3q + 25</span>:</p>
+<ul>
+<li><span class="math inline">C''(q) = 0.8 &gt; 0</span>: cost is <strong>convex throughout</strong> — each extra unit costs more than the last.</li>
+<li><span class="math inline">R''(q) = -30/(q+1)^{2} &lt; 0</span>: revenue is <strong>concave throughout</strong> — each extra unit brings in less than the last. <em>Diminishing returns</em>, by name.</li>
+<li>So <span class="math inline">\pi'' = R'' - C'' &lt; 0</span> everywhere: profit is <strong>concave, with a single maximum and no inflection</strong>. The optimum you found is the only one.</li>
+</ul>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Convexity is the second thing a Board wants to know after the optimum: is the ground falling away on both sides fast or slowly. <span class="math inline">f''</span> is that number.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="d0-step-6-in-exam-format" class="slide level2 paper" data-background-color="#eceff0">
+<h2>D0 — step 6, in exam format</h2>
+<p><span class="kicker">PAPER · drills.md</span></p>
+<p>8 minutes. A cubic: <span class="math inline">f''</span>, its zero, the sign on each side, the inflection point with both coordinates, and the nature of the two stationary points. Label each line with the step it answers.</p>
 </section>
 <section id="where-we-are" class="slide level2">
 <h2>Where we are</h2>
@@ -210,12 +372,12 @@ Niccolò Salvini, PhD
 <tr class="odd">
 <td>1–2</td>
 <td>24 Sep – 1 Oct</td>
-<td>algebra, limits, the derivative ✓</td>
+<td>algebra, limits, the derivative, first integrals ✓</td>
 </tr>
 <tr class="even">
 <td>3</td>
 <td>8 Oct</td>
-<td>study, optimise, integrate ✓</td>
+<td>study a function, optimise ✓</td>
 </tr>
 <tr class="odd">
 <td><strong>4</strong></td>
@@ -854,7 +1016,7 @@ Niccolò Salvini, PhD
 <li>A firm growing for ever is worth <span class="math inline">CF_1/(r-g)</span>; the gap <span class="math inline">r-g</span> is where the valuation’s risk sits.</li>
 <li>Accept when NPV is positive at your own cost of capital; IRR is where it crosses zero.</li>
 </ol>
-<p><strong>Homework 4</strong> (<code>homework.md</code>), for Thursday 22 October, corrected together at the board: nine drills plus a memo correcting the Board member.</p>
+<p><strong>Homework 4</strong> (<code>homework.md</code>), for Thursday 22 October, corrected together at the board: nine drills plus a memo correcting the Board member — and three short calculus items at the top, to keep the final’s integral warm. Three of the five parts of that exam question are integrals; they must not go cold between now and December.</p>
 <p>Next week: the same arithmetic applied to a bond, and the two numbers that say how much a rate rise would cost you.</p>
 
 
