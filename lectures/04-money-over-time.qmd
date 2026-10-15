@@ -76,24 +76,11 @@ It returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no �
 :::
 :::
 
-## The two weeks, as one chain {.smaller}
+## The two weeks, as one map
 
-Every row uses the one above it, and every tool on the right you already own.
+![](img/w04_map.svg){fig-align="center" width="96%"}
 
-| | The question | The tool | The mathematics behind it |
-|---|---|---|---|
-| **Simple interest** | what does €1 earn if interest never earns interest? | $A = P(1 + it)$ | a straight line — week 1 |
-| **Compound interest** | and if it does? | $A = P(1 + i)^{t}$ | an exponential — week 1 |
-| **More often, then always** | does compounding every day change much? | $(1 + i/m)^{mt} \to e^{it}$ | a limit, and $e$ — week 2 |
-| **Effective rate** | which of two quotes is cheaper? | $EAR = (1 + i/m)^{m} - 1$ | the same exponential, read as a price |
-| **Discounting** | what is a future euro worth today? | $PV = FV/(1+r)^{t}$ | the exponential run backwards: a negative exponent |
-| **Annuity, perpetuity, growth** | many dated euros at once | $C\frac{1-(1+r)^{-n}}{r}$, $\frac{C}{r}$, $\frac{CF_1}{r-g}$ | a geometric series and its limit |
-| **NPV, IRR** | build the line or not? | $\sum CF_t/(1+r)^{t}$ | a function of $r$, and its zero — week 1 |
-| *Next week* — **bond price** | what is a promise with dates worth? | annuity + one lump sum | the same discounting |
-| *Next week* — **duration** | how much does a rate rise cost? | $-\frac{1}{P}\frac{dP}{dy}$ | the derivative — week 2 |
-| *Next week* — **convexity** | what the straight line misses | $\frac{d^{2}P}{dy^{2}}$ | the second derivative: step 6 — week 3 |
-
-[Today: the first seven rows. Thursday 22nd: the last three, and the mock of the final's calculus question.]{.red}
+[Every tool in grey you already own. Today the left half; Thursday 22nd the right half, and the mock of the final's calculus question.]{.muted}
 
 ## [Block A]{.section-kicker} Interest, and what compounding actually does {.section-slide background-color="#AF1F25" auto-animate=true}
 
@@ -254,7 +241,7 @@ A: `(1 + 0.078/12)¹² − 1 = 8.085%`. B: `8.000%`.
 :::
 ::::
 
-[A nominal rate is not a price until you know `m`. This is the single most useful line of the whole module.]{.red}
+[A nominal rate is not a price until you know `m`.]{.red}
 
 ## D4, D5 — put everything on the same basis {.paper background-color="#eceff0"}
 
@@ -288,9 +275,23 @@ A: `(1 + 0.078/12)¹² − 1 = 8.085%`. B: `8.000%`.
 
 $$PV = \frac{FV}{(1+r)^{t}} = \frac{10{,}000}{(1.07)^{5}} = €7{,}129.86$$
 
+[**FV** the *future value*, the sum on its future date · **PV** the *present value*, what that sum is worth today · **r** the rate, now called the *discount rate* · **t** the years between.]{.muted}
+
 Compounding pushes money forward; discounting pulls it back. Same formula, read the other way.
 
 ![](img/w04_discount_factor.svg){fig-align="center" width="62%"}
+
+## Why is a future euro worth less than one today?
+
+1. **Opportunity cost.** The euro you hold now can be deposited at `r` and will have grown by then. A €1,000 bonus paid in a year, with a 4% deposit available, is worth `1,000/1.04 = €961.54` today — because €961.54 today *becomes* €1,000 in a year. This is the reason the formula uses.
+2. **Inflation.** A euro in five years buys less than a euro now. In practice the rate `r` you are quoted already contains it.
+3. **Risk.** A promised euro may not arrive. The less sure it is, the higher the rate you discount it at.
+
+. . .
+
+::: {.callout-note title="Cost of capital"}
+The rate a firm discounts at is its **cost of capital**: what its money costs it. For Arno Bikes today, the 9% it borrows at. Block D shows the fuller version, a blend of what lenders charge and what shareholders expect.
+:::
 
 ## Why the rate matters more than the forecast
 
