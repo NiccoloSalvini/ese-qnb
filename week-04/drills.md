@@ -16,6 +16,11 @@ Round money to the cent, rates to two decimals in a percentage.
 **D2 (core).** €5,000 for 4 years at 8% nominal, compounded quarterly.
 (a) The final amount. (b) The interest earned.
 
+**D2b (core — the rate moves).** €10,000 for eight years at 5%, compounded annually.
+(a) The final amount.
+(b) Recompute at 4% and at 6%. In euros, what is one point of interest worth over eight years? And over twenty?
+(c) One sentence: why is the answer to (b) so much larger at twenty years than at eight?
+
 **D3 (core — resit form).** *Select the correct alternative and justify in one line.*
 A bank quotes 6% nominal. Which is worth more to a depositor?
 (i) compounded annually (ii) compounded monthly (iii) they are the same
@@ -66,6 +71,23 @@ Your cost of capital is 9%. Which do you choose? Show the present value of (ii).
 
 **D14 (stretch).** Recompute the NPV at 16%. What does the change in sign tell you, and what is the name of the rate at which it happens?
 
+## E. Challenge — the seven steps, on money
+
+*Use the function-study procedure of week 3. Nothing here is new; the point is to see that these curves are functions like any other.*
+
+**D15 (challenge).** `A(t) = 10,000 × 1.05^t`, for `t ≥ 0`.
+(a) Domain, `A(0)`, and the limit as `t → ∞`.
+(b) `A'(t)`. Its sign, and what it says. *(Hint: `d/dt aᵗ = aᵗ ln a`.)*
+(c) `A''(t)`. Convex or concave? Is there an inflection?
+(d) Compare with simple interest `S(t) = 10,000(1 + 0.05t)`: what is `S''`? Sketch both on the same axes, `t` from 0 to 30, marking `t = 0` and `t ≈ 14.2` where `A = 20,000`.
+
+**D16 (challenge — the NPV curve as a function).** For the assembly line, `NPV(r) = −2,400 + 700/(1+r) + 800/(1+r)² + 900/(1+r)³ + 1,000/(1+r)⁴`, for `r ≥ 0`.
+(a) `NPV(0)`. What does that number mean, and who said it this morning?
+(b) The limit as `r → ∞`, and what it means. Is there a horizontal asymptote?
+(c) Without computing it, say why `NPV'(r) < 0` for every `r`. *(Each term `CF/(1+r)ᵗ` has derivative `−t·CF/(1+r)^(t+1)`.)*
+(d) Sign of `NPV(r)`: you know `NPV(0.09) = 318.94` and `NPV(0.16) = −73.14`. Where is the zero, roughly, and what is it called?
+(e) Sketch: `NPV` against `r`, with the intercept, the zero and the asymptote. Then one sentence for the Board on what the sketch says about risk.
+
 ---
 
 <details>
@@ -79,6 +101,11 @@ Your cost of capital is 9%. Which do you choose? Show the present value of (ii).
 **D2.**
 (a) `5000(1 + 0.08/4)^(4×4) = 5000(1.02)^16 = 5000 × 1.372786 = **€6,863.93**`.
 (b) Interest `= **€1,863.93**`.
+
+**D2b.**
+(a) `10,000 × 1.05⁸ = 10,000 × 1.477455 = **€14,774.55**`.
+(b) At 4%: `10,000 × 1.04⁸ = **€13,685.69**`; at 6%: `10,000 × 1.06⁸ = **€15,938.48**`. One point is worth about **€1,100** over eight years. Over twenty: 4% → €21,911.23, 5% → €26,532.98, 6% → €32,071.35: about **€4,600 to €5,500**.
+(c) The rate sits in the base of a power with exponent `t`: a point of rate is multiplied by itself twenty times instead of eight. Small differences in the rate become large differences in the amount, and the longer the horizon the larger.
 
 **D3.** **(ii) compounded monthly.** More frequent compounding earns interest on interest sooner, so the effective rate is higher: `(1 + 0.06/12)^12 − 1 = 6.17% > 6%`.
 
@@ -141,4 +168,16 @@ With no growth the same €5,000 would be worth `5,000/0.07 = €71,428.57`: two
 **D14.** At 16%: `−2,400 + 603.45 + 594.53 + 576.59 + 552.29 = **−€73.14k**`. Negative.
 The NPV falls as the discount rate rises and **changes sign** between 9% and 16%; the rate where it is exactly zero is the **internal rate of return** (about 14.6% here). Above it the project destroys value.
 
+**D15.**
+(a) Domain `[0, ∞)`. `A(0) = 10,000` — the principal. `lim (t→∞) A(t) = +∞`: there is no ceiling.
+(b) `A'(t) = 10,000 × 1.05^t × ln 1.05 = A(t) × 0.04879 > 0` for every `t`: **always increasing**, and the increase is proportional to the amount already there — that *is* compounding.
+(c) `A''(t) = A(t) × (ln 1.05)² > 0`: **convex throughout, no inflection**. The curve bends upward for ever: growth that keeps accelerating.
+(d) `S''(t) = 0`: a straight line. Both start at 10,000 with almost the same slope (`S' = 500`, `A'(0) = 487.9`); then `A` pulls away. `A = 20,000` when `1.05^t = 2`, `t = ln 2 / ln 1.05 ≈ 14.2` years; at that point `S = 17,100`. At `t = 30`: `A = 43,219`, `S = 25,000`.
+
+**D16.**
+(a) `NPV(0) = −2,400 + 700 + 800 + 900 + 1,000 = **+1,000**`: the "million of profit" — it is what you get by adding the flows with no discounting at all, i.e. at a zero cost of money. The Board member was computing NPV at `r = 0`.
+(b) `lim (r→∞) NPV(r) = **−2,400**`: every future flow is discounted to nothing and only the outlay remains. **`y = −2,400` is a horizontal asymptote.**
+(c) Each term `CF/(1+r)ᵗ` falls as `r` rises (its derivative `−t·CF/(1+r)^(t+1)` is negative, since `CF > 0`); the constant `−2,400` differentiates to zero. A sum of negatives is negative: **`NPV` is decreasing for every `r`**, so it crosses zero exactly once.
+(d) `NPV` is positive at 9% and negative at 16%, so the zero lies between; it is at **`r ≈ 14.6%`**, the **internal rate of return**. Sign: `NPV > 0` for `r < 14.6%`, `NPV < 0` above.
+(e) A falling, convex curve from `(0, 1,000)` through `(0.09, 318.94)` and `(0.146, 0)`, flattening towards `−2,400`. Board sentence: "The project stays worth doing for any cost of money up to 14.6%; our 9% leaves about five and a half points of room, and the curve is steepest exactly where we are, so each point of rate costs us roughly €80k of value."
 </details>

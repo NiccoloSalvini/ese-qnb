@@ -114,6 +114,8 @@ Every row uses the one above it, and every tool on the right you already own.
 
 $$A = P(1 + it)$$
 
+[**P** the *principal*, what you put in · **i** the rate per year · **t** the years · **A** the *amount* at the end.]{.muted}
+
 The `t` is a **multiplication**, because you are adding the same amount `t` times.
 
 ## Now 6% of whatever is actually there
@@ -142,6 +144,24 @@ The gold gap is what compounding adds. It is €88 after three years and **€1,
 
 [Nobody in finance means "simple" when they say interest. It is in the syllabus so that you can name what compounding adds, and so that you recognise the gap when someone quotes you the wrong one.]{.muted}
 
+## A rate that moves by one point
+
+€10,000 at 5%, compounded annually. Now the rate moves — up a point, down a point.
+
+::: {.callout-important title="Bet before we compute"}
+Over twenty years, on €10,000, how much is one point of interest worth?
+:::
+
+. . .
+
+| rate | 8 years | 20 years |
+|---|---|---|
+| 4% | 13,685.69 | 21,911.23 |
+| **5%** | **14,774.55** | **26,532.98** |
+| 6% | 15,938.48 | 32,071.35 |
+
+One point is about €1,100 over eight years and **€4,600 to €5,500 over twenty**. The rate sits in the base of a power: a point of rate is multiplied by itself `t` times, and the longer the horizon the more it matters.
+
 ## More often is more
 
 $$A = P\left(1 + \frac{i}{m}\right)^{mt}$$
@@ -167,6 +187,23 @@ In week 1 `e` was "the base your calculator's `ln` uses". Here it earns its plac
 ::: {.callout-tip title="Board sentence"}
 Compounding more often always helps, and always by less. The limit is `e`.
 :::
+
+## A is a function — and you know how to study one
+
+$$A(t) = P(1+i)^{t}, \qquad t \ge 0$$
+
+| step | | |
+|---|---|---|
+| 1 · domain | $[0, \infty)$ | time runs forward |
+| 2 · limits | $A(0) = P$; $A(t) \to \infty$ as $t \to \infty$ | no ceiling: a 5% deposit doubles every 14 years, for ever |
+| 5 · monotone | $A'(t) = A(t)\ln(1+i) > 0$ | always rising; and the rise is proportional to what is already there |
+| 6 · convexity | $A''(t) = A(t)\ln^{2}(1+i) > 0$ | **convex throughout, no inflection**: growth that keeps accelerating |
+
+. . .
+
+Simple interest is $A = P(1+it)$: a straight line, $A'' = 0$. That is the whole difference between the two tables, said with step 6.
+
+[Challenge, in the drills: D15 is this study on paper; D16 is the same seven steps on the NPV curve you will meet in block D — its zero has a name.]{.red}
 
 ## Four blocks today {.hub auto-animate=true}
 

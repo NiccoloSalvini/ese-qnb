@@ -41,6 +41,8 @@ Two loans quote the same nominal rate. Loan A compounds monthly, loan B annually
 (b) Its value if growth is 3.5% instead. By how much, in euros, does one point of growth move the price?
 (c) One line: why does the formula give nonsense if someone assumes growth of 10% or more?
 
+**H10 (challenge — a function study, on money).** For the project in H8, write `NPV(r)` as a function of the discount rate, `r ≥ 0`, and study it: `NPV(0)` and what it means; the limit as `r → ∞` and the asymptote; why it is decreasing; where it changes sign (you have its value at 10% and at 18%); a sketch with those points. Finish with one sentence on what the sketch says about the project's margin of safety.
+
 ## Part 2 — Memo to the Board (150–250 words, typed)
 
 The Board of Arno Bikes has been offered the assembly line from class: **€2.4M now, returning €700k, €800k, €900k and €1,000k over four years.** A Board member says: *"It returns €3.4M on a €2.4M outlay. That is a million of profit — obviously we do it."*
@@ -62,4 +64,5 @@ No formulas in the text. Put the discounting table in an appendix if you want it
 - **H1–H4** are the resit's multiple-choice-with-justification block, in the exact form.
 - **H5–H7** are the present-value machinery every financial-maths question rests on.
 - **H9** goes one step beyond the syllabus: the same perpetuity, with growth — how a whole firm is priced.
+- **H10** is the week-3 function study applied to the NPV curve: the final and the resit each ask one of the two, and this is where they meet.
 - **H8 and the memo** are the NPV question, and the register the midterm asks for: a decision, defended with numbers, for people who will not read an appendix.
