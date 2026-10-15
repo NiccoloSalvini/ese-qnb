@@ -1750,11 +1750,11 @@
     "text": "Four blocks today\n\n\nBlock AWhat does compounding actually do?simple · compound · e\n\n\nBlock BWhich of two quotes is cheaper?the effective rate\n\n\nBlock CWhat is a future euro worth today?discounting · annuities · growth\n\n\nBlock DBuild the line or not?NPV · IRR"
   },
   {
-    "objectID": "lectures/04-money-over-time.html#the-two-weeks-as-one-chain",
-    "href": "lectures/04-money-over-time.html#the-two-weeks-as-one-chain",
+    "objectID": "lectures/04-money-over-time.html#the-two-weeks-as-one-map",
+    "href": "lectures/04-money-over-time.html#the-two-weeks-as-one-map",
     "title": "Money has a date on it",
-    "section": "The two weeks, as one chain",
-    "text": "The two weeks, as one chain\nEvery row uses the one above it, and every tool on the right you already own.\n\n\n\n\n\n\n\n\n\n\nThe question\nThe tool\nThe mathematics behind it\n\n\n\n\nSimple interest\nwhat does €1 earn if interest never earns interest?\nA = P(1 + it)\na straight line — week 1\n\n\nCompound interest\nand if it does?\nA = P(1 + i)^{t}\nan exponential — week 1\n\n\nMore often, then always\ndoes compounding every day change much?\n(1 + i/m)^{mt} \\to e^{it}\na limit, and e — week 2\n\n\nEffective rate\nwhich of two quotes is cheaper?\nEAR = (1 + i/m)^{m} - 1\nthe same exponential, read as a price\n\n\nDiscounting\nwhat is a future euro worth today?\nPV = FV/(1+r)^{t}\nthe exponential run backwards: a negative exponent\n\n\nAnnuity, perpetuity, growth\nmany dated euros at once\nC\\frac{1-(1+r)^{-n}}{r}, \\frac{C}{r}, \\frac{CF_1}{r-g}\na geometric series and its limit\n\n\nNPV, IRR\nbuild the line or not?\n\\sum CF_t/(1+r)^{t}\na function of r, and its zero — week 1\n\n\nNext week — bond price\nwhat is a promise with dates worth?\nannuity + one lump sum\nthe same discounting\n\n\nNext week — duration\nhow much does a rate rise cost?\n-\\frac{1}{P}\\frac{dP}{dy}\nthe derivative — week 2\n\n\nNext week — convexity\nwhat the straight line misses\n\\frac{d^{2}P}{dy^{2}}\nthe second derivative: step 6 — week 3\n\n\n\nToday: the first seven rows. Thursday 22nd: the last three, and the mock of the final’s calculus question."
+    "section": "The two weeks, as one map",
+    "text": "The two weeks, as one map\n\nEvery tool in grey you already own. Today the left half; Thursday 22nd the right half, and the mock of the final’s calculus question."
   },
   {
     "objectID": "lectures/04-money-over-time.html#block-a-interest-and-what-compounding-actually-does",
@@ -1838,7 +1838,7 @@
     "href": "lectures/04-money-over-time.html#two-quotes-same-nominal-rate-different-price",
     "title": "Money has a date on it",
     "section": "Two quotes, same nominal rate, different price",
-    "text": "Two quotes, same nominal rate, different price\n\n\nEAR = \\left(1 + \\frac{i}{m}\\right)^{m} - 1\n\n\n\n12% nominal, compounded\nEAR\n\n\n\n\nsemi-annually\n12.36%\n\n\nquarterly\n12.55%\n\n\nmonthly\n12.68%\n\n\ncontinuously\n12.75%\n\n\n\n\nBank A: 7.8% compounded monthly.Bank B: 8% compounded annually.\n\n\n\n\n\n\n\nBet before we compute\n\n\nWhich do you borrow from?\n\n\n\n\n\nA: (1 + 0.078/12)¹² − 1 = 8.085%. B: 8.000%. Borrow from B. The lower headline rate is the dearer loan.\n\n\nA nominal rate is not a price until you know m. This is the single most useful line of the whole module."
+    "text": "Two quotes, same nominal rate, different price\n\n\nEAR = \\left(1 + \\frac{i}{m}\\right)^{m} - 1\n\n\n\n12% nominal, compounded\nEAR\n\n\n\n\nsemi-annually\n12.36%\n\n\nquarterly\n12.55%\n\n\nmonthly\n12.68%\n\n\ncontinuously\n12.75%\n\n\n\n\nBank A: 7.8% compounded monthly.Bank B: 8% compounded annually.\n\n\n\n\n\n\n\nBet before we compute\n\n\nWhich do you borrow from?\n\n\n\n\n\nA: (1 + 0.078/12)¹² − 1 = 8.085%. B: 8.000%. Borrow from B. The lower headline rate is the dearer loan.\n\n\nA nominal rate is not a price until you know m."
   },
   {
     "objectID": "lectures/04-money-over-time.html#d4-d5-put-everything-on-the-same-basis",
@@ -1866,7 +1866,14 @@
     "href": "lectures/04-money-over-time.html#what-is-10000-in-five-years-worth-now",
     "title": "Money has a date on it",
     "section": "What is €10,000 in five years worth now?",
-    "text": "What is €10,000 in five years worth now?\nPV = \\frac{FV}{(1+r)^{t}} = \\frac{10{,}000}{(1.07)^{5}} = €7{,}129.86\nCompounding pushes money forward; discounting pulls it back. Same formula, read the other way."
+    "text": "What is €10,000 in five years worth now?\nPV = \\frac{FV}{(1+r)^{t}} = \\frac{10{,}000}{(1.07)^{5}} = €7{,}129.86\nFV the future value, the sum on its future date · PV the present value, what that sum is worth today · r the rate, now called the discount rate · t the years between.\nCompounding pushes money forward; discounting pulls it back. Same formula, read the other way."
+  },
+  {
+    "objectID": "lectures/04-money-over-time.html#why-is-a-future-euro-worth-less-than-one-today",
+    "href": "lectures/04-money-over-time.html#why-is-a-future-euro-worth-less-than-one-today",
+    "title": "Money has a date on it",
+    "section": "Why is a future euro worth less than one today?",
+    "text": "Why is a future euro worth less than one today?\n\nOpportunity cost. The euro you hold now can be deposited at r and will have grown by then. A €1,000 bonus paid in a year, with a 4% deposit available, is worth 1,000/1.04 = €961.54 today — because €961.54 today becomes €1,000 in a year. This is the reason the formula uses.\nInflation. A euro in five years buys less than a euro now. In practice the rate r you are quoted already contains it.\nRisk. A promised euro may not arrive. The less sure it is, the higher the rate you discount it at.\n\n\n\n\n\n\n\n\n\nCost of capital\n\n\nThe rate a firm discounts at is its cost of capital: what its money costs it. For Arno Bikes today, the 9% it borrows at. Block D shows the fuller version, a blend of what lenders charge and what shareholders expect."
   },
   {
     "objectID": "lectures/04-money-over-time.html#why-the-rate-matters-more-than-the-forecast",

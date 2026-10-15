@@ -285,88 +285,10 @@ Niccolò Salvini, PhD
 </div>
 </div>
 </section>
-<section id="the-two-weeks-as-one-chain" class="slide level2 smaller">
-<h2>The two weeks, as one chain</h2>
-<p>Every row uses the one above it, and every tool on the right you already own.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>The question</th>
-<th>The tool</th>
-<th>The mathematics behind it</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Simple interest</strong></td>
-<td>what does €1 earn if interest never earns interest?</td>
-<td><span class="math inline">A = P(1 + it)</span></td>
-<td>a straight line — week 1</td>
-</tr>
-<tr class="even">
-<td><strong>Compound interest</strong></td>
-<td>and if it does?</td>
-<td><span class="math inline">A = P(1 + i)^{t}</span></td>
-<td>an exponential — week 1</td>
-</tr>
-<tr class="odd">
-<td><strong>More often, then always</strong></td>
-<td>does compounding every day change much?</td>
-<td><span class="math inline">(1 + i/m)^{mt} \to e^{it}</span></td>
-<td>a limit, and <span class="math inline">e</span> — week 2</td>
-</tr>
-<tr class="even">
-<td><strong>Effective rate</strong></td>
-<td>which of two quotes is cheaper?</td>
-<td><span class="math inline">EAR = (1 + i/m)^{m} - 1</span></td>
-<td>the same exponential, read as a price</td>
-</tr>
-<tr class="odd">
-<td><strong>Discounting</strong></td>
-<td>what is a future euro worth today?</td>
-<td><span class="math inline">PV = FV/(1+r)^{t}</span></td>
-<td>the exponential run backwards: a negative exponent</td>
-</tr>
-<tr class="even">
-<td><strong>Annuity, perpetuity, growth</strong></td>
-<td>many dated euros at once</td>
-<td><span class="math inline">C\frac{1-(1+r)^{-n}}{r}</span>, <span class="math inline">\frac{C}{r}</span>, <span class="math inline">\frac{CF_1}{r-g}</span></td>
-<td>a geometric series and its limit</td>
-</tr>
-<tr class="odd">
-<td><strong>NPV, IRR</strong></td>
-<td>build the line or not?</td>
-<td><span class="math inline">\sum CF_t/(1+r)^{t}</span></td>
-<td>a function of <span class="math inline">r</span>, and its zero — week 1</td>
-</tr>
-<tr class="even">
-<td><em>Next week</em> — <strong>bond price</strong></td>
-<td>what is a promise with dates worth?</td>
-<td>annuity + one lump sum</td>
-<td>the same discounting</td>
-</tr>
-<tr class="odd">
-<td><em>Next week</em> — <strong>duration</strong></td>
-<td>how much does a rate rise cost?</td>
-<td><span class="math inline">-\frac{1}{P}\frac{dP}{dy}</span></td>
-<td>the derivative — week 2</td>
-</tr>
-<tr class="even">
-<td><em>Next week</em> — <strong>convexity</strong></td>
-<td>what the straight line misses</td>
-<td><span class="math inline">\frac{d^{2}P}{dy^{2}}</span></td>
-<td>the second derivative: step 6 — week 3</td>
-</tr>
-</tbody>
-</table>
-<p><span class="red">Today: the first seven rows. Thursday 22nd: the last three, and the mock of the final’s calculus question.</span></p>
+<section id="the-two-weeks-as-one-map" class="slide level2">
+<h2>The two weeks, as one map</h2>
+
+<img data-src="img/w04_map.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:96.0%"><p><span class="muted">Every tool in grey you already own. Today the left half; Thursday 22nd the right half, and the mock of the final’s calculus question.</span></p>
 </section>
 <section id="block-a-interest-and-what-compounding-actually-does" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><span class="section-kicker">Block A</span> Interest, and what compounding actually does</h2>
@@ -664,7 +586,7 @@ Niccolò Salvini, PhD
 <p>A: <code>(1 + 0.078/12)¹² − 1 = 8.085%</code>. B: <code>8.000%</code>. <strong>Borrow from B.</strong> The lower headline rate is the dearer loan.</p>
 </div>
 </div></div>
-<p><span class="red">A nominal rate is not a price until you know <code>m</code>. This is the single most useful line of the whole module.</span></p>
+<p><span class="red">A nominal rate is not a price until you know <code>m</code>.</span></p>
 </section>
 <section id="d4-d5-put-everything-on-the-same-basis" class="slide level2 paper" data-background-color="#eceff0">
 <h2>D4, D5 — put everything on the same basis</h2>
@@ -697,9 +619,35 @@ Niccolò Salvini, PhD
 <section id="what-is-10000-in-five-years-worth-now" class="slide level2">
 <h2>What is €10,000 in five years worth now?</h2>
 <p><span class="math display">PV = \frac{FV}{(1+r)^{t}} = \frac{10{,}000}{(1.07)^{5}} = €7{,}129.86</span></p>
+<p><span class="muted"><strong>FV</strong> the <em>future value</em>, the sum on its future date · <strong>PV</strong> the <em>present value</em>, what that sum is worth today · <strong>r</strong> the rate, now called the <em>discount rate</em> · <strong>t</strong> the years between.</span></p>
 <p>Compounding pushes money forward; discounting pulls it back. Same formula, read the other way.</p>
 
 <img data-src="img/w04_discount_factor.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:62.0%"></section>
+<section id="why-is-a-future-euro-worth-less-than-one-today" class="slide level2">
+<h2>Why is a future euro worth less than one today?</h2>
+<ol type="1">
+<li><strong>Opportunity cost.</strong> The euro you hold now can be deposited at <code>r</code> and will have grown by then. A €1,000 bonus paid in a year, with a 4% deposit available, is worth <code>1,000/1.04 = €961.54</code> today — because €961.54 today <em>becomes</em> €1,000 in a year. This is the reason the formula uses.</li>
+<li><strong>Inflation.</strong> A euro in five years buys less than a euro now. In practice the rate <code>r</code> you are quoted already contains it.</li>
+<li><strong>Risk.</strong> A promised euro may not arrive. The less sure it is, the higher the rate you discount it at.</li>
+</ol>
+<div class="fragment">
+<div title="Cost of capital">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Cost of capital</strong></p>
+</div>
+<div class="callout-content">
+<p>The rate a firm discounts at is its <strong>cost of capital</strong>: what its money costs it. For Arno Bikes today, the 9% it borrows at. Block D shows the fuller version, a blend of what lenders charge and what shareholders expect.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="why-the-rate-matters-more-than-the-forecast" class="slide level2">
 <h2>Why the rate matters more than the forecast</h2>
 <p>At 3%, a euro in twenty years is worth 55 cents. At 16%, five cents.</p>
