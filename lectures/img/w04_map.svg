@@ -1,54 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 600" font-family="'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif">
-<line x1="470" y1="300" x2="420" y2="300" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="420" y1="70" x2="420" y2="550" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="420" y1="70" x2="320" y2="70" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="420" y1="150" x2="320" y2="150" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="420" y1="230" x2="320" y2="230" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="420" y1="320" x2="320" y2="320" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="420" y1="410" x2="320" y2="410" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="420" y1="470" x2="320" y2="470" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="420" y1="550" x2="320" y2="550" stroke="#2471a3" stroke-width="2" opacity="0.7"/>
-<line x1="795" y1="300" x2="950" y2="160" stroke="#AF1F25" stroke-width="2" opacity="0.7"/>
-<line x1="795" y1="300" x2="950" y2="300" stroke="#AF1F25" stroke-width="2" opacity="0.7"/>
-<line x1="795" y1="300" x2="950" y2="440" stroke="#AF1F25" stroke-width="2" opacity="0.7"/>
-<rect x="445" y="254" width="350" height="92" rx="10" fill="#AF1F25"/>
-<text x="620" y="292" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">Money has a date on it</text>
-<text x="620" y="324" text-anchor="middle" fill="#CDBA80" font-size="15">euros with different dates cannot be added</text>
-<text x="170" y="30" fill="#7f8c8d" font-size="15" letter-spacing="2" text-anchor="middle">THIS WEEK · 15 OCT</text>
-<text x="1070" y="110" fill="#7f8c8d" font-size="15" letter-spacing="2" text-anchor="middle">NEXT WEEK · 22 OCT</text>
-<text x="436" y="220" fill="#7f8c8d" font-size="13" transform="rotate(-90 436 220)" text-anchor="middle">each uses the one above</text>
-<circle cx="420" cy="150" r="13" fill="#fff" stroke="#2471a3" stroke-width="2"/><text x="420" y="155" text-anchor="middle" fill="#2471a3" font-size="14" font-weight="700">A</text>
-<circle cx="420" cy="320" r="13" fill="#fff" stroke="#2471a3" stroke-width="2"/><text x="420" y="325" text-anchor="middle" fill="#2471a3" font-size="14" font-weight="700">B</text>
-<circle cx="420" cy="440" r="13" fill="#fff" stroke="#2471a3" stroke-width="2"/><text x="420" y="445" text-anchor="middle" fill="#2471a3" font-size="14" font-weight="700">C</text>
-<circle cx="420" cy="550" r="13" fill="#fff" stroke="#2471a3" stroke-width="2"/><text x="420" y="555" text-anchor="middle" fill="#2471a3" font-size="14" font-weight="700">D</text>
-<rect x="20.0" y="44" width="300" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
-<text x="170" y="66" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Simple interest</text>
-<text x="170" y="86" text-anchor="middle" fill="#7f8c8d" font-size="12.5">A = P(1+it) · a line, wk 1</text>
-<rect x="20.0" y="124" width="300" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
-<text x="170" y="146" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Compound interest</text>
-<text x="170" y="166" text-anchor="middle" fill="#7f8c8d" font-size="12.5">A = P(1+i)^t · an exponential, wk 1</text>
-<rect x="20.0" y="204" width="300" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
-<text x="170" y="226" text-anchor="middle" fill="#222" font-size="18" font-weight="700">More often → e</text>
-<text x="170" y="246" text-anchor="middle" fill="#7f8c8d" font-size="12.5">(1+i/m)^mt → e^it · a limit, wk 2</text>
-<rect x="20.0" y="294" width="300" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
-<text x="170" y="316" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Effective rate</text>
-<text x="170" y="336" text-anchor="middle" fill="#7f8c8d" font-size="12.5">EAR = (1+i/m)^m − 1 · same exponential, as a price</text>
-<rect x="20.0" y="384" width="300" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
-<text x="170" y="406" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Discounting</text>
-<text x="170" y="426" text-anchor="middle" fill="#7f8c8d" font-size="12.5">PV = FV/(1+r)^t · the exponential backwards</text>
-<rect x="20.0" y="444" width="300" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
-<text x="170" y="466" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Annuity · perpetuity · growth</text>
-<text x="170" y="486" text-anchor="middle" fill="#7f8c8d" font-size="12.5">C/r, CF₁/(r−g) · a geometric series, and its limit</text>
-<rect x="20.0" y="524" width="300" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
-<text x="170" y="546" text-anchor="middle" fill="#222" font-size="18" font-weight="700">NPV and IRR</text>
-<text x="170" y="566" text-anchor="middle" fill="#7f8c8d" font-size="12.5">Σ CF/(1+r)^t · a function of r, and its zero, wk 1</text>
-<rect x="925.0" y="134" width="290" height="52" rx="8" fill="#fff" stroke="#AF1F25" stroke-width="2"/>
-<text x="1070" y="156" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Bond price</text>
-<text x="1070" y="176" text-anchor="middle" fill="#7f8c8d" font-size="12.5">annuity + one lump sum · the same discounting</text>
-<rect x="925.0" y="274" width="290" height="52" rx="8" fill="#fff" stroke="#AF1F25" stroke-width="2"/>
-<text x="1070" y="296" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Duration</text>
-<text x="1070" y="316" text-anchor="middle" fill="#7f8c8d" font-size="12.5">−(1/P)·dP/dy · the derivative, wk 2</text>
-<rect x="925.0" y="414" width="290" height="52" rx="8" fill="#fff" stroke="#AF1F25" stroke-width="2"/>
-<text x="1070" y="436" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Convexity</text>
-<text x="1070" y="456" text-anchor="middle" fill="#7f8c8d" font-size="12.5">d²P/dy² · the second derivative: step 6, wk 3</text>
+<defs><marker id="an" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2471a3"/></marker><marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#AF1F25"/></marker></defs>
+<text x="160" y="14" fill="#7f8c8d" font-size="13" letter-spacing="2">TODAY · 15 OCT · ONE CHAIN, FOUR BLOCKS</text>
+<text x="775.0" y="218" fill="#AF1F25" font-size="13" letter-spacing="2">NEXT WEEK · 22 OCT · THE CHAIN, APPLIED TO A BOND</text>
+<line x1="300" y1="74.0" x2="300" y2="124.0" stroke="#2471a3" stroke-width="2" marker-end="url(#an)"/>
+<text x="314" y="104.0" fill="#7f8c8d" font-size="12.5" font-style="italic">interest starts earning interest: the line bends into an exponential</text>
+<line x1="300" y1="176.0" x2="300" y2="226.0" stroke="#2471a3" stroke-width="2" marker-end="url(#an)"/>
+<text x="314" y="206.0" fill="#7f8c8d" font-size="12.5" font-style="italic">the same growth m times a year, not once; push m to infinity and the ceiling is e</text>
+<line x1="300" y1="278.0" x2="300" y2="328.0" stroke="#2471a3" stroke-width="2" marker-end="url(#an)"/>
+<text x="314" y="308.0" fill="#7f8c8d" font-size="12.5" font-style="italic">compounding run backwards: divide by (1 + r)^t instead of multiplying</text>
+<line x1="300" y1="380.0" x2="300" y2="430.0" stroke="#2471a3" stroke-width="2" marker-end="url(#an)"/>
+<text x="314" y="410.0" fill="#7f8c8d" font-size="12.5" font-style="italic">not one future euro but many, each discounted, then added; "for ever" is a limit, n → ∞</text>
+<line x1="300" y1="482.0" x2="300" y2="532.0" stroke="#2471a3" stroke-width="2" marker-end="url(#an)"/>
+<text x="314" y="512.0" fill="#7f8c8d" font-size="12.5" font-style="italic">an outlay today and every future flow discounted, then added: all of the above in one table</text>
+<line x1="940" y1="278.0" x2="940" y2="328.0" stroke="#AF1F25" stroke-width="2" marker-end="url(#ar)"/>
+<text x="954" y="308.0" fill="#7f8c8d" font-size="12.5" font-style="italic">the price as a function of the rate: its slope</text>
+<line x1="940" y1="380.0" x2="940" y2="430.0" stroke="#AF1F25" stroke-width="2" marker-end="url(#ar)"/>
+<text x="954" y="410.0" fill="#7f8c8d" font-size="12.5" font-style="italic">what the slope misses: the bend</text>
+<polyline points="465.0,558 1133.0,558 1133.0,252 1107.0,252" fill="none" stroke="#AF1F25" stroke-width="2" marker-end="url(#ar)"/>
+<text x="620.0" y="548" fill="#7f8c8d" font-size="12.5" font-style="italic" text-anchor="middle">a bond is an NPV whose flows are fixed in advance</text>
+<rect x="775.0" y="12" width="330" height="110" rx="8" fill="#AF1F25"/>
+<text x="940" y="42" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">The one rule</text>
+<text x="940" y="68" text-anchor="middle" fill="#CDBA80" font-size="14">euros with different dates cannot be added.</text>
+<text x="940" y="88" text-anchor="middle" fill="#CDBA80" font-size="14">Move them to one date first — forward</text>
+<text x="940" y="108" text-anchor="middle" fill="#CDBA80" font-size="14">by compounding, back by discounting.</text>
+<rect x="135.0" y="22.0" width="330" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
+<text x="300" y="44" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Simple interest</text>
+<text x="300" y="64" text-anchor="middle" fill="#7f8c8d" font-size="12.5">A = P(1 + it) · a straight line</text>
+<circle cx="135.0" cy="22.0" r="12" fill="#2471a3"/><text x="135.0" y="27.0" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">A</text>
+<rect x="135.0" y="124.0" width="330" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
+<text x="300" y="146" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Compound interest</text>
+<text x="300" y="166" text-anchor="middle" fill="#7f8c8d" font-size="12.5">A = P(1 + i)^t · an exponential</text>
+<circle cx="135.0" cy="124.0" r="12" fill="#2471a3"/><text x="135.0" y="129.0" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">A</text>
+<rect x="135.0" y="226.0" width="330" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
+<text x="300" y="248" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Effective rate</text>
+<text x="300" y="268" text-anchor="middle" fill="#7f8c8d" font-size="12.5">EAR = (1 + i/m)^m − 1 · m → ∞ gives e</text>
+<circle cx="135.0" cy="226.0" r="12" fill="#2471a3"/><text x="135.0" y="231.0" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">B</text>
+<rect x="135.0" y="328.0" width="330" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
+<text x="300" y="350" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Discounting</text>
+<text x="300" y="370" text-anchor="middle" fill="#7f8c8d" font-size="12.5">PV = FV / (1 + r)^t</text>
+<circle cx="135.0" cy="328.0" r="12" fill="#2471a3"/><text x="135.0" y="333.0" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">C</text>
+<rect x="135.0" y="430.0" width="330" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
+<text x="300" y="452" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Annuity · perpetuity · growth</text>
+<text x="300" y="472" text-anchor="middle" fill="#7f8c8d" font-size="12.5">C(1 − (1+r)^−n)/r · C/r · CF₁/(r − g)</text>
+<circle cx="135.0" cy="430.0" r="12" fill="#2471a3"/><text x="135.0" y="435.0" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">C</text>
+<rect x="135.0" y="532.0" width="330" height="52" rx="8" fill="#fff" stroke="#2471a3" stroke-width="2"/>
+<text x="300" y="554" text-anchor="middle" fill="#222" font-size="18" font-weight="700">NPV and IRR</text>
+<text x="300" y="574" text-anchor="middle" fill="#7f8c8d" font-size="12.5">− outlay + Σ CF_t /(1 + r)^t</text>
+<circle cx="135.0" cy="532.0" r="12" fill="#2471a3"/><text x="135.0" y="537.0" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">D</text>
+<rect x="775.0" y="226.0" width="330" height="52" rx="8" fill="#fff" stroke="#AF1F25" stroke-width="2"/>
+<text x="940" y="248" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Bond price</text>
+<text x="940" y="268" text-anchor="middle" fill="#7f8c8d" font-size="12.5">coupons + face value, each discounted</text>
+<rect x="775.0" y="328.0" width="330" height="52" rx="8" fill="#fff" stroke="#AF1F25" stroke-width="2"/>
+<text x="940" y="350" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Duration</text>
+<text x="940" y="370" text-anchor="middle" fill="#7f8c8d" font-size="12.5">dP/dy · the derivative, week 2</text>
+<rect x="775.0" y="430.0" width="330" height="52" rx="8" fill="#fff" stroke="#AF1F25" stroke-width="2"/>
+<text x="940" y="452" text-anchor="middle" fill="#222" font-size="18" font-weight="700">Convexity</text>
+<text x="940" y="472" text-anchor="middle" fill="#7f8c8d" font-size="12.5">d²P/dy² · the second derivative: step 6, week 3</text>
 </svg>
