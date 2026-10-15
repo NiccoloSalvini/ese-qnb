@@ -301,6 +301,8 @@ At 3%, a euro in twenty years is worth 55 cents. At 16%, five cents.
 
 ## Two shortcuts you will use constantly
 
+Most money in business arrives as a **stream**, not a lump: a lease, a loan repayment, a pension, a dividend, a bond coupon. Discounting each payment by hand is fine for three; for thirty, or for ever, you need the sum already done.
+
 :::: {.columns}
 ::: {.column width="50%"}
 **Annuity** — the same amount, `n` times:
@@ -327,6 +329,8 @@ A buyer asks the Board to name a price for the whole firm.
 - next year's free cash flow: **€300k**
 - growing **3% a year, for ever**
 - cost of capital: **9%**
+
+[*Free cash flow*: the cash the business generates in a year after its costs, taxes and the investment it needs to keep running — what is left for whoever owns it. A firm is a stream of these, so it is priced like one.]{.muted}
 
 With no growth, the perpetuity you just saw:<br>€300k / 0.09 = **€3.33M**.
 
