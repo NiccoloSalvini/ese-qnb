@@ -167,6 +167,57 @@ $$f'' < 0 \;\Rightarrow\; \text{concave, spills water, a maximum}$$
 
 An **inflection** is where `f''` changes sign: the curve stops bending one way and starts bending the other. In business that is where growth stops accelerating and begins to slow — the moment worth naming in a report.
 
+## Step 6, properly: what the second derivative is telling you
+
+$f'$ says whether the curve is **going up or down**. $f''$ says whether it is **bending up or down**. They are different questions, and the brief asks both.
+
+| $f''$ | so $f'$ is… | the slope is… | shape | holds water? |
+|---|---|---|---|---|
+| $> 0$ | increasing | getting steeper (or less negative) | **convex** | yes — a bowl |
+| $< 0$ | decreasing | getting flatter (or more negative) | **concave** | no — a dome |
+| $= 0$ **and changes sign** | at a peak or trough | steepest, or flattest, right there | **inflection** | the switch |
+
+. . .
+
+::: {.callout-important title="The confusion to clear"}
+The **maximum** is where $f' = 0$: growth *stops*. The **inflection** is where $f'' = 0$: growth is *fastest* and stops accelerating. In a sales curve those are two different months, and a report that names the wrong one is wrong.
+:::
+
+## Step 6 on a cubic (D3)
+
+$$f(q) = q^{3} - 12q^{2} + 36q,\qquad f'(q) = 3(q-2)(q-6),\qquad f''(q) = 6q - 24$$
+
+:::: {.columns}
+::: {.column width="58%"}
+| $q$ | 0 → 2 | 2 | 2 → 4 | 4 | 4 → 6 | 6 | 6 → 10 |
+|---|---|---|---|---|---|---|---|
+| $f'$ | + | 0 | − | − | − | 0 | + |
+| $f''$ | − | − | − | **0** | + | + | + |
+| shape | rising, concave | **max** (2, 32) | falling, concave | **inflection** (4, 16) | falling, convex | **min** (6, 0) | rising, convex |
+:::
+::: {.column width="42%"}
+Three lines, and the marker can tick step 6:
+
+1. $f''(q) = 6q - 24 = 0 \Rightarrow q = 4$.
+2. $f'' < 0$ for $q < 4$: **concave**. $f'' > 0$ for $q > 4$: **convex**.
+3. **Inflection at (4, 16)**, where the curve changes from dome to bowl.
+
+[The inflection sits *between* the turning points: where the fall is steepest. If $f''$ never changes sign, write "no inflection; concave throughout" — that earns the step too.]{.muted}
+:::
+::::
+
+## Step 6 in the words of a report
+
+For the log-revenue firm of block B, $R(q) = 30\ln(q+1)$, $C(q) = 0.4q^{2} + 3q + 25$:
+
+- $C''(q) = 0.8 > 0$: cost is **convex throughout** — each extra unit costs more than the last.
+- $R''(q) = -30/(q+1)^{2} < 0$: revenue is **concave throughout** — each extra unit brings in less than the last. *Diminishing returns*, by name.
+- So $\pi'' = R'' - C'' < 0$ everywhere: profit is **concave, with a single maximum and no inflection**. The optimum you find is the only one.
+
+::: {.callout-tip title="Board sentence"}
+Convexity is the second thing a Board wants to know after the optimum: is the ground falling away on both sides fast or slowly. $f''$ is that number.
+:::
+
 ## D1 — the full study, in exam format {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}

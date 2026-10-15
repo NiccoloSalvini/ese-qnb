@@ -24,6 +24,13 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 **D3 (stretch).** `f(q) = q³ − 12q² + 36q` on `[0, 10]`.
 (a) Stationary points and their nature. (b) Inflection point. (c) Sketch.
 
+**D3b (core — step 6 on its own).** `f(q) = q³ − 6q² + 9q + 4`, for `q ≥ 0`.
+(a) Compute `f''(q)` and solve `f''(q) = 0`.
+(b) Give the sign of `f''` on each side of that point and name the intervals: convex where, concave where.
+(c) The inflection point, with both coordinates.
+(d) The stationary points, and the nature of each one — using `f''`, not a sketch.
+(e) One sentence a report would use for step 6.
+
 ## B. Optimisation, and what it is for
 
 **D4 (core).** A second firm: `R(q) = 30 ln(q + 1)`, `C(q) = 0.4q² + 3q + 25`, both in € thousand, `q ≥ 0`.
@@ -38,6 +45,30 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 (b) At `q = 2` compute both. Which is larger, and what should the firm do?
 
 **D6 (stretch).** A box with a square base and no lid must hold 32 m³. Minimise the material used. *(Surface `S = x² + 4xh`, volume `x²h = 32`.)*
+
+## C. Integration
+
+**D7 (core — exam form).** Evaluate, splitting term by term:
+(a) `∫ (q⁵ − 3q³ + 2)/q² dq`
+(b) `∫ (4q³ − 6q + 5) dq`
+(c) `∫ (2/q + 3√q) dq`
+
+**D8 (core — exam form).** Find `f(q)` given `f'(q) = 12q² − 6q + 1` and `f(2) = 20`.
+
+**D8b (core — exam form, and the one that catches people).** Find `f(x)` given `f'(x) = 12x² − 4x` and **`f(−3) = 17`**. Watch every sign.
+
+**D8c (core — the third rule).** Evaluate, by asking first whether the top is the derivative of the bottom:
+(a) `∫ 1/(q − 4) dq`   (b) `∫ q/(q² + 5) dq`   (c) `∫ (2q + 3)/(q² + 3q − 1) dq`   (d) `∫ 5/(2q + 1) dq`
+
+**D9 (core).** Evaluate the definite integrals and say what each measures:
+(a) `∫₀²⁰ (0.8q + 3) dq` where `0.8q + 3` is marginal cost.
+(b) `∫₁⁴ (6/q) dq`. Leave the answer in terms of `ln`.
+
+**D9b (core — exam form).** Evaluate `∫₀^(1/2) [ 1/(x − 1) + x/(x² − 1) ] dx`, leaving the answer in terms of `ln`. Both terms are logs; neither is `1/x`.
+
+**D10 (stretch).** Marginal profit is `π'(q) = 1200 − 8q`. The firm currently makes 100 bikes.
+(a) By how much does profit change if output rises from 100 to 150? Compute it as a definite integral.
+(b) Check your answer against `π(150) − π(100)` using `π(q) = −4q² + 1200q − 60,000`.
 
 ---
 
@@ -76,6 +107,13 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 (b) `f'' = 0` at **`q = 4`**, `f(4) = 64 − 192 + 144 = 16`; the curvature changes sign there, so it is an inflection.
 (c) Rises to `(2, 32)`, falls to `(6, 0)`, rises again; at `q = 10`, `f = 1000 − 1200 + 360 = 160`.
 
+**D3b.**
+(a) `f'(q) = 3q² − 12q + 9`, `f''(q) = 6q − 12`. `f'' = 0` at **`q = 2`**.
+(b) `f''(1) = −6 < 0`: **concave on `[0, 2)`**. `f''(3) = 6 > 0`: **convex on `(2, ∞)`**. The sign changes, so `q = 2` is a genuine inflection and not just a zero.
+(c) `f(2) = 8 − 24 + 18 + 4 = 6`: **inflection at `(2, 6)`**. Both coordinates, or the point is not located.
+(d) `f'(q) = 3(q − 1)(q − 3) = 0` → `q = 1, 3`. `f''(1) = −6 < 0` → **maximum**, `f(1) = 8`. `f''(3) = 6 > 0` → **minimum**, `f(3) = 4`. Max at 1, inflection at 2, min at 3: the inflection sits *between* the turning points, where the fall is steepest.
+(e) "The curve is concave up to `q = 2` and convex beyond it, with an inflection at `(2, 6)`: the decline that begins at the maximum is steepest there, and slows afterwards until the minimum at `q = 3`."
+
 **D4.**
 (a) `π(q) = 30 ln(q + 1) − 0.4q² − 3q − 25`.
 (b) `π'(q) = 30/(q + 1) − 0.8q − 3`.
@@ -92,5 +130,45 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 
 **D6.** `h = 32/x²`, so `S = x² + 4x(32/x²) = x² + 128/x`.
 `S' = 2x − 128/x² = 0` → `x³ = 64` → **`x = 4`**, `h = 2`. `S'' = 2 + 256/x³ > 0` → minimum. `S = 16 + 32 = **48 m²**`.
+
+**D7.**
+(a) Split first: `(q⁵ − 3q³ + 2)/q² = q³ − 3q + 2q⁻²`.
+  `∫ = q⁴/4 − 3q²/2 − 2/q + c`.
+(b) `q⁴ − 3q² + 5q + c`.
+(c) `∫ 2/q dq = 2 ln|q|`; `∫ 3q^{1/2} dq = 3 · (2/3) q^{3/2} = 2q^{3/2}`. Total: `2 ln|q| + 2q^{3/2} + c`.
+*The exam's integral is always this shape: divide term by term first, then each term is a power or a log.*
+
+**D8.** `f(q) = 4q³ − 3q² + q + c`. `f(2) = 32 − 12 + 2 + c = 20` → `c = −2`.
+**`f(q) = 4q³ − 3q² + q − 2`**.
+
+**D8b.** `f(x) = 4x³ − 2x² + c`. Now substitute carefully:
+`f(−3) = 4(−27) − 2(9) + c = −108 − 18 + c = −126 + c = 17` → `c = 143`.
+**`f(x) = 4x³ − 2x² + 143`**.
+*The trap is `(−3)³ = −27` and `(−3)² = +9`. Two signs, two marks.*
+
+**D8c.** Ask each time: is the top the derivative of the bottom?
+(a) bottom differentiates to 1 → **`ln|q − 4| + c`**.
+(b) bottom differentiates to `2q`, top is `q`, so a factor `½` is missing → **`½ ln(q² + 5) + c`**. (No modulus needed: `q² + 5 > 0` always.)
+(c) bottom differentiates to `2q + 3`, which is exactly the top → **`ln|q² + 3q − 1| + c`**.
+(d) bottom differentiates to 2, top is 5, so `5/2` comes out → **`(5/2) ln|2q + 1| + c`**.
+
+**D9.**
+(a) `[0.4q² + 3q]₀²⁰ = 160 + 60 = **220**`. Total variable cost of the first 20 bikes: adding up marginal cost gives total cost.
+(b) `[6 ln q]₁⁴ = 6 ln 4 − 6 ln 1 = **6 ln 4 ≈ 8.32**`.
+
+**D9b.** Each term is a log.
+`∫ 1/(x−1) dx = ln|x−1|`; `∫ x/(x²−1) dx = ½ ln|x²−1|`.
+So the antiderivative is `ln|x−1| + ½ ln|x²−1|`, and
+
+`at ½ :  ln(½) + ½ ln(¾) = −0.6931 + ½(−0.2877) = −0.8370`
+`at 0 :  ln 1 + ½ ln 1 = 0`
+
+**`= −0.8370`**, or exactly `ln(½) + ½ ln(¾)`.
+*Note the modulus: between 0 and ½ both `x − 1` and `x² − 1` are negative, and without the absolute value the logs are undefined. The exam's model answer expects it.*
+
+**D10.**
+(a) `∫₁₀₀¹⁵⁰ (1200 − 8q) dq = [1200q − 4q²]₁₀₀¹⁵⁰ = (180,000 − 90,000) − (120,000 − 40,000) = 90,000 − 80,000 = **€10,000**`.
+(b) `π(150) = 30,000`; `π(100) = −40,000 + 120,000 − 60,000 = 20,000`. Difference `= **€10,000**`. ✔
+The integral of the marginal is the change in the total. That sentence is the whole of integration.
 
 </details>

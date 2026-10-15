@@ -23,68 +23,11 @@ One of you takes us through it. The Board report, read aloud by its author. The 
 [Block B]{.blk-letter}How much should the firm produce?[Until $R'(q) = C'(q)$. Average cost is lowest where MC = AC]{.blk-answer}
 :::
 ::: {.blk .recap}
-[Quiz]{.blk-letter}Weeks 1–3, five items[Marked and back today. You said step 6, convexity, did not land. Ten minutes on it now, before the money.]{.blk-answer}
+[Quiz]{.blk-letter}Weeks 1–3, five items[Marked and back today. Step 6, convexity: see the week-3 deck and drills, which now say more about it.]{.blk-answer}
 :::
 :::
 
-[That closes the calculus — after one more look at the step that did not land.]{.red}
-
-## Step 6, again: what the second derivative is telling you
-
-$f'$ says whether the curve is **going up or down**. $f''$ says whether it is **bending up or down**. They are different questions, and the exam asks both.
-
-| $f''$ | so $f'$ is… | the slope is… | shape | holds water? |
-|---|---|---|---|---|
-| $> 0$ | increasing | getting steeper (or less negative) | **convex** | yes — a bowl |
-| $< 0$ | decreasing | getting flatter (or more negative) | **concave** | no — a dome |
-| $= 0$ **and changes sign** | at a peak or trough | steepest, or flattest, right there | **inflection** | the switch |
-
-. . .
-
-::: {.callout-important title="The confusion to clear"}
-The **maximum** is where $f' = 0$: growth *stops*. The **inflection** is where $f'' = 0$: growth is *fastest* and stops accelerating. In a sales curve those are two different months, and a report that names the wrong one is wrong.
-:::
-
-## Step 6 on Homework 3 — the cubic you brought (H4)
-
-$$f(q) = q^{3} - 9q^{2} + 24q,\qquad f'(q) = 3(q-2)(q-4),\qquad f''(q) = 6q - 18$$
-
-:::: {.columns}
-::: {.column width="58%"}
-| $q$ | 0 → 2 | 2 | 2 → 3 | 3 | 3 → 4 | 4 | 4 → 6 |
-|---|---|---|---|---|---|---|---|
-| $f'$ | + | 0 | − | − | − | 0 | + |
-| $f''$ | − | − | − | **0** | + | + | + |
-| shape | rising, concave | **max** (2, 20) | falling, concave | **inflection** (3, 18) | falling, convex | **min** (4, 16) | rising, convex |
-:::
-::: {.column width="42%"}
-Three lines, and the marker can tick step 6:
-
-1. $f''(q) = 6q - 18 = 0 \Rightarrow q = 3$.
-2. $f'' < 0$ for $q < 3$: **concave**. $f'' > 0$ for $q > 3$: **convex**.
-3. **Inflection at (3, 18)**, where the curve changes from dome to bowl.
-
-[No zero of $f''$, or a zero that does not change sign → "no inflection; convex (or concave) throughout". That sentence earns the step too.]{.muted}
-:::
-::::
-
-## Step 6 in the words of a report
-
-For the log-revenue firm from last week, $R(q) = 30\ln(q+1)$, $C(q) = 0.4q^{2} + 3q + 25$:
-
-- $C''(q) = 0.8 > 0$: cost is **convex throughout** — each extra unit costs more than the last.
-- $R''(q) = -30/(q+1)^{2} < 0$: revenue is **concave throughout** — each extra unit brings in less than the last. *Diminishing returns*, by name.
-- So $\pi'' = R'' - C'' < 0$ everywhere: profit is **concave, with a single maximum and no inflection**. The optimum you found is the only one.
-
-::: {.callout-tip title="Board sentence"}
-Convexity is the second thing a Board wants to know after the optimum: is the ground falling away on both sides fast or slowly. $f''$ is that number.
-:::
-
-## D0 — step 6, in exam format {.paper background-color="#eceff0"}
-
-[PAPER · drills.md]{.kicker}
-
-8 minutes. A cubic: $f''$, its zero, the sign on each side, the inflection point with both coordinates, and the nature of the two stationary points. Label each line with the step it answers.
+[That closes the calculus. Today every euro gets a date.]{.red}
 
 ## Where we are
 
@@ -132,6 +75,25 @@ It returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no �
 [Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
 :::
 :::
+
+## The two weeks, as one chain {.smaller}
+
+Every row uses the one above it, and every tool on the right you already own.
+
+| | The question | The tool | The mathematics behind it |
+|---|---|---|---|
+| **Simple interest** | what does €1 earn if interest never earns interest? | $A = P(1 + it)$ | a straight line — week 1 |
+| **Compound interest** | and if it does? | $A = P(1 + i)^{t}$ | an exponential — week 1 |
+| **More often, then always** | does compounding every day change much? | $(1 + i/m)^{mt} \to e^{it}$ | a limit, and $e$ — week 2 |
+| **Effective rate** | which of two quotes is cheaper? | $EAR = (1 + i/m)^{m} - 1$ | the same exponential, read as a price |
+| **Discounting** | what is a future euro worth today? | $PV = FV/(1+r)^{t}$ | the exponential run backwards: a negative exponent |
+| **Annuity, perpetuity, growth** | many dated euros at once | $C\frac{1-(1+r)^{-n}}{r}$, $\frac{C}{r}$, $\frac{CF_1}{r-g}$ | a geometric series and its limit |
+| **NPV, IRR** | build the line or not? | $\sum CF_t/(1+r)^{t}$ | a function of $r$, and its zero — week 1 |
+| *Next week* — **bond price** | what is a promise with dates worth? | annuity + one lump sum | the same discounting |
+| *Next week* — **duration** | how much does a rate rise cost? | $-\frac{1}{P}\frac{dP}{dy}$ | the derivative — week 2 |
+| *Next week* — **convexity** | what the straight line misses | $\frac{d^{2}P}{dy^{2}}$ | the second derivative: step 6 — week 3 |
+
+[Today: the first seven rows. Thursday 22nd: the last three, and the mock of the final's calculus question.]{.red}
 
 ## [Block A]{.section-kicker} Interest, and what compounding actually does {.section-slide background-color="#AF1F25" auto-animate=true}
 
@@ -495,6 +457,6 @@ The discount rate is not an assumption you pick. It is the price your own money 
 4. A firm growing for ever is worth $CF_1/(r-g)$; the gap $r-g$ is where the valuation's risk sits.
 5. Accept when NPV is positive at your own cost of capital; IRR is where it crosses zero.
 
-**Homework 4** (`homework.md`), for Thursday 22 October, corrected together at the board: nine drills plus a memo correcting the Board member — and three short calculus items at the top, to keep the final's integral warm. Three of the five parts of that exam question are integrals; they must not go cold between now and December.
+**Homework 4** (`homework.md`), for Thursday 22 October, corrected together at the board: nine drills plus a memo correcting the Board member.
 
 Next week: the same arithmetic applied to a bond, and the two numbers that say how much a rate rise would cost you.
