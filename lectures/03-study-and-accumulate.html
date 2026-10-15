@@ -430,6 +430,163 @@ Niccolò Salvini, PhD
 <p><span class="math display">f'' &gt; 0 \;\Rightarrow\; \text{convex, holds water, a minimum}</span> <span class="math display">f'' &lt; 0 \;\Rightarrow\; \text{concave, spills water, a maximum}</span></p>
 <p>An <strong>inflection</strong> is where <code>f''</code> changes sign: the curve stops bending one way and starts bending the other. In business that is where growth stops accelerating and begins to slow — the moment worth naming in a report.</p>
 </section>
+<section id="step-6-properly-what-the-second-derivative-is-telling-you" class="slide level2">
+<h2>Step 6, properly: what the second derivative is telling you</h2>
+<p><span class="math inline">f'</span> says whether the curve is <strong>going up or down</strong>. <span class="math inline">f''</span> says whether it is <strong>bending up or down</strong>. They are different questions, and the brief asks both.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">f''</span></th>
+<th>so <span class="math inline">f'</span> is…</th>
+<th>the slope is…</th>
+<th>shape</th>
+<th>holds water?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">&gt; 0</span></td>
+<td>increasing</td>
+<td>getting steeper (or less negative)</td>
+<td><strong>convex</strong></td>
+<td>yes — a bowl</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">&lt; 0</span></td>
+<td>decreasing</td>
+<td>getting flatter (or more negative)</td>
+<td><strong>concave</strong></td>
+<td>no — a dome</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">= 0</span> <strong>and changes sign</strong></td>
+<td>at a peak or trough</td>
+<td>steepest, or flattest, right there</td>
+<td><strong>inflection</strong></td>
+<td>the switch</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div title="The confusion to clear">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The confusion to clear</strong></p>
+</div>
+<div class="callout-content">
+<p>The <strong>maximum</strong> is where <span class="math inline">f' = 0</span>: growth <em>stops</em>. The <strong>inflection</strong> is where <span class="math inline">f'' = 0</span>: growth is <em>fastest</em> and stops accelerating. In a sales curve those are two different months, and a report that names the wrong one is wrong.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-on-a-cubic-d3" class="slide level2">
+<h2>Step 6 on a cubic (D3)</h2>
+<p><span class="math display">f(q) = q^{3} - 12q^{2} + 36q,\qquad f'(q) = 3(q-2)(q-6),\qquad f''(q) = 6q - 24</span></p>
+<div class="columns">
+<div class="column" style="width:58%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">q</span></th>
+<th>0 → 2</th>
+<th>2</th>
+<th>2 → 4</th>
+<th>4</th>
+<th>4 → 6</th>
+<th>6</th>
+<th>6 → 10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">f'</span></td>
+<td>+</td>
+<td>0</td>
+<td>−</td>
+<td>−</td>
+<td>−</td>
+<td>0</td>
+<td>+</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">f''</span></td>
+<td>−</td>
+<td>−</td>
+<td>−</td>
+<td><strong>0</strong></td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr class="odd">
+<td>shape</td>
+<td>rising, concave</td>
+<td><strong>max</strong> (2, 32)</td>
+<td>falling, concave</td>
+<td><strong>inflection</strong> (4, 16)</td>
+<td>falling, convex</td>
+<td><strong>min</strong> (6, 0)</td>
+<td>rising, convex</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:42%;">
+<p>Three lines, and the marker can tick step 6:</p>
+<ol type="1">
+<li><span class="math inline">f''(q) = 6q - 24 = 0 \Rightarrow q = 4</span>.</li>
+<li><span class="math inline">f'' &lt; 0</span> for <span class="math inline">q &lt; 4</span>: <strong>concave</strong>. <span class="math inline">f'' &gt; 0</span> for <span class="math inline">q &gt; 4</span>: <strong>convex</strong>.</li>
+<li><strong>Inflection at (4, 16)</strong>, where the curve changes from dome to bowl.</li>
+</ol>
+<p><span class="muted">The inflection sits <em>between</em> the turning points: where the fall is steepest. If <span class="math inline">f''</span> never changes sign, write “no inflection; concave throughout” — that earns the step too.</span></p>
+</div></div>
+</section>
+<section id="step-6-in-the-words-of-a-report" class="slide level2">
+<h2>Step 6 in the words of a report</h2>
+<p>For the log-revenue firm of block B, <span class="math inline">R(q) = 30\ln(q+1)</span>, <span class="math inline">C(q) = 0.4q^{2} + 3q + 25</span>:</p>
+<ul>
+<li><span class="math inline">C''(q) = 0.8 &gt; 0</span>: cost is <strong>convex throughout</strong> — each extra unit costs more than the last.</li>
+<li><span class="math inline">R''(q) = -30/(q+1)^{2} &lt; 0</span>: revenue is <strong>concave throughout</strong> — each extra unit brings in less than the last. <em>Diminishing returns</em>, by name.</li>
+<li>So <span class="math inline">\pi'' = R'' - C'' &lt; 0</span> everywhere: profit is <strong>concave, with a single maximum and no inflection</strong>. The optimum you find is the only one.</li>
+</ul>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Convexity is the second thing a Board wants to know after the optimum: is the ground falling away on both sides fast or slowly. <span class="math inline">f''</span> is that number.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="d1-the-full-study-in-exam-format" class="slide level2 paper" data-background-color="#eceff0">
 <h2>D1 — the full study, in exam format</h2>
 <p><span class="kicker">PAPER · drills.md</span></p>
