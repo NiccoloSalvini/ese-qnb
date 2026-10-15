@@ -405,6 +405,7 @@ Niccolò Salvini, PhD
 </table>
 <div class="fragment">
 <p><span class="math display">A = P(1 + it)</span></p>
+<p><span class="muted"><strong>P</strong> the <em>principal</em>, what you put in · <strong>i</strong> the rate per year · <strong>t</strong> the years · <strong>A</strong> the <em>amount</em> at the end.</span></p>
 <p>The <code>t</code> is a <strong>multiplication</strong>, because you are adding the same amount <code>t</code> times.</p>
 </div>
 </section>
@@ -448,6 +449,54 @@ Niccolò Salvini, PhD
 
 <img data-src="img/w04_two_ways.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:78.0%"><p>The gold gap is what compounding adds. It is €88 after three years and <strong>€1,527 after ten</strong> — and it is the same 6% throughout.</p>
 <p><span class="muted">Nobody in finance means “simple” when they say interest. It is in the syllabus so that you can name what compounding adds, and so that you recognise the gap when someone quotes you the wrong one.</span></p>
+</section>
+<section id="a-rate-that-moves-by-one-point" class="slide level2">
+<h2>A rate that moves by one point</h2>
+<p>€10,000 at 5%, compounded annually. Now the rate moves — up a point, down a point.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>Over twenty years, on €10,000, how much is one point of interest worth?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>rate</th>
+<th>8 years</th>
+<th>20 years</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4%</td>
+<td>13,685.69</td>
+<td>21,911.23</td>
+</tr>
+<tr class="even">
+<td><strong>5%</strong></td>
+<td><strong>14,774.55</strong></td>
+<td><strong>26,532.98</strong></td>
+</tr>
+<tr class="odd">
+<td>6%</td>
+<td>15,938.48</td>
+<td>32,071.35</td>
+</tr>
+</tbody>
+</table>
+<p>One point is about €1,100 over eight years and <strong>€4,600 to €5,500 over twenty</strong>. The rate sits in the base of a power: a point of rate is multiplied by itself <code>t</code> times, and the longer the horizon the more it matters.</p>
+</div>
 </section>
 <section id="more-often-is-more" class="slide level2">
 <h2>More often is more</h2>
@@ -494,6 +543,50 @@ Niccolò Salvini, PhD
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="a-is-a-function-and-you-know-how-to-study-one" class="slide level2">
+<h2>A is a function — and you know how to study one</h2>
+<p><span class="math display">A(t) = P(1+i)^{t}, \qquad t \ge 0</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>step</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 · domain</td>
+<td><span class="math inline">[0, \infty)</span></td>
+<td>time runs forward</td>
+</tr>
+<tr class="even">
+<td>2 · limits</td>
+<td><span class="math inline">A(0) = P</span>; <span class="math inline">A(t) \to \infty</span> as <span class="math inline">t \to \infty</span></td>
+<td>no ceiling: a 5% deposit doubles every 14 years, for ever</td>
+</tr>
+<tr class="odd">
+<td>5 · monotone</td>
+<td><span class="math inline">A'(t) = A(t)\ln(1+i) &gt; 0</span></td>
+<td>always rising; and the rise is proportional to what is already there</td>
+</tr>
+<tr class="even">
+<td>6 · convexity</td>
+<td><span class="math inline">A''(t) = A(t)\ln^{2}(1+i) &gt; 0</span></td>
+<td><strong>convex throughout, no inflection</strong>: growth that keeps accelerating</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Simple interest is <span class="math inline">A = P(1+it)</span>: a straight line, <span class="math inline">A'' = 0</span>. That is the whole difference between the two tables, said with step 6.</p>
+<p><span class="red">Challenge, in the drills: D15 is this study on paper; D16 is the same seven steps on the NPV curve you will meet in block D — its zero has a name.</span></p>
 </div>
 </section>
 <section id="four-blocks-today-1" class="slide level2 hub" data-auto-animate="true">
