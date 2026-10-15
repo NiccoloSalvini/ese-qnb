@@ -1887,14 +1887,14 @@
     "href": "lectures/04-money-over-time.html#two-shortcuts-you-will-use-constantly",
     "title": "Money has a date on it",
     "section": "Two shortcuts you will use constantly",
-    "text": "Two shortcuts you will use constantly\n\n\nAnnuity — the same amount, n times: PV = C\\,\\frac{1 - (1+r)^{-n}}{r} €12,000 a year for 10 years at 6% → €88,321\n\nPerpetuity — the same amount, for ever: PV = \\frac{C}{r} €12,000 a year for ever at 6% → €200,000\n\n\nFor ever is worth only 2.3 times ten years. Everything after year ten adds €111,679, because discounting shrinks distant money towards nothing."
+    "text": "Two shortcuts you will use constantly\nMost money in business arrives as a stream, not a lump: a lease, a loan repayment, a pension, a dividend, a bond coupon. Discounting each payment by hand is fine for three; for thirty, or for ever, you need the sum already done.\n\n\nAnnuity — the same amount, n times: PV = C\\,\\frac{1 - (1+r)^{-n}}{r} €12,000 a year for 10 years at 6% → €88,321\n\nPerpetuity — the same amount, for ever: PV = \\frac{C}{r} €12,000 a year for ever at 6% → €200,000\n\n\nFor ever is worth only 2.3 times ten years. Everything after year ten adds €111,679, because discounting shrinks distant money towards nothing."
   },
   {
     "objectID": "lectures/04-money-over-time.html#what-is-arno-bikes-worth",
     "href": "lectures/04-money-over-time.html#what-is-arno-bikes-worth",
     "title": "Money has a date on it",
     "section": "What is Arno Bikes worth?",
-    "text": "What is Arno Bikes worth?\n\n\nA buyer asks the Board to name a price for the whole firm.\n\nnext year’s free cash flow: €300k\ngrowing 3% a year, for ever\ncost of capital: 9%\n\nWith no growth, the perpetuity you just saw:€300k / 0.09 = €3.33M.\n\n\n\n\n\n\n\nBet before we compute\n\n\nWith 3% growth — how much? One number, in euros, before any formula.\n\n\n\n\n\n\n\n\nYear\nCash flow (€k)\nPV at 9% (€k)\n\n\n\n\n1\n300.00\n275.23\n\n\n2\n309.00\n260.08\n\n\n3\n318.27\n245.76\n\n\n4\n327.82\n232.23\n\n\n5\n337.65\n219.45\n\n\n…\ngrows 3%\nshrinks\n\n\n\nEvery row adds less than the one before, but the rows never stop."
+    "text": "What is Arno Bikes worth?\n\n\nA buyer asks the Board to name a price for the whole firm.\n\nnext year’s free cash flow: €300k\ngrowing 3% a year, for ever\ncost of capital: 9%\n\nFree cash flow: the cash the business generates in a year after its costs, taxes and the investment it needs to keep running — what is left for whoever owns it. A firm is a stream of these, so it is priced like one.\nWith no growth, the perpetuity you just saw:€300k / 0.09 = €3.33M.\n\n\n\n\n\n\n\nBet before we compute\n\n\nWith 3% growth — how much? One number, in euros, before any formula.\n\n\n\n\n\n\n\n\nYear\nCash flow (€k)\nPV at 9% (€k)\n\n\n\n\n1\n300.00\n275.23\n\n\n2\n309.00\n260.08\n\n\n3\n318.27\n245.76\n\n\n4\n327.82\n232.23\n\n\n5\n337.65\n219.45\n\n\n…\ngrows 3%\nshrinks\n\n\n\nEvery row adds less than the one before, but the rows never stop."
   },
   {
     "objectID": "lectures/04-money-over-time.html#a-perpetuity-with-the-growth-taken-off-the-rate",
