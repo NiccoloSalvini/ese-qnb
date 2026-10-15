@@ -78,9 +78,9 @@ It returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no �
 
 ## The two weeks, as one map
 
-![](img/w04_map.svg){fig-align="center" width="96%"}
+![](img/w04_map.svg){fig-align="center" width="100%"}
 
-[Every tool in grey you already own. Today the left half; Thursday 22nd the right half, and the mock of the final's calculus question.]{.muted}
+[Each box is built from the one before it; the words on the arrow say how. Today the blue chain; Thursday 22nd the red one, and the mock of the final's calculus question.]{.muted}
 
 ## [Block A]{.section-kicker} Interest, and what compounding actually does {.section-slide background-color="#AF1F25" auto-animate=true}
 
