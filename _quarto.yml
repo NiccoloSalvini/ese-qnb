@@ -5,6 +5,7 @@ project:
     - index.qmd
     - setup.qmd
     - "week-*/homework.md"
+    - "week-04/revision.md"
     - "week-*/drills.md"
     - "week-05/mock_exam.md"
     - "week-*/session.ipynb"

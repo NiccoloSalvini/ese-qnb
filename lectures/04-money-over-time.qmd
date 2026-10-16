@@ -448,22 +448,46 @@ Accept a project when its NPV is positive at *our* cost of capital. The rate is 
 
 The crossing has a name: the internal rate of return, 14.6% here.
 
-## Where the discount rate comes from
+## Every block today ran on a rate. Whose?
 
-We have been handed "9%". In a firm nobody hands it to you: it is the **weighted average cost of capital**, what the money costs on average across everyone who supplied it.
+| Block | The rate was… | Set by |
+|---|---|---|
+| A | what a deposit grows at | the bank, for you |
+| B | the same rate, quoted honestly (EAR) | the bank, compared |
+| C | what a euro of yours could earn elsewhere | your best alternative |
+| D | the rate the line has to beat | **the firm's own money** |
+
+. . .
+
+Block C called it the *cost of capital* and used "the 9% the firm borrows at". That was a shortcut: a firm's money never comes from one pocket. [So where does 9 come from?]{.red}
+
+## €2.4M, euro by euro — who paid for the line?
+
+| Source | Amount | What it costs a year | After tax |
+|---|---|---|---|
+| Shareholders, 60% | €1,440k | expect 12% → €172.8k | €172.8k |
+| Bank, 40% | €960k | charges 6% → €57.6k | interest is deductible at 25% → €43.2k |
+| **Total** | **€2,400k** | | **€216.0k** |
+
+. . .
+
+`216 / 2,400 = 9.0%` a year. That is the bill the line must pay, every year, before it has earned anyone a cent. [A project with NPV > 0 at 9% pays that bill and leaves something over.]{.red}
+
+. . .
+
+[It is a weighted average, nothing more: each source's rate, weighted by its share of the money. Finance calls it the **WACC**.]{.muted}
+
+## The same table, as a formula
 
 $$WACC = \frac{E}{V}\,r_e \;+\; \frac{D}{V}\,r_d(1-\tau)$$
 
 | | |
 |---|---|
-| `E/V`, `D/V` | the share of equity and of debt in the financing |
-| `r_e`, `r_d` | what shareholders expect, what lenders charge |
-| `(1 − τ)` | interest is tax-deductible, so debt costs less than its rate |
+| `E/V`, `D/V` | the share of equity and of debt in the financing (0.6 and 0.4) |
+| `r_e`, `r_d` | what shareholders expect, what lenders charge (12%, 6%) |
+| `(1 − τ)` | interest is tax-deductible, so debt costs less than its rate (0.75) |
 
-. . .
-
-Arno Bikes: 60% equity at 12%, 40% debt at 6%, tax 25% →
-`0.6(12%) + 0.4(6%)(0.75) = 7.2% + 1.8% = **9.0%**`. That is where our 9 came from.
+`0.6(12%) + 0.4(6%)(0.75) = 7.2% + 1.8%` = **9.0%** — the 9 we have used all morning.
 
 ::: {.callout-tip title="Board sentence"}
 The discount rate is not an assumption you pick. It is the price your own money costs, and using someone else's number is how projects get approved that should not be.
