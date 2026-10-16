@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>revision – Quantitative Business Methods</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5db7610fca3ea74ceab0226f71e3f166.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-32b6a1ef7e9ba52d09e917c9077d60f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://www.ese.ac.uk/locations/ese-florence" class="navbar-brand navbar-brand-logo">
+    <img src="../images/ese-logo.svg" alt="European School of Economics" class="navbar-logo light-content">
+    <img src="../images/ese-logo.svg" alt="European School of Economics" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="https://www.ese.ac.uk/locations/ese-florence">
+    <span class="navbar-title">Quantitative Business Methods <span class="nav-year">26/27</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../setup.html"> 
+<span class="menu-text">How to work</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/NiccoloSalvini/ese-qnb"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#revision-set-weeks-1-to-4" id="toc-revision-set-weeks-1-to-4" class="nav-link active" data-scroll-target="#revision-set-weeks-1-to-4">Revision set — weeks 1 to 4</a>
+  <ul class="collapse">
+  <li><a href="#a.-algebra-the-tools-underneath-everything-week-1" id="toc-a.-algebra-the-tools-underneath-everything-week-1" class="nav-link" data-scroll-target="#a.-algebra-the-tools-underneath-everything-week-1">A. Algebra — the tools underneath everything (week 1)</a></li>
+  <li><a href="#b.-functions-and-limits-week-2" id="toc-b.-functions-and-limits-week-2" class="nav-link" data-scroll-target="#b.-functions-and-limits-week-2">B. Functions and limits (week 2)</a></li>
+  <li><a href="#c.-derivatives-and-integrals-weeks-23-final-q5" id="toc-c.-derivatives-and-integrals-weeks-23-final-q5" class="nav-link" data-scroll-target="#c.-derivatives-and-integrals-weeks-23-final-q5">C. Derivatives and integrals (weeks 2–3, final Q5)</a></li>
+  <li><a href="#d.-the-study-of-a-function-and-optimisation-week-3-the-midterm" id="toc-d.-the-study-of-a-function-and-optimisation-week-3-the-midterm" class="nav-link" data-scroll-target="#d.-the-study-of-a-function-and-optimisation-week-3-the-midterm">D. The study of a function, and optimisation (week 3 — the midterm)</a></li>
+  <li><a href="#e.-money-with-a-date-on-it-week-4-resit-form-and-npv" id="toc-e.-money-with-a-date-on-it-week-4-resit-form-and-npv" class="nav-link" data-scroll-target="#e.-money-with-a-date-on-it-week-4-resit-form-and-npv">E. Money with a date on it (week 4 — resit form and NPV)</a></li>
+  <li><a href="#f.-one-line-each-resit-form-select-the-correct-alternative-and-justify" id="toc-f.-one-line-each-resit-form-select-the-correct-alternative-and-justify" class="nav-link" data-scroll-target="#f.-one-line-each-resit-form-select-the-correct-alternative-and-justify">F. One line each (resit form — select the correct alternative and justify)</a></li>
+  <li><a href="#how-this-feeds-the-assessments" id="toc-how-this-feeds-the-assessments" class="nav-link" data-scroll-target="#how-this-feeds-the-assessments">How this feeds the assessments</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="revision-set-weeks-1-to-4" class="level1">
+<h1>Revision set — weeks 1 to 4</h1>
+<p><em>Everything so far, in exam form, in one place. Published after session 4 so that you have it for Reading Week; it sits next to Homework 4 but it is not homework and nothing is handed in. Solutions at the end, worked the way the examiner wants to see them.</em></p>
+<p><strong>What it is for.</strong> Two things are coming: the <strong>midterm paper</strong>, due Sunday 1 November (the study of a cost, a revenue and a profit function, written up for a Board), and the <strong>final exam’s calculus question</strong>, five items done by hand with a calculator and no notes. Every item below rehearses one of those two or the resit’s multiple-choice form. The tag after each number says which.</p>
+<p><strong>How to use it.</strong> On paper, with a calculator, timed: twelve minutes for a function study, four for an integral or a limit, six for an NPV table. Do a section, then open the solutions and mark yourself as an examiner would: method first, number second. Where you were wrong, redo the item from a blank page the next day. Watching the lesson recordings is useful for the ideas; the marks come from the items you can do without them. Expect five to six hours in total; two sittings is sensible.</p>
+<p><strong>Numbers.</strong> Money to the cent, rates to two decimals in a percentage, everything else to three decimals unless it is exact.</p>
+<section id="a.-algebra-the-tools-underneath-everything-week-1" class="level2">
+<h2 class="anchored" data-anchor-id="a.-algebra-the-tools-underneath-everything-week-1">A. Algebra — the tools underneath everything (week 1)</h2>
+<p><strong>R1 (midterm Q2–Q3 — the shapes you will study).</strong> A bike workshop has fixed costs of €45,000 a month and a variable cost of €250 per bike. It sells at €550. (a) Write <code>C(q)</code> and <code>R(q)</code> and find the break-even quantity. (b) The market has demand <code>Q_d = 1500 − 5p</code> and supply <code>Q_s = −300 + 4p</code>. Find the equilibrium price and quantity.</p>
+<p><strong>R2 (midterm Q3 — sign of a profit function).</strong> <code>π(q) = −3q² + 420q − 12,000</code>. (a) The quantities at which profit is zero. (b) The interval on which the firm is profitable. (c) The vertex, and what it means.</p>
+<p><strong>R3 (week-4 arithmetic rests on this).</strong> Solve for <code>t</code>, three decimals: (a) <code>15,000 × 1.08ᵗ = 30,000</code> (b) <code>e^{0.05t} = 2.5</code> (c) Simplify <code>ln(a³ / √b)</code>.</p>
+<p><strong>R4 (final Q5 uses the notation).</strong> (a) Solve <code>|x − 8| ≤ 3</code> and write it as an interval. (b) Solve <code>|3x + 2| &gt; 7</code> and write it as a union of intervals.</p>
+</section>
+<section id="b.-functions-and-limits-week-2" class="level2">
+<h2 class="anchored" data-anchor-id="b.-functions-and-limits-week-2">B. Functions and limits (week 2)</h2>
+<p><strong>R5 (midterm Q2 — domain, step 1 of the study).</strong> Give the domain of each as an interval, and say in one clause what the restriction means for a firm: (a) <code>f(q) = √(2q − 6)</code> (b) <code>g(q) = ln(10 − q)</code> (c) <code>h(q) = (q + 1)/(q² − 4)</code></p>
+<p><strong>R6 (final Q5 — the one-sided limit, exact form).</strong> Evaluate <code>lim (q→4⁺) (q − 4)² / (4q − q²)</code>. Factor, simplify, then say the sign the expression has just above 4.</p>
+<p><strong>R7 (final Q5 — limits at −∞).</strong> Evaluate: (a) <code>lim (q→−∞) (2q² − 5q + 1)/(4q² + 3)</code> (b) <code>lim (q→−∞) (5q + 2)/(q² − 3)</code> (c) <code>lim (q→−∞) (q³ + 2)/(q² − 1)</code></p>
+</section>
+<section id="c.-derivatives-and-integrals-weeks-23-final-q5" class="level2">
+<h2 class="anchored" data-anchor-id="c.-derivatives-and-integrals-weeks-23-final-q5">C. Derivatives and integrals (weeks 2–3, final Q5)</h2>
+<p><strong>R8 (midterm Q2–Q3 — the derivatives you will need).</strong> Differentiate: (a) <code>4q³ − 6q² + 1/q</code> (b) <code>ln(3q² + 1)</code> (c) <code>(3q + 1)⁴</code></p>
+<p><strong>R9 (final Q5 — the indefinite integral, exact form).</strong> Evaluate <code>∫ (3q⁴ − 4q + 6)/q² dq</code>. Split term by term before integrating.</p>
+<p><strong>R10 (final Q5 — recover f from f′, exact form).</strong> Find <code>f(q)</code> given <code>f′(q) = 8q³ − 6q + 2</code> and <code>f(2) = 30</code>.</p>
+<p><strong>R11 (final Q5 — the definite integral with logs, exact form).</strong> Evaluate <code>∫₂⁴ [2/q + 1/(q − 1)] dq</code>, leaving the answer in terms of <code>ln</code>, then as a number.</p>
+</section>
+<section id="d.-the-study-of-a-function-and-optimisation-week-3-the-midterm" class="level2">
+<h2 class="anchored" data-anchor-id="d.-the-study-of-a-function-and-optimisation-week-3-the-midterm">D. The study of a function, and optimisation (week 3 — the midterm)</h2>
+<p><strong>R12 (midterm Q3 — the full study).</strong> Study <code>π(q) = −5q² + 900q − 28,000</code> completely and sketch it. In this order: domain · zeros · sign · <code>π′</code> and the stationary point · <code>π″</code> and its nature · behaviour as <code>q → ∞</code> · a labelled sketch.</p>
+<p><strong>R13 (midterm Q2–Q3 — the case’s own shape, with other numbers).</strong> <code>C(q) = 0.25q² + 3q + 35</code> and <code>R(q) = 33 ln(q + 1)</code>, both in € thousand a month, <code>q ≥ 0</code>. (a) Write <code>π(q)</code> and <code>π′(q)</code>. (b) Solve <code>π′(q) = 0</code>, showing the quadratic it reduces to. (c) Confirm the nature of the point with <code>π″</code>. (d) Show that marginal revenue equals marginal cost there, and say in one line why that had to happen. (e) Profit at the optimum and at one unit either side. One sentence for the Board on the room for error.</p>
+<p><strong>R14 (midterm Q2 — convexity and inflection, the step people skip).</strong> <code>f(q) = q³ − 15q² + 63q</code>, <code>q ≥ 0</code>. (a) Stationary points and their nature, from the sign of <code>f′</code>. (b) Where <code>f″</code> changes sign, and the point of inflection. (c) Sketch, marking all three points and the intervals where the curve is concave and convex.</p>
+</section>
+<section id="e.-money-with-a-date-on-it-week-4-resit-form-and-npv" class="level2">
+<h2 class="anchored" data-anchor-id="e.-money-with-a-date-on-it-week-4-resit-form-and-npv">E. Money with a date on it (week 4 — resit form and NPV)</h2>
+<p><strong>R15 (resit — simple vs compound).</strong> €9,000 for 6 years at 5%: (a) simple interest; (b) compounded annually; (c) compounded quarterly. One line on why (c) &gt; (b) &gt; (a).</p>
+<p><strong>R16 (resit — select and justify).</strong> A depositor is offered 7% nominal compounded quarterly, or 7.1% compounded annually. Which is better for the depositor? (i) the first (ii) the second (iii) they are equivalent. Justify in one line with the number that decides it.</p>
+<p><strong>R17 (resit — present value).</strong> (a) What is €30,000 receivable in 4 years worth today at 6%? (b) An annuity pays €4,000 at the end of each year for 5 years; at 6%, what is it worth today? (c) The same €4,000, for ever. What is it worth, and why is the gap to (b) so large?</p>
+<p><strong>R18 (the NPV decision).</strong> A project costs €500,000 now and returns €150,000, €180,000, €200,000 and €120,000 at the end of the next four years. The cost of capital is 8%. (a) Lay out the table: year, flow, discount factor, present value. Row for year 0. (b) The NPV, and accept or reject in one sentence. (c) Recompute at 14%. The sign has changed: what is the name of the rate in between where it flips, and roughly where is it?</p>
+<p><strong>R19 (where the rate comes from).</strong> A firm is financed half by equity and half by debt. Shareholders expect 11%, the bank charges 5%, the tax rate is 30%. (a) The weighted average cost of capital. (b) One line: why does the tax rate appear on the debt side only?</p>
+</section>
+<section id="f.-one-line-each-resit-form-select-the-correct-alternative-and-justify" class="level2">
+<h2 class="anchored" data-anchor-id="f.-one-line-each-resit-form-select-the-correct-alternative-and-justify">F. One line each (resit form — select the correct alternative and justify)</h2>
+<p><strong>R20.</strong> Two loans quote the same nominal rate; A compounds monthly, B annually. For the borrower: (i) A is cheaper (ii) B is cheaper (iii) they cost the same.</p>
+<p><strong>R21.</strong> The discount rate rises from 5% to 8%. The present value of €1,000 due in ten years: (i) rises (ii) falls (iii) is unchanged, since the €1,000 has not changed.</p>
+<p><strong>R22.</strong> A perpetuity pays €6,000 a year. If the required return doubles, its value: (i) doubles (ii) halves (iii) falls, but by less than half.</p>
+<p><strong>R23.</strong> At <code>q = 12</code>, <code>f′(12) = 0</code> and <code>f″(12) = −4</code>. The point is: (i) a maximum (ii) a minimum (iii) an inflection point.</p>
+<hr>
+<details>
+<summary>
+<strong>Solutions</strong>
+</summary>
+<p><strong>R1.</strong> (a) <code>C(q) = 45,000 + 250q</code>, <code>R(q) = 550q</code>. Break-even: <code>550q = 45,000 + 250q</code> → <code>300q = 45,000</code> → <strong><code>q = 150</code> bikes</strong>. (b) <code>1500 − 5p = −300 + 4p</code> → <code>9p = 1800</code> → <strong><code>p = €200</code></strong>, <code>Q = 1500 − 1000 = **500</code> bikes**.</p>
+<p><strong>R2.</strong> (a) <code>−3q² + 420q − 12,000 = 0</code> → divide by −3: <code>q² − 140q + 4,000 = 0</code> → <code>q = (140 ± √(19,600 − 16,000))/2 = (140 ± 60)/2</code> → <strong><code>q = 40</code> and <code>q = 100</code></strong>. (b) Parabola opens downward (coefficient −3), so profit is positive between the zeros: <strong><code>40 &lt; q &lt; 100</code></strong>. (c) Vertex at <code>q = −b/2a = 420/6 = 70</code>; <code>π(70) = −14,700 + 29,400 − 12,000 = **2,700**</code>. The most the firm can make, and the quantity at which it makes it.</p>
+<p><strong>R3.</strong> (a) <code>1.08ᵗ = 2</code> → <code>t = ln 2 / ln 1.08 = 0.693147/0.076961 = **9.006** years</code>. (b) <code>0.05t = ln 2.5 = 0.916291</code> → <code>t = **18.326**</code>. (c) <code>ln(a³) − ln(b^{1/2}) = **3 ln a − ½ ln b**</code>.</p>
+<p><strong>R4.</strong> (a) <code>−3 ≤ x − 8 ≤ 3</code> → <strong><code>[5, 11]</code></strong>. (b) <code>3x + 2 &gt; 7</code> → <code>x &gt; 5/3</code>; or <code>3x + 2 &lt; −7</code> → <code>x &lt; −3</code>. <strong><code>(−∞, −3) ∪ (5/3, ∞)</code></strong>.</p>
+<p><strong>R5.</strong> (a) <code>2q − 6 ≥ 0</code> → <strong><code>[3, ∞)</code></strong>: the function is not defined below 3 units. (b) <code>10 − q &gt; 0</code> → <strong><code>(−∞, 10)</code></strong>: beyond 10 the log has nothing to take; a capacity ceiling. (c) <code>q² − 4 ≠ 0</code> → <strong><code>q ≠ ±2</code></strong>, i.e.&nbsp;<code>(−∞, −2) ∪ (−2, 2) ∪ (2, ∞)</code>: the function blows up at 2 (vertical asymptote); negative <code>q</code> is outside the business reading anyway.</p>
+<p><strong>R6.</strong> <code>4q − q² = q(4 − q) = −q(q − 4)</code>. So <code>(q − 4)²/(−q(q − 4)) = −(q − 4)/q = (4 − q)/q</code> for <code>q ≠ 0, 4</code>. As <code>q → 4⁺</code>, the numerator <code>4 − q → 0</code> from below (negative) and the denominator <code>→ 4</code>: the expression is <strong>negative and tends to 0</strong>. The limit is <strong>0</strong>, approached from the negative side.</p>
+<p><strong>R7.</strong> Divide by the highest power of <code>q</code> in the denominator. (a) <code>(2 − 5/q + 1/q²)/(4 + 3/q²) → **1/2**</code>. (b) <code>(5/q + 2/q²)/(1 − 3/q²) → 0/1 = **0**</code>. (c) <code>(q + 2/q²)/(1 − 1/q²)</code>: numerator <code>→ −∞</code>, denominator <code>→ 1</code>: <strong><code>−∞</code></strong>.</p>
+<p><strong>R8.</strong> (a) <code>12q² − 12q − 1/q²</code> (write <code>1/q = q⁻¹</code> first). (b) Outside is <code>ln(·)</code>, inside is <code>3q² + 1</code>: <code>(1/(3q² + 1)) × 6q = **6q/(3q² + 1)**</code>. (c) <code>4(3q + 1)³ × 3 = **12(3q + 1)³**</code>.</p>
+<p><strong>R9.</strong> Split: <code>3q⁴/q² − 4q/q² + 6/q² = 3q² − 4/q + 6q⁻²</code>. Integrate term by term: <code>q³ − 4 ln|q| + 6q⁻¹/(−1) + c = **q³ − 4 ln|q| − 6/q + c**</code>.</p>
+<p><strong>R10.</strong> <code>f(q) = 2q⁴ − 3q² + 2q + c</code>. <code>f(2) = 32 − 12 + 4 + c = 24 + c = 30</code> → <code>c = 6</code>. <strong><code>f(q) = 2q⁴ − 3q² + 2q + 6</code></strong>.</p>
+<p><strong>R11.</strong> <code>∫ 2/q dq = 2 ln q</code>, <code>∫ 1/(q − 1) dq = ln(q − 1)</code> (the top is the derivative of the bottom). So <code>[2 ln q + ln(q − 1)]₂⁴ = (2 ln 4 + ln 3) − (2 ln 2 + ln 1) = 2 ln 4 − 2 ln 2 + ln 3 = 2 ln 2 + ln 3 = **ln 12 ≈ 2.485**</code>.</p>
+<p><strong>R12.</strong> 1. Domain: <code>q ≥ 0</code> (all reals for the function; the business reading starts at 0). 2. Zeros: <code>q² − 180q + 5,600 = 0</code> → <code>q = (180 ± √(32,400 − 22,400))/2 = (180 ± 100)/2</code> → <strong>40 and 140</strong>. Vertical intercept <code>π(0) = −28,000</code> (the fixed cost). 3. Sign: negative on <code>[0, 40)</code>, positive on <code>(40, 140)</code>, negative beyond 140. 4. <code>π′(q) = −10q + 900 = 0</code> → <strong><code>q = 90</code></strong>; <code>π(90) = −40,500 + 81,000 − 28,000 = **12,500**</code>. 5. <code>π″(q) = −10 &lt; 0</code> everywhere: concave, so <code>q = 90</code> is a <strong>maximum</strong> (and the only one). 6. No inflection (the second derivative never changes sign). As <code>q → ∞</code>, <code>π → −∞</code>: the −5q² term wins. 7. Sketch: downward parabola through <code>(0, −28,000)</code>, <code>(40, 0)</code>, <code>(140, 0)</code>, peak at <code>(90, 12,500)</code>, symmetric about <code>q = 90</code>.</p>
+<p><strong>R13.</strong> (a) <code>π(q) = 33 ln(q + 1) − 0.25q² − 3q − 35</code>; <code>π′(q) = 33/(q + 1) − 0.5q − 3</code>. (b) <code>33/(q + 1) = 0.5q + 3</code> → <code>33 = (0.5q + 3)(q + 1) = 0.5q² + 3.5q + 3</code> → <code>0.5q² + 3.5q − 30 = 0</code> → <code>q² + 7q − 60 = 0</code> → <code>(q + 12)(q − 5) = 0</code> → <strong><code>q = 5</code></strong> (the negative root is outside the domain). (c) <code>π″(q) = −33/(q + 1)² − 0.5 &lt; 0</code> for every <code>q</code>: concave everywhere, so <code>q = 5</code> is the <strong>maximum</strong>. Numerically <code>π″(5) = −33/36 − 0.5 = −1.417</code>. (d) <code>R′(5) = 33/6 = 5.5</code>; <code>C′(5) = 0.5 × 5 + 3 = 5.5</code>. Equal, because <code>π′ = R′ − C′</code> and we set <code>π′ = 0</code>: the optimum is exactly where one more unit adds as much to revenue as to cost. (e) <code>π(5) = 33 ln 6 − 6.25 − 15 − 35 = 59.128 − 56.25 = **€2,878**</code> (2.878 thousand); <code>π(4) = 33 ln 5 − 51 = 53.112 − 51 = €2,111</code>; <code>π(6) = 33 ln 7 − 62 = 64.215 − 62 = €2,215</code>. The peak is flat: a unit either way costs €700–800 of a €2,900 profit. For the Board: <em>the optimum is five units a month, but it is a thin optimum — the firm is barely profitable at the best quantity, and the fixed cost, not the quantity, is the number to work on.</em></p>
+<p><strong>R14.</strong> (a) <code>f′(q) = 3q² − 30q + 63 = 3(q² − 10q + 21) = 3(q − 3)(q − 7)</code>. Positive below 3, negative between 3 and 7, positive above 7. So <strong>maximum at <code>q = 3</code>, <code>f(3) = 27 − 135 + 189 = 81</code>; minimum at <code>q = 7</code>, <code>f(7) = 343 − 735 + 441 = 49</code></strong>. (b) <code>f″(q) = 6q − 30 = 0</code> → <code>q = 5</code>; <code>f″ &lt; 0</code> below 5 (concave), <code>f″ &gt; 0</code> above (convex). <strong>Inflection at <code>(5, 65)</code></strong>: <code>f(5) = 125 − 375 + 315 = 65</code>. (c) Sketch: through the origin (the only zero, since <code>q² − 15q + 63</code> has no real roots), up to the peak <code>(3, 81)</code>, concave down to <code>(5, 65)</code> where it straightens, convex down to the trough <code>(7, 49)</code>, then up without bound. The inflection sits between the two turning points, as it must.</p>
+<p><strong>R15.</strong> (a) <code>9,000(1 + 0.05 × 6) = 9,000 × 1.30 = **€11,700.00**</code>. (b) <code>9,000 × 1.05⁶ = 9,000 × 1.340096 = **€12,060.86**</code>. (c) <code>9,000 × (1 + 0.05/4)^{24} = 9,000 × 1.0125^{24} = 9,000 × 1.347351 = **€12,126.16**</code>. Simple interest never pays interest on interest; annual compounding does once a year; quarterly does four times, so the interest starts earning sooner.</p>
+<p><strong>R16. (i) the first.</strong> <code>EAR = (1 + 0.07/4)⁴ − 1 = 1.0175⁴ − 1 = **7.19%** &gt; 7.10%</code>. Compare on the effective rate, never on the nominal.</p>
+<p><strong>R17.</strong> (a) <code>30,000 / 1.06⁴ = 30,000 / 1.262477 = **€23,762.81**</code>. (b) <code>4,000 × (1 − 1.06⁻⁵)/0.06 = 4,000 × 4.212364 = **€16,849.46**</code>. (c) <code>4,000 / 0.06 = **€66,666.67**</code>. The five-year annuity is a quarter of the perpetuity because the perpetuity is the limit <code>n → ∞</code> of the annuity formula: the <code>(1 + r)⁻ⁿ</code> term goes to zero, and the payments after year 5, though each small, are infinitely many — discounting shrinks them, it does not delete them.</p>
+<p><strong>R18.</strong> (a)–(b) At 8%:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Flow (€)</th>
+<th>Factor</th>
+<th>PV (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>−500,000</td>
+<td>1.000000</td>
+<td>−500,000.00</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>150,000</td>
+<td>0.925926</td>
+<td>138,888.89</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>180,000</td>
+<td>0.857339</td>
+<td>154,320.99</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>200,000</td>
+<td>0.793832</td>
+<td>158,766.45</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>120,000</td>
+<td>0.735030</td>
+<td>88,203.58</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><strong>NPV</strong></td>
+<td><strong>+40,179.91</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Accept</strong>: at the firm’s own cost of money the project returns €40,180 more than it costs, in today’s euros. (c) At 14%: factors 0.877193, 0.769468, 0.674972, 0.592080 → PVs 131,578.95 + 138,504.16 + 134,994.30 + 71,049.63 = 476,127.04 → <strong>NPV = −23,872.96</strong>, reject. The rate where NPV crosses zero is the <strong>internal rate of return</strong>, between 8% and 14%, closer to 14% than to 8% because the NPV has fallen further than it rose: about <strong>11.6%</strong>.</p>
+<p><strong>R19.</strong> (a) <code>WACC = 0.5 × 11% + 0.5 × 5% × (1 − 0.30) = 5.5% + 1.75% = **7.25%**</code>. (b) Interest paid to the bank is deducted before tax is computed, so every euro of interest saves 30 cents of tax: debt effectively costs <code>5% × 0.7 = 3.5%</code>. Dividends to shareholders are paid out of after-tax profit, so there is no such saving on the equity side.</p>
+<p><strong>R20. (ii) B is cheaper.</strong> Monthly compounding charges interest on interest twelve times a year, so A’s effective rate exceeds its nominal rate while B’s equals it. What is good for the depositor is bad for the borrower.</p>
+<p><strong>R21. (ii) falls.</strong> <code>PV = 1,000/(1 + r)^{10}</code>: the denominator grows with <code>r</code>. At 5% the value is €613.91, at 8% it is €463.19. The €1,000 is unchanged; what it is worth today is not.</p>
+<p><strong>R22. (ii) halves.</strong> <code>PV = C/r</code>; doubling <code>r</code> halves the fraction exactly. (From 5% to 10%: €120,000 to €60,000.)</p>
+<p><strong>R23. (i) a maximum.</strong> A zero first derivative makes it stationary; a negative second derivative means the curve is concave there, so the stationary point is a peak. It would be an inflection only if <code>f″</code> were zero and changed sign.</p>
+</details>
+</section>
+<section id="how-this-feeds-the-assessments" class="level2">
+<h2 class="anchored" data-anchor-id="how-this-feeds-the-assessments">How this feeds the assessments</h2>
+<ul>
+<li><strong>R12, R13, R14, R2, R5, R8</strong> are the midterm: domain, sign, derivatives, the maximum proved with the second derivative, convexity, the sketch, and the sentence for the Board. R13 has the exact shape of the case with other numbers.</li>
+<li><strong>R6, R7, R9, R10, R11</strong> are the five items of the final exam’s calculus question, in the form they take there. If you can do these five cold in twenty minutes, that question is yours.</li>
+<li><strong>R15–R23</strong> are the financial-mathematics block of the resit (multiple choice with a one-line justification) and the NPV decision; R18 and R19 are the pair that session 5 builds the bond on.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/niccolosalvini\.github\.io\/ese-qnb\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>ESE Florence · Borgo Santi Apostoli 19, 50123 Firenze · MBA Term 1, A.Y. 2026–2027</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Niccolò Salvini, PhD · Vincenzo Nardelli, PhD</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

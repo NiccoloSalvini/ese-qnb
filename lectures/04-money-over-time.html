@@ -906,9 +906,95 @@ Niccolò Salvini, PhD
 </video>
 <p>The crossing has a name: the internal rate of return, 14.6% here.</p>
 </section>
-<section id="where-the-discount-rate-comes-from" class="slide level2">
-<h2>Where the discount rate comes from</h2>
-<p>We have been handed “9%”. In a firm nobody hands it to you: it is the <strong>weighted average cost of capital</strong>, what the money costs on average across everyone who supplied it.</p>
+<section id="every-block-today-ran-on-a-rate.-whose" class="slide level2">
+<h2>Every block today ran on a rate. Whose?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Block</th>
+<th>The rate was…</th>
+<th>Set by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>what a deposit grows at</td>
+<td>the bank, for you</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>the same rate, quoted honestly (EAR)</td>
+<td>the bank, compared</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>what a euro of yours could earn elsewhere</td>
+<td>your best alternative</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>the rate the line has to beat</td>
+<td><strong>the firm’s own money</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Block C called it the <em>cost of capital</em> and used “the 9% the firm borrows at”. That was a shortcut: a firm’s money never comes from one pocket. <span class="red">So where does 9 come from?</span></p>
+</div>
+</section>
+<section id="m-euro-by-euro-who-paid-for-the-line" class="slide level2">
+<h2>€2.4M, euro by euro — who paid for the line?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Amount</th>
+<th>What it costs a year</th>
+<th>After tax</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shareholders, 60%</td>
+<td>€1,440k</td>
+<td>expect 12% → €172.8k</td>
+<td>€172.8k</td>
+</tr>
+<tr class="even">
+<td>Bank, 40%</td>
+<td>€960k</td>
+<td>charges 6% → €57.6k</td>
+<td>interest is deductible at 25% → €43.2k</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>€2,400k</strong></td>
+<td></td>
+<td><strong>€216.0k</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><code>216 / 2,400 = 9.0%</code> a year. That is the bill the line must pay, every year, before it has earned anyone a cent. <span class="red">A project with NPV &gt; 0 at 9% pays that bill and leaves something over.</span></p>
+</div>
+<div class="fragment">
+<p><span class="muted">It is a weighted average, nothing more: each source’s rate, weighted by its share of the money. Finance calls it the <strong>WACC</strong>.</span></p>
+</div>
+</section>
+<section id="the-same-table-as-a-formula" class="slide level2">
+<h2>The same table, as a formula</h2>
 <p><span class="math display">WACC = \frac{E}{V}\,r_e \;+\; \frac{D}{V}\,r_d(1-\tau)</span></p>
 <table class="caption-top">
 <colgroup>
@@ -918,20 +1004,19 @@ Niccolò Salvini, PhD
 <tbody>
 <tr class="odd">
 <td><code>E/V</code>, <code>D/V</code></td>
-<td>the share of equity and of debt in the financing</td>
+<td>the share of equity and of debt in the financing (0.6 and 0.4)</td>
 </tr>
 <tr class="even">
 <td><code>r_e</code>, <code>r_d</code></td>
-<td>what shareholders expect, what lenders charge</td>
+<td>what shareholders expect, what lenders charge (12%, 6%)</td>
 </tr>
 <tr class="odd">
 <td><code>(1 − τ)</code></td>
-<td>interest is tax-deductible, so debt costs less than its rate</td>
+<td>interest is tax-deductible, so debt costs less than its rate (0.75)</td>
 </tr>
 </tbody>
 </table>
-<div class="fragment">
-<p>Arno Bikes: 60% equity at 12%, 40% debt at 6%, tax 25% → <code>0.6(12%) + 0.4(6%)(0.75) = 7.2% + 1.8% = **9.0%**</code>. That is where our 9 came from.</p>
+<p><code>0.6(12%) + 0.4(6%)(0.75) = 7.2% + 1.8%</code> = <strong>9.0%</strong> — the 9 we have used all morning.</p>
 <div title="Board sentence">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -943,7 +1028,6 @@ Niccolò Salvini, PhD
 </div>
 <div class="callout-content">
 <p>The discount rate is not an assumption you pick. It is the price your own money costs, and using someone else’s number is how projects get approved that should not be.</p>
-</div>
 </div>
 </div>
 </div>
