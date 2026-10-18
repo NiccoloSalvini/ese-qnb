@@ -55,11 +55,17 @@ Let that sit. It is the most directly useful thing in the module and it takes ni
 
 ### C. Discounting (45')
 
-**Compounding runs the clock forward; discounting runs it back.** Same formula, read the other way. `10,000/(1.07)⁵ = €7,129.86`.
+*Revised 19 Oct: one case (the line), one rate (9%), one column of discount factors from the start of C to the NPV. The script is in `talk.md`, slides 23–30.*
 
-Show the discount-factor figure. At 3%, a euro in twenty years is worth 55 cents; at 16%, five cents. **Two analysts can agree on every cash flow and disagree entirely, because they disagreed about one number at the front.** Say that sentence slowly; it is the honest limitation of the whole method.
+**Discounting is compounding run backwards.** Start from the line's first flow: €700k in a year is worth `700/1.09 = €642.20k` today, because €642.20k at 9% becomes €700k. Then `800/1.09² = €673.34k`. Build the column of factors at 9% (0.9174, 0.8417, 0.7722, 0.7084) and have them copy it: block D is that column times the flows.
 
-**Annuity and perpetuity**, as shortcuts, not as new theory. €12,000 a year for ten years at 6% is €88,321; for ever it is €200,000. Ask before revealing: "For ever, versus ten years — how many times more?" They guess large. It is 2.3 times. Everything after year ten is worth €111,679, because discounting shrinks distant money to nothing.
+Why 9%: the firm's money costs it 9% a year, its cost of capital. Never call it "what the firm borrows at": the bank charges 6%, and the WACC at the end of D shows how 9% is made. Then the same €1,000 in four years at 5%, 9%, 15% (€823, €708, €572): the rate decides the answer.
+
+→ **D7, D8** on paper, 8 minutes.
+
+**Annuity and perpetuity** as the sum of the column: €500k a year for four years at 9% is `500 × 3.2397 = €1,619.86k`; the annuity formula is that sum already done. For ever, the sum of factors stops at `1/r`: `500/0.09 = €5,556k`.
+
+→ **D9** on paper, 7 minutes.
 
 **What is Arno Bikes worth?** (10', beyond the syllabus.) A buyer asks for a price: €300k of free cash flow next year, growing 3% for ever, 9% cost of capital. Anchor first — with no growth it is the perpetuity just shown, €3.33M — then take the bet: *with 3% growth, how much?* Write the guesses up.
 
@@ -69,7 +75,7 @@ Figure: 2% → €4.29M, 3% → €5M, 4% → €6M. **One point of growth is wo
 
 Notebook (optional, 2'): the slider over `g`, and watch the curve run up the asymptote.
 
-→ **D8–D11** on paper, 15 minutes. D10 is the formula; D11 is the same question in Board form, and it ends with a sentence.
+→ **D10–D12** on paper, 10 minutes. D10 is the formula; D11 is the same question in Board form, and it ends with a sentence.
 
 ### D. NPV (35')
 
@@ -77,13 +83,15 @@ Back to the case. Lay the table out on the board **with a row for year 0 and a f
 
 NPV = +€318.94k. Return to the hands-up count from 10:15. The million becomes €319,000: still positive, still worth doing, **a third of what it looked like**. Adding flows from different years is the one thing this subject forbids.
 
-**Clip — `w04_npv`.** The curve crossing zero. Then name it: IRR = 14.56%.
+**What if money cost more?** NPV at 5%, 9%, 12%, 15% (+592, +319, +139, −23), then the curve and the clip `w04_npv`. Then name the crossing: IRR = 14.56%.
 
 **What IRR is and is not.** It is the project's own break-even cost of money and a margin of safety — 9% against 14.6% is comfortable. It is not a ranking rule: compare two projects on IRR and you can pick the smaller one.
 
 Notebook: slide the rate, watch the sign. Then the 🔍 CHECK — delay the first €700k by a year and predict whether IRR rises or falls *before* running it.
 
-→ **D13, D14** on paper, 12 minutes.
+**Last question: why 9%?** Who paid for the €2.4M: shareholders 60% at 12% (€172.8k), bank 40% at 6% (€57.6k, €43.2k after the 25% tax saving). €216k on €2.4M = 9.0%. Then the same table as the WACC formula.
+
+→ **D13, D13b, D14** on paper, 12 minutes.
 
 ### Board pitch (10')
 
@@ -99,6 +107,7 @@ A Board member has just said the line returns a million. Politely, with numbers 
 - A firm's value is next year's cash flow over `r − g`: a small denominator, so every doubt about growth is a large doubt about the price.
 - Money with different dates **cannot be added**. Discount first, then add.
 - **Accept when NPV > 0 at your own cost of capital.** IRR is where it crosses zero, and it is a margin of safety, not a ranking rule.
+- The cost of capital is the **WACC**: what shareholders and the bank want, weighted by their share of the money, interest after tax.
 
 ## Board, slide, screen — what goes where
 

@@ -154,10 +154,11 @@ ax.legend(frameon=False, loc="upper center"); save(fig, "w03_ac_mc")
 # w04 — the discount factor, and why distant money is cheap
 fig, ax = plt.subplots(figsize=(6.6, 3.8))
 years = np.arange(0, 21)
-for r, col, lab in ((0.03, GOLD, "3%"), (0.09, INK, "9%"), (0.16, RED, "16%")):
+for r, col, lab in ((0.05, GOLD, "5%"), (0.09, INK, "9%"), (0.15, RED, "15%")):
     ax.plot(years, 1 / (1 + r) ** years, color=col, lw=2.5, label=lab)
 ax.set_xlabel("years away"); ax.set_ylabel("worth of €1 today")
-ax.set_ylim(0, 1.02); ax.legend(frameon=False, title="discount rate")
+ax.set_ylim(0, 1.02); ax.set_xticks([0, 4, 8, 12, 16, 20]); ax.axvline(4, color=MUTED, lw=1, ls=":")
+ax.legend(frameon=False, title="discount rate")
 save(fig, "w04_discount_factor")
 
 # w05 — price against yield, with the tangent duration draws
@@ -208,3 +209,39 @@ ax.set_xlabel("years"); ax.set_ylabel("€"); ax.yaxis.set_major_formatter(k)
 ax.set_xticks(yrs); ax.legend(frameon=False, loc="upper left")
 save(fig, "w04_two_ways")
 print("staircase and two-ways written")
+
+# w04 — the line's four cash flows, each pulled back to today at 9%
+fig, ax = plt.subplots(figsize=(7.0, 3.9))
+flows = [700, 800, 900, 1000]
+for t, cf in enumerate(flows, start=1):
+    pv = cf / 1.09 ** t
+    ax.bar(t - 0.18, cf, width=0.34, color=GOLD, alpha=.45, edgecolor=GOLD)
+    ax.bar(t + 0.18, pv, width=0.34, color=RED)
+    ax.text(t - 0.18, cf + 25, f"{cf}", ha="center", fontsize=11, color=INK)
+    ax.text(t + 0.18, pv + 25, f"{pv:.0f}", ha="center", fontsize=11, color=RED, fontweight="bold")
+from matplotlib.patches import Patch
+ax.set_xticks([1, 2, 3, 4], [f"year {t}\n÷ 1.09$^{t}$" for t in range(1, 5)])
+ax.set_ylabel("€ thousand"); ax.set_ylim(0, 1200)
+ax.legend(handles=[Patch(color=GOLD, alpha=.45, label="what arrives, on its date"),
+                   Patch(color=RED, label="what it is worth today")], frameon=False, loc="upper left")
+save(fig, "w04_pull_back")
+
+# w04 — NPV of the line as a function of the rate; the zero is the IRR
+fig, ax = plt.subplots(figsize=(7.0, 3.9))
+def npv(r): return -2400 + sum(cf / (1 + r) ** t for t, cf in enumerate(flows, start=1))
+rs = np.linspace(0, 0.22, 300)
+ax.plot(rs * 100, [npv(v) for v in rs], color=INK, lw=2.8)
+ax.axhline(0, color=MUTED, lw=1)
+for r, col in ((0.05, MUTED), (0.09, RED), (0.15, MUTED)):
+    ax.plot(r * 100, npv(r), "o", color=col, ms=8)
+    off = (-5.2, -130) if r > 0.1 else (0.6, 70)
+    ax.annotate(f"{r*100:.0f}%:  {npv(r):+,.0f}", (r * 100, npv(r)), (r * 100 + off[0], npv(r) + off[1]),
+                fontsize=11, color=col, fontweight="bold" if col == RED else "normal")
+ax.plot(14.556, 0, "o", color=GOLD, ms=10)
+ax.annotate("IRR 14.6%: NPV = 0", (14.556, 0), (15.5, 260), color=GOLD, fontsize=12, fontweight="bold",
+            arrowprops=dict(arrowstyle="-", color=GOLD, lw=1.2))
+ax.text(0.5, 40, "NPV > 0: accept", color=GREEN, fontsize=12, fontweight="bold")
+ax.text(16.5, 40, "NPV < 0: reject", color=RED, fontsize=12, fontweight="bold")
+ax.set_xlabel("what money costs the firm, % a year"); ax.set_ylabel("NPV, € thousand")
+save(fig, "w04_npv_curve")
+print("pull-back and NPV curve written")

@@ -52,7 +52,7 @@ The resit's multiple-choice block is entirely this and next week.
 ## The case for two weeks
 
 ::: {.callout-note title="Arno Bikes, a decision"}
-A new assembly line costs **€2.4M today** and is expected to return **€700k, €800k, €900k and €1,000k** at the end of each of the next four years. The firm borrows at **9%**.
+A new assembly line costs **€2.4M today** and is expected to return **€700k, €800k, €900k and €1,000k** at the end of each of the next four years. Its money costs it **9% a year** (where that number comes from is the last part of block D).
 :::
 
 ::: {.callout-important title="Bet before we compute"}
@@ -72,7 +72,7 @@ It returns €3.4M on a €2.4M outlay. Is that a million of profit? Yes or no �
 [Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities · growth]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
+[Block D]{.blk-letter}Build the line or not?[NPV · IRR · WACC]{.blk-tool}
 :::
 :::
 
@@ -205,7 +205,7 @@ Simple interest is $A = P(1+it)$: a straight line, $A'' = 0$. That is the whole 
 [Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities · growth]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
+[Block D]{.blk-letter}Build the line or not?[NPV · IRR · WACC]{.blk-tool}
 :::
 :::
 
@@ -262,7 +262,7 @@ A: `(1 + 0.078/12)¹² − 1 = 8.085%`. B: `8.000%`.
 [Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities · growth]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
+[Block D]{.blk-letter}Build the line or not?[NPV · IRR · WACC]{.blk-tool}
 :::
 :::
 
@@ -271,71 +271,147 @@ A: `(1 + 0.078/12)¹² − 1 = 8.085%`. B: `8.000%`.
 ::: {.blk-fill data-id="blkC"}
 :::
 
-## What is €10,000 in five years worth now?
+## The line pays €700k in a year. What is that worth today?
 
-$$PV = \frac{FV}{(1+r)^{t}} = \frac{10{,}000}{(1.07)^{5}} = €7{,}129.86$$
-
-[**FV** the *future value*, the sum on its future date · **PV** the *present value*, what that sum is worth today · **r** the rate, now called the *discount rate* · **t** the years between.]{.muted}
-
-Compounding pushes money forward; discounting pulls it back. Same formula, read the other way.
-
-![](img/w04_discount_factor.svg){fig-align="center" width="62%"}
-
-## Why is a future euro worth less than one today?
-
-1. **Opportunity cost.** The euro you hold now can be deposited at `r` and will have grown by then. A €1,000 bonus paid in a year, with a 4% deposit available, is worth `1,000/1.04 = €961.54` today — because €961.54 today *becomes* €1,000 in a year. This is the reason the formula uses.
-2. **Inflation.** A euro in five years buys less than a euro now. In practice the rate `r` you are quoted already contains it.
-3. **Risk.** A promised euro may not arrive. The less sure it is, the higher the rate you discount it at.
+::: {.callout-important title="Bet before we compute"}
+€700k, guaranteed, twelve months from now. Is that worth €700k to the firm today — more, or less?
+:::
 
 . . .
 
-::: {.callout-note title="Cost of capital"}
-The rate a firm discounts at is its **cost of capital**: what its money costs it. For Arno Bikes today, the 9% it borrows at. Block D shows the fuller version, a blend of what lenders charge and what shareholders expect.
-:::
+Block A, with Arno Bikes' rate of **9%**: put money in today, it is multiplied by `1.09` in a year.
 
-## Why the rate matters more than the forecast
-
-At 3%, a euro in twenty years is worth 55 cents. At 16%, five cents.
-
-[Two analysts can agree on every cash flow and disagree entirely on the answer, because they disagreed about one number at the front.]{.red}
-
-## Two shortcuts you will use constantly
-
-Most money in business arrives as a **stream**, not a lump: a lease, a loan repayment, a pension, a dividend, a bond coupon. Discounting each payment by hand is fine for three; for thirty, or for ever, you need the sum already done.
-
-:::: {.columns}
-::: {.column width="50%"}
-**Annuity** — the same amount, `n` times:
-$$PV = C\,\frac{1 - (1+r)^{-n}}{r}$$
-€12,000 a year for 10 years at 6% → **€88,321**
-:::
-::: {.column width="50%"}
-**Perpetuity** — the same amount, for ever:
-$$PV = \frac{C}{r}$$
-€12,000 a year for ever at 6% → **€200,000**
-:::
-::::
+| today | | in one year |
+|---|---|---|
+| €642.20k | `× 1.09` → | €700.00k |
+| **?** | ← `÷ 1.09` | €700.00k |
 
 . . .
 
-For ever is worth only 2.3 times ten years. Everything after year ten adds €111,679, because discounting shrinks distant money towards nothing.
+So €700k in a year is worth `700 / 1.09 =` **€642.20k** today: the sum that, left at 9%, *becomes* €700k. [Discounting is compounding run backwards. Nothing else about it is new.]{.red}
 
-## What is Arno Bikes worth?
+## Two years away: divide twice
+
+€800k arrives in **two** years. Undo two years of growth:
+
+`800 ÷ 1.09 ÷ 1.09 = 800 / 1.09² =` **€673.34k** [check: `673.34 × 1.09 × 1.09 = 800` ✓]{.muted}
+
+. . .
+
+$$PV = \frac{FV}{(1+r)^{t}}$$
+
+[**FV** *future value*, the sum on its own date · **PV** *present value*, what it is worth today · **r** the rate, here called the *discount rate* · **t** how many years away.]{.muted}
+
+. . .
 
 :::: {.columns}
 ::: {.column width="52%"}
-A buyer asks the Board to name a price for the whole firm.
+| €1 arriving in | is worth today, at 9% |
+|---|---|
+| 1 year | `1/1.09 = 0.9174` |
+| 2 years | `1/1.09² = 0.8417` |
+| 3 years | `1/1.09³ = 0.7722` |
+| 4 years | `1/1.09⁴ = 0.7084` |
+:::
+::: {.column width="48%"}
+This column is the **discount factor**: what one euro on that date is worth now. Every present value is *amount × factor*.
 
-- next year's free cash flow: **€300k**
+[Keep this column. Block D is this column and nothing else.]{.red}
+:::
+::::
+
+## The further away, the more it shrinks
+
+![](img/w04_pull_back.svg){fig-align="center" width="74%"}
+
+[The gold bars are what the line pays, each on its own date. The red bars are the same money brought to today. Year 4 pays the most and loses the most.]{.muted}
+
+## Why 9%, and why does a later euro count for less?
+
+**Because money has a cost.** Arno Bikes' money costs it 9% a year — that is its **cost of capital**. A euro that arrives in a year instead of today is a year in which it could have paid back 9% or earned 9%. Discounting charges each future euro for its wait.
+
+. . .
+
+[Inflation and risk do not need a separate step: they are already inside the rate. A riskier flow is discounted at a higher rate.]{.muted}
+
+. . .
+
+[Where the 9% itself comes from — who lent the money and what they want for it — is the last part of block D.]{.red}
+
+## The rate decides how much it shrinks
+
+:::: {.columns}
+::: {.column width="40%"}
+The same **€1,000 in four years**, today:
+
+| rate | worth today |
+|---|---|
+| 5% | €822.70 |
+| **9%** | **€708.43** |
+| 15% | €571.75 |
+
+Same euros, same date. Only the rate changed, and the answer moved by €250.
+:::
+::: {.column width="60%"}
+![](img/w04_discount_factor.svg){width="100%"}
+:::
+::::
+
+::: {.callout-tip title="Board sentence"}
+Euros with different dates cannot be added. Bring each to today first — and the rate you bring them with decides the answer.
+:::
+
+## D7, D8 — one sum, brought to today {.paper background-color="#eceff0"}
+
+[PAPER · drills.md]{.kicker}
+
+8 minutes. Write the factor on its own line before you multiply: `1/(1.07)⁵ = …`, then `10,000 × … = …`.
+
+## The same payment, every year: add the factors
+
+The firm leases a machine out for **€500k a year, four years**, at 9%. Four present values — the factors are the column you already have:
+
+`500 × (0.9174 + 0.8417 + 0.7722 + 0.7084) = 500 × 3.2397 ≈` **€1,619.86k**
+
+. . .
+
+:::: {.columns}
+::: {.column width="50%"}
+**Annuity** — the same `C`, `n` times. The bracket is that sum of factors, already done:
+$$PV = C\,\frac{1 - (1+r)^{-n}}{r}$$
+`500 × (1 − 1.09⁻⁴)/0.09 = 500 × 3.2397` ✓
+:::
+::: {.column width="50%"}
+**Perpetuity** — the same `C` for ever. The factors keep coming but keep shrinking, and their sum stops at `1/r`:
+$$PV = \frac{C}{r}$$
+`500 / 0.09 =` **€5,555.56k**
+:::
+::::
+
+[Loans, leases, pensions and — next week — bond coupons are all annuities. You need the formula only because adding thirty factors by hand is slow.]{.muted}
+
+## D9 — annuities and perpetuities {.paper background-color="#eceff0"}
+
+[PAPER · drills.md]{.kicker}
+
+7 minutes. Say first which it is — fixed number of payments, or for ever — then write the formula.
+
+## What is the whole firm worth?
+
+[BEYOND THE SYLLABUS]{.kicker}
+
+:::: {.columns}
+::: {.column width="52%"}
+A buyer asks the Board for a price. A firm is a stream of yearly cash, so it is priced like a stream.
+
+- next year's **free cash flow**: €300k [— the cash left for the owners after costs, taxes and the investment needed to keep going]{.muted}
 - growing **3% a year, for ever**
-- cost of capital: **9%**
+- cost of capital **9%**
 
-[*Free cash flow*: the cash the business generates in a year after its costs, taxes and the investment it needs to keep running — what is left for whoever owns it. A firm is a stream of these, so it is priced like one.]{.muted}
-
-With no growth, the perpetuity you just saw:<br>€300k / 0.09 = **€3.33M**.
+No growth: a perpetuity, `300 / 0.09 =` **€3.33M**.
 
 ::: {.callout-important title="Bet before we compute"}
-With 3% growth — how much? One number, in euros, before any formula.
+With 3% growth — how much?
 :::
 :::
 ::: {.column width="48%"}
@@ -348,52 +424,38 @@ With 3% growth — how much? One number, in euros, before any formula.
 | 5 | 337.65 | 219.45 |
 | … | grows 3% | shrinks |
 
-[Every row adds less than the one before, but the rows never stop.]{.muted}
+[The flows grow by 3%, the discounting takes off 9%: each row is worth a bit less than the one before, but the rows never stop.]{.muted}
 :::
 ::::
 
 ## A perpetuity, with the growth taken off the rate
 
-$$PV = \frac{CF_1}{r - g} = \frac{300}{0.09 - 0.03} = \frac{300}{0.06} = €5{,}000\text{k} = \textbf{€5M}$$
+$$PV = \frac{CF_1}{r - g} = \frac{300}{0.09 - 0.03} = \frac{300}{0.06} = \textbf{€5M}$$
 
-Each year's present value is the last one times $\frac{1.03}{1.09}$: the table is a **geometric series**, and this is its sum. With $g = 0$ it is the $C/r$ you already know.
+[Same as `C/r`, except the rate is reduced by the growth. With `g = 0` it *is* `C/r`.]{.muted}
 
 . . .
 
-The first five years are worth €1.23M. The other **€3.77M is everything after year five** — the value of a firm lives mostly in the far future.
-
-## One point of growth is worth a million
-
 :::: {.columns}
-::: {.column width="64%"}
+::: {.column width="60%"}
 ![](img/w04_gordon.svg){width="100%"}
 :::
-::: {.column width="36%"}
+::: {.column width="40%"}
 | g | value |
 |---|---|
 | 2% | €4.29M |
 | **3%** | **€5.00M** |
 | 4% | €6.00M |
 
-As $g \to r$ the denominator goes to zero and the value explodes — a limit, week 2.
-
-[The formula needs $g < r$. No firm outgrows its cost of capital for ever.]{.red}
+One point of growth is worth about a million. As `g` approaches `r` the denominator approaches zero and the value explodes (a limit, week 2). [It only works with `g < r`.]{.red}
 :::
 ::::
 
-## Where the risk in a valuation sits
-
-::: {.callout-tip title="Board sentence"}
-A firm is worth next year's cash flow divided by the gap between our cost of capital and its growth. That gap is a few points wide, and every point of doubt in it is a million on the price.
-:::
-
-[Earlier: two analysts who agree on every cash flow can disagree on the answer because of the rate. Here the rate *and* the growth sit in one small number, $r - g$, and that is where to push back.]{.muted}
-
-## D8–D11 — present value, annuity, perpetuity, growth {.paper background-color="#eceff0"}
+## D10–D12 — a growing stream, a firm's price {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 
-15 minutes. Show the discount factor separately from the flow, every time. D11 ends with a sentence for the Board.
+10 minutes. D11 ends with one sentence for the Board.
 
 ## Four blocks today {.hub auto-animate=true}
 
@@ -408,7 +470,7 @@ A firm is worth next year's cash flow divided by the gap between our cost of cap
 [Block C]{.blk-letter}What is a future euro worth today?[discounting · annuities · growth]{.blk-tool}
 :::
 ::: {.blk .now data-id="blkD"}
-[Block D]{.blk-letter}Build the line or not?[NPV · IRR]{.blk-tool}
+[Block D]{.blk-letter}Build the line or not?[NPV · IRR · WACC]{.blk-tool}
 :::
 :::
 
@@ -417,18 +479,23 @@ A firm is worth next year's cash flow divided by the gap between our cost of cap
 ::: {.blk-fill data-id="blkD"}
 :::
 
-## Back to the assembly line
+## Back to the line: every flow to today, then add
 
-$$NPV = -2{,}400 + \frac{700}{1.09} + \frac{800}{1.09^{2}} + \frac{900}{1.09^{3}} + \frac{1{,}000}{1.09^{4}}$$
+Each flow × its factor from block C. Year 0 is today, so its factor is 1.
 
-| Year | Flow (€k) | Factor | PV (€k) |
+| Year | Flow (€k) | × factor at 9% | = worth today (€k) |
 |---|---|---|---|
-| 0 | −2,400 | 1.000000 | −2,400.00 |
-| 1 | 700 | 0.917431 | 642.20 |
-| 2 | 800 | 0.841680 | 673.34 |
-| 3 | 900 | 0.772183 | 694.97 |
-| 4 | 1,000 | 0.708425 | 708.43 |
-| | | **NPV** | **+318.94** |
+| 0 | −2,400 | 1 | −2,400.00 |
+| 1 | 700 | 0.9174 | 642.20 |
+| 2 | 800 | 0.8417 | 673.34 |
+| 3 | 900 | 0.7722 | 694.97 |
+| 4 | 1,000 | 0.7084 | 708.43 |
+| | | **sum = NPV** | **+318.94** |
+
+. . .
+
+[**Net Present Value**: *present* because everything is brought to today, *net* because the outlay is in the sum. The same table as one line:]{.muted}
+$$NPV = -2{,}400 + \frac{700}{1.09} + \frac{800}{1.09^{2}} + \frac{900}{1.09^{3}} + \frac{1{,}000}{1.09^{4}} = +318.94$$
 
 ## So the bet was wrong
 
@@ -436,68 +503,49 @@ The Board member said "€3.4M back on €2.4M out, a million of profit".
 
 . . .
 
-Adding flows from different years is the one thing this subject forbids. Discounted, the million is **€319,000** — still positive, still worth doing, but a third of what it looked like.
+That million added euros from four different years as if they were the same euro. Brought to today, the gain is **€319k** — still positive, still worth doing, a third of what it looked like.
 
 ::: {.callout-tip title="Board sentence"}
-Accept a project when its NPV is positive at *our* cost of capital. The rate is not a detail of the calculation; it is the calculation.
+Bring every flow to today at our cost of capital and add them. Positive: build it — the line pays for its money and leaves €319k over. Negative: don't.
 :::
+
+## What if money cost more?
+
+:::: {.columns}
+::: {.column width="34%"}
+Same flows, different rate:
+
+| rate | NPV (€k) |
+|---|---|
+| 5% | +592 |
+| **9%** | **+319** |
+| 12% | +139 |
+| 15% | −23 |
+
+The dearer the money, the more each future euro shrinks, the lower the NPV.
+:::
+::: {.column width="66%"}
+![](img/w04_npv_curve.svg){width="100%"}
+:::
+::::
 
 ## Move the rate, watch the sign {.clip background-color="#000000"}
 
 <video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w04_npv_poster.png"><source src="media/w04_npv.mp4" type="video/mp4"></video>
 
-The crossing has a name: the internal rate of return, 14.6% here.
+Somewhere between 12% and 15% the NPV crosses zero.
 
-## Every block today ran on a rate. Whose?
+## The crossing has a name: IRR
 
-| Block | The rate was… | Set by |
-|---|---|---|
-| A | what a deposit grows at | the bank, for you |
-| B | the same rate, quoted honestly (EAR) | the bank, compared |
-| C | what a euro of yours could earn elsewhere | your best alternative |
-| D | the rate the line has to beat | **the firm's own money** |
+The **internal rate of return** is the rate at which NPV is exactly zero. For the line, **14.6%**.
 
 . . .
 
-Block C called it the *cost of capital* and used "the 9% the firm borrows at". That was a shortcut: a firm's money never comes from one pocket. [So where does 9 come from?]{.red}
-
-## €2.4M, euro by euro — who paid for the line?
-
-| Source | Amount | What it costs a year | After tax |
-|---|---|---|---|
-| Shareholders, 60% | €1,440k | expect 12% → €172.8k | €172.8k |
-| Bank, 40% | €960k | charges 6% → €57.6k | interest is deductible at 25% → €43.2k |
-| **Total** | **€2,400k** | | **€216.0k** |
+**What it tells you.** The line stays worth building as long as money costs the firm less than 14.6%. Ours costs 9%: 5.6 points of room.
 
 . . .
 
-`216 / 2,400 = 9.0%` a year. That is the bill the line must pay, every year, before it has earned anyone a cent. [A project with NPV > 0 at 9% pays that bill and leaves something over.]{.red}
-
-. . .
-
-[It is a weighted average, nothing more: each source's rate, weighted by its share of the money. Finance calls it the **WACC**.]{.muted}
-
-## The same table, as a formula
-
-$$WACC = \frac{E}{V}\,r_e \;+\; \frac{D}{V}\,r_d(1-\tau)$$
-
-| | |
-|---|---|
-| `E/V`, `D/V` | the share of equity and of debt in the financing (0.6 and 0.4) |
-| `r_e`, `r_d` | what shareholders expect, what lenders charge (12%, 6%) |
-| `(1 − τ)` | interest is tax-deductible, so debt costs less than its rate (0.75) |
-
-`0.6(12%) + 0.4(6%)(0.75) = 7.2% + 1.8%` = **9.0%** — the 9 we have used all morning.
-
-::: {.callout-tip title="Board sentence"}
-The discount rate is not an assumption you pick. It is the price your own money costs, and using someone else's number is how projects get approved that should not be.
-:::
-
-## What IRR is, and what it is not
-
-**It is** the discount rate at which NPV is exactly zero — the project's own break-even cost of money, and a useful margin of safety: 9% against 14.6% is comfortable room.
-
-**It is not** a decision rule on its own. Compare two projects on IRR and you can pick the smaller one; compare them on NPV and you cannot.
+**What it does not.** It is not a decision rule on its own: between two projects the higher IRR can be the one that makes less money. Decide on NPV; quote IRR as the safety margin.
 
 ## Push the cost of capital {.lab background-color="#2471a3"}
 
@@ -507,7 +555,39 @@ The discount rate is not an assumption you pick. It is the price your own money 
 2. Then slide, and read the crossing.
 3. Now delay the first €700k by a year. What happens to the IRR, and why?
 
-## D13, D14 — the case, decided {.paper background-color="#eceff0"}
+## Last question: why 9%?
+
+We have used 9% all morning. It is not the bank's rate — the bank charges 6%. The €2.4M came from **two** places, and each wants paying.
+
+| Who put the money in | Amount | What they want each year | Cost to the firm each year |
+|---|---|---|---|
+| Shareholders, 60% | €1,440k | 12% → €172.8k | €172.8k |
+| Bank, 40% | €960k | 6% → €57.6k | €43.2k [interest cuts taxable profit; at 25% tax, a quarter comes back]{.muted} |
+| **Total** | **€2,400k** | | **€216.0k** |
+
+. . .
+
+`216 / 2,400 =` **9.0%** a year. That is the cost of capital: what the line must earn just to pay the people who financed it. [Shareholders want more than the bank because they are paid last and carry the risk.]{.muted}
+
+## The same table, as a formula: WACC
+
+Each source's cost, weighted by its share of the money — a **weighted average cost of capital**.
+
+$$WACC = \frac{E}{V}\,r_e \;+\; \frac{D}{V}\,r_d(1-\tau)$$
+
+| | | Arno Bikes |
+|---|---|---|
+| `E/V`, `D/V` | share of equity, share of debt | 0.6, 0.4 |
+| `r_e`, `r_d` | what shareholders expect, what the bank charges | 12%, 6% |
+| `(1 − τ)` | the tax saving on interest | 0.75 |
+
+`0.6 × 12% + 0.4 × 6% × 0.75 = 7.2% + 1.8% =` **9.0%**
+
+::: {.callout-tip title="Board sentence"}
+The discount rate is not a guess: it is what our own money costs us. A project with positive NPV at our WACC pays everyone who financed it and leaves something over.
+:::
+
+## D13, D13b, D14 — the case, decided {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 
@@ -519,10 +599,9 @@ The discount rate is not an assumption you pick. It is the price your own money 
 
 1. A nominal rate is not a price until you know how often it compounds. Compare on EAR.
 2. Compounding more often always helps, and always by less. The ceiling is `e`.
-3. Money with different dates cannot be added. Discount first.
+3. Money with different dates cannot be added. Bring each sum to today by dividing by $(1+r)^t$ — compounding run backwards.
 4. A firm growing for ever is worth $CF_1/(r-g)$; the gap $r-g$ is where the valuation's risk sits.
-5. Accept when NPV is positive at your own cost of capital; IRR is where it crosses zero.
+5. NPV = every flow brought to today, outlay included, added up. Accept when it is positive at your own cost of capital; IRR is the rate where it crosses zero.
+6. The cost of capital is the WACC: what shareholders and lenders want, weighted by their share of the money, with the tax saving on interest.
 
-**Homework 4** (`homework.md`), for Thursday 22 October, corrected together at the board: nine drills plus a memo correcting the Board member.
-
-Next week: the same arithmetic applied to a bond, and the two numbers that say how much a rate rise would cost you.
+**Homework 4**, for Thursday 22 October: nine drills plus a memo correcting the Board member. Next week: the same arithmetic applied to a bond.
