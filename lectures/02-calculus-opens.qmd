@@ -337,6 +337,29 @@ $$\frac{(q-10)(q+10)}{q-10} = q + 10 \;\longrightarrow\; 20$$
 `0/0` is not an answer, it is an instruction: factor, cancel, then substitute.
 :::
 
+## `0/0` is a promise: the same factor is hiding top and bottom
+
+If the top and the bottom are **both zero** at $q = a$, both contain the factor $(q - a)$. So after factoring, $(q - a)$ **must** appear in both and cancel. If it does not, the factoring is wrong: go back, do not go on.
+
+:::: {.columns}
+::: {.column width="46%"}
+1. **Substitute.** Is it really `0/0`? A number over a number is the answer; a number over `0` is an infinity.
+2. **Factor both** until $(q - a)$ shows in each. Watch the sign: $a - q = -(q - a)$.
+3. **Cancel, then substitute again.** If it is still `0/0`, there is another $(q - a)$: cancel once more.
+:::
+::: {.column width="54%"}
+$$\lim_{q \to 3^{+}} \frac{(q-3)^{2}}{3q - q^{2}}$$
+
+Top and bottom are 0 at 3, so $(q - 3)$ hides in both. The bottom does not show it — until you flip a sign:
+
+$$3q - q^{2} = q(3 - q) = -q(q-3)$$
+
+$$\frac{(q-3)^{2}}{-q(q-3)} = -\frac{q-3}{q} \;\longrightarrow\; -\frac{0}{3} = 0$$
+:::
+::::
+
+[The check that saves marks: no $(q - a)$ in both after factoring means a mistake, not a hard limit.]{.red}
+
 ## One more limit at infinity: is there a slant asymptote?
 
 A curve can approach a **sloping** line, not just a flat one. Two limits decide it:
@@ -620,6 +643,26 @@ The bottom differentiates to `2q`; the top is `q`, so put the missing `½` out f
 **Before integrating any fraction, ask one question: is the top the derivative of the bottom?** If yes, it is a log. If no, divide term by term and use the power rule.
 
 [This is the chain rule read backwards, and the final's calculus question uses it.]{.red}
+
+## Not quite the derivative? Fix the number in front
+
+The top is often the derivative of the bottom **up to a number**. Make it exact: multiply inside by what is missing, divide outside by the same.
+
+$$\int \frac{x}{x^{2}-1}\,dx \;=\; \frac{1}{2}\int \frac{\mathbf{2}x}{x^{2}-1}\,dx \;=\; \frac{1}{2}\ln\lvert x^{2}-1\rvert + c$$
+
+. . .
+
+| | the bottom gives | the top is | so put in front | answer |
+|---|---|---|---|---|
+| $\displaystyle\int \frac{3x}{x^{2}+4}dx$ | $2x$ | $3x = \tfrac{3}{2}\cdot 2x$ | $\tfrac{3}{2}$ | $\tfrac{3}{2}\ln(x^{2}+4) + c$ |
+| $\displaystyle\int \frac{5}{2x+1}dx$ | $2$ | $5 = \tfrac{5}{2}\cdot 2$ | $\tfrac{5}{2}$ | $\tfrac{5}{2}\ln\lvert 2x+1\rvert + c$ |
+| $\displaystyle\int \frac{x^{2}}{x^{3}-8}dx$ | $3x^{2}$ | $x^{2} = \tfrac{1}{3}\cdot 3x^{2}$ | $\tfrac{1}{3}$ | $\tfrac{1}{3}\ln\lvert x^{3}-8\rvert + c$ |
+
+. . .
+
+::: {.callout-important title="Two rules that keep it honest"}
+Only a **number** can be moved outside the integral, never an `x`: $\int \frac{1}{x^{2}-1}dx$ is not a log of $x^{2}-1$. And **check by differentiating back**: $\frac{d}{dx}\,\tfrac12\ln\lvert x^{2}-1\rvert = \tfrac12 \cdot \frac{2x}{x^{2}-1}$ ✓. Keep the modulus: in a definite integral the inside is often negative.
+:::
 
 ## The definite integral, and what it measures
 

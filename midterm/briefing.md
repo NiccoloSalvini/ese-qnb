@@ -12,6 +12,21 @@ Written part 80%, oral 20%.
 
 Two things are being marked at once: **whether the mathematics is right**, and **whether a Board would act on what you wrote**. Most people are stronger at the first than they think and weaker at the second.
 
+## How the paper is marked
+
+Two layers, and the second one is a quarter of the mark.
+
+| | weight |
+|---|---|
+| **the content of the questions** — relevance, depth, structure, the mathematics, each question at its own weight in the brief | 75% |
+| **referencing** — every claim from outside sourced, in-text, Harvard | 15% |
+| **bibliography** — complete, Harvard, sources a sceptic would accept | 5% |
+| **language** — precise, the vocabulary of the course | 5% |
+
+A perfect study of the functions with no sources is capped at three quarters of the mark before anyone reads a line. A correct reference list costs an afternoon; do it properly.
+
+The oral is marked on the **quality of the work presented** (30%), the **use of course material** (30%), its **value to the audience** — would a Board act on it? (30%), and **delivery** (10%).
+
 ## The order to work in
 
 Not the order the report is read in.
