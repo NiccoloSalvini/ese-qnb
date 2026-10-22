@@ -731,6 +731,24 @@ Niccolò Salvini, PhD
 </div>
 </div>
 </section>
+<section id="is-a-promise-the-same-factor-is-hiding-top-and-bottom" class="slide level2">
+<h2><code>0/0</code> is a promise: the same factor is hiding top and bottom</h2>
+<p>If the top and the bottom are <strong>both zero</strong> at <span class="math inline">q = a</span>, both contain the factor <span class="math inline">(q - a)</span>. So after factoring, <span class="math inline">(q - a)</span> <strong>must</strong> appear in both and cancel. If it does not, the factoring is wrong: go back, do not go on.</p>
+<div class="columns">
+<div class="column" style="width:46%;">
+<ol type="1">
+<li><strong>Substitute.</strong> Is it really <code>0/0</code>? A number over a number is the answer; a number over <code>0</code> is an infinity.</li>
+<li><strong>Factor both</strong> until <span class="math inline">(q - a)</span> shows in each. Watch the sign: <span class="math inline">a - q = -(q - a)</span>.</li>
+<li><strong>Cancel, then substitute again.</strong> If it is still <code>0/0</code>, there is another <span class="math inline">(q - a)</span>: cancel once more.</li>
+</ol>
+</div><div class="column" style="width:54%;">
+<p><span class="math display">\lim_{q \to 3^{+}} \frac{(q-3)^{2}}{3q - q^{2}}</span></p>
+<p>Top and bottom are 0 at 3, so <span class="math inline">(q - 3)</span> hides in both. The bottom does not show it — until you flip a sign:</p>
+<p><span class="math display">3q - q^{2} = q(3 - q) = -q(q-3)</span></p>
+<p><span class="math display">\frac{(q-3)^{2}}{-q(q-3)} = -\frac{q-3}{q} \;\longrightarrow\; -\frac{0}{3} = 0</span></p>
+</div></div>
+<p><span class="red">The check that saves marks: no <span class="math inline">(q - a)</span> in both after factoring means a mistake, not a hard limit.</span></p>
+</section>
 <section id="one-more-limit-at-infinity-is-there-a-slant-asymptote" class="slide level2">
 <h2>One more limit at infinity: is there a slant asymptote?</h2>
 <p>A curve can approach a <strong>sloping</strong> line, not just a flat one. Two limits decide it:</p>
@@ -1142,6 +1160,71 @@ Niccolò Salvini, PhD
 <div class="fragment">
 <p><strong>Before integrating any fraction, ask one question: is the top the derivative of the bottom?</strong> If yes, it is a log. If no, divide term by term and use the power rule.</p>
 <p><span class="red">This is the chain rule read backwards, and the final’s calculus question uses it.</span></p>
+</div>
+</section>
+<section id="not-quite-the-derivative-fix-the-number-in-front" class="slide level2">
+<h2>Not quite the derivative? Fix the number in front</h2>
+<p>The top is often the derivative of the bottom <strong>up to a number</strong>. Make it exact: multiply inside by what is missing, divide outside by the same.</p>
+<p><span class="math display">\int \frac{x}{x^{2}-1}\,dx \;=\; \frac{1}{2}\int \frac{\mathbf{2}x}{x^{2}-1}\,dx \;=\; \frac{1}{2}\ln\lvert x^{2}-1\rvert + c</span></p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>the bottom gives</th>
+<th>the top is</th>
+<th>so put in front</th>
+<th>answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\displaystyle\int \frac{3x}{x^{2}+4}dx</span></td>
+<td><span class="math inline">2x</span></td>
+<td><span class="math inline">3x = \tfrac{3}{2}\cdot 2x</span></td>
+<td><span class="math inline">\tfrac{3}{2}</span></td>
+<td><span class="math inline">\tfrac{3}{2}\ln(x^{2}+4) + c</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\displaystyle\int \frac{5}{2x+1}dx</span></td>
+<td><span class="math inline">2</span></td>
+<td><span class="math inline">5 = \tfrac{5}{2}\cdot 2</span></td>
+<td><span class="math inline">\tfrac{5}{2}</span></td>
+<td><span class="math inline">\tfrac{5}{2}\ln\lvert 2x+1\rvert + c</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\displaystyle\int \frac{x^{2}}{x^{3}-8}dx</span></td>
+<td><span class="math inline">3x^{2}</span></td>
+<td><span class="math inline">x^{2} = \tfrac{1}{3}\cdot 3x^{2}</span></td>
+<td><span class="math inline">\tfrac{1}{3}</span></td>
+<td><span class="math inline">\tfrac{1}{3}\ln\lvert x^{3}-8\rvert + c</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div title="Two rules that keep it honest">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Two rules that keep it honest</strong></p>
+</div>
+<div class="callout-content">
+<p>Only a <strong>number</strong> can be moved outside the integral, never an <code>x</code>: <span class="math inline">\int \frac{1}{x^{2}-1}dx</span> is not a log of <span class="math inline">x^{2}-1</span>. And <strong>check by differentiating back</strong>: <span class="math inline">\frac{d}{dx}\,\tfrac12\ln\lvert x^{2}-1\rvert = \tfrac12 \cdot \frac{2x}{x^{2}-1}</span> ✓. Keep the modulus: in a definite integral the inside is often negative.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="the-definite-integral-and-what-it-measures" class="slide level2">
