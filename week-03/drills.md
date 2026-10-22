@@ -70,6 +70,29 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 (a) By how much does profit change if output rises from 100 to 150? Compute it as a definite integral.
 (b) Check your answer against `π(150) − π(100)` using `π(q) = −4q² + 1200q − 60,000`.
 
+## D. When the world moves the curve: tariffs
+
+**D11 (core — the brief's tariff question, different numbers).** A firm has `R(q) = 60 ln(q + 1)` and `C(q) = 0.25q² + 5q + 30`, € thousand, `q ≥ 0`. Of the €5k that one more unit costs, €4k is a component imported from outside the EU. The EU imposes a **20% tariff** on it.
+(a) Say which term of `C` the tariff moves, which it leaves alone, and why. Write the new cost `C_t(q)`.
+(b) Find the profit-maximising output before and after the tariff. Confirm each is a maximum with `π''`.
+(c) Profit at each optimum, and the change in euro and in percent.
+(d) Check (c) in your head: tariff per unit × output. Why is the exact loss a little smaller?
+(e) One sentence for the Board.
+
+**D12 (core — a zero by bisection).** For the firm of D11 *with* the tariff, `π_t(q) = 60 ln(q + 1) − 0.25q² − 5.8q − 30`.
+(a) Show that `π_t` changes sign between `q = 0.75` and `q = 0.8`, and between `q = 14` and `q = 14.5`.
+(b) Halve each interval until you can state both break-even outputs to one decimal place.
+(c) Before the tariff the break-evens were `0.76` and `15.57`. What happened to the profitable window?
+
+**D13 (core — the small-nation model).** A small open economy: demand `Q_d = 120 − 2p`, domestic supply `Q_s = 3p − 30` (`Q` in thousand units, `p` in €). The world price is €20.
+(a) Price and quantity with no trade (autarky).
+(b) Under free trade: quantity bought, made at home, imported.
+(c) A tariff of €5 a unit. The same three quantities.
+(d) Compute, as integrals or as areas: the loss of consumer surplus, the gain of domestic producers, the tariff revenue, and the two triangles — the protective and the consumption effect. Check that they add up.
+(e) What is the deadweight loss, and what does it mean in one sentence?
+
+**D14 (stretch — writing).** In 150–200 words for a Board, explain why a tariff hurts a small open economy *more* than the triangles of D13 suggest. Name at least four channels and say which source you would cite for each.
+
 ---
 
 <details>
@@ -170,5 +193,32 @@ So the antiderivative is `ln|x−1| + ½ ln|x²−1|`, and
 (a) `∫₁₀₀¹⁵⁰ (1200 − 8q) dq = [1200q − 4q²]₁₀₀¹⁵⁰ = (180,000 − 90,000) − (120,000 − 40,000) = 90,000 − 80,000 = **€10,000**`.
 (b) `π(150) = 30,000`; `π(100) = −40,000 + 120,000 − 60,000 = 20,000`. Difference `= **€10,000**`. ✔
 The integral of the marginal is the change in the total. That sentence is the whole of integration.
+
+**D11.**
+(a) The tariff raises what the firm **pays per unit for the component**: `4 × 0.20 = €0.8k` more per unit. That is the linear term, `5q → 5.8q`. The quadratic term `0.25q²` is the plant's internal cost of running harder (overtime, congestion), not a purchase: untouched. The fixed cost `30` does not depend on output: untouched. **`C_t(q) = 0.25q² + 5.8q + 30`.** Revenue unchanged, assuming the firm cannot raise its price.
+(b) Before: `π'(q) = 60/(q + 1) − 0.5q − 5 = 0` → `60 = (0.5q + 5)(q + 1) = 0.5q² + 5.5q + 5` → `q² + 11q − 110 = 0`. `Δ = 121 + 440 = 561`, `√Δ ≈ 23.685`, **`q* = (−11 + 23.685)/2 ≈ 6.34`** (the negative root is outside the domain).
+After: `60 = (0.5q + 5.8)(q + 1) = 0.5q² + 6.3q + 5.8` → `q² + 12.6q − 108.4 = 0`. `Δ = 158.76 + 433.6 = 592.36`, `√Δ ≈ 24.339`, **`q_t* = (−12.6 + 24.339)/2 ≈ 5.87`**.
+Both: `π''(q) = −60/(q + 1)² − 0.5 < 0` for every `q ≥ 0`, so each is a **maximum** (≈ −1.61 and −1.77).
+(c) `π(6.34) = 60 ln 7.34 − 0.25(6.34)² − 5(6.34) − 30 ≈ **47.85**`; `π_t(5.87) ≈ **42.97**`. Change **−€4.88k, −10.2%**.
+(d) `0.8 × 6.34 ≈ 5.07`. The exact loss is smaller because the firm cuts output by half a unit and stops paying the tariff on what it no longer makes.
+(e) "The tariff costs us about €4.9k a month, a tenth of our profit; we should produce about 5.9 units instead of 6.3."
+
+**D12.**
+(a) `π_t(0.75) ≈ −0.91`, `π_t(0.8) ≈ +0.47`; `π_t(14) ≈ +2.28`, `π_t(14.5) ≈ −2.21`. Each pair has opposite signs, so `π_t` crosses zero inside each interval (it is continuous there).
+(b) Lower: `π_t(0.775) ≈ −0.22` → between 0.775 and 0.8; `π_t(0.7875) ≈ +0.13` → between 0.775 and 0.7875. Every number in there rounds to **`q ≈ 0.8`** (exact 0.783). Upper: `π_t(14.25) ≈ +0.06` → between 14.25 and 14.5; `π_t(14.3) ≈ −0.39` → between 14.25 and 14.3: **`q ≈ 14.3`** (exact 14.257).
+(c) From `[0.76, 15.57]` to `[0.78, 14.26]`: the window shrinks, mostly at the top. At high output the tariff is paid on many units, so the firm stops covering its costs much sooner.
+
+**D13.**
+(a) `120 − 2p = 3p − 30` → `p = 30`, `Q = 60`.
+(b) At `p = 20`: bought `Q_d = 80`, made at home `Q_s = 30`, imported **50**.
+(c) At `p = 25`: bought `70`, made at home `45`, imported **25**.
+(d) `ΔCS = ∫₂₀²⁵ (120 − 2p) dp = [120p − p²]₂₀²⁵ = 2375 − 2000 = **375**`.
+`ΔPS = ∫₂₀²⁵ (3p − 30) dp = [1.5p² − 30p]₂₀²⁵ = 187.5 − 0 = **187.5**`.
+Revenue `= 5 × 25 = **125**`.
+Protective effect `= ½ × 5 × (45 − 30) = **37.5**`; consumption effect `= ½ × 5 × (80 − 70) = **25**`.
+Check: `187.5 + 125 + 37.5 + 25 = 375` ✔ (all in € thousand).
+(e) Deadweight loss `= 37.5 + 25 = **62.5**`: the part of the consumers' loss that nobody gains — production done at home at more than the world price, and purchases that no longer happen.
+
+**D14.** A strong answer names and explains, each with a source: retaliation against the country's exports; higher input costs for domestic firms that use the taxed good (the D11 firm is one); pass-through to consumer prices and real incomes; the exposure of a small economy whose trade is a large share of GDP; policy uncertainty that delays investment; administrative and compliance costs. It ties at least one channel back to the firm's cost function, and cites institutional sources (WTO, OECD, European Commission, IMF) or peer-reviewed work, never Wikipedia.
 
 </details>

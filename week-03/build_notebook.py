@@ -384,6 +384,58 @@ assert x_best == 4 and h.subs(side, 4) == 2 and S.subs(side, 4) == 48
 print(f"Answer: base {x_best} m × {x_best} m, height {h.subs(side, x_best)} m, surface {S.subs(side, x_best)} m².")
 """)
 
+# --- D11 ---
+md(r"""
+### D11 — a 20% tariff on an imported component
+$R(q) = 60\ln(q+1)$, $C(q) = 0.25q^2 + 5q + 30$. €4k of the €5k marginal cost is imported; the tariff raises the linear term to $5.8q$.
+""")
+code(r"""
+R11 = 60*sp.log(q + 1)
+def best(b):
+    p = R11 - (sp.Rational(1, 4)*q**2 + b*q + 30)
+    q_star = [s for s in sp.solve(sp.diff(p, q), q) if s.is_positive][0]
+    return p, q_star, float(p.subs(q, q_star)), float(sp.diff(p, q, 2).subs(q, q_star))
+p0, q0, v0, d0 = best(5)
+pt, qt, vt, dt = best(5 + sp.Rational(4, 5))          # 5 + 0.20 × 4
+print(f"before: q* = {float(q0):.3f}, profit {v0:.2f}, pi'' {d0:.3f}")
+print(f"after:  q* = {float(qt):.3f}, profit {vt:.2f}, pi'' {dt:.3f}")
+print(f"change: {vt - v0:.2f} ({(vt - v0)/v0:.1%});  quick check 0.8 × q* = {0.8*float(q0):.2f}")
+assert round(float(q0), 2) == 6.34 and round(float(qt), 2) == 5.87
+assert round(v0, 2) == 47.85 and round(vt, 2) == 42.97 and d0 < 0 and dt < 0
+""")
+
+# --- D12 ---
+md(r"""
+### D12 — the break-evens with the tariff, by bisection
+""")
+code(r"""
+f = sp.lambdify(q, pt)
+def bisect(a, b, steps=12):
+    for _ in range(steps):
+        m = (a + b)/2
+        a, b = (m, b) if f(a)*f(m) > 0 else (a, m)
+    return (a + b)/2
+low, high = bisect(0.75, 0.8), bisect(14, 14.5)
+print(f"break-evens with the tariff: {low:.3f} and {high:.3f}")
+assert round(low, 1) == 0.8 and round(high, 1) == 14.3
+""")
+
+# --- D13 ---
+md(r"""
+### D13 — the small-nation model: $Q_d = 120 - 2p$, $Q_s = 3p - 30$, world price 20, tariff 5
+""")
+code(r"""
+p = sp.Symbol('p', real=True)
+Qd, Qs = 120 - 2*p, 3*p - 30
+cs = sp.integrate(Qd, (p, 20, 25)); ps = sp.integrate(Qs, (p, 20, 25))
+rev = 5*(Qd - Qs).subs(p, 25)
+prot = sp.Rational(1, 2)*5*(Qs.subs(p, 25) - Qs.subs(p, 20))
+cons = sp.Rational(1, 2)*5*(Qd.subs(p, 20) - Qd.subs(p, 25))
+print("consumers lose", cs, "| producers gain", ps, "| revenue", rev, "| protective", prot, "| consumption", cons)
+assert sp.solve(Qd - Qs, p) == [30] and cs == 375 and ps == sp.Rational(375, 2) and rev == 125
+assert prot + cons == cs - ps - rev == sp.Rational(125, 2)
+""")
+
 md(r"""
 ## Homework
 

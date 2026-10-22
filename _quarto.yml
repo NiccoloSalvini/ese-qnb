@@ -8,6 +8,7 @@ project:
     - "week-04/revision.md"
     - "week-*/drills.md"
     - "week-05/mock_exam.md"
+    - "reading-week/mock_exam.md"
     - "week-*/session.ipynb"
     - "lectures/*.qmd"
   resources:

@@ -108,6 +108,22 @@ Three of the five items in the final's calculus question are here: a limit that 
 
 [Questions now, not in the last week of October.]{.red}
 
+## The questions with no formula
+
+The brief also asks what in the world outside could hurt the firm, and what protectionism does to an economy. These are research questions, not calculus — but they are marked on the same idea: **every risk lands on a term of the function.**
+
+| what goes wrong out there | how it reaches the firm | what moves in $C(q) = aq^{2} + bq + F$ or in $R(q)$ |
+|---|---|---|
+| input prices (battery cells, aluminium, oil) | suppliers reprice | $b$, the cost of one more unit |
+| a tariff, a quota, retaliation | imported parts dearer; export markets shut | $b$; the revenue coefficient |
+| the exchange rate | parts priced in dollars, sales in euros | $b$ and $R$ at once |
+| energy, shipping routes | freight and power bills | $b$, sometimes $F$ |
+| conflict, sanctions | a supplier disappears | capacity: the $aq^{2}$ term |
+| a recession abroad | fewer orders, lower prices | $R$ |
+| a new regulation | compliance cost | $F$ |
+
+[One paragraph per risk: what it is, a source a sceptic would accept, the term it moves, and in which direction. A risk that never touches the function has not answered the question.]{.red}
+
 ## Four blocks today {.hub auto-animate=true}
 
 ::: {.blocks}
@@ -201,11 +217,51 @@ So $\sqrt{q-20}$ needs **the thing inside**, not `q`, to be at least zero: `q �
 
 [Three rules, or one habit: put the bracket's contents where the rule's own question can be asked. You will never have to remember which is `≥` and which is `>` — `√0 = 0` is fine, `ln 0` is not.]{.red}
 
-## D1, D2 — domains, and the four functions {.paper background-color="#eceff0"}
+## Two domains: the algebra's, and the firm's
+
+A model answer states **both**, and says why they differ.
+
+:::: {.columns}
+::: {.column width="50%"}
+`R(q) = 30 ln(q + 1)`
+
+- **algebraically**: `q + 1 > 0`, so `(−1, +∞)`
+- **economically**: a quantity cannot be negative, so `[0, +∞)`
+
+`C(q) = 0.4q² + 3q + 25`
+
+- **algebraically**: any `q`, so `(−∞, +∞)`
+- **economically**: `[0, +∞)` again
+:::
+::: {.column width="50%"}
+Everything after this — limits, range, sign, the turning points — is studied on the **economic** domain.
+
+So a parabola's vertex that falls at a negative `q` is **not** the firm's minimum cost. It exists on paper and nowhere else.
+
+[Write it: "algebraically the vertex is at `q = −3.75`, outside the economic domain; on `[0, +∞)` cost only rises."]{.muted}
+:::
+::::
+
+## Where the curve meets the axes
+
+Two small systems, solved every time. They give the first points of the sketch.
+
+| | set | for `C(q) = 0.4q² + 3q + 25` | for `R(q) = 30 ln(q + 1)` |
+|---|---|---|---|
+| **y-axis** | `q = 0` | `C(0) = 25`: the **fixed cost**, the bill at zero output | `R(0) = 30 ln 1 = 0`: no sales, no revenue |
+| **x-axis** | `f(q) = 0` | `Δ = 9 − 40 < 0`: **never** zero — cost is always positive | `ln(q + 1) = 0 ⟺ q + 1 = 1 ⟺ q = 0`: only at the origin |
+
+. . .
+
+::: {.callout-tip title="Board sentence"}
+The intercept is a number the Board already knows by another name: the fixed cost, or the revenue of an idle plant. Name it.
+:::
+
+## D1, D2, D3b — domains, axes, and the four functions {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 
-10 minutes. Show all work, exam style. I walk round and look at your working.
+12 minutes. Show all work, exam style. I walk round and look at your working.
 
 ## Four blocks today {.hub auto-animate=true}
 
@@ -281,11 +337,29 @@ $$\frac{(q-10)(q+10)}{q-10} = q + 10 \;\longrightarrow\; 20$$
 `0/0` is not an answer, it is an instruction: factor, cancel, then substitute.
 :::
 
-## D4, D5, D6 — limits, including one from the exam {.paper background-color="#eceff0"}
+## One more limit at infinity: is there a slant asymptote?
+
+A curve can approach a **sloping** line, not just a flat one. Two limits decide it:
+
+$$m = \lim_{q \to \infty} \frac{f(q)}{q}, \qquad b = \lim_{q \to \infty} \big(f(q) - mq\big)$$
+
+If both are finite numbers, `y = mq + b` is the slant asymptote. If `m` is infinite, or `m = 0` (then it is the horizontal case), there is none.
+
+. . .
+
+| | `m` | `b` | verdict |
+|---|---|---|---|
+| `C(q) = 0.4q² + 3q + 25` | `+∞` | — | **none**: a parabola outruns every line |
+| `AC(q) = 0.4q + 3 + 25/q` | `0.4` | `3` | **`y = 0.4q + 3`**: the shared fixed cost fades away |
+| `R(q) = 30 ln(q + 1)` | `0` | `+∞` | **none**, and no horizontal one either: it rises forever, ever more slowly |
+
+[A report that writes "no asymptote" should have checked. Saying so in one line — "`C(q)/q → ∞`, so no slant asymptote" — is what separates a complete study from a good one.]{.red}
+
+## D4, D5, D6, D7b — limits, including one from the exam {.paper background-color="#eceff0"}
 
 [PAPER · drills.md]{.kicker}
 
-12 minutes. D5 is a one-sided limit in exactly the form the final exam uses.
+15 minutes. D5 is a one-sided limit in exactly the form the final exam uses. D7b is the slant-asymptote check.
 
 ## Four blocks today {.hub auto-animate=true}
 

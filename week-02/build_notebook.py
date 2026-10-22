@@ -410,6 +410,39 @@ assert sp.simplify(sp.diff(F_b, q) - (3*q**3 + 4*q**2 - 2)/q) == 0   # different
 """)
 
 md(r"""
+**D3b** $C(q) = 0.6q^2 + 4q + 15$, $R(q) = 25\ln(0.5q + 1)$: domains, axes, and the vertex of $C$.
+""")
+code(r"""
+C3 = sp.Rational(3, 5)*q**2 + 4*q + 15
+R3 = 25*sp.log(q/2 + 1)
+dom_R = solve_univariate_inequality(q/2 + 1 > 0, q, relational=False)
+print("algebraic domain of R:", dom_R, "  economic domain of both: [0, oo)")
+disc = 4**2 - 4*sp.Rational(3, 5)*15
+vertex = sp.solve(sp.diff(C3, q), q)[0]
+print("C(0) =", C3.subs(q, 0), "(fixed cost);  discriminant of C =", disc, "-> no zero")
+print("R(0) =", R3.subs(q, 0), "-> through the origin;  vertex of C at q =", vertex, "outside [0, oo)")
+assert dom_R == sp.Interval.open(-2, sp.oo) and disc == -20 and C3.subs(q, 0) == 15
+assert R3.subs(q, 0) == 0 and vertex == sp.Rational(-10, 3)
+""")
+
+md(r"""
+**D7b** Slant asymptotes: $m = \lim f(q)/q$, then $b = \lim (f(q) - mq)$.
+""")
+code(r"""
+x = sp.Symbol('x', real=True)
+cases = {"C": C3, "R": R3, "AC": C3/q, "f": (2*x**2 + 3*x - 1)/(x + 1)}
+found = {}
+for name, f in cases.items():
+    v = x if name == "f" else q
+    m = sp.limit(f/v, v, sp.oo)
+    b = sp.limit(f - m*v, v, sp.oo) if m.is_finite and m != 0 else None
+    found[name] = (m, b)
+    print(f"{name}: m = {m}, b = {b}", "-> y = %s·q + %s" % (m, b) if b is not None and b.is_finite else "-> no slant asymptote")
+assert found["C"][0] == sp.oo and found["R"][0] == 0
+assert found["AC"] == (sp.Rational(3, 5), 4) and found["f"] == (2, 1)
+""")
+
+md(r"""
 ## Homework
 
 `homework.md` — eight drills on paper plus a memo to the Board: **should the eighty-first bike be built?**

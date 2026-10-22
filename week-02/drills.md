@@ -18,6 +18,11 @@
 (a) State the domain of `R` for `q ≥ 0`.
 (b) Compute `π(5)` and `π(10)` to two decimals.
 
+**D3b (core — the first lines of the midterm study).** A third firm: `C(q) = 0.6q² + 4q + 15` and `R(q) = 25 ln(0.5q + 1)`, both in € thousand.
+(a) For each function give the domain **algebraically** and **economically**, as intervals.
+(b) Find where each meets the y-axis and the x-axis. Name the y-intercept of `C` in business terms.
+(c) `C` is a parabola. Where is its vertex, and is it the firm's minimum cost? Say why in one sentence.
+
 ## B. Limits
 
 **D4 (core).** Evaluate, showing the factoring step:
@@ -32,6 +37,9 @@
 (b) `lim (q→∞) (60,000 + 400q)/q` — average cost per bike as the run gets long.
 
 **D7 (stretch).** `lim (q→−∞) (3q³ − 2q + 1)/(5q³ + q²)`.
+
+**D7b (core — slant asymptotes).** For each function, compute `m = lim (q→∞) f(q)/q` and, where `m` is finite and not zero, `b = lim (q→∞) (f(q) − mq)`. State whether there is a slant asymptote and write its equation.
+(a) `C(q) = 0.6q² + 4q + 15`  (b) `R(q) = 25 ln(0.5q + 1)`  (c) `AC(q) = C(q)/q`  (d) `f(x) = (2x² + 3x − 1)/(x + 1)`
 
 ## C. The derivative
 
@@ -83,6 +91,13 @@
 `π(10) = 30 ln 11 − (40 + 30 + 25) = 71.94 − 95 = −€23.06k`.
 The second firm is past its best scale at 10.
 
+**D3b.**
+(a) `C`: algebraically **`(−∞, +∞)`**, a polynomial is defined everywhere; economically **`[0, +∞)`**, output cannot be negative.
+`R`: algebraically `0.5q + 1 > 0` → `q > −2`, so **`(−2, +∞)`**; economically **`[0, +∞)`**.
+(b) `C(0) = 15`: the y-intercept is `(0, 15)`, the **fixed cost**, €15k paid at zero output. x-axis: `0.6q² + 4q + 15 = 0` has `Δ = 16 − 36 = −20 < 0`, so **no real zero**: cost is positive everywhere.
+`R(0) = 25 ln 1 = 0`: the curve passes through the **origin**. `ln(0.5q + 1) = 0` → `0.5q + 1 = 1` → `q = 0`: the origin is the only zero.
+(c) Vertex at `q = −b/(2a) = −4/1.2 = −10/3 ≈ −3.33`, where `C = 25/3 ≈ 8.33`. It lies **outside the economic domain**, so it is not the firm's minimum: on `[0, +∞)` cost only rises, and the smallest cost the firm can face is the fixed cost at `q = 0`.
+
 **D4.**
 (a) `(q² − 100)/(q − 10) = (q − 10)(q + 10)/(q − 10) = q + 10 → **20**`.
 (b) `(q² − 5q + 6)/(q − 3) = (q − 3)(q − 2)/(q − 3) = q − 2 → **1**`.
@@ -97,6 +112,12 @@ As `q → 1⁺`, `(q − 1) → 0⁺` and `q → 1`, so the value → `−0 = **
 (b) `(60,000 + 400q)/q = 60,000/q + 400 → **400**`. Average cost per bike settles at the variable cost: fixed cost spreads to nothing. This is economies of scale in one line.
 
 **D7.** Divide by `q³`: `(3 − 2/q² + 1/q³)/(5 + 1/q) → **3/5**`.
+
+**D7b.**
+(a) `C(q)/q = 0.6q + 4 + 15/q → +∞`. `m` is infinite: **no slant asymptote**.
+(b) `R(q)/q → 0` (a log grows more slowly than any line), so `m = 0`; but `R(q) → +∞`, so there is no horizontal asymptote either. **None**: revenue grows without bound, ever more slowly.
+(c) `AC(q) = 0.6q + 4 + 15/q`. `m = lim (0.6 + 4/q + 15/q²) = 0.6`; `b = lim (4 + 15/q) = 4`. Slant asymptote **`y = 0.6q + 4`**: far out, the fixed cost shared per unit vanishes. (Also a vertical asymptote at `q = 0`, from the right: `AC → +∞`.)
+(d) `m = lim (2x² + 3x − 1)/(x² + x) = 2`. `f(x) − 2x = (2x² + 3x − 1 − 2x² − 2x)/(x + 1) = (x − 1)/(x + 1) → 1`. Slant asymptote **`y = 2x + 1`**, and a vertical one at `x = −1`.
 
 **D8.**
 (a) `π'(q) = −8q + 1200`
