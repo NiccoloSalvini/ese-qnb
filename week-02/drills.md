@@ -18,7 +18,7 @@
 (a) State the domain of `R` for `q ≥ 0`.
 (b) Compute `π(5)` and `π(10)` to two decimals.
 
-**D3b (core — the first lines of the midterm study).** A third firm: `C(q) = 0.6q² + 4q + 15` and `R(q) = 25 ln(0.5q + 1)`, both in € thousand.
+**D3b (added 22 October — the first lines of the midterm study).** A third firm: `C(q) = 0.6q² + 4q + 15` and `R(q) = 25 ln(0.5q + 1)`, both in € thousand.
 (a) For each function give the domain **algebraically** and **economically**, as intervals.
 (b) Find where each meets the y-axis and the x-axis. Name the y-intercept of `C` in business terms.
 (c) `C` is a parabola. Where is its vertex, and is it the firm's minimum cost? Say why in one sentence.
@@ -38,7 +38,7 @@
 
 **D7 (stretch).** `lim (q→−∞) (3q³ − 2q + 1)/(5q³ + q²)`.
 
-**D7b (core — slant asymptotes).** For each function, compute `m = lim (q→∞) f(q)/q` and, where `m` is finite and not zero, `b = lim (q→∞) (f(q) − mq)`. State whether there is a slant asymptote and write its equation.
+**D7b (added 22 October — slant asymptotes).** For each function, compute `m = lim (q→∞) f(q)/q` and, where `m` is finite and not zero, `b = lim (q→∞) (f(q) − mq)`. State whether there is a slant asymptote and write its equation.
 (a) `C(q) = 0.6q² + 4q + 15`  (b) `R(q) = 25 ln(0.5q + 1)`  (c) `AC(q) = C(q)/q`  (d) `f(x) = (2x² + 3x − 1)/(x + 1)`
 
 ## C. The derivative

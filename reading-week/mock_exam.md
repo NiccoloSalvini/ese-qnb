@@ -8,9 +8,9 @@ This is not a real paper. It is this course, end to end, the way we have done it
 |---|---|---|---|
 | A | the final's calculus question, twice: five items each | 2 × 30' | weeks 2–3 |
 | B | a full study of a function, with asymptotes | 30' | week 3 |
-| C | Arno Bikes makes its own batteries — and the cells get a duty | 45' | weeks 1–3 |
+| C | Arno Bikes makes its own batteries — and the cells get a duty | 45' | weeks 1–3; week-3 addendum, block C |
 | D | Arno Bikes' money: interest, discounting, the battery project, a bond | 30' | weeks 4–5 |
-| E | Arno Bikes' export market puts up a tariff | 15' | week 3, block D |
+| E | Arno Bikes' export market puts up a tariff | 15' | week-3 addendum, block D |
 
 Marks are for method. A correct answer with no working scores badly; a wrong answer with sound working scores well.
 
@@ -126,7 +126,7 @@ Somewhere between zero and a thousand packs a month the line makes the most mone
 
 **2. Profit.** $\pi(q) = 48\ln(q+1) - 0.3q^{2} - 6q - 20$ on $[0, +\infty)$. $\pi(0) = -20$: idle, the line loses its fixed cost. $\pi \to -\infty$: the square beats the log.
 $\pi'(q) = \dfrac{48}{q+1} - 0.6q - 6 = 0$. Multiply by $10(q+1)$: $480 = (6q + 60)(q + 1)$, i.e. $q^{2} + 11q - 70 = 0$. $\Delta = 401$, $\sqrt{401} \approx 20.025$, **$q^{*} = (-11 + 20.025)/2 \approx 4.51$**. $\pi''(q) = -\dfrac{48}{(q+1)^{2}} - 0.6 < 0$ everywhere: a **maximum**, and concave throughout, **no inflection**. $\pi(4.51) \approx$ **28.75**. Range $(-\infty, 28.75]$.
-Bisection, lower zero: $\pi(0.6) \approx -1.15$, $\pi(0.7) \approx +1.12$; $\pi(0.65) \approx +0.01$ → between 0.6 and 0.65; $\pi(0.625) \approx -0.56$ → between 0.625 and 0.65: **$q \approx 0.65$** (exact 0.650). Upper zero: $\pi(10) \approx 5.10$, $\pi(11) \approx -3.02$; $\pi(10.5) \approx 1.16$; $\pi(10.75) \approx -0.90$; $\pi(10.625) \approx 0.13$ → **$q \approx 10.6$** (exact 10.64).
+Bisection, lower zero: $\pi(0.6) \approx -1.15$, $\pi(0.7) \approx +1.12$; $\pi(0.65) \approx +0.01$ → between 0.6 and 0.65; $\pi(0.625) \approx -0.56$ → between 0.625 and 0.65: **$q \approx 0.6$** to one decimal (exact 0.6495, just below 0.65). Upper zero: $\pi(10) \approx 5.10$, $\pi(11) \approx -3.02$; $\pi(10.5) \approx 1.16$; $\pi(10.75) \approx -0.90$; $\pi(10.625) \approx 0.13$ → **$q \approx 10.6$** (exact 10.64).
 *Sketch:* from $(0, -20)$, up through 0.65, peak $(4.51, 28.75)$, down through 10.64.
 
 **3. The duty.** $0.30 \times 5 = 1.5$ more per hundred packs. It moves **only the linear term**, the cost of one more unit: $C_{t}(q) = 0.3q^{2} + 7.5q + 20$. The square is the plant's own cost of running harder; the fixed cost does not depend on output; revenue stays put if Arno cannot raise its price.

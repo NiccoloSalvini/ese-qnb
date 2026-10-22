@@ -100,7 +100,7 @@ Not a rehearsal of part of it: the whole mathematical content of the midterm is 
 
 The same profit function you already know, taken apart in the exam's order.
 
-## Four blocks today, then the quiz {.hub auto-animate=true}
+## Two blocks today, then the quiz {.hub auto-animate=true}
 
 ::: {.blocks}
 ::: {.blk .now data-id="blkA"}
@@ -108,12 +108,6 @@ The same profit function you already know, taken apart in the exam's order.
 :::
 ::: {.blk .next}
 [Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
-:::
-::: {.blk .next}
-[Block C]{.blk-letter}A tariff hits the firm[which term moves · the new optimum]{.blk-tool}
-:::
-::: {.blk .next}
-[Block D]{.blk-letter}A tariff hits the country[surplus as an area · who pays]{.blk-tool}
 :::
 :::
 
@@ -230,7 +224,7 @@ Convexity is the second thing a Board wants to know after the optimum: is the gr
 
 15 minutes. This is the midterm's Q2 with different numbers. Write all seven steps, labelled.
 
-## Four blocks today, then the quiz {.hub auto-animate=true}
+## Two blocks today, then the quiz {.hub auto-animate=true}
 
 ::: {.blocks}
 ::: {.blk .done}
@@ -238,12 +232,6 @@ Convexity is the second thing a Board wants to know after the optimum: is the gr
 :::
 ::: {.blk .now data-id="blkB"}
 [Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
-:::
-::: {.blk .next}
-[Block C]{.blk-letter}A tariff hits the firm[which term moves · the new optimum]{.blk-tool}
-:::
-::: {.blk .next}
-[Block D]{.blk-letter}A tariff hits the country[surplus as an area · who pays]{.blk-tool}
 :::
 :::
 
@@ -299,27 +287,40 @@ The second one has a lesson in it. Watch what changes and what does not.
 
 12 minutes. In D5 say what the firm should do, in a sentence, before you compute anything.
 
-## Four blocks today, then the quiz {.hub auto-animate=true}
+## Quiz {.lab background-color="#2471a3"}
 
-::: {.blocks}
-::: {.blk .done}
-[Block A]{.blk-letter}The study, done properly[the seven steps]{.blk-tool}
-:::
-::: {.blk .done}
-[Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
-:::
-::: {.blk .now data-id="blkC"}
-[Block C]{.blk-letter}A tariff hits the firm[which term moves · the new optimum]{.blk-tool}
-:::
-::: {.blk .next}
-[Block D]{.blk-letter}A tariff hits the country[surplus as an area · who pays]{.blk-tool}
-:::
-:::
+[20 minutes · weeks 1–3 · not secret, not a trap]{.kicker}
 
-## [Block C]{.section-kicker} A tariff hits the firm {.section-slide background-color="#AF1F25" auto-animate=true}
+Five short items: one domain, one limit, one derivative with its managerial reading, one stationary point with its nature, one integral.
 
-::: {.blk-fill data-id="blkC"}
-:::
+Marked and returned next week. It counts for nothing and tells us both a great deal.
+
+## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
+
+## Take home
+
+1. Seven steps, in order. `f'` finds the point, `f''` names it.
+2. Marginal equals average at the bottom of the average.
+3. Produce until marginal revenue equals marginal cost.
+
+**Homework 3** (`homework.md`), for Thursday 15 October, corrected together at the board: four drills plus a **400–500 word Board report** — a dry run of the midterm, with a hand-drawn sketch.
+
+Write your own three take-home lines now, before you leave.
+
+## [Addendum · added 22 October]{.section-kicker} Tariffs, for the midterm {.section-slide background-color="#7a7f85"}
+
+## Not covered in class
+
+These two blocks were **added on 22 October**, after the session. They were **not taught on 8 October**.
+
+They cover two questions of the midterm brief that need more than the seven-step study: what a tariff on an input does to the firm's cost and profit, and what protection costs a country. Work through them at home, with drills **D11–D14**, and bring questions to the reading-week office hour.
+
+| | | |
+|---|---|---|
+| **Block C** | a tariff hits the firm | which cost term moves · re-solve · break-even by bisection |
+| **Block D** | a tariff hits the country | surplus as an integral · who gains, who pays, what is lost |
+
+## [Addendum · Block C]{.section-kicker} A tariff hits the firm {.section-slide background-color="#AF1F25"}
 
 ## The Board's question
 
@@ -404,29 +405,9 @@ Halve the interval, keep the half where the sign changes. Four steps give **`q �
 
 [PAPER · drills.md]{.kicker}
 
-15 minutes. D11 is the brief's tariff question with different numbers. Say which term moves **before** you compute.
+At home. D11 is the brief's tariff question with different numbers. Say which term moves **before** you compute.
 
-## Four blocks today, then the quiz {.hub auto-animate=true}
-
-::: {.blocks}
-::: {.blk .done}
-[Block A]{.blk-letter}The study, done properly[the seven steps]{.blk-tool}
-:::
-::: {.blk .done}
-[Block B]{.blk-letter}How much should the firm produce?[optimisation · MR = MC]{.blk-tool}
-:::
-::: {.blk .done}
-[Block C]{.blk-letter}A tariff hits the firm[which term moves · the new optimum]{.blk-tool}
-:::
-::: {.blk .now data-id="blkD"}
-[Block D]{.blk-letter}A tariff hits the country[surplus as an area · who pays]{.blk-tool}
-:::
-:::
-
-## [Block D]{.section-kicker} A tariff hits the country {.section-slide background-color="#AF1F25" auto-animate=true}
-
-::: {.blk-fill data-id="blkD"}
-:::
+## [Addendum · Block D]{.section-kicker} A tariff hits the country {.section-slide background-color="#AF1F25"}
 
 ## From one firm to a whole country
 
@@ -463,7 +444,7 @@ $$\Delta CS = \int_{40}^{50} (100 - p)\,dp = \Big[100p - \tfrac{p^{2}}{2}\Big]_{
 
 $$\Delta PS = \int_{40}^{50} (p - 20)\,dp = \Big[\tfrac{p^{2}}{2} - 20p\Big]_{40}^{50} = 250 - 0 = \mathbf{250} \qquad \text{tariff revenue} = 10 \times 20 = \mathbf{200}$$
 
-[Last week's integral, put to work: the integral of a schedule between two prices is the money that changed hands.]{.red}
+[The week-2 integral, put to work: the integral of a schedule between two prices is the money that changed hands.]{.red}
 
 ## The picture
 
@@ -504,26 +485,4 @@ The picture is one market, one period, no reaction from abroad. A protectionism 
 
 [PAPER · drills.md]{.kicker}
 
-12 minutes. Draw the picture first, label every area, then integrate.
-
-## Quiz {.lab background-color="#2471a3"}
-
-[20 minutes · weeks 1–3 · not secret, not a trap]{.kicker}
-
-Five short items: one domain, one limit, one derivative with its managerial reading, one stationary point with its nature, one integral.
-
-Marked and returned next week. It counts for nothing and tells us both a great deal.
-
-## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
-
-## Take home
-
-1. Seven steps, in order. `f'` finds the point, `f''` names it.
-2. Marginal equals average at the bottom of the average.
-3. Produce until marginal revenue equals marginal cost.
-4. A tariff on a part moves one term of the cost: the cost of one more unit. Re-solve, and the firm makes less and earns less.
-5. For the country, consumers lose more than producers and the treasury gain together. The two triangles left over are the price of protection.
-
-**Homework 3** (`homework.md`), for Thursday 15 October, corrected together at the board: four drills plus a **400–500 word Board report** — a dry run of the midterm, with a hand-drawn sketch.
-
-Write your own three take-home lines now, before you leave.
+At home. Draw the picture first, label every area, then integrate.

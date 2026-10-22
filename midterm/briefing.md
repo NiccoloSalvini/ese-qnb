@@ -84,8 +84,8 @@ They are not filler and they are not marked as prose. A claim about the firm's c
 
 Two kinds of question in a brief like this one are not calculus, and they are worth as much as a function study.
 
-- **Risks from outside.** One paragraph per risk: what it is, a source, **which term of the cost or revenue function it moves**, and in which direction. A rise in input prices moves the cost of one more unit; a new rule with a fixed compliance cost moves the fixed cost; a recession abroad moves revenue. Week 2, *The questions with no formula*.
-- **A tariff on an input.** First the firm: say which term moves (the per-unit cost of what is imported) and which do not (the plant's internal costs, the fixed cost), rewrite the function, and **re-solve** — new best output, new profit, new break-evens, by bisection where algebra cannot reach. Then the country: who gains, who loses, and the deadweight loss, with the areas computed; then what the one-market picture leaves out. Week 3, blocks C and D; drills D11–D14.
+- **Risks from outside.** One paragraph per risk: what it is, a source, **which term of the cost or revenue function it moves**, and in which direction. A rise in input prices moves the cost of one more unit; a new rule with a fixed compliance cost moves the fixed cost; a recession abroad moves revenue. Week-2 slides, *The questions with no formula* (added 22 October).
+- **A tariff on an input.** First the firm: say which term moves (the per-unit cost of what is imported) and which do not (the plant's internal costs, the fixed cost), rewrite the function, and **re-solve** — new best output, new profit, new break-evens, by bisection where algebra cannot reach. Then the country: who gains, who loses, and the deadweight loss, with the areas computed; then what the one-market picture leaves out. The addendum at the end of the week-3 slides (blocks C and D, added 22 October, not covered in class); drills D11–D14.
 
 ## Where marks are lost, in order of frequency
 

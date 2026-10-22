@@ -72,6 +72,8 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 
 ## D. When the world moves the curve: tariffs
 
+*Added on 22 October, not covered in class: self-study for the midterm, with the addendum at the end of the week-3 slides.*
+
 **D11 (core — the brief's tariff question, different numbers).** A firm has `R(q) = 60 ln(q + 1)` and `C(q) = 0.25q² + 5q + 30`, € thousand, `q ≥ 0`. Of the €5k that one more unit costs, €4k is a component imported from outside the EU. The EU imposes a **20% tariff** on it.
 (a) Say which term of `C` the tariff moves, which it leaves alone, and why. Write the new cost `C_t(q)`.
 (b) Find the profit-maximising output before and after the tariff. Confirm each is a maximum with `π''`.
