@@ -7,8 +7,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Niccolò Salvini, PhD">
   <title>Quantitative Business Methods – What a rate rise costs you</title>
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -30,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-36fbcc0f1a47fb8b40288549856092d1.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-3cd584635b2b04213cc012a86108faf7.css">
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
@@ -153,7 +159,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Niccolò Salvini, PhD 
+Niccolò Salvini, PhD
 </div>
         <p class="quarto-title-affiliation">
             MBA03 Research &amp; Quantitative Business Methods · European School of Economics, Florence
@@ -224,7 +230,7 @@ Niccolò Salvini, PhD
 </div><div class="column" style="width:44%;">
 <p><strong>Today closes the loop.</strong></p>
 <p>A bond is an annuity plus a lump sum — last week’s arithmetic, nothing new. Duration is a derivative — week 2’s. Convexity is a second derivative — week 3’s.</p>
-<p>Then: a mock of the final’s calculus question, in exam conditions.</p>
+<p>Then: a full study of a cost, a revenue and a profit, in the midterm’s own format.</p>
 </div></div>
 <p><span class="red">The midterm is due Sunday 1 November on Turnitin. Reading week has one optional office hour: bring a draft.</span></p>
 </section>
@@ -260,7 +266,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity, then immunisation</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block D</span>The final’s calculus question, for real<span class="blk-tool">mock exam</span></p>
+<p><span class="blk-letter">Block D</span>A full study, midterm format<span class="blk-tool">cost, revenue, profit</span></p>
 </div>
 </div>
 </section>
@@ -293,6 +299,11 @@ Niccolò Salvini, PhD
 </div>
 </div>
 </div>
+</section>
+<section id="rates-rise.-why-is-your-old-bond-worth-less" class="slide level2">
+<h2>Rates rise. Why is your old bond worth less?</h2>
+
+<img data-src="img/w05_old_new_bond.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:96.0%"><p>Same €100 at the end, €2 less every year. A buyer takes yours only at a discount: the price falls until your bond also earns 6% — that is the €91.58.</p>
 </section>
 <section id="the-rule-that-follows-from-the-formula" class="slide level2">
 <h2>The rule that follows from the formula</h2>
@@ -333,7 +344,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity, then immunisation</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block D</span>The final’s calculus question, for real<span class="blk-tool">mock exam</span></p>
+<p><span class="blk-letter">Block D</span>A full study, midterm format<span class="blk-tool">cost, revenue, profit</span></p>
 </div>
 </div>
 </section>
@@ -427,7 +438,7 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity, then immunisation</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block D</span>The final’s calculus question, for real<span class="blk-tool">mock exam</span></p>
+<p><span class="blk-letter">Block D</span>A full study, midterm format<span class="blk-tool">cost, revenue, profit</span></p>
 </div>
 </div>
 </section>
@@ -672,28 +683,187 @@ Niccolò Salvini, PhD
 <p><span class="blk-letter">Block C</span>What the straight line misses<span class="blk-tool">convexity, then immunisation</span></p>
 </div>
 <div class="blk now" data-id="blkD">
-<p><span class="blk-letter">Block D</span>The final’s calculus question, for real<span class="blk-tool">mock exam</span></p>
+<p><span class="blk-letter">Block D</span>A full study, midterm format<span class="blk-tool">cost, revenue, profit</span></p>
 </div>
 </div>
 </section>
-<section id="block-d-mock-exam-the-finals-calculus-question" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D</span> Mock exam — the final’s calculus question</h2>
+<section id="block-d-a-full-study-the-midterms-format" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D</span> A full study — the midterm’s format</h2>
 <div class="blk-fill" data-id="blkD">
 
 </div>
 </section>
-<section id="thirty-minutes-exam-conditions" class="slide level2 lab" data-background-color="#2471a3">
-<h2>Thirty minutes, exam conditions</h2>
-<p><span class="kicker">PAPER · mock_exam.md · no notes, calculator only</span></p>
-<p>Five items, twenty per cent each, in the form of the real thing — six minutes an item:</p>
+<section id="arno-bikes-launches-a-cargo-bike" class="slide level2">
+<h2>Arno Bikes launches a cargo bike</h2>
+<div title="The case">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The case</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">q</span> = cargo bikes a month, <strong>in tens</strong> · all figures in <strong>€ thousand a month</strong> · the price is <span class="math inline">p = 45 - 3q</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><span class="math display">C(q) = q^{3} - 9q^{2} + 30q + 20 \qquad R(q) = p \cdot q = 45q - 3q^{2}</span> <span class="math display">\pi(q) = R(q) - C(q) = -q^{3} + 6q^{2} + 15q - 20</span></p>
+<p>Three functions, seven steps each, every result turned into a sentence. That is the midterm.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>How many cargo bikes a month should the firm make? Guess before the derivative.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="profit-the-seven-steps" class="slide level2">
+<h2>Profit, the seven steps</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>step</th>
+<th>what we find</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>domain</strong></td>
+<td>the price must not go negative: <span class="math inline">45 - 3q \ge 0</span>, so <span class="math inline">q \in [0, 15]</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>limits</strong></td>
+<td>a polynomial: no asymptotes; <span class="math inline">\pi(0) = -20</span> (the fixed cost), <span class="math inline">\pi(15) = -1{,}820</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>range</strong></td>
+<td>from the lowest to the highest value it reaches: <span class="math inline">[-1{,}820,\ 80]</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>sign</strong></td>
+<td><span class="math inline">\pi = -(q-1)(q^{2}-5q-20)</span>: zeros at <span class="math inline">q = 1</span> and <span class="math inline">q = \tfrac{5+\sqrt{105}}{2} \approx 7.62</span>; positive in between</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>max / min</strong></td>
+<td><span class="math inline">\pi'(q) = -3q^{2} + 12q + 15 = -3(q-5)(q+1) = 0 \Rightarrow q = 5</span>; <span class="math inline">\pi''(5) = -18 &lt; 0</span>: a <strong>maximum</strong>, <span class="math inline">\pi(5) = 80</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><strong>convexity</strong></td>
+<td><span class="math inline">\pi''(q) = 12 - 6q</span>: convex on <span class="math inline">[0, 2)</span>, concave on <span class="math inline">(2, 15]</span>; <strong>inflection</strong> at <span class="math inline">(2, 26)</span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><strong>sketch</strong></td>
+<td>next slide — every point above, marked</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-sketch-with-everything-on-it" class="slide level2">
+<h2>The sketch, with everything on it</h2>
+
+<img data-src="img/w05_study_profit.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:78.0%"></section>
+<section id="cost-and-revenue-the-same-seven-steps-shorter" class="slide level2">
+<h2>Cost and revenue — the same seven steps, shorter</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Cost</strong> <span class="math inline">C(q) = q^{3} - 9q^{2} + 30q + 20</span></p>
+<ul>
+<li>domain <span class="math inline">[0, +\infty)</span>; <span class="math inline">C(0) = 20</span>, the fixed cost</li>
+<li><span class="math inline">C'(q) = 3(q^{2} - 6q + 10) &gt; 0</span> always: <strong>no max or min</strong>, cost only rises</li>
+<li><span class="math inline">C''(q) = 6(q-3)</span>: concave, then convex; <strong>inflection</strong> <span class="math inline">(3, 56)</span></li>
+<li>range <span class="math inline">[20, +\infty)</span>; always positive</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Revenue</strong> <span class="math inline">R(q) = 45q - 3q^{2}</span></p>
+<ul>
+<li>domain <span class="math inline">[0, 15]</span>; zeros at <span class="math inline">0</span> and <span class="math inline">15</span></li>
+<li><span class="math inline">R'(q) = 45 - 6q = 0 \Rightarrow q = 7.5</span></li>
+<li><span class="math inline">R''(q) = -6 &lt; 0</span>: a <strong>maximum</strong>, <span class="math inline">R(7.5) = 168.75</span>; concave everywhere</li>
+<li>range <span class="math inline">[0,\ 168.75]</span></li>
+</ul>
+</div></div>
+</section>
+<section id="cost-and-revenue-sketched" class="slide level2">
+<h2>Cost and revenue, sketched</h2>
+
+<img data-src="img/w05_study_cr.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><p>Cost: never turns, but bends at 30 bikes. Revenue: turns at 75 bikes, where the falling price starts to win.</p>
+</section>
+<section id="from-numbers-to-sentences" class="slide level2">
+<h2>From numbers to sentences</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>you found</th>
+<th>you write for the Board</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">q^{*} = 5</span></td>
+<td>“Make 50 cargo bikes a month.”</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\pi(5) = 80</span></td>
+<td>“At that output we earn €80,000 a month.”</td>
+</tr>
+<tr class="odd">
+<td>zeros <span class="math inline">1</span> and <span class="math inline">7.62</span></td>
+<td>“We make money between 10 and 76 bikes; outside that window we lose.”</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\pi''(5) &lt; 0</span></td>
+<td>“50 is a genuine peak, not a dip or a flat spot.”</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">C</span> inflects at <span class="math inline">q = 3</span></td>
+<td>“Each extra bike gets cheaper up to 30 a month, then dearer.”</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">R</span> peaks at <span class="math inline">7.5</span></td>
+<td>“Selling more than 75 a month would bring in <em>less</em> money: the price falls too far.”</td>
+</tr>
+</tbody>
+</table>
+<p><span class="red">Revenue peaks at 75 bikes, profit at 50. The Board’s question is profit.</span></p>
+</section>
+<section id="your-midterm-in-this-order" class="slide level2">
+<h2>Your midterm, in this order</h2>
 <ol type="1">
-<li>an indefinite integral of a fraction, split term by term</li>
-<li>a function recovered from its derivative with an initial condition</li>
-<li>a one-sided limit that factors</li>
-<li>a limit at infinity</li>
-<li>a definite integral producing a log</li>
+<li>The mathematics, on paper — seven steps for each function, every number checked twice</li>
+<li>The sketches, by hand, every point marked</li>
+<li>Findings: one sentence for each result</li>
+<li>The qualitative sections, with Harvard sources tied to the functions</li>
+<li>The executive summary, <strong>last</strong></li>
 </ol>
-<p>Then we mark it together, and you keep it.</p>
+<p><span class="red">Due Sunday 1 November, 23:59, Turnitin — submit on Saturday. The mock of the final’s calculus question (<code>mock_exam.md</code>) is for home: thirty minutes, timed.</span></p>
 </section>
 <section id="close-handing-over" class="slide level2 section-slide" data-background-color="#AF1F25">
 <h2><span class="section-kicker">Close</span> Handing over</h2>
@@ -706,6 +876,7 @@ Niccolò Salvini, PhD
 <li>Longer maturity raises it; a bigger coupon lowers it.</li>
 <li>Convexity is the curvature the slope misses, and it is always in the holder’s favour.</li>
 <li>Match the duration of what you hold to the date of what you owe, and a rate move cannot hurt the payment.</li>
+<li>A study is seven steps, in the brief’s words; every number gets its sentence for the Board.</li>
 </ol>
 </section>
 <section id="what-happens-next" class="slide level2">
