@@ -86,14 +86,14 @@ Give: domain, zeros, sign line, `π'` and the stationary point, `π''` and its n
 (b) Halve each interval until you can state both break-even outputs to one decimal place.
 (c) Before the tariff the break-evens were `0.76` and `15.57`. What happened to the profitable window?
 
-**D13 (core — the small-nation model).** A small open economy: demand `Q_d = 120 − 2p`, domestic supply `Q_s = 3p − 30` (`Q` in thousand units, `p` in €). The world price is €20.
+**D13 (optional — the small-nation model).** A small open economy: demand `Q_d = 120 − 2p`, domestic supply `Q_s = 3p − 30` (`Q` in thousand units, `p` in €). The world price is €20.
 (a) Price and quantity with no trade (autarky).
 (b) Under free trade: quantity bought, made at home, imported.
 (c) A tariff of €5 a unit. The same three quantities.
 (d) Compute, as integrals or as areas: the loss of consumer surplus, the gain of domestic producers, the tariff revenue, and the two triangles — the protective and the consumption effect. Check that they add up.
 (e) What is the deadweight loss, and what does it mean in one sentence?
 
-**D14 (stretch — writing).** In 150–200 words for a Board, explain why a tariff hurts a small open economy *more* than the triangles of D13 suggest. Name at least four channels and say which source you would cite for each.
+**D14 (stretch — writing).** In 150–200 words for a Board, explain why a tariff hurts a small open economy *more* than the triangles of D13 suggest. Find the channels yourself, and support each with a source you have actually read.
 
 ---
 
@@ -221,6 +221,6 @@ Protective effect `= ½ × 5 × (45 − 30) = **37.5**`; consumption effect `= �
 Check: `187.5 + 125 + 37.5 + 25 = 375` ✔ (all in € thousand).
 (e) Deadweight loss `= 37.5 + 25 = **62.5**`: the part of the consumers' loss that nobody gains — production done at home at more than the world price, and purchases that no longer happen.
 
-**D14.** A strong answer names and explains, each with a source: retaliation against the country's exports; higher input costs for domestic firms that use the taxed good (the D11 firm is one); pass-through to consumer prices and real incomes; the exposure of a small economy whose trade is a large share of GDP; policy uncertainty that delays investment; administrative and compliance costs. It ties at least one channel back to the firm's cost function, and cites institutional sources (WTO, OECD, European Commission, IMF) or peer-reviewed work, never Wikipedia.
+**D14.** No model answer, on purpose: finding and judging the sources is the exercise. Check your paragraph against the method: each channel named precisely, a recent and reliable source cited Harvard, the way it reaches a firm's costs or revenue, the direction, and what a Board should do. At least one channel should come back to the cost function of D11. Wikipedia is not a source.
 
 </details>

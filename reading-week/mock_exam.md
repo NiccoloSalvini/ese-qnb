@@ -10,7 +10,7 @@ This is not a real paper. It is this course, end to end, the way we have done it
 | B | a full study of a function, with asymptotes | 30' | week 3 |
 | C | Arno Bikes makes its own batteries — and the cells get a duty | 45' | weeks 1–3; week-3 addendum, block C |
 | D | Arno Bikes' money: interest, discounting, the battery project, a bond | 30' | weeks 4–5 |
-| E | Arno Bikes' export market puts up a tariff | 15' | week-3 addendum, block D |
+| E | Arno Bikes' export market puts up a tariff — optional | 15' | week-3 addendum, block D |
 
 Marks are for method. A correct answer with no working scores badly; a wrong answer with sound working scores well.
 
@@ -185,6 +185,8 @@ For each item, choose one option and justify it in one line, with the computatio
 ---
 
 ## E. Arno Bikes' export market puts up a tariff
+
+*Optional. This is the model of the week-3 addendum, block D: a way to organise an argument about protection, not something the midterm requires.*
 
 Arno Bikes sells e-bikes in a small country that is too small to move the world price. There, demand is `Q_d = 90 − p` and the country's own makers supply `Q_s = 2p − 30`, with `p` in € hundred and `Q` in thousand bikes — so an area on the diagram is in € hundred thousand. Imports, Arno's included, come in at the world price of €2,500 (`p = 25`).
 

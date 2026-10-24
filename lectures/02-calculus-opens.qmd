@@ -112,19 +112,17 @@ Three of the five items in the final's calculus question are here: a limit that 
 
 [Added 22 October · not covered in class]{.kicker}
 
-The brief also asks what in the world outside could hurt the firm, and what protectionism does to an economy. These are research questions, not calculus — but they are marked on the same idea: **every risk lands on a term of the function.**
+The brief also asks what in the world outside could hurt the firm, and what protectionism does to an economy. These are **research questions**, not calculus: there is no formula and no reading list — finding, choosing and judging the sources is part of the task. What makes an answer strong is a method, the same for every point you make:
 
-| what goes wrong out there | how it reaches the firm | what moves in $C(q) = aq^{2} + bq + F$ or in $R(q)$ |
+| | for each risk you name | |
 |---|---|---|
-| input prices (battery cells, aluminium, oil) | suppliers reprice | $b$, the cost of one more unit |
-| a tariff, a quota, retaliation | imported parts dearer; export markets shut | $b$; the revenue coefficient |
-| the exchange rate | parts priced in dollars, sales in euros | $b$ and $R$ at once |
-| energy, shipping routes | freight and power bills | $b$, sometimes $F$ |
-| conflict, sanctions | a supplier disappears | capacity: the $aq^{2}$ term |
-| a recession abroad | fewer orders, lower prices | $R$ |
-| a new regulation | compliance cost | $F$ |
+| 1 | **what** — precisely: which event, which market, which year | not "geopolitics" |
+| 2 | **evidence** — a recent, reliable source, cited Harvard | not Wikipedia |
+| 3 | **channel** — how it reaches the firm, and which term of $C(q) = aq^{2} + bq + F$ or of $R(q)$ it moves | the cost of one more unit, the fixed cost, or revenue |
+| 4 | **direction and size** — up or down, and by roughly how much if the source says | |
+| 5 | **so what** — what the Board should do about it | |
 
-[One paragraph per risk: what it is, a source a sceptic would accept, the term it moves, and in which direction. A risk that never touches the function has not answered the question.]{.red}
+[A risk that never touches the function has not answered the question.]{.red}
 
 ## Four blocks today {.hub auto-animate=true}
 

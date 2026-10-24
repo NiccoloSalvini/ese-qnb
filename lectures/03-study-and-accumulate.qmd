@@ -320,6 +320,8 @@ They cover two questions of the midterm brief that need more than the seven-step
 | **Block C** | a tariff hits the firm | which cost term moves · re-solve · break-even by bisection |
 | **Block D** | a tariff hits the country | surplus as an integral · who gains, who pays, what is lost |
 
+[Block D is **optional**. The midterm's question on protectionism is marked as research and critical analysis with sources, not on this model: the model is one way to organise the argument, not a required part of the answer.]{.red}
+
 ## [Addendum · Block C]{.section-kicker} A tariff hits the firm {.section-slide background-color="#AF1F25"}
 
 ## The Board's question
@@ -470,16 +472,11 @@ A tariff moves money from buyers to sellers and to the state, and destroys a sli
 
 ## What the triangles leave out — the part your report must add
 
-The picture is one market, one period, no reaction from abroad. A protectionism question asks for more, each point with a source:
+The picture is one market, one period, no reaction from abroad, nothing upstream or downstream. A report on protectionism starts where the picture stops.
 
-- **retaliation** — the trading partner answers with tariffs on *your* exports
-- **input costs downstream** — the firm of block C is the buyer here: a tariff on parts is a cost for every firm that uses them
-- **prices** — passed on to consumers, it shows up as inflation and lower real income
-- **size and openness** — a small economy that trades most of what it produces has the most to lose from closed borders
-- **uncertainty** — when rules can change overnight, firms postpone investment
-- **red tape** — customs, compliance, paperwork: a cost on every shipment
+Ask what it assumes away — what other countries do next, which firms use the taxed good as an input, how much of the economy depends on trade — and answer each with **your own** sources, recent and reliable. Then the same method as for any risk: the evidence, the channel to the firm, the direction, the so-what for the Board.
 
-[Harvard citations for each; two good sources read properly beat eight listed.]{.muted}
+[Two good sources read properly beat eight listed. Finding them is part of what is marked.]{.muted}
 
 ## D13, D14 — welfare, by hand {.paper background-color="#eceff0"}
 
