@@ -9,6 +9,8 @@ project:
     - "week-*/drills.md"
     - "week-05/mock_exam.md"
     - "reading-week/mock_exam.md"
+    - "midterm/briefing.md"
+    - "midterm/oral.md"
     - "week-*/session.ipynb"
     - "lectures/*.qmd"
   resources:
