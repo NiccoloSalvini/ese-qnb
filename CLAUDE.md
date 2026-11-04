@@ -3,7 +3,8 @@
 Course repository *and* course website of *MBA03 Research & Quantitative Business
 Methods*, ESE MBA, Florence, Term 1 A.Y. 2026–2027. Module leader Arianna Ziliotto.
 Weeks 1–5 Niccolò Salvini, in person, Thursdays 10:00–13:00, 24 Sep → 22 Oct 2026;
-weeks 6–10 Vincenzo Nardelli, online, Thursdays 10:00–13:00, from 5 November to mid-December.
+week 6 (Thu 5 Nov) the midterm orals; weeks 7–10 Vincenzo Nardelli, Mondays 10:00–13:00,
+9 → 30 Nov 2026: week 7 in person in Florence, weeks 8–10 online.
 
 Live site: <https://niccolosalvini.github.io/ese-qnb/> · Repo: `NiccoloSalvini/ese-qnb` (public)
 
@@ -98,6 +99,18 @@ Drills, homework and the mock have worked solutions, and every one was checked w
 being committed: derivatives, limits, integrals, bond prices, durations, NPV and IRR. Three of my own
 slips were caught that way. When you change a number in a drill, re-run the check — the notebooks'
 final cell does exactly this for the week's drills, on purpose.
+
+## Weeks 7–10 (Vincenzo's half)
+
+Same deck conventions and Niccolò's skeleton (four questions from the founder, bet → picture →
+one formula → Board sentence), manim clips in anim/src/week07_*.py (venv ~/.venvs/ese-manim; the
+Homebrew ffmpeg on this Mac is broken, render.sh makes posters with PyAV) and interactive apps in
+lectures/apps/w07_*.html. Week 7 has a session.ipynb like weeks 1–5. The exam allows a calculator,
+the standard normal table (or `NORM.S.DIST`) and paper, so the decks show formula, substitution,
+number, one-sentence business reading; no textbook page references, no exam coaching.
+lectures/figs_w07.py writes the week's SVGs; lectures/check_w07.py asserts every number in deck,
+drills and homework (scipy.stats): run both with python3.11 before committing. The source handouts
+live outside the repo in ~/Desktop/ese/dispense/.
 
 ## Weekly loop
 
