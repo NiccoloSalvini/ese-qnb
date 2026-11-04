@@ -11,7 +11,7 @@ description: "How sessions of MBA03 Research & Quantitative Business Methods (ES
 
 - ESE MBA, Florence. Term 1, A.Y. 2026–2027, 30 contact hours. Module leader **Arianna Ziliotto**: she owns the syllabus and wrote the assessments.
 - Weeks 1–5: **Niccolò Salvini**, in person, Thursdays 10:00–13:00 (24 Sep → 22 Oct). Algebra revision, calculus, financial mathematics. He marks the midterm.
-- Weeks 6–10: **Vincenzo Nardelli**, online, from the week of 2 November. Probability and distributions, then econometrics and time series. The topics per week are in the schedule table in `index.qmd`.
+- Weeks 6–10: **Vincenzo Nardelli**, online, Thursdays 10:00–13:00, from 5 November to mid-December. Probability and distributions, then econometrics and time series. The topics per week are in the schedule table in `index.qmd`.
 - Students: a small group of MBA students in Florence, in the room for weeks 1–5 and online for weeks 6–10. Their quantitative background is mixed and largely unknown. They do not write code. A formula-first approach was disliked the year before.
 - Assessment (public, in `index.qmd`): midterm 25% (a research paper on a business case built on a cost, a revenue and a profit function, plus an oral in week 6); final exam 75% (three hours, five equal questions, all work shown, non-programmable calculator, no notes). One question of the final is pure calculus (weeks 2–3); the others come from the second half. The resit covers the whole module. In-class quizzes fall in weeks 3, 7 and 10.
 

@@ -3,7 +3,7 @@
 Course repository *and* course website of *MBA03 Research & Quantitative Business
 Methods*, ESE MBA, Florence, Term 1 A.Y. 2026–2027. Module leader Arianna Ziliotto.
 Weeks 1–5 Niccolò Salvini, in person, Thursdays 10:00–13:00, 24 Sep → 22 Oct 2026;
-weeks 6–10 Vincenzo Nardelli, online, from the week of 2 November.
+weeks 6–10 Vincenzo Nardelli, online, Thursdays 10:00–13:00, from 5 November to mid-December.
 
 Live site: <https://niccolosalvini.github.io/ese-qnb/> · Repo: `NiccoloSalvini/ese-qnb` (public)
 
@@ -117,10 +117,14 @@ It reads enrolments, submissions, what is missing and the gradebook, and writes
 a grade with feedback or a news-forum announcement. The published `moodle-mcp`
 packages are student-side and were dropped.
 
-Token: `.env` (gitignored, mode 600), obtained with
+Token: each lecturer's own, in this repo's `.env` (gitignored, mode 600; copy
+`.env.template`). The server repo is private: once invited, clone it with
+`gh repo clone NiccoloSalvini/mcp-moodle-teacher ~/dev/mcp-moodle-teacher`, then run
 `MOODLE_SITE=https://esestudents.com bash ~/dev/mcp-moodle-teacher/scripts/get-moodle-token.sh`.
+The script writes the token into the server repo's own `.env`: copy the
+`MOODLE_TOKEN=` line into this repo's `.env`.
 Export it before launching Claude Code: `set -a; . .env; set +a`. *Preferences >
-Security keys* is empty for this account — the lecturer role lacks
+Security keys* is empty for lecturer accounts — the role lacks
 `moodle/webservice:createtoken`, which is why the script exists.
 
 **Materials cannot be uploaded through the API**: Moodle core has no web service
