@@ -1,11 +1,14 @@
-# CLAUDE.md — Research & Quantitative Business Methods, weeks 1–5 (ESE Florence)
+# CLAUDE.md — Research & Quantitative Business Methods (ESE Florence)
 
-Course repository *and* course website for the first half (weeks 1–5, Niccolò
-Salvini) of *MBA03 Research & Quantitative Business Methods*, ESE MBA, Florence,
-Term 1 A.Y. 2026–2027. Module leader Arianna Ziliotto; Vincenzo Nardelli teaches
-weeks 6–10 online after Reading Week. Thursdays 10:00–13:00, 24 Sep → 22 Oct 2026.
+Course repository *and* course website of *MBA03 Research & Quantitative Business
+Methods*, ESE MBA, Florence, Term 1 A.Y. 2026–2027. Module leader Arianna Ziliotto.
+Weeks 1–5 Niccolò Salvini, in person, Thursdays 10:00–13:00, 24 Sep → 22 Oct 2026;
+weeks 6–10 Vincenzo Nardelli, online, from the week of 2 November.
 
 Live site: <https://niccolosalvini.github.io/ese-qnb/> · Repo: `NiccoloSalvini/ese-qnb` (public)
+
+How a session is designed and what a session pack contains: the project skill
+`.claude/skills/ese-qnb-method/`. Both halves follow it.
 
 Sibling of `~/dev/ese-ai` (same site skeleton, same brand, same deploy). Read that
 repo's `CLAUDE.md` for the Quarto/GitHub Pages gotchas; they all apply here.
@@ -13,8 +16,8 @@ repo's `CLAUDE.md` for the Quarto/GitHub Pages gotchas; they all apply here.
 ## Confidentiality — read before writing anything
 
 The repo is **public**. ESE official documents (syllabus PDF, midterm guidelines,
-exam and resit papers with model answers) live in
-`~/Downloads/ese-qnb-material/` and are **never** copied here: no exam item, no
+exam and resit papers with model answers) live outside the repo, in each lecturer's
+own folder (Niccolò's: `~/Downloads/ese-qnb-material/`), and are **never** copied here: no exam item, no
 model answer, no midterm case function. Drills and homework use the same *form*
 with different functions and numbers. `syllabus/` is gitignored as a guard.
 Grading material, feedback and the handover to the colleague stay private.
@@ -35,8 +38,8 @@ No CI. Rendered here, `_site/` pushed to the `gh-pages` branch.
 ```
 week-NN/
   notes.md            tutor-only plan and script — NOT rendered
-  slides/weekNN.tex   beamer (metropolis) PDF deck, kept for printing; the PDF is committed and linked as "pdf"
-  slides/weekNN.pdf   compiled deck (resource) — TinyTeX needs metropolis + pgfplots (tlmgr install)
+  slides/weekNN.tex   (week 1 only) beamer (metropolis) PDF deck, kept for printing; new weeks have no beamer deck
+  slides/weekNN.pdf   (week 1 only) compiled deck (resource) — TinyTeX needs metropolis + pgfplots (tlmgr install)
   session.ipynb       Colab notebook: projector demos (plotly sliders), then "Drills, solved in code" — every drill
                       of drills.md solved in Python with an assert on the published answer. Optional companion for
                       students, linked as "code ↗" on the schedule; not examined
@@ -98,8 +101,9 @@ final cell does exactly this for the week's drills, on purpose.
 
 ## Weekly loop
 
-Thursday lesson → Friday: drill solutions and homework online (`make deploy`)
-→ Wednesday 23:59 homework due on Moodle → next Thursday first 15' walkthrough.
+Session → next day: deck, drill solutions and homework online (`make deploy`)
+→ next session, first 15–20' on the homework at the board. Homework is on paper and
+formative: nothing is handed in or graded.
 
 ## Moodle
 

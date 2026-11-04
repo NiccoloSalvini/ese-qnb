@@ -25,7 +25,10 @@ syllabus/
 .env.local
 .omc/
 
-# Tutor talk scripts stay local
+# Tutor talk scripts and midterm marking stay local
 week-*/talk.md
+week-*/copione-*
+week-*/quiz.md
+midterm/marking/
 
 **/*.quarto_ipynb
