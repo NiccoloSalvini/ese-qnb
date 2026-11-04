@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What range do we promise?</title>
+<!-- Normal lab: battery range ~ N(mu, sigma). The bell, the area to the LEFT of a threshold x shaded red
+     with its probability, the z score, and the inverse question: which x leaves only a given share below?
+     Embedded in the deck as an <iframe class="app">; presets from the query string,
+     e.g. w07_normal.html?mu=90&sigma=8&x=75 -->
+<style>
+  :root { --red:#AF1F25; --gold:#CDBA80; --goldink:#a8955a; --ink:#363636; --muted:#7a7f85; --rule:#e6e2d8; --paper:#faf9f6; }
+  * { box-sizing: border-box; }
+  html, body { height:100%; }
+  body { margin:0; font-family:"Source Sans 3","Source Sans Pro",-apple-system,Helvetica,Arial,sans-serif; color:var(--ink); background:#fff; }
+  .wrap { display:grid; grid-template-columns: 310px 1fr; grid-template-rows: 1fr auto; height:100vh; }
+  .panel { padding:16px 18px; border-right:1px solid var(--rule); overflow:hidden; font-size:18px; }
+  .panel h3 { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--goldink); margin:14px 0 6px; }
+  .panel h3:first-child { margin-top:0; }
+  label.s { display:grid; grid-template-columns: 26px 1fr 58px; align-items:center; gap:8px; margin:5px 0; }
+  label.s b { font-style:italic; font-size:20px; }
+  label.s output { text-align:right; font-variant-numeric: tabular-nums; font-weight:600; font-size:20px; }
+  input[type=range] { width:100%; height:28px; accent-color: var(--red); cursor:pointer; margin:0; }
+  input[type=range]:disabled { accent-color:#b9b4a8; cursor:default; }
+  input[type=range]:focus-visible { outline:3px solid var(--gold); outline-offset:2px; border-radius:4px; }
+  .big { font-size:30px; font-weight:700; color:var(--red); font-variant-numeric: tabular-nums; line-height:1.1; min-height:34px; }
+  .sub { font-size:17px; color:var(--ink); min-height:22px; }
+  .z { font-size:18px; font-variant-numeric: tabular-nums; margin-top:6px; min-height:24px; }
+  .z b { font-size:20px; }
+  .toggle { display:flex; align-items:center; gap:10px; margin-top:4px; cursor:pointer; font-size:17px; }
+  .toggle input { width:22px; height:22px; accent-color:var(--red); margin:0; cursor:pointer; }
+  .share { display:flex; align-items:center; gap:8px; margin-top:8px; }
+  .share input { width:72px; font:inherit; font-size:20px; font-weight:600; padding:4px 6px; border:2px solid var(--rule); border-radius:4px; color:var(--ink); text-align:center; }
+  .share input:focus { outline:none; border-color:var(--red); }
+  .share input:disabled { color:#b9b4a8; }
+  .guar { font-size:18px; margin-top:6px; min-height:48px; line-height:1.3; }
+  .guar b { color:var(--goldink); font-size:22px; font-variant-numeric: tabular-nums; }
+  .off { color:#b9b4a8; }
+  .plot { position:relative; min-width:0; min-height:0; }
+  svg { width:100%; height:100%; display:block; }
+  .caption { grid-column: 1 / -1; border-top:1px solid var(--rule); padding:8px 18px; font-size:17px; color:var(--muted); background:var(--paper); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  @media (max-width: 700px) { .wrap { grid-template-columns: 1fr; grid-template-rows: auto 55vh auto; height:auto; } .panel { border-right:0; border-bottom:1px solid var(--rule); } .caption { white-space:normal; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="panel">
+    <h3>The bell</h3>
+    <label class="s"><b>μ</b><input id="mu" type="range" min="50" max="150" step="1" aria-label="mu, the mean"><output id="muo"></output></label>
+    <label class="s"><b>σ</b><input id="sigma" type="range" min="1" max="30" step="1" aria-label="sigma, the standard deviation"><output id="sigmao"></output></label>
+    <h3>The threshold</h3>
+    <label class="s"><b>x</b><input id="x" type="range" min="0" max="200" step="0.5" aria-label="x, the threshold"><output id="xo"></output></label>
+    <div class="big" id="prob"></div>
+    <div class="sub" id="per100"></div>
+    <div class="z" id="zline"></div>
+    <h3>The guarantee</h3>
+    <label class="toggle"><input type="checkbox" id="inv"><span>Find <i>x</i> for a given share</span></label>
+    <div class="share"><span>share below:</span><input id="share" type="number" min="0.1" max="99.9" step="0.5" aria-label="share of bikes below the threshold, in percent"><span>%</span></div>
+    <div class="guar" id="guar"></div>
+  </div>
+  <div class="plot"><svg id="sv" role="img" aria-label="Normal curve with the area below the threshold shaded"></svg></div>
+  <div class="caption">Area = share of bikes below the threshold.</div>
+</div>
+<script>
+const Q = new URLSearchParams(location.search);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const num = (k, d) => { const v = parseFloat(Q.get(k)); return Number.isFinite(v) ? v : d; };
+const S = { mu: clamp(num("mu", 90), 50, 150), sigma: clamp(num("sigma", 8), 1, 30), x: num("x", 75), inv: false, share: clamp(num("share", 5), 0.1, 99.9) };
+S.inv = Q.get("inv") === "1";
+const $ = id => document.getElementById(id);
+const SVG = "http://www.w3.org/2000/svg";
+
+// standard normal CDF: erfc via W. J. Cody's rational approximation (relative error < 1e-16 range-wise),
+// far more accurate than Abramowitz–Stegun 7.1.26
+function erfc(x) {
+  const z = Math.abs(x); let r;
+  if (z < 0.5) {
+    const t = z * z;
+    const a = [3.16112374387056560e0, 1.13864154151050156e2, 3.77485237685302021e2, 3.20937758913846947e3, 1.85777706184603153e-1];
+    const b = [2.36012909523441209e1, 2.44024637934444173e2, 1.28261652607737228e3, 2.84423683343917062e3];
+    let xn = a[4] * t, xd = t;
+    for (let i = 0; i < 3; i++) { xn = (xn + a[i]) * t; xd = (xd + b[i]) * t; }
+    r = 1 - z * (xn + a[3]) / (xd + b[3]);
+  } else if (z <= 4) {
+    const c = [5.64188496988670089e-1, 8.88314979438837594e0, 6.61191906371416295e1, 2.98635138197400131e2, 8.81952221241769090e2, 1.71204761263407058e3, 2.05107837782607147e3, 1.23033935479799725e3, 2.15311535474403846e-8];
+    const d = [1.57449261107098347e1, 1.17693950891312499e2, 5.37181101862009858e2, 1.62138957456669019e3, 3.29079923573345963e3, 4.36261909014324716e3, 3.43936767414372164e3, 1.23033935480374942e3];
+    let xn = c[8] * z, xd = z;
+    for (let i = 0; i < 7; i++) { xn = (xn + c[i]) * z; xd = (xd + d[i]) * z; }
+    r = (xn + c[7]) / (xd + d[7]);
+    const ysq = Math.trunc(z * 16) / 16, del = (z - ysq) * (z + ysq);
+    r *= Math.exp(-ysq * ysq) * Math.exp(-del);
+  } else {
+    const p = [3.05326634961232344e-1, 3.60344899949804439e-1, 1.25781726111229246e-1, 1.60837851487422766e-2, 6.58749161529837803e-4, 1.63153871373020978e-2];
+    const q = [2.56852019228982242e0, 1.87295284992346725e0, 5.27905102951428412e-1, 6.05183413124413191e-2, 2.33520497626869185e-3];
+    const t = 1 / (z * z);
+    let xn = p[5] * t, xd = t;
+    for (let i = 0; i < 4; i++) { xn = (xn + p[i]) * t; xd = (xd + q[i]) * t; }
+    r = t * (xn + p[4]) / (xd + q[4]);
+    r = (1 / Math.sqrt(Math.PI) - r) / z;
+    const ysq = Math.trunc(z * 16) / 16, del = (z - ysq) * (z + ysq);
+    r *= Math.exp(-ysq * ysq) * Math.exp(-del);
+  }
+  return x < 0 ? 2 - r : r;
+}
+const Phi = z => 0.5 * erfc(-z / Math.SQRT2);
+const phi = z => Math.exp(-0.5 * z * z) / Math.sqrt(2 * Math.PI);
+
+// inverse: Acklam's algorithm, then one Newton–Halley refinement against the Cody CDF
+function PhiInv(p) {
+  if (p <= 0) return -Infinity; if (p >= 1) return Infinity;
+  const a = [-3.969683028665376e1, 2.209460984245205e2, -2.759285104469687e2, 1.383577518672690e2, -3.066479806614716e1, 2.506628277459239e0];
+  const b = [-5.447609879822406e1, 1.615858368580409e2, -1.556989798598866e2, 6.680131188771972e1, -1.328068155288572e1];
+  const c = [-7.784894002430293e-3, -3.223964580411365e-1, -2.400758277161838e0, -2.549732539343734e0, 4.374664141464968e0, 2.938163982698783e0];
+  const d = [7.784695709041462e-3, 3.224671290700398e-1, 2.445134137142996e0, 3.754408661907416e0];
+  const pl = 0.02425, ph = 1 - pl; let x, q, r;
+  if (p < pl) { q = Math.sqrt(-2 * Math.log(p)); x = (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) / ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1); }
+  else if (p <= ph) { q = p - 0.5; r = q * q; x = (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q / (((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1); }
+  else { q = Math.sqrt(-2 * Math.log(1 - p)); x = -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) / ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1); }
+  const e = Phi(x) - p, u = e / phi(x);
+  return x - u / (1 + x * u / 2);
+}
+
+const sv = $("sv");
+function el(tag, attrs, text) {
+  const e = document.createElementNS(SVG, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+const f3 = v => v.toFixed(3).replace(/^0/, "");
+const f1 = v => (Math.abs(v - Math.round(v)) < 1e-9 ? String(Math.round(v)) : v.toFixed(1));
+const f2 = v => v.toFixed(2);
+const neg = s => s.replace("-", "−");
+
+// fixed window 20..180 km so the picture never jumps and moving μ visibly moves the bell
+const X0 = 20, X1 = 180;
+
+function draw() {
+  const W = sv.clientWidth || 700, H = sv.clientHeight || 460;
+  sv.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  while (sv.firstChild) sv.removeChild(sv.firstChild);
+  const L = 24, R = 24, T = 44, B = 50;
+  const pw = W - L - R, ph = H - T - B;
+  const mu = S.mu, sg = S.sigma, x = S.x;
+  const px = v => L + (v - X0) / (X1 - X0) * pw;
+  const ymax = phi(0) / Math.max(sg, 4) * 1.08;            // bells with σ ≥ 4 fit; thinner ones are clipped at the top
+  const py = d => T + ph - Math.min(d, ymax) / ymax * ph;
+  const dens = v => phi((v - mu) / sg) / sg;
+
+  // baseline and x ticks
+  sv.appendChild(el("line", { x1: L, x2: W - R, y1: py(0), y2: py(0), stroke: "#9aa0a6", "stroke-width": 1.5 }));
+  for (let v = 20; v <= 180; v += 20) {
+    sv.appendChild(el("line", { x1: px(v), x2: px(v), y1: py(0), y2: py(0) + 6, stroke: "#9aa0a6", "stroke-width": 1.5 }));
+    sv.appendChild(el("text", { x: px(v), y: py(0) + 24, "text-anchor": "middle", "font-size": 15, fill: "#7a7f85" }, String(v)));
+  }
+  sv.appendChild(el("text", { x: W - R, y: H - 8, "text-anchor": "end", "font-size": 15, fill: "#7a7f85" }, "battery range, km"));
+
+  // the curve
+  const N = 400; let dpath = "", apath = "";
+  for (let i = 0; i <= N; i++) {
+    const v = X0 + (X1 - X0) * i / N;
+    dpath += (i ? "L" : "M") + px(v).toFixed(1) + " " + py(dens(v)).toFixed(1);
+  }
+  // shaded area to the left of x
+  const xc = clamp(x, X0, X1);
+  const M = Math.max(2, Math.round(N * (xc - X0) / (X1 - X0)));
+  apath = "M" + px(X0).toFixed(1) + " " + py(0).toFixed(1);
+  for (let i = 0; i <= M; i++) { const v = X0 + (xc - X0) * i / M; apath += "L" + px(v).toFixed(1) + " " + py(dens(v)).toFixed(1); }
+  apath += "L" + px(xc).toFixed(1) + " " + py(0).toFixed(1) + "Z";
+  if (x > X0) sv.appendChild(el("path", { d: apath, fill: "rgba(175,31,37,.55)" }));
+  sv.appendChild(el("path", { d: dpath, fill: "none", stroke: "#363636", "stroke-width": 3, "stroke-linejoin": "round" }));
+
+  // mean marker (gold, dashed)
+  sv.appendChild(el("line", { x1: px(mu), x2: px(mu), y1: py(dens(mu)), y2: py(0), stroke: "#CDBA80", "stroke-width": 2.5, "stroke-dasharray": "7 5" }));
+  sv.appendChild(el("text", { x: px(mu), y: Math.max(T - 14, py(dens(mu)) - 10), "text-anchor": "middle", "font-size": 16, "font-weight": 700, fill: "#a8955a" }, "μ = " + f1(mu)));
+
+  // threshold line and label
+  if (x >= X0 && x <= X1) {
+    sv.appendChild(el("line", { x1: px(x), x2: px(x), y1: T - 4, y2: py(0), stroke: "#AF1F25", "stroke-width": 3 }));
+    const lab = el("text", { x: px(x) + (x < mu ? -8 : 8), y: T + 4, "text-anchor": x < mu ? "end" : "start", "font-size": 18, "font-weight": 700, fill: "#AF1F25" }, "x = " + f1(x));
+    sv.appendChild(lab);
+    const p = Phi((x - mu) / sg);
+    const plab = el("text", { x: px(x) + (x < mu ? -8 : 8), y: T + 26, "text-anchor": x < mu ? "end" : "start", "font-size": 17, fill: "#AF1F25" }, "area " + f3(p));
+    sv.appendChild(plab);
+  }
+}
+
+function sync() {
+  if (S.inv) S.x = S.mu + S.sigma * PhiInv(S.share / 100);
+  const z = (S.x - S.mu) / S.sigma, p = Phi(z);
+  $("mu").value = S.mu; $("muo").textContent = f1(S.mu);
+  $("sigma").value = S.sigma; $("sigmao").textContent = f1(S.sigma);
+  $("x").value = S.x; $("xo").textContent = f1(S.x); $("x").disabled = S.inv;
+  $("prob").textContent = "P(X < " + f1(S.x) + ") = " + f3(p);
+  $("per100").textContent = p < 0.005 ? "fewer than 1 in 100 bikes" : Math.round(p * 100) + " in 100 bikes";
+  $("zline").innerHTML = "z = (x − μ)/σ = (" + f1(S.x) + " − " + f1(S.mu) + ")/" + f1(S.sigma) + " = <b>" + neg(f2(z)) + "</b>";
+  $("inv").checked = S.inv;
+  $("share").disabled = !S.inv;
+  if (document.activeElement !== $("share")) $("share").value = S.share;
+  if (S.inv) {
+    $("guar").innerHTML = f1(S.share) + "% below → <b>" + f2(S.x) + " km</b><br><span style='color:var(--muted);font-size:15px'>x = μ + z·σ, z = " + neg(f2(z)) + "</span>";
+    $("guar").classList.remove("off");
+  } else {
+    $("guar").innerHTML = "<span class='off'>Tick the box: x moves to the share you type.</span>";
+  }
+  draw();
+}
+$("mu").oninput = e => { S.mu = +e.target.value; sync(); };
+$("sigma").oninput = e => { S.sigma = +e.target.value; sync(); };
+$("x").oninput = e => { S.x = +e.target.value; sync(); };
+$("inv").onchange = e => { S.inv = e.target.checked; if (!S.inv) S.x = Math.round(S.x * 2) / 2; sync(); };
+$("share").oninput = e => { const v = parseFloat(e.target.value); if (Number.isFinite(v)) { S.share = clamp(v, 0.1, 99.9); sync(); } };
+$("share").onchange = e => { e.target.value = S.share; };
+addEventListener("resize", draw);
+sync();
+</script>
+</body>
+</html>
