@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulate a thousand Saturdays</title>
+<!-- Simulation lab: Arno Bikes runs n test rides on a Saturday, each rider buys with probability p.
+     One click draws one Saturday (a row of coins, red = buyer) and adds a unit to the histogram of
+     "buyers per Saturday"; a second button runs 1,000 Saturdays with a short animation, so the
+     histogram grows into the binomial. Gold markers overlay P(X = x) x (number of Saturdays).
+     A second mode draws Poisson counts (returns per week, mean mu) the same way.
+     Seeded PRNG (mulberry32) so the demo is reproducible. Embedded as an <iframe class="app">;
+     presets from the query string, e.g. w07_simulate.html?n=12&p=0.25  or  ?mode=poisson&mu=3&seed=7 -->
+<style>
+  :root { --red:#AF1F25; --gold:#CDBA80; --goldink:#a8955a; --ink:#363636; --muted:#7a7f85; --rule:#e6e2d8; --paper:#faf9f6; }
+  * { box-sizing: border-box; }
+  html, body { height:100%; }
+  body { margin:0; font-family:"Source Sans 3","Source Sans Pro",-apple-system,Helvetica,Arial,sans-serif; color:var(--ink); background:#fff; }
+  .wrap { display:grid; grid-template-columns: 300px 1fr; grid-template-rows: 1fr auto; height:100vh; }
+  .panel { padding:12px 18px; border-right:1px solid var(--rule); overflow:hidden; font-size:18px; }
+  .panel h3 { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--goldink); margin:10px 0 4px; }
+  .panel h3:first-child { margin-top:0; }
+  .seg { display:grid; grid-template-columns:1fr 1fr; border:2px solid var(--rule); border-radius:6px; overflow:hidden; }
+  .seg label { text-align:center; font-size:14px; line-height:1.1; padding:3px 4px; cursor:pointer; color:var(--muted); }
+  .seg input { position:absolute; opacity:0; width:0; height:0; }
+  .seg input:checked + label { background:var(--red); color:#fff; font-weight:600; }
+  .seg input:focus-visible + label { outline:3px solid var(--gold); outline-offset:-3px; }
+  .sliders { min-height:72px; }
+  label.s { display:grid; grid-template-columns: 26px 1fr 58px; align-items:center; gap:8px; margin:4px 0; }
+  label.s b { font-style:italic; font-size:20px; }
+  label.s output { text-align:right; font-variant-numeric: tabular-nums; font-weight:600; font-size:20px; }
+  input[type=range] { width:100%; height:26px; accent-color: var(--red); cursor:pointer; margin:0; }
+  input[type=range]:focus-visible { outline:3px solid var(--gold); outline-offset:2px; border-radius:4px; }
+  .hidden { display:none !important; }
+  button { font:inherit; font-size:16px; font-weight:600; width:100%; padding:4px 10px; margin:3px 0; border-radius:6px; cursor:pointer; border:2px solid var(--red); background:#fff; color:var(--red); }
+  button.primary { background:var(--red); color:#fff; }
+  button:hover { filter:brightness(1.08); }
+  button:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  button.ghost { border-color:var(--rule); color:var(--muted); font-weight:500; }
+  label.tog { display:flex; align-items:center; gap:8px; font-size:16px; margin-top:4px; cursor:pointer; }
+  label.tog input { width:18px; height:18px; accent-color:var(--goldink); margin:0; }
+  label.tog input:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  table.probs { border-collapse:collapse; margin-top:4px; width:100%; font-variant-numeric: tabular-nums; }
+  table.probs td { padding:2px 0; font-size:15px; white-space:nowrap; }
+  table.probs td:first-child { color:var(--muted); }
+  table.probs td:last-child { text-align:right; font-weight:700; min-width:48px; padding-left:6px; }
+  table.probs td.vs { text-align:right; color:var(--goldink); font-weight:600; padding-left:6px; }
+  table.probs tr.N td:last-child { color:var(--red); }
+  .hint { color:var(--muted); font-size:13px; line-height:1.3; margin-top:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hint a { color:var(--goldink); }
+  .plot { position:relative; min-width:0; min-height:0; }
+  svg { width:100%; height:100%; display:block; }
+  .caption { grid-column: 1 / -1; border-top:1px solid var(--rule); padding:8px 18px; font-size:17px; color:var(--muted); background:var(--paper); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .caption i { font-style:italic; }
+  @media (max-width: 700px) { .wrap { grid-template-columns: 1fr; grid-template-rows: auto 55vh auto; height:auto; } .panel { border-right:0; border-bottom:1px solid var(--rule); } .caption { white-space:normal; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="panel">
+    <h3>The experiment</h3>
+    <div class="seg" role="radiogroup" aria-label="What to simulate">
+      <input type="radio" name="mode" id="mB" value="binomial"><label for="mB">Buyers per Saturday<br><span style="font-size:12px">(binomial)</span></label>
+      <input type="radio" name="mode" id="mP" value="poisson"><label for="mP">Returns per week<br><span style="font-size:12px">(Poisson, mean μ)</span></label>
+    </div>
+    <div class="sliders">
+      <label class="s bin"><b>n</b><input id="n" type="range" min="1" max="30" step="1" aria-label="n, number of test rides"><output id="no"></output></label>
+      <label class="s bin"><b>p</b><input id="p" type="range" min="0" max="1" step="0.01" aria-label="p, probability each ride buys"><output id="po"></output></label>
+      <label class="s poi"><b>μ</b><input id="mu" type="range" min="0.5" max="10" step="0.1" aria-label="mu, mean returns per week"><output id="muo"></output></label>
+    </div>
+    <h3>Run it</h3>
+    <button id="one" class="primary"></button>
+    <button id="many"></button>
+    <button id="reset" class="ghost">Reset</button>
+    <label class="tog"><input id="show" type="checkbox"><span id="showl">Show the binomial</span></label>
+    <h3>So far</h3>
+    <table class="probs">
+      <tr class="N"><td id="lN">Saturdays simulated</td><td></td><td id="N">0</td></tr>
+      <tr><td id="lavg">average buyers</td><td class="vs" id="avgT"></td><td id="avg">–</td></tr>
+      <tr><td id="lzero">no-buyer share</td><td class="vs" id="zeroT"></td><td id="zero">–</td></tr>
+    </table>
+    <div class="hint">Seed <span id="seedv"></span> · <a href="#" id="newseed">new seed</a> (same seed, same Saturdays)</div>
+  </div>
+  <div class="plot"><svg id="sv" role="img" aria-label="Histogram of simulated counts with the theoretical distribution overlaid"></svg></div>
+  <div class="caption">A simulation is the experiment repeated many times. Its histogram <i>is</i> the distribution.</div>
+</div>
+<script>
+const Q = new URLSearchParams(location.search);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const num = (k, d) => { const v = parseFloat(Q.get(k)); return Number.isFinite(v) ? v : d; };
+const S = {
+  mode: Q.get("mode") === "poisson" ? "poisson" : "binomial",
+  n: clamp(Math.round(num("n", 12)), 1, 30), p: clamp(num("p", 0.25), 0, 1),
+  mu: clamp(Math.round(num("mu", 3) * 10) / 10, 0.5, 10),
+  seed: (Math.round(num("seed", 20261109)) >>> 0), show: Q.get("show") !== "0" && Q.get("show") !== "false",
+};
+const $ = id => document.getElementById(id);
+const SVG = "http://www.w3.org/2000/svg";
+
+// seeded PRNG (mulberry32): the same seed gives the same thousand Saturdays
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+let rng = mulberry32(S.seed);
+
+// log-gamma (Lanczos), so C(n,x) p^x (1-p)^(n-x) and mu^x e^-mu / x! never overflow
+function lgamma(z) {
+  const g = 7, c = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313,
+    -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+  if (z < 0.5) return Math.log(Math.PI / Math.sin(Math.PI * z)) - lgamma(1 - z);
+  z -= 1; let a = c[0]; const t = z + g + 0.5;
+  for (let i = 1; i < g + 2; i++) a += c[i] / (z + i);
+  return 0.5 * Math.log(2 * Math.PI) + (z + 0.5) * Math.log(t) - t + Math.log(a);
+}
+function binomPmf(n, p) {
+  const out = new Array(n + 1);
+  for (let x = 0; x <= n; x++) {
+    if (p === 0) { out[x] = x === 0 ? 1 : 0; continue; }
+    if (p === 1) { out[x] = x === n ? 1 : 0; continue; }
+    const lc = lgamma(n + 1) - lgamma(x + 1) - lgamma(n - x + 1);
+    out[x] = Math.exp(lc + x * Math.log(p) + (n - x) * Math.log1p(-p));
+  }
+  return out;
+}
+function poissonPmf(mu, xmax) {
+  const out = new Array(xmax + 1);
+  for (let x = 0; x <= xmax; x++) out[x] = Math.exp(-mu + x * Math.log(mu) - lgamma(x + 1));
+  return out;
+}
+// one draw
+function drawBinomial(n, p) { const flips = new Array(n); for (let i = 0; i < n; i++) flips[i] = rng() < p; return flips; }
+function drawPoisson(mu) {                           // Knuth: count exponential waits until e^-mu
+  const L = Math.exp(-mu); let k = 0, prod = rng();
+  while (prod > L) { k++; prod *= rng(); }
+  return k;
+}
+
+// state of the simulation
+let counts = [], N = 0, sum = 0, last = null, pending = 0, raf = 0;
+const isPoi = () => S.mode === "poisson";
+const xmax = () => isPoi() ? Math.max(12, Math.ceil(S.mu + 4.5 * Math.sqrt(S.mu)), counts.length - 1) : S.n;
+const theory = () => isPoi() ? poissonPmf(S.mu, xmax()) : binomPmf(S.n, S.p);
+function resetSim() {
+  cancelAnimationFrame(raf); pending = 0;
+  rng = mulberry32(S.seed);
+  counts = new Array(xmax() + 1).fill(0); N = 0; sum = 0; last = null;
+}
+function step() {
+  let k;
+  if (isPoi()) { k = drawPoisson(S.mu); last = k; }
+  else { const f = drawBinomial(S.n, S.p); last = f; k = f.filter(Boolean).length; }
+  while (counts.length <= k) counts.push(0);
+  counts[k]++; N++; sum += k;
+}
+function runMany(total) {
+  pending += total;
+  if (raf) return;
+  const frame = () => {
+    const batch = Math.min(50, pending);
+    for (let i = 0; i < batch; i++) step();
+    pending -= batch; sync();
+    raf = pending > 0 ? requestAnimationFrame(frame) : 0;
+  };
+  raf = requestAnimationFrame(frame);
+}
+
+const f2 = v => v.toFixed(2).replace(/^0/, "");
+const f3 = v => v.toFixed(3).replace(/^0/, "");
+const fmt = v => v.toLocaleString("en-US");
+const sv = $("sv");
+function el(tag, attrs, text) {
+  const e = document.createElementNS(SVG, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+
+function draw() {
+  const W = sv.clientWidth || 700, H = sv.clientHeight || 460;
+  sv.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  while (sv.firstChild) sv.removeChild(sv.firstChild);
+  const L = 56, R = 20, T = 96, B = 48;                 // T leaves a strip for the last draw
+  const pw = W - L - R, ph = H - T - B;
+  const xm = xmax();
+  const pr = theory();
+
+  // --- strip: the last draw ---
+  const poi = isPoi();
+  sv.appendChild(el("text", { x: L, y: 22, "font-size": 15, fill: "#7a7f85" },
+    last === null ? (poi ? "Last week: press a button" : "Last Saturday: press a button")
+      : poi ? `Last week: ${last} return${last === 1 ? "" : "s"}`
+      : `Last Saturday: ${last.filter(Boolean).length} of ${S.n} bought`));
+  if (last !== null) {
+    const m = poi ? Math.min(last, 40) : last.length;
+    const slotc = Math.min(30, pw / Math.max(m, 1));
+    const r = Math.max(4, Math.min(11, slotc / 2 - 3));
+    const x0 = L + (pw - slotc * m) / 2 + slotc / 2;
+    for (let i = 0; i < m; i++) {
+      const buy = poi ? true : last[i];
+      sv.appendChild(el("circle", { cx: x0 + i * slotc, cy: 52, r, fill: buy ? "#AF1F25" : "#fff", stroke: buy ? "#AF1F25" : "#b8bcc0", "stroke-width": 2 }));
+    }
+    if (poi && last > 40) sv.appendChild(el("text", { x: W - R, y: 57, "text-anchor": "end", "font-size": 14, fill: "#7a7f85" }, `+${last - 40}`));
+    if (!poi && m === 0) sv.appendChild(el("text", { x: L + pw / 2, y: 57, "text-anchor": "middle", "font-size": 14, fill: "#7a7f85" }, "n = 0"));
+  }
+  sv.appendChild(el("line", { x1: L, x2: W - R, y1: 74, y2: 74, stroke: "#e6e2d8", "stroke-width": 1 }));
+
+  // --- histogram ---
+  const over = S.show && N > 0 ? pr.map(q => q * N) : [];
+  const top = Math.max(1, ...counts, ...over);
+  const nice = v => { const e = Math.pow(10, Math.floor(Math.log10(v))); const f = v / e; const s = f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10; return s * e; };
+  const stepY = Math.max(1, nice(top / 4));
+  const ymax = Math.max(stepY, Math.ceil(top * 1.08 / stepY) * stepY);
+  const px = x => L + (x + 0.5) / (xm + 1) * pw;
+  const py = y => T + ph - y / ymax * ph;
+  const slot = pw / (xm + 1), bw = Math.max(4, slot * 0.72);
+
+  for (let y = 0; y <= ymax + 1e-9; y += stepY) {
+    sv.appendChild(el("line", { x1: L, x2: W - R, y1: py(y), y2: py(y), stroke: "#f0ede6", "stroke-width": 1 }));
+    sv.appendChild(el("text", { x: L - 8, y: py(y) + 5, "text-anchor": "end", "font-size": 14, fill: "#7a7f85" }, fmt(Math.round(y * 100) / 100)));
+  }
+  sv.appendChild(el("line", { x1: L, x2: W - R, y1: py(0), y2: py(0), stroke: "#9aa0a6", "stroke-width": 1.5 }));
+  sv.appendChild(el("text", { x: L + 6, y: T - 8, "font-size": 14, fill: "#7a7f85" }, poi ? "number of weeks" : "number of Saturdays"));
+
+  const labelEvery = xm > 20 ? 2 : 1;
+  for (let x = 0; x <= xm; x++) {
+    const c = counts[x] || 0;
+    sv.appendChild(el("rect", { x: px(x) - bw / 2, y: py(c), width: bw, height: Math.max(0, py(0) - py(c)), fill: "#AF1F25", rx: 2 }));
+    if (x % labelEvery === 0) sv.appendChild(el("text", { x: px(x), y: py(0) + 20, "text-anchor": "middle", "font-size": 15, fill: "#7a7f85" }, String(x)));
+  }
+  // theory overlay: gold markers at P(X = x) x N
+  if (over.length) {
+    for (let x = 0; x <= xm; x++) {
+      const y = py(over[x]);
+      sv.appendChild(el("line", { x1: px(x) - bw / 2 - 3, x2: px(x) + bw / 2 + 3, y1: y, y2: y, stroke: "#CDBA80", "stroke-width": 3 }));
+      sv.appendChild(el("circle", { cx: px(x), cy: y, r: 5, fill: "#CDBA80", stroke: "#fff", "stroke-width": 1.5 }));
+    }
+    sv.appendChild(el("text", { x: W - R, y: T - 8, "text-anchor": "end", "font-size": 15, "font-weight": 700, fill: "#a8955a" },
+      poi ? `gold: Poisson(μ = ${S.mu}) × ${fmt(N)}` : `gold: Binomial(${S.n}, ${f2(S.p)}) × ${fmt(N)}`));
+  }
+  sv.appendChild(el("text", { x: L + pw / 2, y: H - 8, "text-anchor": "middle", "font-size": 15, fill: "#7a7f85" },
+    poi ? "x = returns in the week" : "x = buyers on the Saturday"));
+}
+
+function sync() {
+  const poi = isPoi();
+  $("mB").checked = !poi; $("mP").checked = poi;
+  document.querySelectorAll(".bin").forEach(e => e.classList.toggle("hidden", poi));
+  document.querySelectorAll(".poi").forEach(e => e.classList.toggle("hidden", !poi));
+  $("n").value = S.n; $("no").textContent = S.n;
+  $("p").value = S.p; $("po").textContent = f2(S.p);
+  $("mu").value = S.mu; $("muo").textContent = S.mu.toFixed(1);
+  $("one").textContent = poi ? "Simulate one week" : "Simulate one Saturday";
+  $("many").textContent = poi ? "Simulate 1,000 weeks" : "Simulate 1,000 Saturdays";
+  $("show").checked = S.show; $("showl").textContent = poi ? "Show the Poisson" : "Show the binomial";
+  $("lN").textContent = poi ? "weeks simulated" : "Saturdays simulated";
+  $("lavg").textContent = poi ? "average returns" : "average buyers";
+  $("lzero").textContent = poi ? "no-return share" : "no-buyer share";
+  $("N").textContent = fmt(N);
+  const mean = poi ? S.mu : S.n * S.p, p0 = poi ? Math.exp(-S.mu) : Math.pow(1 - S.p, S.n);
+  $("avgT").textContent = (poi ? "μ " : "np ") + f2(mean);
+  $("zeroT").textContent = (poi ? "e⁻ᵘ " : "(1−p)ⁿ ") + f3(p0);
+  $("avg").textContent = N ? f2(sum / N) : "–";
+  $("zero").textContent = N ? f3((counts[0] || 0) / N) : "–";
+  $("seedv").textContent = S.seed;
+  draw();
+}
+function setParam(fn) { fn(); resetSim(); sync(); }
+$("mB").onchange = $("mP").onchange = e => setParam(() => { S.mode = e.target.value; });
+$("n").oninput = e => setParam(() => { S.n = +e.target.value; });
+$("p").oninput = e => setParam(() => { S.p = +e.target.value; });
+$("mu").oninput = e => setParam(() => { S.mu = +e.target.value; });
+$("one").onclick = () => { step(); sync(); };
+$("many").onclick = () => runMany(1000);
+$("reset").onclick = () => { resetSim(); sync(); };
+$("show").onchange = e => { S.show = e.target.checked; draw(); };
+$("newseed").onclick = e => { e.preventDefault(); setParam(() => { S.seed = (Math.random() * 4294967296) >>> 0; }); };
+addEventListener("resize", draw);
+resetSim(); sync();
+</script>
+</body>
+</html>

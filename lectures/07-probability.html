@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Vincenzo Nardelli, PhD">
-  <title>Quantitative Business Methods – The founder does not know the numbers</title>
+  <title>Quantitative Business Methods – Three shapes, and how to decide with them</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -147,8 +147,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="#AF1F25" data-background-image="../images/ese-logo-white.svg" data-background-position="top 7% right 4%" data-background-size="14%" class="quarto-title-block">
-  <h1 class="title">The founder does not know the numbers</h1>
-  <p class="subtitle">Week 7 · Monday 9 November 2026 · 10:00–13:00</p>
+  <h1 class="title">Three shapes, and how to decide with them</h1>
+  <p class="subtitle">Week 7 · Monday 9 November 2026 · 10:00–13:00 · online</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -162,968 +162,140 @@ Vincenzo Nardelli, PhD
 </div>
 
 </section>
-<section id="who-i-am" class="slide level2">
-<h2>Who I am</h2>
-<div class="columns">
-<div class="column" style="width:28%;">
-<p><img data-src="img/vincenzo.jpg" style="width:100.0%"></p>
-</div><div class="column" style="width:72%;">
-<p><strong>Vincenzo Nardelli, PhD</strong> · Assistant Professor · Founder, Intuo and Geotobler</p>
-<ul>
-<li class="fragment"><strong>Economics</strong>, then <strong>MSc Statistical Sciences</strong>, Università Cattolica</li>
-<li class="fragment"><strong>PhD, Statistics and Data Science</strong>, Milano-Bicocca</li>
-<li class="fragment"><strong>Visiting Scholar</strong>, Center for Spatial Data Science, University of Chicago, and Brunel University of London</li>
-<li class="fragment"><strong>Assistant Professor</strong>, Università Cattolica, Rome: spatial statistics and econometrics; teaches Statistics, Coding, Big Data</li>
-<li class="fragment"><strong>Founder, Intuo</strong> (AI consulting) and <strong>Geotobler</strong> (geospatial AI, SaaS)</li>
-</ul>
-</div></div>
-</section>
-<section id="weeks-15-every-number-was-known" class="slide level2">
-<h2>Weeks 1–5: every number was known</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Arno Bikes, so far</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Fixed cost</td>
-<td>€60,000 a month</td>
-</tr>
-<tr class="even">
-<td>Variable cost</td>
-<td>€400 a bike</td>
-</tr>
-<tr class="odd">
-<td>List price</td>
-<td>€1,000 a bike</td>
-</tr>
-<tr class="even">
-<td>Break-even</td>
-<td>100 bikes a month</td>
-</tr>
-<tr class="odd">
-<td>Cost of capital</td>
-<td>9% a year</td>
-</tr>
-<tr class="even">
-<td>The bond it bought</td>
-<td>4% coupon, 5 years</td>
-</tr>
-</tbody>
-</table>
+<section id="last-thursday-in-one-minute" class="slide level2">
+<h2>Last Thursday, in one minute</h2>
+<div class="blocks">
+<div class="blk recap">
+<p><span class="blk-letter">Block A</span>“Or” and “given”<span class="blk-answer">“Or” adds the two shares and takes the overlap out once. “Given” means: look only at that row or column, and divide by its total.</span></p>
 </div>
-<p><span class="muted">Every one of these was given. You solved for the rest.</span></p>
-</div><div class="column fragment" style="width:50%;">
-<p><strong>Weeks 7–10: the same firm, and the founder does not know the numbers.</strong></p>
-<ul>
-<li>How many customers next month?</li>
-<li>How many bikes come back under warranty?</li>
-<li>How far does a battery <em>really</em> go?</li>
-<li>Which supplier sent the faulty batch?</li>
-</ul>
-<div class="fragment">
-<p><span class="red">A number she does not know is not a number she can ignore. It is a number with a spread.</span></p>
+<div class="blk recap">
+<p><span class="blk-letter">Block B</span>Count the ways<span class="blk-answer">Order matters: multiply down the tree. Order does not: divide by <span class="math inline">k!</span>. A supplier’s share, times its defect rate, is its share of the faulty.</span></p>
 </div>
-</div></div>
-</section>
-<section id="planning-on-the-average-and-running-out" class="slide level2">
-<h2>Planning on the average, and running out</h2>
-<div class="columns">
-<div class="column" style="width:58%;">
-<p><img data-src="img/w07_mean_vs_spread.svg"></p>
-</div><div class="column fragment" style="width:42%;">
-<p>Demand averages <strong>100 bikes a month</strong>. The founder stocks <strong>110</strong> — “ten more than average, we are safe”.</p>
-<p>Same average, two very different months.</p>
-<p>If demand moves by about 5 bikes, she runs out in <strong>2%</strong> of months. If it moves by about 20, she runs out <strong>one month in three</strong>.</p>
-<div class="fragment">
-<p><span class="red">The mean was never the problem. The spread is. For the spread we need the variance — and the rest of today.</span></p>
+<div class="blk recap">
+<p><span class="blk-letter">Block C</span>A number with its shares<span class="blk-answer">Five weeks of returns: mean 5, give or take 1.6. Next week’s number, before we see it, with a share on each value: <span class="math inline">E(x) = \sum x\,P(x)</span>.</span></p>
 </div>
-</div></div>
+<div class="blk recap">
+<p><span class="blk-letter">Homework 6</span>At the board, now<span class="blk-answer">Bring what you tried. Fifteen minutes, three items and the memo; the mistakes are the useful part.</span></p>
+</div>
+</div>
+<p><span class="red">Thursday you learnt to count and to condition. Today the counts get a shape, and the shape gives a decision.</span></p>
 </section>
-<section id="where-the-four-weeks-go" class="slide level2">
-<h2>Where the four weeks go</h2>
+<section id="where-we-are" class="slide level2">
+<h2>Where we are</h2>
 <div class="columns">
 <div class="column" style="width:58%;">
 <table class="caption-top">
 <colgroup>
 <col style="width: 8%">
-<col style="width: 24%">
-<col style="width: 68%">
+<col style="width: 26%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Wk</th>
 <th>Date</th>
-<th>What you will be able to do by hand</th>
+<th>What you can do by hand</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>7</td>
-<td>9 Nov · <strong>in person</strong></td>
-<td>count, condition, update; mean and spread; binomial, Poisson, normal</td>
+<td>6</td>
+<td>5 Nov · in person</td>
+<td>count, condition, update; mean and spread ✓</td>
 </tr>
 <tr class="even">
-<td>8</td>
-<td>16 Nov</td>
-<td>how sure are we of a number: confidence intervals, tests, one regression line</td>
+<td><strong>7</strong></td>
+<td><strong>9 Nov · online</strong></td>
+<td><strong>three shapes: binomial, Poisson, normal; decide with them</strong></td>
 </tr>
 <tr class="odd">
-<td>9</td>
-<td>23 Nov</td>
-<td>several causes at once; a trend through time</td>
+<td>8</td>
+<td>16 Nov · online</td>
+<td>how sure are we of a number: intervals, tests, one regression line</td>
 </tr>
 <tr class="even">
+<td>9</td>
+<td>23 Nov · online</td>
+<td>several causes at once; a trend through time</td>
+</tr>
+<tr class="odd">
 <td>10</td>
-<td>30 Nov</td>
+<td>30 Nov · online</td>
 <td>review; one last round of practice on paper</td>
 </tr>
 </tbody>
 </table>
 </div><div class="column" style="width:42%;">
-<p><strong>One case, four Mondays.</strong> Arno Bikes, the firm from weeks 1–5. Every number you see from now on is one of its numbers.</p>
-<p>Today is the only day we meet in this room. Paper, a calculator, and the normal table — or <code>NORM.S.DIST</code> on your phone.</p>
+<p><strong>Online, like the rest of the second half.</strong> Paper, a calculator, and the normal table — or <code>NORM.S.DIST</code> on your computer.</p>
+<p>Everything in weeks 8–10 stands on today’s bell and on two words: <em>mean</em> and <em>standard deviation</em>.</p>
 </div></div>
-<p><span class="red">Every technique in this room is here because an assessment asks for it. I will tell you which one, every time.</span></p>
+<p><span class="red">Every technique today is here because an assessment asks for it. I will tell you which one, every time.</span></p>
+</section>
+<section id="todays-question" class="slide level2">
+<h2>Today’s question</h2>
+<div title="Arno Bikes, this month">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Arno Bikes, this month</strong></p>
+</div>
+<div class="callout-content">
+<p>The founder has three numbers she does not know. <strong>How many</strong> of Saturday’s test riders will buy. <strong>How far</strong> a battery really goes, so that she can print a range on the box. <strong>Which supplier</strong> to sign for next year’s batteries, when one of them is cheaper but less reliable.</p>
+<p>And a fourth she has not thought of yet: of the 250 orders shipping this month, <strong>how many will be late</strong>?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Thursday gave each unknown number a mean and a spread. Today gives it a <strong>shape</strong> — and a shape is something you can read a probability off.</p>
+</div>
+<div class="fragment">
+<p><span class="red">Three shapes cover almost every number a firm does not know: a count out of <span class="math inline">n</span>, a count at a rate, a measurement.</span></p>
+</div>
 </section>
 <section id="how-today-runs" class="slide level2">
 <h2>How today runs</h2>
 <div class="blocks four">
 <div class="blk recap">
-<p><span class="blk-letter">10:00 · 10’</span>The bridge<span class="blk-answer">From certain numbers to uncertain ones.</span></p>
+<p><span class="blk-letter">10:00 · 15’</span>Homework 6<span class="blk-answer">At the board, together.</span></p>
 </div>
 <div class="blk now">
-<p><span class="blk-letter">10:10 → 12:35</span>Four questions from the founder<span class="blk-tool">Each one: her question and your bet on paper → the picture → one formula with a number → the sentence for the Board. Break at 11:10.</span></p>
+<p><span class="blk-letter">10:15 → 12:35</span>Four questions from the founder<span class="blk-tool">Each one: her question and your bet typed in the chat → the picture → one formula with a number → the sentence for the Board. Break at 11:15.</span></p>
 </div>
 <div class="blk recap">
 <p><span class="blk-letter">12:35 · 15’</span>Take home<span class="blk-answer">Four lines to remember, the four answers for the founder, the homework.</span></p>
 </div>
 <div class="blk recap">
-<p><span class="blk-letter">Next Monday</span>Remote<span class="blk-answer">How sure are we of that number?</span></p>
+<p><span class="blk-letter">Next Monday</span>Online<span class="blk-answer">How sure are we of that number?</span></p>
 </div>
 </div>
 <p><span class="muted">Bets are written, not said. Write a number before I compute; the surprise is where the learning is.</span></p>
-</section>
-<section id="the-case-arno-bikes-this-quarter" class="slide level2">
-<h2>The case: Arno Bikes, this quarter</h2>
-<div class="bigtable">
-<table class="caption-top">
-<tbody>
-<tr class="odd">
-<td><strong>e-bike assembler, Florence</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Customers last quarter</td>
-<td>200</td>
-</tr>
-<tr class="odd">
-<td>Batteries bought last month</td>
-<td>1,000, from two suppliers</td>
-</tr>
-<tr class="even">
-<td>Returns under warranty</td>
-<td>about 5 a week</td>
-</tr>
-<tr class="odd">
-<td>Helpline</td>
-<td>about 3 calls an hour</td>
-</tr>
-<tr class="even">
-<td>Battery range, as measured</td>
-<td>90 km on average, give or take 8</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><span class="muted">None of these is a fixed cost or a list price. Each one moves.</span></p>
 </section>
 <section id="four-questions-from-the-founder" class="slide level2 hub" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Four questions from the founder</h2>
 <div class="blocks">
 <div class="blk now" data-id="blkA">
-<p><span class="blk-letter">Block A</span>How many of our customers do both?<span class="blk-tool">sets · the addition law · counting</span></p>
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">binomial · Poisson · one family</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block B</span>Which supplier sent the faulty batteries?<span class="blk-tool">conditional probability · Bayes</span></p>
+<p><span class="blk-letter">Block B</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block C</span>How many returns next week?<span class="blk-tool">mean and variance · binomial · Poisson</span></p>
+<p><span class="blk-letter">Block C</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
 </div>
 <div class="blk next">
-<p><span class="blk-letter">Block D</span>What range do we promise?<span class="blk-tool">the normal</span></p>
+<p><span class="blk-letter">Block D</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
 </div>
 </div>
 </section>
-<section id="block-a-sets-the-addition-law-counting-how-many-of-our-customers-do-both" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><span class="section-kicker">Block A · sets, the addition law, counting</span> How many of our customers do both?</h2>
+<section id="block-a-binomial-poisson-one-family-how-many-returns-next-week" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block A · binomial, Poisson, one family</span> How many returns next week?</h2>
 <div class="blk-fill" data-id="blkA">
 
 </div>
-</section>
-<section id="sets-six-words-with-arno-bikes-next-to-each" class="slide level2">
-<h2>Sets: six words, with Arno Bikes next to each</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 42%">
-<col style="width: 38%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>word</th>
-<th>in plain words</th>
-<th>at Arno Bikes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>set</strong></td>
-<td>a collection of things, listed or described</td>
-<td>the 200 customers of last quarter</td>
-</tr>
-<tr class="even">
-<td><strong>subset</strong></td>
-<td>a set wholly inside another</td>
-<td>the ones who bought accessories</td>
-</tr>
-<tr class="odd">
-<td><strong>universal set</strong></td>
-<td>everything we are talking about</td>
-<td>all 200 customers</td>
-</tr>
-<tr class="even">
-<td><strong>complement</strong></td>
-<td>everything in the universal set <em>not</em> in A</td>
-<td>the customers who did <strong>not</strong> buy accessories</td>
-</tr>
-<tr class="odd">
-<td><strong>intersection</strong> <span class="math inline">A \cap B</span></td>
-<td>in A <strong>and</strong> in B</td>
-<td>bought accessories <strong>and</strong> a service plan</td>
-</tr>
-<tr class="even">
-<td><strong>union</strong> <span class="math inline">A \cup B</span></td>
-<td>in A <strong>or</strong> in B, or both</td>
-<td>bought at least one of the two</td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<p><span class="red">A definition is one sentence a non-mathematician can read. “The set of customers that…”, never a symbol alone.</span></p>
-</div>
-</section>
-<section id="venn-diagram-200-customers-who-bought-both" class="slide level2">
-<h2>Venn diagram: 200 customers, who bought both?</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<p>The founder’s CRM says: <strong>120</strong> bought accessories, <strong>90</strong> bought a service plan, <strong>40</strong> bought neither.</p>
-<p>She wants to upsell the ones who bought <strong>both</strong>. How many are they?</p>
-<div title="Bet before we compute">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Bet before we compute</strong></p>
-</div>
-<div class="callout-content">
-<p>Write a number. Is it more or fewer than 30?</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:52%;">
-<p><img data-src="img/w07_venn_two.svg"></p>
-<p>Bought at least one: <span class="math inline">200 - 40 = 160</span>. Then <span class="math inline">120 + 90 = 210</span> counts the “both” customers twice:</p>
-<p><span class="math display">n(A \cup S) = n(A) + n(S) - n(A \cap S)</span></p>
-<p><span class="math display">160 = 120 + 90 - \text{both} \;\Rightarrow\; \text{both} = \textbf{50}</span></p>
-</div></div>
-</section>
-<section id="the-addition-law-divide-every-count-by-200" class="slide level2">
-<h2>The addition law: divide every count by 200</h2>
-<div class="columns">
-<div class="column" style="width:52%;">
-<p><strong>Probability is a long-run share.</strong> Of the last 200 customers, 50 bought both: pick one at random and</p>
-<p><span class="math display">P(\text{both}) = \frac{50}{200} = .25</span></p>
-<p>The same identity, divided by <span class="math inline">N</span>, is the <strong>addition law</strong>:</p>
-<p><span class="math display">P(A \cup S) = P(A) + P(S) - P(A \cap S)</span></p>
-<p><span class="math display">= .60 + .45 - .25 = \textbf{.80}</span></p>
-<p><span class="muted">Eight customers in ten bought at least one of the two.</span></p>
-</div><div class="column fragment" style="width:48%;">
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: right;">count</th>
-<th style="text-align: right;">share</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>accessories only</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: right;">.35</td>
-</tr>
-<tr class="even">
-<td>both</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">.25</td>
-</tr>
-<tr class="odd">
-<td>service plan only</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">.20</td>
-</tr>
-<tr class="even">
-<td>neither</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">.20</td>
-</tr>
-<tr class="odd">
-<td><strong>total</strong></td>
-<td style="text-align: right;"><strong>200</strong></td>
-<td style="text-align: right;"><strong>1.00</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Shares are never negative and add to 1. The <strong>complement</strong> is <span class="math inline">1 - .80 = .20</span>: the “neither” row.</p>
-</div></div>
-<div title="Board sentence">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Board sentence</strong></p>
-</div>
-<div class="callout-content">
-<p>Eighty per cent of our customers buy at least one extra; a quarter buy both. “Or” adds the two shares, then takes the overlap out once.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="three-of-eight-for-the-trade-fair-pick-them-one-at-a-time" class="slide level2 clip" data-background-color="#000000">
-<h2>Three of eight for the trade fair: pick them one at a time</h2>
-<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w07_choices_poster.png">
-<source src="media/w07_choices.mp4" type="video/mp4">
-</video>
-</section>
-<section id="combinations-a-team-of-three-order-does-not-matter" class="slide level2">
-<h2>Combinations: a team of three, order does not matter</h2>
-<div class="columns">
-<div class="column" style="width:44%;">
-<p>Eight people work at Arno Bikes. The founder sends <strong>three</strong> to the Milan trade fair.</p>
-<div title="Bet before we compute">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Bet before we compute</strong></p>
-</div>
-<div class="callout-content">
-<p>How many different teams of three? More or fewer than 100?</p>
-</div>
-</div>
-</div>
-</div>
-<p>A team is a team: Anna, Luca, Sara is the same team as Sara, Anna, Luca.</p>
-</div><div class="column fragment" style="width:56%;">
-<div class="fragment">
-<p><span class="math display">\binom{8}{3} = \frac{8!}{3!\,(8-3)!}</span></p>
-<ul>
-<li><span class="math inline">\binom{8}{3}</span> reads <strong>“8 choose 3”</strong>: the number of groups of 3 you can pick from 8.</li>
-<li><span class="math inline">n!</span> reads <strong>“n factorial”</strong>: <span class="math inline">n \cdot (n-1) \cdot (n-2) \cdots 1</span>, the ways to line up <span class="math inline">n</span> people. <span class="math inline">3! = 6</span>, <span class="math inline">8! = 40{,}320</span>.</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Never compute the big factorials. Cancel first:</p>
-<p><span class="math display">\frac{8!}{3!\,5!} = \frac{8 \cdot 7 \cdot 6 \cdot \cancel{5!}}{3! \cdot \cancel{5!}} = \frac{8 \cdot 7 \cdot 6}{3 \cdot 2 \cdot 1} = \frac{336}{6} = \textbf{56}</span></p>
-</div>
-</div></div>
-<div class="fragment">
-<p><span class="red">Fifty-six teams. The bottom of the fraction, <span class="math inline">3!</span>, removes the orderings that do not count.</span></p>
-</div>
-</section>
-<section id="permutations-three-named-roles-order-matters" class="slide level2">
-<h2>Permutations: three named roles, order matters</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Now the three have <strong>named roles</strong>: stand lead, demo rider, sales.</p>
-<p>Anna as lead and Luca as rider is <strong>not</strong> the same as Luca as lead and Anna as rider. Swapping two people changes the outcome.</p>
-<p><span class="math display">P^{8}_{3} = \frac{8!}{(8-3)!} = \frac{8!}{5!} = 8 \cdot 7 \cdot 6 = \textbf{336}</span></p>
-<p>Three decisions in a row: 8 choices for lead, 7 left for rider, 6 for sales.</p>
-</div><div class="column fragment" style="width:50%;">
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th>formula</th>
-<th style="text-align: right;">result</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>teams (combinations)</td>
-<td><span class="math inline">\dfrac{8!}{3!\,5!}</span></td>
-<td style="text-align: right;">56</td>
-</tr>
-<tr class="even">
-<td>roles (permutations)</td>
-<td><span class="math inline">\dfrac{8!}{5!}</span></td>
-<td style="text-align: right;">336</td>
-</tr>
-<tr class="odd">
-<td>ratio</td>
-<td><span class="math inline">3! = 6</span></td>
-<td style="text-align: right;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Each team of three can be arranged in <span class="math inline">3! = 6</span> ways: <span class="math inline">56 \times 6 = 336</span>.</p>
-<div class="fragment">
-<p><span class="red">One question decides which formula: does swapping two people change the outcome? No: combinations. Yes: permutations.</span></p>
-</div>
-</div></div>
-</section>
-<section id="four-questions-from-the-founder-1" class="slide level2 hub" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Four questions from the founder</h2>
-<div class="blocks">
-<div class="blk done">
-<p><span class="blk-letter">Block A</span>How many of our customers do both?<span class="blk-tool">sets · the addition law · counting</span></p>
-</div>
-<div class="blk now" data-id="blkB">
-<p><span class="blk-letter">Block B</span>Which supplier sent the faulty batteries?<span class="blk-tool">conditional probability · Bayes</span></p>
-</div>
-<div class="blk next">
-<p><span class="blk-letter">Block C</span>How many returns next week?<span class="blk-tool">mean and variance · binomial · Poisson</span></p>
-</div>
-<div class="blk next">
-<p><span class="blk-letter">Block D</span>What range do we promise?<span class="blk-tool">the normal</span></p>
-</div>
-</div>
-</section>
-<section id="block-b-conditional-probability-and-bayes-which-supplier-sent-the-faulty-batteries" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><span class="section-kicker">Block B · conditional probability and Bayes</span> Which supplier sent the faulty batteries?</h2>
-<div class="blk-fill" data-id="blkB">
-
-</div>
-</section>
-<section id="two-way-table-a-faulty-battery-is-on-the-bench" class="slide level2">
-<h2>Two-way table: a faulty battery is on the bench</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<p>Last month Arno Bikes bought <strong>1,000</strong> batteries from two suppliers.</p>
-<ul>
-<li><strong>Volta</strong> sent <strong>700</strong>. Its defect rate is <strong>2%</strong>.</li>
-<li><strong>Ampere</strong> sent <strong>300</strong>. Its defect rate is <strong>5%</strong>.</li>
-</ul>
-<p>A faulty battery is on the bench. The label has fallen off.</p>
-<div title="Bet before we compute">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Bet before we compute</strong></p>
-</div>
-<div class="callout-content">
-<p>Which supplier is it most likely from? Write the name and a share.</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:52%;">
-<p><strong>Build the table from the three facts.</strong></p>
-<ul>
-<li class="fragment">Volta: <span class="math inline">700 \times 2\% = 14</span> faulty, <span class="math inline">700 - 14 = 686</span> good</li>
-<li class="fragment">Ampere: <span class="math inline">300 \times 5\% = 15</span> faulty, <span class="math inline">300 - 15 = 285</span> good</li>
-<li class="fragment">Totals: <span class="math inline">29</span> faulty, <span class="math inline">971</span> good, <span class="math inline">1{,}000</span> batteries</li>
-</ul>
-<div class="fragment">
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: right;">good</th>
-<th style="text-align: right;">faulty</th>
-<th style="text-align: right;">total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Volta</strong></td>
-<td style="text-align: right;">686</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">700</td>
-</tr>
-<tr class="even">
-<td><strong>Ampere</strong></td>
-<td style="text-align: right;">285</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">300</td>
-</tr>
-<tr class="odd">
-<td><strong>total</strong></td>
-<td style="text-align: right;">971</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">1,000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-</section>
-<section id="conditional-probability-a-cell-over-a-total" class="slide level2">
-<h2>Conditional probability: a cell over a total</h2>
-<p><span class="math display">P(A \mid B) = \frac{\text{number in both } A \text{ and } B}{\text{number in } B}</span></p>
-<p><strong>“Given B”</strong> means: look only at B’s row (or column), and ask what share of it is A. Everything else in the table is ignored.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Same cell, <strong>14</strong>, on top.</p>
-<p><strong>Given Volta, faulty?</strong> Look only at Volta’s row, 700 batteries:</p>
-<p><span class="math display">P(F \mid \text{Volta}) = \frac{14}{700} = \textbf{.02}</span></p>
-</div><div class="column fragment" style="width:50%;">
-<p><strong>Given faulty, Volta?</strong> Look only at the faulty column, 29 batteries:</p>
-<p><span class="math display">P(\text{Volta} \mid F) = \frac{14}{29} = \textbf{.48}</span></p>
-</div></div>
-<div class="fragment">
-<p><span class="red">Two different questions, two different totals underneath. Say which total before you divide.</span></p>
-</div>
-</section>
-<section id="conditional-probability-the-row-given-the-supplier-how-often-faulty" class="slide level2">
-<h2>Conditional probability, the row: given the supplier, how often faulty?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: right;">good</th>
-<th style="text-align: right;">faulty</th>
-<th style="text-align: right;">total</th>
-<th style="text-align: right;"><strong>share faulty</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Volta</strong></td>
-<td style="text-align: right;">686</td>
-<td style="text-align: right;"><strong>14</strong></td>
-<td style="text-align: right;"><strong>700</strong></td>
-<td style="text-align: right;"><strong>.02</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Ampere</strong></td>
-<td style="text-align: right;">285</td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>300</strong></td>
-<td style="text-align: right;"><strong>.05</strong></td>
-</tr>
-<tr class="odd">
-<td><strong>total</strong></td>
-<td style="text-align: right;">971</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">1,000</td>
-<td style="text-align: right;">.029</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div><div class="column fragment" style="width:50%;">
-<p><span class="math display">P(F \mid \text{Volta}) = \frac{14}{700} = \textbf{.02}</span></p>
-<p><span class="math display">P(F \mid \text{Ampere}) = \frac{15}{300} = \textbf{.05}</span></p>
-<p>These are the defect rates we started from. Reading the rows gives nothing new, and that is the point: it confirms the table is built right.</p>
-<p>Overall, <span class="math inline">P(F) = 29/1{,}000 = .029</span>: between the two, closer to Volta’s because Volta sends more.</p>
-</div></div>
-</section>
-<section id="conditional-probability-the-column-given-faulty-which-supplier" class="slide level2">
-<h2>Conditional probability, the column: given faulty, which supplier?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: right;">good</th>
-<th style="text-align: right;"><strong>faulty</strong></th>
-<th style="text-align: right;">share of the faulty</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Volta</strong></td>
-<td style="text-align: right;">686</td>
-<td style="text-align: right;"><strong>14</strong></td>
-<td style="text-align: right;"><strong>.48</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Ampere</strong></td>
-<td style="text-align: right;">285</td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>.52</strong></td>
-</tr>
-<tr class="odd">
-<td><strong>total</strong></td>
-<td style="text-align: right;">971</td>
-<td style="text-align: right;"><strong>29</strong></td>
-<td style="text-align: right;">1.00</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div><div class="column fragment" style="width:50%;">
-<p><span class="math display">P(\text{Volta} \mid F) = \frac{14}{29} = \textbf{.48}</span></p>
-<p><span class="math display">P(\text{Ampere} \mid F) = \frac{15}{29} = \textbf{.52}</span></p>
-<p>Most batteries come from Volta. Most <strong>faulty</strong> batteries come from Ampere, just: a higher defect rate on a smaller volume.</p>
-<div title="Board sentence">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Board sentence</strong></p>
-</div>
-<div class="callout-content">
-<p>The faulty battery is slightly more likely from Ampere, 52 to 48. Audit Ampere’s line, but do not switch supplier on one battery.</p>
-</div>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="independence-compare-the-rows" class="slide level2">
-<h2>Independence: compare the rows</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p>Supplier and fault are <strong>independent</strong> if knowing the supplier does not change the share of faulty: every row shows the same share as the total.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: right;">share faulty</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Volta</td>
-<td style="text-align: right;">.02</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Ampere</td>
-<td style="text-align: right;">.05</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>overall</td>
-<td style="text-align: right;">.029</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>The rows differ. Knowing the supplier <strong>does</strong> change the share: supplier and fault are <strong>dependent</strong>.</p>
-</div><div class="column fragment" style="width:45%;">
-<p>Had both rows read .029, the supplier would tell you nothing about the fault, and the two-way table would be a waste of paper.</p>
-<div class="fragment">
-<p><span class="red">Compare the rows, then say the word. “Independent” without the comparison is a guess.</span></p>
-</div>
-</div></div>
-</section>
-<section id="bayes-the-column-with-shares-instead-of-counts" class="slide level2">
-<h2>Bayes: the column, with shares instead of counts</h2>
-<p>The founder’s prior: “probably Volta, they send 70%”. One faulty battery is the evidence. Update in three columns:</p>
-<div class="bigtable">
-<table class="caption-top">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>supplier</th>
-<th style="text-align: right;">prior share</th>
-<th style="text-align: right;">× defect rate</th>
-<th style="text-align: right;">= faulty, as a share of all</th>
-<th style="text-align: right;">÷ total faulty</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Volta</td>
-<td style="text-align: right;">.70</td>
-<td style="text-align: right;">.02</td>
-<td style="text-align: right;">.014</td>
-<td style="text-align: right;">.014 / .029 = <strong>.48</strong></td>
-</tr>
-<tr class="even">
-<td>Ampere</td>
-<td style="text-align: right;">.30</td>
-<td style="text-align: right;">.05</td>
-<td style="text-align: right;">.015</td>
-<td style="text-align: right;">.015 / .029 = <strong>.52</strong></td>
-</tr>
-<tr class="odd">
-<td>total</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;">.029</td>
-<td style="text-align: right;">1.00</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="fragment">
-<p>This is the faulty column of the table, in shares. The formula is the same table in symbols:</p>
-<p><span class="math display">P(\text{Ampere} \mid F) = \frac{P(F \mid \text{Ampere})\,P(\text{Ampere})}{P(F)} = \frac{.05 \times .30}{.029} = \textbf{.52}</span></p>
-</div>
-<div class="fragment">
-<p><span class="red">Before the evidence Ampere was .30; after, .52. A 30% supplier at twice the defect rate is only a coin-flip suspect.</span></p>
-</div>
-</section>
-<section id="four-questions-from-the-founder-2" class="slide level2 hub" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Four questions from the founder</h2>
-<div class="blocks">
-<div class="blk done">
-<p><span class="blk-letter">Block A</span>How many of our customers do both?<span class="blk-tool">sets · the addition law · counting</span></p>
-</div>
-<div class="blk done">
-<p><span class="blk-letter">Block B</span>Which supplier sent the faulty batteries?<span class="blk-tool">conditional probability · Bayes</span></p>
-</div>
-<div class="blk now" data-id="blkC">
-<p><span class="blk-letter">Block C</span>How many returns next week?<span class="blk-tool">mean and variance · binomial · Poisson</span></p>
-</div>
-<div class="blk next">
-<p><span class="blk-letter">Block D</span>What range do we promise?<span class="blk-tool">the normal</span></p>
-</div>
-</div>
-</section>
-<section id="block-c-mean-and-variance-binomial-poisson-how-many-returns-next-week" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><span class="section-kicker">Block C · mean and variance, binomial, Poisson</span> How many returns next week?</h2>
-<div class="blk-fill" data-id="blkC">
-
-</div>
-</section>
-<section id="mean-and-variance-five-weeks-of-returns-by-hand" class="slide level2">
-<h2>Mean and variance: five weeks of returns, by hand</h2>
-<div class="columns">
-<div class="column" style="width:42%;">
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>week</th>
-<th style="text-align: right;">returns <span class="math inline">x</span></th>
-<th style="text-align: right;"><span class="math inline">x - \bar{x}</span></th>
-<th style="text-align: right;"><span class="math inline">(x - \bar{x})^{2}</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">−1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">−2</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td><strong>sum</strong></td>
-<td style="text-align: right;"><strong>25</strong></td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;"><strong>10</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div><div class="column fragment" style="width:58%;">
-<p><strong>The mean</strong>: the total, shared equally.</p>
-<p><span class="math display">\bar{x} = \frac{\sum x}{n} = \frac{25}{5} = \textbf{5 returns a week}</span></p>
-<p><strong>The variance</strong>: the average squared distance from the mean. Why <span class="math inline">n - 1</span> underneath? The five distances always add to zero, so once four are known the fifth is fixed: only four of them are free. Dividing by 5 would make the spread look smaller than it is.</p>
-<p><span class="math display">s^{2} = \frac{\sum (x - \bar{x})^{2}}{n - 1} = \frac{10}{4} = 2.5 \qquad s = \sqrt{2.5} = \textbf{1.58}</span></p>
-<p><strong>Reading.</strong> A typical week is 5 returns, give or take about 1.6. The deviations always sum to zero — a check, not a result.</p>
-</div></div>
-</section>
-<section id="five-weeks-of-returns-the-distances-cancel-the-squares-do-not" class="slide level2 clip" data-background-color="#000000">
-<h2>Five weeks of returns: the distances cancel, the squares do not</h2>
-<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w07_spread_poster.png">
-<source src="media/w07_spread.mp4" type="video/mp4">
-</video>
-</section>
-<section id="random-variable-next-weeks-returns-a-number-with-its-shares" class="slide level2">
-<h2>Random variable: next week’s returns, a number with its shares</h2>
-<div class="columns">
-<div class="column" style="width:38%;">
-<p>Twenty weeks of history, turned into shares: in 3 of 20 weeks there were 3 returns, in 4 of 20 there were 4, and so on.</p>
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">returns <span class="math inline">x</span></th>
-<th style="text-align: right;">share <span class="math inline">P(x)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">.15</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">.20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">.30</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">.20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">.15</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>sum</strong></td>
-<td style="text-align: right;"><strong>1.00</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div><div class="column fragment" style="width:62%;">
-<p>A <strong>random variable</strong> is next week’s number, before we see it, with a share attached to each value it can take. The shares add up to 1.</p>
-<p><strong>The expected value</strong> is the mean of the five-row table with the shares as weights: each value, times how often it happens, added up.</p>
-<p><span class="math display">E(x) = \sum x\,P(x)</span></p>
-<p><span class="math display">= 3(.15) + 4(.20) + 5(.30) + 6(.20) + 7(.15)</span></p>
-<p><span class="math display">= .45 + .80 + 1.50 + 1.20 + 1.05 = \textbf{5.0}</span></p>
-<p><strong>Reading.</strong> Expect 5 returns a week. No single week has exactly 5.0; over 50 weeks, about 250.</p>
-</div></div>
-</section>
-<section id="variance-of-a-random-variable-how-far-from-5" class="slide level2">
-<h2>Variance of a random variable: how far from 5?</h2>
-<div class="bigtable">
-<table class="caption-top">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">returns <span class="math inline">x</span></th>
-<th style="text-align: right;">share <span class="math inline">P(x)</span></th>
-<th style="text-align: right;">distance <span class="math inline">x - \mu</span></th>
-<th style="text-align: right;">squared <span class="math inline">(x - \mu)^{2}</span></th>
-<th style="text-align: right;">weighted <span class="math inline">(x - \mu)^{2}\,P(x)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">.15</td>
-<td style="text-align: right;">−2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4 × .15 = .60</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">.20</td>
-<td style="text-align: right;">−1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1 × .20 = .20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">.30</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0 × .30 = 0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">.20</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1 × .20 = .20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">.15</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4 × .15 = .60</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>sum</strong></td>
-<td style="text-align: right;"><strong>1.00</strong></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"><strong>1.60</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>Same recipe as the five weeks: distance from the mean, squared, then averaged, with the shares as weights.</p>
-<p><span class="math display">\sigma^{2} = \sum (x - \mu)^{2}\,P(x) = \textbf{1.60}</span></p>
-<p><span class="math display">\sigma = \sqrt{1.60} = \textbf{1.26}</span></p>
-</div><div class="column fragment" style="width:40%;">
-<p><strong>Reading.</strong> Expect 5 returns, give or take about 1.3.</p>
-<div class="fragment">
-<p><span class="red">Same two formulas as the five weeks: once with <span class="math inline">1/n</span> as the weight, once with the shares.</span></p>
-</div>
-</div></div>
 </section>
 <section id="binomial-twelve-test-rides-how-many-buy" class="slide level2">
 <h2>Binomial: twelve test rides, how many buy?</h2>
@@ -1140,11 +312,12 @@ Vincenzo Nardelli, PhD
 <p><strong>Bet before we compute</strong></p>
 </div>
 <div class="callout-content">
-<p>How many buyers is most likely? And the chance of exactly 3?</p>
+<p>How many buyers is most likely? And the chance of exactly 3? Write both.</p>
 </div>
 </div>
 </div>
 </div>
+<div class="fragment">
 <p>The <strong>binomial</strong>: a fixed number <span class="math inline">n</span> of yes/no trials, the same <span class="math inline">p</span> each time, independent.</p>
 <p><span class="math display">P(x) = \binom{n}{x}\, p^{x}\, (1-p)^{n-x}</span></p>
 <ul>
@@ -1152,13 +325,14 @@ Vincenzo Nardelli, PhD
 <li><span class="math inline">p^{x}</span>: those <span class="math inline">x</span> all buy</li>
 <li><span class="math inline">(1-p)^{n-x}</span>: the other <span class="math inline">n - x</span> all do not</li>
 </ul>
+</div>
 </div><div class="column fragment" style="width:45%;">
 <p><img data-src="img/w07_binomial.svg"></p>
 <p><span class="muted" style="font-size:.8em">The shape for <span class="math inline">n = 12</span>, <span class="math inline">p = .25</span>: the bar at 3 is the tallest.</span></p>
 </div></div>
 </section>
-<section id="binomial-exactly-3-buyers-out-of-12-the-steps" class="slide level2">
-<h2>Binomial: exactly 3 buyers out of 12, the steps</h2>
+<section id="binomial-exactly-3-buyers-out-of-12-the-four-steps" class="slide level2">
+<h2>Binomial: exactly 3 buyers out of 12, the four steps</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>1. The ways to pick which 3 buy.</strong></p>
@@ -1177,8 +351,7 @@ Vincenzo Nardelli, PhD
 <p><strong>Reading.</strong> One Saturday in four ends with exactly three buyers.</p>
 <p><strong>The mean</strong>, with no table at all:</p>
 <p><span class="math display">np = 12 \times .25 = \textbf{3 buyers}</span></p>
-<p><span class="math display">\sigma = \sqrt{np(1-p)} = \sqrt{12 \times .25 \times .75}</span></p>
-<p><span class="math display">= \sqrt{2.25} = \textbf{1.5}</span></p>
+<p><span class="math display">\sigma = \sqrt{np(1-p)} = \sqrt{12 \times .25 \times .75} = \sqrt{2.25} = \textbf{1.5}</span></p>
 <p><strong>Nobody buys:</strong> <span class="math inline">x = 0</span>, so <span class="math inline">\binom{12}{0} = 1</span>, <span class="math inline">p^{0} = 1</span>:</p>
 <p><span class="math display">P(0) = .75^{12} = .032</span></p>
 <p><strong>At least one buys:</strong> <span class="math inline">1 - P(0) = 1 - .032 = \textbf{.968}</span></p>
@@ -1219,14 +392,12 @@ Vincenzo Nardelli, PhD
 <p><span class="math display">P(x) = \frac{\mu^{x} e^{-\mu}}{x!} \;\Rightarrow\; P(0) = \frac{1.5^{0} e^{-1.5}}{0!} = e^{-1.5} = \textbf{.223}</span></p>
 </div>
 </div><div class="column fragment" style="width:50%;">
-<div class="fragment">
 <p>In a full hour, <span class="math inline">\mu = 3</span>:</p>
 <p><span class="math display">P(0) = e^{-3} = .050</span></p>
 <p><span class="math display">P(\ge 1) = 1 - .050 = \textbf{.950}</span></p>
 <p><span class="math display">P(2) = \frac{3^{2} e^{-3}}{2!} = \frac{9 \times .0498}{2} = .224</span></p>
 <div class="fragment">
 <p><span class="red">Without the rescaling you would say 5% for the half hour. It is 22%: four times out. <span class="math inline">\mu</span> first, always.</span></p>
-</div>
 </div>
 </div></div>
 </section>
@@ -1274,26 +445,77 @@ Vincenzo Nardelli, PhD
 </div>
 </div>
 </section>
-<section id="four-questions-from-the-founder-3" class="slide level2 hub" data-auto-animate="true">
+<section id="one-family-three-shapes-what-changes-as-n-and-p-move" class="slide level2 clip" data-background-color="#000000">
+<h2>One family, three shapes: what changes as <span class="math inline">n</span> and <span class="math inline">p</span> move</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w07_family_poster.png">
+<source src="media/w07_family.mp4" type="video/mp4">
+</video>
+</section>
+<section id="one-family-three-shapes-in-words" class="slide level2">
+<h2>One family, three shapes: in words</h2>
+<div class="bigtable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>from</th>
+<th>to</th>
+<th>when</th>
+<th>in Arno Bikes words</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binomial</td>
+<td>Poisson</td>
+<td>many trials, each one rare</td>
+<td>thousands of riders a week, a handful of complaints</td>
+</tr>
+<tr class="even">
+<td>Binomial</td>
+<td>Normal</td>
+<td>many trials, <span class="math inline">p</span> not tiny</td>
+<td>late orders among the 250 shipping this month</td>
+</tr>
+<tr class="odd">
+<td>Poisson</td>
+<td>Normal</td>
+<td>a high rate</td>
+<td>calls over a whole week, not one hour</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Twelve rides stay binomial. Count the late orders among <strong>250</strong>, or calls over a whole week, and the bars smooth into a bell: with enough trials, every count behaves like a measurement.</p>
+<div class="fragment">
+<p><span class="red">Small <span class="math inline">n</span>: count the ways. Rare events at a rate: Poisson. Large numbers of anything: the bell — block B teaches you to read it, block D uses it on a count.</span></p>
+</div>
+</section>
+<section id="four-questions-from-the-founder-1" class="slide level2 hub" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Four questions from the founder</h2>
 <div class="blocks">
 <div class="blk done">
-<p><span class="blk-letter">Block A</span>How many of our customers do both?<span class="blk-tool">sets · the addition law · counting</span></p>
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">binomial · Poisson · one family</span></p>
 </div>
-<div class="blk done">
-<p><span class="blk-letter">Block B</span>Which supplier sent the faulty batteries?<span class="blk-tool">conditional probability · Bayes</span></p>
+<div class="blk now" data-id="blkB">
+<p><span class="blk-letter">Block B</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
 </div>
-<div class="blk done">
-<p><span class="blk-letter">Block C</span>How many returns next week?<span class="blk-tool">mean and variance · binomial · Poisson</span></p>
+<div class="blk next">
+<p><span class="blk-letter">Block C</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
 </div>
-<div class="blk now" data-id="blkD">
-<p><span class="blk-letter">Block D</span>What range do we promise?<span class="blk-tool">the normal</span></p>
+<div class="blk next">
+<p><span class="blk-letter">Block D</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
 </div>
 </div>
 </section>
-<section id="block-d-the-normal-what-range-do-we-promise" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D · the normal</span> What range do we promise?</h2>
-<div class="blk-fill" data-id="blkD">
+<section id="block-b-the-normal-skewness-and-kurtosis-what-range-do-we-promise" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block B · the normal, skewness and kurtosis</span> What range do we promise?</h2>
+<div class="blk-fill" data-id="blkB">
 
 </div>
 </section>
@@ -1519,8 +741,8 @@ Vincenzo Nardelli, PhD
 </div>
 </div></div>
 </section>
-<section id="skewness-when-the-bell-is-the-wrong-picture" class="slide level2">
-<h2>Skewness: when the bell is the wrong picture</h2>
+<section id="skewness-when-the-bell-leans" class="slide level2">
+<h2>Skewness: when the bell leans</h2>
 <div class="columns">
 <div class="column" style="width:62%;">
 <p><img data-src="img/w07_skew.svg"></p>
@@ -1532,56 +754,343 @@ Vincenzo Nardelli, PhD
 </div>
 </div></div>
 </section>
-<section id="one-family-three-shapes-what-changes-as-n-and-p-move" class="slide level2 clip" data-background-color="#000000">
-<h2>One family, three shapes: what changes as <span class="math inline">n</span> and <span class="math inline">p</span> move</h2>
-<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w07_family_poster.png">
-<source src="media/w07_family.mp4" type="video/mp4">
-</video>
+<section id="kurtosis-when-the-bell-has-the-wrong-tails" class="slide level2">
+<h2>Kurtosis: when the bell has the wrong tails</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img data-src="img/w07_kurtosis.svg"></p>
+<p><span style="font-size:.85em">Three shapes, the <strong>same mean and the same σ</strong>. Skewness asks whether the curve leans; <strong>kurtosis</strong> asks how much of it sits in the tails.</span></p>
+</div><div class="column fragment" style="width:42%;">
+<ul>
+<li><strong>The bell</strong> (mesokurtic): battery range. The 68–95–99.7 rule holds.</li>
+<li><strong>Sharp peak, fat tails</strong> (leptokurtic): delivery delays. Most parcels on the usual day, but a “three σ” delay comes far more often than one in three hundred.</li>
+<li><strong>Flat top, no tails</strong> (platykurtic): a rota, every slot equally likely. Nothing extreme ever happens.</li>
+</ul>
+<div class="fragment">
+<p><span class="red">Same σ, different surprises. Fat tails mean the rare bad day is not as rare as the bell says.</span></p>
+</div>
+</div></div>
 </section>
-<section id="one-family-three-shapes-in-words" class="slide level2">
-<h2>One family, three shapes: in words</h2>
+<section id="four-questions-from-the-founder-2" class="slide level2 hub" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Four questions from the founder</h2>
+<div class="blocks">
+<div class="blk done">
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">binomial · Poisson · one family</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block B</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
+</div>
+<div class="blk now" data-id="blkC">
+<p><span class="blk-letter">Block C</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block D</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
+</div>
+</div>
+</section>
+<section id="block-c-expected-value-to-decide-which-supplier-do-we-sign" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block C · expected value to decide</span> Which supplier do we sign?</h2>
+<div class="blk-fill" data-id="blkC">
+
+</div>
+</section>
+<section id="two-suppliers-one-contract-for-next-years-batteries" class="slide level2">
+<h2>Two suppliers, one contract for next year’s batteries</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Arno Bikes buys <strong>1,000 batteries a month</strong>. Two offers are on the table.</p>
 <div class="bigtable">
 <table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>from</th>
-<th>to</th>
-<th>when</th>
-<th>in Arno Bikes words</th>
+<th></th>
+<th>Volta</th>
+<th>Ampere</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Binomial</td>
-<td>Poisson</td>
-<td>many trials, each one rare</td>
-<td>thousands of riders a week, a handful of complaints</td>
+<td>price per battery</td>
+<td><strong>€180</strong></td>
+<td><strong>€165</strong></td>
 </tr>
 <tr class="even">
-<td>Binomial</td>
-<td>Normal</td>
-<td>many trials, <span class="math inline">p</span> not tiny</td>
-<td>buyers among all Saturday visitors of the year</td>
+<td>faulty on arrival</td>
+<td>none, replaced by Volta</td>
+<td><strong>5%</strong></td>
 </tr>
 <tr class="odd">
-<td>Poisson</td>
-<td>Normal</td>
-<td>a high rate</td>
-<td>calls over a whole week, not one hour</td>
+<td>a faulty battery costs us</td>
+<td>—</td>
+<td><strong>€90</strong> to swap on the line</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Twelve rides stay binomial. Count the buyers among <strong>all</strong> Saturday visitors of the year, or calls over a whole week, and the bars smooth into a bell: with enough trials, every count behaves like a measurement.</p>
-<div class="fragment">
-<p><span class="red">Small <span class="math inline">n</span>: count the ways. Rare events at a rate: Poisson. Large numbers of anything: the bell you have just learnt to read.</span></p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>Which contract, and how much does it save (or cost) per battery? Write a name and a number.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p>Volta is a <strong>certain</strong> number: €180, every battery.</p>
+<p>Ampere is a <strong>random variable</strong>: Thursday’s table, two rows.</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>what happens</th>
+<th style="text-align: right;">share <span class="math inline">P(x)</span></th>
+<th style="text-align: right;">cost <span class="math inline">x</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>the battery is good</td>
+<td style="text-align: right;">.95</td>
+<td style="text-align: right;">€165</td>
+</tr>
+<tr class="even">
+<td>the battery is faulty</td>
+<td style="text-align: right;">.05</td>
+<td style="text-align: right;">€165 + €90 = €255</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><span class="red">A cheaper price with a catch is not a price. It is a distribution, and you compare distributions by their mean — and then by their spread.</span></p>
+</div>
+</div></div>
+</section>
+<section id="the-decision-tree-a-square-to-choose-a-circle-for-chance" class="slide level2">
+<h2>The decision tree: a square to choose, a circle for chance</h2>
+
+<img data-src="img/w07_decision_tree.svg" style="width:92.0%" class="r-stretch"><p><span class="muted" style="font-size:.8em">Read it left to right. At the square <strong>we</strong> choose; at the circle <strong>chance</strong> chooses, with its probabilities. The number written at a node is the expected value of everything to its right.</span></p>
+</section>
+<section id="expected-value-at-the-chance-node-thursdays-formula" class="slide level2">
+<h2>Expected value at the chance node: Thursday’s formula</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<p><span class="math display">E(x) = \sum x\,P(x) = .95 \times 165 + .05 \times 255</span></p>
+<p><span class="math display">= 156.75 + 12.75 = \textbf{€169.50 a battery}</span></p>
+<div class="fragment">
+<p><strong>Reading.</strong> On average Ampere costs €169.50 a battery: the €165 price plus €4.50 for the faulty ones. Against Volta’s €180: <strong>€10.50 cheaper a battery, €10,500 a month</strong>.</p>
+</div>
+<div class="fragment">
+<p><strong>The spread, same recipe as Thursday:</strong></p>
+<p><span class="math display">\sigma^{2} = \sum (x - \mu)^{2} P(x) = .95\,(4.5)^{2} + .05\,(85.5)^{2}</span></p>
+<p><span class="math display">= 19.24 + 365.51 = 384.75</span></p>
+<p><span class="math display">\sigma = \sqrt{384.75} = \textbf{€19.6}</span></p>
+</div>
+</div><div class="column fragment" style="width:44%;">
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">Volta</th>
+<th style="text-align: right;">Ampere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>expected cost</td>
+<td style="text-align: right;">€180.00</td>
+<td style="text-align: right;"><strong>€169.50</strong></td>
+</tr>
+<tr class="even">
+<td>spread σ</td>
+<td style="text-align: right;"><strong>€0</strong></td>
+<td style="text-align: right;">€19.6</td>
+</tr>
+<tr class="odd">
+<td>worst battery</td>
+<td style="text-align: right;">€180</td>
+<td style="text-align: right;">€255</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><strong>Expected value</strong> picks Ampere. <strong>Spread</strong> picks Volta. A decision has two numbers, and the Board must hear both.</p>
+<p><span class="red">The expected value is the price you pay on average. The spread is the surprise you pay sometimes.</span></p>
+</div>
+</div></div>
+</section>
+<section id="when-does-the-spread-matter-volume" class="slide level2">
+<h2>When does the spread matter? Volume</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>A thousand batteries a month.</strong> The faulty count is binomial: <span class="math inline">n = 1{,}000</span>, <span class="math inline">p = .05</span>.</p>
+<p><span class="math display">np = 50 \text{ faulty}</span></p>
+<p><span class="math display">\sigma = \sqrt{1{,}000 \times .05 \times .95} = 6.9</span></p>
+<p>The monthly bill is €165,000 plus €90 per faulty battery: <strong>€169,500, give or take €620</strong>. The €10,500 saving is never at risk.</p>
+<div class="fragment">
+<p><strong>A rush order of ten.</strong> Same <span class="math inline">p</span>, <span class="math inline">n = 10</span>: the saving on ten batteries is €150. Two faulty batteries cost €180 and wipe it out, and two or more faulty happens</p>
+<p><span class="math display">P(X \ge 2) = 1 - P(0) - P(1) = 1 - .599 - .315 = \textbf{.086}</span></p>
+<p>one rush order in twelve.</p>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Sign Ampere for the volume contract: €10.50 a battery cheaper on average, €10,500 a month, and on a thousand batteries the faults average out to about fifty, give or take seven. Keep Volta for rush orders of a few units, where one faulty battery in a box of ten is a problem the saving cannot pay for.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="red">Expected value decides when the decision repeats. Spread decides when it does not.</span></p>
+</div>
+</div></div>
+</section>
+<section id="four-questions-from-the-founder-3" class="slide level2 hub" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Four questions from the founder</h2>
+<div class="blocks">
+<div class="blk done">
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">binomial · Poisson · one family</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block B</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block C</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
+</div>
+<div class="blk now" data-id="blkD">
+<p><span class="blk-letter">Block D</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
+</div>
+</div>
+</section>
+<section id="block-d-normal-approximation-and-monte-carlo-how-many-late-orders-in-250" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D · normal approximation and Monte Carlo</span> How many late orders in 250?</h2>
+<div class="blk-fill" data-id="blkD">
+
+</div>
+</section>
+<section id="orders-this-month-6-ship-late-how-many-late" class="slide level2">
+<h2>250 orders this month, 6% ship late: how many late?</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Each order ships late with <span class="math inline">p = .06</span>, alone. <strong>Binomial</strong>, <span class="math inline">n = 250</span>: how many of these 250?</p>
+<p>The logistics partner charges a penalty when a month has <strong>20 or more</strong> late orders.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>How likely is a penalty month? Write a share.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The four steps of block A would need <span class="math inline">\binom{250}{20}</span> and <span class="math inline">.94^{230}</span> — and then the same for 21, 22, … up to 250. Nobody does that by hand.</p>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p><strong>The mean and spread, we already have:</strong></p>
+<p><span class="math display">\mu = np = 250 \times .06 = \textbf{15 late orders}</span></p>
+<p><span class="math display">\sigma = \sqrt{np(1-p)} = \sqrt{250 \times .06 \times .94}</span></p>
+<p><span class="math display">= \sqrt{14.1} = \textbf{3.755}</span></p>
+<div class="fragment">
+<p>And the clip said what happens with many trials: <strong>the bars become a bell</strong>. So treat the count as if it were <span class="math inline">N(15,\, 3.755)</span> and use block B.</p>
+<p><span class="muted">It works when <span class="math inline">np \ge 5</span> and <span class="math inline">n(1-p) \ge 5</span>: here 15 and 235.</span></p>
+</div>
+</div></div>
+</section>
+<section id="the-bars-become-a-bell-the-normal-approximation" class="slide level2">
+<h2>The bars become a bell: the normal approximation</h2>
+
+<img data-src="img/w07_normal_approx.svg" style="width:88.0%" class="r-stretch"><p><span class="muted" style="font-size:.8em">The bars are the exact binomial; the curve is <span class="math inline">N(15, 3.755)</span>. The bar for 20 starts at 19.5, so the area the question wants starts there too.</span></p>
+</section>
+<section id="twenty-or-more-late-the-four-steps-on-a-count" class="slide level2">
+<h2>Twenty or more late: the four steps on a count</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>1. Sketch and shade.</strong> The bell at 15, the bar for 20 and everything to its right. A bar for a whole number spans half a unit each side: “20 or more” starts at <strong>19.5</strong>.</p>
+<div class="fragment">
+<p><strong>2. Standardise.</strong></p>
+<p><span class="math display">z = \frac{19.5 - 15}{3.755} = \frac{4.5}{3.755} = 1.198 \approx \textbf{1.20}</span></p>
+</div>
+<div class="fragment">
+<p><strong>3. Table.</strong> Area to the left of 1.20 is .8849, so to the right:</p>
+<p><span class="math display">P(X \ge 20) = 1 - .8849 = \textbf{.115}</span></p>
+</div>
+<div class="fragment">
+<p><strong>4. Sentence.</strong> A penalty month happens about <strong>one month in nine</strong>.</p>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<p>The exact binomial, summed by a computer, gives .118: the bell is off by three in a thousand.</p>
+<p><span class="muted">Without the half unit: <span class="math inline">z = 5/3.755 = 1.33</span>, area .092 — a tenth too small. The half unit is called the continuity correction; use it, and move on.</span></p>
+<div class="fragment">
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Of 250 orders, expect 15 late, give or take four. A penalty month — twenty or more — comes about once in nine months. Cut the late rate to 4% and it becomes rarer than one in fifty.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="red">A count with many trials is read like a measurement: <span class="math inline">np</span>, <span class="math inline">\sqrt{np(1-p)}</span>, then the four steps.</span></p>
+</div>
+</div></div>
+</section>
+<section id="monte-carlo-when-you-cannot-compute-simulate" class="slide level2">
+<h2>Monte Carlo: when you cannot compute, simulate</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Twelve test rides, <span class="math inline">p = .25</span>. Instead of the formula, <strong>play the Saturday</strong>: twelve coin flips, each lands “buy” one time in four, count the buyers. Write the count down.</p>
+<p>Now play <strong>a thousand Saturdays</strong>. The counts pile into bars.</p>
+<div class="fragment">
+<p>Block A said <span class="math inline">P(3) = .258</span>. In a thousand simulated Saturdays, about <strong>258</strong> end with three buyers, about <strong>32</strong> with none. Not exactly: a thousand is a sample too.</p>
+</div>
+<div class="fragment">
+<p>Same trick for the 250 orders: play the month a thousand times. About <strong>118</strong> of them have twenty or more late — the number the bell estimated as 115.</p>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p><strong>Why a manager cares.</strong> The formula needs the model to be clean: same <span class="math inline">p</span>, independent trials. A simulation only needs you to describe one Saturday honestly; the computer plays it a thousand times, and the shape appears.</p>
+<p>Two couriers, a rate that changes with the weather, a supplier whose faults come in batches: no formula, but a simulation still runs.</p>
+<div class="fragment">
+<p><span class="red">The histogram of the simulation <strong>is</strong> the binomial. The formula is the shortcut; the simulation is the thing itself.</span></p>
+</div>
+</div></div>
+</section>
+<section id="try-it-simulate-a-thousand-saturdays" class="slide level2 lab-app">
+<h2>Try it: simulate a thousand Saturdays</h2>
+<iframe class="app" src="apps/w07_simulate.html?n=12&amp;p=0.25" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">Run 10 Saturdays, then 1,000: watch the bars settle onto the binomial. Then set <span class="math inline">n = 250</span>, <span class="math inline">p = .06</span> and count the months with 20 or more.</span></p>
 </section>
 <section id="close-take-home" class="slide level2 section-slide" data-background-color="#AF1F25">
 <h2><span class="section-kicker">Close</span> Take home</h2>
@@ -1590,46 +1099,45 @@ Vincenzo Nardelli, PhD
 <h2>Take home</h2>
 <div class="blocks">
 <div class="blk recap fragment">
-<p><span class="blk-letter">A</span>“Or” and “given”<span class="blk-answer">“Or” adds the two shares and takes the overlap out once. “Given” means: look only at that row or column, and divide by its total.</span></p>
+<p><span class="blk-letter">A</span>Name the shape before the formula<span class="blk-answer">How many of these <span class="math inline">n</span>: binomial, mean <span class="math inline">np</span>. How many in this interval: Poisson, <span class="math inline">\mu</span> = rate × interval first. “At least one” is 1 − “none”.</span></p>
 </div>
 <div class="blk recap fragment">
-<p><span class="blk-letter">B</span>Count the ways<span class="blk-answer">Order matters: multiply down the tree. Order does not: divide by <span class="math inline">k!</span>. A supplier’s share, times its defect rate, is its share of the faulty.</span></p>
+<p><span class="blk-letter">B</span>A normal question is an area<span class="blk-answer">Sketch, standardise, table, sentence. Backwards for a guarantee: area → <span class="math inline">z</span> → <span class="math inline">x</span>. Then ask whether the data are a bell: skewness and kurtosis.</span></p>
 </div>
 <div class="blk recap fragment">
-<p><span class="blk-letter">C</span>Expect <span class="math inline">np</span>, give or take<span class="blk-answer">Yes/no trials: binomial, mean <span class="math inline">np</span>. Events at a rate: Poisson, mean rate × interval. “At least one” is always 1 − “none”.</span></p>
+<p><span class="blk-letter">C</span>Decide on two numbers<span class="blk-answer">Expected value is the price you pay on average; spread is the surprise you pay sometimes. A repeated decision follows the mean; a one-off weighs the spread.</span></p>
 </div>
 <div class="blk recap fragment">
-<p><span class="blk-letter">D</span>A normal question is an area<span class="blk-answer">Sketch, standardise, table, sentence. Backwards for a guarantee: area → <span class="math inline">z</span> → <span class="math inline">x</span>.</span></p>
+<p><span class="blk-letter">D</span>Many trials: a count is a measurement<span class="blk-answer"><span class="math inline">np</span> and <span class="math inline">\sqrt{np(1-p)}</span>, then the four steps with the half unit. And when there is no formula, simulate: the histogram is the distribution.</span></p>
 </div>
 </div>
 <div class="fragment">
-<p><span class="red">The mean was never the problem. The spread is: that is why every answer today came with a “give or take”.</span></p>
+<p><span class="red">Three shapes, one table, two numbers per decision. That is the whole of today.</span></p>
 </div>
 </section>
 <section id="four-answers-for-the-founder" class="slide level2">
 <h2>Four answers for the founder</h2>
 <div class="blocks">
 <div class="blk done fragment">
-<p><span class="blk-letter">A</span>How many customers do both?<span class="blk-answer">Eighty per cent buy at least one extra; a quarter buy both.</span></p>
+<p><span class="blk-letter">A</span>How many of Saturday’s riders buy?<span class="blk-answer">Three of twelve, give or take one and a half; nobody buying is a one-in-thirty Saturday. Leave the helpline half an hour and you miss a call three times in four.</span></p>
 </div>
 <div class="blk done fragment">
-<p><span class="blk-letter">B</span>Which supplier sent the faulty battery?<span class="blk-answer">Slightly more likely Ampere, 52 to 48. Audit the line, do not switch supplier on one battery.</span></p>
+<p><span class="blk-letter">B</span>What range do we print?<span class="blk-answer">76 km. One rider in twenty-five sees less; every km added to the box adds one or two complaints in a hundred.</span></p>
 </div>
 <div class="blk done fragment">
-<p><span class="blk-letter">C</span>How many returns next week?<span class="blk-answer">Five, give or take one and a half. Twelve test rides: three sales expected, nobody buying is a one-in-thirty Saturday.</span></p>
+<p><span class="blk-letter">C</span>Which supplier do we sign?<span class="blk-answer">Ampere for volume: €10,500 a month cheaper, and on a thousand batteries the faults average out. Volta for rush orders, where one faulty battery in ten is a problem.</span></p>
 </div>
 <div class="blk done fragment">
-<p><span class="blk-letter">D</span>What range do we print?<span class="blk-answer">76 km. One rider in twenty-five sees less; every km added to the box adds one or two complaints in a hundred.</span></p>
+<p><span class="blk-letter">D</span>How many late orders in 250?<span class="blk-answer">Fifteen, give or take four. A penalty month, twenty or more, about once in nine months.</span></p>
 </div>
 </div>
-<p><strong>Homework 7</strong> (<code>homework.md</code>), due <strong>Sunday 15 November, 23:59 on Moodle</strong>: five exercises on paper + a 150–250-word memo to the Board on the range to print. Corrected together at the start of next Monday. If you want more: Anderson et al., the probability chapters, not required.</p>
 <div class="fragment">
 <p><span class="red">Next Monday, online: how sure are we of that number? 200 bikes gave 90 km. The true average is not 90. Week 8 says how far off it can be.</span></p>
 </div>
 </section>
-<section id="formulas-on-one-page-the-ten-we-used" class="slide level2">
-<h2>Formulas, on one page: the ten we used</h2>
-<div class="bigtable" style="font-size:.72em">
+<section id="formulas-on-one-page-the-ones-we-used" class="slide level2">
+<h2>Formulas, on one page: the ones we used</h2>
+<div class="bigtable" style="font-size:.78em">
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -1645,59 +1153,57 @@ Vincenzo Nardelli, PhD
 </thead>
 <tbody>
 <tr class="odd">
-<td>at least one of two</td>
-<td><span class="math inline">P(A \cup B) = P(A) + P(B) - P(A \cap B)</span></td>
-<td><span class="math inline">.60 + .45 - .25 = .80</span></td>
+<td>how many of these <span class="math inline">n</span></td>
+<td><span class="math inline">P(x) = \binom{n}{x} p^{x} (1-p)^{n-x}, \quad E = np, \quad \sigma = \sqrt{np(1-p)}</span></td>
+<td><span class="math inline">P(3) = .258</span>, <span class="math inline">np = 3</span>, <span class="math inline">\sigma = 1.5</span></td>
 </tr>
 <tr class="even">
-<td>teams, order irrelevant</td>
-<td><span class="math inline">\binom{n}{k} = \dfrac{n!}{k!\,(n-k)!}</span></td>
-<td><span class="math inline">\binom{8}{3} = 56</span></td>
-</tr>
-<tr class="odd">
-<td>roles, order matters</td>
-<td><span class="math inline">P^{n}_{k} = \dfrac{n!}{(n-k)!}</span></td>
-<td><span class="math inline">8 \cdot 7 \cdot 6 = 336</span></td>
-</tr>
-<tr class="even">
-<td>given</td>
-<td><span class="math inline">P(A \mid B) = \dfrac{\text{both}}{\text{total of } B}</span></td>
-<td><span class="math inline">14 / 700 = .02</span>, <span class="math inline">14 / 29 = .48</span></td>
-</tr>
-<tr class="odd">
-<td>update on evidence</td>
-<td><span class="math inline">P(A \mid B) = \dfrac{P(B \mid A)\,P(A)}{P(B)}</span></td>
-<td><span class="math inline">.05 \times .30 / .029 = .52</span></td>
-</tr>
-<tr class="even">
-<td>mean and spread of a list</td>
-<td><span class="math inline">\bar{x} = \dfrac{\sum x}{n}, \quad s^{2} = \dfrac{\sum (x-\bar{x})^{2}}{n-1}</span></td>
-<td><span class="math inline">5</span>, <span class="math inline">\sqrt{2.5} = 1.58</span></td>
-</tr>
-<tr class="odd">
-<td>mean and spread with shares</td>
-<td><span class="math inline">E(x) = \sum x\,P(x), \quad \sigma^{2} = \sum (x-\mu)^{2} P(x)</span></td>
-<td><span class="math inline">5.0</span>, <span class="math inline">\sqrt{1.60} = 1.26</span></td>
-</tr>
-<tr class="even">
-<td>yes/no trials</td>
-<td><span class="math inline">P(x) = \binom{n}{x} p^{x} (1-p)^{n-x}, \quad E = np</span></td>
-<td><span class="math inline">P(3) = .258</span>, <span class="math inline">np = 3</span></td>
-</tr>
-<tr class="odd">
-<td>events at a rate</td>
+<td>how many in this interval</td>
 <td><span class="math inline">P(x) = \dfrac{\mu^{x} e^{-\mu}}{x!}, \quad \mu = \text{rate} \times \text{interval}</span></td>
-<td><span class="math inline">P(0) = e^{-3} = .050</span></td>
+<td><span class="math inline">\mu = 1.5</span>, <span class="math inline">P(0) = .223</span></td>
+</tr>
+<tr class="odd">
+<td>a share under the bell</td>
+<td><span class="math inline">z = \dfrac{x - \mu}{\sigma}</span>, table gives the area to the left</td>
+<td><span class="math inline">z = -1.88 \to .030</span></td>
 </tr>
 <tr class="even">
-<td>a share under the bell</td>
-<td><span class="math inline">z = \dfrac{x - \mu}{\sigma}</span>, table; backwards <span class="math inline">x = \mu + z\,\sigma</span></td>
-<td><span class="math inline">z = -1.88 \to .030</span>; <span class="math inline">90 - 1.645 \times 8 = 76.8</span></td>
+<td>the bell, backwards</td>
+<td><span class="math inline">x = \mu + z\,\sigma</span></td>
+<td><span class="math inline">90 - 1.645 \times 8 = 76.8</span></td>
+</tr>
+<tr class="odd">
+<td>a decision with chance in it</td>
+<td><span class="math inline">E(x) = \sum x\,P(x), \quad \sigma^{2} = \sum (x-\mu)^{2} P(x)</span></td>
+<td><span class="math inline">€169.50</span>, <span class="math inline">\sigma = €19.6</span></td>
+</tr>
+<tr class="even">
+<td>a count with many trials</td>
+<td><span class="math inline">\mu = np, \; \sigma = \sqrt{np(1-p)}</span>, then <span class="math inline">z</span> with the half unit</td>
+<td><span class="math inline">z = (19.5 - 15)/3.755 = 1.20 \to .115</span></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><span class="muted">Ten lines. None of them was the hard part. The hard part was saying which one.</span></p>
+<p><span class="muted">Six lines. None of them was the hard part. The hard part was saying which one.</span></p>
+</section>
+<section id="homework-7" class="slide level2">
+<h2>Homework 7</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><strong>Five exercises on paper</strong>, one per block and one mixed, plus a <strong>memo to the Board</strong> on the range to print. <code>homework.md</code> on the course site.</p>
+<ul>
+<li><strong>H1</strong> twelve becomes twenty: a binomial on financing quotes</li>
+<li><strong>H2</strong> returns at a rate: a Poisson with the interval rescaled twice</li>
+<li><strong>H3</strong> charging time: the normal forwards, and backwards for a flag</li>
+<li><strong>H4</strong> two couriers: a decision tree, expected value and spread</li>
+<li><strong>H5</strong> two hundred bikes, 10% back: the normal approximation</li>
+</ul>
+<p>Due <strong>Sunday 15 November, 23:59 on Moodle</strong>. Corrected together at the start of next Monday.</p>
+</div><div class="column" style="width:42%;">
+<p><strong>The memo.</strong> 150–250 words to the Board: what range we print and why, two candidate numbers with the share of riders who will complain, one recommendation, and one line on what changes if the spread were 12 km.</p>
+<p><span class="muted">If you want more: the probability chapters of any business statistics text. Not required.</span></p>
+</div></div>
 
 
 </section>

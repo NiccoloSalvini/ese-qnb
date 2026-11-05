@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="684pt" height="302.688pt" viewBox="0 0 684 302.688" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-05T01:23:29.218959</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 302.688 
+L 684 302.688 
+L 684 0 
+L 0 0 
+L 0 302.688 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 40.0104 177.28992 
+L 128.3976 177.28992 
+L 128.3976 125.39808 
+L 40.0104 125.39808 
+z
+" clip-path="url(#p855dc16407)" style="fill: #af1f25; stroke: #af1f25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 129.539729 136.087536 
+Q 201.38182 102.696413 271.804488 69.965017 
+" clip-path="url(#p855dc16407)" style="fill: none; stroke: #363636; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 266.440114 69.811733 
+L 271.804488 69.965017 
+L 268.463236 74.164545 
+z
+" clip-path="url(#p855dc16407)" style="fill: #363636; stroke: #363636; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 280.3968 89.00172 
+L 416.9952 89.00172 
+Q 419.6736 89.00172 419.6736 86.11884 
+L 419.6736 50.80356 
+Q 419.6736 47.92068 416.9952 47.92068 
+L 280.3968 47.92068 
+Q 277.7184 47.92068 277.7184 50.80356 
+L 277.7184 86.11884 
+Q 277.7184 89.00172 280.3968 89.00172 
+z
+" clip-path="url(#p855dc16407)" style="fill: #faf9f6; stroke: #a8955a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 457.8408 92.60532 
+L 641.3112 92.60532 
+Q 643.9896 92.60532 643.9896 89.72244 
+L 643.9896 47.19996 
+Q 643.9896 44.31708 641.3112 44.31708 
+L 457.8408 44.31708 
+Q 455.1624 44.31708 455.1624 47.19996 
+L 455.1624 89.72244 
+Q 455.1624 92.60532 457.8408 92.60532 
+z
+" clip-path="url(#p855dc16407)" style="fill: #f2ebd9; stroke: #a8955a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 129.533394 166.627738 
+Q 191.341327 196.389639 251.738992 225.472465 
+" clip-path="url(#p855dc16407)" style="fill: none; stroke: #363636; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 248.455483 221.227637 
+L 251.738992 225.472465 
+L 246.373024 225.552376 
+z
+" clip-path="url(#p855dc16407)" style="fill: #363636; stroke: #363636; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 275.04 242.15472 
+C 278.76918 242.15472 282.346124 240.559988 284.983053 237.721746 
+C 287.619981 234.883504 289.1016 231.033481 289.1016 227.0196 
+C 289.1016 223.005719 287.619981 219.155696 284.983053 216.317454 
+C 282.346124 213.479212 278.76918 211.88448 275.04 211.88448 
+C 271.31082 211.88448 267.733876 213.479212 265.096947 216.317454 
+C 262.460019 219.155696 260.9784 223.005719 260.9784 227.0196 
+C 260.9784 231.033481 262.460019 234.883504 265.096947 237.721746 
+C 267.733876 240.559988 271.31082 242.15472 275.04 242.15472 
+z
+" clip-path="url(#p855dc16407)" style="fill: #a8955a; stroke: #a8955a; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 290.238007 218.948451 
+Q 318.566086 205.397002 345.482163 192.52102 
+" clip-path="url(#p855dc16407)" style="fill: none; stroke: #1e8449; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 340.116417 192.427383 
+L 345.482163 192.52102 
+L 342.187806 196.757435 
+z
+" clip-path="url(#p855dc16407)" style="fill: #1e8449; stroke: #1e8449; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 290.238007 235.090749 
+Q 318.566086 248.642198 345.482163 261.51818 
+" clip-path="url(#p855dc16407)" style="fill: none; stroke: #af1f25; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 342.187806 257.281765 
+L 345.482163 261.51818 
+L 340.116417 261.611817 
+z
+" clip-path="url(#p855dc16407)" style="fill: #af1f25; stroke: #af1f25; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 354.0528 208.82142 
+L 470.5632 208.82142 
+Q 473.2416 208.82142 473.2416 205.93854 
+L 473.2416 176.02866 
+Q 473.2416 173.14578 470.5632 173.14578 
+L 354.0528 173.14578 
+Q 351.3744 173.14578 351.3744 176.02866 
+L 351.3744 205.93854 
+Q 351.3744 208.82142 354.0528 208.82142 
+z
+" clip-path="url(#p855dc16407)" style="fill: #faf9f6; stroke: #a8955a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 354.0528 280.89342 
+L 470.5632 280.89342 
+Q 473.2416 280.89342 473.2416 278.01054 
+L 473.2416 248.10066 
+Q 473.2416 245.21778 470.5632 245.21778 
+L 354.0528 245.21778 
+Q 351.3744 245.21778 351.3744 248.10066 
+L 351.3744 278.01054 
+Q 351.3744 280.89342 354.0528 280.89342 
+z
+" clip-path="url(#p855dc16407)" style="fill: #faf9f6; stroke: #a8955a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 481.2768 254.76732 
+L 664.7472 254.76732 
+Q 667.4256 254.76732 667.4256 251.88444 
+L 667.4256 202.15476 
+Q 667.4256 199.27188 664.7472 199.27188 
+L 481.2768 199.27188 
+Q 478.5984 199.27188 478.5984 202.15476 
+L 478.5984 251.88444 
+Q 478.5984 254.76732 481.2768 254.76732 
+z
+" clip-path="url(#p855dc16407)" style="fill: #f2ebd9; stroke: #a8955a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; fill: #ffffff" transform="translate(43.217672 147.707281)">Which supplier</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; fill: #ffffff" transform="translate(50.850484 161.211187)">do we sign?</text>
+   </g>
+   <g id="text_2">
+    <text style="font-style: italic; font-size: 11px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #363636" x="201.384" y="89.591788" transform="rotate(-0 201.384 89.591788)">Volta · fixed price</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 12.5px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #363636" x="348.696" y="71.726825" transform="rotate(-0 348.696 71.726825)">€180 a battery, certain</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; fill: #363636" transform="translate(488.074125 65.0757)">expected cost €180.00</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; fill: #363636" transform="translate(511.260375 78.18795)">spread σ = €0</text>
+   </g>
+   <g id="text_5">
+    <text style="font-style: italic; font-size: 11px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #363636" x="191.34" y="213.850675" transform="rotate(-0 191.34 213.850675)">Ampere · €165, 5% faulty</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #ffffff" x="275.04" y="230.581944" transform="rotate(-0 275.04 230.581944)">?</text>
+   </g>
+   <g id="text_7">
+    <text style="font-style: italic; font-size: 11px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #1e8449" x="318.564" y="198.63993" transform="rotate(-0 318.564 198.63993)">good · .95</text>
+   </g>
+   <g id="text_8">
+    <text style="font-style: italic; font-size: 11px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #af1f25" x="318.564" y="264.301075" transform="rotate(-0 318.564 264.301075)">faulty · .05</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 12.5px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #363636" x="412.308" y="194.164264" transform="rotate(-0 412.308 194.164264)">€165</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 12.5px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #363636" x="412.308" y="266.236264" transform="rotate(-0 412.308 266.236264)">€165 + €90 = €255</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; fill: #363636" transform="translate(535.992 217.115475)">expected cost</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; fill: #363636" transform="translate(486.145125 229.946475)">.95 × 165 + .05 × 255 = €169.50</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; fill: #363636" transform="translate(526.356375 243.058725)">spread σ = €19.6</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11px; font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica', 'Arial'; text-anchor: middle; fill: #7a7f85" x="342" y="21.6144" transform="rotate(-0 342 21.6144)">chance nodes carry probabilities; end nodes carry payoffs; the expected value sits at the node</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p855dc16407">
+   <rect x="7.2" y="7.2" width="669.6" height="288.288"/>
+  </clipPath>
+ </defs>
+</svg>

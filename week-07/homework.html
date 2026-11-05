@@ -177,59 +177,39 @@ window.Quarto = {
 <p>Allowed, as in class: a calculator, the standard normal table or <code>NORM.S.DIST</code>, paper. Show all work: formula, substitution, number, one sentence. A bare number is not an answer.</p>
 <section id="part-1-drill-set-paper-show-all-work" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-drill-set-paper-show-all-work">Part 1 — Drill set (paper, show all work)</h2>
-<p><strong>H1 — sets and counting.</strong> Last month 240 people visited the Arno Bikes showroom. 140 took a test ride (<span class="math inline">\(T\)</span>), 80 asked for a financing quote (<span class="math inline">\(F\)</span>), 60 did neither.</p>
+<p><strong>H1 — the binomial.</strong> Arno Bikes sends 20 financing quotes a week; one quote in five turns into a sale, each independently.</p>
 <ol type="a">
-<li>Define in one full sentence each: <em>universal set</em>, <em>subset</em>, <em>union of two sets</em>. Use the visitors as the example.</li>
-<li>How many visitors did both? Draw the two circles and fill in all four regions.</li>
-<li>A visitor is picked at random. Find <span class="math inline">\(P(T \cup F)\)</span> with the addition law, and <span class="math inline">\(P(\text{neither})\)</span> as a complement.</li>
-<li>The window display has room for 4 of the 9 models. How many different displays? If the 4 are lined up left to right and the order is part of the display, how many?</li>
+<li>Name the model and say in one line why it fits.</li>
+<li>Find the probability of exactly 4 sales. Write the four steps: the ways, <span class="math inline">\(p^{x}\)</span>, <span class="math inline">\((1-p)^{n-x}\)</span>, multiply.</li>
+<li>Find the probability of no sale and of at least one sale.</li>
+<li>Find the mean and the standard deviation of the number of sales, and write one sentence for the founder.</li>
 </ol>
-<p><strong>H2 — conditional probability and Bayes.</strong> Bikes are shipped by two couriers. <strong>Fast</strong> carries 75% of deliveries and is late 4% of the time; <strong>Local</strong> carries 25% and is late 10% of the time. Last month there were 400 deliveries.</p>
+<p><strong>H2 — the Poisson.</strong> Bikes come back under warranty at random, 5 a week on average (five working days).</p>
 <ol type="a">
-<li>Build the two-way table of counts (courier × on time/late).</li>
-<li>Find <span class="math inline">\(P(\text{late} \mid \text{Fast})\)</span> and <span class="math inline">\(P(\text{Fast} \mid \text{late})\)</span>, and say in one sentence what each one answers.</li>
-<li>Are courier and lateness independent? Compare the rows before you say the word.</li>
-<li>A customer complains about a late delivery; the paperwork is lost. Use Bayes, written out, to find the probability it was Local. Compare with Local’s share of deliveries.</li>
-</ol>
-<p><strong>H3 — a random variable and the binomial.</strong></p>
-<ol type="a">
-<li>Daily demand for the cargo model, from last year’s data:</li>
-</ol>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>bikes a day <span class="math inline">\(x\)</span></th>
-<th style="text-align: right;">2</th>
-<th style="text-align: right;">3</th>
-<th style="text-align: right;">4</th>
-<th style="text-align: right;">5</th>
-<th style="text-align: right;">6</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(P(x)\)</span></td>
-<td style="text-align: right;">.05</td>
-<td style="text-align: right;">.30</td>
-<td style="text-align: right;">.35</td>
-<td style="text-align: right;">.20</td>
-<td style="text-align: right;">.10</td>
-</tr>
-</tbody>
-</table>
-<p>Check that the shares add to 1, then compute <span class="math inline">\(E(x)\)</span>, <span class="math inline">\(\sigma^{2}\)</span> and <span class="math inline">\(\sigma\)</span> in a table with the columns <span class="math inline">\(x\)</span>, <span class="math inline">\(P(x)\)</span>, <span class="math inline">\(x\,P(x)\)</span>, <span class="math inline">\(x - \mu\)</span>, <span class="math inline">\((x - \mu)^{2}\,P(x)\)</span>. Write one sentence for the founder. (b) Arno Bikes sends 15 financing quotes a week; one quote in five turns into a sale, each independently. Name the model and say why. Find the probability of exactly 3 sales, the probability of at least one sale, and the mean and standard deviation of the number of sales.</p>
-<p><strong>H4 — the Poisson.</strong> The helpline receives 3 calls an hour on average, at random.</p>
-<ol type="a">
-<li>In a 20-minute coffee break: write <span class="math inline">\(\mu\)</span> first, then find the probability of no call, of exactly one call, and of at least two calls.</li>
-<li>In a two-hour window: write <span class="math inline">\(\mu\)</span> first, then find the probability of exactly 6 calls.</li>
+<li>In one working day: write <span class="math inline">\(\mu\)</span> first, then find the probability of no return, of exactly one, and of at least two.</li>
+<li>In two weeks: write <span class="math inline">\(\mu\)</span> first, then find the probability of exactly 10 returns.</li>
 <li>In one sentence: what makes this a Poisson count and not a binomial one?</li>
 </ol>
-<p><strong>H5 — the normal, mixed.</strong> Battery range is <span class="math inline">\(N(90 \text{ km},\, 8 \text{ km})\)</span>; bike weight is <span class="math inline">\(N(22 \text{ kg},\, 1.5 \text{ kg})\)</span>. For each part: sketch and shade, standardise, table, one sentence.</p>
+<p><strong>H3 — the normal, and a guarantee.</strong> A full charge of an Arno battery takes 240 minutes on average, standard deviation 20 minutes, bell-shaped: <span class="math inline">\(X \sim N(240,\,20)\)</span>. For each part: sketch and shade, standardise, table, one sentence.</p>
 <ol type="a">
-<li>What share of bikes have a range above 100 km?</li>
-<li>What share have a range between 80 and 100 km?</li>
-<li>The Board accepts 10% of riders seeing less than the printed range. What range should be printed? End in km, not in <span class="math inline">\(z\)</span>.</li>
-<li>A customer wants a bike under 20 kg. What share of bikes qualify?</li>
+<li>What share of charges take more than 270 minutes?</li>
+<li>What share take between 220 and 260 minutes? Which rule of thumb gives the same answer without a table?</li>
+<li>The 10% slowest charges are flagged for a battery check. From how many minutes is a charge flagged? End in minutes, not in <span class="math inline">\(z\)</span>.</li>
+<li>Marketing wants to print “fully charged in X minutes” and the Board accepts that 5% of charges take longer. What do we print?</li>
+</ol>
+<p><strong>H4 — a decision with chance in it.</strong> Deliveries can go with one of two couriers. <strong>Fast</strong> charges a flat <strong>€40</strong> per delivery and is never late. <strong>Local</strong> charges <strong>€30</strong> but is late 10% of the time, and a late delivery costs Arno Bikes <strong>€60</strong> in compensation to the customer.</p>
+<ol type="a">
+<li>Draw the decision tree: the square, a circle for Local’s chance node, the probabilities, the cost at each end node.</li>
+<li>Find the expected cost of a Local delivery, and the saving per delivery against Fast.</li>
+<li>Find the standard deviation of the cost of a Local delivery.</li>
+<li>Arno Bikes makes 400 deliveries a month. Expected monthly saving with Local? Then, in two sentences for the Board: which courier for the monthly volume, which for a single delivery to the firm’s most important customer, and why the answer can differ.</li>
+</ol>
+<p><strong>H5 — the normal approximation.</strong> Arno Bikes sold 200 bikes last quarter; one bike in ten comes back under warranty within the year, independently.</p>
+<ol type="a">
+<li>Name the exact model and give the mean and standard deviation of the number of returns.</li>
+<li>Check that the bell may be used. Then find the probability of 25 or more returns, with the four steps and the half unit.</li>
+<li>Find the probability of 14 or fewer returns.</li>
+<li>One sentence for the founder, with both numbers.</li>
 </ol>
 </section>
 <section id="part-2-memo-to-the-board-150250-words-typed" class="level2">
@@ -241,10 +221,10 @@ window.Quarto = {
 <section id="self-check-before-submitting" class="level2">
 <h2 class="anchored" data-anchor-id="self-check-before-submitting">Self-check before submitting</h2>
 <ul>
-<li>Every definition is a full sentence that starts “the set of…”, with an Arno Bikes example.</li>
-<li>Every “given” has its denominator named: a row total or a column total, and you said which.</li>
 <li>Every count model is named before the formula, and <span class="math inline">\(\mu\)</span> is written as rate × interval before any Poisson number.</li>
-<li>Every normal question has a sketch with the area shaded, and the last line is a sentence in km, kg or minutes — not a <span class="math inline">\(z\)</span>.</li>
+<li>Every normal question has a sketch with the area shaded, and the last line is a sentence in minutes, bikes or euros — not a <span class="math inline">\(z\)</span>.</li>
+<li>Every decision has two numbers next to it: the expected value and the spread, and the sentence says what each one means.</li>
+<li>The normal approximation starts with <span class="math inline">\(np\)</span> and <span class="math inline">\(\sqrt{np(1-p)}\)</span>, checks both are at least 5, and uses the half unit.</li>
 <li>The memo has no formulas and ends with one recommendation.</li>
 </ul>
 
