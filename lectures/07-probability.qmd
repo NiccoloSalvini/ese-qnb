@@ -1,6 +1,6 @@
 ---
 title: "Three shapes, and how to decide with them"
-subtitle: "Week 7 · Monday 9 November 2026 · 10:00–13:00 · in person"
+subtitle: "Week 7 · Monday 9 November 2026 · 10:00–13:00 · online"
 author: "Vincenzo Nardelli, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
@@ -18,7 +18,7 @@ institute: "MBA03 Research & Quantitative Business Methods · European School of
 [Block C]{.blk-letter}A number with its shares[Five weeks of returns: mean 5, give or take 1.6. Next week's number, before we see it, with a share on each value: $E(x) = \sum x\,P(x)$.]{.blk-answer}
 :::
 ::: {.blk .recap}
-[Homework 6]{.blk-letter}At the board, now[Bring what you tried. Fifteen minutes, three items and the memo; the slips are the useful part.]{.blk-answer}
+[Homework 6]{.blk-letter}At the board, now[Bring what you tried. Fifteen minutes, three items and the memo; the mistakes are the useful part.]{.blk-answer}
 :::
 :::
 
@@ -30,8 +30,8 @@ institute: "MBA03 Research & Quantitative Business Methods · European School of
 ::: {.column width="58%"}
 | Wk | Date | What you can do by hand |
 |---|---|---|
-| 6 | 5 Nov · online | count, condition, update; mean and spread ✓ |
-| **7** | **9 Nov · in person** | **three shapes: binomial, Poisson, normal; decide with them** |
+| 6 | 5 Nov · in person | count, condition, update; mean and spread ✓ |
+| **7** | **9 Nov · online** | **three shapes: binomial, Poisson, normal; decide with them** |
 | 8 | 16 Nov · online | how sure are we of a number: intervals, tests, one regression line |
 | 9 | 23 Nov · online | several causes at once; a trend through time |
 | 10 | 30 Nov · online | review; one last round of practice on paper |
@@ -39,13 +39,13 @@ institute: "MBA03 Research & Quantitative Business Methods · European School of
 : {tbl-colwidths="[8,26,66]"}
 :::
 ::: {.column width="42%"}
-**The only day we meet in this room.** Paper, a calculator, and the normal table — or `NORM.S.DIST` on your phone.
+**Online, like the rest of the second half.** Paper, a calculator, and the normal table — or `NORM.S.DIST` on your computer.
 
 Everything in weeks 8–10 stands on today's bell and on two words: *mean* and *standard deviation*.
 :::
 ::::
 
-[Every technique in this room is here because an assessment asks for it. I will tell you which one, every time.]{.red}
+[Every technique today is here because an assessment asks for it. I will tell you which one, every time.]{.red}
 
 ## Today's question
 
@@ -70,7 +70,7 @@ Thursday gave each unknown number a mean and a spread. Today gives it a **shape*
 [10:00 · 15']{.blk-letter}Homework 6[At the board, together.]{.blk-answer}
 :::
 ::: {.blk .now}
-[10:15 → 12:35]{.blk-letter}Four questions from the founder[Each one: her question and your bet on paper → the picture → one formula with a number → the sentence for the Board. Break at 11:15.]{.blk-tool}
+[10:15 → 12:35]{.blk-letter}Four questions from the founder[Each one: her question and your bet typed in the chat → the picture → one formula with a number → the sentence for the Board. Break at 11:15.]{.blk-tool}
 :::
 ::: {.blk .recap}
 [12:35 · 15']{.blk-letter}Take home[Four lines to remember, the four answers for the founder, the homework.]{.blk-answer}

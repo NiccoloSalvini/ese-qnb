@@ -1,6 +1,6 @@
 ---
 title: "The founder does not know the numbers"
-subtitle: "Week 6 · Thursday 5 November 2026 · 10:00–13:00 · online"
+subtitle: "Week 6 · Thursday 5 November 2026 · 10:00–13:00 · in person"
 author: "Vincenzo Nardelli, PhD"
 institute: "MBA03 Research & Quantitative Business Methods · European School of Economics, Florence"
 ---
@@ -82,8 +82,8 @@ If demand moves by about 5 bikes, she runs out in **2%** of months. If it moves 
 ::: {.column width="60%"}
 | Wk | Date | What you will be able to do by hand |
 |---|---|---|
-| 6 | 5 Nov · **today, online** | count, condition, update; mean and spread; what a distribution is |
-| 7 | 9 Nov · **in person** | three shapes: binomial, Poisson, the normal; deciding under uncertainty |
+| 6 | 5 Nov · **today, in person** | count, condition, update; mean and spread; what a distribution is |
+| 7 | 9 Nov · **online** | three shapes: binomial, Poisson, the normal; deciding under uncertainty |
 | 8 | 16 Nov | how sure are we of a number: confidence intervals, tests |
 | 9 | 23 Nov | one line through the data: regression and forecasting |
 | 10 | 30 Nov | review and quiz |
@@ -93,7 +93,7 @@ If demand moves by about 5 bikes, she runs out in **2%** of months. If it moves 
 ::: {.column width="40%"}
 **One case, five sessions.** Arno Bikes, the firm from weeks 1–5. Every number you see from now on is one of its numbers.
 
-Today we are online. Next Monday we meet in Florence; after that, online again. A calculator and a notebook are all you need today.
+Today we are in this room. From next Monday the four remaining sessions are online. A calculator and a notebook are all you need today.
 :::
 ::::
 
@@ -106,17 +106,17 @@ Today we are online. Next Monday we meet in Florence; after that, online again. 
 [10:00 · 10']{.blk-letter}The bridge[From certain numbers to uncertain ones.]{.blk-answer}
 :::
 ::: {.blk .now}
-[10:10 → 12:20]{.blk-letter}Three questions from the founder[Each one: her question and your bet **typed in the chat** → the picture → one formula with a number → the sentence for the Board. Break at 11:15.]{.blk-tool}
+[10:10 → 12:20]{.blk-letter}Three questions from the founder[Each one: her question and your bet **on paper** → the picture → one formula with a number → the sentence for the Board. Break at 11:15.]{.blk-tool}
 :::
 ::: {.blk .recap}
 [12:20 · 20']{.blk-letter}Take home[Three lines to remember, the three answers for the founder, the homework.]{.blk-answer}
 :::
 ::: {.blk .recap}
-[Monday]{.blk-letter}In person, Florence[Three shapes, and how to decide with them.]{.blk-answer}
+[Monday]{.blk-letter}Online[Three shapes, and how to decide with them.]{.blk-answer}
 :::
 :::
 
-[Bets are typed, not said. Write a number in the chat before I compute; the surprise is where the learning is. No drills during the session: three short ones are online, with solutions, for tonight.]{.muted}
+[Bets are written, not said. Write a number on your sheet before I compute; the surprise is where the learning is. No drills during the session: three short ones are online, with solutions, for tonight.]{.muted}
 
 ## The case: Arno Bikes, this quarter
 
@@ -177,7 +177,7 @@ The founder's CRM says: **120** bought accessories, **90** bought a service plan
 She wants to upsell the ones who bought **both**. How many are they?
 
 ::: {.callout-important title="Bet before we compute"}
-Type a number in the chat. Is it more or fewer than 30?
+Write a number down. Is it more or fewer than 30?
 :::
 :::
 ::: {.column width="52%" .fragment}
@@ -675,7 +675,7 @@ Plan the workshop for five returns a week, give or take one or two. Seven is a n
 
 . . .
 
-[Next Monday, in Florence: three shapes — binomial, Poisson, the normal — and how to decide with them.]{.red}
+[Next Monday, online: three shapes — binomial, Poisson, the normal — and how to decide with them.]{.red}
 
 ## Formulas, on one page: the six we used
 

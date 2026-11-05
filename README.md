@@ -1,6 +1,6 @@
 # MBA03 Research & Quantitative Business Methods — weeks 1–5
 
-European School of Economics, Florence · Term 1 AY 2026/27 · Weeks 1–5: Niccolò Salvini · weeks 7–10: Vincenzo Nardelli · Module leader: Arianna Ziliotto
+European School of Economics, Florence · Term 1 AY 2026/27 · Weeks 1–5: Niccolò Salvini · weeks 6–10: Vincenzo Nardelli · Module leader: Arianna Ziliotto
 
 Course site: <https://niccolosalvini.github.io/ese-qnb/>, built from this repository with Quarto.
 
@@ -13,7 +13,7 @@ index.qmd               home page: schedule, assessment scheme, readings
 setup.qmd               "How to work": what to bring, homework, notebooks, exam-style writing
 _quarto.yml             site config; every rendered file is listed explicitly
 styles.scss, _fonts.html, images/   ESE brand (red #AF1F25, gold #CDBA80, Source Sans 3)
-week-01/ … week-05/     one folder per session (week-07/ is Vincenzo's first, Mon 9 Nov in person; weeks 8–10 to follow, online)
+week-01/ … week-05/     one folder per session (week-06/ is Vincenzo's first, Thu 5 Nov in person; week-07/ Mon 9 Nov online; weeks 8–10 to follow, online)
   notes.md              tutor's plan (not rendered)
   drills.md             in-class exercises in exam format, worked solutions folded at the bottom
   homework.md           drill set + memo to the Board, corrected together at the next session

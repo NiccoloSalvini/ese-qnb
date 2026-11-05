@@ -7,12 +7,12 @@ toc: false
 ::: {.hero}
 <span class="kicker">MBA03 · ESE MBA · Term 1, A.Y. 2026–2027</span>
 European School of Economics, Florence · in person · 30 contact hours over the term<br>
-Weeks 1–5 **Niccolò Salvini, PhD**, in person · weeks 6–10 **Vincenzo Nardelli, PhD**, online except week 7 · module leader **Arianna Ziliotto**
+Weeks 1–5 **Niccolò Salvini, PhD**, in person · weeks 6–10 **Vincenzo Nardelli, PhD**, in person in week 6, then online · module leader **Arianna Ziliotto**
 :::
 
 ::: {.facts}
-<div><span class="k">When</span><span class="v">Weeks 1–5: Thursdays 10:00–13:00, 24 Sep – 22 Oct · week 6: Thu 5 Nov online · week 7: Mon 9 Nov in person · weeks 8–10: Mondays 10:00–13:00, 16 – 30 Nov, online</span></div>
-<div><span class="k">Where</span><span class="v">ESE Florence · Borgo Santi Apostoli 19 (weeks 1–5 and 7) · online (Google Meet) in weeks 6 and 8–10</span></div>
+<div><span class="k">When</span><span class="v">Weeks 1–5: Thursdays 10:00–13:00, 24 Sep – 22 Oct · week 6: Thu 5 Nov in person · weeks 7–10: Mondays 10:00–13:00, 9 – 30 Nov, online</span></div>
+<div><span class="k">Where</span><span class="v">ESE Florence · Borgo Santi Apostoli 19 (weeks 1–6) · online (Google Meet) in weeks 7–10</span></div>
 <div><span class="k">Assessment</span><span class="v">[Midterm 25% · Final exam 75%](#assessment)</span></div>
 <div><span class="k">Running case</span><span class="v">Arno Bikes, e-bike assembler in Florence</span></div>
 :::
@@ -30,8 +30,8 @@ Everything for the module is on this page. One row per session: the slide deck, 
 | 4 | Thu 15 Oct | Financial mathematics I — simple and compound interest, discounting, EAR, annuities and perpetuities, NPV · *beyond the syllabus:* what a growing firm is worth (Gordon) | [slides](lectures/04-money-over-time.qmd) · [drills](week-04/drills.md) · [code ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-04/session.ipynb) | [HW4](week-04/homework.md) · [revision set](week-04/revision.md)|
 | 5 | Thu 22 Oct | Financial mathematics II — bond pricing, duration and convexity · *beyond the syllabus:* immunisation, matching duration to a payment · a full function study in the midterm's format | [slides](lectures/05-bonds-and-risk.qmd) · [drills](week-05/drills.md) · [code ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-05/session.ipynb) · [mock exam, for home](week-05/mock_exam.md) | [HW5](week-05/homework.md)|
 | — | 26–30 Oct | Reading week — no class · **the full mock**, weeks 1–5 in one sitting: the final's calculus question twice, a full function study, and Arno Bikes again — a battery line, a duty on its cells, its money, an export market that closes — solutions included · *added 22 October, not covered in class:* a tariff on the firm and on the country, for the midterm (addendum at the end of the week-3 slides, drills D11–D14) · midterm paper due **Sun 1 Nov, 23:59 on Turnitin** | [full mock](reading-week/mock_exam.md) · [tariff addendum](lectures/03-study-and-accumulate.qmd) · [preparing the oral](midterm/oral.md) | — |
-| 6 | Thu 5 Nov | **Vincenzo Nardelli, PhD** from here on, online · the founder does not know the numbers — sets and Venn, counting, the two-way table, conditional probability and Bayes, a number with its shares: mean and variance | [slides](lectures/06-the-founder-does-not-know.qmd) · [drills](week-06/drills.md) · [code ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-06/session.ipynb) | [HW6](week-06/homework.md)|
-| 7 | Mon 9 Nov | **In person, Florence** · three shapes and how to decide with them — Binomial, Poisson, the Normal with skewness and kurtosis, expected value to decide, the normal approximation, a Monte Carlo | [slides](lectures/07-probability.qmd) · [drills](week-07/drills.md) · [code ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-07/session.ipynb) | [HW7](week-07/homework.md)|
+| 6 | Thu 5 Nov | **Vincenzo Nardelli, PhD** from here on, in person · the founder does not know the numbers — sets and Venn, counting, the two-way table, conditional probability and Bayes, a number with its shares: mean and variance | [slides](lectures/06-the-founder-does-not-know.qmd) · [drills](week-06/drills.md) · [code ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-06/session.ipynb) | [HW6](week-06/homework.md)|
+| 7 | Mon 9 Nov | **Online** from here on · three shapes and how to decide with them — Binomial, Poisson, the Normal with skewness and kurtosis, expected value to decide, the normal approximation, a Monte Carlo | [slides](lectures/07-probability.qmd) · [drills](week-07/drills.md) · [code ↗](https://colab.research.google.com/github/NiccoloSalvini/ese-qnb/blob/main/week-07/session.ipynb) | [HW7](week-07/homework.md)|
 | 8 | Mon 16 Nov | Statistical inference — why estimates wobble, confidence intervals, hypothesis tests on a mean and a proportion, the regression line and R² | — | — |
 | 9 | Mon 23 Nov | Reading a regression output with several drivers and categories · forecasting: smoothing, trend, seasons | — | — |
 | 10 | Mon 30 Nov | Course review — the whole module in one map, definitions written as the examiner wants them, how to write an exam answer · **in-class quiz** | — | — |
@@ -45,7 +45,7 @@ Everything for the module is on this page. One row per session: the slide deck, 
 
 **Code: optional, and worth your time.** *Code ↗* opens that week's Colab notebook: the pictures from the slides, with sliders you can move, and **every drill solved in Python**, step by step. It is not examined and nothing in it is marked — the exam is on paper. But a manager who can read and run twenty lines of Python checks numbers faster than one who cannot, so open it after doing the drills by hand and compare. Any Google account works; nothing to install.
 
-**Weeks 6–10** (Vincenzo Nardelli; week 7 in person, the others online) keep the same two things per session — slides and drills — plus a weekly homework due the Sunday before the next session. The required text is Anderson, Sweeney and Williams, *Statistics for Business and Economics*; the slides give printed page numbers. A calculator, the standard normal table (or Excel's `NORM.S.DIST`) and paper are all the exam allows; the Colab notebook is optional, as in weeks 1–5.
+**Weeks 6–10** (Vincenzo Nardelli; week 6 in person, weeks 7–10 online) keep the same two things per session — slides and drills — plus a weekly homework due the Sunday before the next session. The required text is Anderson, Sweeney and Williams, *Statistics for Business and Economics*. A calculator, the standard normal table (or Excel's `NORM.S.DIST`) and paper are all the exam allows; the Colab notebook is optional, as in weeks 1–5.
 :::
 
 <h2 class="module" id="assessment">Assessment <small>module scheme, set by ESE</small></h2>
@@ -72,6 +72,6 @@ Everything for the module is on this page. One row per session: the slide deck, 
 :::
 ::: {.person}
 ![](images/nardelli.jpg)
-**Vincenzo Nardelli, PhD**<br><span class="role">Weeks 6–10 · online</span>
+**Vincenzo Nardelli, PhD**<br><span class="role">Weeks 6–10 · week 6 in person, then online</span>
 :::
 :::

@@ -1,6 +1,6 @@
 # Week 6 — Drills
 
-*One drill per block. Today's session is online, so these are for tonight, on paper, before Monday: show all work — formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end; check yourself before you look.*
+*One drill per block. There is no drill time in today's session, so these are for tonight, on paper, before Monday: show all work — formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end; check yourself before you look.*
 
 ## A. Sets and counting
 

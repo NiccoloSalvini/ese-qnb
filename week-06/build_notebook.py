@@ -12,7 +12,7 @@ code = lambda s: cells.append(nbf.v4.new_code_cell(s.strip()))
 
 md(r"""
 # MBA03 · Week 6 — The founder does not know the numbers
-**European School of Economics · Thu 5 Nov 2026 · online · Tutor: Vincenzo Nardelli**
+**European School of Economics · Thu 5 Nov 2026 · in person · Tutor: Vincenzo Nardelli**
 
 In weeks 1–5 every number at **Arno Bikes** was given: a fixed cost, a list price, a coupon. This quarter the founder asks three questions she cannot answer with a given number — how many customers do both, which supplier sent the faulty battery, how many returns next week. Each answer comes with a spread.
 
@@ -361,7 +361,7 @@ md(r"""
 
 `homework.md` — due **Sunday 8 November, 23:59 on Moodle**: three short exercises on paper and a 100–150-word memo to the founder on the faulty battery. Short on purpose: we meet again on Monday. We go through it together at the start of Monday's session.
 
-Next **Monday 9 November, in person in Florence**: three shapes — binomial, Poisson, the normal — and how to decide with them. Three ready-made tables of shares; same five words, same $E(x)$ and $\sigma$.
+Next **Monday 9 November, online**: three shapes — binomial, Poisson, the normal — and how to decide with them. Three ready-made tables of shares; same five words, same $E(x)$ and $\sigma$.
 """)
 
 code(r"""

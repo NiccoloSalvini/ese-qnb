@@ -12,7 +12,7 @@ code = lambda s: cells.append(nbf.v4.new_code_cell(s.strip()))
 
 md(r"""
 # MBA03 · Week 7 — Three shapes, and how to decide with them
-**European School of Economics · Mon 9 Nov 2026 · in person · Tutor: Vincenzo Nardelli**
+**European School of Economics · Mon 9 Nov 2026 · online · Tutor: Vincenzo Nardelli**
 
 Thursday gave each unknown number at **Arno Bikes** a mean and a spread. Today gives it a **shape** — and a shape is something you can read a probability off. Three shapes cover almost every number a firm does not know: a count out of $n$ (binomial), a count at a rate (Poisson), a measurement (the normal). The founder's four questions: how many of Saturday's riders buy; what range to print on the box; which battery supplier to sign; how many of 250 orders will ship late.
 

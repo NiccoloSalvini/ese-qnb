@@ -1,8 +1,8 @@
 # Week 7 — Three shapes, and how to decide with them
 
-**MBA03 Research & Quantitative Business Methods · Mon 9 Nov 2026, 10:00–13:00, in person, Florence · Tutor: Vincenzo Nardelli**
+**MBA03 Research & Quantitative Business Methods · Mon 9 Nov 2026, 10:00–13:00, online (Google Meet) · Tutor: Vincenzo Nardelli**
 
-Syllabus topic: the binomial, the Poisson, the normal (with skewness and kurtosis), expected value as a decision tool, the normal approximation of the binomial, and a first simulation. The only in-person session of the second half; lesson 6 (last Thursday, online) did sets, the probability rules, conditional probability and Bayes, mean and variance, and the random variable with its shares.
+Syllabus topic: the binomial, the Poisson, the normal (with skewness and kurtosis), expected value as a decision tool, the normal approximation of the binomial, and a first simulation. Online, like the rest of the second half; lesson 6 (last Thursday, in person) did sets, the probability rules, conditional probability and Bayes, mean and variance, and the random variable with its shares.
 
 Running case for the whole morning, as in weeks 1–6: **Arno Bikes**, the e-bike assembler in Florence (fixed cost €60,000 a month, €400 a bike, list €1,000). The pivot of the session: Thursday gave an unknown number a mean and a spread; today gives it a **shape**, and a shape is something you can read a probability off and decide with. Everything in weeks 8–10 stands on today's bell and on the words "mean" and "standard deviation".
 
@@ -37,7 +37,7 @@ No quiz this week. Paper time 30 minutes across four frames; if a frame runs ove
 
 Homework 6 at the board: the three items, then two memos read aloud, one sentence of feedback each. Keep it to fifteen minutes; what is not reached goes online with the solutions.
 
-The recap slide: four cards, read in one minute — "or" and "given", count the ways, a number with its shares, and the homework we just did. **Red line:** Thursday you learnt to count and to condition; today the counts get a shape, and the shape gives a decision. Where we are (the one red line about assessments — say it once and do not come back to it). Today's question: the three numbers she does not know, and the fourth she has not thought of. How today runs: bets are *written*; hand out the slips now.
+The recap slide: four cards, read in one minute — "or" and "given", count the ways, a number with its shares, and the homework we just did. **Red line:** Thursday you learnt to count and to condition; today the counts get a shape, and the shape gives a decision. Where we are (the one red line about assessments — say it once and do not come back to it). Today's question: the three numbers she does not know, and the fourth she has not thought of. How today runs: bets are *typed in the chat*; ask everyone to open it now and type their name as a test.
 
 ### A. How many returns next week? (35')
 
@@ -114,7 +114,7 @@ The buffer goes first. Then:
 
 ## Board, slide, screen — what goes where
 
-Two or three students in the room; the board is the table we work at.
+Online: the shared deck is the board, the chat is the slip. Share the browser tab, not the whole screen; the clips are muted.
 
 **On the board, always.** Every substitution line of a formula, the decision tree drawn while the figure is on screen, the deviations table for σ, every z with its sketch.
 
