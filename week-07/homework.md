@@ -6,43 +6,39 @@ Allowed, as in class: a calculator, the standard normal table or `NORM.S.DIST`, 
 
 ## Part 1 — Drill set (paper, show all work)
 
-**H1 — sets and counting.** Last month 240 people visited the Arno Bikes showroom. 140 took a test ride ($T$), 80 asked for a financing quote ($F$), 60 did neither.
+**H1 — the binomial.** Arno Bikes sends 20 financing quotes a week; one quote in five turns into a sale, each independently.
 
-(a) Define in one full sentence each: *universal set*, *subset*, *union of two sets*. Use the visitors as the example.
-(b) How many visitors did both? Draw the two circles and fill in all four regions.
-(c) A visitor is picked at random. Find $P(T \cup F)$ with the addition law, and $P(\text{neither})$ as a complement.
-(d) The window display has room for 4 of the 9 models. How many different displays? If the 4 are lined up left to right and the order is part of the display, how many?
+(a) Name the model and say in one line why it fits.
+(b) Find the probability of exactly 4 sales. Write the four steps: the ways, $p^{x}$, $(1-p)^{n-x}$, multiply.
+(c) Find the probability of no sale and of at least one sale.
+(d) Find the mean and the standard deviation of the number of sales, and write one sentence for the founder.
 
-**H2 — conditional probability and Bayes.** Bikes are shipped by two couriers. **Fast** carries 75% of deliveries and is late 4% of the time; **Local** carries 25% and is late 10% of the time. Last month there were 400 deliveries.
+**H2 — the Poisson.** Bikes come back under warranty at random, 5 a week on average (five working days).
 
-(a) Build the two-way table of counts (courier × on time/late).
-(b) Find $P(\text{late} \mid \text{Fast})$ and $P(\text{Fast} \mid \text{late})$, and say in one sentence what each one answers.
-(c) Are courier and lateness independent? Compare the rows before you say the word.
-(d) A customer complains about a late delivery; the paperwork is lost. Use Bayes, written out, to find the probability it was Local. Compare with Local's share of deliveries.
-
-**H3 — a random variable and the binomial.**
-
-(a) Daily demand for the cargo model, from last year's data:
-
-| bikes a day $x$ | 2 | 3 | 4 | 5 | 6 |
-|---|---:|---:|---:|---:|---:|
-| $P(x)$ | .05 | .30 | .35 | .20 | .10 |
-
-Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ in a table with the columns $x$, $P(x)$, $x\,P(x)$, $x - \mu$, $(x - \mu)^{2}\,P(x)$. Write one sentence for the founder.
-(b) Arno Bikes sends 15 financing quotes a week; one quote in five turns into a sale, each independently. Name the model and say why. Find the probability of exactly 3 sales, the probability of at least one sale, and the mean and standard deviation of the number of sales.
-
-**H4 — the Poisson.** The helpline receives 3 calls an hour on average, at random.
-
-(a) In a 20-minute coffee break: write $\mu$ first, then find the probability of no call, of exactly one call, and of at least two calls.
-(b) In a two-hour window: write $\mu$ first, then find the probability of exactly 6 calls.
+(a) In one working day: write $\mu$ first, then find the probability of no return, of exactly one, and of at least two.
+(b) In two weeks: write $\mu$ first, then find the probability of exactly 10 returns.
 (c) In one sentence: what makes this a Poisson count and not a binomial one?
 
-**H5 — the normal, mixed.** Battery range is $N(90 \text{ km},\, 8 \text{ km})$; bike weight is $N(22 \text{ kg},\, 1.5 \text{ kg})$. For each part: sketch and shade, standardise, table, one sentence.
+**H3 — the normal, and a guarantee.** A full charge of an Arno battery takes 240 minutes on average, standard deviation 20 minutes, bell-shaped: $X \sim N(240,\,20)$. For each part: sketch and shade, standardise, table, one sentence.
 
-(a) What share of bikes have a range above 100 km?
-(b) What share have a range between 80 and 100 km?
-(c) The Board accepts 10% of riders seeing less than the printed range. What range should be printed? End in km, not in $z$.
-(d) A customer wants a bike under 20 kg. What share of bikes qualify?
+(a) What share of charges take more than 270 minutes?
+(b) What share take between 220 and 260 minutes? Which rule of thumb gives the same answer without a table?
+(c) The 10% slowest charges are flagged for a battery check. From how many minutes is a charge flagged? End in minutes, not in $z$.
+(d) Marketing wants to print "fully charged in X minutes" and the Board accepts that 5% of charges take longer. What do we print?
+
+**H4 — a decision with chance in it.** Deliveries can go with one of two couriers. **Fast** charges a flat **€40** per delivery and is never late. **Local** charges **€30** but is late 10% of the time, and a late delivery costs Arno Bikes **€60** in compensation to the customer.
+
+(a) Draw the decision tree: the square, a circle for Local's chance node, the probabilities, the cost at each end node.
+(b) Find the expected cost of a Local delivery, and the saving per delivery against Fast.
+(c) Find the standard deviation of the cost of a Local delivery.
+(d) Arno Bikes makes 400 deliveries a month. Expected monthly saving with Local? Then, in two sentences for the Board: which courier for the monthly volume, which for a single delivery to the firm's most important customer, and why the answer can differ.
+
+**H5 — the normal approximation.** Arno Bikes sold 200 bikes last quarter; one bike in ten comes back under warranty within the year, independently.
+
+(a) Name the exact model and give the mean and standard deviation of the number of returns.
+(b) Check that the bell may be used. Then find the probability of 25 or more returns, with the four steps and the half unit.
+(c) Find the probability of 14 or fewer returns.
+(d) One sentence for the founder, with both numbers.
 
 ## Part 2 — Memo to the Board (150–250 words, typed)
 
@@ -54,8 +50,8 @@ It will be read for clarity and for whether the numbers are right, not for lengt
 
 ## Self-check before submitting
 
-- Every definition is a full sentence that starts "the set of…", with an Arno Bikes example.
-- Every "given" has its denominator named: a row total or a column total, and you said which.
 - Every count model is named before the formula, and $\mu$ is written as rate × interval before any Poisson number.
-- Every normal question has a sketch with the area shaded, and the last line is a sentence in km, kg or minutes — not a $z$.
+- Every normal question has a sketch with the area shaded, and the last line is a sentence in minutes, bikes or euros — not a $z$.
+- Every decision has two numbers next to it: the expected value and the spread, and the sentence says what each one means.
+- The normal approximation starts with $np$ and $\sqrt{np(1-p)}$, checks both are at least 5, and uses the half unit.
 - The memo has no formulas and ends with one recommendation.

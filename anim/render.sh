@@ -53,8 +53,8 @@ want="${1:-all}"
 [ "$want" = all ] || [ "$want" = week07 ] && {
   render week07_scenes PoissonArrivals w07_poisson
   render week07_scenes NormalAreaFills w07_normal
-  render week07_scenes ChoicesTree     w07_choices
+  render week07_scenes ChoicesTree     w06_choices
   render week07_scenes OneFamily       w07_family
-  render week07_spread MeanAndSpread   w07_spread
+  render week07_spread MeanAndSpread   w06_spread
 }
 echo "done"

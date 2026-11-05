@@ -1,5 +1,5 @@
 """Build week-07/session.ipynb with nbformat. Run: python3.11 week-07/build_notebook.py
-then: python3.11 -m jupyter nbconvert --to notebook --execute --inplace week-07/session.ipynb"""
+then: python3.11 -m nbconvert --to notebook --execute --inplace week-07/session.ipynb"""
 from pathlib import Path
 import nbformat as nbf
 
@@ -11,16 +11,16 @@ md = lambda s: cells.append(nbf.v4.new_markdown_cell(s.strip()))
 code = lambda s: cells.append(nbf.v4.new_code_cell(s.strip()))
 
 md(r"""
-# MBA03 · Week 7 — The founder does not know the numbers
-**European School of Economics · Mon 9 Nov 2026 · Tutor: Vincenzo Nardelli**
+# MBA03 · Week 7 — Three shapes, and how to decide with them
+**European School of Economics · Mon 9 Nov 2026 · in person · Tutor: Vincenzo Nardelli**
 
-In weeks 1–5 every number at **Arno Bikes** was given: a fixed cost, a list price, a coupon. This quarter the founder asks four questions she cannot answer with a given number — how many customers do both, which supplier sent the faulty battery, how many returns next week, what range to print on the box. Each answer comes with a spread.
+Thursday gave each unknown number at **Arno Bikes** a mean and a spread. Today gives it a **shape** — and a shape is something you can read a probability off. Three shapes cover almost every number a firm does not know: a count out of $n$ (binomial), a count at a rate (Poisson), a measurement (the normal). The founder's four questions: how many of Saturday's riders buy; what range to print on the box; which battery supplier to sign; how many of 250 orders will ship late.
 
 This notebook is driven by the tutor. Every picture is followed by the same computation **by hand on paper**: formula, substitution, number, one sentence for the Board. The code is optional and not examined.
 """)
 
 code(r"""
-# Setup (Colab has plotly preinstalled; this is a no-op there)
+# Setup (Colab has plotly, numpy, pandas and scipy preinstalled; this is a no-op there)
 import subprocess, sys
 try:
     import plotly
@@ -31,225 +31,19 @@ import numpy as np, pandas as pd
 from scipy import stats
 import plotly.graph_objects as go
 
-RED, GOLD, GREY = "#AF1F25", "#CDBA80", "#7a7f85"
+RED, GOLD, GREY, INK = "#AF1F25", "#CDBA80", "#7a7f85", "#363636"
 print("ready")
 """)
 
 # ---------------- A ----------------
 md(r"""
-## A. How many of our customers do both? — sets and counting
+## A. How many of Saturday's riders buy? — binomial, Poisson, one family
 
-The CRM says: of **200** customers, **120** bought accessories, **90** a service plan, **40** neither. The founder wants to upsell the ones who bought **both**.
+Saturday: **12** test rides. From the CRM, one rider in four buys ($p = .25$), and each decides alone. A fixed number of yes/no trials, the same $p$ each time, independent: the **binomial**.
 
-$$n(A \cup S) = n(A) + n(S) - n(A \cap S)$$
+$$P(x) = \binom{n}{x}\, p^{x}\, (1-p)^{n-x} \qquad E(x) = np \qquad \sigma = \sqrt{np(1-p)}$$
 
-*Business reading:* "or" adds the two counts, then takes the overlap out once — otherwise the "both" customers are counted twice.
-
-Then counting: eight people work at Arno Bikes, three go to the Milan trade fair. **Does swapping two people change the outcome?** No → combinations. Yes (named roles) → permutations.
-""")
-
-code(r"""
-def venn_count(N, nA, nB, neither, A="accessories", B="service plan"):
-    # Four regions of a two-circle Venn diagram, from the four facts we usually have
-    at_least_one = N - neither
-    both = nA + nB - at_least_one          # the addition law, solved for the overlap
-    only_A, only_B = nA - both, nB - both
-    rows = [(f"{A} only", only_A), ("both", both), (f"{B} only", only_B), ("neither", neither)]
-    print(f"at least one = {N} − {neither} = {at_least_one}")
-    print(f"both = {nA} + {nB} − {at_least_one} = {both}\n")
-    print(f"{'region':<20} {'count':>6} {'share':>7}")
-    for name, n in rows:
-        print(f"{name:<20} {n:>6} {n/N:>7.2f}")
-    print(f"{'total':<20} {sum(n for _, n in rows):>6} {sum(n for _, n in rows)/N:>7.2f}")
-    assert sum(n for _, n in rows) == N
-    return both
-
-both = venn_count(200, 120, 90, 40)
-P_union = 120/200 + 90/200 - both/200
-print(f"\nP(A or S) = .60 + .45 − {both/200:.2f} = {P_union:.2f};  complement = {1 - P_union:.2f}")
-""")
-
-code(r"""
-n, k = 8, 3
-teams = math.comb(n, k)                   # order does not matter
-roles = math.perm(n, k)                   # stand lead, demo rider, sales
-print(pd.DataFrame({
-    "question": ["teams of 3 (combinations)", "3 named roles (permutations)", "ratio"],
-    "formula": ["8! / (3!·5!) = 8·7·6 / 6", "8! / 5! = 8·7·6", "3! = 6"],
-    "result": [teams, roles, roles // teams]}).to_string(index=False))
-assert roles == teams * math.factorial(k)
-print(f"\nEach team of {k} can be arranged in {k}! = {math.factorial(k)} ways: {teams} × {math.factorial(k)} = {roles}.")
-""")
-
-code(r"""
-ks = list(range(0, 9))
-fig = go.Figure(go.Bar(x=ks, y=[math.comb(8, j) for j in ks], marker_color=[RED if j == 3 else GREY for j in ks],
-                       text=[math.comb(8, j) for j in ks], textposition="outside"))
-fig.update_layout(template="simple_white", height=420, title="How many groups of k can you pick from 8 people?",
-                  xaxis_title="k, size of the group", yaxis_title="C(8, k)", yaxis_range=[0, 80])
-fig.show()
-print("Symmetric: choosing the 3 who go is the same as choosing the 5 who stay. C(8,3) = C(8,5) =", math.comb(8, 5))
-""")
-
-md(r"""
-### 🔍 CHECK
-The four regions must add back to **200**, and the shares to **1.00**. On paper, if they do not, stop before you compute any probability. For counting, ask the one question first: *does order matter?*
-""")
-
-# ---------------- B ----------------
-md(r"""
-## B. Which supplier sent the faulty battery? — the two-way table and Bayes
-
-Last month: **1,000** batteries. **Volta** sent **700** at a **2%** defect rate; **Ampere** sent **300** at **5%**. A faulty battery is on the bench, label gone.
-
-$$P(A \mid B) = \frac{\text{number in both } A \text{ and } B}{\text{number in } B}$$
-
-*Business reading:* "given B" means look only at B's row (or column) and divide by **its** total. Same cell on top, different total underneath, different question.
-
-Then the independence check: supplier and fault are **independent** if every row shows the same share of faulty as the total. Under independence the cells would be *row total × column share*.
-""")
-code(r"""
-def two_way(suppliers, counts, rates, bad="faulty", good="good"):
-    # Build the table of counts from the three facts: who sent how many, at what defect rate
-    faulty = [round(c * r) for c, r in zip(counts, rates)]
-    tab = pd.DataFrame({good: [c - f for c, f in zip(counts, faulty)], bad: faulty}, index=suppliers)
-    tab["total"] = tab[good] + tab[bad]
-    tab.loc["total"] = tab.sum()
-    return tab
-
-for s, c, r in zip(["Volta", "Ampere"], [700, 300], [.02, .05]):
-    print(f"{s}: {c} × {r:.0%} = {round(c*r)} faulty, {c} − {round(c*r)} = {c - round(c*r)} good")
-tab = two_way(["Volta", "Ampere"], [700, 300], [.02, .05])
-print("\n", tab.to_string(), sep="")
-
-print("\nThe ROW — given the supplier, how often faulty?")
-for s in ["Volta", "Ampere"]:
-    print(f"  P(faulty | {s:<6}) = {tab.loc[s, 'faulty']:>2} / {tab.loc[s, 'total']:>4} = {tab.loc[s, 'faulty']/tab.loc[s, 'total']:.3f}")
-print("  (the defect rates we started from: the table is built right)")
-print("\nThe COLUMN — given faulty, which supplier?")
-for s in ["Volta", "Ampere"]:
-    print(f"  P({s:<6} | faulty) = {tab.loc[s, 'faulty']:>2} / {tab.loc['total', 'faulty']:>4} = {tab.loc[s, 'faulty']/tab.loc['total', 'faulty']:.2f}")
-print(f"\nOverall P(faulty) = 29 / 1,000 = {tab.loc['total', 'faulty']/tab.loc['total', 'total']:.3f}")
-""")
-
-code(r"""
-p_faulty = tab.loc["total", "faulty"] / tab.loc["total", "total"]
-expected = pd.DataFrame({
-    "good":   [tab.loc[s, "total"] * (1 - p_faulty) for s in ["Volta", "Ampere"]],
-    "faulty": [tab.loc[s, "total"] * p_faulty for s in ["Volta", "Ampere"]]}, index=["Volta", "Ampere"])
-print("Observed share faulty by row:", {s: round(tab.loc[s, "faulty"] / tab.loc[s, "total"], 3) for s in ["Volta", "Ampere"]},
-      f" overall {p_faulty:.3f}")
-print("\nIf supplier told us nothing about the fault, the table would read:")
-print(expected.round(1).to_string())
-print("\nObserved faulty: Volta 14 vs 20.3 expected, Ampere 15 vs 8.7 expected.")
-print("The rows differ from the total: supplier and fault are DEPENDENT. Say the comparison, then the word.")
-""")
-
-md(r"""
-### Bayes: the faulty column, with shares instead of counts
-The founder's prior: "probably Volta, they send 70%". One faulty battery is the evidence.
-
-$$P(\text{Ampere} \mid F) = \frac{P(F \mid \text{Ampere})\,P(\text{Ampere})}{P(F)}$$
-
-Then **drag the slider:** Ampere's defect rate, from 1% to 10%. Volta stays at 2% with 70% of deliveries. When does Ampere become the clear suspect?
-""")
-code(r"""
-def bayes_table(suppliers, prior, rate):
-    joint = [p * r for p, r in zip(prior, rate)]           # share of ALL batteries that are faulty from each
-    total = sum(joint)
-    t = pd.DataFrame({"prior share": prior, "× defect rate": rate, "= faulty, share of all": joint,
-                      "÷ total faulty": [j / total for j in joint]}, index=suppliers)
-    t.loc["total"] = [sum(prior), np.nan, total, 1.0]
-    return t
-
-bt = bayes_table(["Volta", "Ampere"], [.70, .30], [.02, .05])
-print(bt.round(3).to_string())
-print(f"\nP(Ampere | F) = .05 × .30 / (.02 × .70 + .05 × .30) = .015 / .029 = {bt.loc['Ampere', '÷ total faulty']:.2f}")
-print("Before the evidence Ampere was .30; after, .52. A 30% supplier at twice the defect rate is only a coin-flip suspect.")
-""")
-
-code(r"""
-rates = np.round(np.arange(0.01, 0.1001, 0.005), 3)
-def posterior(rA, rV=.02, pV=.70):
-    jV, jA = pV * rV, (1 - pV) * rA
-    return jV / (jV + jA), jA / (jV + jA)
-
-fig = go.Figure()
-for r in rates:
-    pV, pA = posterior(r)
-    fig.add_bar(x=["Volta", "Ampere"], y=[pV, pA], marker_color=[GREY, RED], visible=bool(abs(r - .05) < 1e-9),
-                text=[f"{pV:.2f}", f"{pA:.2f}"], textposition="outside", name=f"{r:.1%}")
-fig.add_hline(y=.30, line=dict(color=GOLD, dash="dot"), annotation_text="Ampere's prior share .30")
-steps = [dict(method="update", label=f"{r:.1%}",
-              args=[{"visible": [j == i for j in range(len(rates))]},
-                    {"title": f"Ampere defect rate {r:.1%} → P(Ampere | faulty) = {posterior(r)[1]:.2f}"}])
-         for i, r in enumerate(rates)]
-fig.update_layout(template="simple_white", height=460, showlegend=False, yaxis_range=[0, 1],
-                  title="Ampere defect rate 5.0% → P(Ampere | faulty) = 0.52", yaxis_title="P(supplier | faulty)",
-                  sliders=[dict(active=int(np.argmin(abs(rates - .05))), steps=steps,
-                                currentvalue=dict(prefix="Ampere's defect rate: "))])
-fig.show()
-print(f"{'Ampere rate':>12} {'P(Ampere | faulty)':>20}")
-for r in (.01, .02, .05, .08, .10):
-    print(f"{r:>12.0%} {posterior(r)[1]:>20.2f}")
-""")
-
-md(r"""
-### 🔍 CHECK
-At 2% both rows read the same and the posterior equals the prior (.30): the supplier tells you nothing. The row check — $14/700 = .02$ — must return the defect rate you were given. If it does not, the table is wrong, not the question.
-""")
-
-# ---------------- C ----------------
-md(r"""
-## C. How many returns next week? — mean and variance, binomial, Poisson
-
-Five weeks of warranty returns: **4, 7, 3, 6, 5**.
-
-$$\bar{x} = \frac{\sum x}{n} \qquad s^{2} = \frac{\sum (x - \bar{x})^{2}}{n-1}$$
-
-*Business reading:* the mean is the total, shared equally. The variance is the average squared distance from it — divided by $n-1$ because the deviations always sum to zero, so only $n-1$ of them are free.
-
-Then the **random variable**: next week's returns, with a share attached to each value — twenty weeks of history turned into shares. Same two formulas, with the shares as weights instead of $1/n$: $E(x) = \sum x\,P(x)$ and $\sigma^{2} = \sum (x - \mu)^{2}\,P(x)$.
-""")
-code(r"""
-def spread_table(x, label="returns"):
-    x = np.array(x, dtype=float); n = len(x); xbar = x.sum() / n
-    t = pd.DataFrame({"week": range(1, n + 1), label: x, "x − x̄": x - xbar, "(x − x̄)²": (x - xbar) ** 2})
-    t.loc["sum"] = ["", x.sum(), (x - xbar).sum(), ((x - xbar) ** 2).sum()]
-    print(t.to_string(index=False))
-    ss = ((x - xbar) ** 2).sum()
-    print(f"\nmean   x̄  = {x.sum():.0f} / {n} = {xbar:g}")
-    print(f"variance s² = {ss:.0f} / ({n} − 1) = {ss:.0f} / {n-1} = {ss/(n-1):g}")
-    print(f"st. dev. s  = √{ss/(n-1):g} = {math.sqrt(ss/(n-1)):.2f}")
-    return xbar, ss / (n - 1)
-
-xbar, s2 = spread_table([4, 7, 3, 6, 5])
-print(f"\nReading: a typical week is {xbar:g} returns, give or take about {math.sqrt(s2):.1f}. The deviations sum to zero: a check, not a result.")
-""")
-
-code(r"""
-def rv_table(values, shares):
-    v, P = np.array(values, dtype=float), np.array(shares, dtype=float)
-    assert abs(P.sum() - 1) < 1e-9, "shares must add to 1"
-    mu = (v * P).sum()
-    t = pd.DataFrame({"x": v, "P(x)": P, "x·P(x)": v * P, "x − μ": v - mu, "(x − μ)²": (v - mu) ** 2,
-                      "(x − μ)²·P(x)": (v - mu) ** 2 * P})
-    t.loc["sum"] = ["", P.sum(), mu, "", "", ((v - mu) ** 2 * P).sum()]
-    print(t.to_string(index=False))
-    var = ((v - mu) ** 2 * P).sum()
-    print(f"\nE(x) = {' + '.join(f'{a:g}({b:.2f})' for a, b in zip(v, P))} = {mu:.1f}")
-    print(f"σ² = {var:.2f},  σ = √{var:.2f} = {math.sqrt(var):.2f}")
-    return mu, var
-
-mu_rv, var_rv = rv_table([3, 4, 5, 6, 7], [.15, .20, .30, .20, .15])
-print(f"\nReading: expect {mu_rv:.0f} returns a week, give or take about {math.sqrt(var_rv):.1f}. No single week has exactly 5.0; over 50 weeks, about 250.")
-""")
-
-md(r"""
-### Binomial: twelve test rides, how many buy?
-Saturday: **12** test rides, one rider in four buys ($p = .25$), each decides alone. A fixed number of yes/no trials, same $p$, independent.
-
-$$P(x) = \binom{n}{x}\, p^{x}\, (1-p)^{n-x}$$
+*Business reading:* $\binom{n}{x}$ counts the ways to pick **which** $x$ of the $n$ riders buy; $p^{x}$ says those $x$ all buy; $(1-p)^{n-x}$ says the others all do not. Four steps, every binomial question. "At least one" is always $1 -$ "none".
 
 Below the four steps, **two sliders, one at a time:** the number of test rides $n$ (with $p = .25$) and the share who buy $p$ (with $n = 12$). Push $n$ to 40 and watch the bars become a bell; drop $p$ to .05 and see where the peak goes.
 """)
@@ -268,8 +62,8 @@ print(f"\nscipy agrees: binom.pmf(3, 12, .25) = {stats.binom.pmf(3, n, p):.3f}")
 print(f"\nmean          np = {n} × {p} = {n*p:g} buyers")
 print(f"st. dev.  √np(1−p) = √({n} × {p} × {1-p}) = √{n*p*(1-p):g} = {math.sqrt(n*p*(1-p)):g}")
 P0 = (1 - p) ** n
-print(f"nobody buys   P(0) = {1-p}^{n} = {P0:.3f}")
-print(f"at least one  1 − P(0) = {1 - P0:.3f}")
+print(f"nobody buys   P(0) = C(12,0) × .25^0 × .75^12 = {1-p}^{n} = {P0:.3f}")
+print(f"at least one  1 − P(0) = 1 − {P0:.3f} = {1 - P0:.3f}")
 print("\nReading: one Saturday in four ends with exactly three buyers; nobody buying is a one-in-thirty Saturday.")
 """)
 
@@ -300,13 +94,16 @@ fig.update_layout(template="simple_white", height=520, title="n = 12 test rides,
                            dict(active=int(np.argmin(abs(ps - .25))), steps=steps_p, currentvalue=dict(prefix="p (n = 12): "), y=-0.35)],
                   margin=dict(b=200))
 fig.show()
+print("Small n: count the ways. Large n: the bars smooth into a bell — block D uses that. Tiny p with many trials: a Poisson.")
 """)
 
 md(r"""
 ### Poisson: the helpline, three calls an hour
-Calls arrive at random, **3 an hour**. The one person answering steps out for **half an hour**. A count in an interval, constant rate, no ceiling. Write $\mu$ = rate × interval **before** any number.
+Calls arrive at random, **3 an hour**. The one person answering steps out for **half an hour**. A count in an interval, constant rate, no ceiling: the **Poisson**. Write $\mu$ = rate × interval **before** any number.
 
 $$P(x) = \frac{\mu^{x} e^{-\mu}}{x!}$$
+
+Then **drag the slider** on $\mu$: mean and variance of a Poisson are both $\mu$, so a high rate gives a wide, bell-shaped pile.
 """)
 code(r"""
 def poisson_steps(rate, hours):
@@ -318,8 +115,8 @@ def poisson_steps(rate, hours):
     print(f"  P(2)  = {mu:g}² e^−{mu:g} / 2! = {mu**2:g} × {P0:.4f} / 2 = {stats.poisson.pmf(2, mu):.3f}")
     return mu, P0
 
-print("A full hour:"); mu_h, P0_h = poisson_steps(3, 1)
-print("\nThe half hour she is away — rescale first:"); mu_half, P0_half = poisson_steps(3, 0.5)
+print("The half hour she is away — rescale first:"); mu_half, P0_half = poisson_steps(3, 0.5)
+print("\nA full hour:"); mu_h, P0_h = poisson_steps(3, 1)
 print(f"\nWithout the rescaling you would say {P0_h:.0%} for the half hour. It is {P0_half:.0%}: four times out. μ first, always.")
 print(f"Reading: leaving the helpline for half an hour, we miss at least one call {1 - P0_half:.0%} of the time — three times out of four.")
 """)
@@ -329,38 +126,42 @@ mus = np.round(np.arange(0.5, 10.01, 0.5), 1)
 xs = np.arange(0, 21)
 fig = go.Figure()
 for m in mus:
-    fig.add_bar(x=xs, y=stats.poisson.pmf(xs, m), marker_color=RED, visible=bool(m == 3.0), name=f"μ={m}", showlegend=False)
+    fig.add_bar(x=xs, y=stats.poisson.pmf(xs, m), marker_color=RED, visible=bool(m == 1.5), name=f"μ={m}", showlegend=False)
 steps = [dict(method="update", label=f"{m:g}", args=[{"visible": [j == i for j in range(len(mus))]},
          {"title": f"μ = {m:g} expected calls → P(0) = {math.exp(-m):.3f}, P(≥1) = {1 - math.exp(-m):.3f}"}]) for i, m in enumerate(mus)]
-fig.update_layout(template="simple_white", height=460, title="μ = 3 expected calls → P(0) = 0.050, P(≥1) = 0.950",
+fig.update_layout(template="simple_white", height=460, title="μ = 1.5 expected calls → P(0) = 0.223, P(≥1) = 0.777",
                   xaxis_title="calls in the interval", yaxis_title="probability",
-                  sliders=[dict(active=int(np.where(mus == 3.0)[0][0]), steps=steps, currentvalue=dict(prefix="μ = rate × interval: "))])
+                  sliders=[dict(active=int(np.where(mus == 1.5)[0][0]), steps=steps, currentvalue=dict(prefix="μ = rate × interval: "))])
 fig.show()
-print("Mean and variance of a Poisson are both μ: a high rate gives a wide, bell-shaped pile. Push μ to 10 and look.")
+print("Half an hour is μ = 1.5, a full hour μ = 3. Push μ to 10 and look: with a high rate the Poisson is a bell too.")
 """)
 
 md(r"""
 ### 🔍 CHECK
-Deviations sum to zero; shares sum to one; $P(0) + P(\geq 1) = 1$. Before any formula, say which model in words: *how many of these $n$?* is binomial; *how many in this interval?* is Poisson, and $\mu$ comes first.
+Say which model **in words** before any formula: *how many of these $n$?* is binomial, you are given $n$ and $p$; *how many in this interval?* is Poisson, you are given a rate and $\mu$ comes first. $P(0) + P(\geq 1) = 1$. If your $P(x)$ is above 1 or your mean is outside $0..n$, a step is wrong.
 """)
 
-# ---------------- D ----------------
+# ---------------- B ----------------
 md(r"""
-## D. What range do we promise? — the normal
+## B. What range do we promise? — the normal, skewness and kurtosis
 
 Engineering measured 200 bikes on the same loop: **90 km on average, standard deviation 8 km**, bell-shaped. $X \sim N(90, 8)$. Marketing wants to print **75 km**.
 
 $$z = \frac{x - \mu}{\sigma}$$
 
-Four steps, every time: **sketch and shade → standardise → table → sentence.** The table gives the area to the **left** of $z$.
+Four steps, every time: **sketch and shade → standardise → table → sentence.** The table gives the area to the **left** of $z$; one table serves every bell, because step 2 turns every bell into the same one. Backwards, for a guarantee: area $\to z \to x = \mu + z\sigma$, and the answer ends in km.
 
-Below the steps, **three sliders, one at a time** from the baseline $N(90, 8)$, threshold 75: the mean $\mu$, the spread $\sigma$, and the threshold printed on the box. The shaded tail is the share of riders who see less than promised. Then the empirical rule — one σ, two σ, three σ: the same three numbers for every bell, which is why we measure distance in σ and not in km.
+Below the steps, **three sliders, one at a time** from the baseline $N(90, 8)$, threshold 75: the mean $\mu$, the spread $\sigma$, and the threshold printed on the box. The shaded tail is the share of riders who see less than promised.
 """)
 code(r"""
+def table_left(z):
+    # what the printed standard normal table shows: z to two decimals, area to the left to four
+    return round(stats.norm.cdf(round(z, 2)), 4)
+
 def normal_steps(x, mu, sigma, tail="below"):
     z = (x - mu) / sigma
     z2 = round(z, 2)                                       # the table has two decimals
-    left = round(stats.norm.cdf(z2), 4)                    # what the printed table shows
+    left = table_left(z)
     print(f"1. sketch: the bell centred at {mu}, shade the area {tail} {x}")
     print(f"2. standardise: z = ({x} − {mu}) / {sigma} = {x - mu} / {sigma} = {z:.3f} ≈ {z2:.2f}")
     print(f"3. table, area to the left of {z2:.2f}: {left:.4f}   (Excel: =NORM.S.DIST({z2:.2f}, TRUE))")
@@ -378,8 +179,8 @@ print("\nBackwards — the Board accepts 5% below the box. What do we print?")
 z05 = -1.645                                                # .05 sits between z = −1.64 (.0505) and −1.65 (.0495)
 x05 = 90 + z05 * 8
 print(f"   table, backwards: area .05 → z = {z05}   (Excel: =NORM.S.INV(0.05) = {stats.norm.ppf(.05):.3f})")
-print(f"   undo the standardisation: x = μ + zσ = 90 + ({z05}) × 8 = 90 − {abs(z05)*8:.2f} = {x05:.2f} km")
-print(f"   Print 76 km, a promise rounds down: the share below it is P(z < {(76-90)/8:.2f}) = {stats.norm.cdf(76, 90, 8):.3f}.")
+print(f"   undo the standardisation: x = μ + zσ = 90 + ({z05}) × 8 = 90 − {abs(z05)*8:.1f} = {x05:.1f} km")
+print(f"   Print 76 km, a promise rounds down: the share below it is P(z < {(76-90)/8:.2f}) = {table_left((76-90)/8):.3f}.")
 print("   Sentence: print 76 km; about one rider in twenty-five will see less, and every km added to the box adds one or two complaints in a hundred.")
 """)
 
@@ -389,7 +190,7 @@ grid = np.linspace(50, 130, 400)
 
 def bell(mu, sigma, thr, visible):
     pdf = stats.norm.pdf(grid, mu, sigma); tail = grid <= thr
-    return [go.Scatter(x=grid, y=pdf, mode="lines", line=dict(color="#363636", width=3), visible=visible, showlegend=False),
+    return [go.Scatter(x=grid, y=pdf, mode="lines", line=dict(color=INK, width=3), visible=visible, showlegend=False),
             go.Scatter(x=grid[tail], y=pdf[tail], fill="tozeroy", mode="lines", line=dict(color=RED, width=0),
                        fillcolor="rgba(175,31,37,.45)", visible=visible, showlegend=False)]
 settings = [(m, 8, 75) for m in mus_] + [(90, s, 75) for s in sigmas_] + [(90, 8, t) for t in thr_]
@@ -411,45 +212,242 @@ fig.update_layout(template="simple_white", height=600, title=title(90, 8, 75), x
                            dict(active=sigmas_.index(8), steps=steps_sg, currentvalue=dict(prefix="σ (μ = 90, box 75): "), y=-0.30),
                            dict(active=thr_.index(75), steps=steps_th, currentvalue=dict(prefix="box says, km (μ = 90, σ = 8): "), y=-0.56)])
 fig.show()
-print(f"{'print':>6} {'share who see less':>20}")
+print(f"{'print':>8} {'share who see less':>20}")
 for t in (85, 80, 76.8, 75):
-    print(f"{t:>6} {stats.norm.cdf(t, 90, 8):>20.0%}")
+    print(f"{t:>8} {stats.norm.cdf(t, 90, 8):>20.0%}")
+print("\nDouble σ to 16 and the 75-km tail grows from 3% to 17%: the spread, not the mean, is what a guarantee pays for.")
 """)
 
 code(r"""
 mu, sigma = 90, 8
+print("The empirical rule — the same three numbers for every bell, which is why we measure distance in σ and not in km\n")
 print(f"{'within':>8} {'km range':>12} {'share, exact':>13} {'rule of thumb':>14}")
 for k, rule in zip((1, 2, 3), ("68%", "95%", "99.7%")):
     share = stats.norm.cdf(k) - stats.norm.cdf(-k)
     print(f"{k:>7}σ {f'{mu - k*sigma} to {mu + k*sigma}':>12} {share:>13.3f} {rule:>14}")
-print(f"\nA bike at 74 km is two σ below the mean: {stats.norm.cdf(-2):.3f}, about one in forty.")
+print(f"\nA bike at 74 km is two σ below the mean: P(z < −2) = {stats.norm.cdf(-2):.3f}, about one in forty.")
+print(f"Beyond three σ either side, under the bell: {2*stats.norm.cdf(-3):.4f}, about one in three hundred — remember this number for kurtosis.")
 """)
 
 md(r"""
-### Skewness: when the bell is the wrong picture
-Battery range is symmetric: mean and median coincide. Delivery time is not — most parcels take two days, a few take ten. A long right tail pulls the mean above the median. Before you use the table, ask whether the data are a bell.
+### Skewness and kurtosis: when the bell is the wrong picture
+Battery range is symmetric: mean and median coincide, **skewness zero**. Delivery time is not — most parcels take two days, a few take ten: a long right tail pulls the mean above the median, **positive skewness**. And **kurtosis** asks how much of the curve sits in the tails: with the *same* mean and σ, a fat-tailed shape has a "three σ" day far more often than one in three hundred.
+
+Below, three simulated samples of 5,000 with the same mean and σ: a bell, a right-skewed lognormal, a fat-tailed $t$. Before you use the table, ask whether the data are a bell.
 """)
 code(r"""
-rng = np.random.default_rng(7)
-ranges = rng.normal(90, 8, 5000)                                  # symmetric: battery range
-delivery = rng.lognormal(mean=np.log(2.4), sigma=0.716, size=5000) # right-skewed: delivery days, median 2.4
+rng = np.random.default_rng(16)
+N_ = 5000
+def rescale(x, mu=90, sd=8):                       # same mean and σ for all three, so only the shape differs
+    return mu + (x - x.mean()) / x.std() * sd
+bell_s   = rescale(rng.normal(size=N_))                 # symmetric: battery range
+skewed_s = rescale(rng.lognormal(0, .7, size=N_))       # right-skewed: delivery time, rescaled
+fat_s    = rescale(rng.standard_t(3, size=N_))          # fat tails: delivery delays, rescaled
 
 fig = go.Figure()
-fig.add_histogram(x=ranges, nbinsx=60, name="battery range, km", marker_color=GREY, opacity=.8)
-fig.add_histogram(x=delivery * 10 + 50, nbinsx=60, name="delivery time (days, rescaled to share the axis)", marker_color=RED, opacity=.7)
-fig.update_layout(template="simple_white", height=420, barmode="overlay", title="A bell and a long right tail",
-                  xaxis_title="", yaxis_title="count of 5,000", legend=dict(x=.55, y=.95))
+for name, x, col in (("bell (battery range)", bell_s, GREY), ("right-skewed (lognormal)", skewed_s, RED), ("fat-tailed (t, 3 d.f.)", fat_s, GOLD)):
+    fig.add_histogram(x=x, xbins=dict(start=50, end=130, size=1), name=name, marker_color=col, opacity=.6)
+fig.update_layout(template="simple_white", height=440, barmode="overlay", title="Three shapes, the same mean 90 and the same σ 8",
+                  xaxis_title="value", yaxis_title="count of 5,000", xaxis_range=[50, 130], legend=dict(x=.62, y=.95))
 fig.show()
 
-for name, x, unit in (("battery range", ranges, "km"), ("delivery time", delivery, "days")):
-    skew = stats.skew(x)
-    print(f"{name:<14} mean {np.mean(x):6.2f} {unit:<4} median {np.median(x):6.2f} {unit:<4} skewness {skew:+.2f}"
-          f"  → {'mean ≈ median: symmetric, the table applies' if abs(skew) < .2 else 'mean > median: positive skew, the table does not apply'}")
+print(f"{'sample':<26} {'mean':>6} {'median':>7} {'skewness':>9} {'kurtosis':>9} {'beyond 3σ':>10}   in plain words")
+for name, x in (("bell", bell_s), ("right-skewed lognormal", skewed_s), ("fat-tailed t", fat_s)):
+    sk, ku = stats.skew(x), stats.kurtosis(x)         # scipy's kurtosis is excess kurtosis: 0 for the bell
+    far = np.mean(np.abs(x - 90) > 24)
+    words = ("mean ≈ median, tails like the bell: the table applies" if abs(sk) < .2 and abs(ku) < .5 else
+             "mean > median: leans right, a z from the mean gives the wrong areas" if sk > .5 else
+             "symmetric but fat tails: the rare bad day is not as rare as the bell says")
+    print(f"{name:<26} {x.mean():>6.1f} {np.median(x):>7.1f} {sk:>+9.2f} {ku:>+9.2f} {far:>10.4f}   {words}")
+print("\nSkewness: zero for a bell, positive when the long tail is on the right. Kurtosis (excess): zero for a bell, positive for fat tails.")
+print("Under the bell, 'beyond three σ' is about .003; the fat-tailed sample has several times that with the same σ.")
 """)
 
 md(r"""
 ### 🔍 CHECK
-The table only gives "to the left". Everything else is $1 -$ or a difference of two lookups; the sketch tells you which. Forwards: $x \to z \to$ area. Backwards: area $\to z \to x$, and the answer ends in km, not in $z$.
+The table only gives "to the left". Everything else is $1 -$ or a difference of two lookups; the sketch tells you which. Forwards: $x \to z \to$ area. Backwards: area $\to z \to x$, and the answer ends in km, not in $z$. And before any of it: mean above median says the data lean; fat tails say the bell under-counts the surprises.
+""")
+
+# ---------------- C ----------------
+md(r"""
+## C. Which supplier do we sign? — expected value to decide
+
+Arno Bikes buys **1,000 batteries a month**. **Volta**: €180 a battery, faulty ones replaced by Volta — a **certain** number. **Ampere**: €165 a battery, but **5%** arrive faulty and a faulty battery costs us **€90** to swap on the line — a **random variable**, Thursday's table with two rows.
+
+$$E(x) = \sum x\,P(x) \qquad \sigma^{2} = \sum (x - \mu)^{2}\,P(x)$$
+
+*Business reading:* a cheaper price with a catch is not a price; it is a distribution, and you compare distributions by their mean — and then by their spread. The decision tree: a **square** where we choose, a **circle** where chance chooses; the number at a node is the expected value of everything to its right.
+""")
+code(r"""
+def rv_table(values, shares, unit="€"):
+    v, P = np.array(values, dtype=float), np.array(shares, dtype=float)
+    assert abs(P.sum() - 1) < 1e-9, "shares must add to 1"
+    mu = (v * P).sum()
+    t = pd.DataFrame({"x": v, "P(x)": P, "x·P(x)": v * P, "x − μ": v - mu, "(x − μ)²": (v - mu) ** 2,
+                      "(x − μ)²·P(x)": (v - mu) ** 2 * P})
+    t.loc["sum"] = ["", P.sum(), mu, "", "", ((v - mu) ** 2 * P).sum()]
+    print(t.to_string(index=False))
+    var = ((v - mu) ** 2 * P).sum()
+    print(f"\nE(x) = {' + '.join(f'{b:.2f} × {a:g}' for a, b in zip(v, P))} = {' + '.join(f'{a*b:.2f}' for a, b in zip(v, P))} = {unit}{mu:.2f}")
+    print(f"σ² = {var:.2f},  σ = √{var:.2f} = {unit}{math.sqrt(var):.1f}")
+    return mu, var
+
+print("Ampere, cost per battery — the chance node:\n")
+E_amp, V_amp = rv_table([165, 165 + 90], [.95, .05])
+sd_amp = math.sqrt(V_amp)
+print(f"\nOn average Ampere costs €{E_amp:.2f} a battery: the €165 price plus €{.05*90:.2f} for the faulty ones.")
+print(f"Against Volta's €180: €{180 - E_amp:.2f} cheaper a battery, €{1000*(180 - E_amp):,.0f} a month.\n")
+
+tree = pd.DataFrame({"Volta": ["€180.00", "€0", "€180"], "Ampere": [f"€{E_amp:.2f}", f"€{sd_amp:.1f}", "€255"]},
+                    index=["expected cost", "spread σ", "worst battery"])
+print(tree.to_string())
+print("\nExpected value picks Ampere. Spread picks Volta. A decision has two numbers, and the Board must hear both.")
+""")
+
+code(r"""
+# When does the spread matter? Volume.
+n_m, p_f = 1000, .05
+mu_f, sd_f = n_m * p_f, math.sqrt(n_m * p_f * (1 - p_f))
+print(f"A thousand batteries a month — the faulty count is binomial, n = {n_m}, p = {p_f}:")
+print(f"  np = {mu_f:.0f} faulty,  σ = √({n_m} × {p_f} × {1-p_f}) = {sd_f:.1f}")
+bill, bill_sd = 165 * n_m + 90 * mu_f, 90 * sd_f
+print(f"  monthly bill = €165 × {n_m:,} + €90 × {mu_f:.0f} = €{bill:,.0f}, give or take €{bill_sd:,.0f}. The €{1000*(180-E_amp):,.0f} saving is never at risk.\n")
+
+n_r = 10
+saving_r = n_r * (180 - 165)
+P0_r, P1_r = stats.binom.pmf(0, n_r, p_f), stats.binom.pmf(1, n_r, p_f)
+P2plus = 1 - P0_r - P1_r
+print(f"A rush order of ten — same p, n = {n_r}: the saving on ten batteries is €{saving_r}; two faulty cost €{2*90} and wipe it out.")
+print(f"  P(X ≥ 2) = 1 − P(0) − P(1) = 1 − {P0_r:.3f} − {P1_r:.3f} = {P2plus:.3f}   — one rush order in {round(1/P2plus)}.")
+print("\nBoard sentence: sign Ampere for the volume contract, €10.50 a battery cheaper on average and the faults average out to about fifty,")
+print("give or take seven. Keep Volta for rush orders of a few units, where one faulty battery in a box of ten is a problem the saving cannot pay for.")
+print("Expected value decides when the decision repeats. Spread decides when it does not.")
+""")
+
+code(r"""
+# Drag Ampere's defect rate: when does the expected value flip back to Volta?
+rates = np.round(np.arange(0.00, 0.3001, 0.01), 2)
+def ev_amp(r, price=165, swap=90):
+    return price + r * swap
+flip = (180 - 165) / 90                      # the rate at which 165 + r × 90 = 180
+fig = go.Figure()
+for r in rates:
+    e = ev_amp(r); sd = math.sqrt((1 - r) * (165 - e) ** 2 + r * (255 - e) ** 2)
+    fig.add_bar(x=["Volta", "Ampere"], y=[180, e], marker_color=[GREY, RED if e < 180 else INK], visible=bool(abs(r - .05) < 1e-9),
+                text=["€180.00", f"€{e:.2f} ± {sd:.1f}"], textposition="outside", showlegend=False, name=f"{r:.0%}")
+fig.add_hline(y=180, line=dict(color=GOLD, dash="dot"), annotation_text="Volta, certain €180")
+steps = [dict(method="update", label=f"{r:.0%}",
+              args=[{"visible": [j == i for j in range(len(rates))]},
+                    {"title": f"Ampere defect rate {r:.0%} → expected cost €{ev_amp(r):.2f} a battery  ({'Ampere cheaper' if ev_amp(r) < 180 else 'Volta cheaper' if ev_amp(r) > 180 else 'a tie'})"}])
+         for i, r in enumerate(rates)]
+fig.update_layout(template="simple_white", height=460, yaxis_range=[150, 215], yaxis_title="expected cost per battery, €",
+                  title="Ampere defect rate 5% → expected cost €169.50 a battery  (Ampere cheaper)",
+                  sliders=[dict(active=int(np.argmin(abs(rates - .05))), steps=steps, currentvalue=dict(prefix="Ampere's defect rate: "))])
+fig.show()
+print(f"{'defect rate':>12} {'E(Ampere)':>10} {'vs Volta':>10}")
+for r in (.00, .05, .10, flip, .20):
+    print(f"{r:>12.1%} {ev_amp(r):>10.2f} {ev_amp(r) - 180:>+10.2f}")
+print(f"\nThe expected value flips at a defect rate of 15/90 = {flip:.1%}: above that, the €15 discount no longer pays for the swaps.")
+""")
+
+md(r"""
+### 🔍 CHECK
+Shares at the chance node add to 1; the worst end node is the price plus the full cost of the catch. The expected value is the price you pay on average; the spread is the surprise you pay sometimes. A repeated decision follows the mean; a one-off weighs the spread. If your $E(x)$ is below the best end node or above the worst, the weights are wrong.
+""")
+
+# ---------------- D ----------------
+md(r"""
+## D. How many late orders in 250? — the normal approximation, then Monte Carlo
+
+Each of **250** orders ships late with $p = .06$, alone: binomial. The logistics partner charges a penalty when a month has **20 or more** late orders. The four steps of block A would need $\binom{250}{20}$ and $.94^{230}$, then the same for 21, 22, … 250: nobody does that by hand.
+
+$$\mu = np \qquad \sigma = \sqrt{np(1-p)} \qquad z = \frac{x - \tfrac{1}{2} - \mu}{\sigma}$$
+
+*Business reading:* with many trials the bars become a bell, so a count is read like a measurement: $np$, $\sqrt{np(1-p)}$, then block B's four steps. It works when $np \geq 5$ and $n(1-p) \geq 5$. A bar for a whole number spans half a unit each side, so "20 or more" starts at **19.5**: the half unit, or continuity correction.
+""")
+code(r"""
+n, p = 250, .06
+mu_n, sd_n = n * p, math.sqrt(n * p * (1 - p))
+print(f"μ = np = {n} × {p} = {mu_n:g} late orders")
+print(f"σ = √np(1−p) = √({n} × {p} × {1-p}) = √{n*p*(1-p):.1f} = {sd_n:.3f}")
+print(f"check: np = {mu_n:g} ≥ 5 and n(1−p) = {n*(1-p):g} ≥ 5 → the bell may be used\n")
+
+print("Twenty or more late, with the half unit:")
+z_half, P_half = normal_steps(19.5, mu_n, round(sd_n, 3), tail="above")
+exact = 1 - stats.binom.cdf(19, n, p)
+print(f"\nThe exact binomial, summed by a computer: P(X ≥ 20) = {exact:.3f} — the bell is off by three in a thousand.")
+z_no = (20 - mu_n) / sd_n
+print(f"Without the half unit: z = 5 / {sd_n:.3f} = {z_no:.2f}, area {1 - table_left(z_no):.3f} — a tenth too small. Use the half unit, and move on.")
+print(f"\nSentence: of 250 orders, expect 15 late, give or take four. A penalty month comes about one month in {round(1/P_half)}.")
+print(f"Cut the late rate to 4% and P(X ≥ 20) = {1 - stats.binom.cdf(19, 250, .04):.3f}: rarer than one in fifty.")
+""")
+
+code(r"""
+xs = np.arange(0, 36)
+pmf = stats.binom.pmf(xs, n, p)
+grid = np.linspace(0, 35, 500)
+fig = go.Figure()
+fig.add_bar(x=xs, y=pmf, marker_color=[RED if x >= 20 else GREY for x in xs], name="exact binomial, n = 250, p = .06", opacity=.85)
+fig.add_scatter(x=grid, y=stats.norm.pdf(grid, mu_n, sd_n), mode="lines", line=dict(color=INK, width=3), name=f"N(15, {sd_n:.3f})")
+tail = grid >= 19.5
+fig.add_scatter(x=grid[tail], y=stats.norm.pdf(grid[tail], mu_n, sd_n), fill="tozeroy", mode="lines", line=dict(width=0),
+                fillcolor="rgba(175,31,37,.3)", name="area from 19.5: the bell's P(X ≥ 20)")
+fig.add_vline(x=19.5, line=dict(color=GOLD, width=2, dash="dash"), annotation_text="19.5, the half unit", annotation_position="top right")
+fig.update_layout(template="simple_white", height=460, title="The bars become a bell: late orders among 250",
+                  xaxis_title="late orders in the month", yaxis_title="probability", legend=dict(x=.55, y=.95))
+fig.show()
+print(f"red bars (exact) = {pmf[xs >= 20].sum():.3f}    shaded area from 19.5 (bell) = {1 - stats.norm.cdf(19.5, mu_n, sd_n):.3f}    without the half unit, from 20 = {1 - stats.norm.cdf(20, mu_n, sd_n):.3f}")
+""")
+
+md(r"""
+### Monte Carlo: when you cannot compute, simulate
+Twelve test rides, $p = .25$. Instead of the formula, **play the Saturday**: twelve coin flips, each lands "buy" one time in four, count the buyers. Then play **a thousand Saturdays** and let the counts pile into bars. The histogram of the simulation **is** the binomial: the formula is the shortcut, the simulation is the thing itself — and it still runs when there is no formula (two couriers, a rate that changes with the weather, faults that come in batches).
+""")
+code(r"""
+rng = np.random.default_rng(83)
+S = 1000
+saturdays = rng.random((S, 12)) < .25            # 1,000 Saturdays × 12 riders: True = buys
+buyers = saturdays.sum(axis=1)
+print("The first five Saturdays, played:", ", ".join(f"{b} buyer{'s' if b != 1 else ''}" for b in buyers[:5]))
+
+xs = np.arange(0, 13)
+counts = np.bincount(buyers, minlength=13)
+fig = go.Figure()
+fig.add_bar(x=xs, y=counts / S, marker_color=RED, name="1,000 simulated Saturdays", opacity=.85)
+fig.add_scatter(x=xs, y=stats.binom.pmf(xs, 12, .25), mode="markers+lines", marker=dict(color=INK, size=9), line=dict(color=INK, dash="dot"),
+                name="binomial formula, n = 12, p = .25")
+fig.update_layout(template="simple_white", height=440, title="A thousand Saturdays, counted — and the formula on top",
+                  xaxis_title="buyers out of 12", yaxis_title="share of Saturdays", legend=dict(x=.55, y=.95))
+fig.show()
+
+with3, with0 = int(counts[3]), int(counts[0])
+print(f"Saturdays with exactly 3 buyers: {with3} of 1,000 ({with3/S:.3f}); the formula says {stats.binom.pmf(3, 12, .25):.3f}, about {1000*stats.binom.pmf(3, 12, .25):.0f}")
+print(f"Saturdays with none:             {with0} of 1,000 ({with0/S:.3f}); the formula says {stats.binom.pmf(0, 12, .25):.3f}, about {1000*stats.binom.pmf(0, 12, .25):.0f}")
+print(f"mean buyers {buyers.mean():.2f} vs np = 3;  sd {buyers.std():.2f} vs √np(1−p) = 1.5.  Not exactly: a thousand is a sample too.")
+""")
+
+code(r"""
+# Same trick for the 250 orders: play the month a thousand times
+months = (rng.random((S, 250)) < .06).sum(axis=1)
+late20 = int((months >= 20).sum())
+print(f"Months with 20 or more late orders: {late20} of 1,000 ({late20/S:.3f})")
+print(f"  the exact binomial says {1 - stats.binom.cdf(19, 250, .06):.3f}, about {1000*(1 - stats.binom.cdf(19, 250, .06)):.0f}; the bell estimated {1 - stats.norm.cdf(19.5, 15, math.sqrt(14.1)):.3f}")
+print(f"  mean late orders {months.mean():.2f} vs np = 15;  sd {months.std():.2f} vs √np(1−p) = {math.sqrt(14.1):.3f}")
+
+fig = go.Figure()
+fig.add_histogram(x=months, xbins=dict(start=-0.5, end=35.5, size=1), histnorm="probability", marker_color=RED, opacity=.85, name="1,000 simulated months")
+fig.add_scatter(x=np.arange(0, 36), y=stats.binom.pmf(np.arange(0, 36), 250, .06), mode="markers+lines", marker=dict(color=INK, size=7),
+                line=dict(color=INK, dash="dot"), name="exact binomial")
+fig.add_vline(x=19.5, line=dict(color=GOLD, width=2, dash="dash"), annotation_text="penalty from 20", annotation_position="top right")
+fig.update_layout(template="simple_white", height=420, title="A thousand months of 250 orders", xaxis_title="late orders", yaxis_title="share of months",
+                  legend=dict(x=.6, y=.95))
+fig.show()
+print("\nThe formula needs the model to be clean: same p, independent trials. A simulation only needs you to describe one month honestly.")
+""")
+
+md(r"""
+### 🔍 CHECK
+Before the bell: $np \geq 5$ and $n(1-p) \geq 5$, both written down. "20 or more" starts at 19.5, "20 or fewer" ends at 20.5; the sketch tells you which side the half unit goes. The simulation must land within a few in a thousand of the formula — if it does not, the model you simulated is not the model you computed.
 """)
 
 # ---------------------------------------------------------------------------
@@ -465,115 +463,58 @@ code(r"""
 def close(value, expected, tol=1e-3):
     assert abs(value - expected) <= tol, f"got {value}, drills.md says {expected}"
 
-def table_left(z):
-    # what the printed standard normal table shows: z to two decimals, area to the left to four
-    return round(stats.norm.cdf(round(z, 2)), 4)
-
 print("helpers ready")
 """)
 
 # ---- D1 -------------------------------------------------------------------
 md(r"""
-**D1.** The founder sends 2 of the 6 mechanics to a training course. (a) How many different pairs? (b) With a **lead** and an **assistant**, how many assignments? (c) Why is (b) exactly twice (a)?
+**D1.** (a) Saturday brings 10 test rides; three riders in ten buy, each deciding alone. Name the model; find $P(2)$, $P(0)$, $P(\geq 1)$, the mean and the standard deviation. (b) Web-shop orders arrive at random, 4 an hour: name the model, find $P(0)$ and $P(2)$ in an hour; then, for a 15-minute coffee break, $\mu$ first, $P(0)$ and $P(\geq 1)$.
 """)
 code(r"""
-n, k = 6, 2
-pairs = math.comb(n, k)                       # (a) a pair is a pair: order does not matter
-assignments = math.perm(n, k)                 # (b) named roles: order matters
-print(f"(a) C(6,2) = 6! / (2!·4!) = 6·5 / 2 = {6*5} / 2 = {pairs} pairs")
-print(f"(b) P(6,2) = 6! / 4! = 6·5 = {assignments} assignments: 6 choices for the lead, 5 left for the assistant")
-print(f"(c) each pair takes the two roles in 2! = {math.factorial(k)} ways: {pairs} × {math.factorial(k)} = {pairs * math.factorial(k)}")
-close(pairs, 15); close(assignments, 30); close(assignments / pairs, 2)
-print("\nFifteen different pairs can go; thirty different lead–assistant assignments. The 2! underneath in (a) removes exactly those orderings.")
-""")
-
-# ---- D2 -------------------------------------------------------------------
-md(r"""
-**D2.** Motors from two suppliers: **Rotor** sends 60%, 3% faulty; **Spin** sends 40%, 6% faulty. Last month, 500 motors. (a) The two-way table. (b) $P(\text{faulty} \mid \text{Rotor})$ and $P(\text{Rotor} \mid \text{faulty})$. (c) Independent? (d) Bayes for $P(\text{Spin} \mid \text{faulty})$.
-""")
-code(r"""
-N = 500
-counts = [round(.60 * N), round(.40 * N)]                                  # 300 Rotor, 200 Spin
-print("(a) " + "; ".join(f"{s}: {c} motors, {round(c*r)} faulty, {c - round(c*r)} good" for s, c, r in zip(["Rotor", "Spin"], counts, [.03, .06])))
-d2 = two_way(["Rotor", "Spin"], counts, [.03, .06])
-print(d2.to_string())
-assert d2.loc["Rotor"].tolist() == [291, 9, 300] and d2.loc["Spin"].tolist() == [188, 12, 200] and d2.loc["total"].tolist() == [479, 21, 500]
-
-p_f_rotor = d2.loc["Rotor", "faulty"] / d2.loc["Rotor", "total"]           # the row
-p_rotor_f = d2.loc["Rotor", "faulty"] / d2.loc["total", "faulty"]           # the column
-print(f"\n(b) P(faulty | Rotor) = 9 / 300 = {p_f_rotor:.3f}   — Rotor's row: how good is Rotor")
-print(f"    P(Rotor | faulty) = 9 / 21  = {p_rotor_f:.3f}   — the faulty column: who sent this faulty one")
-close(p_f_rotor, .03); close(p_rotor_f, .429)
-
-p_f_spin = d2.loc["Spin", "faulty"] / d2.loc["Spin", "total"]; p_f = d2.loc["total", "faulty"] / N
-print(f"\n(c) rows: Rotor {p_f_rotor:.3f}, Spin {p_f_spin:.3f}; total {p_f:.3f} → the rows differ: DEPENDENT")
-close(p_f_spin, .06); close(p_f, .042)
-
-bt2 = bayes_table(["Rotor", "Spin"], [.60, .40], [.03, .06])
-print("\n(d)"); print(bt2.round(3).to_string())
-p_spin_f = .06 * .40 / (.03 * .60 + .06 * .40)
-print(f"    P(Spin | faulty) = .06 × .40 / (.03 × .60 + .06 × .40) = .024 / .042 = {p_spin_f:.3f};  via counts 12/21 = {12/21:.3f}")
-close(.60 * .03, .018, 1e-9); close(.40 * .06, .024, 1e-9); close(p_spin_f, .571); close(12 / 21, .571)
-print("\nSpin sends 40% of the motors but is behind 57% of the faulty ones: the likelier culprit, not a certain one.")
-""")
-
-# ---- D3 -------------------------------------------------------------------
-md(r"""
-**D3.** (a) Warranty claims in the last six weeks: 2, 5, 3, 6, 4, 4 — mean, sample variance and standard deviation by hand, in a table. (b) Saturday brings 10 test rides; three riders in ten buy, each deciding alone: name the model, find $P(2)$, $P(0)$, $P(\geq 1)$, the mean and the standard deviation. (c) Web-shop orders arrive at random, 4 an hour: name the model, find $P(0)$ and $P(2)$ in an hour; then, for a 15-minute coffee break, $\mu$ first, $P(0)$ and $P(\geq 1)$.
-""")
-code(r"""
-xbar3, s2_3 = spread_table([2, 5, 3, 6, 4, 4], label="claims")
-close(xbar3, 4); close(s2_3, 2.0); close(math.sqrt(s2_3), 1.41, 5e-3)   # drills.md rounds to two decimals
-print(f"\nAbout {xbar3:g} claims a week, give or take {math.sqrt(s2_3):.1f}.")
-""")
-
-code(r"""
-# D3 (b)
+# D1 (a)
 n, p = 10, .3
-print("Binomial: a fixed number of trials (10), each yes or no, the same p = .3 every time, each rider alone.\n")
+print("(a) Binomial: a fixed number of trials (10), each yes or no, the same p = .3 every time, each rider alone.\n")
 P2 = binomial_steps(n, 2, p)
 P0 = (1 - p) ** n
 print(f"\nP(0) = .7^10 = {P0:.3f}     P(≥1) = 1 − {P0:.3f} = {1 - P0:.3f}")
 print(f"np = 10 × .3 = {n*p:g} buyers     σ = √(10 × .3 × .7) = √{n*p*(1-p):.1f} = {math.sqrt(n*p*(1-p)):.2f}")
-close(math.comb(10, 2), 45); close(.7 ** 8, .05765, 1e-4); close(P2, .233)
-close(P0, .028); close(1 - P0, .972); close(n * p, 3); close(math.sqrt(n * p * (1 - p)), 1.45)
-print("\nExpect three buyers, give or take one and a half; a Saturday with no sale happens about three times in a hundred.")
-""")
+close(math.comb(10, 2), 45); close(.3 ** 2, .09, 1e-9); close(.7 ** 8, .05765, 1e-4); close(45 * .09 * .05765, .233); close(P2, .233)
+close(P0, .028); close(1 - P0, .972); close(n * p, 3); close(n * p * (1 - p), 2.1, 1e-9); close(math.sqrt(n * p * (1 - p)), 1.45)
+print("Expect three buyers, give or take one and a half; a Saturday with no sale happens about three times in a hundred.\n")
 
-code(r"""
-# D3 (c)
-print("Poisson: orders arrive at random over time, at a constant rate, with no ceiling on the count.\n")
+# D1 (b)
+print("(b) Poisson: orders arrive at random over time, at a constant rate, with no ceiling on the count.\n")
 print("One hour:"); mu4, P0_4 = poisson_steps(4, 1)
 print("\nA 15-minute break — a quarter of an hour, so μ first:"); mu1, P0_1 = poisson_steps(4, 0.25)
-close(P0_4, .018); close(stats.poisson.pmf(2, 4), .147); close(math.exp(-4), .01832, 1e-4)
-close(mu1, 1); close(P0_1, .368); close(1 - P0_1, .632)
+close(math.exp(-4), .01832, 1e-4); close(P0_4, .018); close(stats.poisson.pmf(2, 4), .147); close(16 * .01832 / 2, .147)
+close(mu1, 1, 1e-9); close(P0_1, .368); close(1 - P0_1, .632)
 print("\nA silent hour is rare, two in a hundred; a silent coffee break happens more than once in three.")
 """)
 
-# ---- D4 -------------------------------------------------------------------
+# ---- D2 -------------------------------------------------------------------
 md(r"""
-**D4.** A full charge takes 240 minutes on average, standard deviation 20, bell-shaped: $X \sim N(240, 20)$. (a) Share over 270 minutes. (b) Share between 220 and 260, and the rule of thumb that gives it. (c) The slowest 10% are flagged: from how many minutes? (d) Delivery times: mean 3.1 days, median 2.4 — what shape, and why is the table the wrong tool?
+**D2.** Bike weight off the line: $X \sim N(22,\,1.5)$ kg. (a) Share under 20 kg. (b) Share between 21 and 24 kg. (c) The heaviest 5% are sent back for a check: from what weight? End in kg. (d) Delivery times: mean 3.1 days, median 2.4 — what shape, and why is the table the wrong tool?
 """)
 code(r"""
-mu, sigma = 240, 20
-print("(a) shade the right tail beyond 270"); z_a, above270 = normal_steps(270, mu, sigma, tail="above")
-close(z_a, 1.5, 1e-9); close(table_left(z_a), .9332, 1e-4); close(above270, .067)
-print("    About 7 charges in 100 take more than four and a half hours.\n")
+mu, sigma = 22, 1.5
+print("(a) shade the left tail below 20 kg"); z_a, below20 = normal_steps(20, mu, sigma)
+close(z_a, -1.333); close(table_left(z_a), .0918, 1e-4); close(below20, .092)
+print("    About nine bikes in a hundred come in under 20 kg; the customer will wait, or pay for the light frame.\n")
 
-print("(b) shade between 220 and 260: two lookups, area to the left of each, and a difference")
-z_lo, z_hi = (220 - mu) / sigma, (260 - mu) / sigma
+print("(b) shade between 21 and 24: two lookups, area to the left of each, and a difference")
+z_lo, z_hi = (21 - mu) / sigma, (24 - mu) / sigma
 between = table_left(z_hi) - table_left(z_lo)
-print(f"    z = {z_lo:+.0f} and z = {z_hi:+.0f}:  P(−1 < z < 1) = {table_left(z_hi):.4f} − {table_left(z_lo):.4f} = {between:.3f}")
-close(table_left(z_hi), .8413, 1e-4); close(table_left(z_lo), .1587, 1e-4); close(between, .683)
-print("    One σ either side of the mean: the 68% rule, no table needed.\n")
+print(f"    z = {z_lo:.2f} and z = {z_hi:.2f}:  P({z_lo:.2f} < z < {z_hi:.2f}) = {table_left(z_hi):.4f} − {table_left(z_lo):.4f} = {between:.3f}")
+close(z_lo, -0.667); close(z_hi, 1.333); close(table_left(z_hi), .9082, 1e-4); close(table_left(z_lo), .2514, 1e-4); close(between, .657)
+close(stats.norm.cdf(24, mu, sigma) - stats.norm.cdf(21, mu, sigma), .656)
+print("    Two bikes in three weigh between 21 and 24 kg.\n")
 
-print("(c) backwards: the slowest 10% is the right tail, so 90% of the area is to the left of the threshold")
-print(f"    find .9000 inside the table: z = 1.28 gives {table_left(1.28):.4f}, z = 1.29 gives {table_left(1.29):.4f} → nearer 1.28   (Excel: =NORM.S.INV(0.90) = {stats.norm.ppf(.9):.3f})")
-z_c = 1.28
-x_c = mu + z_c * sigma
-print(f"    undo the standardisation: x = μ + zσ = 240 + 1.28 × 20 = 240 + {z_c*sigma:.1f} = {x_c:.1f} minutes")
-close(table_left(1.28), .8997, 1e-4); close(table_left(1.29), .9015, 1e-4); close(stats.norm.ppf(.9), 1.28, 5e-3); close(x_c, 265.6)
-print("    A charge over about 266 minutes is flagged.\n")
+print("(c) backwards: the heaviest 5% is the right tail, so 95% of the area is to the left of the threshold")
+print(f"    find .9500 inside the table: z = 1.64 gives {table_left(1.64):.4f}, z = 1.65 gives {table_left(1.65):.4f} → z = 1.645   (Excel: =NORM.S.INV(0.95) = {stats.norm.ppf(.95):.3f})")
+z_c = 1.645; x_c = mu + z_c * sigma
+print(f"    undo the standardisation: x = μ + zσ = 22 + 1.645 × 1.5 = 22 + {z_c*sigma:.2f} = {x_c:.1f} kg")
+close(table_left(1.64), .9495, 1e-4); close(table_left(1.65), .9505, 1e-4); close(stats.norm.ppf(.95), 1.645); close(z_c * sigma, 2.47, 5e-3); close(x_c, 24.5, .05)
+print("    A bike over about 24.5 kg goes back for a check.\n")
 
 print("(d) delivery times: mean 3.1 days, median 2.4 days")
 mean_d, median_d = 3.1, 2.4
@@ -582,32 +523,86 @@ print(f"    mean − median = {mean_d - median_d:+.1f} days: a long right tail, 
 print("    The normal is symmetric (mean = median), so a z from a mean of 3.1 would give the wrong areas: the table only answers questions about bells.")
 """)
 
+# ---- D3 -------------------------------------------------------------------
+md(r"""
+**D3.** €2,000 for one promotion in December; each extra bike earns the €600 margin (list €1,000, variable cost €400). **Test-ride Saturday**, cost €2,000: extra sales 6 / 10 / 14 bikes with probability .3 / .5 / .2. **Online ads**, cost €1,000: extra sales 4 / 6 bikes with probability .5 / .5. (a) The tree with the **profit** at each end node. (b) Expected profit of each. (c) Standard deviation of each. (d) Two sentences for the Board.
+""")
+code(r"""
+margin = 1000 - 400; close(margin, 600)
+sat_x = [b * margin - 2000 for b in (6, 10, 14)]; sat_p = [.3, .5, .2]
+ads_x = [b * margin - 1000 for b in (4, 6)];      ads_p = [.5, .5]
+print("(a) end-node profits, margin €600 a bike minus the cost of the option")
+print("    Saturday (cost €2,000): " + "; ".join(f"{b} × 600 − 2,000 = {x:,}" for b, x in zip((6, 10, 14), sat_x)))
+print("    Ads (cost €1,000):      " + "; ".join(f"{b} × 600 − 1,000 = {x:,}" for b, x in zip((4, 6), ads_x)))
+assert sat_x == [1600, 4000, 6400] and ads_x == [1400, 2600]
+print("    The tree: a square 'which promotion?', two branches; on each a circle with branches .3 / .5 / .2 and .5 / .5, the profits at the ends.\n")
+
+print("(b), (c) Test-ride Saturday:"); E_sat, V_sat = rv_table(sat_x, sat_p)
+print("\n(b), (c) Online ads:"); E_ads, V_ads = rv_table(ads_x, ads_p)
+assert np.allclose(np.array(sat_x) * sat_p, [480, 2000, 1280]) and np.allclose(np.array(ads_x) * ads_p, [700, 1300])
+assert np.allclose(np.array(sat_x) - E_sat, [-2160, 240, 2640]) and np.allclose((np.array(sat_x) - E_sat) ** 2 * sat_p, [1399680, 28800, 1393920])
+close(E_sat, 3760, 1e-6); close(E_ads, 2000, 1e-6); close(E_sat - E_ads, 1760, 1e-6)
+close(V_sat, 2822400, 1e-6); close(math.sqrt(V_sat), 1680, 1e-6); close(V_ads, 360000, 1e-6); close(math.sqrt(V_ads), 600, 1e-6)
+close(1680 / 600, 2.8, 1e-9); assert min(sat_x) == 1600 < E_ads
+
+print(f"\n(d) The test-ride Saturday earns €{E_sat:,.0f} on average against €{E_ads:,.0f} for the ads, €{E_sat - E_ads:,.0f} more; its worst case, €{min(sat_x):,},")
+print(f"    still beats the ads' average. Its spread is nearly three times larger (€{math.sqrt(V_sat):,.0f} against €{math.sqrt(V_ads):,.0f}): the Saturday can end anywhere")
+print("    between €1,600 and €6,400, the ads between €1,400 and €2,600. Expected value picks the Saturday; the spread says the result will be a")
+print("    surprise either way — and since even the bad Saturday beats the ads, the Board can take the Saturday without fear.")
+""")
+
+# ---- D4 -------------------------------------------------------------------
+md(r"""
+**D4.** 300 orders this month, each late with probability .05, independently; a penalty when 20 or more are late. (a) The exact model, and why not by hand. (b) Mean and standard deviation of the late count. (c) Check the bell may be used, then $P(X \geq 20)$ with the four steps and the half unit. (d) One sentence for the founder.
+""")
+code(r"""
+n4, p4 = 300, .05
+print("(a) Binomial, n = 300, p = .05: a fixed number of orders, each late or not, the same p, independent.")
+print("    '20 or more' means summing P(20) + P(21) + … + P(300), each with C(300, x) and .95^(300−x): not by hand.\n")
+
+mu4, sd4 = n4 * p4, math.sqrt(n4 * p4 * (1 - p4))
+print(f"(b) μ = np = 300 × .05 = {mu4:g}     σ = √(300 × .05 × .95) = √{n4*p4*(1-p4):.2f} = {sd4:.3f}\n")
+close(mu4, 15, 1e-9); close(n4 * p4 * (1 - p4), 14.25, 1e-9); close(sd4, 3.775, 5e-4)
+
+print(f"(c) np = {mu4:g} ≥ 5 and n(1−p) = {n4*(1-p4):g} ≥ 5: the bell may be used. The bar for 20 starts at 19.5, shade from there to the right.")
+assert mu4 >= 5 and n4 * (1 - p4) >= 5
+z4, P4 = normal_steps(19.5, mu4, round(sd4, 3), tail="above")
+exact4 = 1 - stats.binom.cdf(19, n4, p4)
+z4_no = (20 - mu4) / sd4
+print(f"    (The exact binomial gives {exact4:.3f}. Without the half unit, z = 5/{sd4:.3f} = {z4_no:.2f} and the area is {1 - table_left(z4_no):.3f} — a fifth too small.)")
+close(z4, 1.19, 3e-3); close(table_left(z4), .8830, 1e-4); close(P4, .117); close(exact4, .119); close(z4_no, 1.32, 5e-3); close(1 - table_left(z4_no), .093)
+close(1 / P4, 8.5, .5)
+print(f"\n(d) Expect 15 late orders, give or take four; a penalty month comes about once in eight or nine months.")
+""")
+
 md(r"""
 ## Homework 7 and what comes next
 
-`homework.md` — due **Sunday 15 November, 23:59 on Moodle**: five exercises on paper and a 150–250-word memo to the Board on the range to print. We go through it together at the start of next Monday's session.
+`homework.md` — due **Sunday 15 November, 23:59 on Moodle**: five exercises on paper (H1 a binomial on financing quotes, H2 a Poisson rescaled twice, H3 the normal forwards and backwards, H4 two couriers in a decision tree, H5 the normal approximation) and a 150–250-word memo to the Board on the range to print. We go through it together at the start of next Monday's session.
 
-Next Monday, online: *how sure are we of that number?* 200 bikes gave 90 km; the true average is not 90. Week 8 says how far off it can be.
+Next **Monday 16 November, online**: *how sure are we of that number?* 200 bikes gave 90 km; the true average is not 90. Week 8 says how far off it can be.
 """)
 
 code(r"""
 # Every number in drills.md, re-checked here. Change a number in a drill and this cell tells you what else moves.
 checks = [
-    ("D1 pairs C(6,2)", math.comb(6, 2), 15), ("D1 assignments P(6,2)", math.perm(6, 2), 30),
-    ("D2 Rotor faulty", round(.03 * 300), 9), ("D2 Spin faulty", round(.06 * 200), 12), ("D2 total faulty", 9 + 12, 21),
-    ("D2 P(faulty | Rotor)", 9 / 300, .03), ("D2 P(Rotor | faulty)", 9 / 21, .429), ("D2 P(faulty | Spin)", 12 / 200, .06),
-    ("D2 P(faulty)", 21 / 500, .042), ("D2 Bayes P(Spin | faulty)", .06 * .40 / (.03 * .60 + .06 * .40), .571),
-    ("D3 mean", np.mean([2, 5, 3, 6, 4, 4]), 4), ("D3 s²", np.var([2, 5, 3, 6, 4, 4], ddof=1), 2.0), ("D3 s", np.std([2, 5, 3, 6, 4, 4], ddof=1), 1.41),
-    ("D3 binomial P(2)", stats.binom.pmf(2, 10, .3), .233), ("D3 binomial P(0)", stats.binom.pmf(0, 10, .3), .028),
-    ("D3 binomial P(≥1)", 1 - stats.binom.pmf(0, 10, .3), .972), ("D3 binomial mean", 10 * .3, 3), ("D3 binomial σ", math.sqrt(10 * .3 * .7), 1.45),
-    ("D3 Poisson μ=4 P(0)", stats.poisson.pmf(0, 4), .018), ("D3 Poisson μ=4 P(2)", stats.poisson.pmf(2, 4), .147),
-    ("D3 Poisson μ=1 P(0)", stats.poisson.pmf(0, 1), .368), ("D3 Poisson μ=1 P(≥1)", 1 - stats.poisson.pmf(0, 1), .632),
-    ("D4 P(X > 270)", 1 - stats.norm.cdf(270, 240, 20), .067), ("D4 P(220 < X < 260)", stats.norm.cdf(260, 240, 20) - stats.norm.cdf(220, 240, 20), .683),
-    ("D4 flag threshold, minutes", 240 + 1.28 * 20, 265.6),
+    ("D1 C(10,2)", math.comb(10, 2), 45), ("D1 binomial P(2)", stats.binom.pmf(2, 10, .3), .233), ("D1 binomial P(0)", stats.binom.pmf(0, 10, .3), .028),
+    ("D1 binomial P(≥1)", 1 - stats.binom.pmf(0, 10, .3), .972), ("D1 binomial mean", 10 * .3, 3), ("D1 binomial σ", math.sqrt(10 * .3 * .7), 1.45),
+    ("D1 Poisson μ=4 P(0)", stats.poisson.pmf(0, 4), .018), ("D1 Poisson μ=4 P(2)", stats.poisson.pmf(2, 4), .147),
+    ("D1 Poisson μ for 15 min", 4 * .25, 1), ("D1 Poisson μ=1 P(0)", stats.poisson.pmf(0, 1), .368), ("D1 Poisson μ=1 P(≥1)", 1 - stats.poisson.pmf(0, 1), .632),
+    ("D2 z for 20 kg", (20 - 22) / 1.5, -1.33), ("D2 P(X < 20)", stats.norm.cdf(20, 22, 1.5), .092),
+    ("D2 P(21 < X < 24)", stats.norm.cdf(24, 22, 1.5) - stats.norm.cdf(21, 22, 1.5), .656), ("D2 table z=1.33", table_left(1.33), .9082), ("D2 table z=−0.67", table_left(-0.67), .2514),
+    ("D2 z for the top 5%", stats.norm.ppf(.95), 1.645), ("D2 heaviest 5% threshold, kg", 22 + 1.645 * 1.5, 24.5),
+    ("D3 margin", 1000 - 400, 600), ("D3 E(Saturday)", np.dot([1600, 4000, 6400], [.3, .5, .2]), 3760), ("D3 E(ads)", np.dot([1400, 2600], [.5, .5]), 2000),
+    ("D3 difference", 3760 - 2000, 1760), ("D3 var(Saturday)", np.dot((np.array([1600, 4000, 6400]) - 3760) ** 2, [.3, .5, .2]), 2822400),
+    ("D3 σ(Saturday)", math.sqrt(2822400), 1680), ("D3 var(ads)", np.dot((np.array([1400, 2600]) - 2000) ** 2, [.5, .5]), 360000), ("D3 σ(ads)", math.sqrt(360000), 600),
+    ("D4 μ = np", 300 * .05, 15), ("D4 np(1−p)", 300 * .05 * .95, 14.25), ("D4 σ", math.sqrt(300 * .05 * .95), 3.775),
+    ("D4 z with the half unit", (19.5 - 15) / 3.775, 1.19), ("D4 table z=1.19", table_left(1.19), .8830), ("D4 P(X ≥ 20) by the bell", 1 - table_left(1.19), .117),
+    ("D4 exact binomial", 1 - stats.binom.cdf(19, 300, .05), .119), ("D4 without the half unit", 1 - table_left(5 / 3.775), .093),
 ]
 for name, got, want in checks:
-    close(got, want, 5e-3 if want < 20 else 0.05)   # three decimals for shares, two for the rest
-    print(f"  ok  {name:<32} {got:9.4f}   drills.md: {want}")
+    close(got, want, 5e-3 if abs(want) < 20 else 0.05)   # three decimals for shares and z, two for the rest
+    print(f"  ok  {name:<32} {got:14.4f}   drills.md: {want}")
 print(f"\n{len(checks)} numbers in drills.md, re-checked here: all agree.")
 """)
 

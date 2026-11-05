@@ -2,39 +2,42 @@
 
 *One drill per block, on paper, in class. Show all work: formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end.*
 
-## A. Counting
+## A. Binomial and Poisson
 
-**D1 (3 minutes).** The founder sends 2 of the 6 mechanics to a training course.
+**D1 (8 minutes).**
 
-(a) How many different pairs can go? Write the formula, cancel, then the number.
-(b) If one of the two is the **lead** and the other the **assistant**, how many possible assignments?
-(c) In one line: why is (b) exactly twice (a)?
+(a) Saturday brings 10 test rides; from the CRM, three riders in ten buy, each deciding alone. Name the model and say why. Find the probability that exactly 2 buy, that nobody buys, that at least one buys, and the mean and standard deviation of the number of buyers.
+(b) Orders on the web shop arrive at random, 4 an hour on average. Name the model and say why. Find the probability of no order in an hour and of exactly 2 orders in an hour. Then, for a 15-minute coffee break: write $\mu$ first, then the probability of no order and of at least one.
 
-## B. Conditional probability and Bayes
+## B. The normal, forwards and backwards
 
-**D2 (8 minutes).** Motors come from two suppliers. **Rotor** sends 60% of them and 3% of Rotor's motors are faulty; **Spin** sends 40% and 6% of Spin's are faulty. Last month Arno Bikes received 500 motors.
+**D2 (8 minutes).** The weight of an Arno bike off the line is bell-shaped: mean 22 kg, standard deviation 1.5 kg, $X \sim N(22,\,1.5)$. For each part: sketch and shade, standardise, table, one sentence.
 
-(a) Build the two-way table of counts (supplier × good/faulty).
-(b) Find $P(\text{faulty} \mid \text{Rotor})$ and $P(\text{Rotor} \mid \text{faulty})$. Say in one sentence why they are different questions.
-(c) Are supplier and fault independent? Compare the rows, then say the word.
-(d) A faulty motor is on the bench. Use Bayes, written out, to find the probability it came from Spin. Compare with Spin's share of deliveries.
-
-## C. Mean and variance, binomial, Poisson
-
-**D3 (8 minutes).**
-
-(a) Warranty claims in the last six weeks: 2, 5, 3, 6, 4, 4. Compute the mean, the sample variance and the standard deviation by hand, in a table with the deviations and their squares.
-(b) Saturday brings 10 test rides; from the CRM, three riders in ten buy, each deciding alone. Name the model and say why. Find the probability that exactly 2 buy, that nobody buys, that at least one buys, and the mean and standard deviation of the number of buyers.
-(c) Orders on the web shop arrive at random, 4 an hour on average. Name the model and say why. Find the probability of no order in an hour and of exactly 2 orders in an hour. Then, for a 15-minute coffee break: write $\mu$ first, then the probability of no order and of at least one.
-
-## D. The normal
-
-**D4 (8 minutes).** A full charge of an Arno battery takes 240 minutes on average, standard deviation 20 minutes, bell-shaped: $X \sim N(240,\,20)$. For each part: sketch and shade, standardise, table, one sentence.
-
-(a) What share of charges take more than 270 minutes?
-(b) What share take between 220 and 260 minutes? Which rule of thumb gives the same answer without a table?
-(c) The 10% slowest charges are flagged for a battery check. From how many minutes is a charge flagged? End in minutes, not in $z$.
+(a) A customer wants a bike under 20 kg. What share of bikes qualify?
+(b) What share of bikes weigh between 21 and 24 kg?
+(c) The heaviest 5% of bikes are sent back for a check. From what weight is a bike sent back? End in kg, not in $z$.
 (d) Delivery times to customers have a mean of 3.1 days and a median of 2.4 days. In one sentence: what shape is that, and why is the table the wrong tool for it?
+
+## C. Expected value to decide
+
+**D3 (8 minutes).** The founder has €2,000 for one promotion in December and two options. Each extra bike sold earns the usual margin of €600 (list €1,000, variable cost €400).
+
+- **Test-ride Saturday**, cost €2,000: extra sales of 6 bikes with probability .3, 10 bikes with probability .5, 14 bikes with probability .2.
+- **Online ads**, cost €1,000: extra sales of 4 bikes with probability .5, 6 bikes with probability .5.
+
+(a) Draw the decision tree: a square for the choice, a circle for each chance node, the probabilities on the branches, the **profit** (margin minus cost) at each end node.
+(b) Find the expected profit of each option.
+(c) Find the standard deviation of the profit of each option.
+(d) In two sentences for the Board: which option, and what the other number says.
+
+## D. The normal approximation
+
+**D4 (6 minutes).** Arno Bikes ships 300 orders this month; each ships late with probability .05, independently. The logistics partner charges a penalty when 20 or more orders are late.
+
+(a) Name the exact model, and say in one line why you will not compute it by hand.
+(b) Find the mean and the standard deviation of the number of late orders.
+(c) Check that the bell may be used, then find the probability of a penalty month with the four steps and the half unit.
+(d) One sentence for the founder.
 
 ---
 
@@ -43,81 +46,7 @@
 
 **D1.**
 
-(a) A pair is a pair, order does not matter — combinations:
-
-$$\binom{6}{2} = \frac{6!}{2!\,(6-2)!} = \frac{6!}{2!\,4!} = \frac{6 \cdot 5 \cdot \cancel{4!}}{2 \cdot 1 \cdot \cancel{4!}} = \frac{30}{2} = \mathbf{15} \text{ pairs}$$
-
-Fifteen different pairs of mechanics can go on the course.
-
-(b) Lead and assistant are named roles, order matters — permutations:
-
-$$P^{6}_{2} = \frac{6!}{(6-2)!} = \frac{6!}{4!} = 6 \cdot 5 = \mathbf{30} \text{ assignments}$$
-
-Two decisions in a row: 6 choices for the lead, 5 left for the assistant. Thirty different lead–assistant assignments.
-
-(c) Each pair can take the two roles in $2! = 2$ ways: $15 \times 2 = 30$. The $2!$ underneath in (a) removes exactly those orderings.
-
-**D2.**
-
-(a) Counts from the three facts. Rotor: $0.60 \times 500 = 300$ motors, $0.03 \times 300 = 9$ faulty, $300 - 9 = 291$ good. Spin: $0.40 \times 500 = 200$ motors, $0.06 \times 200 = 12$ faulty, $200 - 12 = 188$ good.
-
-| | good | faulty | total |
-|---|---:|---:|---:|
-| **Rotor** | 291 | 9 | 300 |
-| **Spin** | 188 | 12 | 200 |
-| **total** | 479 | 21 | 500 |
-
-(b) Same cell, 9, on top; a different total underneath.
-
-$$P(\text{faulty} \mid \text{Rotor}) = \frac{9}{300} = \mathbf{.03} \qquad \text{(Rotor's row: of Rotor's motors, what share is faulty)}$$
-
-$$P(\text{Rotor} \mid \text{faulty}) = \frac{9}{21} = \mathbf{.429} \qquad \text{(the faulty column: of the faulty motors, what share is Rotor's)}$$
-
-The first answers "how good is Rotor"; the second answers "who sent this faulty one".
-
-(c) Compare the rows with the total:
-
-$$P(\text{faulty} \mid \text{Rotor}) = .03 \qquad P(\text{faulty} \mid \text{Spin}) = \frac{12}{200} = .06 \qquad P(\text{faulty}) = \frac{21}{500} = .042$$
-
-The rows differ from each other and from the total: knowing the supplier changes the share of faulty, so supplier and fault are **dependent**. Had both rows read .042, the supplier would tell us nothing about the fault.
-
-(d) Bayes is the faulty column in shares. First the three-column update, as on the slide:
-
-| supplier | prior share | × defect rate | = faulty, as a share of all | ÷ total faulty |
-|---|---:|---:|---:|---:|
-| Rotor | .60 | .03 | .018 | .018 / .042 = **.429** |
-| Spin | .40 | .06 | .024 | .024 / .042 = **.571** |
-| total | 1.00 | | .042 | 1.00 |
-
-Then the same table in symbols:
-
-$$P(\text{Spin} \mid \text{faulty}) = \frac{P(\text{faulty} \mid \text{Spin})\,P(\text{Spin})}{P(\text{faulty} \mid \text{Rotor})\,P(\text{Rotor}) + P(\text{faulty} \mid \text{Spin})\,P(\text{Spin})}$$
-
-$$= \frac{.06 \times .40}{.03 \times .60 + .06 \times .40} = \frac{.024}{.018 + .024} = \frac{.024}{.042} = \mathbf{.571}$$
-
-Check with the counts: $12/21 = .571$. Spin sends 40% of the motors but is behind 57% of the faulty ones. The evidence moved the share up; a 40% supplier with twice the defect rate is the likelier culprit, not a certain one.
-
-**D3.**
-
-(a) The table first; the deviations must sum to zero before you square.
-
-| week | claims $x$ | $x - \bar{x}$ | $(x - \bar{x})^{2}$ |
-|---|---:|---:|---:|
-| 1 | 2 | −2 | 4 |
-| 2 | 5 | 1 | 1 |
-| 3 | 3 | −1 | 1 |
-| 4 | 6 | 2 | 4 |
-| 5 | 4 | 0 | 0 |
-| 6 | 4 | 0 | 0 |
-| **sum** | **24** | 0 | **10** |
-
-$$\bar{x} = \frac{\sum x}{n} = \frac{24}{6} = \mathbf{4}$$
-
-$$s^{2} = \frac{\sum (x - \bar{x})^{2}}{n - 1} = \frac{10}{5} = \mathbf{2.0} \qquad s = \sqrt{2.0} = \mathbf{1.41}$$
-
-About 4 claims a week, give or take 1.4.
-
-(b) **Binomial**: a fixed number of trials ($n = 10$), each yes or no, the same $p = .3$ every time, each rider alone.
+(a) **Binomial**: a fixed number of trials ($n = 10$), each yes or no, the same $p = .3$ every time, each rider alone.
 
 $$P(2) = \binom{10}{2}\, .3^{2}\, .7^{8} = 45 \times .09 \times .05765 = \mathbf{.233}$$
 
@@ -127,7 +56,7 @@ $$np = 10 \times .3 = \mathbf{3} \text{ buyers} \qquad \sigma = \sqrt{np(1-p)} =
 
 Expect three buyers, give or take one and a half; a Saturday with no sale happens about three times in a hundred.
 
-(c) **Poisson**: orders arrive at random over time, at a constant rate, with no ceiling on the count. One hour, $\mu = 4$:
+(b) **Poisson**: orders arrive at random over time, at a constant rate, with no ceiling on the count. One hour, $\mu = 4$:
 
 $$P(0) = \frac{4^{0} e^{-4}}{0!} = e^{-4} = \mathbf{.018} \qquad P(2) = \frac{4^{2} e^{-4}}{2!} = \frac{16 \times .01832}{2} = \mathbf{.147}$$
 
@@ -137,32 +66,80 @@ $$\mu = 4 \times \tfrac{1}{4} = 1 \qquad P(0) = e^{-1} = \mathbf{.368} \qquad P(
 
 A silent hour is rare, two in a hundred; a silent coffee break happens more than once in three.
 
-**D4.**
+**D2.**
 
-(a) Shade the right tail beyond 270.
+(a) Shade the left tail below 20 kg.
 
-$$z = \frac{x - \mu}{\sigma} = \frac{270 - 240}{20} = \frac{30}{20} = 1.50 \qquad \text{table, area to the left: } P(z < 1.50) = .9332$$
+$$z = \frac{x - \mu}{\sigma} = \frac{20 - 22}{1.5} = \frac{-2}{1.5} = -1.33 \qquad \text{table, area to the left: } P(z < -1.33) = .0918$$
 
-$$P(X > 270) = 1 - .9332 = \mathbf{.067}$$
+$$P(X < 20) = \mathbf{.092}$$
 
-About 7 charges in 100 take more than four and a half hours.
+About nine bikes in a hundred come in under 20 kg; the customer will wait, or pay for the light frame.
 
-(b) Shade between 220 and 260.
+(b) Shade between 21 and 24.
 
-$$z = \frac{220 - 240}{20} = -1 \qquad z = \frac{260 - 240}{20} = +1$$
+$$z = \frac{21 - 22}{1.5} = -0.67 \qquad z = \frac{24 - 22}{1.5} = 1.33$$
 
 Two lookups, area to the left of each, and a difference:
 
-$$P(-1 < z < 1) = P(z < 1) - P(z < -1) = .8413 - .1587 = \mathbf{.683}$$
+$$P(-0.67 < z < 1.33) = P(z < 1.33) - P(z < -0.67) = .9082 - .2514 = \mathbf{.657}$$
 
-One $\sigma$ either side of the mean: the 68% rule, no table needed.
+Two bikes in three weigh between 21 and 24 kg.
 
-(c) Backwards: the area is given, $x$ is wanted. The slowest 10% is the right tail, so 90% of the area is to the left of the threshold. Find .9000 *inside* the table: between $z = 1.28$ (.8997) and $z = 1.29$ (.9015), nearer to 1.28, so $z = 1.28$ (Excel: `=NORM.S.INV(0.90)`). Undo the standardisation, solving $z = (x - \mu)/\sigma$ for $x$:
+(c) Backwards: the area is given, $x$ is wanted. The heaviest 5% is the right tail, so 95% of the area is to the left of the threshold. Find .9500 *inside* the table: between $z = 1.64$ (.9495) and $z = 1.65$ (.9505), so $z = 1.645$ (Excel: `=NORM.S.INV(0.95)`). Undo the standardisation:
 
-$$x = \mu + z\,\sigma = 240 + 1.28 \times 20 = 240 + 25.6 = \mathbf{265.6 \text{ minutes}}$$
+$$x = \mu + z\,\sigma = 22 + 1.645 \times 1.5 = 22 + 2.47 = \mathbf{24.5 \text{ kg}}$$
 
-A charge over about 266 minutes is flagged.
+A bike over about 24.5 kg goes back for a check.
 
 (d) Mean well above median: a long right tail, **positive skewness** — most parcels in two or three days, a few much later. The normal is symmetric (mean = median), so a $z$ from a mean of 3.1 would give the wrong areas: the table only answers questions about bells.
+
+**D3.**
+
+(a) End-node profits, margin €600 a bike minus the cost of the option.
+
+Test-ride Saturday (cost €2,000): $6 \times 600 - 2{,}000 = 1{,}600$; $10 \times 600 - 2{,}000 = 4{,}000$; $14 \times 600 - 2{,}000 = 6{,}400$.
+Online ads (cost €1,000): $4 \times 600 - 1{,}000 = 1{,}400$; $6 \times 600 - 1{,}000 = 2{,}600$.
+
+The tree: a square "which promotion?", two branches; on each a circle with its branches labelled .3 / .5 / .2 and .5 / .5, the profits at the ends.
+
+(b) Expected profit, $E(x) = \sum x\,P(x)$:
+
+$$E(\text{Saturday}) = .3 \times 1{,}600 + .5 \times 4{,}000 + .2 \times 6{,}400 = 480 + 2{,}000 + 1{,}280 = \mathbf{€3{,}760}$$
+
+$$E(\text{ads}) = .5 \times 1{,}400 + .5 \times 2{,}600 = 700 + 1{,}300 = \mathbf{€2{,}000}$$
+
+(c) Spread, $\sigma^{2} = \sum (x - \mu)^{2} P(x)$:
+
+| Saturday | $x$ | $P(x)$ | $x - \mu$ | $(x-\mu)^{2} P(x)$ |
+|---|---:|---:|---:|---:|
+| | 1,600 | .3 | −2,160 | 1,399,680 |
+| | 4,000 | .5 | 240 | 28,800 |
+| | 6,400 | .2 | 2,640 | 1,393,920 |
+| | | | **sum** | **2,822,400** |
+
+$$\sigma_{\text{Saturday}} = \sqrt{2{,}822{,}400} = \mathbf{€1{,}680}$$
+
+Ads: deviations $\pm 600$, each with share .5: $\sigma^{2} = .5 \times 600^{2} + .5 \times 600^{2} = 360{,}000$, so $\sigma_{\text{ads}} = \mathbf{€600}$.
+
+(d) The test-ride Saturday earns €3,760 on average against €2,000 for the ads, €1,760 more; its worst case, €1,600, still beats the ads' average. Its spread is nearly three times larger (€1,680 against €600): the Saturday can end anywhere between €1,600 and €6,400, the ads between €1,400 and €2,600. Expected value picks the Saturday; the spread says the result will be a surprise either way — and since even the bad Saturday beats the ads, the Board can take the Saturday without fear.
+
+**D4.**
+
+(a) **Binomial**, $n = 300$, $p = .05$: a fixed number of orders, each late or not, the same $p$, independent. "20 or more" means summing $P(20) + P(21) + \dots + P(300)$, each with $\binom{300}{x}$ and $.95^{300 - x}$: not by hand.
+
+(b)
+
+$$\mu = np = 300 \times .05 = \mathbf{15} \qquad \sigma = \sqrt{np(1-p)} = \sqrt{300 \times .05 \times .95} = \sqrt{14.25} = \mathbf{3.775}$$
+
+(c) $np = 15 \ge 5$ and $n(1-p) = 285 \ge 5$: the bell may be used. Sketch the bell at 15; the bar for 20 starts at 19.5, shade from there to the right.
+
+$$z = \frac{19.5 - 15}{3.775} = \frac{4.5}{3.775} = 1.19 \qquad \text{table: } P(z < 1.19) = .8830$$
+
+$$P(X \ge 20) = 1 - .8830 = \mathbf{.117}$$
+
+(The exact binomial gives .119. Without the half unit, $z = 5/3.775 = 1.32$ and the area is .093 — a fifth too small.)
+
+(d) Expect 15 late orders, give or take four; a penalty month comes about once in eight or nine months.
 
 </details>
