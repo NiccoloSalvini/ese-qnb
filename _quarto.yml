@@ -13,6 +13,11 @@ project:
     - "midterm/oral.md"
     - "week-*/session.ipynb"
     - "lectures/*.qmd"
+    # lesson 7 goes live after the session of Thursday 5 November
+    - "!lectures/07-probability.qmd"
+    - "!week-07/drills.md"
+    - "!week-07/homework.md"
+    - "!week-07/session.ipynb"
   resources:
     - "lectures/media/*.mp4"
     - "lectures/media/*.png"

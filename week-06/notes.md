@@ -105,11 +105,11 @@ The buffer goes first. Then:
 
 **On the slide.** The six-words table, the pictures (mean vs spread, Venn, the bars), the two-way table built step by step, the five-row table with the deviations, every substitution line of a formula, the Board sentences, the formula page.
 
-**On screen.** The two clips (`media/w06_choices.mp4`, `media/w06_spread.mp4`), full-screen from the deck. No apps this week.
+**On screen.** The three clips (`media/w06_choices.mp4`, `media/w06_bayes.mp4`, `media/w06_spread.mp4`), full-screen from the deck. No apps this week. The Bayes clip comes right after the "belief, evidence, new belief" slide and before the three-column table: let it run to the end before the formula.
 
 ## Tutor's notes
 
-- **What needs the projector:** the deck (`lectures/06-the-founder-does-not-know.qmd`) and its two clips (muted). Slips of paper for the bets.
+- **What needs the projector:** the deck (`lectures/06-the-founder-does-not-know.qmd`) and its three clips (muted). Slips of paper for the bets.
 - **Bets on the slip.** Ask for them explicitly and wait ten seconds. The surprises that teach: "both" is 50 not 30; the faulty battery is Ampere's by a hair; the variance divides by 4, not 5.
 - **The reveal pace.** Every long slide is in fragments: one click per step, and say the step before clicking it. The fragment is the slide's board; the real board is for the substitution lines.
 - **Keep "mutually exclusive" and "independent" apart** if the question comes: if A rules out B, knowing A changes P(B) to zero — the opposite of independent.

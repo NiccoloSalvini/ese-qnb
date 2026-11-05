@@ -444,6 +444,37 @@ Had both rows read .029, the supplier would tell you nothing about the fault, an
 :::
 ::::
 
+## Bayes: a belief, one piece of evidence, a new belief
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.blocks style="grid-template-columns: 1fr; margin-top: 0.3em; gap: 0.45em;"}
+::: {.blk .done style="min-height: 0;"}
+[Before]{.blk-letter}The prior[What the founder believed before looking: "probably Volta, they send 70%". Volta .70, Ampere .30.]{.blk-answer}
+:::
+::: {.blk .next .fragment style="min-height: 0;"}
+[Evidence]{.blk-letter}One fact[The battery on the bench is **faulty**. That is all we learn — but it rules the 971 good batteries out of the question.]{.blk-answer}
+:::
+::: {.blk .next .fragment style="min-height: 0;"}
+[After]{.blk-letter}The posterior[What she should believe now: among the 29 faulty, 14 are Volta's and 15 Ampere's. Volta .48, Ampere .52.]{.blk-answer}
+:::
+:::
+:::
+::: {.column width="50%" .fragment}
+::: {.callout-important title="Bet before we compute"}
+Her prior said Volta, 70 to 30. One faulty battery: does the answer move a little, a lot, or not at all?
+:::
+
+Bayes is nothing more than this: **the evidence throws away the rows that did not happen, and you read the shares in the column that did**.
+
+[The same cell, 15, that was .05 of Ampere's row becomes .52 of the faulty column. The number did not change; the question did.]{.red}
+:::
+::::
+
+## Bayes: the good batteries vanish, the shares turn {.clip background-color="#000000"}
+
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w06_bayes_poster.png"><source src="media/w06_bayes.mp4" type="video/mp4"></video>
+
 ## Bayes: the column, with shares instead of counts
 
 The founder's prior: "probably Volta, they send 70%". One faulty battery is the evidence. Update in three columns:

@@ -56,5 +56,6 @@ want="${1:-all}"
   render week07_scenes ChoicesTree     w06_choices
   render week07_scenes OneFamily       w07_family
   render week07_spread MeanAndSpread   w06_spread
+  render week06_bayes  BayesColumn     w06_bayes
 }
 echo "done"
