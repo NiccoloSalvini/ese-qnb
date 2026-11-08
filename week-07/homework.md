@@ -27,15 +27,14 @@ Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ i
 **H3 — the Poisson.** Bikes come back under warranty at random, 5 a week on average (five working days).
 
 (a) In one working day: write $\mu$ first, then find the probability of no return, of exactly one, and of at least two.
-(b) In two weeks: write $\mu$ first, then find the probability of exactly 10 returns.
+(b) In two working days: write $\mu$ first, then find the probability of exactly 2 returns.
 (c) In one sentence: what makes this a Poisson count and not a binomial one?
 
 **H4 — the normal, and a guarantee.** A full charge of an Arno battery takes 240 minutes on average, standard deviation 20 minutes, bell-shaped: $X \sim N(240,\,20)$. For each part: sketch and shade, standardise, table, one sentence.
 
 (a) What share of charges take more than 270 minutes?
 (b) What share take between 220 and 260 minutes? Which rule of thumb gives the same answer without a table?
-(c) The 10% slowest charges are flagged for a battery check. From how many minutes is a charge flagged? End in minutes, not in $z$.
-(d) Marketing wants to print "fully charged in X minutes" and the Board accepts that 5% of charges take longer. What do we print?
+(c) Marketing wants to print "fully charged in X minutes" and the Board accepts that 5% of charges take longer. What do we print? End in minutes, not in $z$.
 
 **H5 — a decision with chance in it.** Deliveries can go with one of two couriers. **Fast** charges a flat **€40** per delivery and is never late. **Local** charges **€30** but is late 10% of the time, and a late delivery costs Arno Bikes **€60** in compensation to the customer.
 

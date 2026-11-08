@@ -87,9 +87,6 @@ ok("D2 Poisson 4: P(0)", poisson.pmf(0, 4), .018); ok("D2 Poisson 4: P(2)", pois
 assert isclose(4 * .25, 1); ok("D2 Poisson 1: P(0)", poisson.pmf(0, 1), .368); ok("D2 Poisson 1: P(>=1)", 1 - poisson.pmf(0, 1), .632); ok("D2 e^-1", exp(-1), .368)
 # D3
 ok("D3 z for 20 kg", (20 - 22) / 1.5, -1.333, 1e-3); ok("D3 table z=-1.33", norm.cdf(-1.33), .0918, 6e-5); ok("D3 P(X<20)", norm.cdf(20, 22, 1.5), .092, 1e-3)
-ok("D3 z for 21", (21 - 22) / 1.5, -0.667, 1e-3); ok("D3 z for 24", (24 - 22) / 1.5, 1.333, 1e-3)
-ok("D3 table z=1.33", norm.cdf(1.33), .9082, 6e-5); ok("D3 table z=-0.67", norm.cdf(-0.67), .2514, 6e-5); ok("D3 .9082-.2514", .9082 - .2514, .657, 1e-3)
-ok("D3 P(21<X<24) exact", norm.cdf(24, 22, 1.5) - norm.cdf(21, 22, 1.5), .656, 1e-3)
 ok("D3 table z=1.64", norm.cdf(1.64), .9495, 6e-5); ok("D3 table z=1.65", norm.cdf(1.65), .9505, 6e-5); ok("D3 z for 95%", norm.ppf(.95), 1.645)
 ok("D3 1.645*1.5", 1.645 * 1.5, 2.47, 5e-3); ok("D3 heaviest 5% threshold", 22 + 1.645 * 1.5, 24.5, .05)
 # D4
@@ -118,14 +115,12 @@ ok("H2 binom 20,.2 P(4)", binom.pmf(4, 20, .2), .218); ok("H2 by hand", 4845 * .
 ok("H2 P(0) = .8^20", binom.pmf(0, 20, .2), .0115, 1e-4); ok("H2 P(>=1)", 1 - binom.pmf(0, 20, .2), .988, 1e-3)
 ok("H2 mean", 20 * .2, 4); ok("H2 np(1-p)", 20 * .2 * .8, 3.2, 1e-9); ok("H2 sigma", sqrt(3.2), 1.79)
 # H3
-assert isclose(5 / 5, 1) and 5 * 2 == 10
+assert isclose(5 / 5, 1) and 5 * 2 / 5 == 2
 ok("H3 mu 1: P(0)", poisson.pmf(0, 1), .368); ok("H3 mu 1: P(1)", poisson.pmf(1, 1), .368); ok("H3 mu 1: P(>=2)", 1 - poisson.cdf(1, 1), .264); ok("H3 by hand", 1 - .368 - .368, .264, 1e-9)
-ok("H3 mu 10: P(10)", poisson.pmf(10, 10), .125); ok("H3 e^-10", exp(-10), 4.54e-5, 1e-7)
+ok("H3 mu 2: P(2)", poisson.pmf(2, 2), .271); ok("H3 e^-2", exp(-2), .1353, 1e-4); ok("H3 one time in four", 1 / 4, .271, .025)
 # H4
 ok("H4 z for 270", (270 - 240) / 20, 1.5, 1e-9); ok("H4 table z=1.5", norm.cdf(1.5), .9332, 6e-5); ok("H4 P(X>270)", 1 - norm.cdf(1.5), .067)
 ok("H4 table z=1", norm.cdf(1), .8413, 6e-5); ok("H4 table z=-1", norm.cdf(-1), .1587, 6e-5); ok("H4 P(220<X<260)", norm.cdf(1) - norm.cdf(-1), .683)
-ok("H4 z for top 10%", norm.ppf(.9), 1.28); ok("H4 table z=1.28", norm.cdf(1.28), .8997, 6e-5); ok("H4 table z=1.29", norm.cdf(1.29), .9015, 6e-5)
-ok("H4 flag threshold", 240 + 1.28 * 20, 265.6, 1e-9); ok("H4 1.28*20", 1.28 * 20, 25.6, 1e-9)
 ok("H4 guarantee: z for 95%", norm.ppf(.95), 1.645); ok("H4 1.645*20", 1.645 * 20, 32.9, 1e-9); ok("H4 print minutes", 240 + 1.645 * 20, 272.9, 1e-9)
 # H5
 ev4 = .9 * 30 + .1 * 90; assert 30 + 60 == 90; ok("H5 Local expected cost", ev4, 36, 1e-9); ok("H5 saving per delivery", 40 - ev4, 4, 1e-9)

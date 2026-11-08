@@ -27,9 +27,8 @@ Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ i
 **D3 (8 minutes).** The weight of an Arno bike off the line is bell-shaped: mean 22 kg, standard deviation 1.5 kg, $X \sim N(22,\,1.5)$. For each part: sketch and shade, standardise, table, one sentence.
 
 (a) A customer wants a bike under 20 kg. What share of bikes qualify?
-(b) What share of bikes weigh between 21 and 24 kg?
-(c) The heaviest 5% of bikes are sent back for a check. From what weight is a bike sent back? End in kg, not in $z$.
-(d) Delivery times to customers have a mean of 3.1 days and a median of 2.4 days. In one sentence: what shape is that, and why is the table the wrong tool for it?
+(b) The heaviest 5% of bikes are sent back for a check. From what weight is a bike sent back? End in kg, not in $z$.
+(c) Delivery times to customers have a mean of 3.1 days and a median of 2.4 days. In one sentence: what shape is that, and why is the table the wrong tool for it?
 
 ## D. Expected value to decide
 
@@ -40,7 +39,7 @@ Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ i
 
 (a) Draw the decision tree: a square for the choice, a circle for each chance node, the probabilities on the branches, the **profit** (margin minus cost) at each end node.
 (b) Find the expected profit of each option.
-(c) Find the standard deviation of the profit of each option.
+(c) Find the standard deviation of the profit of the online ads. The test-ride Saturday's is €1,680 (given: three branches with large numbers). Which option is the riskier, and by how much?
 (d) In two sentences for the Board: which option, and what the other number says.
 
 ---
@@ -116,23 +115,13 @@ $$P(X < 20) = \mathbf{.092}$$
 
 About nine bikes in a hundred come in under 20 kg; the customer will wait, or pay for the light frame.
 
-(b) Shade between 21 and 24.
-
-$$z = \frac{21 - 22}{1.5} = -0.67 \qquad z = \frac{24 - 22}{1.5} = 1.33$$
-
-Two lookups, area to the left of each, and a difference:
-
-$$P(-0.67 < z < 1.33) = P(z < 1.33) - P(z < -0.67) = .9082 - .2514 = \mathbf{.657}$$
-
-Two bikes in three weigh between 21 and 24 kg.
-
-(c) Backwards: the area is given, $x$ is wanted. The heaviest 5% is the right tail, so 95% of the area is to the left of the threshold. Find .9500 *inside* the table: between $z = 1.64$ (.9495) and $z = 1.65$ (.9505), so $z = 1.645$ (Excel: `=NORM.S.INV(0.95)`). Undo the standardisation:
+(b) Backwards: the area is given, $x$ is wanted. The heaviest 5% is the right tail, so 95% of the area is to the left of the threshold. Find .9500 *inside* the table: between $z = 1.64$ (.9495) and $z = 1.65$ (.9505), so $z = 1.645$ (Excel: `=NORM.S.INV(0.95)`). Undo the standardisation:
 
 $$x = \mu + z\,\sigma = 22 + 1.645 \times 1.5 = 22 + 2.47 = \mathbf{24.5 \text{ kg}}$$
 
 A bike over about 24.5 kg goes back for a check.
 
-(d) Mean well above median: a long right tail, **positive skewness** — most parcels in two or three days, a few much later. The normal is symmetric (mean = median), so a $z$ from a mean of 3.1 would give the wrong areas: the table only answers questions about bells.
+(c) Mean well above median: a long right tail, **positive skewness** — most parcels in two or three days, a few much later. The normal is symmetric (mean = median), so a $z$ from a mean of 3.1 would give the wrong areas: the table only answers questions about bells.
 
 **D4.**
 
@@ -149,18 +138,11 @@ $$E(\text{Saturday}) = .3 \times 1{,}600 + .5 \times 4{,}000 + .2 \times 6{,}400
 
 $$E(\text{ads}) = .5 \times 1{,}400 + .5 \times 2{,}600 = 700 + 1{,}300 = \mathbf{€2{,}000}$$
 
-(c) Spread, $\sigma^{2} = \sum (x - \mu)^{2} P(x)$:
+(c) Spread of the ads, $\sigma^{2} = \sum (x - \mu)^{2} P(x)$: deviations $\pm 600$, each with share .5.
 
-| Saturday | $x$ | $P(x)$ | $x - \mu$ | $(x-\mu)^{2} P(x)$ |
-|---|---:|---:|---:|---:|
-| | 1,600 | .3 | −2,160 | 1,399,680 |
-| | 4,000 | .5 | 240 | 28,800 |
-| | 6,400 | .2 | 2,640 | 1,393,920 |
-| | | | **sum** | **2,822,400** |
+$$\sigma^{2} = .5 \times 600^{2} + .5 \times 600^{2} = 360{,}000 \qquad \sigma_{\text{ads}} = \sqrt{360{,}000} = \mathbf{€600}$$
 
-$$\sigma_{\text{Saturday}} = \sqrt{2{,}822{,}400} = \mathbf{€1{,}680}$$
-
-Ads: deviations $\pm 600$, each with share .5: $\sigma^{2} = .5 \times 600^{2} + .5 \times 600^{2} = 360{,}000$, so $\sigma_{\text{ads}} = \mathbf{€600}$.
+The Saturday's €1,680 is 2.8 times larger: the Saturday is the riskier option, by far. (For the curious, its table: deviations −2,160, 240, 2,640; weighted squares 1,399,680 + 28,800 + 1,393,920 = 2,822,400; and $\sqrt{2{,}822{,}400} = 1{,}680$.)
 
 (d) The test-ride Saturday earns €3,760 on average against €2,000 for the ads, €1,760 more; its worst case, €1,600, still beats the ads' average. Its spread is nearly three times larger (€1,680 against €600): the Saturday can end anywhere between €1,600 and €6,400, the ads between €1,400 and €2,600. Expected value picks the Saturday; the spread says the result will be a surprise either way — and since even the bad Saturday beats the ads, the Board can take the Saturday without fear.
 

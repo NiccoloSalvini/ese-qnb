@@ -88,7 +88,7 @@ H3 (mean, variance, random variable) was not doable without block C: say it move
 
 **Skewness and kurtosis** (4'). Battery range symmetric, skewness zero; delivery times with a long right tail, mean above median, positive skewness. Then the second question: same mean, same σ, where do the tails sit? The bell; a sharp peak with fat tails (delivery delays: a "three σ" day is far more common than one in three hundred); a flat top with no tails (a rota). **Red line:** fat tails mean the rare bad day is not as rare as the bell says. Two slides, in words; no formula for either.
 
-→ **D3** on paper, 8 minutes. The sketch first; (c) ends in kg.
+→ **D3** on paper, 8 minutes. The sketch first; (b) ends in kg.
 
 ### D. Which supplier do we sign? (25')
 
@@ -100,7 +100,7 @@ H3 (mean, variance, random variable) was not doable without block C: say it move
 
 **Volume** (5'). On a thousand batteries the faulty count is binomial: 50 ± 6.9, the bill €169,500 ± €620 — the saving is never at risk. On a rush order of ten, two faulty (P = .086, one order in twelve) wipe out the €150 saving. **Board sentence:** sign Ampere for volume, keep Volta for rush orders. **Red line:** expected value decides when the decision repeats; spread decides when it does not.
 
-→ **D4** on paper, 8 minutes. Profit at the end nodes, not sales; the deviations table for σ.
+→ **D4** on paper, 8 minutes. Profit at the end nodes, not sales; σ by hand for the ads only (the Saturday's €1,680 is given).
 
 ### Take home, four answers, homework (15')
 

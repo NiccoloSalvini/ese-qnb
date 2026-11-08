@@ -486,7 +486,7 @@ print("\nA silent hour is rare, two in a hundred; a silent coffee break happens 
 
 # ---- D3 -------------------------------------------------------------------
 md(r"""
-**D3.** Bike weight off the line: $X \sim N(22,\,1.5)$ kg. (a) Share under 20 kg. (b) Share between 21 and 24 kg. (c) The heaviest 5% are sent back for a check: from what weight? End in kg. (d) Delivery times: mean 3.1 days, median 2.4 — what shape, and why is the table the wrong tool?
+**D3.** Bike weight off the line: $X \sim N(22,\,1.5)$ kg. (a) Share under 20 kg. (b) The heaviest 5% are sent back for a check: from what weight? End in kg. (c) Delivery times: mean 3.1 days, median 2.4 — what shape, and why is the table the wrong tool?
 """)
 code(r"""
 mu, sigma = 22, 1.5
@@ -494,22 +494,14 @@ print("(a) shade the left tail below 20 kg"); z_a, below20 = normal_steps(20, mu
 close(z_a, -1.333); close(table_left(z_a), .0918, 1e-4); close(below20, .092)
 print("    About nine bikes in a hundred come in under 20 kg; the customer will wait, or pay for the light frame.\n")
 
-print("(b) shade between 21 and 24: two lookups, area to the left of each, and a difference")
-z_lo, z_hi = (21 - mu) / sigma, (24 - mu) / sigma
-between = table_left(z_hi) - table_left(z_lo)
-print(f"    z = {z_lo:.2f} and z = {z_hi:.2f}:  P({z_lo:.2f} < z < {z_hi:.2f}) = {table_left(z_hi):.4f} − {table_left(z_lo):.4f} = {between:.3f}")
-close(z_lo, -0.667); close(z_hi, 1.333); close(table_left(z_hi), .9082, 1e-4); close(table_left(z_lo), .2514, 1e-4); close(between, .657)
-close(stats.norm.cdf(24, mu, sigma) - stats.norm.cdf(21, mu, sigma), .656)
-print("    Two bikes in three weigh between 21 and 24 kg.\n")
-
-print("(c) backwards: the heaviest 5% is the right tail, so 95% of the area is to the left of the threshold")
+print("(b) backwards: the heaviest 5% is the right tail, so 95% of the area is to the left of the threshold")
 print(f"    find .9500 inside the table: z = 1.64 gives {table_left(1.64):.4f}, z = 1.65 gives {table_left(1.65):.4f} → z = 1.645   (Excel: =NORM.S.INV(0.95) = {stats.norm.ppf(.95):.3f})")
 z_c = 1.645; x_c = mu + z_c * sigma
 print(f"    undo the standardisation: x = μ + zσ = 22 + 1.645 × 1.5 = 22 + {z_c*sigma:.2f} = {x_c:.1f} kg")
 close(table_left(1.64), .9495, 1e-4); close(table_left(1.65), .9505, 1e-4); close(stats.norm.ppf(.95), 1.645); close(z_c * sigma, 2.47, 5e-3); close(x_c, 24.5, .05)
 print("    A bike over about 24.5 kg goes back for a check.\n")
 
-print("(d) delivery times: mean 3.1 days, median 2.4 days")
+print("(c) delivery times: mean 3.1 days, median 2.4 days")
 mean_d, median_d = 3.1, 2.4
 assert mean_d > median_d
 print(f"    mean − median = {mean_d - median_d:+.1f} days: a long right tail, POSITIVE skewness — most parcels in two or three days, a few much later.")
@@ -518,7 +510,7 @@ print("    The normal is symmetric (mean = median), so a z from a mean of 3.1 wo
 
 # ---- D4 -------------------------------------------------------------------
 md(r"""
-**D4.** €2,000 for one promotion in December; each extra bike earns the €600 margin (list €1,000, variable cost €400). **Test-ride Saturday**, cost €2,000: extra sales 6 / 10 / 14 bikes with probability .3 / .5 / .2. **Online ads**, cost €1,000: extra sales 4 / 6 bikes with probability .5 / .5. (a) The tree with the **profit** at each end node. (b) Expected profit of each. (c) Standard deviation of each. (d) Two sentences for the Board.
+**D4.** €2,000 for one promotion in December; each extra bike earns the €600 margin (list €1,000, variable cost €400). **Test-ride Saturday**, cost €2,000: extra sales 6 / 10 / 14 bikes with probability .3 / .5 / .2. **Online ads**, cost €1,000: extra sales 4 / 6 bikes with probability .5 / .5. (a) The tree with the **profit** at each end node. (b) Expected profit of each. (c) Standard deviation of the ads (the Saturday's, €1,680, is given). (d) Two sentences for the Board.
 """)
 code(r"""
 margin = 1000 - 400; close(margin, 600)
@@ -530,8 +522,9 @@ print("    Ads (cost €1,000):      " + "; ".join(f"{b} × 600 − 1,000 = {x:,
 assert sat_x == [1600, 4000, 6400] and ads_x == [1400, 2600]
 print("    The tree: a square 'which promotion?', two branches; on each a circle with branches .3 / .5 / .2 and .5 / .5, the profits at the ends.\n")
 
-print("(b), (c) Test-ride Saturday:"); E_sat, V_sat = rv_table(sat_x, sat_p)
+print("(b) Test-ride Saturday (its σ, €1,680, is given in the drill):"); E_sat, V_sat = rv_table(sat_x, sat_p)
 print("\n(b), (c) Online ads:"); E_ads, V_ads = rv_table(ads_x, ads_p)
+print(f"\n    σ(Saturday) / σ(ads) = {math.sqrt(V_sat):,.0f} / {math.sqrt(V_ads):,.0f} = {math.sqrt(V_sat)/math.sqrt(V_ads):.1f}: the Saturday is the riskier option, by far.")
 assert np.allclose(np.array(sat_x) * sat_p, [480, 2000, 1280]) and np.allclose(np.array(ads_x) * ads_p, [700, 1300])
 assert np.allclose(np.array(sat_x) - E_sat, [-2160, 240, 2640]) and np.allclose((np.array(sat_x) - E_sat) ** 2 * sat_p, [1399680, 28800, 1393920])
 close(E_sat, 3760, 1e-6); close(E_ads, 2000, 1e-6); close(E_sat - E_ads, 1760, 1e-6)
@@ -564,7 +557,7 @@ checks = [
     ("D2 Poisson μ=4 P(0)", stats.poisson.pmf(0, 4), .018), ("D2 Poisson μ=4 P(2)", stats.poisson.pmf(2, 4), .147),
     ("D2 Poisson μ for 15 min", 4 * .25, 1), ("D2 Poisson μ=1 P(0)", stats.poisson.pmf(0, 1), .368), ("D2 Poisson μ=1 P(≥1)", 1 - stats.poisson.pmf(0, 1), .632),
     ("D3 z for 20 kg", (20 - 22) / 1.5, -1.33), ("D3 P(X < 20)", stats.norm.cdf(20, 22, 1.5), .092),
-    ("D3 P(21 < X < 24)", stats.norm.cdf(24, 22, 1.5) - stats.norm.cdf(21, 22, 1.5), .656), ("D3 table z=1.33", table_left(1.33), .9082), ("D3 table z=−0.67", table_left(-0.67), .2514),
+    
     ("D3 z for the top 5%", stats.norm.ppf(.95), 1.645), ("D3 heaviest 5% threshold, kg", 22 + 1.645 * 1.5, 24.5),
     ("D4 margin", 1000 - 400, 600), ("D4 E(Saturday)", np.dot([1600, 4000, 6400], [.3, .5, .2]), 3760), ("D4 E(ads)", np.dot([1400, 2600], [.5, .5]), 2000),
     ("D4 difference", 3760 - 2000, 1760), ("D4 var(Saturday)", np.dot((np.array([1600, 4000, 6400]) - 3760) ** 2, [.3, .5, .2]), 2822400),

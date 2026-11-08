@@ -1062,7 +1062,7 @@ Sign Ampere for the volume contract: €10.50 a battery cheaper on average, €1
 - **H1** walk-ins and bookings: a list, then a random variable (Thursday's H3)
 - **H2** twelve becomes twenty: a binomial on financing quotes
 - **H3** returns at a rate: a Poisson, rescaled twice
-- **H4** charging time: the normal forwards, and backwards for a flag
+- **H4** charging time: the normal forwards, and backwards for the box
 - **H5** two couriers: a decision tree, expected value and spread
 
 Due **Sunday 15 November, 23:59 on Moodle**. Corrected together at the start of next Monday.
