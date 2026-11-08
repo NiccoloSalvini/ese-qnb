@@ -160,7 +160,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#a.-sets-and-counting" id="toc-a.-sets-and-counting" class="nav-link" data-scroll-target="#a.-sets-and-counting">A. Sets and counting</a></li>
   <li><a href="#b.-conditional-probability-and-bayes" id="toc-b.-conditional-probability-and-bayes" class="nav-link" data-scroll-target="#b.-conditional-probability-and-bayes">B. Conditional probability and Bayes</a></li>
-  <li><a href="#c.-mean-and-variance-a-random-variable" id="toc-c.-mean-and-variance-a-random-variable" class="nav-link" data-scroll-target="#c.-mean-and-variance-a-random-variable">C. Mean and variance, a random variable</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -173,7 +172,7 @@ window.Quarto = {
 
 <section id="week-6-drills" class="level1">
 <h1>Week 6 — Drills</h1>
-<p><em>One drill per block. There is no drill time in today’s session, so these are for tonight, on paper, before Monday: show all work — formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end; check yourself before you look.</em></p>
+<p><em>One drill for each block we covered (the drill on mean, variance and the random variable is now D1 of week 7, with that block). There is no drill time in today’s session, so these are for tonight, on paper, before Monday: show all work — formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end; check yourself before you look.</em></p>
 <section id="a.-sets-and-counting" class="level2">
 <h2 class="anchored" data-anchor-id="a.-sets-and-counting">A. Sets and counting</h2>
 <p><strong>D1 (5 minutes).</strong> Last Saturday 150 people visited the Arno Bikes showroom. 95 took a test ride (<span class="math inline">\(T\)</span>), 70 asked about financing (<span class="math inline">\(F\)</span>), 25 did neither.</p>
@@ -192,37 +191,6 @@ window.Quarto = {
 <li>Are supplier and fault independent? Compare the rows, then say the word.</li>
 <li>A faulty charger is on the bench. Use Bayes, written out, to find the probability it came from Ohm. Compare with Ohm’s share of deliveries, and with the battery case of this morning: what is different here?</li>
 </ol>
-</section>
-<section id="c.-mean-and-variance-a-random-variable" class="level2">
-<h2 class="anchored" data-anchor-id="c.-mean-and-variance-a-random-variable">C. Mean and variance, a random variable</h2>
-<p><strong>D3 (8 minutes).</strong></p>
-<ol type="a">
-<li>Warranty returns in the last five weeks: 3, 8, 5, 6, 8. Compute the mean, the sample variance and the standard deviation by hand, in a table with the deviations and their squares. Check that the deviations sum to zero before you square.</li>
-<li>Orders for the cargo model, per day, from last year’s data:</li>
-</ol>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>orders a day <span class="math inline">\(x\)</span></th>
-<th style="text-align: right;">0</th>
-<th style="text-align: right;">1</th>
-<th style="text-align: right;">2</th>
-<th style="text-align: right;">3</th>
-<th style="text-align: right;">4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(P(x)\)</span></td>
-<td style="text-align: right;">.10</td>
-<td style="text-align: right;">.20</td>
-<td style="text-align: right;">.40</td>
-<td style="text-align: right;">.20</td>
-<td style="text-align: right;">.10</td>
-</tr>
-</tbody>
-</table>
-<p>Check that the shares add to 1, then compute <span class="math inline">\(E(x)\)</span>, <span class="math inline">\(\sigma^{2}\)</span> and <span class="math inline">\(\sigma\)</span> in a table with the columns <span class="math inline">\(x\)</span>, <span class="math inline">\(P(x)\)</span>, <span class="math inline">\(x\,P(x)\)</span>, <span class="math inline">\(x - \mu\)</span>, <span class="math inline">\((x - \mu)^{2}\,P(x)\)</span>. Write one sentence for the founder, with a “give or take”.</p>
 <hr>
 <details>
 <summary>
@@ -339,122 +307,6 @@ window.Quarto = {
 <p>Then the same table in symbols:</p>
 <p><span class="math display">\[P(\text{Ohm} \mid \text{faulty}) = \frac{P(\text{faulty} \mid \text{Ohm})\,P(\text{Ohm})}{P(\text{faulty} \mid \text{Ohm})\,P(\text{Ohm}) + P(\text{faulty} \mid \text{Watt})\,P(\text{Watt})} = \frac{.04 \times .60}{.04 \times .60 + .01 \times .40} = \frac{.024}{.028} = \mathbf{.857}\]</span></p>
 <p>Check with the counts: <span class="math inline">\(12/14 = .857\)</span>. Ohm sends 60% of the chargers and is behind 86% of the faulty ones. This morning the big supplier (Volta) had the <em>lower</em> defect rate, and the evidence pulled the answer towards the small one; here the big supplier also has the higher rate, so the two effects push the same way and the answer is close to certain. Same formula, opposite story: the volume and the rate must both be read.</p>
-<p><strong>D3.</strong></p>
-<ol type="a">
-<li>The table first; the deviations must sum to zero before you square.</li>
-</ol>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>week</th>
-<th style="text-align: right;">returns <span class="math inline">\(x\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(x - \bar{x}\)</span></th>
-<th style="text-align: right;"><span class="math inline">\((x - \bar{x})^{2}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">−3</td>
-<td style="text-align: right;">9</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">−1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td><strong>sum</strong></td>
-<td style="text-align: right;"><strong>30</strong></td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;"><strong>18</strong></td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">\[\bar{x} = \frac{\sum x}{n} = \frac{30}{5} = \mathbf{6}\]</span></p>
-<p><span class="math display">\[s^{2} = \frac{\sum (x - \bar{x})^{2}}{n - 1} = \frac{18}{4} = \mathbf{4.5} \qquad s = \sqrt{4.5} = \mathbf{2.12}\]</span></p>
-<p>About 6 returns a week, give or take 2.</p>
-<ol start="2" type="a">
-<li>The shares: <span class="math inline">\(.10 + .20 + .40 + .20 + .10 = 1.00\)</span>.</li>
-</ol>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(P(x)\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(x\,P(x)\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(x - \mu\)</span></th>
-<th style="text-align: right;"><span class="math inline">\((x - \mu)^{2}\,P(x)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">.10</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">−2</td>
-<td style="text-align: right;">4 × .10 = .40</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">.20</td>
-<td style="text-align: right;">.20</td>
-<td style="text-align: right;">−1</td>
-<td style="text-align: right;">1 × .20 = .20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">.40</td>
-<td style="text-align: right;">.80</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">.20</td>
-<td style="text-align: right;">.60</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1 × .20 = .20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">.10</td>
-<td style="text-align: right;">.40</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4 × .10 = .40</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>sum</strong></td>
-<td style="text-align: right;"><strong>1.00</strong></td>
-<td style="text-align: right;"><strong>2.00</strong></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"><strong>1.20</strong></td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">\[E(x) = \sum x\,P(x) = \mathbf{2.0 \text{ orders a day}}\]</span></p>
-<p><span class="math display">\[\sigma^{2} = \sum (x - \mu)^{2}\,P(x) = \mathbf{1.20} \qquad \sigma = \sqrt{1.20} = \mathbf{1.10}\]</span></p>
-<p>Expect two cargo orders a day, give or take one; a day with none happens one day in ten, a day with four as well.</p>
 </details>
 
 

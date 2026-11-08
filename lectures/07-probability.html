@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../images/favicon.ico" rel="icon">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Vincenzo Nardelli, PhD">
+  <title>Quantitative Business Methods – Three shapes, and how to decide with them</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-af58f06028bc84734b04263b1db4f634.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#AF1F25" data-background-image="../images/ese-logo-white.svg" data-background-position="top 7% right 4%" data-background-size="14%" class="quarto-title-block">
+  <h1 class="title">Three shapes, and how to decide with them</h1>
+  <p class="subtitle">Week 7 · Monday 9 November 2026 · 10:00–13:00 · online</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Vincenzo Nardelli, PhD 
+</div>
+        <p class="quarto-title-affiliation">
+            MBA03 Research &amp; Quantitative Business Methods · European School of Economics, Florence
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="last-thursday-in-one-minute" class="slide level2">
+<h2>Last Thursday, in one minute</h2>
+<div class="blocks">
+<div class="blk recap">
+<p><span class="blk-letter">Block A</span>“Or”, and count the ways<span class="blk-answer">“Or” adds the two shares and takes the overlap out once. Order matters: multiply down the tree. Order does not: divide by <span class="math inline">k!</span>.</span></p>
+</div>
+<div class="blk recap">
+<p><span class="blk-letter">Block B</span>“Given”, and Bayes<span class="blk-answer">“Given” means: look only at that row or column, and divide by its total. The evidence keeps the column that happened; read its shares.</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block C</span>A number with its shares<span class="blk-answer">Not reached on Thursday. It opens today, as block A: mean, variance, a random variable.</span></p>
+</div>
+<div class="blk recap">
+<p><span class="blk-letter">Homework 6</span>Now, step by step<span class="blk-answer">H1, H2 and the memo. H3 needs block C, so it moves to Homework 7.</span></p>
+</div>
+</div>
+<p><span class="red">Thursday you learnt to count and to condition. Today: first a number with its shares, then its shape, then a decision.</span></p>
+</section>
+<section id="homework-6-corrected-together-step-by-step" class="slide level2 section-slide" data-background-color="#AF1F25">
+<h2><span class="section-kicker">Homework 6</span> Corrected together, step by step</h2>
+</section>
+<section id="h1-a-b-three-definitions-and-who-bought-both" class="slide level2">
+<h2>H1 (a), (b): three definitions, and who bought both</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p>180 October customers: 110 bought a helmet (<span class="math inline">H</span>), 75 a lock (<span class="math inline">L</span>), 30 neither.</p>
+<div class="fragment">
+<p><strong>Universal set</strong>: the set of everything we are talking about, here the 180 customers.</p>
+</div>
+<div class="fragment">
+<p><strong>Complement</strong> of <span class="math inline">H</span>: the set of customers <em>not</em> in <span class="math inline">H</span>, here the <span class="math inline">180 - 110 = 70</span> without a helmet.</p>
+</div>
+<div class="fragment">
+<p><strong>Intersection</strong> <span class="math inline">H \cap L</span>: the set of customers in <em>both</em>, helmet and lock.</p>
+</div>
+</div><div class="column fragment" style="width:52%;">
+<p><strong>At least one</strong> is the complement of “neither”:</p>
+<p><span class="math display">180 - 30 = 150</span></p>
+<p><span class="math inline">110 + 75 = 185</span> counts “both” twice:</p>
+<p><span class="math display">150 = 110 + 75 - \text{both} \;\Rightarrow\; \text{both} = \textbf{35}</span></p>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">helmet only</th>
+<th style="text-align: right;">both</th>
+<th style="text-align: right;">lock only</th>
+<th style="text-align: right;">neither</th>
+<th style="text-align: right;">total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;"><strong>180</strong> ✓</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+</section>
+<section id="h1-c-the-addition-law-and-the-complement" class="slide level2">
+<h2>H1 (c): the addition law, and the complement</h2>
+<p>Divide every count by 180: a probability is a share of the universal set.</p>
+<div class="fragment">
+<p><span class="math display">P(H \cup L) = P(H) + P(L) - P(H \cap L)</span></p>
+<p><span class="math display">= \frac{110}{180} + \frac{75}{180} - \frac{35}{180} = .611 + .417 - .194 = \textbf{.833}</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">P(\text{neither}) = 1 - P(H \cup L) = 1 - .833 = \textbf{.167} \qquad \text{check: } \tfrac{30}{180} = .167</span></p>
+</div>
+<div class="fragment">
+<p><strong>Reading.</strong> Five customers in six took at least one accessory; one in six took neither.</p>
+<p><span class="red">The slip: both <span class="math inline">= 110 + 75 - 180 = 5</span>. Take the 30 out first; the subtraction is from “at least one”, not from the total.</span></p>
+</div>
+</section>
+<section id="h1-d-ten-models-three-in-the-window" class="slide level2">
+<h2>H1 (d): ten models, three in the window</h2>
+<p>The one question first: <strong>does swapping two models change the display?</strong></p>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<p><strong>A set of three</strong>, no order: swapping two is the same display. <strong>Combinations</strong>; cancel the <span class="math inline">7!</span> before multiplying.</p>
+<p><span class="math display">\binom{10}{3} = \frac{10!}{3!\,7!} = \frac{10 \cdot 9 \cdot 8 \cdot \cancel{7!}}{3 \cdot 2 \cdot 1 \cdot \cancel{7!}}</span></p>
+<p><span class="math display">= \frac{720}{6} = \textbf{120}</span></p>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>Lined up left to right</strong>: swapping two changes the display. <strong>Permutations.</strong></p>
+<p><span class="math display">P^{10}_{3} = \frac{10!}{7!} = 10 \cdot 9 \cdot 8 = \textbf{720}</span></p>
+<p>Each set of three can be lined up in <span class="math inline">3! = 6</span> ways: <span class="math inline">120 \times 6 = 720</span>.</p>
+</div></div>
+<div class="fragment">
+<p><span class="red">120 different sets of three; 720 different arrangements of them. The <span class="math inline">3!</span> underneath is exactly what removes the order.</span></p>
+</div>
+</section>
+<section id="h2-a-the-two-way-table-one-supplier-at-a-time" class="slide level2">
+<h2>H2 (a): the two-way table, one supplier at a time</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<p><strong>Celle</strong> sends 65%, 3% faulty. <strong>Ionix</strong> sends 35%, 8% faulty. 2,000 batteries.</p>
+<div class="fragment">
+<ul>
+<li>Celle: <span class="math inline">.65 \times 2{,}000 = 1{,}300</span>; faulty <span class="math inline">.03 \times 1{,}300 = 39</span>; good <span class="math inline">1{,}261</span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Ionix: <span class="math inline">.35 \times 2{,}000 = 700</span>; faulty <span class="math inline">.08 \times 700 = 56</span>; good <span class="math inline">644</span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Totals: faulty <span class="math inline">39 + 56 = 95</span>; good <span class="math inline">1{,}905</span>; <span class="math inline">1{,}905 + 95 = 2{,}000</span> ✓</li>
+</ul>
+</div>
+</div><div class="column fragment" style="width:54%;">
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">good</th>
+<th style="text-align: right;">faulty</th>
+<th style="text-align: right;">total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Celle</strong></td>
+<td style="text-align: right;">1,261</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">1,300</td>
+</tr>
+<tr class="even">
+<td><strong>Ionix</strong></td>
+<td style="text-align: right;">644</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">700</td>
+</tr>
+<tr class="odd">
+<td><strong>total</strong></td>
+<td style="text-align: right;">1,905</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">2,000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="muted">Shares in, counts out. The counts are what make “a cell over a total” visible.</span></p>
+</div></div>
+</section>
+<section id="h2-b-c-a-cell-over-a-total-then-compare-the-rows" class="slide level2">
+<h2>H2 (b), (c): a cell over a total, then compare the rows</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p><strong>(b)</strong> Same cell, 39; two different totals underneath.</p>
+<p><span class="math display">P(F \mid \text{Celle}) = \frac{39}{1{,}300} = \textbf{.03}</span></p>
+<p>Celle’s <strong>row</strong>: how good is Celle.</p>
+<div class="fragment">
+<p><span class="math display">P(\text{Celle} \mid F) = \frac{39}{95} = \textbf{.411}</span></p>
+<p>The faulty <strong>column</strong>: who sent this faulty one.</p>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p><strong>(c)</strong> Compare the rows with each other and with the total:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">share faulty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Celle</td>
+<td style="text-align: right;">39 / 1,300 = .03</td>
+</tr>
+<tr class="even">
+<td>Ionix</td>
+<td style="text-align: right;">56 / 700 = .08</td>
+</tr>
+<tr class="odd">
+<td>overall</td>
+<td style="text-align: right;">95 / 2,000 = .0475</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>The rows differ: knowing the supplier changes the share of faulty batteries. Supplier and fault are <strong>dependent</strong>.</p>
+</div>
+</div></div>
+</section>
+<section id="h2-d-bayes-three-columns-then-the-formula" class="slide level2">
+<h2>H2 (d): Bayes, three columns, then the formula</h2>
+<div class="bigtable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>supplier</th>
+<th style="text-align: right;">prior share</th>
+<th style="text-align: right;">× defect rate</th>
+<th style="text-align: right;">= faulty, as a share of all</th>
+<th style="text-align: right;">÷ total faulty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Celle</td>
+<td style="text-align: right;">.65</td>
+<td style="text-align: right;">.03</td>
+<td style="text-align: right;">.0195</td>
+<td style="text-align: right;">.0195 / .0475 = .411</td>
+</tr>
+<tr class="even">
+<td>Ionix</td>
+<td style="text-align: right;">.35</td>
+<td style="text-align: right;">.08</td>
+<td style="text-align: right;">.0280</td>
+<td style="text-align: right;">.0280 / .0475 = <strong>.589</strong></td>
+</tr>
+<tr class="odd">
+<td>total</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">.0475</td>
+<td style="text-align: right;">1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><span class="math display">P(F) = .03 \times .65 + .08 \times .35 = .0195 + .0280 = .0475</span></p>
+<p><span class="math display">P(\text{Ionix} \mid F) = \frac{P(F \mid \text{Ionix})\,P(\text{Ionix})}{P(F)} = \frac{.08 \times .35}{.0475} = \textbf{.589} \qquad \text{check: } \tfrac{56}{95} = .589</span></p>
+</div>
+<div class="fragment">
+<p><span class="red">Before the evidence Ionix was .35; after, .59. The smaller supplier is the likelier culprit: a rate almost three times Celle’s outweighs a third of the volume.</span></p>
+</div>
+</section>
+<section id="the-memo-one-model-answer-and-what-we-look-for" class="slide level2">
+<h2>The memo: one model answer, and what we look for</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<div title="To the founder · from Quality · the faulty battery on the bench">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>To the founder · from Quality · the faulty battery on the bench</strong></p>
+</div>
+<div class="callout-content">
+<p>We received 2,000 batteries last quarter, 1,300 from Celle and 700 from Ionix. Of the 95 that failed, 39 came from Celle and 56 from Ionix. The battery on the bench is from <strong>Ionix with about a 59% chance</strong>, from Celle with 41%.</p>
+<p>Ionix sends only a third of our batteries, but fails 8 times in 100 against Celle’s 3: nearly three times more often, which outweighs its smaller volume.</p>
+<p><strong>Recommendation:</strong> audit Ionix’s last quarter before the next order and ask them to explain the 8%. Switching now, on one battery, would be premature.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:42%;">
+<p><strong>What we look for</strong></p>
+<ul>
+<li>both shares, 59 and 41</li>
+<li>one line on <em>why</em> the smaller supplier is the likelier one: rate against volume</li>
+<li>one recommendation, with its reason</li>
+<li>no formulas; 100–150 words</li>
+</ul>
+<div class="fragment">
+<p><span class="red">A memo that answers “Celle, because they send more” has read the row, not the column.</span></p>
+</div>
+</div></div>
+</section>
+<section id="where-we-are" class="slide level2">
+<h2>Where we are</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 26%">
+<col style="width: 66%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Wk</th>
+<th>Date</th>
+<th>What you can do by hand</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>6</td>
+<td>5 Nov · in person</td>
+<td>count, condition, update ✓</td>
+</tr>
+<tr class="even">
+<td><strong>7</strong></td>
+<td><strong>9 Nov · online</strong></td>
+<td><strong>a number with its shares; three shapes; decide with them</strong></td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>16 Nov · online</td>
+<td>how sure are we of a number: intervals, tests, one regression line</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>23 Nov · online</td>
+<td>several causes at once; a trend through time</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>30 Nov · online</td>
+<td>review; one last round of practice on paper</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:42%;">
+<p><strong>Online, like the rest of the second half.</strong> Paper, a calculator, and the normal table — or <code>NORM.S.DIST</code> on your computer.</p>
+<p>Everything in weeks 8–10 stands on today’s bell and on two words: <em>mean</em> and <em>standard deviation</em>.</p>
+</div></div>
+<p><span class="red">Every technique today is here because an assessment asks for it. I will tell you which one, every time.</span></p>
+</section>
+<section id="todays-question" class="slide level2">
+<h2>Today’s question</h2>
+<div title="Arno Bikes, this month">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Arno Bikes, this month</strong></p>
+</div>
+<div class="callout-content">
+<p>The founder has four numbers she does not know. <strong>How many</strong> bikes come back under warranty next week. <strong>How many</strong> of Saturday’s test riders will buy. <strong>How far</strong> a battery really goes, so that she can print a range on the box. <strong>Which supplier</strong> to sign for next year’s batteries, when one of them is cheaper but less reliable.</p>
+<p>And a fifth she has not thought of yet: of the 250 orders shipping this month, <strong>how many will be late</strong>?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>First, each unknown number gets a mean and a spread. Then a <strong>shape</strong> — and a shape is something you can read a probability off.</p>
+</div>
+<div class="fragment">
+<p><span class="red">Three shapes cover almost every number a firm does not know: a count out of <span class="math inline">n</span>, a count at a rate, a measurement.</span></p>
+</div>
+</section>
+<section id="how-today-runs" class="slide level2">
+<h2>How today runs</h2>
+<div class="blocks four">
+<div class="blk recap">
+<p><span class="blk-letter">10:00 · 20’</span>Homework 6<span class="blk-answer">H1, H2 and the memo, step by step.</span></p>
+</div>
+<div class="blk now">
+<p><span class="blk-letter">10:20 → 12:45</span>Five questions from the founder<span class="blk-tool">Each one: her question and your bet typed in the chat → the picture → one formula with a number → the sentence for the Board. Break at 11:15.</span></p>
+</div>
+<div class="blk recap">
+<p><span class="blk-letter">12:45 · 15’</span>Take home<span class="blk-answer">Five lines to remember, the five answers for the founder, the homework.</span></p>
+</div>
+<div class="blk recap">
+<p><span class="blk-letter">Next Monday</span>Online<span class="blk-answer">How sure are we of that number?</span></p>
+</div>
+</div>
+<p><span class="muted">Bets are written, not said. Write a number before I compute; the surprise is where the learning is.</span></p>
+</section>
+<section id="five-questions-from-the-founder" class="slide level2 hub" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Five questions from the founder</h2>
+<div class="blocks five">
+<div class="blk now" data-id="blkA">
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">mean and variance · a random variable · distributions</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block B</span>How many of Saturday’s riders buy?<span class="blk-tool">binomial · Poisson · one family</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block C</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block D</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block E</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
+</div>
+</div>
+</section>
+<section id="block-a-mean-and-variance-the-language-of-distributions-how-many-returns-next-week" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block A · mean and variance, the language of distributions</span> How many returns next week?</h2>
+<div class="blk-fill" data-id="blkA">
+
+</div>
+</section>
+<section id="mean-and-variance-five-weeks-of-returns-by-hand" class="slide level2">
+<h2>Mean and variance: five weeks of returns, by hand</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>week</th>
+<th style="text-align: right;">returns <span class="math inline">x</span></th>
+<th style="text-align: right;"><span class="math inline">x - \bar{x}</span></th>
+<th style="text-align: right;"><span class="math inline">(x - \bar{x})^{2}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">−1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">−2</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td><strong>sum</strong></td>
+<td style="text-align: right;"><strong>25</strong></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><strong>10</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column fragment" style="width:58%;">
+<p><strong>The mean</strong>: the total, shared equally.</p>
+<p><span class="math display">\bar{x} = \frac{\sum x}{n} = \frac{25}{5} = \textbf{5 returns a week}</span></p>
+<p><strong>The variance</strong>: the average squared distance from the mean. Why <span class="math inline">n - 1</span> underneath? The five distances always add to zero, so once four are known the fifth is fixed: only four of them are free. Dividing by 5 would make the spread look smaller than it is.</p>
+<p><span class="math display">s^{2} = \frac{\sum (x - \bar{x})^{2}}{n - 1} = \frac{10}{4} = 2.5 \qquad s = \sqrt{2.5} = \textbf{1.58}</span></p>
+<p><strong>Reading.</strong> A typical week is 5 returns, give or take about 1.6. The deviations always sum to zero — a check, not a result.</p>
+</div></div>
+</section>
+<section id="five-weeks-of-returns-the-distances-cancel-the-squares-do-not" class="slide level2 clip" data-background-color="#000000">
+<h2>Five weeks of returns: the distances cancel, the squares do not</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w06_spread_poster.png">
+<source src="media/w06_spread.mp4" type="video/mp4">
+</video>
+</section>
+<section id="random-variable-next-weeks-returns-a-number-with-its-shares" class="slide level2">
+<h2>Random variable: next week’s returns, a number with its shares</h2>
+<div class="columns">
+<div class="column" style="width:38%;">
+<p>Twenty weeks of history, turned into shares: in 3 of 20 weeks there were 3 returns, in 4 of 20 there were 4, and so on.</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">returns <span class="math inline">x</span></th>
+<th style="text-align: right;">share <span class="math inline">P(x)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">.20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">.30</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">.20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>sum</strong></td>
+<td style="text-align: right;"><strong>1.00</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column fragment" style="width:62%;">
+<p>A <strong>random variable</strong> is next week’s number, before we see it, with a share attached to each value it can take. The shares add up to 1.</p>
+<p><strong>The expected value</strong> is the mean of the five-row table with the shares as weights: each value, times how often it happens, added up.</p>
+<p><span class="math display">E(x) = \sum x\,P(x)</span></p>
+<p><span class="math display">= 3(.15) + 4(.20) + 5(.30) + 6(.20) + 7(.15)</span></p>
+<p><span class="math display">= .45 + .80 + 1.50 + 1.20 + 1.05 = \textbf{5.0}</span></p>
+<p><strong>Reading.</strong> Expect 5 returns a week. No single week has exactly 5.0; over 50 weeks, about 250.</p>
+</div></div>
+</section>
+<section id="variance-of-a-random-variable-how-far-from-5" class="slide level2">
+<h2>Variance of a random variable: how far from 5?</h2>
+<div class="bigtable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">returns <span class="math inline">x</span></th>
+<th style="text-align: right;">share <span class="math inline">P(x)</span></th>
+<th style="text-align: right;">distance <span class="math inline">x - \mu</span></th>
+<th style="text-align: right;">squared <span class="math inline">(x - \mu)^{2}</span></th>
+<th style="text-align: right;">weighted <span class="math inline">(x - \mu)^{2}\,P(x)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">.15</td>
+<td style="text-align: right;">−2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4 × .15 = .60</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">.20</td>
+<td style="text-align: right;">−1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1 × .20 = .20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">.30</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0 × .30 = 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">.20</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1 × .20 = .20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">.15</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4 × .15 = .60</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>sum</strong></td>
+<td style="text-align: right;"><strong>1.00</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>1.60</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Same recipe as the five weeks: distance from the mean, squared, then averaged, with the shares as weights.</p>
+<p><span class="math display">\sigma^{2} = \sum (x - \mu)^{2}\,P(x) = \textbf{1.60}</span></p>
+<p><span class="math display">\sigma = \sqrt{1.60} = \textbf{1.26}</span></p>
+</div><div class="column fragment" style="width:40%;">
+<p><strong>Reading.</strong> Expect 5 returns, give or take about 1.3.</p>
+<div class="fragment">
+<p><span class="red">Same two formulas as the five weeks: once with <span class="math inline">1/n</span> as the weight, once with the shares.</span></p>
+</div>
+</div></div>
+</section>
+<section id="a-distribution-the-whole-table-in-one-picture" class="slide level2">
+<h2>A distribution: the whole table in one picture</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<p><img data-src="img/w06_returns_dist.svg"></p>
+</div><div class="column fragment" style="width:44%;">
+<p>The table of shares, drawn: each value on the floor, its share as the height. That picture <strong>is</strong> the distribution of next week’s returns.</p>
+<p>Two numbers summarise it: <strong>where it sits</strong> (<span class="math inline">E(x) = 5</span>) and <strong>how wide it is</strong> (<span class="math inline">\sigma = 1.26</span>).</p>
+<div class="fragment">
+<p>Ask the picture, not the mean: a week with <strong>7</strong> returns is the top of the table, not a crisis; a week with <strong>8 or more</strong> has not happened in twenty weeks.</p>
+</div>
+<div class="fragment">
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Plan the workshop for five returns a week, give or take one or two. Seven is a normal bad week; eight would be news.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="the-language-of-distributions-five-words-with-arno-bikes-next-to-each" class="slide level2">
+<h2>The language of distributions: five words, with Arno Bikes next to each</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 42%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>word</th>
+<th>in plain words</th>
+<th>at Arno Bikes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>random variable</strong></td>
+<td>a number we do not know yet, with its shares</td>
+<td>next week’s returns</td>
+</tr>
+<tr class="even">
+<td><strong>distribution</strong></td>
+<td>the full list of values and shares, or its picture</td>
+<td>the bars from 3 to 7</td>
+</tr>
+<tr class="odd">
+<td><strong>expected value</strong> <span class="math inline">E(x)</span></td>
+<td>the long-run average of that number</td>
+<td>5 returns a week</td>
+</tr>
+<tr class="even">
+<td><strong>standard deviation</strong> <span class="math inline">\sigma</span></td>
+<td>how far a typical week sits from the average</td>
+<td>1.26 returns</td>
+</tr>
+<tr class="odd">
+<td><strong>parameter</strong></td>
+<td>the one or two numbers that pin a distribution down</td>
+<td>mean 5, spread 1.26</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><span class="red">Our table came from twenty weeks of history. From the next block on, the shares come from a formula instead — and the words stay exactly the same.</span></p>
+</div>
+</section>
+<section id="next-three-shapes" class="slide level2 statement">
+<h2>Next: three shapes</h2>
+<div class="blocks">
+<div class="blk next fragment">
+<p><span class="blk-letter">Binomial</span>How many of these <span class="math inline">n</span>?<span class="blk-answer">Twelve test rides, each buys or not: how many buyers?</span></p>
+</div>
+<div class="blk next fragment">
+<p><span class="blk-letter">Poisson</span>How many in this interval?<span class="blk-answer">Helpline calls in an hour, returns in a week.</span></p>
+</div>
+<div class="blk next fragment">
+<p><span class="blk-letter">The normal</span>The bell<span class="blk-answer">Battery ranges piling up around 90 km; what range to print on the box.</span></p>
+</div>
+</div>
+<div class="fragment">
+<p><span class="muted">Three ready-made tables of shares. Same five words, same <span class="math inline">E(x)</span> and <span class="math inline">\sigma</span> — blocks B to E, and then how to decide with them.</span></p>
+</div>
+</section>
+<section id="five-questions-from-the-founder-1" class="slide level2 hub" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Five questions from the founder</h2>
+<div class="blocks five">
+<div class="blk done">
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">mean and variance · a random variable · distributions</span></p>
+</div>
+<div class="blk now" data-id="blkB">
+<p><span class="blk-letter">Block B</span>How many of Saturday’s riders buy?<span class="blk-tool">binomial · Poisson · one family</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block C</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block D</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block E</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
+</div>
+</div>
+</section>
+<section id="block-b-binomial-poisson-one-family-how-many-of-saturdays-riders-buy" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block B · binomial, Poisson, one family</span> How many of Saturday’s riders buy?</h2>
+<div class="blk-fill" data-id="blkB">
+
+</div>
+</section>
+<section id="binomial-twelve-test-rides-how-many-buy" class="slide level2">
+<h2>Binomial: twelve test rides, how many buy?</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Saturday: <strong>12</strong> test rides. From the CRM, one rider in four buys: <span class="math inline">p = .25</span>, and each decides alone.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>How many buyers is most likely? And the chance of exactly 3? Write both.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The <strong>binomial</strong>: a fixed number <span class="math inline">n</span> of yes/no trials, the same <span class="math inline">p</span> each time, independent.</p>
+<p><span class="math display">P(x) = \binom{n}{x}\, p^{x}\, (1-p)^{n-x}</span></p>
+<ul>
+<li><span class="math inline">\binom{n}{x}</span>: the ways to pick <strong>which</strong> <span class="math inline">x</span> of the <span class="math inline">n</span> riders buy</li>
+<li><span class="math inline">p^{x}</span>: those <span class="math inline">x</span> all buy</li>
+<li><span class="math inline">(1-p)^{n-x}</span>: the other <span class="math inline">n - x</span> all do not</li>
+</ul>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<p><img data-src="img/w07_binomial.svg"></p>
+<p><span class="muted" style="font-size:.8em">The shape for <span class="math inline">n = 12</span>, <span class="math inline">p = .25</span>: the bar at 3 is the tallest.</span></p>
+</div></div>
+</section>
+<section id="binomial-exactly-3-buyers-out-of-12-the-four-steps" class="slide level2">
+<h2>Binomial: exactly 3 buyers out of 12, the four steps</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>1. The ways to pick which 3 buy.</strong></p>
+<p><span class="math display">\binom{12}{3} = \frac{12 \cdot 11 \cdot 10}{3 \cdot 2 \cdot 1} = \frac{1320}{6} = 220</span></p>
+<div class="fragment">
+<p><strong>2. Those 3 buy.</strong> <span class="math inline">\;p^{3} = .25^{3} = .25 \times .25 \times .25 = .015625</span></p>
+</div>
+<div class="fragment">
+<p><strong>3. The other 9 do not.</strong> <span class="math inline">\;(1-p)^{9} = .75^{9} = .0751</span></p>
+</div>
+<div class="fragment">
+<p><strong>4. Multiply.</strong></p>
+<p><span class="math display">P(3) = 220 \times .015625 \times .0751 = \textbf{.258}</span></p>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<p><strong>Reading.</strong> One Saturday in four ends with exactly three buyers.</p>
+<p><strong>The mean</strong>, with no table at all:</p>
+<p><span class="math display">np = 12 \times .25 = \textbf{3 buyers}</span></p>
+<p><span class="math display">\sigma = \sqrt{np(1-p)} = \sqrt{12 \times .25 \times .75} = \sqrt{2.25} = \textbf{1.5}</span></p>
+<p><strong>Nobody buys:</strong> <span class="math inline">x = 0</span>, so <span class="math inline">\binom{12}{0} = 1</span>, <span class="math inline">p^{0} = 1</span>:</p>
+<p><span class="math display">P(0) = .75^{12} = .032</span></p>
+<p><strong>At least one buys:</strong> <span class="math inline">1 - P(0) = 1 - .032 = \textbf{.968}</span></p>
+</div></div>
+<div class="fragment">
+<p><span class="red">Every binomial question is these four steps. “At least one” is always 1 minus “none”.</span></p>
+</div>
+</section>
+<section id="try-it-move-the-number-of-test-rides-and-the-share-who-buy" class="slide level2 lab-app">
+<h2>Try it: move the number of test rides and the share who buy</h2>
+<iframe class="app" src="apps/w07_binomial.html?n=12&amp;p=0.25" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">Push <span class="math inline">n</span> to 40 and watch the bars become a bell. Drop <span class="math inline">p</span> to .05: where does the peak go, and what shape is left?</span></p>
+</section>
+<section id="poisson-the-helpline-three-calls-an-hour" class="slide level2">
+<h2>Poisson: the helpline, three calls an hour</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Calls arrive at random, <strong>3 an hour</strong> on average. One person answers; she steps out for <strong>half an hour</strong>.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>Chance that nobody calls in that half hour? Write a share.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The <strong>Poisson</strong>: a count in an interval, constant rate, no upper limit. Write <span class="math inline">\mu</span> = rate × interval <strong>before</strong> any number.</p>
+<p>Half an hour: <span class="math inline">\mu = 3 \times \tfrac{1}{2} = 1.5</span>.</p>
+<p><span class="math display">P(x) = \frac{\mu^{x} e^{-\mu}}{x!} \;\Rightarrow\; P(0) = \frac{1.5^{0} e^{-1.5}}{0!} = e^{-1.5} = \textbf{.223}</span></p>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<p>In a full hour, <span class="math inline">\mu = 3</span>:</p>
+<p><span class="math display">P(0) = e^{-3} = .050</span></p>
+<p><span class="math display">P(\ge 1) = 1 - .050 = \textbf{.950}</span></p>
+<p><span class="math display">P(2) = \frac{3^{2} e^{-3}}{2!} = \frac{9 \times .0498}{2} = .224</span></p>
+<div class="fragment">
+<p><span class="red">Without the rescaling you would say 5% for the half hour. It is 22%: four times out. <span class="math inline">\mu</span> first, always.</span></p>
+</div>
+</div></div>
+</section>
+<section id="calls-arrive-at-random-and-the-hours-pile-into-a-shape" class="slide level2 clip" data-background-color="#000000">
+<h2>Calls arrive at random, and the hours pile into a shape</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w07_poisson_poster.png">
+<source src="media/w07_poisson.mp4" type="video/mp4">
+</video>
+</section>
+<section id="binomial-or-poisson-decide-in-words-before-you-compute" class="slide level2">
+<h2>Binomial or Poisson? Decide in words before you compute</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Binomial</strong> — <em>how many of these <span class="math inline">n</span>?</em></p>
+<ul>
+<li>a fixed number of trials, each yes or no</li>
+<li>the same <span class="math inline">p</span> every time, each trial alone</li>
+<li>the count cannot exceed <span class="math inline">n</span></li>
+<li>you are given <span class="math inline">n</span> and <span class="math inline">p</span></li>
+</ul>
+<p><span class="muted">12 test rides, one in four buys.</span></p>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>Poisson</strong> — <em>how many in this interval?</em></p>
+<ul>
+<li>events arriving over time or space</li>
+<li>a constant rate, arrivals independent</li>
+<li>no ceiling on the count</li>
+<li>you are given a rate; <span class="math inline">\mu</span> = rate × interval</li>
+</ul>
+<p><span class="muted">3 calls an hour; a half hour means <span class="math inline">\mu = 1.5</span>.</span></p>
+</div></div>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Of twelve test rides we expect three sales, and nobody buying is a one-in-thirty Saturday. Leaving the helpline for half an hour, we miss at least one call three times out of four.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="one-family-three-shapes-what-changes-as-n-and-p-move" class="slide level2 clip" data-background-color="#000000">
+<h2>One family, three shapes: what changes as <span class="math inline">n</span> and <span class="math inline">p</span> move</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w07_family_poster.png">
+<source src="media/w07_family.mp4" type="video/mp4">
+</video>
+</section>
+<section id="one-family-three-shapes-in-words" class="slide level2">
+<h2>One family, three shapes: in words</h2>
+<div class="bigtable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>from</th>
+<th>to</th>
+<th>when</th>
+<th>in Arno Bikes words</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binomial</td>
+<td>Poisson</td>
+<td>many trials, each one rare</td>
+<td>thousands of riders a week, a handful of complaints</td>
+</tr>
+<tr class="even">
+<td>Binomial</td>
+<td>Normal</td>
+<td>many trials, <span class="math inline">p</span> not tiny</td>
+<td>late orders among the 250 shipping this month</td>
+</tr>
+<tr class="odd">
+<td>Poisson</td>
+<td>Normal</td>
+<td>a high rate</td>
+<td>calls over a whole week, not one hour</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Twelve rides stay binomial. Count the late orders among <strong>250</strong>, or calls over a whole week, and the bars smooth into a bell: with enough trials, every count behaves like a measurement.</p>
+<div class="fragment">
+<p><span class="red">Small <span class="math inline">n</span>: count the ways. Rare events at a rate: Poisson. Large numbers of anything: the bell — block C teaches you to read it, block E uses it on a count.</span></p>
+</div>
+</section>
+<section id="five-questions-from-the-founder-2" class="slide level2 hub" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Five questions from the founder</h2>
+<div class="blocks five">
+<div class="blk done">
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">mean and variance · a random variable · distributions</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block B</span>How many of Saturday’s riders buy?<span class="blk-tool">binomial · Poisson · one family</span></p>
+</div>
+<div class="blk now" data-id="blkC">
+<p><span class="blk-letter">Block C</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block D</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block E</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
+</div>
+</div>
+</section>
+<section id="block-c-the-normal-skewness-and-kurtosis-what-range-do-we-promise" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block C · the normal, skewness and kurtosis</span> What range do we promise?</h2>
+<div class="blk-fill" data-id="blkC">
+
+</div>
+</section>
+<section id="the-normal-two-hundred-bikes-on-the-same-loop" class="slide level2">
+<h2>The normal: two hundred bikes on the same loop</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Marketing wants a number on the box: “range <strong>X</strong> km”. Engineering measured 200 bikes on the same loop: <strong>90 km on average</strong>, standard deviation <strong>8 km</strong>.</p>
+<p>Range is not a count. It is a measurement, any value on a line, and the bikes pile up into a <strong>bell</strong>: most near 90, fewer and fewer further out, symmetric.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>Print 75 km: what share of riders will see less than the box promised? Write a share.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<p><strong>The normal</strong>, in words:</p>
+<ul>
+<li>continuous, bell-shaped, symmetric</li>
+<li>two numbers fix it: <span class="math inline">\mu</span> the centre, <span class="math inline">\sigma</span> the width</li>
+<li>mean = median = mode; skewness zero</li>
+<li>a probability is an <strong>area</strong> under the curve; a single value has none</li>
+</ul>
+<p><span class="muted"><span class="math inline">X \sim N(90,\, 8)</span></span></p>
+</div></div>
+</section>
+<section id="two-hundred-battery-ranges-pile-into-a-bell" class="slide level2 clip" data-background-color="#000000">
+<h2>Two hundred battery ranges pile into a bell</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w07_normal_poster.png">
+<source src="media/w07_normal.mp4" type="video/mp4">
+</video>
+</section>
+<section id="the-empirical-rule-one-σ-two-σ-three-σ" class="slide level2">
+<h2>The empirical rule: one σ, two σ, three σ</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/w07_empirical_rule.svg"></p>
+</div><div class="column fragment" style="width:40%;">
+<p>Count in units of <span class="math inline">\sigma</span> from the centre:</p>
+<ul>
+<li><strong>68%</strong> within one σ: 82 to 98 km</li>
+<li><strong>95%</strong> within two σ: 74 to 106 km</li>
+<li><strong>99.7%</strong> within three σ: 66 to 114 km</li>
+</ul>
+<p>A bike at 74 km is two σ below the mean — one in forty does that badly.</p>
+<div class="fragment">
+<p><span class="red">The same three numbers for every bell. That is why we measure distance in σ and not in km.</span></p>
+</div>
+</div></div>
+</section>
+<section id="the-normal-four-steps-every-time" class="slide level2">
+<h2>The normal: four steps, every time</h2>
+<div class="blocks four">
+<div class="blk recap fragment">
+<p><span class="blk-letter">1</span>Sketch and shade<span class="blk-answer">Draw the bell, mark <span class="math inline">\mu</span>, mark <span class="math inline">x</span>, shade the area the question asks for.</span></p>
+</div>
+<div class="blk recap fragment">
+<p><span class="blk-letter">2</span>Standardise<span class="blk-answer"><span class="math inline">z = (x - \mu)/\sigma</span>: how many σ from the centre, and on which side.</span></p>
+</div>
+<div class="blk recap fragment">
+<p><span class="blk-letter">3</span>Table<span class="blk-answer">The standard normal table gives the area to the <strong>left</strong> of <span class="math inline">z</span>. Or <code>NORM.S.DIST(z, TRUE)</code>.</span></p>
+</div>
+<div class="blk recap fragment">
+<p><span class="blk-letter">4</span>Sentence<span class="blk-answer">Turn the area back into bikes, riders, euros.</span></p>
+</div>
+</div>
+<div class="fragment">
+<p><span class="red">One table serves every bell, because step 2 turns every bell into the same one: centre 0, width 1.</span></p>
+</div>
+</section>
+<section id="standardise-steps-1-and-2-the-share-below-75-km" class="slide level2">
+<h2>Standardise: steps 1 and 2, the share below 75 km</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><img data-src="img/w07_guarantee.svg"></p>
+<p><span class="muted" style="font-size:.8em">Step 1. The shaded area is the question: riders who see less than 75 km.</span></p>
+</div><div class="column fragment" style="width:52%;">
+<p><strong>Step 2. Standardise.</strong> 75 km is 15 km below the mean of 90. In units of σ = 8:</p>
+<p><span class="math display">z = \frac{x - \mu}{\sigma} = \frac{75 - 90}{8} = \frac{-15}{8} = -1.875 \approx \textbf{-1.88}</span></p>
+<p><strong>Reading.</strong> 75 km sits 1.88 standard deviations <strong>below</strong> the centre. The minus sign says “below”; the 1.88 says “how far”.</p>
+<p><span class="muted">Same picture for a bike at 74 km from the previous slide: <span class="math inline">z = -2</span>, two σ below. Now we can do any value, not only whole σ.</span></p>
+</div></div>
+</section>
+<section id="the-normal-table-steps-3-and-4-then-the-sentence" class="slide level2">
+<h2>The normal table: steps 3 and 4, then the sentence</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Step 3.</strong> The table splits <span class="math inline">z</span> in two: the <strong>row</strong> is <span class="math inline">z</span> to one decimal, the <strong>column</strong> adds the second. <span class="math inline">-1.88 = -1.8 + .08</span>: row <span class="math inline">-1.8</span>, column <span class="math inline">.08</span>. The entry is the area to the <strong>left</strong> of <span class="math inline">z</span>.</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">z</span></th>
+<th style="text-align: right;">.00</th>
+<th style="text-align: right;">.04</th>
+<th style="text-align: right;">.05</th>
+<th style="text-align: right;"><strong>.08</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">−2.0</td>
+<td style="text-align: right;">.0228</td>
+<td style="text-align: right;">.0207</td>
+<td style="text-align: right;">.0202</td>
+<td style="text-align: right;">.0188</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">−1.9</td>
+<td style="text-align: right;">.0287</td>
+<td style="text-align: right;">.0262</td>
+<td style="text-align: right;">.0256</td>
+<td style="text-align: right;">.0239</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>−1.8</strong></td>
+<td style="text-align: right;">.0359</td>
+<td style="text-align: right;">.0329</td>
+<td style="text-align: right;">.0322</td>
+<td style="text-align: right;"><strong>.0301</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">−1.7</td>
+<td style="text-align: right;">.0446</td>
+<td style="text-align: right;">.0409</td>
+<td style="text-align: right;">.0401</td>
+<td style="text-align: right;">.0375</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">−1.6</td>
+<td style="text-align: right;">.0548</td>
+<td style="text-align: right;">.0505</td>
+<td style="text-align: right;">.0495</td>
+<td style="text-align: right;">.0465</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="muted" style="font-size:.75em">An excerpt of the standard normal table (areas to the left of <span class="math inline">z</span>). In Excel: <code>=NORM.S.DIST(-1.88, TRUE)</code> → .0301.</span></p>
+</div><div class="column fragment" style="width:50%;">
+<p><span class="math display">P(X &lt; 75) = P(z &lt; -1.88) = \textbf{.030}</span></p>
+<div class="fragment">
+<p><strong>Step 4. Sentence.</strong> Print 75 km and <strong>three riders in a hundred</strong> will see less than the box promised.</p>
+<p>Want the share <strong>above</strong> 75 km? The whole area is 1:</p>
+<p><span class="math display">P(X &gt; 75) = 1 - .030 = .970</span></p>
+</div>
+<div class="fragment">
+<p><span class="red">The table only gives “to the left”. Everything else is 1 minus, or a difference of two lookups. The sketch tells you which.</span></p>
+</div>
+</div></div>
+</section>
+<section id="try-it-move-the-mean-the-spread-and-the-threshold" class="slide level2 lab-app">
+<h2>Try it: move the mean, the spread and the threshold</h2>
+<iframe class="app" src="apps/w07_normal.html?mu=90&amp;sigma=8&amp;x=75" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">Double <span class="math inline">\sigma</span> to 16: what happens to the 75-km tail? Then flip the toggle and ask the app for the threshold that leaves 5% below.</span></p>
+</section>
+<section id="the-normal-backwards-the-guarantee" class="slide level2">
+<h2>The normal, backwards: the guarantee</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>The Board accepts <strong>5%</strong> of riders seeing less than the box. What do we print?</p>
+<p>Now the area is given and <span class="math inline">x</span> is wanted: the four steps, <strong>backwards</strong>.</p>
+<p><strong>Table, backwards.</strong> Find .05 <em>inside</em> the table: between <span class="math inline">z = -1.64</span> (.0505) and <span class="math inline">-1.65</span> (.0495), so <span class="math inline">z = -1.645</span>. Excel: <code>=NORM.S.INV(0.05)</code>.</p>
+<p><strong>Undo the standardisation</strong>, solving <span class="math inline">z = (x - \mu)/\sigma</span> for <span class="math inline">x</span>:</p>
+<p><span class="math display">x = \mu + z\,\sigma = 90 - 1.645 \times 8 = \textbf{76.8 km}</span></p>
+<p>Print <strong>76 km</strong>, a promise rounds down: the share below it is <span class="math inline">P(z &lt; -1.75) = .040</span>.</p>
+<div class="fragment">
+<p><span class="red">Forwards: <span class="math inline">x \to z \to</span> area. Backwards: area <span class="math inline">\to z \to x</span>.</span></p>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">print</th>
+<th style="text-align: right;">share who see less</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">85 km</td>
+<td style="text-align: right;">27%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">80 km</td>
+<td style="text-align: right;">11%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">76.8 km</td>
+<td style="text-align: right;">5%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">75 km</td>
+<td style="text-align: right;">3%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Print 76 km. About one rider in twenty-five will see less, and every km we add to the box adds one or two complaints in a hundred.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="skewness-when-the-bell-leans" class="slide level2">
+<h2>Skewness: when the bell leans</h2>
+<div class="columns">
+<div class="column" style="width:62%;">
+<p><img data-src="img/w07_skew.svg"></p>
+</div><div class="column fragment" style="width:38%;">
+<p>Battery range is symmetric: <strong>skewness zero</strong>, mean and median coincide.</p>
+<p>Delivery time is not: most parcels take two days, a few take ten. A long <strong>right tail</strong> pulls the mean above the median: <strong>positive skewness</strong>.</p>
+<div class="fragment">
+<p><span class="red">Before you use the table, ask whether the data are a bell. A mean above the median says they are not.</span></p>
+</div>
+</div></div>
+</section>
+<section id="kurtosis-when-the-bell-has-the-wrong-tails" class="slide level2">
+<h2>Kurtosis: when the bell has the wrong tails</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img data-src="img/w07_kurtosis.svg"></p>
+<p><span style="font-size:.85em">Three shapes, the <strong>same mean and the same σ</strong>. Skewness asks whether the curve leans; <strong>kurtosis</strong> asks how much of it sits in the tails.</span></p>
+</div><div class="column fragment" style="width:42%;">
+<ul>
+<li><strong>The bell</strong> (mesokurtic): battery range. The 68–95–99.7 rule holds.</li>
+<li><strong>Sharp peak, fat tails</strong> (leptokurtic): delivery delays. Most parcels on the usual day, but a “three σ” delay comes far more often than one in three hundred.</li>
+<li><strong>Flat top, no tails</strong> (platykurtic): a rota, every slot equally likely. Nothing extreme ever happens.</li>
+</ul>
+<div class="fragment">
+<p><span class="red">Same σ, different surprises. Fat tails mean the rare bad day is not as rare as the bell says.</span></p>
+</div>
+</div></div>
+</section>
+<section id="five-questions-from-the-founder-3" class="slide level2 hub" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Five questions from the founder</h2>
+<div class="blocks five">
+<div class="blk done">
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">mean and variance · a random variable · distributions</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block B</span>How many of Saturday’s riders buy?<span class="blk-tool">binomial · Poisson · one family</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block C</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
+</div>
+<div class="blk now" data-id="blkD">
+<p><span class="blk-letter">Block D</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
+</div>
+<div class="blk next">
+<p><span class="blk-letter">Block E</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
+</div>
+</div>
+</section>
+<section id="block-d-expected-value-to-decide-which-supplier-do-we-sign" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D · expected value to decide</span> Which supplier do we sign?</h2>
+<div class="blk-fill" data-id="blkD">
+
+</div>
+</section>
+<section id="two-suppliers-one-contract-for-next-years-batteries" class="slide level2">
+<h2>Two suppliers, one contract for next year’s batteries</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Arno Bikes buys <strong>1,000 batteries a month</strong>. Two offers are on the table.</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Volta</th>
+<th>Ampere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>price per battery</td>
+<td><strong>€180</strong></td>
+<td><strong>€165</strong></td>
+</tr>
+<tr class="even">
+<td>faulty on arrival</td>
+<td>none, replaced by Volta</td>
+<td><strong>5%</strong></td>
+</tr>
+<tr class="odd">
+<td>a faulty battery costs us</td>
+<td>—</td>
+<td><strong>€90</strong> to swap on the line</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>Which contract, and how much does it save (or cost) per battery? Write a name and a number.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p>Volta is a <strong>certain</strong> number: €180, every battery.</p>
+<p>Ampere is a <strong>random variable</strong>: block A’s table, two rows.</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>what happens</th>
+<th style="text-align: right;">share <span class="math inline">P(x)</span></th>
+<th style="text-align: right;">cost <span class="math inline">x</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>the battery is good</td>
+<td style="text-align: right;">.95</td>
+<td style="text-align: right;">€165</td>
+</tr>
+<tr class="even">
+<td>the battery is faulty</td>
+<td style="text-align: right;">.05</td>
+<td style="text-align: right;">€165 + €90 = €255</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><span class="red">A cheaper price with a catch is not a price. It is a distribution, and you compare distributions by their mean — and then by their spread.</span></p>
+</div>
+</div></div>
+</section>
+<section id="the-decision-tree-a-square-to-choose-a-circle-for-chance" class="slide level2">
+<h2>The decision tree: a square to choose, a circle for chance</h2>
+
+<img data-src="img/w07_decision_tree.svg" style="width:92.0%" class="r-stretch"><p><span class="muted" style="font-size:.8em">Read it left to right. At the square <strong>we</strong> choose; at the circle <strong>chance</strong> chooses, with its probabilities. The number written at a node is the expected value of everything to its right.</span></p>
+</section>
+<section id="expected-value-at-the-chance-node-block-as-formula" class="slide level2">
+<h2>Expected value at the chance node: block A’s formula</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<p><span class="math display">E(x) = \sum x\,P(x) = .95 \times 165 + .05 \times 255</span></p>
+<p><span class="math display">= 156.75 + 12.75 = \textbf{€169.50 a battery}</span></p>
+<div class="fragment">
+<p><strong>Reading.</strong> On average Ampere costs €169.50 a battery: the €165 price plus €4.50 for the faulty ones. Against Volta’s €180: <strong>€10.50 cheaper a battery, €10,500 a month</strong>.</p>
+</div>
+<div class="fragment">
+<p><strong>The spread, same recipe as block A:</strong></p>
+<p><span class="math display">\sigma^{2} = \sum (x - \mu)^{2} P(x) = .95\,(4.5)^{2} + .05\,(85.5)^{2}</span></p>
+<p><span class="math display">= 19.24 + 365.51 = 384.75</span></p>
+<p><span class="math display">\sigma = \sqrt{384.75} = \textbf{€19.6}</span></p>
+</div>
+</div><div class="column fragment" style="width:44%;">
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">Volta</th>
+<th style="text-align: right;">Ampere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>expected cost</td>
+<td style="text-align: right;">€180.00</td>
+<td style="text-align: right;"><strong>€169.50</strong></td>
+</tr>
+<tr class="even">
+<td>spread σ</td>
+<td style="text-align: right;"><strong>€0</strong></td>
+<td style="text-align: right;">€19.6</td>
+</tr>
+<tr class="odd">
+<td>worst battery</td>
+<td style="text-align: right;">€180</td>
+<td style="text-align: right;">€255</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><strong>Expected value</strong> picks Ampere. <strong>Spread</strong> picks Volta. A decision has two numbers, and the Board must hear both.</p>
+<p><span class="red">The expected value is the price you pay on average. The spread is the surprise you pay sometimes.</span></p>
+</div>
+</div></div>
+</section>
+<section id="when-does-the-spread-matter-volume" class="slide level2">
+<h2>When does the spread matter? Volume</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>A thousand batteries a month.</strong> The faulty count is binomial: <span class="math inline">n = 1{,}000</span>, <span class="math inline">p = .05</span>.</p>
+<p><span class="math display">np = 50 \text{ faulty}</span></p>
+<p><span class="math display">\sigma = \sqrt{1{,}000 \times .05 \times .95} = 6.9</span></p>
+<p>The monthly bill is €165,000 plus €90 per faulty battery: <strong>€169,500, give or take €620</strong>. The €10,500 saving is never at risk.</p>
+<div class="fragment">
+<p><strong>A rush order of ten.</strong> Same <span class="math inline">p</span>, <span class="math inline">n = 10</span>: the saving on ten batteries is €150. Two faulty batteries cost €180 and wipe it out, and two or more faulty happens</p>
+<p><span class="math display">P(X \ge 2) = 1 - P(0) - P(1) = 1 - .599 - .315 = \textbf{.086}</span></p>
+<p>one rush order in twelve.</p>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Sign Ampere for the volume contract: €10.50 a battery cheaper on average, €10,500 a month, and on a thousand batteries the faults average out to about fifty, give or take seven. Keep Volta for rush orders of a few units, where one faulty battery in a box of ten is a problem the saving cannot pay for.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="red">Expected value decides when the decision repeats. Spread decides when it does not.</span></p>
+</div>
+</div></div>
+</section>
+<section id="five-questions-from-the-founder-4" class="slide level2 hub" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Five questions from the founder</h2>
+<div class="blocks five">
+<div class="blk done">
+<p><span class="blk-letter">Block A</span>How many returns next week?<span class="blk-tool">mean and variance · a random variable · distributions</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block B</span>How many of Saturday’s riders buy?<span class="blk-tool">binomial · Poisson · one family</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block C</span>What range do we promise?<span class="blk-tool">the normal · skewness and kurtosis</span></p>
+</div>
+<div class="blk done">
+<p><span class="blk-letter">Block D</span>Which supplier do we sign?<span class="blk-tool">expected value to decide</span></p>
+</div>
+<div class="blk now" data-id="blkE">
+<p><span class="blk-letter">Block E</span>How many late orders in 250?<span class="blk-tool">normal approximation · Monte Carlo</span></p>
+</div>
+</div>
+</section>
+<section id="block-e-normal-approximation-and-monte-carlo-how-many-late-orders-in-250" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block E · normal approximation and Monte Carlo</span> How many late orders in 250?</h2>
+<div class="blk-fill" data-id="blkE">
+
+</div>
+</section>
+<section id="orders-this-month-6-ship-late-how-many-late" class="slide level2">
+<h2>250 orders this month, 6% ship late: how many late?</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Each order ships late with <span class="math inline">p = .06</span>, alone. <strong>Binomial</strong>, <span class="math inline">n = 250</span>: how many of these 250?</p>
+<p>The logistics partner charges a penalty when a month has <strong>20 or more</strong> late orders.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>How likely is a penalty month? Write a share.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The four steps of block A would need <span class="math inline">\binom{250}{20}</span> and <span class="math inline">.94^{230}</span> — and then the same for 21, 22, … up to 250. Nobody does that by hand.</p>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p><strong>The mean and spread, we already have:</strong></p>
+<p><span class="math display">\mu = np = 250 \times .06 = \textbf{15 late orders}</span></p>
+<p><span class="math display">\sigma = \sqrt{np(1-p)} = \sqrt{250 \times .06 \times .94}</span></p>
+<p><span class="math display">= \sqrt{14.1} = \textbf{3.755}</span></p>
+<div class="fragment">
+<p>And the clip said what happens with many trials: <strong>the bars become a bell</strong>. So treat the count as if it were <span class="math inline">N(15,\, 3.755)</span> and use block B.</p>
+<p><span class="muted">It works when <span class="math inline">np \ge 5</span> and <span class="math inline">n(1-p) \ge 5</span>: here 15 and 235.</span></p>
+</div>
+</div></div>
+</section>
+<section id="the-bars-become-a-bell-the-normal-approximation" class="slide level2">
+<h2>The bars become a bell: the normal approximation</h2>
+
+<img data-src="img/w07_normal_approx.svg" style="width:88.0%" class="r-stretch"><p><span class="muted" style="font-size:.8em">The bars are the exact binomial; the curve is <span class="math inline">N(15, 3.755)</span>. The bar for 20 starts at 19.5, so the area the question wants starts there too.</span></p>
+</section>
+<section id="twenty-or-more-late-the-four-steps-on-a-count" class="slide level2">
+<h2>Twenty or more late: the four steps on a count</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>1. Sketch and shade.</strong> The bell at 15, the bar for 20 and everything to its right. A bar for a whole number spans half a unit each side: “20 or more” starts at <strong>19.5</strong>.</p>
+<div class="fragment">
+<p><strong>2. Standardise.</strong></p>
+<p><span class="math display">z = \frac{19.5 - 15}{3.755} = \frac{4.5}{3.755} = 1.198 \approx \textbf{1.20}</span></p>
+</div>
+<div class="fragment">
+<p><strong>3. Table.</strong> Area to the left of 1.20 is .8849, so to the right:</p>
+<p><span class="math display">P(X \ge 20) = 1 - .8849 = \textbf{.115}</span></p>
+</div>
+<div class="fragment">
+<p><strong>4. Sentence.</strong> A penalty month happens about <strong>one month in nine</strong>.</p>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<p>The exact binomial, summed by a computer, gives .118: the bell is off by three in a thousand.</p>
+<p><span class="muted">Without the half unit: <span class="math inline">z = 5/3.755 = 1.33</span>, area .092 — a tenth too small. The half unit is called the continuity correction; use it, and move on.</span></p>
+<div class="fragment">
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Of 250 orders, expect 15 late, give or take four. A penalty month — twenty or more — comes about once in nine months. Cut the late rate to 4% and it becomes rarer than one in fifty.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="red">A count with many trials is read like a measurement: <span class="math inline">np</span>, <span class="math inline">\sqrt{np(1-p)}</span>, then the four steps.</span></p>
+</div>
+</div></div>
+</section>
+<section id="monte-carlo-when-you-cannot-compute-simulate" class="slide level2">
+<h2>Monte Carlo: when you cannot compute, simulate</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Twelve test rides, <span class="math inline">p = .25</span>. Instead of the formula, <strong>play the Saturday</strong>: twelve coin flips, each lands “buy” one time in four, count the buyers. Write the count down.</p>
+<p>Now play <strong>a thousand Saturdays</strong>. The counts pile into bars.</p>
+<div class="fragment">
+<p>Block A said <span class="math inline">P(3) = .258</span>. In a thousand simulated Saturdays, about <strong>258</strong> end with three buyers, about <strong>32</strong> with none. Not exactly: a thousand is a sample too.</p>
+</div>
+<div class="fragment">
+<p>Same trick for the 250 orders: play the month a thousand times. About <strong>118</strong> of them have twenty or more late — the number the bell estimated as 115.</p>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p><strong>Why a manager cares.</strong> The formula needs the model to be clean: same <span class="math inline">p</span>, independent trials. A simulation only needs you to describe one Saturday honestly; the computer plays it a thousand times, and the shape appears.</p>
+<p>Two couriers, a rate that changes with the weather, a supplier whose faults come in batches: no formula, but a simulation still runs.</p>
+<div class="fragment">
+<p><span class="red">The histogram of the simulation <strong>is</strong> the binomial. The formula is the shortcut; the simulation is the thing itself.</span></p>
+</div>
+</div></div>
+</section>
+<section id="try-it-simulate-a-thousand-saturdays" class="slide level2 lab-app">
+<h2>Try it: simulate a thousand Saturdays</h2>
+<iframe class="app" src="apps/w07_simulate.html?n=12&amp;p=0.25" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">Run 10 Saturdays, then 1,000: watch the bars settle onto the binomial. Then set <span class="math inline">n = 250</span>, <span class="math inline">p = .06</span> and count the months with 20 or more.</span></p>
+</section>
+<section id="close-take-home" class="slide level2 section-slide" data-background-color="#AF1F25">
+<h2><span class="section-kicker">Close</span> Take home</h2>
+</section>
+<section id="take-home" class="slide level2">
+<h2>Take home</h2>
+<div class="blocks five">
+<div class="blk recap fragment">
+<p><span class="blk-letter">A</span>A number with its shares<span class="blk-answer">A list: mean, and spread divided by <span class="math inline">n - 1</span>. A random variable: the same two formulas weighted by the shares. The table of shares, drawn, is the distribution.</span></p>
+</div>
+<div class="blk recap fragment">
+<p><span class="blk-letter">B</span>Name the shape before the formula<span class="blk-answer">How many of these <span class="math inline">n</span>: binomial, mean <span class="math inline">np</span>. How many in this interval: Poisson, <span class="math inline">\mu</span> = rate × interval first. “At least one” is 1 − “none”.</span></p>
+</div>
+<div class="blk recap fragment">
+<p><span class="blk-letter">C</span>A normal question is an area<span class="blk-answer">Sketch, standardise, table, sentence. Backwards for a guarantee: area → <span class="math inline">z</span> → <span class="math inline">x</span>. Then ask whether the data are a bell: skewness and kurtosis.</span></p>
+</div>
+<div class="blk recap fragment">
+<p><span class="blk-letter">D</span>Decide on two numbers<span class="blk-answer">Expected value is the price you pay on average; spread is the surprise you pay sometimes. A repeated decision follows the mean; a one-off weighs the spread.</span></p>
+</div>
+<div class="blk recap fragment">
+<p><span class="blk-letter">E</span>Many trials: a count is a measurement<span class="blk-answer"><span class="math inline">np</span> and <span class="math inline">\sqrt{np(1-p)}</span>, then the four steps with the half unit. And when there is no formula, simulate: the histogram is the distribution.</span></p>
+</div>
+</div>
+<div class="fragment">
+<p><span class="red">A number with its shares, three shapes, two numbers per decision. That is the whole of today.</span></p>
+</div>
+</section>
+<section id="five-answers-for-the-founder" class="slide level2">
+<h2>Five answers for the founder</h2>
+<div class="blocks five">
+<div class="blk done fragment">
+<p><span class="blk-letter">A</span>How many returns next week?<span class="blk-answer">Five, give or take one or two. Seven is a normal bad week; eight would be news.</span></p>
+</div>
+<div class="blk done fragment">
+<p><span class="blk-letter">B</span>How many of Saturday’s riders buy?<span class="blk-answer">Three of twelve, give or take one and a half; nobody buying is a one-in-thirty Saturday. Leave the helpline half an hour and you miss a call three times in four.</span></p>
+</div>
+<div class="blk done fragment">
+<p><span class="blk-letter">C</span>What range do we print?<span class="blk-answer">76 km. One rider in twenty-five sees less; every km added to the box adds one or two complaints in a hundred.</span></p>
+</div>
+<div class="blk done fragment">
+<p><span class="blk-letter">D</span>Which supplier do we sign?<span class="blk-answer">Ampere for volume: €10,500 a month cheaper, and on a thousand batteries the faults average out. Volta for rush orders, where one faulty battery in ten is a problem.</span></p>
+</div>
+<div class="blk done fragment">
+<p><span class="blk-letter">E</span>How many late orders in 250?<span class="blk-answer">Fifteen, give or take four. A penalty month, twenty or more, about once in nine months.</span></p>
+</div>
+</div>
+<div class="fragment">
+<p><span class="red">Next Monday, online: how sure are we of that number? 200 bikes gave 90 km. The true average is not 90. Week 8 says how far off it can be.</span></p>
+</div>
+</section>
+<section id="formulas-on-one-page-the-ones-we-used" class="slide level2">
+<h2>Formulas, on one page: the ones we used</h2>
+<div class="bigtable" style="font-size:.7em">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>question</th>
+<th>formula</th>
+<th>this morning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>how many of these <span class="math inline">n</span></td>
+<td><span class="math inline">P(x) = \binom{n}{x} p^{x} (1-p)^{n-x}, \quad E = np, \quad \sigma = \sqrt{np(1-p)}</span></td>
+<td><span class="math inline">P(3) = .258</span>, <span class="math inline">np = 3</span>, <span class="math inline">\sigma = 1.5</span></td>
+</tr>
+<tr class="even">
+<td>how many in this interval</td>
+<td><span class="math inline">P(x) = \dfrac{\mu^{x} e^{-\mu}}{x!}, \quad \mu = \text{rate} \times \text{interval}</span></td>
+<td><span class="math inline">\mu = 1.5</span>, <span class="math inline">P(0) = .223</span></td>
+</tr>
+<tr class="odd">
+<td>a share under the bell</td>
+<td><span class="math inline">z = \dfrac{x - \mu}{\sigma}</span>, table gives the area to the left</td>
+<td><span class="math inline">z = -1.88 \to .030</span></td>
+</tr>
+<tr class="even">
+<td>the bell, backwards</td>
+<td><span class="math inline">x = \mu + z\,\sigma</span></td>
+<td><span class="math inline">90 - 1.645 \times 8 = 76.8</span></td>
+</tr>
+<tr class="odd">
+<td>a list of numbers</td>
+<td><span class="math inline">\bar{x} = \dfrac{\sum x}{n}, \quad s^{2} = \dfrac{\sum (x - \bar{x})^{2}}{n - 1}</span></td>
+<td><span class="math inline">\bar{x} = 5</span>, <span class="math inline">s = 1.58</span></td>
+</tr>
+<tr class="even">
+<td>a number with its shares; a decision</td>
+<td><span class="math inline">E(x) = \sum x\,P(x), \quad \sigma^{2} = \sum (x-\mu)^{2} P(x)</span></td>
+<td><span class="math inline">5.0</span> and <span class="math inline">1.26</span>; <span class="math inline">€169.50</span>, <span class="math inline">\sigma = €19.6</span></td>
+</tr>
+<tr class="odd">
+<td>a count with many trials</td>
+<td><span class="math inline">\mu = np, \; \sigma = \sqrt{np(1-p)}</span>, then <span class="math inline">z</span> with the half unit</td>
+<td><span class="math inline">z = (19.5 - 15)/3.755 = 1.20 \to .115</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="muted">Seven lines. None of them was the hard part. The hard part was saying which one.</span></p>
+</section>
+<section id="homework-7" class="slide level2">
+<h2>Homework 7</h2>
+<div class="columns">
+<div class="column" style="font-size:.82em">
+<p><strong>Six exercises on paper</strong>, at least one per block, plus a <strong>memo to the Board</strong> on the range to print. <code>homework.md</code> on the course site.</p>
+<ul>
+<li><strong>H1</strong> walk-ins and bookings: a list, then a random variable (Thursday’s H3)</li>
+<li><strong>H2</strong> twelve becomes twenty: a binomial on financing quotes</li>
+<li><strong>H3</strong> returns at a rate: a Poisson, rescaled twice</li>
+<li><strong>H4</strong> charging time: the normal forwards, and backwards for a flag</li>
+<li><strong>H5</strong> two couriers: a decision tree, expected value and spread</li>
+<li><strong>H6</strong> two hundred bikes, 10% back: the normal approximation</li>
+</ul>
+<p>Due <strong>Sunday 15 November, 23:59 on Moodle</strong>. Corrected together at the start of next Monday.</p>
+</div><div class="column" style="width:42%;">
+<p><strong>The memo.</strong> 150–250 words to the Board: what range we print and why, two candidate numbers with the share of riders who will complain, one recommendation, and one line on what changes if the spread were 12 km.</p>
+<p><span class="muted">If you want more: the probability chapters of any business statistics text. Not required.</span></p>
+</div></div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="../index.html">← Course site</a> · Research &amp; Quantitative Business Methods · ESE Florence</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'flex',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 6.0e-2,
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/niccolosalvini\.github\.io\/ese-qnb\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
