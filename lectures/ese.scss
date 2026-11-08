@@ -145,6 +145,8 @@ $presentation-block-margin: 14px;
 .reveal .blk.recap .blk-letter::after { content: "  \2713"; color: $red; }
 .reveal .blocks.four { grid-template-columns: repeat(4, 1fr); }
 .reveal .blocks.four .blk { min-height: 9em; }
+.reveal .blocks.five { grid-template-columns: repeat(3, 1fr); gap: 0.5em; }
+.reveal .blocks.five .blk { min-height: 4.6em; padding: 0.6em 0.8em; }
 
 // ---- Use the whole frame: title stays at the top, the body sits in the middle of what is left ----
 // reveal is configured with display: flex (lectures/_metadata.yml), so each visible slide is a

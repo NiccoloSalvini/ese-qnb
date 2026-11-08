@@ -14,7 +14,7 @@ md(r"""
 # MBA03 · Week 6 — The founder does not know the numbers
 **European School of Economics · Thu 5 Nov 2026 · in person · Tutor: Vincenzo Nardelli**
 
-In weeks 1–5 every number at **Arno Bikes** was given: a fixed cost, a list price, a coupon. This quarter the founder asks three questions she cannot answer with a given number — how many customers do both, which supplier sent the faulty battery, how many returns next week. Each answer comes with a spread.
+In weeks 1–5 every number at **Arno Bikes** was given: a fixed cost, a list price, a coupon. This quarter the founder asks questions she cannot answer with a given number — how many customers do both, which supplier sent the faulty battery. Each answer comes with a spread. (Her third question, how many returns next week, opens week 7.)
 
 This notebook is driven by the tutor. Every picture is followed by the same computation **by hand on paper**: formula, substitution, number, one sentence for the Board. The code is optional and not examined.
 """)
@@ -200,72 +200,6 @@ md(r"""
 At 2% both rows read the same and the posterior equals the prior (.30): the supplier tells you nothing. The row check — $14/700 = .02$ — must return the defect rate you were given. If it does not, the table is wrong, not the question.
 """)
 
-# ---------------- C ----------------
-md(r"""
-## C. How many returns next week? — mean and variance, the language of distributions
-
-Five weeks of warranty returns: **4, 7, 3, 6, 5**.
-
-$$\bar{x} = \frac{\sum x}{n} \qquad s^{2} = \frac{\sum (x - \bar{x})^{2}}{n-1}$$
-
-*Business reading:* the mean is the total, shared equally. The variance is the average squared distance from it — divided by $n-1$ because the deviations always sum to zero, so only $n-1$ of them are free.
-
-Then the **random variable**: next week's returns, with a share attached to each value — twenty weeks of history turned into shares. Same two formulas, with the shares as weights instead of $1/n$: $E(x) = \sum x\,P(x)$ and $\sigma^{2} = \sum (x - \mu)^{2}\,P(x)$. The table of shares, drawn, **is** the distribution.
-""")
-code(r"""
-def spread_table(x, label="returns"):
-    x = np.array(x, dtype=float); n = len(x); xbar = x.sum() / n
-    t = pd.DataFrame({"week": range(1, n + 1), label: x, "x − x̄": x - xbar, "(x − x̄)²": (x - xbar) ** 2})
-    t.loc["sum"] = ["", x.sum(), (x - xbar).sum(), ((x - xbar) ** 2).sum()]
-    print(t.to_string(index=False))
-    ss = ((x - xbar) ** 2).sum()
-    print(f"\nmean   x̄  = {x.sum():.0f} / {n} = {xbar:g}")
-    print(f"variance s² = {ss:.0f} / ({n} − 1) = {ss:.0f} / {n-1} = {ss/(n-1):g}")
-    print(f"st. dev. s  = √{ss/(n-1):g} = {math.sqrt(ss/(n-1)):.2f}")
-    return xbar, ss / (n - 1)
-
-xbar, s2 = spread_table([4, 7, 3, 6, 5])
-print(f"\nReading: a typical week is {xbar:g} returns, give or take about {math.sqrt(s2):.1f}. The deviations sum to zero: a check, not a result.")
-""")
-
-code(r"""
-def rv_table(values, shares):
-    v, P = np.array(values, dtype=float), np.array(shares, dtype=float)
-    assert abs(P.sum() - 1) < 1e-9, "shares must add to 1"
-    mu = (v * P).sum()
-    t = pd.DataFrame({"x": v, "P(x)": P, "x·P(x)": v * P, "x − μ": v - mu, "(x − μ)²": (v - mu) ** 2,
-                      "(x − μ)²·P(x)": (v - mu) ** 2 * P})
-    t.loc["sum"] = ["", P.sum(), mu, "", "", ((v - mu) ** 2 * P).sum()]
-    print(t.to_string(index=False))
-    var = ((v - mu) ** 2 * P).sum()
-    print(f"\nE(x) = {' + '.join(f'{a:g}({b:.2f})' for a, b in zip(v, P))} = {mu:.1f}")
-    print(f"σ² = {var:.2f},  σ = √{var:.2f} = {math.sqrt(var):.2f}")
-    return mu, var
-
-mu_rv, var_rv = rv_table([3, 4, 5, 6, 7], [.15, .20, .30, .20, .15])
-print(f"\nReading: expect {mu_rv:.0f} returns a week, give or take about {math.sqrt(var_rv):.1f}. No single week has exactly 5.0; over 50 weeks, about 250.")
-""")
-
-code(r"""
-vals, P = [3, 4, 5, 6, 7], [.15, .20, .30, .20, .15]
-sd = math.sqrt(var_rv)
-fig = go.Figure(go.Bar(x=vals, y=P, marker_color=RED, text=[f"{p:.2f}" for p in P], textposition="outside",
-                       name="share of weeks", showlegend=False))
-fig.add_vline(x=mu_rv, line=dict(color=GOLD, width=3, dash="dash"), annotation_text=f"E(x) = {mu_rv:.0f}", annotation_position="top")
-fig.add_shape(type="line", x0=mu_rv - sd, x1=mu_rv + sd, y0=.33, y1=.33, line=dict(color=GREY, width=2))
-fig.add_annotation(x=mu_rv, y=.345, text=f"± σ = {sd:.2f}", showarrow=False, font=dict(color=GREY))
-fig.update_layout(template="simple_white", height=420, title="Next week's returns: the table of shares, drawn — that picture IS the distribution",
-                  xaxis_title="returns next week, x", yaxis_title="share P(x)", yaxis_range=[0, .4], xaxis=dict(tickmode="array", tickvals=vals))
-fig.show()
-print("Where it sits: E(x) = 5. How wide: σ = 1.26. Seven is the top of the table, a normal bad week; eight has not happened in twenty weeks.")
-print("Plan the workshop for five returns a week, give or take one or two.")
-""")
-
-md(r"""
-### 🔍 CHECK
-Deviations sum to zero; shares sum to one. Two formulas, used twice: once with $1/n$ as the weight (the five weeks), once with the shares (the random variable). If your $E(x)$ is outside the range of the values, the weights are wrong.
-""")
-
 # ---------------------------------------------------------------------------
 # Drills, solved in code — every published number asserted against drills.md
 # ---------------------------------------------------------------------------
@@ -334,34 +268,12 @@ print("\nOhm sends 60% of the chargers and is behind 86% of the faulty ones. Thi
 print("evidence pulled towards the small one; here the big supplier also has the higher rate, so both effects push the same way.")
 """)
 
-# ---- D3 -------------------------------------------------------------------
-md(r"""
-**D3.** (a) Warranty returns in the last five weeks: 3, 8, 5, 6, 8 — mean, sample variance and standard deviation by hand, in a table. (b) Orders for the cargo model per day, $x = 0..4$ with shares .10, .20, .40, .20, .10: check the shares, then $E(x)$, $\sigma^{2}$, $\sigma$ in a table, and one sentence with a "give or take".
-""")
-code(r"""
-# D3 (a)
-xbar3, s2_3 = spread_table([3, 8, 5, 6, 8])
-close(xbar3, 6); close(s2_3, 4.5); close(math.sqrt(s2_3), 2.12, 5e-3)   # drills.md rounds to two decimals
-close(sum((np.array([3, 8, 5, 6, 8]) - 6) ** 2), 18)
-print(f"\nAbout {xbar3:g} returns a week, give or take {math.sqrt(s2_3):.0f}.")
-""")
-
-code(r"""
-# D3 (b)
-v3, p3 = [0, 1, 2, 3, 4], [.10, .20, .40, .20, .10]
-print(f"shares add to {sum(p3):.2f}\n")
-mu3, var3 = rv_table(v3, p3)
-close(mu3, 2.0); close(var3, 1.20); close(math.sqrt(var3), 1.10, 5e-3)
-assert np.allclose(np.array(v3) * p3, [0, .20, .80, .60, .40]) and np.allclose((np.array(v3) - 2) ** 2 * p3, [.40, .20, 0, .20, .40])
-print("\nExpect two cargo orders a day, give or take one; a day with none happens one day in ten, a day with four as well.")
-""")
-
 md(r"""
 ## Homework 6 and what comes next
 
-`homework.md` — due **Sunday 8 November, 23:59 on Moodle**: three short exercises on paper and a 100–150-word memo to the founder on the faulty battery. Short on purpose: we meet again on Monday. We go through it together at the start of Monday's session.
+`homework.md` — due **Sunday 8 November, 23:59 on Moodle**: three short exercises on paper (H3 moves to Homework 7) and a 100–150-word memo to the founder on the faulty battery. Short on purpose: we meet again on Monday. We go through it together at the start of Monday's session.
 
-Next **Monday 9 November, online**: three shapes — binomial, Poisson, the normal — and how to decide with them. Three ready-made tables of shares; same five words, same $E(x)$ and $\sigma$.
+Next **Monday 9 November, online**: first a number with its shares (mean, variance, a random variable), then three shapes — binomial, Poisson, the normal — and how to decide with them.
 """)
 
 code(r"""
@@ -374,10 +286,6 @@ checks = [
     ("D2 P(faulty | Ohm)", 12 / 300, .04), ("D2 P(Ohm | faulty)", 12 / 14, .857), ("D2 P(faulty | Watt)", 2 / 200, .01),
     ("D2 P(faulty)", 14 / 500, .028), ("D2 Bayes P(Ohm | faulty)", .04 * .60 / (.04 * .60 + .01 * .40), .857),
     ("D2 Bayes P(Watt | faulty)", .004 / .028, .143),
-    ("D3 mean", np.mean([3, 8, 5, 6, 8]), 6), ("D3 sum of squares", np.sum((np.array([3, 8, 5, 6, 8]) - 6) ** 2), 18),
-    ("D3 s²", np.var([3, 8, 5, 6, 8], ddof=1), 4.5), ("D3 s", np.std([3, 8, 5, 6, 8], ddof=1), 2.12),
-    ("D3 E(x)", np.dot([0, 1, 2, 3, 4], [.10, .20, .40, .20, .10]), 2.0),
-    ("D3 σ²", np.dot((np.array([0, 1, 2, 3, 4]) - 2) ** 2, [.10, .20, .40, .20, .10]), 1.20), ("D3 σ", math.sqrt(1.20), 1.10),
 ]
 for name, got, want in checks:
     close(got, want, 5e-3 if want < 20 else 0.05)   # three decimals for shares, two for the rest

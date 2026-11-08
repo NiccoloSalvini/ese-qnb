@@ -1,26 +1,39 @@
 # Week 7 — Drills
 
-*One drill per block, on paper, in class. Show all work: formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end.*
+*One drill per block, on paper, during the session. Show all work: formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end.*
 
-## A. Binomial and Poisson
+## A. Mean and variance, a random variable
 
 **D1 (8 minutes).**
+
+(a) Warranty returns in the last five weeks: 3, 8, 5, 6, 8. Compute the mean, the sample variance and the standard deviation by hand, in a table with the deviations and their squares. Check that the deviations sum to zero before you square.
+(b) Orders for the cargo model, per day, from last year's data:
+
+| orders a day $x$ | 0 | 1 | 2 | 3 | 4 |
+|---|---:|---:|---:|---:|---:|
+| $P(x)$ | .10 | .20 | .40 | .20 | .10 |
+
+Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ in a table with the columns $x$, $P(x)$, $x\,P(x)$, $x - \mu$, $(x - \mu)^{2}\,P(x)$. Write one sentence for the founder, with a "give or take".
+
+## B. Binomial and Poisson
+
+**D2 (8 minutes).**
 
 (a) Saturday brings 10 test rides; from the CRM, three riders in ten buy, each deciding alone. Name the model and say why. Find the probability that exactly 2 buy, that nobody buys, that at least one buys, and the mean and standard deviation of the number of buyers.
 (b) Orders on the web shop arrive at random, 4 an hour on average. Name the model and say why. Find the probability of no order in an hour and of exactly 2 orders in an hour. Then, for a 15-minute coffee break: write $\mu$ first, then the probability of no order and of at least one.
 
-## B. The normal, forwards and backwards
+## C. The normal, forwards and backwards
 
-**D2 (8 minutes).** The weight of an Arno bike off the line is bell-shaped: mean 22 kg, standard deviation 1.5 kg, $X \sim N(22,\,1.5)$. For each part: sketch and shade, standardise, table, one sentence.
+**D3 (8 minutes).** The weight of an Arno bike off the line is bell-shaped: mean 22 kg, standard deviation 1.5 kg, $X \sim N(22,\,1.5)$. For each part: sketch and shade, standardise, table, one sentence.
 
 (a) A customer wants a bike under 20 kg. What share of bikes qualify?
 (b) What share of bikes weigh between 21 and 24 kg?
 (c) The heaviest 5% of bikes are sent back for a check. From what weight is a bike sent back? End in kg, not in $z$.
 (d) Delivery times to customers have a mean of 3.1 days and a median of 2.4 days. In one sentence: what shape is that, and why is the table the wrong tool for it?
 
-## C. Expected value to decide
+## D. Expected value to decide
 
-**D3 (8 minutes).** The founder has €2,000 for one promotion in December and two options. Each extra bike sold earns the usual margin of €600 (list €1,000, variable cost €400).
+**D4 (8 minutes).** The founder has €2,000 for one promotion in December and two options. Each extra bike sold earns the usual margin of €600 (list €1,000, variable cost €400).
 
 - **Test-ride Saturday**, cost €2,000: extra sales of 6 bikes with probability .3, 10 bikes with probability .5, 14 bikes with probability .2.
 - **Online ads**, cost €1,000: extra sales of 4 bikes with probability .5, 6 bikes with probability .5.
@@ -30,9 +43,9 @@
 (c) Find the standard deviation of the profit of each option.
 (d) In two sentences for the Board: which option, and what the other number says.
 
-## D. The normal approximation
+## E. The normal approximation
 
-**D4 (6 minutes).** Arno Bikes ships 300 orders this month; each ships late with probability .05, independently. The logistics partner charges a penalty when 20 or more orders are late.
+**D5 (6 minutes).** Arno Bikes ships 300 orders this month; each ships late with probability .05, independently. The logistics partner charges a penalty when 20 or more orders are late.
 
 (a) Name the exact model, and say in one line why you will not compute it by hand.
 (b) Find the mean and the standard deviation of the number of late orders.
@@ -45,6 +58,42 @@
 <summary><strong>Solutions</strong></summary>
 
 **D1.**
+
+(a) The table first; the deviations must sum to zero before you square.
+
+| week | returns $x$ | $x - \bar{x}$ | $(x - \bar{x})^{2}$ |
+|---|---:|---:|---:|
+| 1 | 3 | −3 | 9 |
+| 2 | 8 | 2 | 4 |
+| 3 | 5 | −1 | 1 |
+| 4 | 6 | 0 | 0 |
+| 5 | 8 | 2 | 4 |
+| **sum** | **30** | 0 | **18** |
+
+$$\bar{x} = \frac{\sum x}{n} = \frac{30}{5} = \mathbf{6}$$
+
+$$s^{2} = \frac{\sum (x - \bar{x})^{2}}{n - 1} = \frac{18}{4} = \mathbf{4.5} \qquad s = \sqrt{4.5} = \mathbf{2.12}$$
+
+About 6 returns a week, give or take 2.
+
+(b) The shares: $.10 + .20 + .40 + .20 + .10 = 1.00$.
+
+| $x$ | $P(x)$ | $x\,P(x)$ | $x - \mu$ | $(x - \mu)^{2}\,P(x)$ |
+|---:|---:|---:|---:|---:|
+| 0 | .10 | 0 | −2 | 4 × .10 = .40 |
+| 1 | .20 | .20 | −1 | 1 × .20 = .20 |
+| 2 | .40 | .80 | 0 | 0 |
+| 3 | .20 | .60 | 1 | 1 × .20 = .20 |
+| 4 | .10 | .40 | 2 | 4 × .10 = .40 |
+| **sum** | **1.00** | **2.00** | | **1.20** |
+
+$$E(x) = \sum x\,P(x) = \mathbf{2.0 \text{ orders a day}}$$
+
+$$\sigma^{2} = \sum (x - \mu)^{2}\,P(x) = \mathbf{1.20} \qquad \sigma = \sqrt{1.20} = \mathbf{1.10}$$
+
+Expect two cargo orders a day, give or take one; a day with none happens one day in ten, a day with four as well.
+
+**D2.**
 
 (a) **Binomial**: a fixed number of trials ($n = 10$), each yes or no, the same $p = .3$ every time, each rider alone.
 
@@ -66,7 +115,7 @@ $$\mu = 4 \times \tfrac{1}{4} = 1 \qquad P(0) = e^{-1} = \mathbf{.368} \qquad P(
 
 A silent hour is rare, two in a hundred; a silent coffee break happens more than once in three.
 
-**D2.**
+**D3.**
 
 (a) Shade the left tail below 20 kg.
 
@@ -94,7 +143,7 @@ A bike over about 24.5 kg goes back for a check.
 
 (d) Mean well above median: a long right tail, **positive skewness** — most parcels in two or three days, a few much later. The normal is symmetric (mean = median), so a $z$ from a mean of 3.1 would give the wrong areas: the table only answers questions about bells.
 
-**D3.**
+**D4.**
 
 (a) End-node profits, margin €600 a bike minus the cost of the option.
 
@@ -124,7 +173,7 @@ Ads: deviations $\pm 600$, each with share .5: $\sigma^{2} = .5 \times 600^{2} +
 
 (d) The test-ride Saturday earns €3,760 on average against €2,000 for the ads, €1,760 more; its worst case, €1,600, still beats the ads' average. Its spread is nearly three times larger (€1,680 against €600): the Saturday can end anywhere between €1,600 and €6,400, the ads between €1,400 and €2,600. Expected value picks the Saturday; the spread says the result will be a surprise either way — and since even the bad Saturday beats the ads, the Board can take the Saturday without fear.
 
-**D4.**
+**D5.**
 
 (a) **Binomial**, $n = 300$, $p = .05$: a fixed number of orders, each late or not, the same $p$, independent. "20 or more" means summing $P(20) + P(21) + \dots + P(300)$, each with $\binom{300}{x}$ and $.95^{300 - x}$: not by hand.
 

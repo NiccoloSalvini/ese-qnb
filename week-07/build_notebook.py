@@ -14,7 +14,7 @@ md(r"""
 # MBA03 · Week 7 — Three shapes, and how to decide with them
 **European School of Economics · Mon 9 Nov 2026 · online · Tutor: Vincenzo Nardelli**
 
-Thursday gave each unknown number at **Arno Bikes** a mean and a spread. Today gives it a **shape** — and a shape is something you can read a probability off. Three shapes cover almost every number a firm does not know: a count out of $n$ (binomial), a count at a rate (Poisson), a measurement (the normal). The founder's four questions: how many of Saturday's riders buy; what range to print on the box; which battery supplier to sign; how many of 250 orders will ship late.
+Today each unknown number at **Arno Bikes** first gets a mean and a spread (block A, the part of Thursday we did not reach), then a **shape** — and a shape is something you can read a probability off. Three shapes cover almost every number a firm does not know: a count out of $n$ (binomial), a count at a rate (Poisson), a measurement (the normal). The founder's five questions: how many returns next week; how many of Saturday's riders buy; what range to print on the box; which battery supplier to sign; how many of 250 orders will ship late.
 
 This notebook is driven by the tutor. Every picture is followed by the same computation **by hand on paper**: formula, substitution, number, one sentence for the Board. The code is optional and not examined.
 """)
@@ -37,7 +37,73 @@ print("ready")
 
 # ---------------- A ----------------
 md(r"""
-## A. How many of Saturday's riders buy? — binomial, Poisson, one family
+## A. How many returns next week? — mean and variance, the language of distributions
+
+Five weeks of warranty returns: **4, 7, 3, 6, 5**.
+
+$$\bar{x} = \frac{\sum x}{n} \qquad s^{2} = \frac{\sum (x - \bar{x})^{2}}{n-1}$$
+
+*Business reading:* the mean is the total, shared equally. The variance is the average squared distance from it — divided by $n-1$ because the deviations always sum to zero, so only $n-1$ of them are free.
+
+Then the **random variable**: next week's returns, with a share attached to each value — twenty weeks of history turned into shares. Same two formulas, with the shares as weights instead of $1/n$: $E(x) = \sum x\,P(x)$ and $\sigma^{2} = \sum (x - \mu)^{2}\,P(x)$. The table of shares, drawn, **is** the distribution.
+""")
+code(r"""
+def spread_table(x, label="returns"):
+    x = np.array(x, dtype=float); n = len(x); xbar = x.sum() / n
+    t = pd.DataFrame({"week": range(1, n + 1), label: x, "x − x̄": x - xbar, "(x − x̄)²": (x - xbar) ** 2})
+    t.loc["sum"] = ["", x.sum(), (x - xbar).sum(), ((x - xbar) ** 2).sum()]
+    print(t.to_string(index=False))
+    ss = ((x - xbar) ** 2).sum()
+    print(f"\nmean   x̄  = {x.sum():.0f} / {n} = {xbar:g}")
+    print(f"variance s² = {ss:.0f} / ({n} − 1) = {ss:.0f} / {n-1} = {ss/(n-1):g}")
+    print(f"st. dev. s  = √{ss/(n-1):g} = {math.sqrt(ss/(n-1)):.2f}")
+    return xbar, ss / (n - 1)
+
+xbar, s2 = spread_table([4, 7, 3, 6, 5])
+print(f"\nReading: a typical week is {xbar:g} returns, give or take about {math.sqrt(s2):.1f}. The deviations sum to zero: a check, not a result.")
+""")
+
+code(r"""
+def rv_table(values, shares):
+    v, P = np.array(values, dtype=float), np.array(shares, dtype=float)
+    assert abs(P.sum() - 1) < 1e-9, "shares must add to 1"
+    mu = (v * P).sum()
+    t = pd.DataFrame({"x": v, "P(x)": P, "x·P(x)": v * P, "x − μ": v - mu, "(x − μ)²": (v - mu) ** 2,
+                      "(x − μ)²·P(x)": (v - mu) ** 2 * P})
+    t.loc["sum"] = ["", P.sum(), mu, "", "", ((v - mu) ** 2 * P).sum()]
+    print(t.to_string(index=False))
+    var = ((v - mu) ** 2 * P).sum()
+    print(f"\nE(x) = {' + '.join(f'{a:g}({b:.2f})' for a, b in zip(v, P))} = {mu:.1f}")
+    print(f"σ² = {var:.2f},  σ = √{var:.2f} = {math.sqrt(var):.2f}")
+    return mu, var
+
+mu_rv, var_rv = rv_table([3, 4, 5, 6, 7], [.15, .20, .30, .20, .15])
+print(f"\nReading: expect {mu_rv:.0f} returns a week, give or take about {math.sqrt(var_rv):.1f}. No single week has exactly 5.0; over 50 weeks, about 250.")
+""")
+
+code(r"""
+vals, P = [3, 4, 5, 6, 7], [.15, .20, .30, .20, .15]
+sd = math.sqrt(var_rv)
+fig = go.Figure(go.Bar(x=vals, y=P, marker_color=RED, text=[f"{p:.2f}" for p in P], textposition="outside",
+                       name="share of weeks", showlegend=False))
+fig.add_vline(x=mu_rv, line=dict(color=GOLD, width=3, dash="dash"), annotation_text=f"E(x) = {mu_rv:.0f}", annotation_position="top")
+fig.add_shape(type="line", x0=mu_rv - sd, x1=mu_rv + sd, y0=.33, y1=.33, line=dict(color=GREY, width=2))
+fig.add_annotation(x=mu_rv, y=.345, text=f"± σ = {sd:.2f}", showarrow=False, font=dict(color=GREY))
+fig.update_layout(template="simple_white", height=420, title="Next week's returns: the table of shares, drawn — that picture IS the distribution",
+                  xaxis_title="returns next week, x", yaxis_title="share P(x)", yaxis_range=[0, .4], xaxis=dict(tickmode="array", tickvals=vals))
+fig.show()
+print("Where it sits: E(x) = 5. How wide: σ = 1.26. Seven is the top of the table, a normal bad week; eight has not happened in twenty weeks.")
+print("Plan the workshop for five returns a week, give or take one or two.")
+""")
+
+md(r"""
+### 🔍 CHECK
+Deviations sum to zero; shares sum to one. Two formulas, used twice: once with $1/n$ as the weight (the five weeks), once with the shares (the random variable). If your $E(x)$ is outside the range of the values, the weights are wrong.
+""")
+
+# ---------------- B ----------------
+md(r"""
+## B. How many of Saturday's riders buy? — binomial, Poisson, one family
 
 Saturday: **12** test rides. From the CRM, one rider in four buys ($p = .25$), and each decides alone. A fixed number of yes/no trials, the same $p$ each time, independent: the **binomial**.
 
@@ -141,9 +207,9 @@ md(r"""
 Say which model **in words** before any formula: *how many of these $n$?* is binomial, you are given $n$ and $p$; *how many in this interval?* is Poisson, you are given a rate and $\mu$ comes first. $P(0) + P(\geq 1) = 1$. If your $P(x)$ is above 1 or your mean is outside $0..n$, a step is wrong.
 """)
 
-# ---------------- B ----------------
+# ---------------- C ----------------
 md(r"""
-## B. What range do we promise? — the normal, skewness and kurtosis
+## C. What range do we promise? — the normal, skewness and kurtosis
 
 Engineering measured 200 bikes on the same loop: **90 km on average, standard deviation 8 km**, bell-shaped. $X \sim N(90, 8)$. Marketing wants to print **75 km**.
 
@@ -268,9 +334,9 @@ md(r"""
 The table only gives "to the left". Everything else is $1 -$ or a difference of two lookups; the sketch tells you which. Forwards: $x \to z \to$ area. Backwards: area $\to z \to x$, and the answer ends in km, not in $z$. And before any of it: mean above median says the data lean; fat tails say the bell under-counts the surprises.
 """)
 
-# ---------------- C ----------------
+# ---------------- D ----------------
 md(r"""
-## C. Which supplier do we sign? — expected value to decide
+## D. Which supplier do we sign? — expected value to decide
 
 Arno Bikes buys **1,000 batteries a month**. **Volta**: €180 a battery, faulty ones replaced by Volta — a **certain** number. **Ampere**: €165 a battery, but **5%** arrive faulty and a faulty battery costs us **€90** to swap on the line — a **random variable**, Thursday's table with two rows.
 
@@ -355,9 +421,9 @@ md(r"""
 Shares at the chance node add to 1; the worst end node is the price plus the full cost of the catch. The expected value is the price you pay on average; the spread is the surprise you pay sometimes. A repeated decision follows the mean; a one-off weighs the spread. If your $E(x)$ is below the best end node or above the worst, the weights are wrong.
 """)
 
-# ---------------- D ----------------
+# ---------------- E ----------------
 md(r"""
-## D. How many late orders in 250? — the normal approximation, then Monte Carlo
+## E. How many late orders in 250? — the normal approximation, then Monte Carlo
 
 Each of **250** orders ships late with $p = .06$, alone: binomial. The logistics partner charges a penalty when a month has **20 or more** late orders. The four steps of block A would need $\binom{250}{20}$ and $.94^{230}$, then the same for 21, 22, … 250: nobody does that by hand.
 
@@ -468,10 +534,32 @@ print("helpers ready")
 
 # ---- D1 -------------------------------------------------------------------
 md(r"""
-**D1.** (a) Saturday brings 10 test rides; three riders in ten buy, each deciding alone. Name the model; find $P(2)$, $P(0)$, $P(\geq 1)$, the mean and the standard deviation. (b) Web-shop orders arrive at random, 4 an hour: name the model, find $P(0)$ and $P(2)$ in an hour; then, for a 15-minute coffee break, $\mu$ first, $P(0)$ and $P(\geq 1)$.
+**D1.** (a) Warranty returns in the last five weeks: 3, 8, 5, 6, 8 — mean, sample variance and standard deviation by hand, in a table. (b) Orders for the cargo model per day, $x = 0..4$ with shares .10, .20, .40, .20, .10: check the shares, then $E(x)$, $\sigma^{2}$, $\sigma$ in a table, and one sentence with a "give or take".
 """)
 code(r"""
 # D1 (a)
+xbar3, s2_3 = spread_table([3, 8, 5, 6, 8])
+close(xbar3, 6); close(s2_3, 4.5); close(math.sqrt(s2_3), 2.12, 5e-3)   # drills.md rounds to two decimals
+close(sum((np.array([3, 8, 5, 6, 8]) - 6) ** 2), 18)
+print(f"\nAbout {xbar3:g} returns a week, give or take {math.sqrt(s2_3):.0f}.")
+""")
+
+code(r"""
+# D1 (b)
+v3, p3 = [0, 1, 2, 3, 4], [.10, .20, .40, .20, .10]
+print(f"shares add to {sum(p3):.2f}\n")
+mu3, var3 = rv_table(v3, p3, unit="")
+close(mu3, 2.0); close(var3, 1.20); close(math.sqrt(var3), 1.10, 5e-3)
+assert np.allclose(np.array(v3) * p3, [0, .20, .80, .60, .40]) and np.allclose((np.array(v3) - 2) ** 2 * p3, [.40, .20, 0, .20, .40])
+print("\nExpect two cargo orders a day, give or take one; a day with none happens one day in ten, a day with four as well.")
+""")
+
+# ---- D2 -------------------------------------------------------------------
+md(r"""
+**D2.** (a) Saturday brings 10 test rides; three riders in ten buy, each deciding alone. Name the model; find $P(2)$, $P(0)$, $P(\geq 1)$, the mean and the standard deviation. (b) Web-shop orders arrive at random, 4 an hour: name the model, find $P(0)$ and $P(2)$ in an hour; then, for a 15-minute coffee break, $\mu$ first, $P(0)$ and $P(\geq 1)$.
+""")
+code(r"""
+# D2 (a)
 n, p = 10, .3
 print("(a) Binomial: a fixed number of trials (10), each yes or no, the same p = .3 every time, each rider alone.\n")
 P2 = binomial_steps(n, 2, p)
@@ -482,7 +570,7 @@ close(math.comb(10, 2), 45); close(.3 ** 2, .09, 1e-9); close(.7 ** 8, .05765, 1
 close(P0, .028); close(1 - P0, .972); close(n * p, 3); close(n * p * (1 - p), 2.1, 1e-9); close(math.sqrt(n * p * (1 - p)), 1.45)
 print("Expect three buyers, give or take one and a half; a Saturday with no sale happens about three times in a hundred.\n")
 
-# D1 (b)
+# D2 (b)
 print("(b) Poisson: orders arrive at random over time, at a constant rate, with no ceiling on the count.\n")
 print("One hour:"); mu4, P0_4 = poisson_steps(4, 1)
 print("\nA 15-minute break — a quarter of an hour, so μ first:"); mu1, P0_1 = poisson_steps(4, 0.25)
@@ -491,9 +579,9 @@ close(mu1, 1, 1e-9); close(P0_1, .368); close(1 - P0_1, .632)
 print("\nA silent hour is rare, two in a hundred; a silent coffee break happens more than once in three.")
 """)
 
-# ---- D2 -------------------------------------------------------------------
+# ---- D3 -------------------------------------------------------------------
 md(r"""
-**D2.** Bike weight off the line: $X \sim N(22,\,1.5)$ kg. (a) Share under 20 kg. (b) Share between 21 and 24 kg. (c) The heaviest 5% are sent back for a check: from what weight? End in kg. (d) Delivery times: mean 3.1 days, median 2.4 — what shape, and why is the table the wrong tool?
+**D3.** Bike weight off the line: $X \sim N(22,\,1.5)$ kg. (a) Share under 20 kg. (b) Share between 21 and 24 kg. (c) The heaviest 5% are sent back for a check: from what weight? End in kg. (d) Delivery times: mean 3.1 days, median 2.4 — what shape, and why is the table the wrong tool?
 """)
 code(r"""
 mu, sigma = 22, 1.5
@@ -523,9 +611,9 @@ print(f"    mean − median = {mean_d - median_d:+.1f} days: a long right tail, 
 print("    The normal is symmetric (mean = median), so a z from a mean of 3.1 would give the wrong areas: the table only answers questions about bells.")
 """)
 
-# ---- D3 -------------------------------------------------------------------
+# ---- D4 -------------------------------------------------------------------
 md(r"""
-**D3.** €2,000 for one promotion in December; each extra bike earns the €600 margin (list €1,000, variable cost €400). **Test-ride Saturday**, cost €2,000: extra sales 6 / 10 / 14 bikes with probability .3 / .5 / .2. **Online ads**, cost €1,000: extra sales 4 / 6 bikes with probability .5 / .5. (a) The tree with the **profit** at each end node. (b) Expected profit of each. (c) Standard deviation of each. (d) Two sentences for the Board.
+**D4.** €2,000 for one promotion in December; each extra bike earns the €600 margin (list €1,000, variable cost €400). **Test-ride Saturday**, cost €2,000: extra sales 6 / 10 / 14 bikes with probability .3 / .5 / .2. **Online ads**, cost €1,000: extra sales 4 / 6 bikes with probability .5 / .5. (a) The tree with the **profit** at each end node. (b) Expected profit of each. (c) Standard deviation of each. (d) Two sentences for the Board.
 """)
 code(r"""
 margin = 1000 - 400; close(margin, 600)
@@ -551,9 +639,9 @@ print("    between €1,600 and €6,400, the ads between €1,400 and €2,600.
 print("    surprise either way — and since even the bad Saturday beats the ads, the Board can take the Saturday without fear.")
 """)
 
-# ---- D4 -------------------------------------------------------------------
+# ---- D5 -------------------------------------------------------------------
 md(r"""
-**D4.** 300 orders this month, each late with probability .05, independently; a penalty when 20 or more are late. (a) The exact model, and why not by hand. (b) Mean and standard deviation of the late count. (c) Check the bell may be used, then $P(X \geq 20)$ with the four steps and the half unit. (d) One sentence for the founder.
+**D5.** 300 orders this month, each late with probability .05, independently; a penalty when 20 or more are late. (a) The exact model, and why not by hand. (b) Mean and standard deviation of the late count. (c) Check the bell may be used, then $P(X \geq 20)$ with the four steps and the half unit. (d) One sentence for the founder.
 """)
 code(r"""
 n4, p4 = 300, .05
@@ -578,7 +666,7 @@ print(f"\n(d) Expect 15 late orders, give or take four; a penalty month comes ab
 md(r"""
 ## Homework 7 and what comes next
 
-`homework.md` — due **Sunday 15 November, 23:59 on Moodle**: five exercises on paper (H1 a binomial on financing quotes, H2 a Poisson rescaled twice, H3 the normal forwards and backwards, H4 two couriers in a decision tree, H5 the normal approximation) and a 150–250-word memo to the Board on the range to print. We go through it together at the start of next Monday's session.
+`homework.md` — due **Sunday 15 November, 23:59 on Moodle**: six exercises on paper (H1 a list and a random variable, moved from Homework 6; H2 a binomial on financing quotes, H3 a Poisson rescaled twice, H4 the normal forwards and backwards, H5 two couriers in a decision tree, H6 the normal approximation) and a 150–250-word memo to the Board on the range to print. We go through it together at the start of next Monday's session.
 
 Next **Monday 16 November, online**: *how sure are we of that number?* 200 bikes gave 90 km; the true average is not 90. Week 8 says how far off it can be.
 """)
@@ -586,19 +674,23 @@ Next **Monday 16 November, online**: *how sure are we of that number?* 200 bikes
 code(r"""
 # Every number in drills.md, re-checked here. Change a number in a drill and this cell tells you what else moves.
 checks = [
-    ("D1 C(10,2)", math.comb(10, 2), 45), ("D1 binomial P(2)", stats.binom.pmf(2, 10, .3), .233), ("D1 binomial P(0)", stats.binom.pmf(0, 10, .3), .028),
-    ("D1 binomial P(≥1)", 1 - stats.binom.pmf(0, 10, .3), .972), ("D1 binomial mean", 10 * .3, 3), ("D1 binomial σ", math.sqrt(10 * .3 * .7), 1.45),
-    ("D1 Poisson μ=4 P(0)", stats.poisson.pmf(0, 4), .018), ("D1 Poisson μ=4 P(2)", stats.poisson.pmf(2, 4), .147),
-    ("D1 Poisson μ for 15 min", 4 * .25, 1), ("D1 Poisson μ=1 P(0)", stats.poisson.pmf(0, 1), .368), ("D1 Poisson μ=1 P(≥1)", 1 - stats.poisson.pmf(0, 1), .632),
-    ("D2 z for 20 kg", (20 - 22) / 1.5, -1.33), ("D2 P(X < 20)", stats.norm.cdf(20, 22, 1.5), .092),
-    ("D2 P(21 < X < 24)", stats.norm.cdf(24, 22, 1.5) - stats.norm.cdf(21, 22, 1.5), .656), ("D2 table z=1.33", table_left(1.33), .9082), ("D2 table z=−0.67", table_left(-0.67), .2514),
-    ("D2 z for the top 5%", stats.norm.ppf(.95), 1.645), ("D2 heaviest 5% threshold, kg", 22 + 1.645 * 1.5, 24.5),
-    ("D3 margin", 1000 - 400, 600), ("D3 E(Saturday)", np.dot([1600, 4000, 6400], [.3, .5, .2]), 3760), ("D3 E(ads)", np.dot([1400, 2600], [.5, .5]), 2000),
-    ("D3 difference", 3760 - 2000, 1760), ("D3 var(Saturday)", np.dot((np.array([1600, 4000, 6400]) - 3760) ** 2, [.3, .5, .2]), 2822400),
-    ("D3 σ(Saturday)", math.sqrt(2822400), 1680), ("D3 var(ads)", np.dot((np.array([1400, 2600]) - 2000) ** 2, [.5, .5]), 360000), ("D3 σ(ads)", math.sqrt(360000), 600),
-    ("D4 μ = np", 300 * .05, 15), ("D4 np(1−p)", 300 * .05 * .95, 14.25), ("D4 σ", math.sqrt(300 * .05 * .95), 3.775),
-    ("D4 z with the half unit", (19.5 - 15) / 3.775, 1.19), ("D4 table z=1.19", table_left(1.19), .8830), ("D4 P(X ≥ 20) by the bell", 1 - table_left(1.19), .117),
-    ("D4 exact binomial", 1 - stats.binom.cdf(19, 300, .05), .119), ("D4 without the half unit", 1 - table_left(5 / 3.775), .093),
+    ("D1 mean", np.mean([3, 8, 5, 6, 8]), 6), ("D1 sum of squares", np.sum((np.array([3, 8, 5, 6, 8]) - 6) ** 2), 18),
+    ("D1 s²", np.var([3, 8, 5, 6, 8], ddof=1), 4.5), ("D1 s", np.std([3, 8, 5, 6, 8], ddof=1), 2.12),
+    ("D1 E(x)", np.dot([0, 1, 2, 3, 4], [.10, .20, .40, .20, .10]), 2.0),
+    ("D1 σ²", np.dot((np.array([0, 1, 2, 3, 4]) - 2) ** 2, [.10, .20, .40, .20, .10]), 1.20), ("D1 σ", math.sqrt(1.20), 1.10),
+    ("D2 C(10,2)", math.comb(10, 2), 45), ("D2 binomial P(2)", stats.binom.pmf(2, 10, .3), .233), ("D2 binomial P(0)", stats.binom.pmf(0, 10, .3), .028),
+    ("D2 binomial P(≥1)", 1 - stats.binom.pmf(0, 10, .3), .972), ("D2 binomial mean", 10 * .3, 3), ("D2 binomial σ", math.sqrt(10 * .3 * .7), 1.45),
+    ("D2 Poisson μ=4 P(0)", stats.poisson.pmf(0, 4), .018), ("D2 Poisson μ=4 P(2)", stats.poisson.pmf(2, 4), .147),
+    ("D2 Poisson μ for 15 min", 4 * .25, 1), ("D2 Poisson μ=1 P(0)", stats.poisson.pmf(0, 1), .368), ("D2 Poisson μ=1 P(≥1)", 1 - stats.poisson.pmf(0, 1), .632),
+    ("D3 z for 20 kg", (20 - 22) / 1.5, -1.33), ("D3 P(X < 20)", stats.norm.cdf(20, 22, 1.5), .092),
+    ("D3 P(21 < X < 24)", stats.norm.cdf(24, 22, 1.5) - stats.norm.cdf(21, 22, 1.5), .656), ("D3 table z=1.33", table_left(1.33), .9082), ("D3 table z=−0.67", table_left(-0.67), .2514),
+    ("D3 z for the top 5%", stats.norm.ppf(.95), 1.645), ("D3 heaviest 5% threshold, kg", 22 + 1.645 * 1.5, 24.5),
+    ("D4 margin", 1000 - 400, 600), ("D4 E(Saturday)", np.dot([1600, 4000, 6400], [.3, .5, .2]), 3760), ("D4 E(ads)", np.dot([1400, 2600], [.5, .5]), 2000),
+    ("D4 difference", 3760 - 2000, 1760), ("D4 var(Saturday)", np.dot((np.array([1600, 4000, 6400]) - 3760) ** 2, [.3, .5, .2]), 2822400),
+    ("D4 σ(Saturday)", math.sqrt(2822400), 1680), ("D4 var(ads)", np.dot((np.array([1400, 2600]) - 2000) ** 2, [.5, .5]), 360000), ("D4 σ(ads)", math.sqrt(360000), 600),
+    ("D5 μ = np", 300 * .05, 15), ("D5 np(1−p)", 300 * .05 * .95, 14.25), ("D5 σ", math.sqrt(300 * .05 * .95), 3.775),
+    ("D5 z with the half unit", (19.5 - 15) / 3.775, 1.19), ("D5 table z=1.19", table_left(1.19), .8830), ("D5 P(X ≥ 20) by the bell", 1 - table_left(1.19), .117),
+    ("D5 exact binomial", 1 - stats.binom.cdf(19, 300, .05), .119), ("D5 without the half unit", 1 - table_left(5 / 3.775), .093),
 ]
 for name, got, want in checks:
     close(got, want, 5e-3 if abs(want) < 20 else 0.05)   # three decimals for shares and z, two for the rest

@@ -1,6 +1,6 @@
 # Week 6 — Drills
 
-*One drill per block. There is no drill time in today's session, so these are for tonight, on paper, before Monday: show all work — formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end; check yourself before you look.*
+*One drill for each block we covered (the drill on mean, variance and the random variable is now D1 of week 7, with that block). There is no drill time in today's session, so these are for tonight, on paper, before Monday: show all work — formula, substitution, number, one sentence for the founder. The case is Arno Bikes throughout; the numbers are new. Solutions at the end; check yourself before you look.*
 
 ## A. Sets and counting
 
@@ -18,19 +18,6 @@
 (b) Find $P(\text{faulty} \mid \text{Ohm})$ and $P(\text{Ohm} \mid \text{faulty})$. Say in one sentence why they are different questions.
 (c) Are supplier and fault independent? Compare the rows, then say the word.
 (d) A faulty charger is on the bench. Use Bayes, written out, to find the probability it came from Ohm. Compare with Ohm's share of deliveries, and with the battery case of this morning: what is different here?
-
-## C. Mean and variance, a random variable
-
-**D3 (8 minutes).**
-
-(a) Warranty returns in the last five weeks: 3, 8, 5, 6, 8. Compute the mean, the sample variance and the standard deviation by hand, in a table with the deviations and their squares. Check that the deviations sum to zero before you square.
-(b) Orders for the cargo model, per day, from last year's data:
-
-| orders a day $x$ | 0 | 1 | 2 | 3 | 4 |
-|---|---:|---:|---:|---:|---:|
-| $P(x)$ | .10 | .20 | .40 | .20 | .10 |
-
-Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ in a table with the columns $x$, $P(x)$, $x\,P(x)$, $x - \mu$, $(x - \mu)^{2}\,P(x)$. Write one sentence for the founder, with a "give or take".
 
 ---
 
@@ -100,41 +87,5 @@ Then the same table in symbols:
 $$P(\text{Ohm} \mid \text{faulty}) = \frac{P(\text{faulty} \mid \text{Ohm})\,P(\text{Ohm})}{P(\text{faulty} \mid \text{Ohm})\,P(\text{Ohm}) + P(\text{faulty} \mid \text{Watt})\,P(\text{Watt})} = \frac{.04 \times .60}{.04 \times .60 + .01 \times .40} = \frac{.024}{.028} = \mathbf{.857}$$
 
 Check with the counts: $12/14 = .857$. Ohm sends 60% of the chargers and is behind 86% of the faulty ones. This morning the big supplier (Volta) had the *lower* defect rate, and the evidence pulled the answer towards the small one; here the big supplier also has the higher rate, so the two effects push the same way and the answer is close to certain. Same formula, opposite story: the volume and the rate must both be read.
-
-**D3.**
-
-(a) The table first; the deviations must sum to zero before you square.
-
-| week | returns $x$ | $x - \bar{x}$ | $(x - \bar{x})^{2}$ |
-|---|---:|---:|---:|
-| 1 | 3 | −3 | 9 |
-| 2 | 8 | 2 | 4 |
-| 3 | 5 | −1 | 1 |
-| 4 | 6 | 0 | 0 |
-| 5 | 8 | 2 | 4 |
-| **sum** | **30** | 0 | **18** |
-
-$$\bar{x} = \frac{\sum x}{n} = \frac{30}{5} = \mathbf{6}$$
-
-$$s^{2} = \frac{\sum (x - \bar{x})^{2}}{n - 1} = \frac{18}{4} = \mathbf{4.5} \qquad s = \sqrt{4.5} = \mathbf{2.12}$$
-
-About 6 returns a week, give or take 2.
-
-(b) The shares: $.10 + .20 + .40 + .20 + .10 = 1.00$.
-
-| $x$ | $P(x)$ | $x\,P(x)$ | $x - \mu$ | $(x - \mu)^{2}\,P(x)$ |
-|---:|---:|---:|---:|---:|
-| 0 | .10 | 0 | −2 | 4 × .10 = .40 |
-| 1 | .20 | .20 | −1 | 1 × .20 = .20 |
-| 2 | .40 | .80 | 0 | 0 |
-| 3 | .20 | .60 | 1 | 1 × .20 = .20 |
-| 4 | .10 | .40 | 2 | 4 × .10 = .40 |
-| **sum** | **1.00** | **2.00** | | **1.20** |
-
-$$E(x) = \sum x\,P(x) = \mathbf{2.0 \text{ orders a day}}$$
-
-$$\sigma^{2} = \sum (x - \mu)^{2}\,P(x) = \mathbf{1.20} \qquad \sigma = \sqrt{1.20} = \mathbf{1.10}$$
-
-Expect two cargo orders a day, give or take one; a day with none happens one day in ten, a day with four as well.
 
 </details>

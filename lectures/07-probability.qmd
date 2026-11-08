@@ -9,20 +9,210 @@ institute: "MBA03 Research & Quantitative Business Methods · European School of
 
 ::: {.blocks}
 ::: {.blk .recap}
-[Block A]{.blk-letter}"Or" and "given"["Or" adds the two shares and takes the overlap out once. "Given" means: look only at that row or column, and divide by its total.]{.blk-answer}
+[Block A]{.blk-letter}"Or", and count the ways["Or" adds the two shares and takes the overlap out once. Order matters: multiply down the tree. Order does not: divide by $k!$.]{.blk-answer}
 :::
 ::: {.blk .recap}
-[Block B]{.blk-letter}Count the ways[Order matters: multiply down the tree. Order does not: divide by $k!$. A supplier's share, times its defect rate, is its share of the faulty.]{.blk-answer}
+[Block B]{.blk-letter}"Given", and Bayes["Given" means: look only at that row or column, and divide by its total. The evidence keeps the column that happened; read its shares.]{.blk-answer}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}A number with its shares[Not reached on Thursday. It opens today, as block A: mean, variance, a random variable.]{.blk-answer}
 :::
 ::: {.blk .recap}
-[Block C]{.blk-letter}A number with its shares[Five weeks of returns: mean 5, give or take 1.6. Next week's number, before we see it, with a share on each value: $E(x) = \sum x\,P(x)$.]{.blk-answer}
-:::
-::: {.blk .recap}
-[Homework 6]{.blk-letter}At the board, now[Bring what you tried. Fifteen minutes, three items and the memo; the mistakes are the useful part.]{.blk-answer}
+[Homework 6]{.blk-letter}Now, step by step[H1, H2 and the memo. H3 needs block C, so it moves to Homework 7.]{.blk-answer}
 :::
 :::
 
-[Thursday you learnt to count and to condition. Today the counts get a shape, and the shape gives a decision.]{.red}
+[Thursday you learnt to count and to condition. Today: first a number with its shares, then its shape, then a decision.]{.red}
+
+## [Homework 6]{.section-kicker} Corrected together, step by step {.section-slide background-color="#AF1F25"}
+
+## H1 (a), (b): three definitions, and who bought both
+
+:::: {.columns}
+::: {.column width="48%"}
+180 October customers: 110 bought a helmet ($H$), 75 a lock ($L$), 30 neither.
+
+::: {.fragment}
+**Universal set**: the set of everything we are talking about, here the 180 customers.
+:::
+
+::: {.fragment}
+**Complement** of $H$: the set of customers *not* in $H$, here the $180 - 110 = 70$ without a helmet.
+:::
+
+::: {.fragment}
+**Intersection** $H \cap L$: the set of customers in *both*, helmet and lock.
+:::
+:::
+::: {.column width="52%" .fragment}
+**At least one** is the complement of "neither":
+
+$$180 - 30 = 150$$
+
+$110 + 75 = 185$ counts "both" twice:
+
+$$150 = 110 + 75 - \text{both} \;\Rightarrow\; \text{both} = \textbf{35}$$
+
+::: {.fragment}
+| helmet only | both | lock only | neither | total |
+|---:|---:|---:|---:|---:|
+| 75 | 35 | 40 | 30 | **180** ✓ |
+:::
+:::
+::::
+
+## H1 (c): the addition law, and the complement
+
+Divide every count by 180: a probability is a share of the universal set.
+
+. . .
+
+$$P(H \cup L) = P(H) + P(L) - P(H \cap L)$$
+
+$$= \frac{110}{180} + \frac{75}{180} - \frac{35}{180} = .611 + .417 - .194 = \textbf{.833}$$
+
+. . .
+
+$$P(\text{neither}) = 1 - P(H \cup L) = 1 - .833 = \textbf{.167} \qquad \text{check: } \tfrac{30}{180} = .167$$
+
+. . .
+
+**Reading.** Five customers in six took at least one accessory; one in six took neither.
+
+[The slip: both $= 110 + 75 - 180 = 5$. Take the 30 out first; the subtraction is from "at least one", not from the total.]{.red}
+
+## H1 (d): ten models, three in the window
+
+The one question first: **does swapping two models change the display?**
+
+:::: {.columns}
+::: {.column width="50%" .fragment}
+**A set of three**, no order: swapping two is the same display. **Combinations**; cancel the $7!$ before multiplying.
+
+$$\binom{10}{3} = \frac{10!}{3!\,7!} = \frac{10 \cdot 9 \cdot 8 \cdot \cancel{7!}}{3 \cdot 2 \cdot 1 \cdot \cancel{7!}}$$
+
+$$= \frac{720}{6} = \textbf{120}$$
+:::
+::: {.column width="50%" .fragment}
+**Lined up left to right**: swapping two changes the display. **Permutations.**
+
+$$P^{10}_{3} = \frac{10!}{7!} = 10 \cdot 9 \cdot 8 = \textbf{720}$$
+
+Each set of three can be lined up in $3! = 6$ ways: $120 \times 6 = 720$.
+:::
+::::
+
+. . .
+
+[120 different sets of three; 720 different arrangements of them. The $3!$ underneath is exactly what removes the order.]{.red}
+
+## H2 (a): the two-way table, one supplier at a time
+
+:::: {.columns}
+::: {.column width="46%"}
+**Celle** sends 65%, 3% faulty. **Ionix** sends 35%, 8% faulty. 2,000 batteries.
+
+::: {.fragment}
+- Celle: $.65 \times 2{,}000 = 1{,}300$; faulty $.03 \times 1{,}300 = 39$; good $1{,}261$.
+:::
+
+::: {.fragment}
+- Ionix: $.35 \times 2{,}000 = 700$; faulty $.08 \times 700 = 56$; good $644$.
+:::
+
+::: {.fragment}
+- Totals: faulty $39 + 56 = 95$; good $1{,}905$; $1{,}905 + 95 = 2{,}000$ ✓
+:::
+:::
+::: {.column width="54%" .fragment}
+::: {.bigtable}
+| | good | faulty | total |
+|---|---:|---:|---:|
+| **Celle** | 1,261 | 39 | 1,300 |
+| **Ionix** | 644 | 56 | 700 |
+| **total** | 1,905 | 95 | 2,000 |
+:::
+
+[Shares in, counts out. The counts are what make "a cell over a total" visible.]{.muted}
+:::
+::::
+
+## H2 (b), (c): a cell over a total, then compare the rows
+
+:::: {.columns}
+::: {.column width="52%"}
+**(b)** Same cell, 39; two different totals underneath.
+
+$$P(F \mid \text{Celle}) = \frac{39}{1{,}300} = \textbf{.03}$$
+
+Celle's **row**: how good is Celle.
+
+::: {.fragment}
+$$P(\text{Celle} \mid F) = \frac{39}{95} = \textbf{.411}$$
+
+The faulty **column**: who sent this faulty one.
+:::
+:::
+::: {.column width="48%" .fragment}
+**(c)** Compare the rows with each other and with the total:
+
+| | share faulty |
+|---|---:|
+| Celle | 39 / 1,300 = .03 |
+| Ionix | 56 / 700 = .08 |
+| overall | 95 / 2,000 = .0475 |
+
+::: {.fragment}
+The rows differ: knowing the supplier changes the share of faulty batteries. Supplier and fault are **dependent**.
+:::
+:::
+::::
+
+## H2 (d): Bayes, three columns, then the formula
+
+::: {.bigtable}
+| supplier | prior share | × defect rate | = faulty, as a share of all | ÷ total faulty |
+|---|---:|---:|---:|---:|
+| Celle | .65 | .03 | .0195 | .0195 / .0475 = .411 |
+| Ionix | .35 | .08 | .0280 | .0280 / .0475 = **.589** |
+| total | 1.00 | | .0475 | 1.00 |
+:::
+
+. . .
+
+$$P(F) = .03 \times .65 + .08 \times .35 = .0195 + .0280 = .0475$$
+
+$$P(\text{Ionix} \mid F) = \frac{P(F \mid \text{Ionix})\,P(\text{Ionix})}{P(F)} = \frac{.08 \times .35}{.0475} = \textbf{.589} \qquad \text{check: } \tfrac{56}{95} = .589$$
+
+. . .
+
+[Before the evidence Ionix was .35; after, .59. The smaller supplier is the likelier culprit: a rate almost three times Celle's outweighs a third of the volume.]{.red}
+
+## The memo: one model answer, and what we look for
+
+:::: {.columns}
+::: {.column width="58%"}
+::: {.callout-tip title="To the founder · from Quality · the faulty battery on the bench"}
+We received 2,000 batteries last quarter, 1,300 from Celle and 700 from Ionix. Of the 95 that failed, 39 came from Celle and 56 from Ionix. The battery on the bench is from **Ionix with about a 59% chance**, from Celle with 41%.
+
+Ionix sends only a third of our batteries, but fails 8 times in 100 against Celle's 3: nearly three times more often, which outweighs its smaller volume.
+
+**Recommendation:** audit Ionix's last quarter before the next order and ask them to explain the 8%. Switching now, on one battery, would be premature.
+:::
+:::
+::: {.column width="42%" .fragment}
+**What we look for**
+
+- both shares, 59 and 41
+- one line on *why* the smaller supplier is the likelier one: rate against volume
+- one recommendation, with its reason
+- no formulas; 100–150 words
+
+::: {.fragment}
+[A memo that answers "Celle, because they send more" has read the row, not the column.]{.red}
+:::
+:::
+::::
 
 ## Where we are
 
@@ -30,8 +220,8 @@ institute: "MBA03 Research & Quantitative Business Methods · European School of
 ::: {.column width="58%"}
 | Wk | Date | What you can do by hand |
 |---|---|---|
-| 6 | 5 Nov · in person | count, condition, update; mean and spread ✓ |
-| **7** | **9 Nov · online** | **three shapes: binomial, Poisson, normal; decide with them** |
+| 6 | 5 Nov · in person | count, condition, update ✓ |
+| **7** | **9 Nov · online** | **a number with its shares; three shapes; decide with them** |
 | 8 | 16 Nov · online | how sure are we of a number: intervals, tests, one regression line |
 | 9 | 23 Nov · online | several causes at once; a trend through time |
 | 10 | 30 Nov · online | review; one last round of practice on paper |
@@ -50,14 +240,14 @@ Everything in weeks 8–10 stands on today's bell and on two words: *mean* and *
 ## Today's question
 
 ::: {.callout-note title="Arno Bikes, this month"}
-The founder has three numbers she does not know. **How many** of Saturday's test riders will buy. **How far** a battery really goes, so that she can print a range on the box. **Which supplier** to sign for next year's batteries, when one of them is cheaper but less reliable.
+The founder has four numbers she does not know. **How many** bikes come back under warranty next week. **How many** of Saturday's test riders will buy. **How far** a battery really goes, so that she can print a range on the box. **Which supplier** to sign for next year's batteries, when one of them is cheaper but less reliable.
 
-And a fourth she has not thought of yet: of the 250 orders shipping this month, **how many will be late**?
+And a fifth she has not thought of yet: of the 250 orders shipping this month, **how many will be late**?
 :::
 
 . . .
 
-Thursday gave each unknown number a mean and a spread. Today gives it a **shape** — and a shape is something you can read a probability off.
+First, each unknown number gets a mean and a spread. Then a **shape** — and a shape is something you can read a probability off.
 
 . . .
 
@@ -67,13 +257,13 @@ Thursday gave each unknown number a mean and a spread. Today gives it a **shape*
 
 ::: {.blocks .four}
 ::: {.blk .recap}
-[10:00 · 15']{.blk-letter}Homework 6[At the board, together.]{.blk-answer}
+[10:00 · 20']{.blk-letter}Homework 6[H1, H2 and the memo, step by step.]{.blk-answer}
 :::
 ::: {.blk .now}
-[10:15 → 12:35]{.blk-letter}Four questions from the founder[Each one: her question and your bet typed in the chat → the picture → one formula with a number → the sentence for the Board. Break at 11:15.]{.blk-tool}
+[10:20 → 12:45]{.blk-letter}Five questions from the founder[Each one: her question and your bet typed in the chat → the picture → one formula with a number → the sentence for the Board. Break at 11:15.]{.blk-tool}
 :::
 ::: {.blk .recap}
-[12:35 · 15']{.blk-letter}Take home[Four lines to remember, the four answers for the founder, the homework.]{.blk-answer}
+[12:45 · 15']{.blk-letter}Take home[Five lines to remember, the five answers for the founder, the homework.]{.blk-answer}
 :::
 ::: {.blk .recap}
 [Next Monday]{.blk-letter}Online[How sure are we of that number?]{.blk-answer}
@@ -82,26 +272,206 @@ Thursday gave each unknown number a mean and a spread. Today gives it a **shape*
 
 [Bets are written, not said. Write a number before I compute; the surprise is where the learning is.]{.muted}
 
-## Four questions from the founder {.hub auto-animate=true}
+## Five questions from the founder {.hub auto-animate=true}
 
-::: {.blocks}
+::: {.blocks .five}
 ::: {.blk .now data-id="blkA"}
-[Block A]{.blk-letter}How many returns next week?[binomial · Poisson · one family]{.blk-tool}
+[Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block B]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
+[Block B]{.blk-letter}How many of Saturday's riders buy?[binomial · Poisson · one family]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block C]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
+[Block C]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
+[Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
+:::
+::: {.blk .next}
+[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
 :::
 :::
 
-## [Block A · binomial, Poisson, one family]{.section-kicker} How many returns next week? {.section-slide background-color="#AF1F25" auto-animate=true}
+## [Block A · mean and variance, the language of distributions]{.section-kicker} How many returns next week? {.section-slide background-color="#AF1F25" auto-animate=true}
 
 ::: {.blk-fill data-id="blkA"}
+:::
+
+## Mean and variance: five weeks of returns, by hand
+
+:::: {.columns}
+::: {.column width="42%"}
+::: {.bigtable}
+| week | returns $x$ | $x - \bar{x}$ | $(x - \bar{x})^{2}$ |
+|---|---:|---:|---:|
+| 1 | 4 | −1 | 1 |
+| 2 | 7 | 2 | 4 |
+| 3 | 3 | −2 | 4 |
+| 4 | 6 | 1 | 1 |
+| 5 | 5 | 0 | 0 |
+| **sum** | **25** | 0 | **10** |
+:::
+:::
+::: {.column width="58%" .fragment}
+**The mean**: the total, shared equally.
+
+$$\bar{x} = \frac{\sum x}{n} = \frac{25}{5} = \textbf{5 returns a week}$$
+
+**The variance**: the average squared distance from the mean. Why $n - 1$ underneath? The five distances always add to zero, so once four are known the fifth is fixed: only four of them are free. Dividing by 5 would make the spread look smaller than it is.
+
+$$s^{2} = \frac{\sum (x - \bar{x})^{2}}{n - 1} = \frac{10}{4} = 2.5 \qquad s = \sqrt{2.5} = \textbf{1.58}$$
+
+**Reading.** A typical week is 5 returns, give or take about 1.6. The deviations always sum to zero — a check, not a result.
+:::
+::::
+
+## Five weeks of returns: the distances cancel, the squares do not {.clip background-color="#000000"}
+
+<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w06_spread_poster.png"><source src="media/w06_spread.mp4" type="video/mp4"></video>
+
+## Random variable: next week's returns, a number with its shares
+
+:::: {.columns}
+::: {.column width="38%"}
+Twenty weeks of history, turned into shares: in 3 of 20 weeks there were 3 returns, in 4 of 20 there were 4, and so on.
+
+::: {.bigtable}
+| returns $x$ | share $P(x)$ |
+|---:|---:|
+| 3 | .15 |
+| 4 | .20 |
+| 5 | .30 |
+| 6 | .20 |
+| 7 | .15 |
+| **sum** | **1.00** |
+:::
+:::
+::: {.column width="62%" .fragment}
+A **random variable** is next week's number, before we see it, with a share attached to each value it can take. The shares add up to 1.
+
+**The expected value** is the mean of the five-row table with the shares as weights: each value, times how often it happens, added up.
+
+$$E(x) = \sum x\,P(x)$$
+
+$$= 3(.15) + 4(.20) + 5(.30) + 6(.20) + 7(.15)$$
+
+$$= .45 + .80 + 1.50 + 1.20 + 1.05 = \textbf{5.0}$$
+
+**Reading.** Expect 5 returns a week. No single week has exactly 5.0; over 50 weeks, about 250.
+:::
+::::
+
+## Variance of a random variable: how far from 5?
+
+::: {.bigtable}
+| returns $x$ | share $P(x)$ | distance $x - \mu$ | squared $(x - \mu)^{2}$ | weighted $(x - \mu)^{2}\,P(x)$ |
+|---:|---:|---:|---:|---:|
+| 3 | .15 | −2 | 4 | 4 × .15 = .60 |
+| 4 | .20 | −1 | 1 | 1 × .20 = .20 |
+| 5 | .30 | 0 | 0 | 0 × .30 = 0 |
+| 6 | .20 | 1 | 1 | 1 × .20 = .20 |
+| 7 | .15 | 2 | 4 | 4 × .15 = .60 |
+| **sum** | **1.00** | | | **1.60** |
+:::
+
+:::: {.columns}
+::: {.column width="60%"}
+Same recipe as the five weeks: distance from the mean, squared, then averaged, with the shares as weights.
+
+$$\sigma^{2} = \sum (x - \mu)^{2}\,P(x) = \textbf{1.60}$$
+
+$$\sigma = \sqrt{1.60} = \textbf{1.26}$$
+:::
+::: {.column width="40%" .fragment}
+**Reading.** Expect 5 returns, give or take about 1.3.
+
+::: {.fragment}
+[Same two formulas as the five weeks: once with $1/n$ as the weight, once with the shares.]{.red}
+:::
+
+:::
+::::
+
+## A distribution: the whole table in one picture
+
+:::: {.columns}
+::: {.column width="56%"}
+![](img/w06_returns_dist.svg)
+:::
+::: {.column width="44%" .fragment}
+The table of shares, drawn: each value on the floor, its share as the height. That picture **is** the distribution of next week's returns.
+
+Two numbers summarise it: **where it sits** ($E(x) = 5$) and **how wide it is** ($\sigma = 1.26$).
+
+::: {.fragment}
+Ask the picture, not the mean: a week with **7** returns is the top of the table, not a crisis; a week with **8 or more** has not happened in twenty weeks.
+:::
+
+::: {.fragment}
+::: {.callout-tip title="Board sentence"}
+Plan the workshop for five returns a week, give or take one or two. Seven is a normal bad week; eight would be news.
+:::
+:::
+:::
+::::
+
+## The language of distributions: five words, with Arno Bikes next to each
+
+| word | in plain words | at Arno Bikes |
+|---|---|---|
+| **random variable** | a number we do not know yet, with its shares | next week's returns |
+| **distribution** | the full list of values and shares, or its picture | the bars from 3 to 7 |
+| **expected value** $E(x)$ | the long-run average of that number | 5 returns a week |
+| **standard deviation** $\sigma$ | how far a typical week sits from the average | 1.26 returns |
+| **parameter** | the one or two numbers that pin a distribution down | mean 5, spread 1.26 |
+
+: {tbl-colwidths="[24,42,34]"}
+
+. . .
+
+[Our table came from twenty weeks of history. From the next block on, the shares come from a formula instead — and the words stay exactly the same.]{.red}
+
+## Next: three shapes {.statement}
+
+::: {.blocks}
+::: {.blk .next .fragment}
+[Binomial]{.blk-letter}How many of these $n$?[Twelve test rides, each buys or not: how many buyers?]{.blk-answer}
+:::
+::: {.blk .next .fragment}
+[Poisson]{.blk-letter}How many in this interval?[Helpline calls in an hour, returns in a week.]{.blk-answer}
+:::
+::: {.blk .next .fragment}
+[The normal]{.blk-letter}The bell[Battery ranges piling up around 90 km; what range to print on the box.]{.blk-answer}
+:::
+:::
+
+. . .
+
+[Three ready-made tables of shares. Same five words, same $E(x)$ and $\sigma$ — blocks B to E, and then how to decide with them.]{.muted}
+
+## Five questions from the founder {.hub auto-animate=true}
+
+::: {.blocks .five}
+::: {.blk .done}
+[Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
+:::
+::: {.blk .now data-id="blkB"}
+[Block B]{.blk-letter}How many of Saturday's riders buy?[binomial · Poisson · one family]{.blk-tool}
+:::
+::: {.blk .next}
+[Block C]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
+:::
+::: {.blk .next}
+[Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
+:::
+::: {.blk .next}
+[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
+:::
+:::
+
+## [Block B · binomial, Poisson, one family]{.section-kicker} How many of Saturday's riders buy? {.section-slide background-color="#AF1F25" auto-animate=true}
+
+::: {.blk-fill data-id="blkB"}
 :::
 
 ## Binomial: twelve test rides, how many buy?
@@ -266,28 +636,31 @@ Twelve rides stay binomial. Count the late orders among **250**, or calls over a
 
 . . .
 
-[Small $n$: count the ways. Rare events at a rate: Poisson. Large numbers of anything: the bell — block B teaches you to read it, block D uses it on a count.]{.red}
+[Small $n$: count the ways. Rare events at a rate: Poisson. Large numbers of anything: the bell — block C teaches you to read it, block E uses it on a count.]{.red}
 
-## Four questions from the founder {.hub auto-animate=true}
+## Five questions from the founder {.hub auto-animate=true}
 
-::: {.blocks}
+::: {.blocks .five}
 ::: {.blk .done}
-[Block A]{.blk-letter}How many returns next week?[binomial · Poisson · one family]{.blk-tool}
+[Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
 :::
-::: {.blk .now data-id="blkB"}
-[Block B]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
+::: {.blk .done}
+[Block B]{.blk-letter}How many of Saturday's riders buy?[binomial · Poisson · one family]{.blk-tool}
+:::
+::: {.blk .now data-id="blkC"}
+[Block C]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block C]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
+[Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
+[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
 :::
 :::
 
-## [Block B · the normal, skewness and kurtosis]{.section-kicker} What range do we promise? {.section-slide background-color="#AF1F25" auto-animate=true}
+## [Block C · the normal, skewness and kurtosis]{.section-kicker} What range do we promise? {.section-slide background-color="#AF1F25" auto-animate=true}
 
-::: {.blk-fill data-id="blkB"}
+::: {.blk-fill data-id="blkC"}
 :::
 
 ## The normal: two hundred bikes on the same loop
@@ -497,26 +870,29 @@ Delivery time is not: most parcels take two days, a few take ten. A long **right
 :::
 ::::
 
-## Four questions from the founder {.hub auto-animate=true}
+## Five questions from the founder {.hub auto-animate=true}
 
-::: {.blocks}
+::: {.blocks .five}
 ::: {.blk .done}
-[Block A]{.blk-letter}How many returns next week?[binomial · Poisson · one family]{.blk-tool}
+[Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
 :::
 ::: {.blk .done}
-[Block B]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
+[Block B]{.blk-letter}How many of Saturday's riders buy?[binomial · Poisson · one family]{.blk-tool}
 :::
-::: {.blk .now data-id="blkC"}
-[Block C]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
+::: {.blk .done}
+[Block C]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
+:::
+::: {.blk .now data-id="blkD"}
+[Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
 :::
 ::: {.blk .next}
-[Block D]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
+[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
 :::
 :::
 
-## [Block C · expected value to decide]{.section-kicker} Which supplier do we sign? {.section-slide background-color="#AF1F25" auto-animate=true}
+## [Block D · expected value to decide]{.section-kicker} Which supplier do we sign? {.section-slide background-color="#AF1F25" auto-animate=true}
 
-::: {.blk-fill data-id="blkC"}
+::: {.blk-fill data-id="blkD"}
 :::
 
 ## Two suppliers, one contract for next year's batteries
@@ -540,7 +916,7 @@ Which contract, and how much does it save (or cost) per battery? Write a name an
 ::: {.column width="48%" .fragment}
 Volta is a **certain** number: €180, every battery.
 
-Ampere is a **random variable**: Thursday's table, two rows.
+Ampere is a **random variable**: block A's table, two rows.
 
 ::: {.bigtable}
 | what happens | share $P(x)$ | cost $x$ |
@@ -562,7 +938,7 @@ Ampere is a **random variable**: Thursday's table, two rows.
 
 [Read it left to right. At the square **we** choose; at the circle **chance** chooses, with its probabilities. The number written at a node is the expected value of everything to its right.]{.muted style="font-size:.8em"}
 
-## Expected value at the chance node: Thursday's formula
+## Expected value at the chance node: block A's formula
 
 :::: {.columns}
 ::: {.column width="56%"}
@@ -575,7 +951,7 @@ $$= 156.75 + 12.75 = \textbf{€169.50 a battery}$$
 :::
 
 ::: {.fragment}
-**The spread, same recipe as Thursday:**
+**The spread, same recipe as block A:**
 
 $$\sigma^{2} = \sum (x - \mu)^{2} P(x) = .95\,(4.5)^{2} + .05\,(85.5)^{2}$$
 
@@ -632,26 +1008,29 @@ Sign Ampere for the volume contract: €10.50 a battery cheaper on average, €1
 :::
 ::::
 
-## Four questions from the founder {.hub auto-animate=true}
+## Five questions from the founder {.hub auto-animate=true}
 
-::: {.blocks}
+::: {.blocks .five}
 ::: {.blk .done}
-[Block A]{.blk-letter}How many returns next week?[binomial · Poisson · one family]{.blk-tool}
-:::
-::: {.blk .done}
-[Block B]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
+[Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
 :::
 ::: {.blk .done}
-[Block C]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
+[Block B]{.blk-letter}How many of Saturday's riders buy?[binomial · Poisson · one family]{.blk-tool}
 :::
-::: {.blk .now data-id="blkD"}
-[Block D]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
+::: {.blk .done}
+[Block C]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
+:::
+::: {.blk .done}
+[Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
+:::
+::: {.blk .now data-id="blkE"}
+[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
 :::
 :::
 
-## [Block D · normal approximation and Monte Carlo]{.section-kicker} How many late orders in 250? {.section-slide background-color="#AF1F25" auto-animate=true}
+## [Block E · normal approximation and Monte Carlo]{.section-kicker} How many late orders in 250? {.section-slide background-color="#AF1F25" auto-animate=true}
 
-::: {.blk-fill data-id="blkD"}
+::: {.blk-fill data-id="blkE"}
 :::
 
 ## 250 orders this month, 6% ship late: how many late?
@@ -769,39 +1148,45 @@ Two couriers, a rate that changes with the weather, a supplier whose faults come
 
 ## Take home
 
-::: {.blocks}
+::: {.blocks .five}
 ::: {.blk .recap .fragment}
-[A]{.blk-letter}Name the shape before the formula[How many of these $n$: binomial, mean $np$. How many in this interval: Poisson, $\mu$ = rate × interval first. "At least one" is 1 − "none".]{.blk-answer}
+[A]{.blk-letter}A number with its shares[A list: mean, and spread divided by $n - 1$. A random variable: the same two formulas weighted by the shares. The table of shares, drawn, is the distribution.]{.blk-answer}
 :::
 ::: {.blk .recap .fragment}
-[B]{.blk-letter}A normal question is an area[Sketch, standardise, table, sentence. Backwards for a guarantee: area → $z$ → $x$. Then ask whether the data are a bell: skewness and kurtosis.]{.blk-answer}
+[B]{.blk-letter}Name the shape before the formula[How many of these $n$: binomial, mean $np$. How many in this interval: Poisson, $\mu$ = rate × interval first. "At least one" is 1 − "none".]{.blk-answer}
 :::
 ::: {.blk .recap .fragment}
-[C]{.blk-letter}Decide on two numbers[Expected value is the price you pay on average; spread is the surprise you pay sometimes. A repeated decision follows the mean; a one-off weighs the spread.]{.blk-answer}
+[C]{.blk-letter}A normal question is an area[Sketch, standardise, table, sentence. Backwards for a guarantee: area → $z$ → $x$. Then ask whether the data are a bell: skewness and kurtosis.]{.blk-answer}
 :::
 ::: {.blk .recap .fragment}
-[D]{.blk-letter}Many trials: a count is a measurement[$np$ and $\sqrt{np(1-p)}$, then the four steps with the half unit. And when there is no formula, simulate: the histogram is the distribution.]{.blk-answer}
+[D]{.blk-letter}Decide on two numbers[Expected value is the price you pay on average; spread is the surprise you pay sometimes. A repeated decision follows the mean; a one-off weighs the spread.]{.blk-answer}
+:::
+::: {.blk .recap .fragment}
+[E]{.blk-letter}Many trials: a count is a measurement[$np$ and $\sqrt{np(1-p)}$, then the four steps with the half unit. And when there is no formula, simulate: the histogram is the distribution.]{.blk-answer}
 :::
 :::
 
 . . .
 
-[Three shapes, one table, two numbers per decision. That is the whole of today.]{.red}
+[A number with its shares, three shapes, two numbers per decision. That is the whole of today.]{.red}
 
-## Four answers for the founder
+## Five answers for the founder
 
-::: {.blocks}
+::: {.blocks .five}
 ::: {.blk .done .fragment}
-[A]{.blk-letter}How many of Saturday's riders buy?[Three of twelve, give or take one and a half; nobody buying is a one-in-thirty Saturday. Leave the helpline half an hour and you miss a call three times in four.]{.blk-answer}
+[A]{.blk-letter}How many returns next week?[Five, give or take one or two. Seven is a normal bad week; eight would be news.]{.blk-answer}
 :::
 ::: {.blk .done .fragment}
-[B]{.blk-letter}What range do we print?[76 km. One rider in twenty-five sees less; every km added to the box adds one or two complaints in a hundred.]{.blk-answer}
+[B]{.blk-letter}How many of Saturday's riders buy?[Three of twelve, give or take one and a half; nobody buying is a one-in-thirty Saturday. Leave the helpline half an hour and you miss a call three times in four.]{.blk-answer}
 :::
 ::: {.blk .done .fragment}
-[C]{.blk-letter}Which supplier do we sign?[Ampere for volume: €10,500 a month cheaper, and on a thousand batteries the faults average out. Volta for rush orders, where one faulty battery in ten is a problem.]{.blk-answer}
+[C]{.blk-letter}What range do we print?[76 km. One rider in twenty-five sees less; every km added to the box adds one or two complaints in a hundred.]{.blk-answer}
 :::
 ::: {.blk .done .fragment}
-[D]{.blk-letter}How many late orders in 250?[Fifteen, give or take four. A penalty month, twenty or more, about once in nine months.]{.blk-answer}
+[D]{.blk-letter}Which supplier do we sign?[Ampere for volume: €10,500 a month cheaper, and on a thousand batteries the faults average out. Volta for rush orders, where one faulty battery in ten is a problem.]{.blk-answer}
+:::
+::: {.blk .done .fragment}
+[E]{.blk-letter}How many late orders in 250?[Fifteen, give or take four. A penalty month, twenty or more, about once in nine months.]{.blk-answer}
 :::
 :::
 
@@ -811,30 +1196,32 @@ Two couriers, a rate that changes with the weather, a supplier whose faults come
 
 ## Formulas, on one page: the ones we used
 
-::: {.bigtable style="font-size:.78em"}
+::: {.bigtable style="font-size:.7em"}
 | question | formula | this morning |
 |---|---|---|
 | how many of these $n$ | $P(x) = \binom{n}{x} p^{x} (1-p)^{n-x}, \quad E = np, \quad \sigma = \sqrt{np(1-p)}$ | $P(3) = .258$, $np = 3$, $\sigma = 1.5$ |
 | how many in this interval | $P(x) = \dfrac{\mu^{x} e^{-\mu}}{x!}, \quad \mu = \text{rate} \times \text{interval}$ | $\mu = 1.5$, $P(0) = .223$ |
 | a share under the bell | $z = \dfrac{x - \mu}{\sigma}$, table gives the area to the left | $z = -1.88 \to .030$ |
 | the bell, backwards | $x = \mu + z\,\sigma$ | $90 - 1.645 \times 8 = 76.8$ |
-| a decision with chance in it | $E(x) = \sum x\,P(x), \quad \sigma^{2} = \sum (x-\mu)^{2} P(x)$ | $€169.50$, $\sigma = €19.6$ |
+| a list of numbers | $\bar{x} = \dfrac{\sum x}{n}, \quad s^{2} = \dfrac{\sum (x - \bar{x})^{2}}{n - 1}$ | $\bar{x} = 5$, $s = 1.58$ |
+| a number with its shares; a decision | $E(x) = \sum x\,P(x), \quad \sigma^{2} = \sum (x-\mu)^{2} P(x)$ | $5.0$ and $1.26$; $€169.50$, $\sigma = €19.6$ |
 | a count with many trials | $\mu = np, \; \sigma = \sqrt{np(1-p)}$, then $z$ with the half unit | $z = (19.5 - 15)/3.755 = 1.20 \to .115$ |
 :::
 
-[Six lines. None of them was the hard part. The hard part was saying which one.]{.muted}
+[Seven lines. None of them was the hard part. The hard part was saying which one.]{.muted}
 
 ## Homework 7
 
 :::: {.columns}
-::: {.column width="58%"}
-**Five exercises on paper**, one per block and one mixed, plus a **memo to the Board** on the range to print. `homework.md` on the course site.
+::: {.column width="58%" style="font-size:.82em"}
+**Six exercises on paper**, at least one per block, plus a **memo to the Board** on the range to print. `homework.md` on the course site.
 
-- **H1** twelve becomes twenty: a binomial on financing quotes
-- **H2** returns at a rate: a Poisson with the interval rescaled twice
-- **H3** charging time: the normal forwards, and backwards for a flag
-- **H4** two couriers: a decision tree, expected value and spread
-- **H5** two hundred bikes, 10% back: the normal approximation
+- **H1** walk-ins and bookings: a list, then a random variable (Thursday's H3)
+- **H2** twelve becomes twenty: a binomial on financing quotes
+- **H3** returns at a rate: a Poisson, rescaled twice
+- **H4** charging time: the normal forwards, and backwards for a flag
+- **H5** two couriers: a decision tree, expected value and spread
+- **H6** two hundred bikes, 10% back: the normal approximation
 
 Due **Sunday 15 November, 23:59 on Moodle**. Corrected together at the start of next Monday.
 :::
