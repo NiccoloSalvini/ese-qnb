@@ -211,7 +211,7 @@ window.Quarto = {
 <p><strong>D2 (8 minutes).</strong></p>
 <ol type="a">
 <li>Saturday brings 10 test rides; from the CRM, three riders in ten buy, each deciding alone. Name the model and say why. Find the probability that exactly 2 buy, that nobody buys, that at least one buys, and the mean and standard deviation of the number of buyers.</li>
-<li>Orders on the web shop arrive at random, 4 an hour on average. Name the model and say why. Find the probability of no order in an hour and of exactly 2 orders in an hour. Then, for a 15-minute coffee break: write <span class="math inline">\(\mu\)</span> first, then the probability of no order and of at least one.</li>
+<li>Orders on the web shop arrive at random, 4 an hour on average. Name the model and say why. Find the probability of no order in an hour. Then, for a 15-minute coffee break: write <span class="math inline">\(\mu\)</span> first, then the probability of no order and of at least one.</li>
 </ol>
 </section>
 <section id="c.-the-normal-forwards-and-backwards" class="level2">
@@ -368,7 +368,7 @@ window.Quarto = {
 <ol start="2" type="a">
 <li><strong>Poisson</strong>: orders arrive at random over time, at a constant rate, with no ceiling on the count. One hour, <span class="math inline">\(\mu = 4\)</span>:</li>
 </ol>
-<p><span class="math display">\[P(0) = \frac{4^{0} e^{-4}}{0!} = e^{-4} = \mathbf{.018} \qquad P(2) = \frac{4^{2} e^{-4}}{2!} = \frac{16 \times .01832}{2} = \mathbf{.147}\]</span></p>
+<p><span class="math display">\[P(0) = \frac{4^{0} e^{-4}}{0!} = e^{-4} = \mathbf{.018}\]</span></p>
 <p>Fifteen minutes is a quarter of an hour, so <span class="math inline">\(\mu\)</span> first:</p>
 <p><span class="math display">\[\mu = 4 \times \tfrac{1}{4} = 1 \qquad P(0) = e^{-1} = \mathbf{.368} \qquad P(\ge 1) = 1 - .368 = \mathbf{.632}\]</span></p>
 <p>A silent hour is rare, two in a hundred; a silent coffee break happens more than once in three.</p>
@@ -380,7 +380,7 @@ window.Quarto = {
 <p><span class="math display">\[P(X &lt; 20) = \mathbf{.092}\]</span></p>
 <p>About nine bikes in a hundred come in under 20 kg; the customer will wait, or pay for the light frame.</p>
 <ol start="2" type="a">
-<li>Backwards: the area is given, <span class="math inline">\(x\)</span> is wanted. The heaviest 5% is the right tail, so 95% of the area is to the left of the threshold. Find .9500 <em>inside</em> the table: between <span class="math inline">\(z = 1.64\)</span> (.9495) and <span class="math inline">\(z = 1.65\)</span> (.9505), so <span class="math inline">\(z = 1.645\)</span> (Excel: <code>=NORM.S.INV(0.95)</code>). Undo the standardisation:</li>
+<li>Backwards: the area is given, <span class="math inline">\(x\)</span> is wanted. The heaviest 5% is the <strong>right</strong> tail (the slide showed the left one: same steps, the sign flips), so 95% of the area is to the left of the threshold. Find .9500 <em>inside</em> the table: between <span class="math inline">\(z = 1.64\)</span> (.9495) and <span class="math inline">\(z = 1.65\)</span> (.9505), so <span class="math inline">\(z = 1.645\)</span> (Excel: <code>=NORM.S.INV(0.95)</code>). Undo the standardisation:</li>
 </ol>
 <p><span class="math display">\[x = \mu + z\,\sigma = 22 + 1.645 \times 1.5 = 22 + 2.47 = \mathbf{24.5 \text{ kg}}\]</span></p>
 <p>A bike over about 24.5 kg goes back for a check.</p>
