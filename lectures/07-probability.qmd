@@ -818,6 +818,10 @@ Print **76 km**, a promise rounds down: the share below it is $P(z < -1.75) = .0
 ::: {.callout-tip title="Board sentence"}
 Print 76 km. About one rider in twenty-five will see less, and every km we add to the box adds one or two complaints in a hundred.
 :::
+
+::: {.fragment}
+[**The other tail.** "The heaviest 5%", "the slowest 5%": 95% sits to the left, so $z = +1.645$ and $x = \mu + 1.645\,\sigma$. A promise on a time rounds **up**.]{style="font-size:.7em"}
+:::
 :::
 ::::
 

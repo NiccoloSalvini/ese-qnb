@@ -20,7 +20,7 @@ Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ i
 **D2 (8 minutes).**
 
 (a) Saturday brings 10 test rides; from the CRM, three riders in ten buy, each deciding alone. Name the model and say why. Find the probability that exactly 2 buy, that nobody buys, that at least one buys, and the mean and standard deviation of the number of buyers.
-(b) Orders on the web shop arrive at random, 4 an hour on average. Name the model and say why. Find the probability of no order in an hour and of exactly 2 orders in an hour. Then, for a 15-minute coffee break: write $\mu$ first, then the probability of no order and of at least one.
+(b) Orders on the web shop arrive at random, 4 an hour on average. Name the model and say why. Find the probability of no order in an hour. Then, for a 15-minute coffee break: write $\mu$ first, then the probability of no order and of at least one.
 
 ## C. The normal, forwards and backwards
 
@@ -97,7 +97,7 @@ Expect three buyers, give or take one and a half; a Saturday with no sale happen
 
 (b) **Poisson**: orders arrive at random over time, at a constant rate, with no ceiling on the count. One hour, $\mu = 4$:
 
-$$P(0) = \frac{4^{0} e^{-4}}{0!} = e^{-4} = \mathbf{.018} \qquad P(2) = \frac{4^{2} e^{-4}}{2!} = \frac{16 \times .01832}{2} = \mathbf{.147}$$
+$$P(0) = \frac{4^{0} e^{-4}}{0!} = e^{-4} = \mathbf{.018}$$
 
 Fifteen minutes is a quarter of an hour, so $\mu$ first:
 
@@ -115,7 +115,7 @@ $$P(X < 20) = \mathbf{.092}$$
 
 About nine bikes in a hundred come in under 20 kg; the customer will wait, or pay for the light frame.
 
-(b) Backwards: the area is given, $x$ is wanted. The heaviest 5% is the right tail, so 95% of the area is to the left of the threshold. Find .9500 *inside* the table: between $z = 1.64$ (.9495) and $z = 1.65$ (.9505), so $z = 1.645$ (Excel: `=NORM.S.INV(0.95)`). Undo the standardisation:
+(b) Backwards: the area is given, $x$ is wanted. The heaviest 5% is the **right** tail (the slide showed the left one: same steps, the sign flips), so 95% of the area is to the left of the threshold. Find .9500 *inside* the table: between $z = 1.64$ (.9495) and $z = 1.65$ (.9505), so $z = 1.645$ (Excel: `=NORM.S.INV(0.95)`). Undo the standardisation:
 
 $$x = \mu + z\,\sigma = 22 + 1.645 \times 1.5 = 22 + 2.47 = \mathbf{24.5 \text{ kg}}$$
 

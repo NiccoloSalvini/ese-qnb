@@ -461,7 +461,7 @@ print("\nExpect two cargo orders a day, give or take one; a day with none happen
 
 # ---- D2 -------------------------------------------------------------------
 md(r"""
-**D2.** (a) Saturday brings 10 test rides; three riders in ten buy, each deciding alone. Name the model; find $P(2)$, $P(0)$, $P(\geq 1)$, the mean and the standard deviation. (b) Web-shop orders arrive at random, 4 an hour: name the model, find $P(0)$ and $P(2)$ in an hour; then, for a 15-minute coffee break, $\mu$ first, $P(0)$ and $P(\geq 1)$.
+**D2.** (a) Saturday brings 10 test rides; three riders in ten buy, each deciding alone. Name the model; find $P(2)$, $P(0)$, $P(\geq 1)$, the mean and the standard deviation. (b) Web-shop orders arrive at random, 4 an hour: name the model, find $P(0)$ in an hour; then, for a 15-minute coffee break, $\mu$ first, $P(0)$ and $P(\geq 1)$.
 """)
 code(r"""
 # D2 (a)
@@ -479,7 +479,7 @@ print("Expect three buyers, give or take one and a half; a Saturday with no sale
 print("(b) Poisson: orders arrive at random over time, at a constant rate, with no ceiling on the count.\n")
 print("One hour:"); mu4, P0_4 = poisson_steps(4, 1)
 print("\nA 15-minute break — a quarter of an hour, so μ first:"); mu1, P0_1 = poisson_steps(4, 0.25)
-close(math.exp(-4), .01832, 1e-4); close(P0_4, .018); close(stats.poisson.pmf(2, 4), .147); close(16 * .01832 / 2, .147)
+close(math.exp(-4), .01832, 1e-4); close(P0_4, .018)
 close(mu1, 1, 1e-9); close(P0_1, .368); close(1 - P0_1, .632)
 print("\nA silent hour is rare, two in a hundred; a silent coffee break happens more than once in three.")
 """)
@@ -554,7 +554,7 @@ checks = [
     ("D1 σ²", np.dot((np.array([0, 1, 2, 3, 4]) - 2) ** 2, [.10, .20, .40, .20, .10]), 1.20), ("D1 σ", math.sqrt(1.20), 1.10),
     ("D2 C(10,2)", math.comb(10, 2), 45), ("D2 binomial P(2)", stats.binom.pmf(2, 10, .3), .233), ("D2 binomial P(0)", stats.binom.pmf(0, 10, .3), .028),
     ("D2 binomial P(≥1)", 1 - stats.binom.pmf(0, 10, .3), .972), ("D2 binomial mean", 10 * .3, 3), ("D2 binomial σ", math.sqrt(10 * .3 * .7), 1.45),
-    ("D2 Poisson μ=4 P(0)", stats.poisson.pmf(0, 4), .018), ("D2 Poisson μ=4 P(2)", stats.poisson.pmf(2, 4), .147),
+    ("D2 Poisson μ=4 P(0)", stats.poisson.pmf(0, 4), .018),
     ("D2 Poisson μ for 15 min", 4 * .25, 1), ("D2 Poisson μ=1 P(0)", stats.poisson.pmf(0, 1), .368), ("D2 Poisson μ=1 P(≥1)", 1 - stats.poisson.pmf(0, 1), .632),
     ("D3 z for 20 kg", (20 - 22) / 1.5, -1.33), ("D3 P(X < 20)", stats.norm.cdf(20, 22, 1.5), .092),
     

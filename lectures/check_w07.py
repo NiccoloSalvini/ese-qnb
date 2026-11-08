@@ -83,7 +83,7 @@ assert np.allclose((v3 - 2) ** 2 * p3, [.40, .20, 0, .20, .40]); ok("D1 sigma^2"
 ok("D2 binom 10,.3 P(2)", binom.pmf(2, 10, .3), .233); assert comb(10, 2) == 45; ok("D2 .7^8", .7 ** 8, .05765, 1e-4); ok("D2 .3^2", .3 ** 2, .09, 1e-9)
 ok("D2 45*.09*.05765", 45 * .09 * .05765, .233, 1e-3); ok("D2 binom P(0)", binom.pmf(0, 10, .3), .028); ok("D2 binom P(>=1)", 1 - binom.pmf(0, 10, .3), .972)
 ok("D2 binom mean", 10 * .3, 3); assert isclose(10 * .3 * .7, 2.1); ok("D2 binom sigma", sqrt(2.1), 1.45)
-ok("D2 Poisson 4: P(0)", poisson.pmf(0, 4), .018); ok("D2 Poisson 4: P(2)", poisson.pmf(2, 4), .147); ok("D2 e^-4", exp(-4), .01832, 1e-4); ok("D2 16*.01832/2", 16 * .01832 / 2, .147, 1e-3)
+ok("D2 Poisson 4: P(0)", poisson.pmf(0, 4), .018); ok("D2 e^-4", exp(-4), .01832, 1e-4)
 assert isclose(4 * .25, 1); ok("D2 Poisson 1: P(0)", poisson.pmf(0, 1), .368); ok("D2 Poisson 1: P(>=1)", 1 - poisson.pmf(0, 1), .632); ok("D2 e^-1", exp(-1), .368)
 # D3
 ok("D3 z for 20 kg", (20 - 22) / 1.5, -1.333, 1e-3); ok("D3 table z=-1.33", norm.cdf(-1.33), .0918, 6e-5); ok("D3 P(X<20)", norm.cdf(20, 22, 1.5), .092, 1e-3)
@@ -121,7 +121,7 @@ ok("H3 mu 2: P(2)", poisson.pmf(2, 2), .271); ok("H3 e^-2", exp(-2), .1353, 1e-4
 # H4
 ok("H4 z for 270", (270 - 240) / 20, 1.5, 1e-9); ok("H4 table z=1.5", norm.cdf(1.5), .9332, 6e-5); ok("H4 P(X>270)", 1 - norm.cdf(1.5), .067)
 ok("H4 table z=1", norm.cdf(1), .8413, 6e-5); ok("H4 table z=-1", norm.cdf(-1), .1587, 6e-5); ok("H4 P(220<X<260)", norm.cdf(1) - norm.cdf(-1), .683)
-ok("H4 guarantee: z for 95%", norm.ppf(.95), 1.645); ok("H4 1.645*20", 1.645 * 20, 32.9, 1e-9); ok("H4 print minutes", 240 + 1.645 * 20, 272.9, 1e-9)
+ok("H4 guarantee: z for 95%", norm.ppf(.95), 1.645); ok("H4 1.645*20", 1.645 * 20, 32.9, 1e-9); ok("H4 273 also inside 5%", 1 - norm.cdf(273, 240, 20), .0495, 1e-3); ok("H4 print minutes", 240 + 1.645 * 20, 272.9, 1e-9)
 # H5
 ev4 = .9 * 30 + .1 * 90; assert 30 + 60 == 90; ok("H5 Local expected cost", ev4, 36, 1e-9); ok("H5 saving per delivery", 40 - ev4, 4, 1e-9)
 var4 = .9 * (30 - ev4) ** 2 + .1 * (90 - ev4) ** 2; ok("H5 Local variance", var4, 324, 1e-9); ok("H5 Local sigma", sqrt(var4), 18, 1e-9)

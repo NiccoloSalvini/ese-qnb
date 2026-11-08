@@ -36,7 +36,7 @@ Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ i
 (b) What share take between 220 and 260 minutes? Which rule of thumb gives the same answer without a table?
 (c) Marketing wants to print "fully charged in X minutes" and the Board accepts that 5% of charges take longer. What do we print? End in minutes, not in $z$.
 
-**H5 — a decision with chance in it.** Deliveries can go with one of two couriers. **Fast** charges a flat **€40** per delivery and is never late. **Local** charges **€30** but is late 10% of the time, and a late delivery costs Arno Bikes **€60** in compensation to the customer.
+**H5 — a decision with chance in it.** Deliveries can go with one of two couriers. **Fast** charges a flat **€40** per delivery and is never late. **Local** charges **€30** but is late 10% of the time, and a late delivery costs Arno Bikes **€60** in compensation to the customer, on top of the €30.
 
 (a) Draw the decision tree: the square, a circle for Local's chance node, the probabilities, the cost at each end node.
 (b) Find the expected cost of a Local delivery, and the saving per delivery against Fast.

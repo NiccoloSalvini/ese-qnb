@@ -88,7 +88,7 @@ H3 (mean, variance, random variable) was not doable without block C: say it move
 
 **Skewness and kurtosis** (4'). Battery range symmetric, skewness zero; delivery times with a long right tail, mean above median, positive skewness. Then the second question: same mean, same σ, where do the tails sit? The bell; a sharp peak with fat tails (delivery delays: a "three σ" day is far more common than one in three hundred); a flat top with no tails (a rota). **Red line:** fat tails mean the rare bad day is not as rare as the bell says. Two slides, in words; no formula for either.
 
-→ **D3** on paper, 8 minutes. The sketch first; (b) ends in kg.
+Before D3, click the last fragment of the guarantee slide: "the other tail", z = +1.645, a time rounds up — D3(b) and H4(c) need it. → **D3** on paper, 8 minutes. The sketch first; (b) ends in kg.
 
 ### D. Which supplier do we sign? (25')
 
