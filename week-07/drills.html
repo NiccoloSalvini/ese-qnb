@@ -162,7 +162,6 @@ window.Quarto = {
   <li><a href="#b.-binomial-and-poisson" id="toc-b.-binomial-and-poisson" class="nav-link" data-scroll-target="#b.-binomial-and-poisson">B. Binomial and Poisson</a></li>
   <li><a href="#c.-the-normal-forwards-and-backwards" id="toc-c.-the-normal-forwards-and-backwards" class="nav-link" data-scroll-target="#c.-the-normal-forwards-and-backwards">C. The normal, forwards and backwards</a></li>
   <li><a href="#d.-expected-value-to-decide" id="toc-d.-expected-value-to-decide" class="nav-link" data-scroll-target="#d.-expected-value-to-decide">D. Expected value to decide</a></li>
-  <li><a href="#e.-the-normal-approximation" id="toc-e.-the-normal-approximation" class="nav-link" data-scroll-target="#e.-the-normal-approximation">E. The normal approximation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -220,7 +219,6 @@ window.Quarto = {
 <p><strong>D3 (8 minutes).</strong> The weight of an Arno bike off the line is bell-shaped: mean 22 kg, standard deviation 1.5 kg, <span class="math inline">\(X \sim N(22,\,1.5)\)</span>. For each part: sketch and shade, standardise, table, one sentence.</p>
 <ol type="a">
 <li>A customer wants a bike under 20 kg. What share of bikes qualify?</li>
-<li>What share of bikes weigh between 21 and 24 kg?</li>
 <li>The heaviest 5% of bikes are sent back for a check. From what weight is a bike sent back? End in kg, not in <span class="math inline">\(z\)</span>.</li>
 <li>Delivery times to customers have a mean of 3.1 days and a median of 2.4 days. In one sentence: what shape is that, and why is the table the wrong tool for it?</li>
 </ol>
@@ -235,18 +233,8 @@ window.Quarto = {
 <ol type="a">
 <li>Draw the decision tree: a square for the choice, a circle for each chance node, the probabilities on the branches, the <strong>profit</strong> (margin minus cost) at each end node.</li>
 <li>Find the expected profit of each option.</li>
-<li>Find the standard deviation of the profit of each option.</li>
+<li>Find the standard deviation of the profit of the online ads. The test-ride Saturday’s is €1,680 (given: three branches with large numbers). Which option is the riskier, and by how much?</li>
 <li>In two sentences for the Board: which option, and what the other number says.</li>
-</ol>
-</section>
-<section id="e.-the-normal-approximation" class="level2">
-<h2 class="anchored" data-anchor-id="e.-the-normal-approximation">E. The normal approximation</h2>
-<p><strong>D5 (6 minutes).</strong> Arno Bikes ships 300 orders this month; each ships late with probability .05, independently. The logistics partner charges a penalty when 20 or more orders are late.</p>
-<ol type="a">
-<li>Name the exact model, and say in one line why you will not compute it by hand.</li>
-<li>Find the mean and the standard deviation of the number of late orders.</li>
-<li>Check that the bell may be used, then find the probability of a penalty month with the four steps and the half unit.</li>
-<li>One sentence for the founder.</li>
 </ol>
 <hr>
 <details>
@@ -392,18 +380,11 @@ window.Quarto = {
 <p><span class="math display">\[P(X &lt; 20) = \mathbf{.092}\]</span></p>
 <p>About nine bikes in a hundred come in under 20 kg; the customer will wait, or pay for the light frame.</p>
 <ol start="2" type="a">
-<li>Shade between 21 and 24.</li>
-</ol>
-<p><span class="math display">\[z = \frac{21 - 22}{1.5} = -0.67 \qquad z = \frac{24 - 22}{1.5} = 1.33\]</span></p>
-<p>Two lookups, area to the left of each, and a difference:</p>
-<p><span class="math display">\[P(-0.67 &lt; z &lt; 1.33) = P(z &lt; 1.33) - P(z &lt; -0.67) = .9082 - .2514 = \mathbf{.657}\]</span></p>
-<p>Two bikes in three weigh between 21 and 24 kg.</p>
-<ol start="3" type="a">
 <li>Backwards: the area is given, <span class="math inline">\(x\)</span> is wanted. The heaviest 5% is the right tail, so 95% of the area is to the left of the threshold. Find .9500 <em>inside</em> the table: between <span class="math inline">\(z = 1.64\)</span> (.9495) and <span class="math inline">\(z = 1.65\)</span> (.9505), so <span class="math inline">\(z = 1.645\)</span> (Excel: <code>=NORM.S.INV(0.95)</code>). Undo the standardisation:</li>
 </ol>
 <p><span class="math display">\[x = \mu + z\,\sigma = 22 + 1.645 \times 1.5 = 22 + 2.47 = \mathbf{24.5 \text{ kg}}\]</span></p>
 <p>A bike over about 24.5 kg goes back for a check.</p>
-<ol start="4" type="a">
+<ol start="3" type="a">
 <li>Mean well above median: a long right tail, <strong>positive skewness</strong> — most parcels in two or three days, a few much later. The normal is symmetric (mean = median), so a <span class="math inline">\(z\)</span> from a mean of 3.1 would give the wrong areas: the table only answers questions about bells.</li>
 </ol>
 <p><strong>D4.</strong></p>
@@ -418,68 +399,12 @@ window.Quarto = {
 <p><span class="math display">\[E(\text{Saturday}) = .3 \times 1{,}600 + .5 \times 4{,}000 + .2 \times 6{,}400 = 480 + 2{,}000 + 1{,}280 = \mathbf{€3{,}760}\]</span></p>
 <p><span class="math display">\[E(\text{ads}) = .5 \times 1{,}400 + .5 \times 2{,}600 = 700 + 1{,}300 = \mathbf{€2{,}000}\]</span></p>
 <ol start="3" type="a">
-<li>Spread, <span class="math inline">\(\sigma^{2} = \sum (x - \mu)^{2} P(x)\)</span>:</li>
+<li>Spread of the ads, <span class="math inline">\(\sigma^{2} = \sum (x - \mu)^{2} P(x)\)</span>: deviations <span class="math inline">\(\pm 600\)</span>, each with share .5.</li>
 </ol>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Saturday</th>
-<th style="text-align: right;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(P(x)\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(x - \mu\)</span></th>
-<th style="text-align: right;"><span class="math inline">\((x-\mu)^{2} P(x)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: right;">1,600</td>
-<td style="text-align: right;">.3</td>
-<td style="text-align: right;">−2,160</td>
-<td style="text-align: right;">1,399,680</td>
-</tr>
-<tr class="even">
-<td></td>
-<td style="text-align: right;">4,000</td>
-<td style="text-align: right;">.5</td>
-<td style="text-align: right;">240</td>
-<td style="text-align: right;">28,800</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td style="text-align: right;">6,400</td>
-<td style="text-align: right;">.2</td>
-<td style="text-align: right;">2,640</td>
-<td style="text-align: right;">1,393,920</td>
-</tr>
-<tr class="even">
-<td></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"><strong>sum</strong></td>
-<td style="text-align: right;"><strong>2,822,400</strong></td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">\[\sigma_{\text{Saturday}} = \sqrt{2{,}822{,}400} = \mathbf{€1{,}680}\]</span></p>
-<p>Ads: deviations <span class="math inline">\(\pm 600\)</span>, each with share .5: <span class="math inline">\(\sigma^{2} = .5 \times 600^{2} + .5 \times 600^{2} = 360{,}000\)</span>, so <span class="math inline">\(\sigma_{\text{ads}} = \mathbf{€600}\)</span>.</p>
+<p><span class="math display">\[\sigma^{2} = .5 \times 600^{2} + .5 \times 600^{2} = 360{,}000 \qquad \sigma_{\text{ads}} = \sqrt{360{,}000} = \mathbf{€600}\]</span></p>
+<p>The Saturday’s €1,680 is 2.8 times larger: the Saturday is the riskier option, by far. (For the curious, its table: deviations −2,160, 240, 2,640; weighted squares 1,399,680 + 28,800 + 1,393,920 = 2,822,400; and <span class="math inline">\(\sqrt{2{,}822{,}400} = 1{,}680\)</span>.)</p>
 <ol start="4" type="a">
 <li>The test-ride Saturday earns €3,760 on average against €2,000 for the ads, €1,760 more; its worst case, €1,600, still beats the ads’ average. Its spread is nearly three times larger (€1,680 against €600): the Saturday can end anywhere between €1,600 and €6,400, the ads between €1,400 and €2,600. Expected value picks the Saturday; the spread says the result will be a surprise either way — and since even the bad Saturday beats the ads, the Board can take the Saturday without fear.</li>
-</ol>
-<p><strong>D5.</strong></p>
-<ol type="a">
-<li><p><strong>Binomial</strong>, <span class="math inline">\(n = 300\)</span>, <span class="math inline">\(p = .05\)</span>: a fixed number of orders, each late or not, the same <span class="math inline">\(p\)</span>, independent. “20 or more” means summing <span class="math inline">\(P(20) + P(21) + \dots + P(300)\)</span>, each with <span class="math inline">\(\binom{300}{x}\)</span> and <span class="math inline">\(.95^{300 - x}\)</span>: not by hand.</p></li>
-<li></li>
-</ol>
-<p><span class="math display">\[\mu = np = 300 \times .05 = \mathbf{15} \qquad \sigma = \sqrt{np(1-p)} = \sqrt{300 \times .05 \times .95} = \sqrt{14.25} = \mathbf{3.775}\]</span></p>
-<ol start="3" type="a">
-<li><span class="math inline">\(np = 15 \ge 5\)</span> and <span class="math inline">\(n(1-p) = 285 \ge 5\)</span>: the bell may be used. Sketch the bell at 15; the bar for 20 starts at 19.5, shade from there to the right.</li>
-</ol>
-<p><span class="math display">\[z = \frac{19.5 - 15}{3.775} = \frac{4.5}{3.775} = 1.19 \qquad \text{table: } P(z &lt; 1.19) = .8830\]</span></p>
-<p><span class="math display">\[P(X \ge 20) = 1 - .8830 = \mathbf{.117}\]</span></p>
-<p>(The exact binomial gives .119. Without the half unit, <span class="math inline">\(z = 5/3.775 = 1.32\)</span> and the area is .093 — a fifth too small.)</p>
-<ol start="4" type="a">
-<li>Expect 15 late orders, give or take four; a penalty month comes about once in eight or nine months.</li>
 </ol>
 </details>
 
