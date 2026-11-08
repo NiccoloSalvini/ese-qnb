@@ -43,15 +43,6 @@ Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ i
 (c) Find the standard deviation of the profit of each option.
 (d) In two sentences for the Board: which option, and what the other number says.
 
-## E. The normal approximation
-
-**D5 (6 minutes).** Arno Bikes ships 300 orders this month; each ships late with probability .05, independently. The logistics partner charges a penalty when 20 or more orders are late.
-
-(a) Name the exact model, and say in one line why you will not compute it by hand.
-(b) Find the mean and the standard deviation of the number of late orders.
-(c) Check that the bell may be used, then find the probability of a penalty month with the four steps and the half unit.
-(d) One sentence for the founder.
-
 ---
 
 <details>
@@ -172,23 +163,5 @@ $$\sigma_{\text{Saturday}} = \sqrt{2{,}822{,}400} = \mathbf{€1{,}680}$$
 Ads: deviations $\pm 600$, each with share .5: $\sigma^{2} = .5 \times 600^{2} + .5 \times 600^{2} = 360{,}000$, so $\sigma_{\text{ads}} = \mathbf{€600}$.
 
 (d) The test-ride Saturday earns €3,760 on average against €2,000 for the ads, €1,760 more; its worst case, €1,600, still beats the ads' average. Its spread is nearly three times larger (€1,680 against €600): the Saturday can end anywhere between €1,600 and €6,400, the ads between €1,400 and €2,600. Expected value picks the Saturday; the spread says the result will be a surprise either way — and since even the bad Saturday beats the ads, the Board can take the Saturday without fear.
-
-**D5.**
-
-(a) **Binomial**, $n = 300$, $p = .05$: a fixed number of orders, each late or not, the same $p$, independent. "20 or more" means summing $P(20) + P(21) + \dots + P(300)$, each with $\binom{300}{x}$ and $.95^{300 - x}$: not by hand.
-
-(b)
-
-$$\mu = np = 300 \times .05 = \mathbf{15} \qquad \sigma = \sqrt{np(1-p)} = \sqrt{300 \times .05 \times .95} = \sqrt{14.25} = \mathbf{3.775}$$
-
-(c) $np = 15 \ge 5$ and $n(1-p) = 285 \ge 5$: the bell may be used. Sketch the bell at 15; the bar for 20 starts at 19.5, shade from there to the right.
-
-$$z = \frac{19.5 - 15}{3.775} = \frac{4.5}{3.775} = 1.19 \qquad \text{table: } P(z < 1.19) = .8830$$
-
-$$P(X \ge 20) = 1 - .8830 = \mathbf{.117}$$
-
-(The exact binomial gives .119. Without the half unit, $z = 5/3.775 = 1.32$ and the area is .093 — a fifth too small.)
-
-(d) Expect 15 late orders, give or take four; a penalty month comes about once in eight or nine months.
 
 </details>

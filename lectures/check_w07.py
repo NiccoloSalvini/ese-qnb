@@ -70,17 +70,6 @@ ok("rush order of ten: saving", 10 * 15, 150, 1e-9); ok("two faulty cost", 2 * 9
 ok("rush order: P(0)", binom.pmf(0, 10, .05), .599); ok("rush order: P(1)", binom.pmf(1, 10, .05), .315); ok("rush order: P(>=2)", 1 - binom.cdf(1, 10, .05), .086)
 ok("one rush order in twelve", 1 / 12, .086, 3e-3)
 
-print("deck — block E: the normal approximation and Monte Carlo")
-n, p = 250, .06; mu_n, sg_n = n * p, sqrt(n * p * (1 - p))
-ok("mu = np", mu_n, 15, 1e-9); ok("np(1-p)", n * p * (1 - p), 14.1, 1e-9); ok("sigma", sg_n, 3.755, 5e-4); assert mu_n >= 5 and n * (1 - p) == 235 >= 5
-ok("z with the half unit", (19.5 - mu_n) / sg_n, 1.198, 1e-3); ok("table z=1.20", norm.cdf(1.20), .8849, 6e-5); ok("P(X>=20) approx", 1 - norm.cdf(1.20), .115, 1e-3)
-ok("P(X>=20) exact binomial", 1 - binom.cdf(19, n, p), .118, 1e-3); ok("about one month in nine", 1 / 9, .115, 5e-3)
-ok("z without the half unit", (20 - mu_n) / sg_n, 1.33, 2e-3); ok("P without the half unit", 1 - norm.cdf(1.33), .092, 1e-3)
-ok("give or take four", sg_n, 4, .3)
-ok("at 4% late: P(X>=20)", 1 - binom.cdf(19, 250, .04), .003, 2e-3); assert 1 - binom.cdf(19, 250, .04) < 1 / 50
-ok("Monte Carlo: Saturdays with 3 buyers in 1,000", 1000 * binom.pmf(3, 12, .25), 258, .5); ok("Monte Carlo: Saturdays with none", 1000 * binom.pmf(0, 12, .25), 32, .5)
-ok("Monte Carlo: months with >=20 late in 1,000", 1000 * (1 - binom.cdf(19, 250, .06)), 118, .5)
-
 print("drills")
 # D1
 c = np.array([3, 8, 5, 6, 8]); assert c.sum() == 30 and c.mean() == 6
@@ -114,13 +103,6 @@ assert np.allclose(sat_x - E_sat, [-2160, 240, 2640]) and np.allclose((sat_x - E
 V_sat = ((sat_x - E_sat) ** 2 * sat_p).sum(); ok("D4 var(Saturday)", V_sat, 2822400, 1e-6); ok("D4 sigma(Saturday)", sqrt(V_sat), 1680, 1e-6)
 V_ads = ((ads_x - E_ads) ** 2 * ads_p).sum(); ok("D4 var(ads)", V_ads, 360000, 1e-6); ok("D4 sigma(ads)", sqrt(V_ads), 600, 1e-6)
 ok("D4 spread ratio nearly three", 1680 / 600, 2.8, 1e-9); assert sat_x.min() == 1600 < E_ads
-# D5
-n4, p4 = 300, .05; mu4, sg4 = n4 * p4, sqrt(n4 * p4 * (1 - p4))
-ok("D5 mu", mu4, 15, 1e-9); ok("D5 np(1-p)", n4 * p4 * (1 - p4), 14.25, 1e-9); ok("D5 sigma", sg4, 3.775, 5e-4); assert n4 * (1 - p4) == 285
-ok("D5 z with the half unit", (19.5 - mu4) / sg4, 1.19, 3e-3); ok("D5 table z=1.19", norm.cdf(1.19), .8830, 6e-5); ok("D5 P(X>=20) approx", 1 - .8830, .117, 1e-9)
-ok("D5 exact binomial", 1 - binom.cdf(19, n4, p4), .119, 1e-3); ok("D5 z without", (20 - mu4) / sg4, 1.32, 5e-3); ok("D5 P without", 1 - norm.cdf(1.32), .093, 1e-3)
-ok("D5 once in eight or nine months", 1 / .117, 8.5, .5)
-
 print("homework")
 # H1
 w = np.array([12, 9, 15, 10, 14, 12]); assert w.sum() == 72 and w.mean() == 12
@@ -150,11 +132,6 @@ ev4 = .9 * 30 + .1 * 90; assert 30 + 60 == 90; ok("H5 Local expected cost", ev4,
 var4 = .9 * (30 - ev4) ** 2 + .1 * (90 - ev4) ** 2; ok("H5 Local variance", var4, 324, 1e-9); ok("H5 Local sigma", sqrt(var4), 18, 1e-9)
 ok("H5 monthly saving on 400", 400 * (40 - ev4), 1600, 1e-6); ok("H5 late in 400: mean", 400 * .1, 40, 1e-9); ok("H5 late in 400: sigma", sqrt(400 * .1 * .9), 6, 1e-9)
 ok("H5 Local monthly bill", 400 * 30 + 60 * 40, 14400, 1e-6); ok("H5 Fast monthly bill", 400 * 40, 16000, 1e-6)
-# H6
-n5, p5 = 200, .10; mu5, sg5 = n5 * p5, sqrt(n5 * p5 * (1 - p5))
-ok("H6 mu", mu5, 20, 1e-9); ok("H6 np(1-p)", n5 * p5 * (1 - p5), 18, 1e-9); ok("H6 sigma", sg5, 4.243, 5e-4); assert mu5 >= 5 and n5 * (1 - p5) == 180
-ok("H6 z for 24.5", (24.5 - mu5) / sg5, 1.06, 2e-3); ok("H6 table z=1.06", norm.cdf(1.06), .8554, 6e-5); ok("H6 P(X>=25)", 1 - .8554, .145, 1e-3); ok("H6 exact", 1 - binom.cdf(24, n5, p5), .145, 1e-3)
-ok("H6 z for 14.5", (14.5 - mu5) / sg5, -1.30, 4e-3); ok("H6 table z=-1.30", norm.cdf(-1.30), .0968, 6e-5); ok("H6 P(X<=14)", norm.cdf(-1.30), .097, 1e-3); ok("H6 exact P(X<=14)", binom.cdf(14, n5, p5), .093, 1e-3)
 # memo
 ok("memo: sigma 12, 5% guarantee", 90 + norm.ppf(.05) * 12, 70.3, .05)
 for xp, share in ((85, .27), (80, .11), (78, .07), (76, .04), (75, .03)):

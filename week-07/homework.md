@@ -44,13 +44,6 @@ Check that the shares add to 1, then compute $E(x)$, $\sigma^{2}$ and $\sigma$ i
 (c) Find the standard deviation of the cost of a Local delivery.
 (d) Arno Bikes makes 400 deliveries a month. Expected monthly saving with Local? Then, in two sentences for the Board: which courier for the monthly volume, which for a single delivery to the firm's most important customer, and why the answer can differ.
 
-**H6 — the normal approximation.** Arno Bikes sold 200 bikes last quarter; one bike in ten comes back under warranty within the year, independently.
-
-(a) Name the exact model and give the mean and standard deviation of the number of returns.
-(b) Check that the bell may be used. Then find the probability of 25 or more returns, with the four steps and the half unit.
-(c) Find the probability of 14 or fewer returns.
-(d) One sentence for the founder, with both numbers.
-
 ## Part 2 — Memo to the Board (150–250 words, typed)
 
 You are the product manager of Arno Bikes. Engineering measured 200 bikes on the same loop: range 90 km on average, standard deviation 8 km, bell-shaped. Marketing wants one number on the box. Write a memo to the Board answering one question: **what range do we print, and why?**
@@ -65,5 +58,4 @@ It will be read for clarity and for whether the numbers are right, not for lengt
 - Every count model is named before the formula, and $\mu$ is written as rate × interval before any Poisson number.
 - Every normal question has a sketch with the area shaded, and the last line is a sentence in minutes, bikes or euros — not a $z$.
 - Every decision has two numbers next to it: the expected value and the spread, and the sentence says what each one means.
-- The normal approximation starts with $np$ and $\sqrt{np(1-p)}$, checks both are at least 5, and uses the half unit.
 - The memo has no formulas and ends with one recommendation.

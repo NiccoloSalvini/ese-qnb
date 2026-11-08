@@ -2,7 +2,7 @@
 
 **MBA03 Research & Quantitative Business Methods · Mon 9 Nov 2026, 10:00–13:00, online (Google Meet) · Tutor: Vincenzo Nardelli**
 
-Syllabus topic: the mean and variance of a list and of a random variable (block C of lesson 6, not reached on Thursday), the binomial, the Poisson, the normal (with skewness and kurtosis), expected value as a decision tool, the normal approximation of the binomial, and a first simulation. Online, like the rest of the second half; lesson 6 (last Thursday, in person) did blocks A and B only: sets and counting, the two-way table, conditional probability and Bayes. Its block C (mean, variance, the random variable, the word "distribution") opens today as block A, before the three shapes.
+Syllabus topic: the mean and variance of a list and of a random variable (block C of lesson 6, not reached on Thursday), the binomial, the Poisson, the normal (with skewness and kurtosis), and expected value as a decision tool. The normal approximation of the binomial and the first simulation (originally block E) move to week 8, where they open the sampling distribution. Online, like the rest of the second half; lesson 6 (last Thursday, in person) did blocks A and B only: sets and counting, the two-way table, conditional probability and Bayes. Its block C (mean, variance, the random variable, the word "distribution") opens today as block A, before the three shapes.
 
 Running case for the whole morning, as in weeks 1–6: **Arno Bikes**, the e-bike assembler in Florence (fixed cost €60,000 a month, €400 a bike, list €1,000). The pivot of the session: first an unknown number gets a mean and a spread (block A); then it gets a **shape**, and a shape is something you can read a probability off and decide with. Everything in weeks 8–10 stands on today's bell and on the words "mean" and "standard deviation".
 
@@ -14,7 +14,6 @@ By the end of the session the students can:
 1. **Name the model in words** (binomial: how many of these n; Poisson: how many in this interval), write μ = rate × interval first, and compute P(x), P(0), P(≥ 1), the mean and the standard deviation. Say when the three shapes turn into one another.
 2. **Answer a normal question as an area** — sketch, shade, standardise, table, sentence — forwards (share below a threshold) and backwards (the threshold for a given share: the guarantee). Say what skewness and kurtosis are and when the bell is the wrong picture.
 3. **Decide with a tree**: draw the square and the circles, put probabilities and payoffs on it, compute the expected value and the spread at a chance node, and weigh both in one sentence for the Board.
-4. **Read a count as a measurement** when the trials are many: μ = np, σ = √(np(1−p)), check np and n(1−p) ≥ 5, the four steps with the half unit. Say what a Monte Carlo simulation does and why its histogram is the distribution.
 
 ## Session plan
 
@@ -27,11 +26,10 @@ By the end of the session the students can:
 | 15' | Break | — | Outside the room. |
 | 20' | **C.** (part 2) | App → board → paper | The app; the guarantee backwards (5% → z = −1.645 → 76.8 km, print 76); skewness; kurtosis. **D3** (8'). |
 | 25' | **D. Which supplier do we sign?** | Slides → board → paper | Volta €180 certain vs Ampere €165 with 5% faulty at €90: the tree; E = €169.50, σ = €19.6; volume (1,000 batteries: 50 faulty ± 7) vs a rush order of ten (P(≥ 2 faulty) = .086). **D4** (8'). |
-| 20' | **E. How many late orders in 250?** | Slides → board → app → paper | 250 orders, p = .06: μ = 15, σ = 3.755; the bars and the bell; P(X ≥ 20) = .115 with the half unit (exact .118; .092 without); Monte Carlo in words + the simulate app. **D5** (6'). |
-| 15' | **Take home, five answers, homework** | Slides | The five take-home lines. The five answers for the founder, read back as sentences. The formula page (six lines). Homework 7, due Sunday 15 November 23:59 on Moodle. |
+| 15' | **Take home, four answers, homework** | Slides | The four take-home lines. The four answers for the founder, read back as sentences. The formula page (six lines). Homework 7, due Sunday 15 November 23:59 on Moodle. |
 | 10' | Buffer | — | Questions; "next Monday, online: how sure are we of that number?". |
 
-No quiz this week. Paper time 30 minutes across four frames; if a frame runs over, stop it, show the solution and move on — the solutions are online on Tuesday.
+No quiz this week. Paper time 24 minutes across three frames (D2–D4; D1 at home); if a frame runs over, stop it, show the solution and move on — the solutions are online on Tuesday.
 
 From block B on, each row keeps its content, order and length (in minutes); the clock is the lecturer's call. With block A and the longer homework review in front, the morning runs about 50 minutes over 13:00 if nothing is trimmed: see the cut order.
 
@@ -104,21 +102,9 @@ H3 (mean, variance, random variable) was not doable without block C: say it move
 
 → **D4** on paper, 8 minutes. Profit at the end nodes, not sales; the deviations table for σ.
 
-### E. How many late orders in 250? (20')
+### Take home, four answers, homework (15')
 
-**The question** (4'). 250 orders, p = .06, a penalty at 20 or more. Bet: how likely is a penalty month? Binomial, but the four steps would need 231 terms. The mean and spread we have: μ = 15, σ = √14.1 = 3.755. The clip said the bars become a bell: np = 15 and n(1−p) = 235, both at least 5.
-
-**The figure** (2'). The exact bars, the bell over them, the ≥ 20 tail shaded; the bar for 20 starts at 19.5.
-
-**The four steps on a count** (6'). z = (19.5 − 15)/3.755 = 1.20; area left .8849; P(X ≥ 20) = .115, about one month in nine. One muted line: without the half unit z = 1.33 and .092, a tenth too small; the exact binomial is .118. Do not dwell on the correction: "use it, move on". **Board sentence:** expect 15 late, give or take four; a penalty month about once in nine; at 4% late it is rarer than one in fifty.
-
-**Monte Carlo** (5'). Play one Saturday: twelve coin flips, count the buyers. Play a thousand: the counts pile into bars; about 258 Saturdays with three buyers, about 32 with none. Same for the 250 orders: about 118 months in a thousand with twenty or more. **App** (`apps/w07_simulate.html`): 10 Saturdays, then 1,000; then n = 250, p = .06. **Red line:** the histogram of the simulation *is* the binomial; the formula is the shortcut, the simulation is the thing itself. No formula on this slide.
-
-→ **D5** on paper, 6 minutes. The check np ≥ 5 before the bell; the half unit.
-
-### Take home, five answers, homework (15')
-
-The take-home slide: five lines, one per block, read aloud; the red line is the day's sentence (three shapes, one table, two numbers per decision). Then the five answers for the founder: ask the room to say each one before showing it. The formula page: seven lines, each tied to a number from the morning. Homework 7 (six exercises, H1 being Homework 6's H3, + the memo on the range to print, due Sunday 15 November 23:59 on Moodle, corrected together next Monday), and the one mention of the book: "if you want more, Anderson et al., the probability chapters — not required".
+The take-home slide: four lines, one per block, read aloud; the red line is the day's sentence (three shapes, one table, two numbers per decision). Then the four answers for the founder: ask the room to say each one before showing it. The formula page: six lines, each tied to a number from the morning. Homework 7 (five exercises, H1 being Homework 6's H3, + the memo on the range to print, due Sunday 15 November 23:59 on Moodle, corrected together next Monday), and the one mention of the book: "if you want more, Anderson et al., the probability chapters — not required".
 
 ### Buffer (10')
 
@@ -128,12 +114,11 @@ Questions. Close on the Board's number, not on a formula. Last sentence: "A samp
 
 The buffer goes first. Then:
 
-1. **Monte Carlo** in block E: keep the one sentence ("the histogram of the simulation is the binomial") and skip the app; students run it at home.
-2. **Kurtosis** in block C: one sentence on the skewness slide instead of its own.
-3. **The volume slide** in block D: keep the Board sentence, skip the rush-order arithmetic.
-4. Trim each remaining paper frame by one minute before cutting any teaching.
+1. **Kurtosis** in block C: one sentence on the skewness slide instead of its own.
+2. **The volume slide** in block D: keep the Board sentence, skip the rush-order arithmetic.
+3. Trim each remaining paper frame by one minute before cutting any teaching.
 
-**Never cut:** "μ first" (B), the four steps and the guarantee backwards (C), the expected value *and* the spread at the chance node (D), the half unit and the check np ≥ 5 (E); in block A, the five-row table by hand and the random variable with its shares.
+**Never cut:** "μ first" (B), the four steps and the guarantee backwards (C), the expected value *and* the spread at the chance node (D); in block A, the five-row table by hand and the random variable with its shares.
 
 ## Board, slide, screen — what goes where
 
@@ -143,14 +128,13 @@ Online: the shared deck is the board, the chat is the slip. Share the browser ta
 
 **On the slide.** The pictures (binomial bars, the bell with 68–95–99.7, the guarantee, skewness, kurtosis, the tree, the bars under the bell), the bets, the hubs, the Board sentences, the formula page.
 
-**On screen.** Only when a parameter moves: the binomial app (n and p), the normal app (μ, σ, threshold, and the inverse toggle), the simulate app (n, p, number of runs), and the three clips. Full-screen them; never show code.
+**On screen.** Only when a parameter moves: the binomial app (n and p), the normal app (μ, σ, threshold, and the inverse toggle), and the three clips. Full-screen them; never show code.
 
 ## Tutor's notes
 
-- **What needs the projector:** the deck (`lectures/07-probability.qmd`), the three apps and the three clips (`lectures/apps/`, `lectures/media/`). Everything else is board and paper; if the projector fails, the session survives.
+- **What needs the projector:** the deck (`lectures/07-probability.qmd`), the two apps (binomial, normal) and the three clips (`lectures/apps/`, `lectures/media/`). Everything else is board and paper; if the projector fails, the session survives.
 - **Bets on paper.** Hand out slips at 10:12; collect nothing, but ask for a show of hands after each answer ("who was within…?"). The surprises that teach: no call in half an hour is 22% not 5%; the guarantee is 76 not 80; Ampere's €15 saving is €10.50; a penalty month is one in nine, not "rare".
 - **The table reads from the left.** Draw the shaded sketch before every table reading, including the easy ones; the wrong tail is the most expensive slip of the week.
-- **The half unit.** If someone asks why 19.5: a bar for a whole number spans half a unit each side, and the bell has no bars. One sentence; do not derive.
 - **Expected value is not a forecast.** If someone says "so Ampere costs €169.50": no battery ever costs €169.50; it costs €165 or €255. The expected value is the average over many. The spread is how far a single one can be from it.
 - **Rounding.** z = −1.875 read as −1.88 gives .0301; the exact value is .0304. z = 1.198 read as 1.20 gives .1151; the exact binomial is .1179. Both accepted; say so once.
-- **Language.** They will hear "expected value", "standard deviation", "standardise", "skewness", "kurtosis", "chance node", "continuity correction", "simulation". Write each on the board the first time.
+- **Language.** They will hear "expected value", "standard deviation", "standardise", "skewness", "kurtosis", "chance node". Write each on the board the first time.

@@ -241,8 +241,6 @@ Everything in weeks 8–10 stands on today's bell and on two words: *mean* and *
 
 ::: {.callout-note title="Arno Bikes, this month"}
 The founder has four numbers she does not know. **How many** bikes come back under warranty next week. **How many** of Saturday's test riders will buy. **How far** a battery really goes, so that she can print a range on the box. **Which supplier** to sign for next year's batteries, when one of them is cheaper but less reliable.
-
-And a fifth she has not thought of yet: of the 250 orders shipping this month, **how many will be late**?
 :::
 
 . . .
@@ -260,10 +258,10 @@ First, each unknown number gets a mean and a spread. Then a **shape** — and a 
 [10:00 · 20']{.blk-letter}Homework 6[H1, H2 and the memo, step by step.]{.blk-answer}
 :::
 ::: {.blk .now}
-[10:20 → 12:45]{.blk-letter}Five questions from the founder[Each one: her question and your bet typed in the chat → the picture → one formula with a number → the sentence for the Board. Break at 11:15.]{.blk-tool}
+[10:20 → 12:45]{.blk-letter}Four questions from the founder[Each one: her question and your bet typed in the chat → the picture → one formula with a number → the sentence for the Board. Break at 11:15.]{.blk-tool}
 :::
 ::: {.blk .recap}
-[12:45 · 15']{.blk-letter}Take home[Five lines to remember, the five answers for the founder, the homework.]{.blk-answer}
+[12:45 · 15']{.blk-letter}Take home[Four lines to remember, the four answers for the founder, the homework.]{.blk-answer}
 :::
 ::: {.blk .recap}
 [Next Monday]{.blk-letter}Online[How sure are we of that number?]{.blk-answer}
@@ -272,9 +270,9 @@ First, each unknown number gets a mean and a spread. Then a **shape** — and a 
 
 [Bets are written, not said. Write a number before I compute; the surprise is where the learning is.]{.muted}
 
-## Five questions from the founder {.hub auto-animate=true}
+## Four questions from the founder {.hub auto-animate=true}
 
-::: {.blocks .five}
+::: {.blocks .four}
 ::: {.blk .now data-id="blkA"}
 [Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
 :::
@@ -286,9 +284,6 @@ First, each unknown number gets a mean and a spread. Then a **shape** — and a 
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
-:::
-::: {.blk .next}
-[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
 :::
 :::
 
@@ -447,11 +442,11 @@ Plan the workshop for five returns a week, give or take one or two. Seven is a n
 
 . . .
 
-[Three ready-made tables of shares. Same five words, same $E(x)$ and $\sigma$ — blocks B to E, and then how to decide with them.]{.muted}
+[Three ready-made tables of shares. Same five words, same $E(x)$ and $\sigma$ — blocks B and C, and then how to decide with them.]{.muted}
 
-## Five questions from the founder {.hub auto-animate=true}
+## Four questions from the founder {.hub auto-animate=true}
 
-::: {.blocks .five}
+::: {.blocks .four}
 ::: {.blk .done}
 [Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
 :::
@@ -463,9 +458,6 @@ Plan the workshop for five returns a week, give or take one or two. Seven is a n
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
-:::
-::: {.blk .next}
-[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
 :::
 :::
 
@@ -636,11 +628,11 @@ Twelve rides stay binomial. Count the late orders among **250**, or calls over a
 
 . . .
 
-[Small $n$: count the ways. Rare events at a rate: Poisson. Large numbers of anything: the bell — block C teaches you to read it, block E uses it on a count.]{.red}
+[Small $n$: count the ways. Rare events at a rate: Poisson. Large numbers of anything: the bell — block C teaches you to read it, and next week we use it on a count.]{.red}
 
-## Five questions from the founder {.hub auto-animate=true}
+## Four questions from the founder {.hub auto-animate=true}
 
-::: {.blocks .five}
+::: {.blocks .four}
 ::: {.blk .done}
 [Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
 :::
@@ -652,9 +644,6 @@ Twelve rides stay binomial. Count the late orders among **250**, or calls over a
 :::
 ::: {.blk .next}
 [Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
-:::
-::: {.blk .next}
-[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
 :::
 :::
 
@@ -870,9 +859,9 @@ Delivery time is not: most parcels take two days, a few take ten. A long **right
 :::
 ::::
 
-## Five questions from the founder {.hub auto-animate=true}
+## Four questions from the founder {.hub auto-animate=true}
 
-::: {.blocks .five}
+::: {.blocks .four}
 ::: {.blk .done}
 [Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
 :::
@@ -884,9 +873,6 @@ Delivery time is not: most parcels take two days, a few take ten. A long **right
 :::
 ::: {.blk .now data-id="blkD"}
 [Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
-:::
-::: {.blk .next}
-[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
 :::
 :::
 
@@ -1008,147 +994,11 @@ Sign Ampere for the volume contract: €10.50 a battery cheaper on average, €1
 :::
 ::::
 
-## Five questions from the founder {.hub auto-animate=true}
-
-::: {.blocks .five}
-::: {.blk .done}
-[Block A]{.blk-letter}How many returns next week?[mean and variance · a random variable · distributions]{.blk-tool}
-:::
-::: {.blk .done}
-[Block B]{.blk-letter}How many of Saturday's riders buy?[binomial · Poisson · one family]{.blk-tool}
-:::
-::: {.blk .done}
-[Block C]{.blk-letter}What range do we promise?[the normal · skewness and kurtosis]{.blk-tool}
-:::
-::: {.blk .done}
-[Block D]{.blk-letter}Which supplier do we sign?[expected value to decide]{.blk-tool}
-:::
-::: {.blk .now data-id="blkE"}
-[Block E]{.blk-letter}How many late orders in 250?[normal approximation · Monte Carlo]{.blk-tool}
-:::
-:::
-
-## [Block E · normal approximation and Monte Carlo]{.section-kicker} How many late orders in 250? {.section-slide background-color="#AF1F25" auto-animate=true}
-
-::: {.blk-fill data-id="blkE"}
-:::
-
-## 250 orders this month, 6% ship late: how many late?
-
-:::: {.columns}
-::: {.column width="52%"}
-Each order ships late with $p = .06$, alone. **Binomial**, $n = 250$: how many of these 250?
-
-The logistics partner charges a penalty when a month has **20 or more** late orders.
-
-::: {.callout-important title="Bet before we compute"}
-How likely is a penalty month? Write a share.
-:::
-
-::: {.fragment}
-The four steps of block A would need $\binom{250}{20}$ and $.94^{230}$ — and then the same for 21, 22, … up to 250. Nobody does that by hand.
-:::
-:::
-::: {.column width="48%" .fragment}
-**The mean and spread, we already have:**
-
-$$\mu = np = 250 \times .06 = \textbf{15 late orders}$$
-
-$$\sigma = \sqrt{np(1-p)} = \sqrt{250 \times .06 \times .94}$$
-
-$$= \sqrt{14.1} = \textbf{3.755}$$
-
-::: {.fragment}
-And the clip said what happens with many trials: **the bars become a bell**. So treat the count as if it were $N(15,\, 3.755)$ and use block B.
-
-[It works when $np \ge 5$ and $n(1-p) \ge 5$: here 15 and 235.]{.muted}
-:::
-:::
-::::
-
-## The bars become a bell: the normal approximation
-
-![](img/w07_normal_approx.svg){width="88%"}
-
-[The bars are the exact binomial; the curve is $N(15, 3.755)$. The bar for 20 starts at 19.5, so the area the question wants starts there too.]{.muted style="font-size:.8em"}
-
-## Twenty or more late: the four steps on a count
-
-:::: {.columns}
-::: {.column width="55%"}
-**1. Sketch and shade.** The bell at 15, the bar for 20 and everything to its right. A bar for a whole number spans half a unit each side: "20 or more" starts at **19.5**.
-
-::: {.fragment}
-**2. Standardise.**
-
-$$z = \frac{19.5 - 15}{3.755} = \frac{4.5}{3.755} = 1.198 \approx \textbf{1.20}$$
-:::
-
-::: {.fragment}
-**3. Table.** Area to the left of 1.20 is .8849, so to the right:
-
-$$P(X \ge 20) = 1 - .8849 = \textbf{.115}$$
-:::
-
-::: {.fragment}
-**4. Sentence.** A penalty month happens about **one month in nine**.
-:::
-:::
-::: {.column width="45%" .fragment}
-The exact binomial, summed by a computer, gives .118: the bell is off by three in a thousand.
-
-[Without the half unit: $z = 5/3.755 = 1.33$, area .092 — a tenth too small. The half unit is called the continuity correction; use it, and move on.]{.muted}
-
-::: {.fragment}
-::: {.callout-tip title="Board sentence"}
-Of 250 orders, expect 15 late, give or take four. A penalty month — twenty or more — comes about once in nine months. Cut the late rate to 4% and it becomes rarer than one in fifty.
-:::
-:::
-
-::: {.fragment}
-[A count with many trials is read like a measurement: $np$, $\sqrt{np(1-p)}$, then the four steps.]{.red}
-:::
-:::
-::::
-
-## Monte Carlo: when you cannot compute, simulate
-
-:::: {.columns}
-::: {.column width="52%"}
-Twelve test rides, $p = .25$. Instead of the formula, **play the Saturday**: twelve coin flips, each lands "buy" one time in four, count the buyers. Write the count down.
-
-Now play **a thousand Saturdays**. The counts pile into bars.
-
-::: {.fragment}
-Block A said $P(3) = .258$. In a thousand simulated Saturdays, about **258** end with three buyers, about **32** with none. Not exactly: a thousand is a sample too.
-:::
-
-::: {.fragment}
-Same trick for the 250 orders: play the month a thousand times. About **118** of them have twenty or more late — the number the bell estimated as 115.
-:::
-:::
-::: {.column width="48%" .fragment}
-**Why a manager cares.** The formula needs the model to be clean: same $p$, independent trials. A simulation only needs you to describe one Saturday honestly; the computer plays it a thousand times, and the shape appears.
-
-Two couriers, a rate that changes with the weather, a supplier whose faults come in batches: no formula, but a simulation still runs.
-
-::: {.fragment}
-[The histogram of the simulation **is** the binomial. The formula is the shortcut; the simulation is the thing itself.]{.red}
-:::
-:::
-::::
-
-## Try it: simulate a thousand Saturdays {.lab-app}
-
-<iframe class="app" src="apps/w07_simulate.html?n=12&p=0.25" loading="lazy"></iframe>
-
-[Run 10 Saturdays, then 1,000: watch the bars settle onto the binomial. Then set $n = 250$, $p = .06$ and count the months with 20 or more.]{.muted style="font-size:.7em"}
-
 ## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
 
 ## Take home
 
-::: {.blocks .five}
+::: {.blocks .four}
 ::: {.blk .recap .fragment}
 [A]{.blk-letter}A number with its shares[A list: mean, and spread divided by $n - 1$. A random variable: the same two formulas weighted by the shares. The table of shares, drawn, is the distribution.]{.blk-answer}
 :::
@@ -1161,18 +1011,15 @@ Two couriers, a rate that changes with the weather, a supplier whose faults come
 ::: {.blk .recap .fragment}
 [D]{.blk-letter}Decide on two numbers[Expected value is the price you pay on average; spread is the surprise you pay sometimes. A repeated decision follows the mean; a one-off weighs the spread.]{.blk-answer}
 :::
-::: {.blk .recap .fragment}
-[E]{.blk-letter}Many trials: a count is a measurement[$np$ and $\sqrt{np(1-p)}$, then the four steps with the half unit. And when there is no formula, simulate: the histogram is the distribution.]{.blk-answer}
-:::
 :::
 
 . . .
 
 [A number with its shares, three shapes, two numbers per decision. That is the whole of today.]{.red}
 
-## Five answers for the founder
+## Four answers for the founder
 
-::: {.blocks .five}
+::: {.blocks .four}
 ::: {.blk .done .fragment}
 [A]{.blk-letter}How many returns next week?[Five, give or take one or two. Seven is a normal bad week; eight would be news.]{.blk-answer}
 :::
@@ -1184,9 +1031,6 @@ Two couriers, a rate that changes with the weather, a supplier whose faults come
 :::
 ::: {.blk .done .fragment}
 [D]{.blk-letter}Which supplier do we sign?[Ampere for volume: €10,500 a month cheaper, and on a thousand batteries the faults average out. Volta for rush orders, where one faulty battery in ten is a problem.]{.blk-answer}
-:::
-::: {.blk .done .fragment}
-[E]{.blk-letter}How many late orders in 250?[Fifteen, give or take four. A penalty month, twenty or more, about once in nine months.]{.blk-answer}
 :::
 :::
 
@@ -1205,23 +1049,21 @@ Two couriers, a rate that changes with the weather, a supplier whose faults come
 | the bell, backwards | $x = \mu + z\,\sigma$ | $90 - 1.645 \times 8 = 76.8$ |
 | a list of numbers | $\bar{x} = \dfrac{\sum x}{n}, \quad s^{2} = \dfrac{\sum (x - \bar{x})^{2}}{n - 1}$ | $\bar{x} = 5$, $s = 1.58$ |
 | a number with its shares; a decision | $E(x) = \sum x\,P(x), \quad \sigma^{2} = \sum (x-\mu)^{2} P(x)$ | $5.0$ and $1.26$; $€169.50$, $\sigma = €19.6$ |
-| a count with many trials | $\mu = np, \; \sigma = \sqrt{np(1-p)}$, then $z$ with the half unit | $z = (19.5 - 15)/3.755 = 1.20 \to .115$ |
 :::
 
-[Seven lines. None of them was the hard part. The hard part was saying which one.]{.muted}
+[Six lines. None of them was the hard part. The hard part was saying which one.]{.muted}
 
 ## Homework 7
 
 :::: {.columns}
 ::: {.column width="58%" style="font-size:.82em"}
-**Six exercises on paper**, at least one per block, plus a **memo to the Board** on the range to print. `homework.md` on the course site.
+**Five exercises on paper**, at least one per block, plus a **memo to the Board** on the range to print. `homework.md` on the course site.
 
 - **H1** walk-ins and bookings: a list, then a random variable (Thursday's H3)
 - **H2** twelve becomes twenty: a binomial on financing quotes
 - **H3** returns at a rate: a Poisson, rescaled twice
 - **H4** charging time: the normal forwards, and backwards for a flag
 - **H5** two couriers: a decision tree, expected value and spread
-- **H6** two hundred bikes, 10% back: the normal approximation
 
 Due **Sunday 15 November, 23:59 on Moodle**. Corrected together at the start of next Monday.
 :::

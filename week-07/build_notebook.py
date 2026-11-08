@@ -14,7 +14,7 @@ md(r"""
 # MBA03 · Week 7 — Three shapes, and how to decide with them
 **European School of Economics · Mon 9 Nov 2026 · online · Tutor: Vincenzo Nardelli**
 
-Today each unknown number at **Arno Bikes** first gets a mean and a spread (block A, the part of Thursday we did not reach), then a **shape** — and a shape is something you can read a probability off. Three shapes cover almost every number a firm does not know: a count out of $n$ (binomial), a count at a rate (Poisson), a measurement (the normal). The founder's five questions: how many returns next week; how many of Saturday's riders buy; what range to print on the box; which battery supplier to sign; how many of 250 orders will ship late.
+Today each unknown number at **Arno Bikes** first gets a mean and a spread (block A, the part of Thursday we did not reach), then a **shape** — and a shape is something you can read a probability off. Three shapes cover almost every number a firm does not know: a count out of $n$ (binomial), a count at a rate (Poisson), a measurement (the normal). The founder's four questions: how many returns next week; how many of Saturday's riders buy; what range to print on the box; which battery supplier to sign.
 
 This notebook is driven by the tutor. Every picture is followed by the same computation **by hand on paper**: formula, substitution, number, one sentence for the Board. The code is optional and not examined.
 """)
@@ -421,101 +421,6 @@ md(r"""
 Shares at the chance node add to 1; the worst end node is the price plus the full cost of the catch. The expected value is the price you pay on average; the spread is the surprise you pay sometimes. A repeated decision follows the mean; a one-off weighs the spread. If your $E(x)$ is below the best end node or above the worst, the weights are wrong.
 """)
 
-# ---------------- E ----------------
-md(r"""
-## E. How many late orders in 250? — the normal approximation, then Monte Carlo
-
-Each of **250** orders ships late with $p = .06$, alone: binomial. The logistics partner charges a penalty when a month has **20 or more** late orders. The four steps of block A would need $\binom{250}{20}$ and $.94^{230}$, then the same for 21, 22, … 250: nobody does that by hand.
-
-$$\mu = np \qquad \sigma = \sqrt{np(1-p)} \qquad z = \frac{x - \tfrac{1}{2} - \mu}{\sigma}$$
-
-*Business reading:* with many trials the bars become a bell, so a count is read like a measurement: $np$, $\sqrt{np(1-p)}$, then block B's four steps. It works when $np \geq 5$ and $n(1-p) \geq 5$. A bar for a whole number spans half a unit each side, so "20 or more" starts at **19.5**: the half unit, or continuity correction.
-""")
-code(r"""
-n, p = 250, .06
-mu_n, sd_n = n * p, math.sqrt(n * p * (1 - p))
-print(f"μ = np = {n} × {p} = {mu_n:g} late orders")
-print(f"σ = √np(1−p) = √({n} × {p} × {1-p}) = √{n*p*(1-p):.1f} = {sd_n:.3f}")
-print(f"check: np = {mu_n:g} ≥ 5 and n(1−p) = {n*(1-p):g} ≥ 5 → the bell may be used\n")
-
-print("Twenty or more late, with the half unit:")
-z_half, P_half = normal_steps(19.5, mu_n, round(sd_n, 3), tail="above")
-exact = 1 - stats.binom.cdf(19, n, p)
-print(f"\nThe exact binomial, summed by a computer: P(X ≥ 20) = {exact:.3f} — the bell is off by three in a thousand.")
-z_no = (20 - mu_n) / sd_n
-print(f"Without the half unit: z = 5 / {sd_n:.3f} = {z_no:.2f}, area {1 - table_left(z_no):.3f} — a tenth too small. Use the half unit, and move on.")
-print(f"\nSentence: of 250 orders, expect 15 late, give or take four. A penalty month comes about one month in {round(1/P_half)}.")
-print(f"Cut the late rate to 4% and P(X ≥ 20) = {1 - stats.binom.cdf(19, 250, .04):.3f}: rarer than one in fifty.")
-""")
-
-code(r"""
-xs = np.arange(0, 36)
-pmf = stats.binom.pmf(xs, n, p)
-grid = np.linspace(0, 35, 500)
-fig = go.Figure()
-fig.add_bar(x=xs, y=pmf, marker_color=[RED if x >= 20 else GREY for x in xs], name="exact binomial, n = 250, p = .06", opacity=.85)
-fig.add_scatter(x=grid, y=stats.norm.pdf(grid, mu_n, sd_n), mode="lines", line=dict(color=INK, width=3), name=f"N(15, {sd_n:.3f})")
-tail = grid >= 19.5
-fig.add_scatter(x=grid[tail], y=stats.norm.pdf(grid[tail], mu_n, sd_n), fill="tozeroy", mode="lines", line=dict(width=0),
-                fillcolor="rgba(175,31,37,.3)", name="area from 19.5: the bell's P(X ≥ 20)")
-fig.add_vline(x=19.5, line=dict(color=GOLD, width=2, dash="dash"), annotation_text="19.5, the half unit", annotation_position="top right")
-fig.update_layout(template="simple_white", height=460, title="The bars become a bell: late orders among 250",
-                  xaxis_title="late orders in the month", yaxis_title="probability", legend=dict(x=.55, y=.95))
-fig.show()
-print(f"red bars (exact) = {pmf[xs >= 20].sum():.3f}    shaded area from 19.5 (bell) = {1 - stats.norm.cdf(19.5, mu_n, sd_n):.3f}    without the half unit, from 20 = {1 - stats.norm.cdf(20, mu_n, sd_n):.3f}")
-""")
-
-md(r"""
-### Monte Carlo: when you cannot compute, simulate
-Twelve test rides, $p = .25$. Instead of the formula, **play the Saturday**: twelve coin flips, each lands "buy" one time in four, count the buyers. Then play **a thousand Saturdays** and let the counts pile into bars. The histogram of the simulation **is** the binomial: the formula is the shortcut, the simulation is the thing itself — and it still runs when there is no formula (two couriers, a rate that changes with the weather, faults that come in batches).
-""")
-code(r"""
-rng = np.random.default_rng(83)
-S = 1000
-saturdays = rng.random((S, 12)) < .25            # 1,000 Saturdays × 12 riders: True = buys
-buyers = saturdays.sum(axis=1)
-print("The first five Saturdays, played:", ", ".join(f"{b} buyer{'s' if b != 1 else ''}" for b in buyers[:5]))
-
-xs = np.arange(0, 13)
-counts = np.bincount(buyers, minlength=13)
-fig = go.Figure()
-fig.add_bar(x=xs, y=counts / S, marker_color=RED, name="1,000 simulated Saturdays", opacity=.85)
-fig.add_scatter(x=xs, y=stats.binom.pmf(xs, 12, .25), mode="markers+lines", marker=dict(color=INK, size=9), line=dict(color=INK, dash="dot"),
-                name="binomial formula, n = 12, p = .25")
-fig.update_layout(template="simple_white", height=440, title="A thousand Saturdays, counted — and the formula on top",
-                  xaxis_title="buyers out of 12", yaxis_title="share of Saturdays", legend=dict(x=.55, y=.95))
-fig.show()
-
-with3, with0 = int(counts[3]), int(counts[0])
-print(f"Saturdays with exactly 3 buyers: {with3} of 1,000 ({with3/S:.3f}); the formula says {stats.binom.pmf(3, 12, .25):.3f}, about {1000*stats.binom.pmf(3, 12, .25):.0f}")
-print(f"Saturdays with none:             {with0} of 1,000 ({with0/S:.3f}); the formula says {stats.binom.pmf(0, 12, .25):.3f}, about {1000*stats.binom.pmf(0, 12, .25):.0f}")
-print(f"mean buyers {buyers.mean():.2f} vs np = 3;  sd {buyers.std():.2f} vs √np(1−p) = 1.5.  Not exactly: a thousand is a sample too.")
-""")
-
-code(r"""
-# Same trick for the 250 orders: play the month a thousand times
-months = (rng.random((S, 250)) < .06).sum(axis=1)
-late20 = int((months >= 20).sum())
-print(f"Months with 20 or more late orders: {late20} of 1,000 ({late20/S:.3f})")
-print(f"  the exact binomial says {1 - stats.binom.cdf(19, 250, .06):.3f}, about {1000*(1 - stats.binom.cdf(19, 250, .06)):.0f}; the bell estimated {1 - stats.norm.cdf(19.5, 15, math.sqrt(14.1)):.3f}")
-print(f"  mean late orders {months.mean():.2f} vs np = 15;  sd {months.std():.2f} vs √np(1−p) = {math.sqrt(14.1):.3f}")
-
-fig = go.Figure()
-fig.add_histogram(x=months, xbins=dict(start=-0.5, end=35.5, size=1), histnorm="probability", marker_color=RED, opacity=.85, name="1,000 simulated months")
-fig.add_scatter(x=np.arange(0, 36), y=stats.binom.pmf(np.arange(0, 36), 250, .06), mode="markers+lines", marker=dict(color=INK, size=7),
-                line=dict(color=INK, dash="dot"), name="exact binomial")
-fig.add_vline(x=19.5, line=dict(color=GOLD, width=2, dash="dash"), annotation_text="penalty from 20", annotation_position="top right")
-fig.update_layout(template="simple_white", height=420, title="A thousand months of 250 orders", xaxis_title="late orders", yaxis_title="share of months",
-                  legend=dict(x=.6, y=.95))
-fig.show()
-print("\nThe formula needs the model to be clean: same p, independent trials. A simulation only needs you to describe one month honestly.")
-""")
-
-md(r"""
-### 🔍 CHECK
-Before the bell: $np \geq 5$ and $n(1-p) \geq 5$, both written down. "20 or more" starts at 19.5, "20 or fewer" ends at 20.5; the sketch tells you which side the half unit goes. The simulation must land within a few in a thousand of the formula — if it does not, the model you simulated is not the model you computed.
-""")
-
 # ---------------------------------------------------------------------------
 # Drills, solved in code — every published number asserted against drills.md
 # ---------------------------------------------------------------------------
@@ -639,34 +544,10 @@ print("    between €1,600 and €6,400, the ads between €1,400 and €2,600.
 print("    surprise either way — and since even the bad Saturday beats the ads, the Board can take the Saturday without fear.")
 """)
 
-# ---- D5 -------------------------------------------------------------------
-md(r"""
-**D5.** 300 orders this month, each late with probability .05, independently; a penalty when 20 or more are late. (a) The exact model, and why not by hand. (b) Mean and standard deviation of the late count. (c) Check the bell may be used, then $P(X \geq 20)$ with the four steps and the half unit. (d) One sentence for the founder.
-""")
-code(r"""
-n4, p4 = 300, .05
-print("(a) Binomial, n = 300, p = .05: a fixed number of orders, each late or not, the same p, independent.")
-print("    '20 or more' means summing P(20) + P(21) + … + P(300), each with C(300, x) and .95^(300−x): not by hand.\n")
-
-mu4, sd4 = n4 * p4, math.sqrt(n4 * p4 * (1 - p4))
-print(f"(b) μ = np = 300 × .05 = {mu4:g}     σ = √(300 × .05 × .95) = √{n4*p4*(1-p4):.2f} = {sd4:.3f}\n")
-close(mu4, 15, 1e-9); close(n4 * p4 * (1 - p4), 14.25, 1e-9); close(sd4, 3.775, 5e-4)
-
-print(f"(c) np = {mu4:g} ≥ 5 and n(1−p) = {n4*(1-p4):g} ≥ 5: the bell may be used. The bar for 20 starts at 19.5, shade from there to the right.")
-assert mu4 >= 5 and n4 * (1 - p4) >= 5
-z4, P4 = normal_steps(19.5, mu4, round(sd4, 3), tail="above")
-exact4 = 1 - stats.binom.cdf(19, n4, p4)
-z4_no = (20 - mu4) / sd4
-print(f"    (The exact binomial gives {exact4:.3f}. Without the half unit, z = 5/{sd4:.3f} = {z4_no:.2f} and the area is {1 - table_left(z4_no):.3f} — a fifth too small.)")
-close(z4, 1.19, 3e-3); close(table_left(z4), .8830, 1e-4); close(P4, .117); close(exact4, .119); close(z4_no, 1.32, 5e-3); close(1 - table_left(z4_no), .093)
-close(1 / P4, 8.5, .5)
-print(f"\n(d) Expect 15 late orders, give or take four; a penalty month comes about once in eight or nine months.")
-""")
-
 md(r"""
 ## Homework 7 and what comes next
 
-`homework.md` — due **Sunday 15 November, 23:59 on Moodle**: six exercises on paper (H1 a list and a random variable, moved from Homework 6; H2 a binomial on financing quotes, H3 a Poisson rescaled twice, H4 the normal forwards and backwards, H5 two couriers in a decision tree, H6 the normal approximation) and a 150–250-word memo to the Board on the range to print. We go through it together at the start of next Monday's session.
+`homework.md` — due **Sunday 15 November, 23:59 on Moodle**: five exercises on paper (H1 a list and a random variable, moved from Homework 6; H2 a binomial on financing quotes, H3 a Poisson rescaled twice, H4 the normal forwards and backwards, H5 two couriers in a decision tree) and a 150–250-word memo to the Board on the range to print. We go through it together at the start of next Monday's session.
 
 Next **Monday 16 November, online**: *how sure are we of that number?* 200 bikes gave 90 km; the true average is not 90. Week 8 says how far off it can be.
 """)
@@ -688,9 +569,6 @@ checks = [
     ("D4 margin", 1000 - 400, 600), ("D4 E(Saturday)", np.dot([1600, 4000, 6400], [.3, .5, .2]), 3760), ("D4 E(ads)", np.dot([1400, 2600], [.5, .5]), 2000),
     ("D4 difference", 3760 - 2000, 1760), ("D4 var(Saturday)", np.dot((np.array([1600, 4000, 6400]) - 3760) ** 2, [.3, .5, .2]), 2822400),
     ("D4 σ(Saturday)", math.sqrt(2822400), 1680), ("D4 var(ads)", np.dot((np.array([1400, 2600]) - 2000) ** 2, [.5, .5]), 360000), ("D4 σ(ads)", math.sqrt(360000), 600),
-    ("D5 μ = np", 300 * .05, 15), ("D5 np(1−p)", 300 * .05 * .95, 14.25), ("D5 σ", math.sqrt(300 * .05 * .95), 3.775),
-    ("D5 z with the half unit", (19.5 - 15) / 3.775, 1.19), ("D5 table z=1.19", table_left(1.19), .8830), ("D5 P(X ≥ 20) by the bell", 1 - table_left(1.19), .117),
-    ("D5 exact binomial", 1 - stats.binom.cdf(19, 300, .05), .119), ("D5 without the half unit", 1 - table_left(5 / 3.775), .093),
 ]
 for name, got, want in checks:
     close(got, want, 5e-3 if abs(want) < 20 else 0.05)   # three decimals for shares and z, two for the rest
