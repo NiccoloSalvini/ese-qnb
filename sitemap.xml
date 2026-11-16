@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/07-probability.html</loc>
-    <lastmod>2026-11-08T21:29:04.672Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/08-inference-and-regression.html</loc>
+    <lastmod>2026-11-16T07:47:38.768Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/05-bonds-and-risk.html</loc>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/06-the-founder-does-not-know.html</loc>
+    <lastmod>2026-11-05T07:19:27.803Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/04-money-over-time.html</loc>
     <lastmod>2026-11-04T15:22:50.073Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/03-study-and-accumulate.html</loc>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/02-calculus-opens.html</loc>
     <lastmod>2026-11-04T15:22:50.073Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/01-revision.html</loc>
-    <lastmod>2026-11-04T15:22:50.073Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-07/session.html</loc>
+    <lastmod>2026-11-08T21:29:04.675Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-06/session.html</loc>
-    <lastmod>2026-11-08T09:50:49.297Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-05/session.html</loc>
+    <lastmod>2026-11-04T15:22:50.106Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-04/session.html</loc>
-    <lastmod>2026-11-04T15:22:50.105Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-03/session.html</loc>
+    <lastmod>2026-11-04T15:22:50.104Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-02/session.html</loc>
-    <lastmod>2026-11-04T15:22:50.103Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-01/session.html</loc>
+    <lastmod>2026-11-04T15:22:50.098Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/midterm/oral.html</loc>
+    <loc>https://niccolosalvini.github.io/ese-qnb/midterm/briefing.html</loc>
     <lastmod>2026-11-04T15:22:50.096Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/reading-week/mock_exam.html</loc>
-    <lastmod>2026-11-04T15:22:50.096Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-05/mock_exam.html</loc>
+    <lastmod>2026-11-04T15:22:50.106Z</lastmod>
   </url>
   <url>
     <loc>https://niccolosalvini.github.io/ese-qnb/week-07/drills.html</loc>
@@ -53,40 +57,44 @@
     <lastmod>2026-11-04T15:22:50.097Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-07/homework.html</loc>
-    <lastmod>2026-11-08T21:29:04.673Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-08/homework.html</loc>
+    <lastmod>2026-11-16T07:47:38.770Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-05/homework.html</loc>
-    <lastmod>2026-11-04T15:22:50.106Z</lastmod>
-  </url>
-  <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-03/homework.html</loc>
-    <lastmod>2026-11-04T15:22:50.103Z</lastmod>
-  </url>
-  <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-01/homework.html</loc>
-    <lastmod>2026-11-04T15:22:50.097Z</lastmod>
-  </url>
-  <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/index.html</loc>
-    <lastmod>2026-11-08T21:29:04.645Z</lastmod>
-  </url>
-  <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/setup.html</loc>
-    <lastmod>2026-11-04T15:22:50.096Z</lastmod>
-  </url>
-  <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-02/homework.html</loc>
-    <lastmod>2026-11-04T15:22:50.102Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-06/homework.html</loc>
+    <lastmod>2026-11-05T00:31:16.584Z</lastmod>
   </url>
   <url>
     <loc>https://niccolosalvini.github.io/ese-qnb/week-04/homework.html</loc>
     <lastmod>2026-11-04T15:22:50.104Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-06/homework.html</loc>
-    <lastmod>2026-11-05T00:31:16.584Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-02/homework.html</loc>
+    <lastmod>2026-11-04T15:22:50.102Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/setup.html</loc>
+    <lastmod>2026-11-04T15:22:50.096Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/index.html</loc>
+    <lastmod>2026-11-16T07:47:50.208Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-01/homework.html</loc>
+    <lastmod>2026-11-04T15:22:50.097Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-03/homework.html</loc>
+    <lastmod>2026-11-04T15:22:50.103Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-05/homework.html</loc>
+    <lastmod>2026-11-04T15:22:50.106Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-07/homework.html</loc>
+    <lastmod>2026-11-08T21:29:04.673Z</lastmod>
   </url>
   <url>
     <loc>https://niccolosalvini.github.io/ese-qnb/week-04/revision.html</loc>
@@ -105,39 +113,43 @@
     <lastmod>2026-11-08T09:50:49.296Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-05/mock_exam.html</loc>
-    <lastmod>2026-11-04T15:22:50.106Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-08/drills.html</loc>
+    <lastmod>2026-11-16T07:47:38.770Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/midterm/briefing.html</loc>
+    <loc>https://niccolosalvini.github.io/ese-qnb/reading-week/mock_exam.html</loc>
     <lastmod>2026-11-04T15:22:50.096Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-01/session.html</loc>
-    <lastmod>2026-11-04T15:22:50.098Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/midterm/oral.html</loc>
+    <lastmod>2026-11-04T15:22:50.096Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-03/session.html</loc>
-    <lastmod>2026-11-04T15:22:50.104Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-02/session.html</loc>
+    <lastmod>2026-11-04T15:22:50.103Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-05/session.html</loc>
-    <lastmod>2026-11-04T15:22:50.106Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-04/session.html</loc>
+    <lastmod>2026-11-04T15:22:50.105Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/week-07/session.html</loc>
-    <lastmod>2026-11-08T21:29:04.675Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/week-06/session.html</loc>
+    <lastmod>2026-11-08T09:50:49.297Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/02-calculus-opens.html</loc>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/01-revision.html</loc>
     <lastmod>2026-11-04T15:22:50.073Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/04-money-over-time.html</loc>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/03-study-and-accumulate.html</loc>
     <lastmod>2026-11-04T15:22:50.073Z</lastmod>
   </url>
   <url>
-    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/06-the-founder-does-not-know.html</loc>
-    <lastmod>2026-11-05T07:19:27.803Z</lastmod>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/05-bonds-and-risk.html</loc>
+    <lastmod>2026-11-04T15:22:50.073Z</lastmod>
+  </url>
+  <url>
+    <loc>https://niccolosalvini.github.io/ese-qnb/lectures/07-probability.html</loc>
+    <lastmod>2026-11-08T21:29:04.672Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How often does a 95% interval catch the truth?</title>
+<!-- Confidence-interval lab: the true mean range mu is fixed (gold line). Each draw simulates one sample
+     of n bikes, i.e. one sample mean xbar ~ N(mu, sigma/sqrt(n)), and builds xbar +/- z * sigma/sqrt(n).
+     The most recent 50 intervals are stacked as bars: navy = caught mu, red = missed it.
+     Over many draws the miss share settles near (100 - conf)%.
+     Seeded PRNG (mulberry32) so the demo is reproducible. Embedded as an <iframe class="app">;
+     presets from the query string, e.g. w08_intervals.html?mu=90&sigma=8&n=64&conf=95  (also &seed=7) -->
+<style>
+  :root { --red:#AF1F25; --gold:#CDBA80; --goldink:#a8955a; --ink:#363636; --muted:#7a7f85; --rule:#e6e2d8; --paper:#faf9f6; --hit:#2471a3; --miss:#c0392b; }
+  * { box-sizing: border-box; }
+  html, body { height:100%; }
+  body { margin:0; font-family:"Source Sans 3","Source Sans Pro",-apple-system,Helvetica,Arial,sans-serif; color:var(--ink); background:#fff; }
+  .wrap { display:grid; grid-template-columns: 300px 1fr; grid-template-rows: 1fr auto; height:100vh; }
+  .panel { padding:12px 18px; border-right:1px solid var(--rule); overflow:hidden; font-size:18px; }
+  .panel h3 { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--goldink); margin:10px 0 4px; }
+  .panel h3:first-child { margin-top:0; }
+  .seg { display:grid; grid-template-columns:repeat(4, 1fr); border:2px solid var(--rule); border-radius:6px; overflow:hidden; }
+  .seg label { text-align:center; font-size:16px; line-height:1.1; padding:5px 2px; cursor:pointer; color:var(--muted); font-variant-numeric: tabular-nums; }
+  .seg input { position:absolute; opacity:0; width:0; height:0; }
+  .seg input:checked + label { background:var(--red); color:#fff; font-weight:600; }
+  .seg input:focus-visible + label { outline:3px solid var(--gold); outline-offset:-3px; }
+  label.s { display:grid; grid-template-columns: 26px 1fr 58px; align-items:center; gap:8px; margin:4px 0; }
+  label.s b { font-style:italic; font-size:20px; }
+  label.s output { text-align:right; font-variant-numeric: tabular-nums; font-weight:600; font-size:20px; }
+  input[type=range] { width:100%; height:26px; accent-color: var(--red); cursor:pointer; margin:0; }
+  input[type=range]:focus-visible { outline:3px solid var(--gold); outline-offset:2px; border-radius:4px; }
+  button { font:inherit; font-size:16px; font-weight:600; width:100%; padding:4px 10px; margin:3px 0; border-radius:6px; cursor:pointer; border:2px solid var(--red); background:#fff; color:var(--red); }
+  button.primary { background:var(--red); color:#fff; }
+  button:hover { filter:brightness(1.08); }
+  button:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  button.ghost { border-color:var(--rule); color:var(--muted); font-weight:500; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  table.probs { border-collapse:collapse; margin-top:2px; width:100%; font-variant-numeric: tabular-nums; }
+  table.probs td { padding:2px 0; font-size:16px; white-space:nowrap; }
+  table.probs td:first-child { color:var(--muted); }
+  table.probs td:last-child { text-align:right; font-weight:700; padding-left:6px; }
+  .caught { font-size:20px; font-weight:700; color:var(--hit); font-variant-numeric: tabular-nums; margin-top:4px; min-height:26px; }
+  .caught .m { color:var(--miss); font-size:16px; font-weight:600; }
+  .formula { font-size:17px; font-variant-numeric: tabular-nums; margin-top:4px; line-height:1.35; }
+  .formula b { font-size:18px; }
+  .plot { position:relative; min-width:0; min-height:0; }
+  svg { width:100%; height:100%; display:block; }
+  .caption { grid-column: 1 / -1; border-top:1px solid var(--rule); padding:8px 18px; font-size:17px; color:var(--muted); background:var(--paper); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .caption i { font-style:italic; }
+  @media (max-width: 700px) { .wrap { grid-template-columns: 1fr; grid-template-rows: auto 55vh auto; height:auto; } .panel { border-right:0; border-bottom:1px solid var(--rule); } .caption { white-space:normal; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="panel">
+    <h3>The sample</h3>
+    <label class="s"><b>n</b><input id="n" type="range" min="4" max="400" step="1" aria-label="n, sample size"><output id="no"></output></label>
+    <h3>Confidence</h3>
+    <div class="seg" role="radiogroup" aria-label="Confidence level">
+      <input type="radio" name="conf" id="c80" value="80"><label for="c80">80%</label>
+      <input type="radio" name="conf" id="c90" value="90"><label for="c90">90%</label>
+      <input type="radio" name="conf" id="c95" value="95"><label for="c95">95%</label>
+      <input type="radio" name="conf" id="c99" value="99"><label for="c99">99%</label>
+    </div>
+    <h3>Draw samples</h3>
+    <button id="one" class="primary">Draw 1 sample</button>
+    <div class="row2"><button id="d20">Draw 20</button><button id="d100">Draw 100</button></div>
+    <button id="reset" class="ghost">Reset</button>
+    <h3>So far</h3>
+    <table class="probs">
+      <tr><td>standard error σ/√n</td><td id="se"></td></tr>
+      <tr><td>margin z × SE</td><td id="me"></td></tr>
+    </table>
+    <div class="caught" id="caught"></div>
+    <div class="formula" id="formula"></div>
+  </div>
+  <div class="plot"><svg id="sv" role="img" aria-label="Stacked confidence intervals around the true mean"></svg></div>
+  <div class="caption">Each bar is one sample's interval. The method catches <i>μ</i> in about <span id="capc">95</span>% of samples; any single interval either does or does not.</div>
+</div>
+<script>
+const Q = new URLSearchParams(location.search);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const num = (k, d) => { const v = parseFloat(Q.get(k)); return Number.isFinite(v) ? v : d; };
+const ZS = { 80: 1.282, 90: 1.645, 95: 1.960, 99: 2.576 };
+const confQ = Math.round(num("conf", 95));
+const S = {
+  mu: num("mu", 90), sigma: Math.max(0.01, num("sigma", 8)),
+  n: clamp(Math.round(num("n", 64)), 4, 400),
+  conf: ZS[confQ] ? confQ : 95,
+  seed: (Math.round(num("seed", 20261116)) >>> 0),
+};
+const $ = id => document.getElementById(id);
+const SVG = "http://www.w3.org/2000/svg";
+const KEEP = 50;                                     // intervals shown on screen
+
+// seeded PRNG (mulberry32) + Box–Muller for normal draws
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+let rng = mulberry32(S.seed);
+function rnorm() { let u = 0; while (u === 0) u = rng(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * rng()); }
+
+// simulation state
+let ivs = [], N = 0, hits = 0, pending = 0, raf = 0;
+const se = () => S.sigma / Math.sqrt(S.n);
+const z = () => ZS[S.conf];
+function resetSim() { cancelAnimationFrame(raf); raf = 0; pending = 0; rng = mulberry32(S.seed); ivs = []; N = 0; hits = 0; }
+function step() {
+  const s = se(), m = z() * s, xbar = S.mu + s * rnorm();
+  const hit = xbar - m <= S.mu && S.mu <= xbar + m;
+  ivs.push({ xbar, lo: xbar - m, hi: xbar + m, hit });
+  if (ivs.length > KEEP) ivs.shift();
+  N++; if (hit) hits++;
+}
+function run(total, perFrame) {
+  pending += total;
+  if (raf) return;
+  const frame = () => {
+    const b = Math.min(perFrame, pending);
+    for (let i = 0; i < b; i++) step();
+    pending -= b; sync();
+    raf = pending > 0 ? requestAnimationFrame(frame) : 0;
+  };
+  raf = requestAnimationFrame(frame);
+}
+
+const f1 = v => (Math.abs(v - Math.round(v)) < 1e-9 ? String(Math.round(v)) : v.toFixed(1));
+const f2 = v => v.toFixed(2);
+const fmt = v => v.toLocaleString("en-US");
+const sv = $("sv");
+function el(tag, attrs, text) {
+  const e = document.createElementNS(SVG, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+const niceStep = v => { const e = Math.pow(10, Math.floor(Math.log10(v))); const f = v / e; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * e; };
+
+function draw() {
+  const W = sv.clientWidth || 700, H = sv.clientHeight || 460;
+  sv.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  while (sv.firstChild) sv.removeChild(sv.firstChild);
+  const L = 24, R = 24, T = 40, B = 50;
+  const pw = W - L - R, ph = H - T - B;
+  // fixed window mu ± 3σ: wide enough for the widest interval (n = 4, 99%), so changing n visibly narrows the bars
+  const X0 = S.mu - 3 * S.sigma, X1 = S.mu + 3 * S.sigma;
+  const px = v => L + (clamp(v, X0, X1) - X0) / (X1 - X0) * pw;
+
+  // ticks
+  const st = niceStep((X1 - X0) / 8);
+  sv.appendChild(el("line", { x1: L, x2: W - R, y1: T + ph, y2: T + ph, stroke: "#9aa0a6", "stroke-width": 1.5 }));
+  for (let v = Math.ceil(X0 / st) * st; v <= X1 + 1e-9; v += st) {
+    sv.appendChild(el("line", { x1: px(v), x2: px(v), y1: T, y2: T + ph, stroke: "#f0ede6", "stroke-width": 1 }));
+    sv.appendChild(el("line", { x1: px(v), x2: px(v), y1: T + ph, y2: T + ph + 6, stroke: "#9aa0a6", "stroke-width": 1.5 }));
+    sv.appendChild(el("text", { x: px(v), y: T + ph + 24, "text-anchor": "middle", "font-size": 15, fill: "#7a7f85" }, f1(Math.round(v * 100) / 100)));
+  }
+  sv.appendChild(el("text", { x: W - R, y: H - 8, "text-anchor": "end", "font-size": 15, fill: "#7a7f85" }, "mean battery range, km"));
+
+  // intervals: newest at the top
+  const slot = ph / KEEP, th = Math.max(2, Math.min(7, slot * 0.55));
+  for (let i = 0; i < ivs.length; i++) {
+    const iv = ivs[ivs.length - 1 - i];
+    const y = T + slot * (i + 0.5);
+    const col = iv.hit ? "#2471a3" : "#c0392b";
+    sv.appendChild(el("line", { x1: px(iv.lo), x2: px(iv.hi), y1: y, y2: y, stroke: col, "stroke-width": th, "stroke-linecap": "round", opacity: i === 0 ? 1 : 0.85 }));
+    sv.appendChild(el("circle", { cx: px(iv.xbar), cy: y, r: Math.max(2, th * 0.55), fill: "#fff", stroke: col, "stroke-width": 1.5 }));
+  }
+  if (!ivs.length) sv.appendChild(el("text", { x: L + pw / 2, y: T + ph / 2, "text-anchor": "middle", "font-size": 17, fill: "#7a7f85" }, "Press “Draw 1 sample”"));
+
+  // the truth: gold dashed line at mu (drawn last, on top)
+  sv.appendChild(el("line", { x1: px(S.mu), x2: px(S.mu), y1: T - 6, y2: T + ph, stroke: "#CDBA80", "stroke-width": 3, "stroke-dasharray": "7 5" }));
+  sv.appendChild(el("text", { x: px(S.mu), y: T - 14, "text-anchor": "middle", "font-size": 16, "font-weight": 700, fill: "#a8955a" }, "μ = " + f1(S.mu)));
+  sv.appendChild(el("text", { x: L, y: T - 14, "font-size": 14, fill: "#7a7f85" }, ivs.length ? `latest ${ivs.length} of ${fmt(N)}` : ""));
+  const lg = el("text", { x: W - R, y: T - 14, "text-anchor": "end", "font-size": 14, "font-weight": 600 });
+  const a = el("tspan", { fill: "#2471a3" }, "caught"); const b = el("tspan", { fill: "#7a7f85" }, " · "); const c = el("tspan", { fill: "#c0392b" }, "missed");
+  lg.appendChild(a); lg.appendChild(b); lg.appendChild(c); sv.appendChild(lg);
+}
+
+function sync() {
+  $("n").value = S.n; $("no").textContent = S.n; $("capc").textContent = S.conf;
+  for (const c of [80, 90, 95, 99]) $("c" + c).checked = S.conf === c;
+  const s = se(), m = z() * s;
+  $("se").textContent = f2(s);
+  $("me").textContent = f2(m);
+  $("caught").innerHTML = N
+    ? `caught μ: ${fmt(hits)} of ${fmt(N)} (${(100 * hits / N).toFixed(1)}%)<br><span class="m">missed: ${fmt(N - hits)} (${(100 * (N - hits) / N).toFixed(1)}%)</span>`
+    : `caught μ: – <br><span class="m" style="color:var(--muted)">target ${S.conf}%</span>`;
+  const last = ivs.length ? ivs[ivs.length - 1].xbar : null;
+  $("formula").innerHTML = "x̄ ± z · σ/√n<br>= " + (last === null ? "x̄" : "<b>" + f2(last) + "</b>") +
+    " ± " + z().toFixed(3) + " · " + f1(S.sigma) + "/√" + S.n +
+    (last === null ? " = x̄ ± " + f2(m) : "<br>= [" + f2(last - m) + ", " + f2(last + m) + "]");
+  draw();
+}
+function setParam(fn) { fn(); resetSim(); sync(); }
+$("n").oninput = e => setParam(() => { S.n = +e.target.value; });
+document.querySelectorAll("input[name=conf]").forEach(r => r.onchange = e => setParam(() => { S.conf = +e.target.value; }));
+$("one").onclick = () => { step(); sync(); };
+$("d20").onclick = () => run(20, 1);
+$("d100").onclick = () => run(100, 4);
+$("reset").onclick = () => { resetSim(); sync(); };
+addEventListener("resize", draw);
+resetSim(); sync();
+</script>
+</body>
+</html>
