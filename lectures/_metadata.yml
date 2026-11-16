@@ -1,5 +1,10 @@
 # Every .qmd in lectures/ is a revealjs deck with the ESE theme.
 # A lecture file sets title, subtitle (Week n · date), author and content — nothing visual.
+# Drawing on slides and on a blank board: our own plugin in _extensions/ese-board (C = draw, B = board).
+# It replaces Quarto's chalkboard, which must stay off: both use the C and B keys.
+revealjs-plugins:
+  - ese-board
+
 format:
   revealjs:
     theme: [default, ese.scss]
@@ -11,7 +16,6 @@ format:
     transition: fade
     transition-speed: fast
     controls: true
-    chalkboard: true
     progress: false
     hash: true
     history: false

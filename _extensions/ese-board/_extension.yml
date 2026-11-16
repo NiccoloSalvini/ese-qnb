@@ -1,0 +1,12 @@
+title: ESE Board
+author: Niccolò Salvini
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  revealjs-plugins:
+    - name: RevealEseBoard
+      script:
+        - perfect-freehand.js
+        - board.js
+      stylesheet:
+        - board.css

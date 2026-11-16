@@ -85,6 +85,19 @@ Reveal font gotcha (as in ese-ai): `ese.scss` re-sets `--r-main-font` in the rul
 section with quoted names, because Quarto interpolates the SCSS variable unquoted
 and `Source Sans 3` unquoted is invalid CSS.
 
+## The board: drawing on the slides (`_extensions/ese-board/`)
+
+Our own revealjs plugin (the same as in `ese-qnb-bachelor`), enabled for every deck in
+`lectures/_metadata.yml` (`revealjs-plugins: [ese-board]`). It replaced Quarto's `chalkboard`
+on 17 Nov 2026; keep `chalkboard` off, both want the C and B keys. `C` draws on the slide,
+`B` opens a blank board (one per slide, with pages), `P H L E` pen / highlighter / laser /
+eraser (also right-drag or the pen's eraser end), `1–6` colour, `[ ]` size, Shift for a
+straight line, `⌘Z` undo, `Delete` clear the page (`Shift+Delete` everything), `G` board
+background (plain, squared, dots, ruled, axes, first quadrant, dark), `N` new page, `Esc` stop.
+A pen and a board button sit bottom-left when not drawing; the ⋯ menu downloads or reloads the
+ink (JSON) and saves a board page as PNG. Ink is kept in the browser per deck and printed with
+`?print-pdf`. Strokes by perfect-freehand (vendored, MIT, licence next to it).
+
 ## Two traps in the clips, both cost a re-render
 
 `ax.plot(self.method, ...)` fails with `cannot pickle '_thread.lock'`: manim caches the plotted
