@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drag the points: the least-squares line</title>
+<!-- Regression lab: x = temperature (°C), y = battery range (km). Drag the points (mouse or touch);
+     the least-squares line, a, b, r, R² and the sum of squared residuals update live. A checkbox draws
+     each residual as a vertical segment carrying a translucent square: the line minimises their total area.
+     Embedded as an <iframe class="app">; preset from the query string, e.g. w08_line.html?preset=temp
+     (start: (0,80) (5,84) (10,89) (15,90) (20,97) -> a = 80.00, b = 0.80, r = .982, R² = .964, SSR = 6.00) -->
+<style>
+  :root { --red:#AF1F25; --gold:#CDBA80; --goldink:#a8955a; --ink:#363636; --muted:#7a7f85; --rule:#e6e2d8; --paper:#faf9f6; }
+  * { box-sizing: border-box; }
+  html, body { height:100%; }
+  body { margin:0; font-family:"Source Sans 3","Source Sans Pro",-apple-system,Helvetica,Arial,sans-serif; color:var(--ink); background:#fff; }
+  .wrap { display:grid; grid-template-columns: 300px 1fr; grid-template-rows: 1fr auto; height:100vh; }
+  .panel { padding:12px 18px; border-right:1px solid var(--rule); overflow:hidden; font-size:18px; }
+  .panel h3 { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--goldink); margin:10px 0 4px; }
+  .panel h3:first-child { margin-top:0; }
+  .eq { font-size:17px; white-space:nowrap; font-variant-numeric: tabular-nums; line-height:1.3; }
+  .eq b { color:var(--red); font-size:20px; }
+  table.probs { border-collapse:collapse; margin-top:4px; width:100%; font-variant-numeric: tabular-nums; }
+  table.probs td { padding:2px 0; font-size:17px; white-space:nowrap; }
+  table.probs td:first-child { color:var(--muted); }
+  table.probs td:last-child { text-align:right; font-weight:700; padding-left:6px; }
+  table.probs tr.hi td:last-child { color:var(--red); }
+  button { font:inherit; font-size:16px; font-weight:600; width:100%; padding:4px 10px; margin:3px 0; border-radius:6px; cursor:pointer; border:2px solid var(--red); background:#fff; color:var(--red); }
+  button.primary { background:var(--red); color:#fff; }
+  button:hover { filter:brightness(1.08); }
+  button:disabled { opacity:.45; cursor:default; filter:none; }
+  button:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  button.ghost { border-color:var(--rule); color:var(--muted); font-weight:500; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  label.tog { display:flex; align-items:center; gap:8px; font-size:16px; margin-top:6px; cursor:pointer; }
+  label.tog input { width:18px; height:18px; accent-color:var(--goldink); margin:0; }
+  label.tog input:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  .hint { color:var(--muted); font-size:14px; line-height:1.3; margin-top:6px; }
+  .plot { position:relative; min-width:0; min-height:0; }
+  svg { width:100%; height:100%; display:block; touch-action:none; user-select:none; -webkit-user-select:none; }
+  circle.pt { cursor:grab; }
+  circle.pt.drag { cursor:grabbing; }
+  .caption { grid-column: 1 / -1; border-top:1px solid var(--rule); padding:8px 18px; font-size:17px; color:var(--muted); background:var(--paper); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .caption i { font-style:italic; }
+  @media (max-width: 700px) { .wrap { grid-template-columns: 1fr; grid-template-rows: auto 55vh auto; height:auto; } .panel { border-right:0; border-bottom:1px solid var(--rule); } .caption { white-space:normal; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="panel">
+    <h3>The line</h3>
+    <div class="eq" id="eq"></div>
+    <h3>How good is it</h3>
+    <table class="probs">
+      <tr><td>correlation <i>r</i></td><td id="r"></td></tr>
+      <tr class="hi"><td><i>R</i>²</td><td id="r2"></td></tr>
+      <tr><td>sum of squared residuals</td><td id="ssr"></td></tr>
+      <tr><td>points <i>n</i></td><td id="np"></td></tr>
+    </table>
+    <label class="tog"><input id="sq" type="checkbox"><span>show residual squares</span></label>
+    <h3>The data</h3>
+    <div class="row2"><button id="add">Add point</button><button id="rem">Remove last</button></div>
+    <button id="reset" class="ghost">Reset</button>
+    <div class="hint">Drag any point. The line always minimises the sum of the squares.</div>
+  </div>
+  <div class="plot"><svg id="sv" role="img" aria-label="Scatter plot of range against temperature with the least-squares line; points can be dragged"></svg></div>
+  <div class="caption">Least squares: the one line that makes the total area of the residual squares as small as possible.</div>
+</div>
+<script>
+const Q = new URLSearchParams(location.search);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const PRESETS = {
+  temp: { pts: [[0, 80], [5, 84], [10, 89], [15, 90], [20, 97]], X0: 0, X1: 30, Y0: 70, Y1: 105,
+          xlab: "temperature, °C", ylab: "range, km", yname: "range", xname: "temperature" },
+};
+const P = PRESETS[Q.get("preset")] || PRESETS.temp;
+const S = { pts: P.pts.map(p => p.slice()), sq: Q.get("squares") === "1" };
+const $ = id => document.getElementById(id);
+const SVG = "http://www.w3.org/2000/svg";
+
+function fit(pts) {
+  const n = pts.length;
+  if (n < 2) return null;
+  let mx = 0, my = 0; for (const [x, y] of pts) { mx += x; my += y; } mx /= n; my /= n;
+  let sxx = 0, sxy = 0, syy = 0;
+  for (const [x, y] of pts) { sxx += (x - mx) ** 2; sxy += (x - mx) * (y - my); syy += (y - my) ** 2; }
+  if (sxx < 1e-12) return null;
+  const b = sxy / sxx, a = my - b * mx;
+  let ssr = 0; for (const [x, y] of pts) ssr += (y - a - b * x) ** 2;
+  const r = syy < 1e-12 ? NaN : sxy / Math.sqrt(sxx * syy);
+  return { a, b, r, r2: syy < 1e-12 ? NaN : 1 - ssr / syy, ssr };
+}
+
+const sv = $("sv");
+function el(tag, attrs, text) {
+  const e = document.createElementNS(SVG, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+const neg = s => s.replace("-", "−");
+const f2 = v => neg(v.toFixed(2));
+const f3 = v => neg(v.toFixed(3));
+let G = null, dragI = -1;                                    // current geometry, dragged point index
+
+function draw() {
+  const W = sv.clientWidth || 700, H = sv.clientHeight || 460;
+  sv.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  while (sv.firstChild) sv.removeChild(sv.firstChild);
+  const L = 56, R = 24, T = 30, B = 50;
+  const pw = W - L - R, ph = H - T - B;
+  const px = x => L + (x - P.X0) / (P.X1 - P.X0) * pw;
+  const py = y => T + ph - (y - P.Y0) / (P.Y1 - P.Y0) * ph;
+  G = { L, T, pw, ph, px, py };
+
+  // grid and axes
+  for (let x = P.X0; x <= P.X1; x += 5) {
+    sv.appendChild(el("line", { x1: px(x), x2: px(x), y1: T, y2: T + ph, stroke: "#f0ede6", "stroke-width": 1 }));
+    sv.appendChild(el("text", { x: px(x), y: T + ph + 22, "text-anchor": "middle", "font-size": 15, fill: "#7a7f85" }, String(x)));
+  }
+  for (let y = P.Y0; y <= P.Y1; y += 5) {
+    sv.appendChild(el("line", { x1: L, x2: L + pw, y1: py(y), y2: py(y), stroke: "#f0ede6", "stroke-width": 1 }));
+    sv.appendChild(el("text", { x: L - 14, y: py(y) + 5, "text-anchor": "end", "font-size": 15, fill: "#7a7f85" }, String(y)));
+  }
+  sv.appendChild(el("line", { x1: L, x2: L + pw, y1: T + ph, y2: T + ph, stroke: "#9aa0a6", "stroke-width": 1.5 }));
+  sv.appendChild(el("line", { x1: L, x2: L, y1: T, y2: T + ph, stroke: "#9aa0a6", "stroke-width": 1.5 }));
+  sv.appendChild(el("text", { x: L + pw, y: H - 8, "text-anchor": "end", "font-size": 15, fill: "#7a7f85" }, P.xlab));
+  sv.appendChild(el("text", { x: L + 6, y: T - 10, "font-size": 15, fill: "#7a7f85" }, P.ylab));
+
+  const F = fit(S.pts);
+  const clip = el("clipPath", { id: "cp" }); clip.appendChild(el("rect", { x: L, y: T, width: pw, height: ph }));
+  sv.appendChild(clip);
+  const g = el("g", { "clip-path": "url(#cp)" }); sv.appendChild(g);
+
+  if (F) {
+    // residual squares: side = the residual's length on screen, so the picture's squares are squares
+    if (S.sq) for (const [x, y] of S.pts) {
+      const yh = F.a + F.b * x, y0 = py(yh), y1 = py(y), s = Math.abs(y1 - y0);
+      const left = x > (P.X0 + P.X1) / 2;                   // square on the side with more room
+      g.appendChild(el("rect", { x: left ? px(x) - s : px(x), y: Math.min(y0, y1), width: s, height: s, fill: "rgba(205,186,128,.35)", stroke: "#a8955a", "stroke-width": 1 }));
+      g.appendChild(el("line", { x1: px(x), x2: px(x), y1: y0, y2: y1, stroke: "#a8955a", "stroke-width": 2.5 }));
+    }
+    g.appendChild(el("line", { x1: px(P.X0), x2: px(P.X1), y1: py(F.a + F.b * P.X0), y2: py(F.a + F.b * P.X1), stroke: "#363636", "stroke-width": 3 }));
+  }
+  // points
+  S.pts.forEach(([x, y], i) => {
+    const c = el("circle", { cx: px(x), cy: py(y), r: 10, fill: "#AF1F25", stroke: "#fff", "stroke-width": 2.5, class: "pt" + (i === dragI ? " drag" : ""), "data-i": i, tabindex: 0, "aria-label": `point ${i + 1}: ${x.toFixed(1)}, ${y.toFixed(1)}` });
+    sv.appendChild(c);
+    if (i === dragI) sv.appendChild(el("text", { x: px(x), y: py(y) - 16, "text-anchor": "middle", "font-size": 15, "font-weight": 700, fill: "#AF1F25" }, `(${x.toFixed(1)}, ${y.toFixed(1)})`));
+  });
+}
+
+function sync() {
+  const F = fit(S.pts);
+  $("np").textContent = S.pts.length;
+  if (F) {
+    $("eq").innerHTML = `${P.yname} = <b>${f2(F.a)}</b> ${F.b < 0 ? "−" : "+"} <b>${Math.abs(F.b).toFixed(2)}</b> × ${P.xname}`;
+    $("r").textContent = Number.isFinite(F.r) ? f3(F.r) : "–";
+    $("r2").textContent = Number.isFinite(F.r2) ? f3(F.r2) : "–";
+    $("ssr").textContent = F.ssr.toFixed(2);
+  } else {
+    $("eq").innerHTML = "<span style='color:var(--muted)'>Need two points with different temperatures.</span>";
+    $("r").textContent = $("r2").textContent = $("ssr").textContent = "–";
+  }
+  $("sq").checked = S.sq;
+  $("rem").disabled = S.pts.length <= 2;
+  draw();
+}
+
+// dragging with pointer events: one code path for mouse, pen and touch
+function toData(ev) {
+  const b = sv.getBoundingClientRect();
+  const W = sv.clientWidth || 700, H = sv.clientHeight || 460;
+  const sx = (ev.clientX - b.left) * W / b.width, sy = (ev.clientY - b.top) * H / b.height;
+  const x = P.X0 + (sx - G.L) / G.pw * (P.X1 - P.X0);
+  const y = P.Y0 + (G.T + G.ph - sy) / G.ph * (P.Y1 - P.Y0);
+  return [Math.round(clamp(x, P.X0, P.X1) * 10) / 10, Math.round(clamp(y, P.Y0, P.Y1) * 10) / 10];
+}
+sv.addEventListener("pointerdown", ev => {
+  const t = ev.target;
+  if (!t.classList || !t.classList.contains("pt")) return;
+  dragI = +t.getAttribute("data-i");
+  try { sv.setPointerCapture(ev.pointerId); } catch (e) {}
+  ev.preventDefault(); sync();
+});
+sv.addEventListener("pointermove", ev => {
+  if (dragI < 0) return;
+  S.pts[dragI] = toData(ev); ev.preventDefault(); sync();
+});
+const endDrag = ev => { if (dragI < 0) return; dragI = -1; try { sv.releasePointerCapture(ev.pointerId); } catch (e) {} sync(); };
+sv.addEventListener("pointerup", endDrag);
+sv.addEventListener("pointercancel", endDrag);
+// keyboard: arrows nudge a focused point
+sv.addEventListener("keydown", ev => {
+  const t = ev.target; if (!t.classList || !t.classList.contains("pt")) return;
+  const i = +t.getAttribute("data-i"), d = ev.shiftKey ? 5 : 1, p = S.pts[i];
+  const m = { ArrowLeft: [-d, 0], ArrowRight: [d, 0], ArrowUp: [0, d], ArrowDown: [0, -d] }[ev.key];
+  if (!m) return;
+  ev.preventDefault();
+  S.pts[i] = [clamp(p[0] + m[0], P.X0, P.X1), clamp(p[1] + m[1], P.Y0, P.Y1)];
+  sync();
+  const c = sv.querySelector(`circle[data-i="${i}"]`); if (c) c.focus();
+});
+
+$("add").onclick = () => {
+  const x = Math.round((P.X0 + Math.random() * (P.X1 - P.X0)) * 10) / 10;
+  const y = Math.round((P.Y0 + Math.random() * (P.Y1 - P.Y0)) * 10) / 10;
+  S.pts.push([x, y]); sync();
+};
+$("rem").onclick = () => { if (S.pts.length > 2) { S.pts.pop(); sync(); } };
+$("reset").onclick = () => { S.pts = P.pts.map(p => p.slice()); sync(); };
+$("sq").onchange = e => { S.sq = e.target.checked; draw(); };
+addEventListener("resize", draw);
+sync();
+</script>
+</body>
+</html>

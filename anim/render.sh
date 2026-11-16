@@ -58,4 +58,10 @@ want="${1:-all}"
   render week07_spread MeanAndSpread   w06_spread
   render week06_bayes  BayesColumn     w06_bayes
 }
+[ "$want" = all ] || [ "$want" = week08 ] && {
+  render week08_scenes ManySamplesOneBell    w08_samples
+  render week08_scenes IntervalsThatMiss     w08_intervals
+  render week08_scenes PValueIsATail         w08_pvalue
+  render week08_scenes LeastSquaresLiterally w08_leastsq
+}
 echo "done"
