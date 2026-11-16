@@ -10,7 +10,8 @@ format:
     footer: "[← Course site](../index.html) · Research & Quantitative Business Methods · ESE Florence"
     transition: fade
     transition-speed: fast
-    controls: false
+    controls: true
+    chalkboard: true
     progress: false
     hash: true
     history: false
