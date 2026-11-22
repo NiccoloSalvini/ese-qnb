@@ -2,7 +2,7 @@
 
 **MBA03 Research & Quantitative Business Methods · Mon 16 Nov 2026, 10:00–13:00, online (Google Meet) · Tutor: Vincenzo Nardelli**
 
-Syllabus topic (weeks 8–9 share one list: OLS regression and correlation, hypothesis testing, confidence intervals, time series, autoregressive models). The split is ours: **week 8 is inference plus the least-squares line by hand; week 9 reads regression outputs, adds a second cause and time, and the autoregressive model.** Announce it once.
+Syllabus topic (weeks 8–9 share one list: OLS regression and correlation, hypothesis testing, confidence intervals, time series, autoregressive models). The split is ours: **week 8 covers inference; week 9 begins with the least-squares line by hand, compares multiple regression models, then forecasts with trend and seasonality.** Announce it once.
 
 Running case, as in weeks 1–7: **Arno Bikes**. The thread: last week a known shape gave a share of bikes; today the arrow turns round, from one sample back to an unknown number, with its standard error. Lesson 7's block E (a count read as a bell, the Monte Carlo) opens block A.
 
@@ -13,8 +13,7 @@ By the end of the session the students can:
 1. **Read a big count as a bell** (check $np \ge 5$, the half unit) and **compute a standard error** $\sigma/\sqrt{n}$, saying what the CLT does and does not do — the final's normal items; the base of 2–3.
 2. **Construct and choose** a confidence interval for a mean with σ known at 90% and 95%, name the three wrong roads, state the confidence sentence, and size a sample for a target margin — the final's interval item, in its multiple-choice form.
 3. **Test** a proportion two-tailed at 5% in six steps, write the p-value in words, and link a test on a mean to the interval — the final's test item.
-4. **Fit** a least-squares line by hand, read slope and intercept in units, compute $R^2$ and $r$, and refuse to extrapolate — the base of week 9 (not in the final beyond reading an output).
-5. Also rehearsed in the Homework 7 review: **the maximum loss at 95%** (the guarantee backwards, in euros) — the final's portfolio item.
+4. Also rehearsed in the Homework 7 review: **the maximum loss at 95%** (the guarantee backwards, in euros) — the final's portfolio item.
 
 ## Session plan
 
@@ -29,9 +28,8 @@ By the end of the session the students can:
 | 11:28–11:43 | Break | — | Cameras off. |
 | 11:43–12:12 | **C. Has dropping Ionix cut returns?** | Slides → clip | 8% before; 22 of 400 after: six steps, z −1.84, p .066, do not reject; the clip; 800 bikes, same 5.5%, z −2.61, p .009; Type I/II in words; the mean test (z −1.5, p .134) and the interval agree. |
 | 12:12–12:20 | **D3** | Paper | One rider in four; 90 of 300 with the new script: z 2.00, p .046, reject — only just. |
-| 12:20–12:42 | **D. Does range depend on the weather?** | Slides → clip → app | Five days; the scatter; $r$ in pictures; the line by hand ($b$ = 200/250 = 0.8, $a$ = 80); the clip; $R^2$ .964, $r$ .982; 89.6 at 12 °C; no extrapolation; the app. |
-| 12:42–12:50 | **D4** | Paper | Ads and sales, five months: $b$ 4.4, $a$ 25.8, $R^2$ .968. |
-| 12:50–13:00 | Take home, four answers, homework | Slides | Four lines; four answers; formula page; Homework 8 (due Sun 22 Nov). |
+| 12:20–12:50 | Guided practice and questions | Paper | Revisit D2 and D3. Ask each group to explain one interval or test result to the founder. |
+| 12:50–13:00 | Take home, three answers, homework | Slides | Three answers; formula page; Homework 8 (due Sun 22 Nov). |
 
 No quiz this week (the in-class quiz is in week 10).
 
@@ -55,19 +53,13 @@ Bet: "changed" or "luck". $H_0$ is the boring story. The six-step table, one row
 
 Do not show an interval for the proportion here: built with $\hat{p}$ it excludes .08 while the test (built with $p_0$) does not reject, and the two standard errors are a detour we do not need.
 
-### D. Does range depend on the weather? (22')
-
-First to cut. Bet: km per degree. Scatter; the $r$ gallery (the curve with $r \approx 0$ is the point). The table by hand: two sums, 200 and 250. **Clip** `w08_leastsq`: the squares shrink to 6. $R^2$ = 1 − 6/166. Inside the data only. **App** `w08_line`: drag the 20 °C day to 85.
-
 ### Take home (10')
 
-Four lines; the four answers (ask the chat before each); formula page; Homework 8, due Sunday 22 November, 23:59. Last sentence: "Next Monday the slope gets a standard error too, and we read it off a computer."
+The three answers (ask the chat before each); formula page; Homework 8, due Sunday 22 November, 23:59. Last sentence: "Next Monday we fit a line to five test rides and read its slope in kilometres per degree."
 
 ## Cut order if late
 
-1. Block D's app and the $r$ gallery (keep the line by hand and $R^2$).
-2. Block D entirely, moved to the opening of week 9 (its drill D4 becomes homework). Week 9 is built so that this costs nothing.
-3. The 99% row and the ±0.5 km line in block B; the Type I/II box in block C.
+1. The 99% row and the ±0.5 km line in block B; the Type I/II box in block C.
 
 **Never cut:** the SE, the interval and the choice with the wrong roads (B), the six steps and the p-value in words (C), the euro slide in the homework review.
 
@@ -80,4 +72,3 @@ Online: the shared deck is the board, the chat is the slip. Bets go in the chat 
 - **Table rounding.** $z$ to two decimals: 1.198 → 1.20 (.115; software .1151), −1.843 → −1.84 (.0329 per tail), −2.606 → −2.61. Accept the software values.
 - **"95% sure the true mean is in this interval"** is tolerated in speech; insist on the version "19 intervals in 20" in writing.
 - **"Do not reject" is not "accept".** Say it once with the 800-bike slide.
-- **Correlation is not cause**: one sentence, with the ice cream.

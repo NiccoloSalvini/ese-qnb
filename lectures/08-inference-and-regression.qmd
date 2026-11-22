@@ -258,8 +258,8 @@ Use Local for the monthly volume: €1,600 saved, and on 400 deliveries the late
 |---|---|---|
 | 6 | 5 Nov | count, condition, update ✓ |
 | 7 | 9 Nov | a number with its shares; three shapes; decide ✓ |
-| **8** | **16 Nov** | **how sure: the standard error, an interval, a test; one line through points** |
-| 9 | 23 Nov | read a regression output; a trend through time; this month from last month |
+| **8** | **16 Nov** | **how sure: the standard error, an interval, a test** |
+| 9 | 23 Nov | fit a line, interpret multiple regressions and forecast quarterly sales |
 | 10 | 30 Nov | review; the in-class quiz |
 
 : {tbl-colwidths="[8,16,76]"}
@@ -271,12 +271,12 @@ Last week: from a known shape to a share of bikes.
 :::
 ::::
 
-[Blocks A–C are exactly what the final asks about intervals and tests. Block D opens next week.]{.red}
+
 
 ## Today's question
 
 ::: {.callout-note title="Arno Bikes, this month"}
-Engineering measured 200 bikes and found **90 km**. The founder asks: is the true average 90? A new battery batch looks a bit worse. Returns seem lower since we dropped Ionix. And does the range change with the weather?
+Engineering measured 200 bikes and found **90 km**. The founder asks: is the true average 90? A new battery batch looks a bit worse. Returns seem lower since we dropped Ionix.
 :::
 
 . . .
@@ -287,9 +287,9 @@ A number from data is a **random variable**: another sample would give another n
 
 [One idea runs the whole morning: the **standard error**, the σ of a number computed from data.]{.red}
 
-## Four questions from the founder {.hub auto-animate=true}
+## Three questions from the founder {.hub auto-animate=true}
 
-::: {.blocks .four}
+::: {.blocks style="grid-template-columns:repeat(3,1fr)"}
 ::: {.blk .now data-id="blkA"}
 [Block A]{.blk-letter}Will we pay the courier's penalty?[a count read as a bell · simulation · standard error]{.blk-tool}
 :::
@@ -298,9 +298,6 @@ A number from data is a **random variable**: another sample would give another n
 :::
 ::: {.blk .next}
 [Block C]{.blk-letter}Has dropping Ionix cut returns?[a test on a proportion · p-value]{.blk-tool}
-:::
-::: {.blk .next}
-[Block D]{.blk-letter}Does range depend on the weather?[correlation · least-squares line · R²]{.blk-tool}
 :::
 :::
 
@@ -455,23 +452,6 @@ Of 250 orders, expect 15 late, give or take four; a penalty month comes about on
 :::
 :::
 
-## Four questions from the founder {.hub auto-animate=true}
-
-::: {.blocks .four}
-::: {.blk .done}
-[Block A]{.blk-letter}Will we pay the courier's penalty?[a count read as a bell · simulation · standard error]{.blk-tool}
-:::
-::: {.blk .now data-id="blkB"}
-[Block B]{.blk-letter}How far off is our 90 km?[confidence interval · sample size]{.blk-tool}
-:::
-::: {.blk .next}
-[Block C]{.blk-letter}Has dropping Ionix cut returns?[a test on a proportion · p-value]{.blk-tool}
-:::
-::: {.blk .next}
-[Block D]{.blk-letter}Does range depend on the weather?[correlation · least-squares line · R²]{.blk-tool}
-:::
-:::
-
 ## [Block B · the confidence interval]{.section-kicker} How far off is our 90 km? {.section-slide background-color="#AF1F25" auto-animate=true}
 
 ::: {.blk-fill data-id="blkB"}
@@ -584,23 +564,6 @@ $E$ is the margin we want. Half the margin, four times the bikes: ±0.5 km needs
 :::
 ::::
 
-## Four questions from the founder {.hub auto-animate=true}
-
-::: {.blocks .four}
-::: {.blk .done}
-[Block A]{.blk-letter}Will we pay the courier's penalty?[a count read as a bell · simulation · standard error]{.blk-tool}
-:::
-::: {.blk .done}
-[Block B]{.blk-letter}How far off is our 90 km?[confidence interval · sample size]{.blk-tool}
-:::
-::: {.blk .now data-id="blkC"}
-[Block C]{.blk-letter}Has dropping Ionix cut returns?[a test on a proportion · p-value]{.blk-tool}
-:::
-::: {.blk .next}
-[Block D]{.blk-letter}Does range depend on the weather?[correlation · least-squares line · R²]{.blk-tool}
-:::
-:::
-
 ## [Block C · the hypothesis test]{.section-kicker} Has dropping Ionix cut returns? {.section-slide background-color="#AF1F25" auto-animate=true}
 
 ::: {.blk-fill data-id="blkC"}
@@ -701,148 +664,9 @@ The 95% interval was **86.54 to 90.46**, and **90 is inside**.
 :::
 ::::
 
-## Four questions from the founder {.hub auto-animate=true}
+## Three answers for the founder
 
-::: {.blocks .four}
-::: {.blk .done}
-[Block A]{.blk-letter}Will we pay the courier's penalty?[a count read as a bell · simulation · standard error]{.blk-tool}
-:::
-::: {.blk .done}
-[Block B]{.blk-letter}How far off is our 90 km?[confidence interval · sample size]{.blk-tool}
-:::
-::: {.blk .done}
-[Block C]{.blk-letter}Has dropping Ionix cut returns?[a test on a proportion · p-value]{.blk-tool}
-:::
-::: {.blk .now data-id="blkD"}
-[Block D]{.blk-letter}Does range depend on the weather?[correlation · least-squares line · R²]{.blk-tool}
-:::
-:::
-
-## [Block D · correlation and the least-squares line]{.section-kicker} Does range depend on the weather? {.section-slide background-color="#AF1F25" auto-animate=true}
-
-::: {.blk-fill data-id="blkD"}
-:::
-
-## Five test days, five temperatures
-
-:::: {.columns}
-::: {.column width="45%"}
-The same bike on the same loop, on five days:
-
-::: {.bigtable}
-| temperature $x$ (°C) | range $y$ (km) |
-|---:|---:|
-| 0 | 80 |
-| 5 | 84 |
-| 10 | 89 |
-| 15 | 90 |
-| 20 | 97 |
-:::
-
-::: {.callout-important title="Bet before we compute"}
-How many km does one more degree add? Write a number.
-:::
-:::
-::: {.column width="55%" .fragment}
-![](img/w08_scatter.svg)
-
-The points climb from left to right: a **positive** relation, close to a straight line. The **correlation** $r$ measures how close, from −1 to +1.
-:::
-::::
-
-## Correlation: one number for the shape of the cloud
-
-![](img/w08_r_shapes.svg){width="86%"}
-
-[$r$ near +1 or −1: the points sit close to a line. $r$ near 0: no straight-line relation — which is not the same as no relation at all. And a strong $r$ is not a cause: ice cream and sunburn rise together because of the sun.]{.muted style="font-size:.8em"}
-
-## The line by hand: five rows, two sums
-
-:::: {.columns}
-::: {.column width="55%"}
-$\bar{x} = 50/5 = 10$ °C, $\quad \bar{y} = 440/5 = 88$ km.
-
-::: {.bigtable}
-| $x - \bar{x}$ | $y - \bar{y}$ | product | $(x - \bar{x})^{2}$ |
-|---:|---:|---:|---:|
-| −10 | −8 | 80 | 100 |
-| −5 | −4 | 20 | 25 |
-| 0 | 1 | 0 | 0 |
-| 5 | 2 | 10 | 25 |
-| 10 | 9 | 90 | 100 |
-| | | **200** | **250** |
-:::
-:::
-::: {.column width="45%" .fragment}
-$$b = \frac{\sum (x - \bar{x})(y - \bar{y})}{\sum (x - \bar{x})^{2}} = \frac{200}{250} = \textbf{0.8}$$
-
-$$a = \bar{y} - b\,\bar{x} = 88 - 0.8 \times 10 = \textbf{80}$$
-
-$$\hat{y} = 80 + 0.8\,x$$
-
-**Reading.** Each extra degree adds **0.8 km** of range. At 0 °C, the line says 80 km.
-:::
-::::
-
-## Least squares, literally {.clip background-color="#000000"}
-
-<video class="clipvideo" width="1000" height="562" controls muted loop playsinline data-autoplay preload="auto" poster="media/w08_leastsq_poster.png"><source src="media/w08_leastsq.mp4" type="video/mp4"></video>
-
-## How good is the line? $R^{2}$
-
-:::: {.columns}
-::: {.column width="52%"}
-Without the line, our best guess is $\bar{y} = 88$ every day: the squared distances from 88 add to **166**. With the line, the squared distances left over add to **6**.
-
-$$R^{2} = 1 - \frac{6}{166} = \textbf{.964}$$
-
-$$r = +\sqrt{.964} = \textbf{.982}$$
-
-**Reading.** Temperature explains **96%** of the day-to-day differences in range. The sign of $r$ is the sign of the slope.
-:::
-::: {.column width="48%" .fragment}
-**Use it inside the data.** At 12 °C: $80 + 0.8 \times 12 = \textbf{89.6 km}$.
-
-**Not outside.** At −10 °C the line says 72 km; we never tested below zero, and batteries are not straight lines in the cold.
-
-::: {.callout-tip title="Board sentence"}
-Range rises by about 0.8 km per degree, and temperature explains almost all the variation in our tests. Print the range for a mild day, and say so on the box.
-:::
-:::
-::::
-
-## Try it: drag the points {.lab-app}
-
-<iframe class="app" src="apps/w08_line.html?preset=temp" loading="lazy"></iframe>
-
-[Drag the 20 °C day down to 85 km: the slope falls, $R^2$ collapses. One odd point can move the whole line — always look at the picture.]{.muted style="font-size:.7em"}
-
-## [Close]{.section-kicker} Take home {.section-slide background-color="#AF1F25"}
-
-## Take home
-
-::: {.blocks .four}
-::: {.blk .recap .fragment}
-[A]{.blk-letter}A number from data wobbles[A big count is a bell: $np$, $\sqrt{np(1-p)}$, then the four steps. An average wobbles by $\sigma/\sqrt{n}$: the standard error.]{.blk-answer}
-:::
-::: {.blk .recap .fragment}
-[B]{.blk-letter}Estimate ± margin[$\bar{x} \pm z\,\sigma/\sqrt{n}$: 1.645 for 90%, 1.96 for 95%. 95% is about the method: 19 intervals in 20.]{.blk-answer}
-:::
-::: {.blk .recap .fragment}
-[C]{.blk-letter}Assume nothing changed[Six steps; $z$ in standard errors; the p-value is the tail beyond the data, both sides. Below .05: reject.]{.blk-answer}
-:::
-::: {.blk .recap .fragment}
-[D]{.blk-letter}One line through the points[$b$ = products over squares, $a = \bar{y} - b\bar{x}$. $R^2$: the share explained. Inside the data only.]{.blk-answer}
-:::
-:::
-
-. . .
-
-[One number, its standard error, and the bell: that is all of inference.]{.red}
-
-## Four answers for the founder
-
-::: {.blocks .four}
+::: {.blocks style="grid-template-columns:repeat(3,1fr)"}
 ::: {.blk .done .fragment}
 [A]{.blk-letter}Will we pay the courier's penalty?[About one month in nine: 15 late orders on average, give or take four.]{.blk-answer}
 :::
@@ -852,14 +676,11 @@ Range rises by about 0.8 km per degree, and temperature explains almost all the 
 ::: {.blk .done .fragment}
 [C]{.blk-letter}Has dropping Ionix cut returns?[Down to 5.5%, but not yet proven: p = .066 on 400 bikes. Keep counting.]{.blk-answer}
 :::
-::: {.blk .done .fragment}
-[D]{.blk-letter}Does range depend on the weather?[Yes: 0.8 km per degree, $R^2$ = .96 — inside the temperatures we tested.]{.blk-answer}
-:::
 :::
 
 . . .
 
-[Next Monday: the line's slope has a standard error too. We read it off a computer output — and add a second cause, and time.]{.red}
+[Next Monday we fit a line to five test rides and use its slope to predict range at a given temperature.]{.red}
 
 ## Formulas, on one page: the ones we used
 
@@ -873,10 +694,9 @@ Range rises by about 0.8 km per degree, and temperature explains almost all the 
 | how many to test | $n = (z\,\sigma / E)^{2}$, round up | 246 |
 | a test on a proportion | $z = \dfrac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$, p-value = both tails | $z = -1.84$, $p = .066$ |
 | a test on a mean | $z = \dfrac{\bar{x} - \mu_0}{\sigma/\sqrt{n}}$ | $z = -1.50$, $p = .134$ |
-| the line | $b = \dfrac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}, \; a = \bar{y} - b\bar{x}, \; R^2 = 1 - \dfrac{SSE}{SST}$ | $\hat{y} = 80 + 0.8x$, $R^2 = .964$ |
 :::
 
-[Eight lines, one idea: a number from data, and how many standard errors it sits from somewhere.]{.muted}
+[Seven lines, one idea: a number from data, and how many standard errors it sits from somewhere.]{.muted}
 
 ## Homework 8
 
@@ -888,9 +708,9 @@ Range rises by about 0.8 km per degree, and temperature explains almost all the 
 - **H2** the standard error and the worst week at 95%
 - **H3** an interval at 90% and 95%, and how many to test
 - **H4** a two-tailed test on a proportion, six steps
-- **H5** a line through five points, by hand
+- **H5** a line through five points, for individual practice
 
-Due **Sunday 22 November, 23:59 on Moodle**. Corrected together at the start of next Monday.
+Due **Sunday 22 November, 23:59 on Moodle**. Next Monday we discuss H4 and the memo. Use H5 to practise after the five-ride example.
 :::
 ::: {.column width="42%"}
 **The memo.** 150–250 words to the Board: has the new helpline script cut complaints? A test, its p-value in words, and what you would do next.

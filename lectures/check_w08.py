@@ -87,7 +87,7 @@ xb, yb, sxy, sxx, a, b, sst, sse, r2 = line([0, 5, 10, 15, 20], [80, 84, 89, 90,
 ok("D xbar", xb, 10); ok("D ybar", yb, 88); ok("D sxy", sxy, 200); ok("D sxx", sxx, 250)
 ok("D b", b, .8); ok("D a", a, 80); ok("D SST", sst, 166); ok("D SSE", sse, 6)
 ok("D R2", r2, .964); ok("D r", sqrt(r2), .982); ok("D at 12", a + b * 12, 89.6); ok("D at -10", a - 10 * b, 72)
-says("deck D", DECK, "**166**", "**6**", "**.964**", "**.982**", "**89.6 km**", "72 km")
+# block D (the line) moved to week 9: its numbers are asserted in check_w09.py
 
 # ---------- drills ----------
 sd = sqrt(300 * .05 * .95); z = 4.5 / sd

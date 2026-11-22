@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Held fixed, live</title>
+<!-- Multiple-regression lab on lectures/data/w09_sales_demos.csv (24 shop-months: ads in € thousand,
+     staffed test-ride hours, bikes sold), copied in below. Both models are fitted by OLS here:
+       simple   bikes = 12.74 + 5.53 · ads                 (R² = .830)
+       multiple bikes = 13.95 + 2.94 · ads + 1.16 · hours   (R² = .985)
+     Plot: bikes against ads, points shaded by hours; grey dashed = simple line; red = multiple model at the
+     current hours (slope 2.94), moving up and down with the hours slider. The prediction is written out with
+     the rounded coefficients shown, so the arithmetic adds up on screen.
+     Embedded as an <iframe class="app">; preset from the query string, e.g. w09_heldfixed.html?ads=6&hours=10
+     (also &simple=0 to start with the grey line hidden) -->
+<style>
+  :root { --red:#AF1F25; --gold:#CDBA80; --goldink:#a8955a; --ink:#363636; --muted:#7a7f85; --rule:#e6e2d8; --paper:#faf9f6; }
+  * { box-sizing: border-box; }
+  html, body { height:100%; }
+  body { margin:0; font-family:"Source Sans 3","Source Sans Pro",-apple-system,Helvetica,Arial,sans-serif; color:var(--ink); background:#fff; }
+  .wrap { display:grid; grid-template-columns: 300px 1fr; grid-template-rows: 1fr auto; height:100vh; }
+  .panel { padding:12px 18px; border-right:1px solid var(--rule); overflow:hidden; font-size:18px; }
+  .panel h3 { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--goldink); margin:10px 0 4px; }
+  .panel h3:first-child { margin-top:0; }
+  label.s { display:grid; grid-template-columns: 50px 1fr 48px; align-items:center; gap:8px; margin:4px 0; }
+  label.s b { font-size:18px; font-weight:600; }
+  label.s output { text-align:right; font-variant-numeric: tabular-nums; font-weight:600; font-size:20px; }
+  input[type=range] { width:100%; height:26px; accent-color: var(--red); cursor:pointer; margin:0; }
+  input[type=range]:focus-visible { outline:3px solid var(--gold); outline-offset:2px; border-radius:4px; }
+  label.tog { display:flex; align-items:center; gap:8px; font-size:16px; margin-top:8px; cursor:pointer; }
+  label.tog input { width:18px; height:18px; accent-color:var(--goldink); margin:0; }
+  label.tog input:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  .formula { font-size:17px; font-variant-numeric: tabular-nums; line-height:1.35; white-space:nowrap; }
+  .formula b { font-size:22px; color:var(--red); }
+  .eq { font-size:16px; white-space:nowrap; font-variant-numeric: tabular-nums; line-height:1.3; }
+  .eq .k { color:var(--muted); font-size:14px; }
+  .eq b { font-weight:700; }
+  .eq .m b { color:var(--red); }
+  .plot { position:relative; min-width:0; min-height:0; }
+  svg { width:100%; height:100%; display:block; }
+  .caption { grid-column: 1 / -1; border-top:1px solid var(--rule); padding:8px 18px; font-size:17px; color:var(--muted); background:var(--paper); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .caption i { font-style:italic; }
+  @media (max-width: 700px) { .wrap { grid-template-columns: 1fr; grid-template-rows: auto 55vh auto; height:auto; } .panel { border-right:0; border-bottom:1px solid var(--rule); } .caption { white-space:normal; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="panel">
+    <h3>Set a shop-month</h3>
+    <label class="s"><b>ads</b><input id="ads" type="range" min="2" max="10" step="0.5" aria-label="ads, € thousand"><output id="adso"></output></label>
+    <label class="s"><b>hours</b><input id="hours" type="range" min="5" max="25" step="1" aria-label="test-ride hours"><output id="hourso"></output></label>
+    <h3>Predicted bikes</h3>
+    <div class="formula" id="formula"></div>
+    <h3>The two models</h3>
+    <div class="eq"><span class="k">simple</span><br>bikes = <b id="sa"></b> + <b id="sb"></b> × ads</div>
+    <div class="eq m" style="margin-top:4px"><span class="k">multiple</span><br>bikes = <b id="ma"></b> + <b id="mb"></b> × ads<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ <b id="mc"></b> × hours</div>
+    <label class="tog"><input id="simple" type="checkbox"><span>show the simple line</span></label>
+  </div>
+  <div class="plot"><svg id="sv" role="img" aria-label="Bikes against ads, points shaded by test-ride hours, with the simple line and the multiple model's line at the chosen hours"></svg></div>
+  <div class="caption" id="cap"></div>
+</div>
+<script>
+const Q = new URLSearchParams(location.search);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const num = (k, d) => { const v = parseFloat(Q.get(k)); return Number.isFinite(v) ? v : d; };
+// lectures/data/w09_sales_demos.csv: shop_month, ads_k, demo_hours, bikes
+const DATA = [
+  [1, 8.5, 18, 60], [2, 8.3, 20, 60], [3, 5.3, 14, 47], [4, 8.5, 16, 61], [5, 6.6, 15, 52], [6, 7.3, 24, 62],
+  [7, 9.9, 21, 65], [8, 5.3, 18, 51], [9, 5.9, 20, 53], [10, 5.5, 14, 49], [11, 9.2, 17, 62], [12, 8.5, 19, 61],
+  [13, 3.2, 5, 32], [14, 2.6, 4, 28], [15, 5.5, 3, 33], [16, 3.0, 6, 28], [17, 3.4, 7, 30], [18, 5.5, 3, 32],
+  [19, 2.3, 6, 28], [20, 3.5, 8, 32], [21, 4.5, 4, 31], [22, 5.2, 10, 41], [23, 4.0, 7, 33], [24, 7.0, 5, 40],
+];
+const S = {
+  ads: Math.round(clamp(num("ads", 6), 2, 10) * 2) / 2,
+  hours: Math.round(clamp(num("hours", 10), 5, 25)),
+  simple: Q.get("simple") !== "0",
+};
+const $ = id => document.getElementById(id);
+const SVG = "http://www.w3.org/2000/svg";
+
+// OLS by the normal equations X'X beta = X'y (Gaussian elimination with pivoting)
+function ols(X, y) {
+  const k = X[0].length, A = [];
+  for (let i = 0; i < k; i++) {
+    const row = [];
+    for (let j = 0; j < k; j++) { let s = 0; for (let r = 0; r < X.length; r++) s += X[r][i] * X[r][j]; row.push(s); }
+    let s = 0; for (let r = 0; r < X.length; r++) s += X[r][i] * y[r]; row.push(s);
+    A.push(row);
+  }
+  for (let c = 0; c < k; c++) {
+    let p = c; for (let r = c + 1; r < k; r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r;
+    [A[c], A[p]] = [A[p], A[c]];
+    for (let r = 0; r < k; r++) if (r !== c) { const f = A[r][c] / A[c][c]; for (let j = c; j <= k; j++) A[r][j] -= f * A[c][j]; }
+  }
+  return A.map((row, i) => row[k] / row[i]);
+}
+const yv = DATA.map(d => d[3]);
+const SB = ols(DATA.map(d => [1, d[1]]), yv);              // simple:   [a, b]
+const MB = ols(DATA.map(d => [1, d[1], d[2]]), yv);        // multiple: [a, b, c]
+const r2 = v => +v.toFixed(2);                              // coefficients as shown on screen
+const SR = SB.map(r2), MR = MB.map(r2);
+
+const sv = $("sv");
+function el(tag, attrs, text) {
+  const e = document.createElementNS(SVG, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+// hours → colour: light gold (few) to dark red (many)
+const H0 = 3, H1 = 24;
+function hcol(h) {
+  const t = clamp((h - H0) / (H1 - H0), 0, 1), a = [232, 218, 170], b = [122, 16, 22];
+  return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(",")})`;
+}
+
+function draw() {
+  const W = sv.clientWidth || 700, H = sv.clientHeight || 470;
+  sv.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  while (sv.firstChild) sv.removeChild(sv.firstChild);
+  const L = 56, R = 24, T = 40, B = 50;
+  const pw = W - L - R, ph = H - T - B;
+  const X0 = 2, X1 = 10, Y0 = 20, Y1 = 80;
+  const px = x => L + (x - X0) / (X1 - X0) * pw;
+  const py = y => T + ph - (y - Y0) / (Y1 - Y0) * ph;
+
+  for (let x = X0; x <= X1; x += 1) {
+    sv.appendChild(el("line", { x1: px(x), x2: px(x), y1: T, y2: T + ph, stroke: "#f0ede6", "stroke-width": 1 }));
+    sv.appendChild(el("text", { x: px(x), y: T + ph + 22, "text-anchor": "middle", "font-size": 15, fill: "#7a7f85" }, String(x)));
+  }
+  for (let y = Y0; y <= Y1; y += 10) {
+    sv.appendChild(el("line", { x1: L, x2: L + pw, y1: py(y), y2: py(y), stroke: "#f0ede6", "stroke-width": 1 }));
+    sv.appendChild(el("text", { x: L - 14, y: py(y) + 5, "text-anchor": "end", "font-size": 15, fill: "#7a7f85" }, String(y)));
+  }
+  sv.appendChild(el("line", { x1: L, x2: L + pw, y1: T + ph, y2: T + ph, stroke: "#9aa0a6", "stroke-width": 1.5 }));
+  sv.appendChild(el("line", { x1: L, x2: L, y1: T, y2: T + ph, stroke: "#9aa0a6", "stroke-width": 1.5 }));
+  sv.appendChild(el("text", { x: L + pw, y: H - 8, "text-anchor": "end", "font-size": 15, fill: "#7a7f85" }, "ads, € thousand"));
+  sv.appendChild(el("text", { x: L + 6, y: T - 12, "font-size": 15, fill: "#7a7f85" }, "bikes"));
+
+  // legend: hours shading
+  const lw = 90, lx = L + pw - lw - 74, ly = T - 24;
+  const defs = el("defs", {}), grad = el("linearGradient", { id: "hg" });
+  grad.appendChild(el("stop", { offset: "0", "stop-color": hcol(H0) })); grad.appendChild(el("stop", { offset: "1", "stop-color": hcol(H1) }));
+  defs.appendChild(grad); sv.appendChild(defs);
+  sv.appendChild(el("text", { x: lx - 8, y: ly + 11, "text-anchor": "end", "font-size": 14, fill: "#7a7f85" }, "few hours"));
+  sv.appendChild(el("rect", { x: lx, y: ly, width: lw, height: 14, rx: 3, fill: "url(#hg)" }));
+  sv.appendChild(el("text", { x: lx + lw + 8, y: ly + 11, "font-size": 14, fill: "#7a7f85" }, "many hours"));
+
+  const clip = el("clipPath", { id: "cp" }); clip.appendChild(el("rect", { x: L, y: T, width: pw, height: ph })); sv.appendChild(clip);
+  const g = el("g", { "clip-path": "url(#cp)" }); sv.appendChild(g);
+  // points
+  for (const [, a, h, y] of DATA)
+    g.appendChild(el("circle", { cx: px(a), cy: py(y), r: 8, fill: hcol(h), stroke: "#fff", "stroke-width": 1.5 }));
+  // simple line (grey dashed)
+  if (S.simple) {
+    g.appendChild(el("line", { x1: px(X0), x2: px(X1), y1: py(SB[0] + SB[1] * X0), y2: py(SB[0] + SB[1] * X1), stroke: "#7a7f85", "stroke-width": 3, "stroke-dasharray": "9 6" }));
+  }
+  // multiple model at the chosen hours (red)
+  const ia = MB[0] + MB[2] * S.hours;
+  g.appendChild(el("line", { x1: px(X0), x2: px(X1), y1: py(ia + MB[1] * X0), y2: py(ia + MB[1] * X1), stroke: "#AF1F25", "stroke-width": 3.5 }));
+  // the prediction point
+  const yp = MB[0] + MB[1] * S.ads + MB[2] * S.hours;
+  if (yp >= Y0 && yp <= Y1) {
+    sv.appendChild(el("line", { x1: px(S.ads), x2: px(S.ads), y1: py(yp), y2: T + ph, stroke: "#AF1F25", "stroke-width": 1.2, "stroke-dasharray": "3 4" }));
+    sv.appendChild(el("circle", { cx: px(S.ads), cy: py(yp), r: 7, fill: "#fff", stroke: "#AF1F25", "stroke-width": 3 }));
+  }
+  // line key, bottom right (always empty there: no shop has many ads and few bikes)
+  const kx = L + pw - 12, ky = T + ph - 14;
+  sv.appendChild(el("text", { x: kx, y: S.simple ? ky - 22 : ky, "text-anchor": "end", "font-size": 15, "font-weight": 700, fill: "#AF1F25", stroke: "#fff", "stroke-width": 4, "paint-order": "stroke" }, `— hours fixed at ${S.hours}: slope ${MR[1].toFixed(2)}`));
+  if (S.simple) sv.appendChild(el("text", { x: kx, y: ky, "text-anchor": "end", "font-size": 15, "font-weight": 600, fill: "#7a7f85", stroke: "#fff", "stroke-width": 4, "paint-order": "stroke" }, `- - simple line: slope ${SR[1].toFixed(2)}`));
+}
+
+function sync() {
+  $("ads").value = S.ads; $("adso").textContent = S.ads.toFixed(1);
+  $("hours").value = S.hours; $("hourso").textContent = S.hours;
+  $("simple").checked = S.simple;
+  $("sa").textContent = SR[0].toFixed(2); $("sb").textContent = SR[1].toFixed(2);
+  $("ma").textContent = MR[0].toFixed(2); $("mb").textContent = MR[1].toFixed(2); $("mc").textContent = MR[2].toFixed(2);
+  const yp = MR[0] + MR[1] * S.ads + MR[2] * S.hours;
+  $("formula").innerHTML = `${MR[0].toFixed(2)} + ${MR[1].toFixed(2)} × ${S.ads.toFixed(1)}<br>+ ${MR[2].toFixed(2)} × ${S.hours}<br>= <b>${yp.toFixed(2)}</b> bikes`;
+  $("cap").textContent = `The red line keeps hours fixed: its slope is ${MR[1].toFixed(2)}. The grey line lets hours move with ads: ${SR[1].toFixed(2)}.`;
+  draw();
+}
+$("ads").oninput = e => { S.ads = +e.target.value; sync(); };
+$("hours").oninput = e => { S.hours = +e.target.value; sync(); };
+$("simple").onchange = e => { S.simple = e.target.checked; draw(); };
+addEventListener("resize", draw);
+sync();
+</script>
+</body>
+</html>

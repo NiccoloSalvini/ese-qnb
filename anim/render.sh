@@ -64,4 +64,10 @@ want="${1:-all}"
   render week08_scenes PValueIsATail         w08_pvalue
   render week08_scenes LeastSquaresLiterally w08_leastsq
 }
+[ "$want" = all ] || [ "$want" = week09 ] && {
+  render week09_scenes TwoParallelLines        w09_dummy
+  render week09_scenes MovingAverageSmooths    w09_movavg
+  render week09_scenes TodayRemembersYesterday w09_ar1
+  render week09_scenes TrendSeasonNoise        w09_decomp
+}
 echo "done"
