@@ -7,8 +7,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.19">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Vincenzo Nardelli, PhD">
   <title>Quantitative Business Methods – How sure are we of that number?</title>
@@ -18,16 +18,10 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -36,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e1e822f23814b731eb78b86f60daf307.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-af58f06028bc84734b04263b1db4f634.css">
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
@@ -160,7 +154,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Vincenzo Nardelli, PhD
+Vincenzo Nardelli, PhD 
 </div>
         <p class="quarto-title-affiliation">
             MBA03 Research &amp; Quantitative Business Methods · European School of Economics, Florence
@@ -495,12 +489,12 @@ Vincenzo Nardelli, PhD
 <tr class="odd">
 <td><strong>8</strong></td>
 <td><strong>16 Nov</strong></td>
-<td><strong>how sure: the standard error, an interval, a test; one line through points</strong></td>
+<td><strong>how sure: the standard error, an interval, a test</strong></td>
 </tr>
 <tr class="even">
 <td>9</td>
 <td>23 Nov</td>
-<td>read a regression output; a trend through time; this month from last month</td>
+<td>fit a line, interpret multiple regressions and forecast quarterly sales</td>
 </tr>
 <tr class="odd">
 <td>10</td>
@@ -513,7 +507,6 @@ Vincenzo Nardelli, PhD
 <p>Last week: from a known shape to a share of bikes.</p>
 <p><strong>Today the arrow turns round</strong>: from one sample back to the number we do not know, with an honest error bar.</p>
 </div></div>
-<p><span class="red">Blocks A–C are exactly what the final asks about intervals and tests. Block D opens next week.</span></p>
 </section>
 <section id="todays-question" class="slide level2">
 <h2>Today’s question</h2>
@@ -527,7 +520,7 @@ Vincenzo Nardelli, PhD
 <p><strong>Arno Bikes, this month</strong></p>
 </div>
 <div class="callout-content">
-<p>Engineering measured 200 bikes and found <strong>90 km</strong>. The founder asks: is the true average 90? A new battery batch looks a bit worse. Returns seem lower since we dropped Ionix. And does the range change with the weather?</p>
+<p>Engineering measured 200 bikes and found <strong>90 km</strong>. The founder asks: is the true average 90? A new battery batch looks a bit worse. Returns seem lower since we dropped Ionix.</p>
 </div>
 </div>
 </div>
@@ -539,9 +532,9 @@ Vincenzo Nardelli, PhD
 <p><span class="red">One idea runs the whole morning: the <strong>standard error</strong>, the σ of a number computed from data.</span></p>
 </div>
 </section>
-<section id="four-questions-from-the-founder" class="slide level2 hub" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Four questions from the founder</h2>
-<div class="blocks four">
+<section id="three-questions-from-the-founder" class="slide level2 hub" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Three questions from the founder</h2>
+<div class="blocks" style="grid-template-columns:repeat(3,1fr)">
 <div class="blk now" data-id="blkA">
 <p><span class="blk-letter">Block A</span>Will we pay the courier’s penalty?<span class="blk-tool">a count read as a bell · simulation · standard error</span></p>
 </div>
@@ -550,9 +543,6 @@ Vincenzo Nardelli, PhD
 </div>
 <div class="blk next">
 <p><span class="blk-letter">Block C</span>Has dropping Ionix cut returns?<span class="blk-tool">a test on a proportion · p-value</span></p>
-</div>
-<div class="blk next">
-<p><span class="blk-letter">Block D</span>Does range depend on the weather?<span class="blk-tool">correlation · least-squares line · R²</span></p>
 </div>
 </div>
 </section>
@@ -735,23 +725,6 @@ Vincenzo Nardelli, PhD
 </div>
 </div>
 </section>
-<section id="four-questions-from-the-founder-1" class="slide level2 hub" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Four questions from the founder</h2>
-<div class="blocks four">
-<div class="blk done">
-<p><span class="blk-letter">Block A</span>Will we pay the courier’s penalty?<span class="blk-tool">a count read as a bell · simulation · standard error</span></p>
-</div>
-<div class="blk now" data-id="blkB">
-<p><span class="blk-letter">Block B</span>How far off is our 90 km?<span class="blk-tool">confidence interval · sample size</span></p>
-</div>
-<div class="blk next">
-<p><span class="blk-letter">Block C</span>Has dropping Ionix cut returns?<span class="blk-tool">a test on a proportion · p-value</span></p>
-</div>
-<div class="blk next">
-<p><span class="blk-letter">Block D</span>Does range depend on the weather?<span class="blk-tool">correlation · least-squares line · R²</span></p>
-</div>
-</div>
-</section>
 <section id="block-b-the-confidence-interval-how-far-off-is-our-90-km" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><span class="section-kicker">Block B · the confidence interval</span> How far off is our 90 km?</h2>
 <div class="blk-fill" data-id="blkB">
@@ -896,23 +869,6 @@ Vincenzo Nardelli, PhD
 <p><span class="math inline">E</span> is the margin we want. Half the margin, four times the bikes: ±0.5 km needs <strong>984</strong>.</p>
 <p><span class="red">Decide the margin before the data come in. It is a budget line: each bike tested costs a day on the loop.</span></p>
 </div></div>
-</section>
-<section id="four-questions-from-the-founder-2" class="slide level2 hub" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Four questions from the founder</h2>
-<div class="blocks four">
-<div class="blk done">
-<p><span class="blk-letter">Block A</span>Will we pay the courier’s penalty?<span class="blk-tool">a count read as a bell · simulation · standard error</span></p>
-</div>
-<div class="blk done">
-<p><span class="blk-letter">Block B</span>How far off is our 90 km?<span class="blk-tool">confidence interval · sample size</span></p>
-</div>
-<div class="blk now" data-id="blkC">
-<p><span class="blk-letter">Block C</span>Has dropping Ionix cut returns?<span class="blk-tool">a test on a proportion · p-value</span></p>
-</div>
-<div class="blk next">
-<p><span class="blk-letter">Block D</span>Does range depend on the weather?<span class="blk-tool">correlation · least-squares line · R²</span></p>
-</div>
-</div>
 </section>
 <section id="block-c-the-hypothesis-test-has-dropping-ionix-cut-returns" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><span class="section-kicker">Block C · the hypothesis test</span> Has dropping Ionix cut returns?</h2>
@@ -1062,219 +1018,9 @@ Vincenzo Nardelli, PhD
 <p><span class="red">Two views of one calculation. The interval says where the truth may be; the test says whether one particular value survives.</span></p>
 </div></div>
 </section>
-<section id="four-questions-from-the-founder-3" class="slide level2 hub" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Four questions from the founder</h2>
-<div class="blocks four">
-<div class="blk done">
-<p><span class="blk-letter">Block A</span>Will we pay the courier’s penalty?<span class="blk-tool">a count read as a bell · simulation · standard error</span></p>
-</div>
-<div class="blk done">
-<p><span class="blk-letter">Block B</span>How far off is our 90 km?<span class="blk-tool">confidence interval · sample size</span></p>
-</div>
-<div class="blk done">
-<p><span class="blk-letter">Block C</span>Has dropping Ionix cut returns?<span class="blk-tool">a test on a proportion · p-value</span></p>
-</div>
-<div class="blk now" data-id="blkD">
-<p><span class="blk-letter">Block D</span>Does range depend on the weather?<span class="blk-tool">correlation · least-squares line · R²</span></p>
-</div>
-</div>
-</section>
-<section id="block-d-correlation-and-the-least-squares-line-does-range-depend-on-the-weather" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D · correlation and the least-squares line</span> Does range depend on the weather?</h2>
-<div class="blk-fill" data-id="blkD">
-
-</div>
-</section>
-<section id="five-test-days-five-temperatures" class="slide level2">
-<h2>Five test days, five temperatures</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p>The same bike on the same loop, on five days:</p>
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">temperature <span class="math inline">x</span> (°C)</th>
-<th style="text-align: right;">range <span class="math inline">y</span> (km)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">80</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">84</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">89</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">90</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">97</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div title="Bet before we compute">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Bet before we compute</strong></p>
-</div>
-<div class="callout-content">
-<p>How many km does one more degree add? Write a number.</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:55%;">
-<p><img data-src="img/w08_scatter.svg"></p>
-<p>The points climb from left to right: a <strong>positive</strong> relation, close to a straight line. The <strong>correlation</strong> <span class="math inline">r</span> measures how close, from −1 to +1.</p>
-</div></div>
-</section>
-<section id="correlation-one-number-for-the-shape-of-the-cloud" class="slide level2">
-<h2>Correlation: one number for the shape of the cloud</h2>
-
-<img data-src="img/w08_r_shapes.svg" style="width:86.0%" class="r-stretch"><p><span class="muted" style="font-size:.8em"><span class="math inline">r</span> near +1 or −1: the points sit close to a line. <span class="math inline">r</span> near 0: no straight-line relation — which is not the same as no relation at all. And a strong <span class="math inline">r</span> is not a cause: ice cream and sunburn rise together because of the sun.</span></p>
-</section>
-<section id="the-line-by-hand-five-rows-two-sums" class="slide level2">
-<h2>The line by hand: five rows, two sums</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p><span class="math inline">\bar{x} = 50/5 = 10</span> °C, <span class="math inline">\quad \bar{y} = 440/5 = 88</span> km.</p>
-<div class="bigtable">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"><span class="math inline">x - \bar{x}</span></th>
-<th style="text-align: right;"><span class="math inline">y - \bar{y}</span></th>
-<th style="text-align: right;">product</th>
-<th style="text-align: right;"><span class="math inline">(x - \bar{x})^{2}</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">−10</td>
-<td style="text-align: right;">−8</td>
-<td style="text-align: right;">80</td>
-<td style="text-align: right;">100</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">−5</td>
-<td style="text-align: right;">−4</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">25</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">25</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">90</td>
-<td style="text-align: right;">100</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"><strong>200</strong></td>
-<td style="text-align: right;"><strong>250</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div><div class="column fragment" style="width:45%;">
-<p><span class="math display">b = \frac{\sum (x - \bar{x})(y - \bar{y})}{\sum (x - \bar{x})^{2}} = \frac{200}{250} = \textbf{0.8}</span></p>
-<p><span class="math display">a = \bar{y} - b\,\bar{x} = 88 - 0.8 \times 10 = \textbf{80}</span></p>
-<p><span class="math display">\hat{y} = 80 + 0.8\,x</span></p>
-<p><strong>Reading.</strong> Each extra degree adds <strong>0.8 km</strong> of range. At 0 °C, the line says 80 km.</p>
-</div></div>
-</section>
-<section id="least-squares-literally" class="slide level2 clip" data-background-color="#000000">
-<h2>Least squares, literally</h2>
-<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w08_leastsq_poster.png">
-<source src="media/w08_leastsq.mp4" type="video/mp4">
-</video>
-</section>
-<section id="how-good-is-the-line-r2" class="slide level2">
-<h2>How good is the line? <span class="math inline">R^{2}</span></h2>
-<div class="columns">
-<div class="column" style="width:52%;">
-<p>Without the line, our best guess is <span class="math inline">\bar{y} = 88</span> every day: the squared distances from 88 add to <strong>166</strong>. With the line, the squared distances left over add to <strong>6</strong>.</p>
-<p><span class="math display">R^{2} = 1 - \frac{6}{166} = \textbf{.964}</span></p>
-<p><span class="math display">r = +\sqrt{.964} = \textbf{.982}</span></p>
-<p><strong>Reading.</strong> Temperature explains <strong>96%</strong> of the day-to-day differences in range. The sign of <span class="math inline">r</span> is the sign of the slope.</p>
-</div><div class="column fragment" style="width:48%;">
-<p><strong>Use it inside the data.</strong> At 12 °C: <span class="math inline">80 + 0.8 \times 12 = \textbf{89.6 km}</span>.</p>
-<p><strong>Not outside.</strong> At −10 °C the line says 72 km; we never tested below zero, and batteries are not straight lines in the cold.</p>
-<div title="Board sentence">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Board sentence</strong></p>
-</div>
-<div class="callout-content">
-<p>Range rises by about 0.8 km per degree, and temperature explains almost all the variation in our tests. Print the range for a mild day, and say so on the box.</p>
-</div>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="try-it-drag-the-points" class="slide level2 lab-app">
-<h2>Try it: drag the points</h2>
-<iframe class="app" src="apps/w08_line.html?preset=temp" loading="lazy">
-</iframe>
-<p><span class="muted" style="font-size:.7em">Drag the 20 °C day down to 85 km: the slope falls, <span class="math inline">R^2</span> collapses. One odd point can move the whole line — always look at the picture.</span></p>
-</section>
-<section id="close-take-home" class="slide level2 section-slide" data-background-color="#AF1F25">
-<h2><span class="section-kicker">Close</span> Take home</h2>
-</section>
-<section id="take-home" class="slide level2">
-<h2>Take home</h2>
-<div class="blocks four">
-<div class="blk recap fragment">
-<p><span class="blk-letter">A</span>A number from data wobbles<span class="blk-answer">A big count is a bell: <span class="math inline">np</span>, <span class="math inline">\sqrt{np(1-p)}</span>, then the four steps. An average wobbles by <span class="math inline">\sigma/\sqrt{n}</span>: the standard error.</span></p>
-</div>
-<div class="blk recap fragment">
-<p><span class="blk-letter">B</span>Estimate ± margin<span class="blk-answer"><span class="math inline">\bar{x} \pm z\,\sigma/\sqrt{n}</span>: 1.645 for 90%, 1.96 for 95%. 95% is about the method: 19 intervals in 20.</span></p>
-</div>
-<div class="blk recap fragment">
-<p><span class="blk-letter">C</span>Assume nothing changed<span class="blk-answer">Six steps; <span class="math inline">z</span> in standard errors; the p-value is the tail beyond the data, both sides. Below .05: reject.</span></p>
-</div>
-<div class="blk recap fragment">
-<p><span class="blk-letter">D</span>One line through the points<span class="blk-answer"><span class="math inline">b</span> = products over squares, <span class="math inline">a = \bar{y} - b\bar{x}</span>. <span class="math inline">R^2</span>: the share explained. Inside the data only.</span></p>
-</div>
-</div>
-<div class="fragment">
-<p><span class="red">One number, its standard error, and the bell: that is all of inference.</span></p>
-</div>
-</section>
-<section id="four-answers-for-the-founder" class="slide level2">
-<h2>Four answers for the founder</h2>
-<div class="blocks four">
+<section id="three-answers-for-the-founder" class="slide level2">
+<h2>Three answers for the founder</h2>
+<div class="blocks" style="grid-template-columns:repeat(3,1fr)">
 <div class="blk done fragment">
 <p><span class="blk-letter">A</span>Will we pay the courier’s penalty?<span class="blk-answer">About one month in nine: 15 late orders on average, give or take four.</span></p>
 </div>
@@ -1284,12 +1030,9 @@ Vincenzo Nardelli, PhD
 <div class="blk done fragment">
 <p><span class="blk-letter">C</span>Has dropping Ionix cut returns?<span class="blk-answer">Down to 5.5%, but not yet proven: p = .066 on 400 bikes. Keep counting.</span></p>
 </div>
-<div class="blk done fragment">
-<p><span class="blk-letter">D</span>Does range depend on the weather?<span class="blk-answer">Yes: 0.8 km per degree, <span class="math inline">R^2</span> = .96 — inside the temperatures we tested.</span></p>
-</div>
 </div>
 <div class="fragment">
-<p><span class="red">Next Monday: the line’s slope has a standard error too. We read it off a computer output — and add a second cause, and time.</span></p>
+<p><span class="red">Next Monday we fit a line to five test rides and use its slope to predict range at a given temperature.</span></p>
 </div>
 </section>
 <section id="formulas-on-one-page-the-ones-we-used" class="slide level2">
@@ -1344,15 +1087,10 @@ Vincenzo Nardelli, PhD
 <td><span class="math inline">z = \dfrac{\bar{x} - \mu_0}{\sigma/\sqrt{n}}</span></td>
 <td><span class="math inline">z = -1.50</span>, <span class="math inline">p = .134</span></td>
 </tr>
-<tr class="even">
-<td>the line</td>
-<td><span class="math inline">b = \dfrac{\sum(x-\bar{x})(y-\bar{y})}{\sum(x-\bar{x})^2}, \; a = \bar{y} - b\bar{x}, \; R^2 = 1 - \dfrac{SSE}{SST}</span></td>
-<td><span class="math inline">\hat{y} = 80 + 0.8x</span>, <span class="math inline">R^2 = .964</span></td>
-</tr>
 </tbody>
 </table>
 </div>
-<p><span class="muted">Eight lines, one idea: a number from data, and how many standard errors it sits from somewhere.</span></p>
+<p><span class="muted">Seven lines, one idea: a number from data, and how many standard errors it sits from somewhere.</span></p>
 </section>
 <section id="homework-8" class="slide level2">
 <h2>Homework 8</h2>
@@ -1364,9 +1102,9 @@ Vincenzo Nardelli, PhD
 <li><strong>H2</strong> the standard error and the worst week at 95%</li>
 <li><strong>H3</strong> an interval at 90% and 95%, and how many to test</li>
 <li><strong>H4</strong> a two-tailed test on a proportion, six steps</li>
-<li><strong>H5</strong> a line through five points, by hand</li>
+<li><strong>H5</strong> a line through five points, for individual practice</li>
 </ul>
-<p>Due <strong>Sunday 22 November, 23:59 on Moodle</strong>. Corrected together at the start of next Monday.</p>
+<p>Due <strong>Sunday 22 November, 23:59 on Moodle</strong>. Next Monday we discuss H4 and the memo. Use H5 to practise after the five-ride example.</p>
 </div><div class="column" style="width:42%;">
 <p><strong>The memo.</strong> 150–250 words to the Board: has the new helpline script cut complaints? A test, its p-value in words, and what you would do next.</p>
 </div></div>

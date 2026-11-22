@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../images/favicon.ico" rel="icon">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Vincenzo Nardelli, PhD">
+  <title>Quantitative Business Methods – Read the output, then read the calendar</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-af58f06028bc84734b04263b1db4f634.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-ese-board/board.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#AF1F25" data-background-image="../images/ese-logo-white.svg" data-background-position="top 7% right 4%" data-background-size="14%" class="quarto-title-block">
+  <h1 class="title">Read the output, then read the calendar</h1>
+  <p class="subtitle">Week 9 · Monday 23 November 2026 · 10:00–13:00 · online</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Vincenzo Nardelli, PhD 
+</div>
+        <p class="quarto-title-affiliation">
+            MBA03 Research &amp; Quantitative Business Methods · European School of Economics, Florence
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="last-monday-in-one-minute" class="slide level2">
+<h2>Last Monday, in one minute</h2>
+<div class="blocks" style="grid-template-columns:repeat(3,1fr)">
+<div class="blk recap">
+<p><span class="blk-letter">Block A</span>A number from data wobbles<span class="blk-answer">A big count is a bell; an average wobbles by <span class="math inline">\sigma/\sqrt{n}</span>, the standard error.</span></p>
+</div>
+<div class="blk recap">
+<p><span class="blk-letter">Block B</span>Estimate ± margin<span class="blk-answer"><span class="math inline">\bar{x} \pm z\,\sigma/\sqrt{n}</span>; 1.645 for 90%, 1.96 for 95%.</span></p>
+</div>
+<div class="blk recap">
+<p><span class="blk-letter">Block C</span>Assume nothing changed<span class="blk-answer"><span class="math inline">z</span> in standard errors; the p-value is both tails beyond the data. Below .05: reject.</span></p>
+</div>
+</div>
+<p><span class="red">Today we fit a line by hand, then read the slope and its uncertainty in a regression output.</span></p>
+</section>
+<section id="homework-8-corrected-together-step-by-step" class="slide level2 section-slide" data-background-color="#AF1F25">
+<h2><span class="section-kicker">Homework 8</span> Corrected together, step by step</h2>
+</section>
+<section id="h1-400-orders-two-couriers" class="slide level2">
+<h2>H1: 400 orders, two couriers</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>(a)</strong> <span class="math inline">np = 16</span>, <span class="math inline">n(1-p) = 384</span>: the bell can be used.</p>
+<p><span class="math display">\mu = 400 \times .04 = \textbf{16}</span></p>
+<p><span class="math display">\sigma = \sqrt{400 \times .04 \times .96} = \sqrt{15.36} = \textbf{3.919}</span></p>
+<div class="fragment">
+<p><strong>(b)</strong> “20 or more” starts at 19.5:</p>
+<p><span class="math display">z = \frac{19.5 - 16}{3.919} = 0.893 \approx 0.89</span></p>
+<p><span class="math display">P = 1 - .8133 = \textbf{.187}</span></p>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>(c)</strong> At 3%: <span class="math inline">\mu = 12</span>, <span class="math inline">\sigma = \sqrt{11.64} = 3.412</span>.</p>
+<p><span class="math display">z = \frac{19.5 - 12}{3.412} = 2.198 \approx 2.20</span></p>
+<p><span class="math display">P = 1 - .9861 = \textbf{.014}</span></p>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>With today’s courier a penalty month comes about one in five; with the new one, about one in seventy.</p>
+</div>
+</div>
+</div>
+</div>
+<p><span class="muted">Far in the tail the bell is a little optimistic: the exact binomial gives .020. Close enough to decide.</span></p>
+</div></div>
+</section>
+<section id="h2-the-standard-error-and-the-worst-week" class="slide level2">
+<h2>H2: the standard error, and the worst week</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>(a)</strong> <span class="math inline">SE = 20/\sqrt{16} = \textbf{5}</span> minutes; <span class="math inline">20/\sqrt{64} = \textbf{2.5}</span> minutes.</p>
+<p>For <span class="math inline">SE = 1</span>: <span class="math inline">20/\sqrt{n} = 1 \Rightarrow \sqrt{n} = 20 \Rightarrow n = \textbf{400}</span> charges.</p>
+<p><span class="muted">Four times the charges, half the error: 16 → 64 halves it; 64 → 256 halves it again.</span></p>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>(b)</strong> Mean 0, σ = €4,500 a week, the worst tail on the left.</p>
+<p><span class="math display">95\%: \; 1.645 \times 4{,}500 = \textbf{€7,402.50}</span></p>
+<p><span class="math display">99\%: \; 2.33 \times 4{,}500 = \textbf{€10,485}</span></p>
+<p><strong>Reading.</strong> Nineteen weeks in twenty the fund loses less than about €7,400; ninety-nine weeks in a hundred, less than about €10,500.</p>
+<div class="fragment">
+<p><span class="red">The slip: using 1.96 for “95% maximum loss”. Only one tail is bad: 1.645.</span></p>
+</div>
+</div></div>
+</section>
+<section id="h3-an-interval-chosen-then-sized" class="slide level2">
+<h2>H3: an interval, chosen, then sized</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>(a)</strong> <span class="math inline">SE = 21/\sqrt{49} = 21/7 = \textbf{€3}</span>.</p>
+<p><strong>(b)</strong> 90%: <span class="math inline">126 \pm 1.645 \times 3 = 126 \pm 4.94</span>: <strong>€121.07 to €130.94</strong>. 95%: <span class="math inline">126 \pm 1.96 \times 3 = 126 \pm 5.88</span>: <strong>€120.12 to €131.88</strong>.</p>
+<div class="fragment">
+<p><strong>(d)</strong> <span class="math inline">n = (1.96 \times 21 / 2.5)^{2} = 16.46^{2} = 271.1</span>: <strong>272 customers</strong>.</p>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>(c)</strong> The 95% interval is <strong>(iii)</strong>.</p>
+<ul>
+<li><ol type="i">
+<li>is the 90% interval: <span class="math inline">z = 1.645</span>.</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>uses <span class="math inline">1.96 \times 21</span>: one customer’s spread, no <span class="math inline">\sqrt{n}</span>.</li>
+</ol></li>
+<li><ol start="4" type="i">
+<li>divides by <span class="math inline">n = 49</span> instead of <span class="math inline">\sqrt{49}</span>.</li>
+</ol></li>
+</ul>
+<p><span class="red">Same three wrong roads as in class. In the exam they are the three wrong options.</span></p>
+</div></div>
+</section>
+<section id="h4-the-same-share-two-verdicts" class="slide level2">
+<h2>H4: the same share, two verdicts</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math inline">H_0</span>: <span class="math inline">p = .10</span> · <span class="math inline">H_1</span>: <span class="math inline">p \neq .10</span> · 5%, cut-offs ±1.96.</p>
+<p><strong>250 orders, 17 damaged</strong>: <span class="math inline">\hat{p} = .068</span>.</p>
+<p><span class="math display">SE = \sqrt{\frac{.10 \times .90}{250}} = .0190</span></p>
+<p><span class="math display">z = \frac{.068 - .10}{.0190} = \textbf{−1.69}</span></p>
+<p><span class="math display">p = 2 \times .0455 = \textbf{.091} &gt; .05: \text{ do not reject}</span></p>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>500 orders, 34 damaged</strong>: still 6.8%.</p>
+<p><span class="math display">SE = \sqrt{\frac{.10 \times .90}{500}} = .0134</span></p>
+<p><span class="math display">z = \textbf{−2.39}</span></p>
+<p><span class="math display">p = 2 \times .0084 = \textbf{.017} &lt; .05: \text{ reject}</span></p>
+<p><strong>What changed:</strong> the standard error shrank by <span class="math inline">\sqrt{2}</span>, so the same gap is more standard errors away. More data, more certainty — not a different packaging.</p>
+</div></div>
+</section>
+<section id="the-memo-has-the-new-script-cut-complaints" class="slide level2">
+<h2>The memo: has the new script cut complaints?</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<div title="To the Board · from Customer Service · the new call script">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>To the Board · from Customer Service · the new call script</strong></p>
+</div>
+<div class="callout-content">
+<p>Before the new script, 12 calls in 100 ended in a complaint. Last month, with the script, 45 of 500 did: 9 in 100.</p>
+<p>If the script had changed nothing, we would expect about 60 complaints, give or take 7. We saw 45: a gap that large, in either direction, would happen by luck only about 4 times in 100. The complaint rate fell after the introduction of the script. Other changes that month could also explain the fall.</p>
+<p><strong>Recommendation:</strong> keep the script, and check again after three months — 4 in 100 is rare, not impossible.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:44%;">
+<p><span class="math display">SE = \sqrt{\frac{.12 \times .88}{500}} = .01453</span></p>
+<p><span class="math display">z = \frac{.09 - .12}{.01453} = -2.06</span></p>
+<p><span class="math display">p = 2 \times .0197 = .039</span></p>
+<p><strong>What we look for</strong></p>
+<ul>
+<li>what “nothing changed” predicts, in calls</li>
+<li>the p-value as a sentence, not a number alone</li>
+<li>reject at 5%, and an honest “but”</li>
+<li>one recommendation; no formulas in the text</li>
+</ul>
+</div></div>
+</section>
+<section id="four-questions-for-arno-bikes" class="slide level2">
+<h2>Four questions for Arno Bikes</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Decision</th>
+<th>What we compare</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>What range can we quote for a test ride?</td>
+<td>Five rides at different temperatures. Fit a line and move one point.</td>
+</tr>
+<tr class="even">
+<td>How should we plan sales, test rides and workshop time?</td>
+<td>Compare like with like. Name what stays fixed each time you interpret a coefficient.</td>
+</tr>
+<tr class="odd">
+<td>When can we trust the output?</td>
+<td>Read the residuals: four assumptions, LINE.</td>
+</tr>
+<tr class="even">
+<td>How many bikes should we build for winter?</td>
+<td>Separate quarterly growth from the usual winter dip, and use last month’s memory.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="block-a-simple-linear-regression-from-temperature-and-range-to-advertising-and-sales" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block A · simple linear regression</span> From temperature and range to advertising and sales</h2>
+<div class="blk-fill" data-id="blkA">
+
+</div>
+</section>
+<section id="five-test-days-five-temperatures" class="slide level2">
+<h2>Five test days, five temperatures</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>The same bike on the same loop, on five days:</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">temperature <span class="math inline">x</span> (°C)</th>
+<th style="text-align: right;">range <span class="math inline">y</span> (km)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">89</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">97</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>How many km does one more degree add? Write a number.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:55%;">
+<p><img data-src="img/w08_scatter.svg"></p>
+<p>The points climb from left to right: a <strong>positive</strong> relation, close to a straight line. The <strong>correlation</strong> <span class="math inline">r</span> measures how close, from −1 to +1.</p>
+</div></div>
+</section>
+<section id="correlation-one-number-for-the-shape-of-the-cloud" class="slide level2">
+<h2>Correlation: one number for the shape of the cloud</h2>
+
+<img data-src="img/w08_r_shapes.svg" style="width:86.0%" class="r-stretch"><p><span class="muted" style="font-size:.8em"><span class="math inline">r</span> near +1 or −1: the points sit close to a line. <span class="math inline">r</span> near 0: no straight-line relation — which is not the same as no relation at all. And a strong <span class="math inline">r</span> is not a cause: ice cream and sunburn rise together because of the sun.</span></p>
+</section>
+<section id="the-line-by-hand-five-rows-two-sums" class="slide level2">
+<h2>The line by hand: five rows, two sums</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="math inline">\bar{x} = 50/5 = 10</span> °C, <span class="math inline">\quad \bar{y} = 440/5 = 88</span> km.</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">x - \bar{x}</span></th>
+<th style="text-align: right;"><span class="math inline">y - \bar{y}</span></th>
+<th style="text-align: right;">product</th>
+<th style="text-align: right;"><span class="math inline">(x - \bar{x})^{2}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">−10</td>
+<td style="text-align: right;">−8</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">−5</td>
+<td style="text-align: right;">−4</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>200</strong></td>
+<td style="text-align: right;"><strong>250</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column fragment" style="width:45%;">
+<p><span class="math display">b = \frac{\sum (x - \bar{x})(y - \bar{y})}{\sum (x - \bar{x})^{2}} = \frac{200}{250} = \textbf{0.8}</span></p>
+<p><span class="math display">a = \bar{y} - b\,\bar{x} = 88 - 0.8 \times 10 = \textbf{80}</span></p>
+<p><span class="math display">\hat{y} = 80 + 0.8\,x</span></p>
+<p><strong>Reading.</strong> Each extra degree adds <strong>0.8 km</strong> of range. At 0 °C, the line says 80 km.</p>
+</div></div>
+</section>
+<section id="least-squares-literally" class="slide level2 clip" data-background-color="#000000">
+<h2>Least squares, literally</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w08_leastsq_poster.png">
+<source src="media/w08_leastsq.mp4" type="video/mp4">
+</video>
+</section>
+<section id="how-good-is-the-line-r2" class="slide level2">
+<h2>How good is the line? <span class="math inline">R^{2}</span></h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Without the line, our best guess is <span class="math inline">\bar{y} = 88</span> every day: the squared distances from 88 add to <strong>166</strong>. With the line, the squared distances left over add to <strong>6</strong>.</p>
+<p><span class="math display">R^{2} = 1 - \frac{6}{166} = \textbf{.964}</span></p>
+<p><span class="math display">r = +\sqrt{.964} = \textbf{.982}</span></p>
+<p><strong>Reading.</strong> Temperature explains <strong>96%</strong> of the day-to-day differences in range. The sign of <span class="math inline">r</span> is the sign of the slope.</p>
+</div><div class="column fragment" style="width:48%;">
+<p><strong>Use it inside the data.</strong> At 12 °C: <span class="math inline">80 + 0.8 \times 12 = \textbf{89.6 km}</span>.</p>
+<p><strong>Not outside.</strong> At −10 °C the line says 72 km; we never tested below zero, and batteries are not straight lines in the cold.</p>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Range rises by about 0.8 km per degree, and temperature explains almost all the variation in our tests. Print the range for a mild day, and say so on the box.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="the-model-behind-the-line" class="slide level2">
+<h2>The model behind the line</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Every output we read today rests on one model:</p>
+<p><span class="math display">y_i = \beta_0 + \beta_1 x_i + \varepsilon_i</span></p>
+<ul>
+<li><span class="math inline">\beta_0, \beta_1</span>: the <strong>true</strong> intercept and slope, which we never see</li>
+<li><span class="math inline">a, b</span>: our <strong>estimates</strong> from the data (80 and 0.8)</li>
+<li><span class="math inline">\varepsilon_i</span>: the <strong>error</strong>, everything that moves <span class="math inline">y</span> and is not <span class="math inline">x</span> — the wind, the rider, the tyres</li>
+</ul>
+</div><div class="column fragment" style="width:48%;">
+<p>We never see <span class="math inline">\varepsilon</span>. We see the <strong>residual</strong>, what the line misses:</p>
+<p><span class="math display">e_i = y_i - \hat{y}_i</span></p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">°C</th>
+<th style="text-align: right;">range</th>
+<th style="text-align: right;">line</th>
+<th style="text-align: right;">residual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">+1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">−2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">+1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="muted">The residuals add to 0; their squares add to 6, the SSE of <span class="math inline">R^2</span>.</span></p>
+</div></div>
+</section>
+<section id="four-assumptions-one-word-line" class="slide level2">
+<h2>Four assumptions, one word: LINE</h2>
+<div class="bigtable" style="font-size:.85em">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>the assumption</th>
+<th>in words</th>
+<th>look at</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>L</strong></td>
+<td>Linearity</td>
+<td>the average of <span class="math inline">y</span> moves along a straight line in <span class="math inline">x</span></td>
+<td>residuals against <span class="math inline">x</span>: no curve</td>
+</tr>
+<tr class="even">
+<td><strong>I</strong></td>
+<td>Independence</td>
+<td>one error says nothing about the next</td>
+<td>residuals in time order: no streaks</td>
+</tr>
+<tr class="odd">
+<td><strong>N</strong></td>
+<td>Normality</td>
+<td>the errors are bell-shaped around 0</td>
+<td>a histogram of residuals</td>
+</tr>
+<tr class="even">
+<td><strong>E</strong></td>
+<td>Equal spread</td>
+<td>the errors have the same σ at every <span class="math inline">x</span></td>
+<td>residuals against <span class="math inline">x</span>: no fan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><span class="red">The slope <span class="math inline">b</span> only needs <strong>L</strong> to be right on average. The standard errors, the p-values and the intervals need <strong>I</strong> and <strong>E</strong> too — and <strong>N</strong> when the sample is small.</span></p>
+</div>
+</section>
+<section id="try-it-drag-the-points" class="slide level2 lab-app">
+<h2>Try it: drag the points</h2>
+<iframe class="app" src="apps/w08_line.html?preset=temp" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">Drag the 20 °C day down to 85 km: the slope falls, <span class="math inline">R^2</span> collapses. One odd point can move the whole line — always look at the picture.</span></p>
+</section>
+<section id="homework-8-h5-the-same-table-on-your-data" class="slide level2">
+<h2>Homework 8, H5: the same table on your data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math inline">\bar{x} = 4</span>, <span class="math inline">\bar{y} = 48</span>.</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">x - \bar{x}</span></th>
+<th style="text-align: right;"><span class="math inline">y - \bar{y}</span></th>
+<th style="text-align: right;">product</th>
+<th style="text-align: right;"><span class="math inline">(x - \bar{x})^{2}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">−4</td>
+<td style="text-align: right;">−8</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">−2</td>
+<td style="text-align: right;">−5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>86</strong></td>
+<td style="text-align: right;"><strong>40</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<p><span class="math display">b = \frac{86}{40} = \textbf{2.15}</span></p>
+<p><span class="math display">a = 48 - 2.15 \times 4 = \textbf{39.4}</span></p>
+<p>Each extra point of discount goes with about 2 more bikes a month.</p>
+<p><span class="math display">R^{2} = 1 - \frac{9.1}{194} = \textbf{.953} \qquad r = \textbf{.976}</span></p>
+<p>At 5%: <span class="math inline">39.4 + 2.15 \times 5 = \textbf{50.15}</span>, about 50 bikes. At 25%: never tried — and a 25% discount may sell bikes at a loss.</p>
+</div></div>
+</section>
+<section id="the-same-line-in-every-department" class="slide level2">
+<h2>The same line, in every department</h2>
+<div class="bigtable" style="font-size:.8em">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>department</th>
+<th>the question</th>
+<th><span class="math inline">y</span></th>
+<th><span class="math inline">x</span></th>
+<th>the slope, in words</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Marketing</strong></td>
+<td>Does advertising pay?</td>
+<td>sales</td>
+<td>ad spend</td>
+<td>extra sales per €1,000 of ads</td>
+</tr>
+<tr class="even">
+<td><strong>Pricing</strong></td>
+<td>What happens if we raise the price?</td>
+<td>units sold</td>
+<td>price</td>
+<td>units lost per €1 more on the price</td>
+</tr>
+<tr class="odd">
+<td><strong>Operations</strong></td>
+<td>How long will the job take?</td>
+<td>hours</td>
+<td>units produced, distance</td>
+<td>extra hours per unit, per km</td>
+</tr>
+<tr class="even">
+<td><strong>HR</strong></td>
+<td>Is pay in line with experience?</td>
+<td>salary</td>
+<td>years of experience</td>
+<td>extra salary per year, at the same role</td>
+</tr>
+<tr class="odd">
+<td><strong>Finance</strong></td>
+<td>How risky is this stock?</td>
+<td>stock return</td>
+<td>market return</td>
+<td>the stock’s move per 1% of the market (its <strong>beta</strong>)</td>
+</tr>
+<tr class="even">
+<td><strong>Sales planning</strong></td>
+<td>What will next quarter bring?</td>
+<td>sales</td>
+<td>the quarter number</td>
+<td>the growth per quarter (the trend)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="red">Every row is the same picture: a cloud of points, a line, a slope with units — and a sentence that says what is held fixed.</span></p>
+</section>
+<section id="finance-the-beta-of-a-stock" class="slide level2">
+<h2>Finance: the beta of a stock</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Sixty months of returns: a stock against the whole market.</p>
+<p><span class="math display">\widehat{\text{stock return}} = 0.2\% + 1.3 \times \text{market return}</span></p>
+<p><span class="muted"><span class="math inline">R^2 = .45</span> · p-value of the slope &lt; .001</span></p>
+<div class="fragment">
+<p><strong>1.3 is the beta.</strong> When the market moves by 1%, this stock moves by <strong>1.3%</strong> on average, in the same direction: it amplifies the market.</p>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p><strong>A bad month.</strong> The market falls by 4%:</p>
+<p><span class="math display">0.2 + 1.3 \times (-4) = -5.0\%</span></p>
+<p><strong><span class="math inline">R^2 = .45</span></strong>: 45% of the stock’s ups and downs come with the market; the other 55% are the company’s own news.</p>
+<p><span class="muted">A beta above 1 is an aggressive stock, below 1 a defensive one. Fund managers, banks and analysts read this one number every day.</span></p>
+</div></div>
+</section>
+<section id="other-sectors-the-same-reading" class="slide level2">
+<h2>Other sectors, the same reading</h2>
+<div class="bigtable" style="font-size:.8em">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>sector</th>
+<th>regression</th>
+<th>what the coefficient tells the manager</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Real estate</strong></td>
+<td>price on square metres, rooms, a dummy for the centre</td>
+<td>what one more m² is worth, with the location held fixed</td>
+</tr>
+<tr class="even">
+<td><strong>Energy</strong></td>
+<td>electricity use on temperature and working days</td>
+<td>how much demand rises on a cold day — to buy power in advance</td>
+</tr>
+<tr class="odd">
+<td><strong>Retail</strong></td>
+<td>store sales on footfall, size and a dummy for a promotion</td>
+<td>what a promotion adds, at the same footfall</td>
+</tr>
+<tr class="even">
+<td><strong>Insurance</strong></td>
+<td>claim cost on age of the car, region, past claims</td>
+<td>how to price a policy fairly, risk factor by risk factor</td>
+</tr>
+<tr class="odd">
+<td><strong>Healthcare</strong></td>
+<td>hospital cost on length of stay and type of treatment</td>
+<td>the cost of one more night, at the same treatment</td>
+</tr>
+<tr class="even">
+<td><strong>Public policy</strong></td>
+<td>unemployment change on GDP growth</td>
+<td>how many points of growth it takes to cut unemployment</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="red">Same four questions every time: units, sign, what is held fixed, could it be zero? And the same warning: associated, not caused.</span></p>
+</section>
+<section id="shop-months-ads-against-bikes-sold" class="slide level2">
+<h2>24 shop-months: ads against bikes sold</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="img/w09_shops_scatter.svg"></p>
+</div><div class="column" style="width:45%;">
+<p>Two shops, twelve months each: what each spent on ads (€ thousand) and how many bikes it sold.</p>
+<div title="Bet before we compute">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet before we compute</strong></p>
+</div>
+<div class="callout-content">
+<p>How many extra bikes does €1,000 of ads buy? Write a number.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The points climb: more ads, more bikes. The computer fits the line using the same two sums we used for the five test rides.</p>
+</div>
+</div></div>
+</section>
+<section id="the-output-line-by-line" class="slide level2">
+<h2>The output, line by line</h2>
+<div class="bigtable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">coefficient</th>
+<th style="text-align: right;">std. error</th>
+<th style="text-align: right;"><span class="math inline">t</span></th>
+<th style="text-align: right;">p-value</th>
+<th>95% interval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>intercept</td>
+<td style="text-align: right;">12.74</td>
+<td style="text-align: right;">3.29</td>
+<td style="text-align: right;">3.87</td>
+<td style="text-align: right;">.001</td>
+<td>5.92 to 19.55</td>
+</tr>
+<tr class="even">
+<td><strong>ads (€ thousand)</strong></td>
+<td style="text-align: right;"><strong>5.53</strong></td>
+<td style="text-align: right;"><strong>0.53</strong></td>
+<td style="text-align: right;"><strong>10.38</strong></td>
+<td style="text-align: right;"><strong>&lt; .001</strong></td>
+<td><strong>4.42 to 6.63</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="muted"><span class="math inline">n = 24</span> shop-months · <span class="math inline">R^2 = .830</span></span></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>The equation.</strong> <span class="math inline">\widehat{\text{bikes}} = 12.74 + 5.53 \times \text{ads}</span></p>
+<p><strong>The slope.</strong> Each extra €1,000 of ads goes with about <strong>5.5 more bikes</strong> a month.</p>
+<p><strong><span class="math inline">R^2</span>.</strong> Ads explain 83% of the differences in sales between shop-months.</p>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>Std. error.</strong> The slope is a number from data: it wobbles. Give or take 0.53 bikes.</p>
+<p><strong><span class="math inline">t</span> and p-value.</strong> Last week’s test, on <span class="math inline">H_0</span>: <em>the slope is zero, there is no linear association</em>. <span class="math inline">t = 5.53 / 0.53 = 10.4</span> standard errors from zero: p &lt; .001, reject.</p>
+<p><strong>Interval.</strong> About two standard errors each side: 4.4 to 6.6 bikes per €1,000.</p>
+</div></div>
+</div>
+</section>
+<section id="four-numbers-four-sentences" class="slide level2">
+<h2>Four numbers, four sentences</h2>
+<div class="bigtable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>in the output</th>
+<th>the question it answers</th>
+<th>the sentence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>coefficient</td>
+<td>how much <span class="math inline">y</span> moves when <span class="math inline">x</span> moves by one</td>
+<td>“€1,000 more ads, about 5.5 more bikes”</td>
+</tr>
+<tr class="even">
+<td>p-value</td>
+<td>could the true slope be zero?</td>
+<td>“the data give strong evidence of a linear association (p &lt; .001)”</td>
+</tr>
+<tr class="odd">
+<td>95% interval</td>
+<td>how precisely do we know it?</td>
+<td>“somewhere between 4.4 and 6.6 bikes”</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">R^2</span></td>
+<td>how much of <span class="math inline">y</span> does the line explain?</td>
+<td>“83% of the month-to-month differences”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div title="Bet, again">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bet, again</strong></p>
+</div>
+<div class="callout-content">
+<p>When the shops spend more on ads, they also tend to offer more hours of test rides. Which activity is the slope of 5.53 picking up?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="block-b-multiple-regression-what-changes-when-we-hold-test-ride-hours-fixed" class="slide level2 section-slide" data-background-color="#AF1F25">
+<h2><span class="section-kicker">Block B · multiple regression</span> What changes when we hold test-ride hours fixed?</h2>
+</section>
+<section id="one-outcome-two-budget-decisions" class="slide level2">
+<h2>One outcome, two budget decisions</h2>
+<p>We add the number of staffed test-ride hours to the same 24 shop-months.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Predictor</th>
+<th style="text-align: right;">Ads only</th>
+<th style="text-align: right;">Ads and test-ride hours</th>
+<th style="text-align: right;">Standard error in the second model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td style="text-align: right;">12.74</td>
+<td style="text-align: right;">13.95</td>
+<td style="text-align: right;">0.99</td>
+</tr>
+<tr class="even">
+<td>Ad spend (€1,000s)</td>
+<td style="text-align: right;">5.53</td>
+<td style="text-align: right;">2.94</td>
+<td style="text-align: right;">0.24</td>
+</tr>
+<tr class="odd">
+<td>Test-ride hours</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">1.16</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">R^2</span></td>
+<td style="text-align: right;">.830</td>
+<td style="text-align: right;">.985</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>At fixed test-ride hours, an extra €1,000 in advertising is associated with <strong>2.94 more bikes</strong>. At fixed spending, one more staffed hour is associated with <strong>1.16 more bikes</strong>.</p>
+</div>
+</section>
+<section id="which-comparison-isolates-the-ad-coefficient" class="slide level2">
+<h2>Which comparison isolates the ad coefficient?</h2>
+<p><span class="math display">\widehat{\text{bikes}}=13.95+2.94\,\text{ads}+1.16\,\text{hours}</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Monthly plan</th>
+<th style="text-align: right;">Ads</th>
+<th style="text-align: right;">Staffed hours</th>
+<th style="text-align: right;">Predicted bikes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">€5,000</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40.25</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">€6,000</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">43.19</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td style="text-align: right;">€6,000</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">48.99</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>B versus A:</strong> €1,000 more in ads at the same hours gives 2.94 more predicted sales. <strong>C versus B:</strong> five additional hours at the same spend give <span class="math inline">5\times1.16=5.80</span> more. Predictions use the rounded coefficients shown above.</p>
+</div>
+</section>
+<section id="which-estimate-belongs-in-the-budget-meeting" class="slide level2">
+<h2>Which estimate belongs in the budget meeting?</h2>
+<p>The founder proposes increasing the ad budget by €1,000 while keeping the test-ride rota unchanged. Would you use 5.53 or 2.94 to forecast the difference?</p>
+<div class="fragment">
+<p>Use <strong>2.94</strong>. The first model compares months that can differ in both spending and test-ride hours. The second holds hours fixed. Managers may also raise spending when they expect demand to grow, so the predicted difference alone cannot establish a return on advertising.</p>
+</div>
+</section>
+<section id="try-it-held-fixed-live" class="slide level2 lab-app">
+<h2>Try it: held fixed, live</h2>
+<iframe class="app" src="apps/w09_heldfixed.html?ads=6&amp;hours=10" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">Move the hours: the red line, slope 2.94, moves up and down but keeps its slope. The grey line, 5.53, lets hours rise with ads.</span></p>
+</section>
+<section id="test-rides-with-a-passenger" class="slide level2">
+<h2>Test rides with a passenger</h2>
+<p>For a new set of loaded rides, engineering gives you this model. Temperature is in °C and extra load is in kg.</p>
+<p><span class="math display">\widehat{\text{range (km)}}=82+0.7\,\text{temperature}-0.4\,\text{load}</span></p>
+<p><strong>Before calculating:</strong> one ride is 10 °C warmer but carries 20 kg more. Which bike goes farther?</p>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Ride</th>
+<th style="text-align: right;">Temperature</th>
+<th style="text-align: right;">Extra load</th>
+<th style="text-align: right;">Predicted range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">10 °C</td>
+<td style="text-align: right;">5 kg</td>
+<td style="text-align: right;">87 km</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">20 °C</td>
+<td style="text-align: right;">25 kg</td>
+<td style="text-align: right;">86 km</td>
+</tr>
+</tbody>
+</table>
+<p>At fixed load, 10 °C adds 7 km to predicted range. At fixed temperature, 20 extra kg costs 8 km. Together the changes give <strong>1 km less</strong>.</p>
+</div>
+</section>
+<section id="would-a-deeper-discount-sell-more-bikes" class="slide level2">
+<h2>Would a deeper discount sell more bikes?</h2>
+<p>36 shop-months, with prices discounted by 2 to 10 percentage points. Read the ad and discount slopes with the other predictor fixed.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Predictor</th>
+<th style="text-align: right;">Coefficient</th>
+<th style="text-align: right;">Standard error</th>
+<th style="text-align: right;">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td style="text-align: right;">22.1</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td>Ads (€1,000s)</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td>Discount (percentage points)</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">.23</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Try D2.</strong> At €4,000 of ads, compare discounts of 5% and 7%. How confident would you be about the direction of the change?</p>
+<div class="fragment">
+<p>Predicted sales rise from <strong>38.8 to 41.0</strong>. The estimated difference is <strong>2.2 bikes</strong>. The approximate 95% interval for the slope is <span class="math inline">1.1\pm2(0.9)</span>, or <strong>−0.7 to 2.9</strong> bikes per point, so even the direction is uncertain. The p-value says the same: <strong>.23 &gt; .05</strong>, so the discount is not shown to matter once ads are held fixed — which is not proof that it does nothing.</p>
+</div>
+</section>
+<section id="block-c-the-assumptions-when-the-assumptions-break" class="slide level2 section-slide" data-background-color="#AF1F25">
+<h2><span class="section-kicker">Block C · the assumptions</span> When the assumptions break</h2>
+</section>
+<section id="what-breaks-what-it-costs-what-we-do" class="slide level2">
+<h2>What breaks, what it costs, what we do</h2>
+<div class="bigtable" style="font-size:.82em">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>the residuals show</th>
+<th>what is broken</th>
+<th>what it costs</th>
+<th>what we do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a curve</td>
+<td>L</td>
+<td>the slope is wrong at the ends</td>
+<td>add <span class="math inline">x^2</span>, or take a log</td>
+</tr>
+<tr class="even">
+<td>a fan, wider to the right</td>
+<td>E</td>
+<td>standard errors and p-values are off</td>
+<td>log of <span class="math inline">y</span>, or robust standard errors</td>
+</tr>
+<tr class="odd">
+<td>one point far away</td>
+<td>(an outlier)</td>
+<td>one row moves the whole line</td>
+<td>check that row; report with and without</td>
+</tr>
+<tr class="even">
+<td>streaks over time</td>
+<td>I</td>
+<td>standard errors too small, p-values too optimistic</td>
+<td>model the time: trend, season, <strong>last month</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="muted">The last row is the opening of block D: sales over time break the I.</span></p>
+</section>
+<section id="try-it-which-assumption-breaks" class="slide level2 lab-app">
+<h2>Try it: which assumption breaks?</h2>
+<iframe class="app" src="apps/w09_residuals.html?case=good" loading="lazy" style="height:610px; flex:none">
+</iframe>
+</section>
+<section id="block-d-time-a-trend-a-season-memory-what-will-we-sell-next-quarter" class="slide level2 section-slide" data-background-color="#AF1F25" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="section-kicker">Block D · time: a trend, a season, memory</span> What will we sell next quarter?</h2>
+<div class="blk-fill" data-id="blkC">
+
+</div>
+</section>
+<section id="a-straight-trend-is-not-enough" class="slide level2">
+<h2>A straight trend is not enough</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img data-src="img/w09_trend_residuals.svg"></p>
+</div><div class="column" style="width:42%;">
+<p>Fit only a straight line through the twelve quarters, <span class="math inline">\text{sales} = a + b\,t</span>, and look at what it misses.</p>
+<div class="fragment">
+<p>Every summer the residual is about <strong>+90</strong>, every winter about <strong>−65</strong>. Knowing this quarter’s error tells you next year’s: the errors are <strong>not independent</strong>. The I of LINE is broken.</p>
+</div>
+<div class="fragment">
+<p><span class="red">The trend’s standard error and p-value would be too optimistic, and every winter forecast would be about 65 bikes too high.</span></p>
+</div>
+</div></div>
+</section>
+<section id="errors-that-remember-last-month" class="slide level2">
+<h2>Errors that remember last month</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><img data-src="img/w09_orders_lag.svg"></p>
+</div><div class="column" style="width:52%;">
+<p>Web orders, 36 months. Plot each month’s gap from the average against the gap of the month before.</p>
+<div class="fragment">
+<p>A good month is followed by a good month: <span class="math inline">r = .59</span>. The error of one month carries into the next — again, <strong>not independent</strong>.</p>
+</div>
+<div class="fragment">
+<p>Neither a trend nor a season explains this. It is <strong>memory</strong>.</p>
+</div>
+</div></div>
+</section>
+<section id="try-it-errors-linked-in-time" class="slide level2 lab-app">
+<h2>Try it: errors linked in time</h2>
+<iframe class="app" src="apps/w09_timeerrors.html?phi=0.8" loading="lazy">
+</iframe>
+<p><span class="muted" style="font-size:.7em">Move φ from 0 to 0.9: the residuals start to run in streaks. Then tick “add last month as a predictor” and watch the streaks disappear.</span></p>
+</section>
+<section id="the-fix-put-in-the-model-what-the-errors-remember" class="slide level2">
+<h2>The fix: put in the model what the errors remember</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Fix 1 — the calendar.</strong> If the error repeats every year, add the season:</p>
+<p><span class="math display">\text{sales} = a + b\,t + \text{the quarter's gap}</span></p>
+<p>The four gaps (−67, +39, +90, −63) take the summer and the winter out of the error.</p>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>Fix 2 — memory.</strong> If the error carries from one month to the next, add last month:</p>
+<p><span class="math display">y_t = c + \phi\,y_{t-1} + \varepsilon_t</span></p>
+<p>This is the <strong>autoregressive model, AR(1)</strong>. With last month in the model, the residuals of the web orders lose their link: <span class="math inline">r = .59</span> becomes <span class="math inline">r = -.04</span>.</p>
+</div></div>
+<div class="fragment">
+<p><span class="red">A pattern in the residuals is information the model has not used yet. Put it in, and the errors become independent again.</span></p>
+</div>
+</section>
+<section id="quarterly-sales-a-trend-and-a-season" class="slide level2">
+<h2>Quarterly sales: a trend and a season</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="img/w09_quarters.svg"></p>
+</div><div class="column" style="width:45%;">
+<p>Three years of quarters. Two patterns at once: the sales <strong>climb</strong> year after year, and every year has the same <strong>shape</strong> — a quiet winter, a busy summer.</p>
+<p>Compare Q1 with Q1 in another year to spot growth. Compare winter with summer within each year to spot the seasonal pattern.</p>
+<div class="fragment">
+<p><span class="red">Which of the two patterns matters when planning production for next winter?</span></p>
+</div>
+</div></div>
+</section>
+<section id="trend-season-noise" class="slide level2 clip" data-background-color="#000000">
+<h2>Trend + season + noise</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w09_decomp_poster.png">
+<source src="media/w09_decomp.mp4" type="video/mp4">
+</video>
+</section>
+<section id="next-years-first-quarter-by-substitution" class="slide level2">
+<h2>Next year’s first quarter, by substitution</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p><strong>The trend</strong>, least squares on the quarter number <span class="math inline">t = 1, \dots, 12</span>:</p>
+<p><span class="math display">\text{trend} = 354.8 + 10.9\,t</span></p>
+<p>About 11 more bikes every quarter.</p>
+<p><strong>The season</strong>, the average gap from the trend for each quarter:</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Q1</th>
+<th style="text-align: right;">Q2</th>
+<th style="text-align: right;">Q3</th>
+<th style="text-align: right;">Q4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">−67.0</td>
+<td style="text-align: right;">+39.1</td>
+<td style="text-align: right;">+90.5</td>
+<td style="text-align: right;">−62.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column fragment" style="width:48%;">
+<p><strong>Forecast</strong> = trend + season. Next year’s Q1 is <span class="math inline">t = 13</span>:</p>
+<p><span class="math display">354.8 + 10.9 \times 13 - 67.0</span></p>
+<p><span class="math display">= 354.8 + 141.7 - 67.0 = \textbf{429.5}</span></p>
+<p>Round to <strong>430 bikes</strong> for the production plan.</p>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>At quarter 13 the trend points to about 497 bikes. Winter typically runs 67 bikes below trend, giving a first-quarter plan of about 430.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="fix-2-in-practice-next-months-web-orders" class="slide level2">
+<h2>Fix 2 in practice: next month’s web orders</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Regress each month on <strong>the month before</strong>:</p>
+<div class="bigtable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">coefficient</th>
+<th style="text-align: right;">std. error</th>
+<th style="text-align: right;">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>intercept <span class="math inline">c</span></td>
+<td style="text-align: right;">39.8</td>
+<td style="text-align: right;">14.6</td>
+<td style="text-align: right;">.010</td>
+</tr>
+<tr class="even">
+<td>last month, <span class="math inline">\phi</span></td>
+<td style="text-align: right;"><strong>0.60</strong></td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">&lt; .001</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math inline">\phi = 0.60</span>: this month keeps <strong>60%</strong> of last month’s gap from the average; p &lt; .001, the memory is real.</p>
+</div><div class="column fragment" style="width:48%;">
+<p>Last month: <strong>110</strong> orders. Forecast one month at a time:</p>
+<p><span class="math display">y_{+1} = 39.8 + 0.6 \times 110 = \textbf{105.8}</span></p>
+<p><span class="math display">y_{+2} = 39.8 + 0.6 \times 105.8 = 103.3</span></p>
+<p><strong>Where it settles:</strong> <span class="math inline">\mu = \dfrac{c}{1 - \phi} = \dfrac{39.8}{0.4} = \textbf{99.5}</span></p>
+<div title="Board sentence">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Board sentence</strong></p>
+</div>
+<div class="callout-content">
+<p>Last month’s 110 was partly luck: plan about 106 web orders next month and 103 the month after, drifting back to 100.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="today-remembers-yesterday" class="slide level2 clip" data-background-color="#000000">
+<h2>Today remembers yesterday</h2>
+<video class="clipvideo" width="1000" height="562" controls="" muted="" loop="" playsinline="" data-autoplay="" preload="auto" poster="media/w09_ar1_poster.png">
+<source src="media/w09_ar1.mp4" type="video/mp4">
+</video>
+</section>
+<section id="formulas-and-outputs-on-one-page" class="slide level2">
+<h2>Formulas and outputs, on one page</h2>
+<div class="bigtable" style="font-size:.7em">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>question</th>
+<th>how to read or compute it</th>
+<th>this morning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a slope from an output</td>
+<td>coefficient: change in <span class="math inline">y</span> for one more <span class="math inline">x</span>; p-value: test of slope = 0; interval ≈ coefficient ± 2 SE</td>
+<td>5.53, p &lt; .001, 4.4 to 6.6</td>
+</tr>
+<tr class="even">
+<td>additive model</td>
+<td>compare observations with the other predictors held fixed</td>
+<td>2.94 per €1,000 at fixed test-ride hours</td>
+</tr>
+<tr class="odd">
+<td>fit</td>
+<td><span class="math inline">R^2</span>: share explained; adjusted <span class="math inline">R^2</span> fines extra variables</td>
+<td>.830 → .985 (adjusted .984)</td>
+</tr>
+<tr class="even">
+<td>when to trust it</td>
+<td>LINE: linearity, independence, normality, equal spread; read the residuals</td>
+<td>temperature residuals 0, 0, +1, −2, +1</td>
+</tr>
+<tr class="odd">
+<td>trend and season</td>
+<td>forecast = <span class="math inline">a + b\,t</span> + the quarter’s gap</td>
+<td><span class="math inline">354.8 + 10.9 \times 13 - 67.0 = 429.5</span></td>
+</tr>
+<tr class="even">
+<td>memory</td>
+<td><span class="math inline">\hat{y}_{t+1} = c + \phi\,y_t</span>, settles at <span class="math inline">c/(1-\phi)</span></td>
+<td>105.8, then 103.3; 99.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="muted">For each slope, name the outcome, the unit of change and what stays fixed.</span></p>
+</section>
+<section id="homework-9" class="slide level2">
+<h2>Homework 9</h2>
+<div class="columns">
+<div class="column" style="font-size:.82em">
+<p><strong>Four exercises on paper</strong>, plus a <strong>memo to the Board</strong>. <code>homework.md</code> on the course site.</p>
+<ul>
+<li><strong>H1</strong> one output, four sentences, and the slope’s test</li>
+<li><strong>H2</strong> kilometres and delivery stops: what each coefficient means, two predictions</li>
+<li><strong>H3</strong> trend and seasonal gaps for accessory sales</li>
+<li><strong>H4</strong> can we trust it? the assumptions, and a forecast from last month</li>
+</ul>
+<p>Due <strong>Sunday 29 November, 23:59 on Moodle</strong>. Corrected together at the start of next Monday.</p>
+</div><div class="column" style="width:42%;">
+<p><strong>The memo.</strong> 150–250 words to the production manager: how many bikes to plan for next quarter, and how sure you are.</p>
+<p><span class="muted">Next Monday: the last session, a review of the second half on paper. Bring a calculator and the normal table.</span></p>
+</div></div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="../index.html">← Course site</a> · Research &amp; Quantitative Business Methods · ESE Florence</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-ese-board/perfect-freehand.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-ese-board/board.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'flex',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 6.0e-2,
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealEseBoard, QuartoSupport,
+
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/niccolosalvini\.github\.io\/ese-qnb\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
