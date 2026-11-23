@@ -257,6 +257,50 @@ Vincenzo Nardelli, PhD
 <p><span class="red">Same three wrong roads as in class. In the exam they are the three wrong options.</span></p>
 </div></div>
 </section>
+<section id="one-tail-or-two-1.645-or-1.96" class="slide level2">
+<h2>One tail or two: 1.645 or 1.96?</h2>
+<div class="bigtable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>the question</th>
+<th>where the 5% (or 10%) goes</th>
+<th style="text-align: right;"><span class="math inline">z</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>maximum loss at 95%; “the heaviest 5%”; a guarantee</td>
+<td><strong>one</strong> bad tail: 5% on one side</td>
+<td style="text-align: right;"><strong>1.645</strong></td>
+</tr>
+<tr class="even">
+<td>a 95% interval; a two-tailed test at 5%</td>
+<td><strong>two</strong> tails: 2.5% on each side</td>
+<td style="text-align: right;"><strong>1.96</strong></td>
+</tr>
+<tr class="odd">
+<td>a 90% interval; a two-tailed test at 10%</td>
+<td><strong>two</strong> tails: 5% on each side</td>
+<td style="text-align: right;"><strong>1.645</strong></td>
+</tr>
+<tr class="even">
+<td>maximum loss at 99%</td>
+<td><strong>one</strong> tail: 1%</td>
+<td style="text-align: right;"><strong>2.33</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><span class="red">Ask first: is only one side bad, or both? Then put the area in the tails and read <span class="math inline">z</span> from the table. 1.645 appears twice — for different reasons.</span></p>
+</div>
+</section>
 <section id="h4-the-same-share-two-verdicts" class="slide level2">
 <h2>H4: the same share, two verdicts</h2>
 <div class="columns">
@@ -481,7 +525,11 @@ Vincenzo Nardelli, PhD
 <h2>How good is the line? <span class="math inline">R^{2}</span></h2>
 <div class="columns">
 <div class="column" style="width:52%;">
-<p>Without the line, our best guess is <span class="math inline">\bar{y} = 88</span> every day: the squared distances from 88 add to <strong>166</strong>. With the line, the squared distances left over add to <strong>6</strong>.</p>
+<p><span class="math display">R^{2} = 1 - \frac{SSE}{SST}</span></p>
+<ul>
+<li><span class="math inline">SST = \sum (y - \bar{y})^{2}</span>: the squared misses <strong>without</strong> the line, predicting <span class="math inline">\bar{y} = 88</span> every day: <span class="math inline">64 + 16 + 1 + 4 + 81 = \textbf{166}</span></li>
+<li><span class="math inline">SSE = \sum (y - \hat{y})^{2}</span>: the squared misses <strong>left by</strong> the line: <span class="math inline">0 + 0 + 1 + 4 + 1 = \textbf{6}</span></li>
+</ul>
 <p><span class="math display">R^{2} = 1 - \frac{6}{166} = \textbf{.964}</span></p>
 <p><span class="math display">r = +\sqrt{.964} = \textbf{.982}</span></p>
 <p><strong>Reading.</strong> Temperature explains <strong>96%</strong> of the day-to-day differences in range. The sign of <span class="math inline">r</span> is the sign of the slope.</p>
@@ -681,7 +729,8 @@ Vincenzo Nardelli, PhD
 <p><span class="math display">b = \frac{86}{40} = \textbf{2.15}</span></p>
 <p><span class="math display">a = 48 - 2.15 \times 4 = \textbf{39.4}</span></p>
 <p>Each extra point of discount goes with about 2 more bikes a month.</p>
-<p><span class="math display">R^{2} = 1 - \frac{9.1}{194} = \textbf{.953} \qquad r = \textbf{.976}</span></p>
+<p><span class="math display">R^{2} = 1 - \frac{SSE}{SST} = 1 - \frac{9.1}{194} = \textbf{.953}</span></p>
+<p><span class="muted" style="font-size:.8em"><span class="math inline">SST</span>: square the <span class="math inline">y - \bar{y}</span> column, <span class="math inline">64 + 25 + 1 + 4 + 100 = 194</span>. <span class="math inline">SSE = 9.1</span> was given. <span class="math inline">r = +\sqrt{.953} = .976</span>.</span></p>
 <p>At 5%: <span class="math inline">39.4 + 2.15 \times 5 = \textbf{50.15}</span>, about 50 bikes. At 25%: never tried — and a 25% discount may sell bikes at a loss.</p>
 </div></div>
 </section>
@@ -1408,8 +1457,8 @@ Vincenzo Nardelli, PhD
 </tr>
 <tr class="odd">
 <td>fit</td>
-<td><span class="math inline">R^2</span>: share explained; adjusted <span class="math inline">R^2</span> fines extra variables</td>
-<td>.830 → .985 (adjusted .984)</td>
+<td><span class="math inline">R^2 = 1 - SSE/SST</span>: the share of the squared misses the line removes; adjusted <span class="math inline">R^2</span> fines extra variables</td>
+<td><span class="math inline">1 - 6/166 = .964</span>; .830 → .985 (adj. .984)</td>
 </tr>
 <tr class="even">
 <td>when to trust it</td>

@@ -35,6 +35,13 @@
     "text": "H3: an interval, chosen, then sized\n\n\n(a) SE = 21/\\sqrt{49} = 21/7 = \\textbf{€3}.\n(b) 90%: 126 \\pm 1.645 \\times 3 = 126 \\pm 4.94: €121.07 to €130.94. 95%: 126 \\pm 1.96 \\times 3 = 126 \\pm 5.88: €120.12 to €131.88.\n\n(d) n = (1.96 \\times 21 / 2.5)^{2} = 16.46^{2} = 271.1: 272 customers.\n\n\n(c) The 95% interval is (iii).\n\n\nis the 90% interval: z = 1.645.\n\n\nuses 1.96 \\times 21: one customer’s spread, no \\sqrt{n}.\n\n\ndivides by n = 49 instead of \\sqrt{49}.\n\n\nSame three wrong roads as in class. In the exam they are the three wrong options."
   },
   {
+    "objectID": "lectures/09-multiple-regression-time-series.html#one-tail-or-two-1.645-or-1.96",
+    "href": "lectures/09-multiple-regression-time-series.html#one-tail-or-two-1.645-or-1.96",
+    "title": "Read the output, then read the calendar",
+    "section": "One tail or two: 1.645 or 1.96?",
+    "text": "One tail or two: 1.645 or 1.96?\n\n\n\n\n\n\n\n\n\nthe question\nwhere the 5% (or 10%) goes\nz\n\n\n\n\nmaximum loss at 95%; “the heaviest 5%”; a guarantee\none bad tail: 5% on one side\n1.645\n\n\na 95% interval; a two-tailed test at 5%\ntwo tails: 2.5% on each side\n1.96\n\n\na 90% interval; a two-tailed test at 10%\ntwo tails: 5% on each side\n1.645\n\n\nmaximum loss at 99%\none tail: 1%\n2.33\n\n\n\n\n\nAsk first: is only one side bad, or both? Then put the area in the tails and read z from the table. 1.645 appears twice — for different reasons."
+  },
+  {
     "objectID": "lectures/09-multiple-regression-time-series.html#h4-the-same-share-two-verdicts",
     "href": "lectures/09-multiple-regression-time-series.html#h4-the-same-share-two-verdicts",
     "title": "Read the output, then read the calendar",
@@ -95,7 +102,7 @@
     "href": "lectures/09-multiple-regression-time-series.html#how-good-is-the-line-r2",
     "title": "Read the output, then read the calendar",
     "section": "How good is the line? R^{2}",
-    "text": "How good is the line? R^{2}\n\n\nWithout the line, our best guess is \\bar{y} = 88 every day: the squared distances from 88 add to 166. With the line, the squared distances left over add to 6.\nR^{2} = 1 - \\frac{6}{166} = \\textbf{.964}\nr = +\\sqrt{.964} = \\textbf{.982}\nReading. Temperature explains 96% of the day-to-day differences in range. The sign of r is the sign of the slope.\n\nUse it inside the data. At 12 °C: 80 + 0.8 \\times 12 = \\textbf{89.6 km}.\nNot outside. At −10 °C the line says 72 km; we never tested below zero, and batteries are not straight lines in the cold.\n\n\n\n\n\n\n\nBoard sentence\n\n\nRange rises by about 0.8 km per degree, and temperature explains almost all the variation in our tests. Print the range for a mild day, and say so on the box."
+    "text": "How good is the line? R^{2}\n\n\nR^{2} = 1 - \\frac{SSE}{SST}\n\nSST = \\sum (y - \\bar{y})^{2}: the squared misses without the line, predicting \\bar{y} = 88 every day: 64 + 16 + 1 + 4 + 81 = \\textbf{166}\nSSE = \\sum (y - \\hat{y})^{2}: the squared misses left by the line: 0 + 0 + 1 + 4 + 1 = \\textbf{6}\n\nR^{2} = 1 - \\frac{6}{166} = \\textbf{.964}\nr = +\\sqrt{.964} = \\textbf{.982}\nReading. Temperature explains 96% of the day-to-day differences in range. The sign of r is the sign of the slope.\n\nUse it inside the data. At 12 °C: 80 + 0.8 \\times 12 = \\textbf{89.6 km}.\nNot outside. At −10 °C the line says 72 km; we never tested below zero, and batteries are not straight lines in the cold.\n\n\n\n\n\n\n\nBoard sentence\n\n\nRange rises by about 0.8 km per degree, and temperature explains almost all the variation in our tests. Print the range for a mild day, and say so on the box."
   },
   {
     "objectID": "lectures/09-multiple-regression-time-series.html#the-model-behind-the-line",
@@ -123,7 +130,7 @@
     "href": "lectures/09-multiple-regression-time-series.html#homework-8-h5-the-same-table-on-your-data",
     "title": "Read the output, then read the calendar",
     "section": "Homework 8, H5: the same table on your data",
-    "text": "Homework 8, H5: the same table on your data\n\n\n\\bar{x} = 4, \\bar{y} = 48.\n\n\n\n\nx - \\bar{x}\ny - \\bar{y}\nproduct\n(x - \\bar{x})^{2}\n\n\n\n\n−4\n−8\n32\n16\n\n\n−2\n−5\n10\n4\n\n\n0\n1\n0\n0\n\n\n2\n2\n4\n4\n\n\n4\n10\n40\n16\n\n\n\n\n86\n40\n\n\n\n\n\nb = \\frac{86}{40} = \\textbf{2.15}\na = 48 - 2.15 \\times 4 = \\textbf{39.4}\nEach extra point of discount goes with about 2 more bikes a month.\nR^{2} = 1 - \\frac{9.1}{194} = \\textbf{.953} \\qquad r = \\textbf{.976}\nAt 5%: 39.4 + 2.15 \\times 5 = \\textbf{50.15}, about 50 bikes. At 25%: never tried — and a 25% discount may sell bikes at a loss."
+    "text": "Homework 8, H5: the same table on your data\n\n\n\\bar{x} = 4, \\bar{y} = 48.\n\n\n\n\nx - \\bar{x}\ny - \\bar{y}\nproduct\n(x - \\bar{x})^{2}\n\n\n\n\n−4\n−8\n32\n16\n\n\n−2\n−5\n10\n4\n\n\n0\n1\n0\n0\n\n\n2\n2\n4\n4\n\n\n4\n10\n40\n16\n\n\n\n\n86\n40\n\n\n\n\n\nb = \\frac{86}{40} = \\textbf{2.15}\na = 48 - 2.15 \\times 4 = \\textbf{39.4}\nEach extra point of discount goes with about 2 more bikes a month.\nR^{2} = 1 - \\frac{SSE}{SST} = 1 - \\frac{9.1}{194} = \\textbf{.953}\nSST: square the y - \\bar{y} column, 64 + 25 + 1 + 4 + 100 = 194. SSE = 9.1 was given. r = +\\sqrt{.953} = .976.\nAt 5%: 39.4 + 2.15 \\times 5 = \\textbf{50.15}, about 50 bikes. At 25%: never tried — and a 25% discount may sell bikes at a loss."
   },
   {
     "objectID": "lectures/09-multiple-regression-time-series.html#the-same-line-in-every-department",
@@ -312,7 +319,7 @@
     "href": "lectures/09-multiple-regression-time-series.html#formulas-and-outputs-on-one-page",
     "title": "Read the output, then read the calendar",
     "section": "Formulas and outputs, on one page",
-    "text": "Formulas and outputs, on one page\n\n\n\n\n\n\n\n\n\nquestion\nhow to read or compute it\nthis morning\n\n\n\n\na slope from an output\ncoefficient: change in y for one more x; p-value: test of slope = 0; interval ≈ coefficient ± 2 SE\n5.53, p &lt; .001, 4.4 to 6.6\n\n\nadditive model\ncompare observations with the other predictors held fixed\n2.94 per €1,000 at fixed test-ride hours\n\n\nfit\nR^2: share explained; adjusted R^2 fines extra variables\n.830 → .985 (adjusted .984)\n\n\nwhen to trust it\nLINE: linearity, independence, normality, equal spread; read the residuals\ntemperature residuals 0, 0, +1, −2, +1\n\n\ntrend and season\nforecast = a + b\\,t + the quarter’s gap\n354.8 + 10.9 \\times 13 - 67.0 = 429.5\n\n\nmemory\n\\hat{y}_{t+1} = c + \\phi\\,y_t, settles at c/(1-\\phi)\n105.8, then 103.3; 99.5\n\n\n\n\nFor each slope, name the outcome, the unit of change and what stays fixed."
+    "text": "Formulas and outputs, on one page\n\n\n\n\n\n\n\n\n\nquestion\nhow to read or compute it\nthis morning\n\n\n\n\na slope from an output\ncoefficient: change in y for one more x; p-value: test of slope = 0; interval ≈ coefficient ± 2 SE\n5.53, p &lt; .001, 4.4 to 6.6\n\n\nadditive model\ncompare observations with the other predictors held fixed\n2.94 per €1,000 at fixed test-ride hours\n\n\nfit\nR^2 = 1 - SSE/SST: the share of the squared misses the line removes; adjusted R^2 fines extra variables\n1 - 6/166 = .964; .830 → .985 (adj. .984)\n\n\nwhen to trust it\nLINE: linearity, independence, normality, equal spread; read the residuals\ntemperature residuals 0, 0, +1, −2, +1\n\n\ntrend and season\nforecast = a + b\\,t + the quarter’s gap\n354.8 + 10.9 \\times 13 - 67.0 = 429.5\n\n\nmemory\n\\hat{y}_{t+1} = c + \\phi\\,y_t, settles at c/(1-\\phi)\n105.8, then 103.3; 99.5\n\n\n\n\nFor each slope, name the outcome, the unit of change and what stays fixed."
   },
   {
     "objectID": "lectures/09-multiple-regression-time-series.html#homework-9",
