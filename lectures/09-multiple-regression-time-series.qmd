@@ -107,6 +107,21 @@ $$99\%: \; 2.33 \times 4{,}500 = \textbf{€10,485}$$
 :::
 ::::
 
+## One tail or two: 1.645 or 1.96?
+
+::: {.bigtable}
+| the question | where the 5% (or 10%) goes | $z$ |
+|---|---|---:|
+| maximum loss at 95%; "the heaviest 5%"; a guarantee | **one** bad tail: 5% on one side | **1.645** |
+| a 95% interval; a two-tailed test at 5% | **two** tails: 2.5% on each side | **1.96** |
+| a 90% interval; a two-tailed test at 10% | **two** tails: 5% on each side | **1.645** |
+| maximum loss at 99% | **one** tail: 1% | **2.33** |
+:::
+
+. . .
+
+[Ask first: is only one side bad, or both? Then put the area in the tails and read $z$ from the table. 1.645 appears twice — for different reasons.]{.red}
+
 ## H4: the same share, two verdicts
 
 :::: {.columns}
@@ -245,7 +260,10 @@ $$\hat{y} = 80 + 0.8\,x$$
 
 :::: {.columns}
 ::: {.column width="52%"}
-Without the line, our best guess is $\bar{y} = 88$ every day: the squared distances from 88 add to **166**. With the line, the squared distances left over add to **6**.
+$$R^{2} = 1 - \frac{SSE}{SST}$$
+
+- $SST = \sum (y - \bar{y})^{2}$: the squared misses **without** the line, predicting $\bar{y} = 88$ every day: $64 + 16 + 1 + 4 + 81 = \textbf{166}$
+- $SSE = \sum (y - \hat{y})^{2}$: the squared misses **left by** the line: $0 + 0 + 1 + 4 + 1 = \textbf{6}$
 
 $$R^{2} = 1 - \frac{6}{166} = \textbf{.964}$$
 
@@ -342,7 +360,9 @@ $$a = 48 - 2.15 \times 4 = \textbf{39.4}$$
 
 Each extra point of discount goes with about 2 more bikes a month.
 
-$$R^{2} = 1 - \frac{9.1}{194} = \textbf{.953} \qquad r = \textbf{.976}$$
+$$R^{2} = 1 - \frac{SSE}{SST} = 1 - \frac{9.1}{194} = \textbf{.953}$$
+
+[$SST$: square the $y - \bar{y}$ column, $64 + 25 + 1 + 4 + 100 = 194$. $SSE = 9.1$ was given. $r = +\sqrt{.953} = .976$.]{.muted style="font-size:.8em"}
 
 At 5%: $39.4 + 2.15 \times 5 = \textbf{50.15}$, about 50 bikes. At 25%: never tried — and a 25% discount may sell bikes at a loss.
 :::
@@ -737,7 +757,7 @@ Last month's 110 was partly luck: plan about 106 web orders next month and 103 t
 |---|---|---|
 | a slope from an output | coefficient: change in $y$ for one more $x$; p-value: test of slope = 0; interval ≈ coefficient ± 2 SE | 5.53, p < .001, 4.4 to 6.6 |
 | additive model | compare observations with the other predictors held fixed | 2.94 per €1,000 at fixed test-ride hours |
-| fit | $R^2$: share explained; adjusted $R^2$ fines extra variables | .830 → .985 (adjusted .984) |
+| fit | $R^2 = 1 - SSE/SST$: the share of the squared misses the line removes; adjusted $R^2$ fines extra variables | $1 - 6/166 = .964$; .830 → .985 (adj. .984) |
 | when to trust it | LINE: linearity, independence, normality, equal spread; read the residuals | temperature residuals 0, 0, +1, −2, +1 |
 | trend and season | forecast = $a + b\,t$ + the quarter's gap | $354.8 + 10.9 \times 13 - 67.0 = 429.5$ |
 | memory | $\hat{y}_{t+1} = c + \phi\,y_t$, settles at $c/(1-\phi)$ | 105.8, then 103.3; 99.5 |

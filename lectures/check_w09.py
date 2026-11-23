@@ -120,6 +120,10 @@ ok("AR c", ar.params[0], 39.8, .05); ok("AR phi", ar.params[1], .60, .005); ok("
 f1 = 39.8 + .6 * 110; ok("AR f1", f1, 105.8, 1e-9); ok("AR f2", 39.8 + .6 * f1, 103.3, .05); ok("AR mu", 39.8 / .4, 99.5, 1e-9)
 says("deck assumptions/time", DECK, "+90", "−65", "r = .59", "r = -.04", "**0.60**", "**105.8**", "103.3", "**99.5**", "14.6", ".010")
 
+ok("SST terms", 64 + 16 + 1 + 4 + 81, 166, 1e-9); ok("SSE terms", 0 + 0 + 1 + 4 + 1, 6, 1e-9); ok("H5 SST terms", 64 + 25 + 1 + 4 + 100, 194, 1e-9)
+ok("z one 5%", norm.ppf(.95), 1.645, 5e-4); ok("z two 5%", norm.ppf(.975), 1.96, 5e-4); ok("z one 1%", norm.ppf(.99), 2.33, 5e-3)
+says("deck R2", DECK, "R^2 = 1 - \\fracSSESST", "64 + 16 + 1 + 4 + 81", "64 + 25 + 1 + 4 + 100", "**1.645**", "**1.96**", "**2.33**")
+
 if fails:
     print("\n".join(fails)); print(f"{len(fails)} of {n} checks FAILED"); sys.exit(1)
 print(f"{n}/{n} checks passed")
